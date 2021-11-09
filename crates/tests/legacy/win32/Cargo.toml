@@ -13,3 +13,7 @@ helpers = { package = "test_helpers", path = "../helpers" }
 
 [build-dependencies]
 windows = { path = "../../../..", features = ["build"] }
+
+[features]
+default = ["std"]
+std = []

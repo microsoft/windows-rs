@@ -1,25 +1,25 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Resources`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CustomXamlResourceLoader(pub ::windows::runtime::IInspectable);
 impl CustomXamlResourceLoader {
     #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn Current() -> ::windows::runtime::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
         })
     }
     #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn SetCurrent<'a, Param0: ::windows::runtime::IntoParam<'a, CustomXamlResourceLoader>>(value: Param0) -> ::windows::runtime::Result<()> {
-        Self::ICustomXamlResourceLoaderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
+        Self::ICustomXamlResourceLoaderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn new() -> ::windows::runtime::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
         })
     }
     pub fn ICustomXamlResourceLoaderStatics<R, F: FnOnce(&ICustomXamlResourceLoaderStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -41,12 +41,12 @@ unsafe impl ::windows::runtime::Interface for CustomXamlResourceLoader {
 impl ::windows::runtime::RuntimeName for CustomXamlResourceLoader {
     const NAME: &'static str = "Windows.UI.Xaml.Resources.CustomXamlResourceLoader";
 }
-impl ::std::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
     fn from(value: CustomXamlResourceLoader) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
     fn from(value: &CustomXamlResourceLoader) -> Self {
         value.0 .0.clone()
     }
@@ -61,12 +61,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
     fn from(value: CustomXamlResourceLoader) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
     fn from(value: &CustomXamlResourceLoader) -> Self {
         value.0.clone()
     }
@@ -81,8 +81,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CustomXamlResourceLoader {}
-unsafe impl ::std::marker::Sync for CustomXamlResourceLoader {}
+unsafe impl ::core::marker::Send for CustomXamlResourceLoader {}
+unsafe impl ::core::marker::Sync for CustomXamlResourceLoader {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoader(pub ::windows::runtime::IInspectable);
@@ -134,7 +134,7 @@ pub struct ICustomXamlResourceLoaderOverrides_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, objecttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertytype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]

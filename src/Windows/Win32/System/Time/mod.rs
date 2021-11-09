@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
@@ -17,14 +17,14 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl DYNAMIC_TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
+impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION")
             .field("Bias", &self.Bias)
             .field("StandardName", &self.StandardName)
@@ -39,13 +39,13 @@ impl ::std::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
+impl ::core::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias && self.TimeZoneKeyName == other.TimeZoneKeyName && self.DynamicDaylightTimeDisabled == other.DynamicDaylightTimeDisabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
+impl ::core::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
     type Abi = Self;
@@ -60,7 +60,7 @@ pub unsafe fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation
         extern "system" {
             fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(EnumDynamicTimeZoneInformation(::std::mem::transmute(dwindex), ::std::mem::transmute(lptimezoneinformation)))
+        ::core::mem::transmute(EnumDynamicTimeZoneInformation(::core::mem::transmute(dwindex), ::core::mem::transmute(lptimezoneinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -75,7 +75,7 @@ pub unsafe fn FileTimeToSystemTime(lpfiletime: *const super::super::Foundation::
         extern "system" {
             fn FileTimeToSystemTime(lpfiletime: *const super::super::Foundation::FILETIME, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FileTimeToSystemTime(::std::mem::transmute(lpfiletime), ::std::mem::transmute(lpsystemtime)))
+        ::core::mem::transmute(FileTimeToSystemTime(::core::mem::transmute(lpfiletime), ::core::mem::transmute(lpsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -90,7 +90,7 @@ pub unsafe fn GetDynamicTimeZoneInformation(ptimezoneinformation: *mut DYNAMIC_T
         extern "system" {
             fn GetDynamicTimeZoneInformation(ptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(GetDynamicTimeZoneInformation(::std::mem::transmute(ptimezoneinformation)))
+        ::core::mem::transmute(GetDynamicTimeZoneInformation(::core::mem::transmute(ptimezoneinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -105,7 +105,7 @@ pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation:
         extern "system" {
             fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, firstyear: *mut u32, lastyear: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetDynamicTimeZoneInformationEffectiveYears(::std::mem::transmute(lptimezoneinformation), ::std::mem::transmute(firstyear), ::std::mem::transmute(lastyear)))
+        ::core::mem::transmute(GetDynamicTimeZoneInformationEffectiveYears(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(firstyear), ::core::mem::transmute(lastyear)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -120,7 +120,7 @@ pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFOR
         extern "system" {
             fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(GetTimeZoneInformation(::std::mem::transmute(lptimezoneinformation)))
+        ::core::mem::transmute(GetTimeZoneInformation(::core::mem::transmute(lptimezoneinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -135,7 +135,7 @@ pub unsafe fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *const DYNAMIC_TI
         extern "system" {
             fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *const DYNAMIC_TIME_ZONE_INFORMATION, ptzi: *mut TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTimeZoneInformationForYear(::std::mem::transmute(wyear), ::std::mem::transmute(pdtzi), ::std::mem::transmute(ptzi)))
+        ::core::mem::transmute(GetTimeZoneInformationForYear(::core::mem::transmute(wyear), ::core::mem::transmute(pdtzi), ::core::mem::transmute(ptzi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -150,7 +150,7 @@ pub unsafe fn LocalFileTimeToLocalSystemTime(timezoneinformation: *const TIME_ZO
         extern "system" {
             fn LocalFileTimeToLocalSystemTime(timezoneinformation: *const TIME_ZONE_INFORMATION, localfiletime: *const super::super::Foundation::FILETIME, localsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LocalFileTimeToLocalSystemTime(::std::mem::transmute(timezoneinformation), ::std::mem::transmute(localfiletime), ::std::mem::transmute(localsystemtime)))
+        ::core::mem::transmute(LocalFileTimeToLocalSystemTime(::core::mem::transmute(timezoneinformation), ::core::mem::transmute(localfiletime), ::core::mem::transmute(localsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -165,7 +165,7 @@ pub unsafe fn LocalSystemTimeToLocalFileTime(timezoneinformation: *const TIME_ZO
         extern "system" {
             fn LocalSystemTimeToLocalFileTime(timezoneinformation: *const TIME_ZONE_INFORMATION, localsystemtime: *const super::super::Foundation::SYSTEMTIME, localfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LocalSystemTimeToLocalFileTime(::std::mem::transmute(timezoneinformation), ::std::mem::transmute(localsystemtime), ::std::mem::transmute(localfiletime)))
+        ::core::mem::transmute(LocalSystemTimeToLocalFileTime(::core::mem::transmute(timezoneinformation), ::core::mem::transmute(localsystemtime), ::core::mem::transmute(localfiletime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -180,7 +180,7 @@ pub unsafe fn SetDynamicTimeZoneInformation(lptimezoneinformation: *const DYNAMI
         extern "system" {
             fn SetDynamicTimeZoneInformation(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDynamicTimeZoneInformation(::std::mem::transmute(lptimezoneinformation)))
+        ::core::mem::transmute(SetDynamicTimeZoneInformation(::core::mem::transmute(lptimezoneinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -195,7 +195,7 @@ pub unsafe fn SetTimeZoneInformation(lptimezoneinformation: *const TIME_ZONE_INF
         extern "system" {
             fn SetTimeZoneInformation(lptimezoneinformation: *const TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetTimeZoneInformation(::std::mem::transmute(lptimezoneinformation)))
+        ::core::mem::transmute(SetTimeZoneInformation(::core::mem::transmute(lptimezoneinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -210,7 +210,7 @@ pub unsafe fn SystemTimeToFileTime(lpsystemtime: *const super::super::Foundation
         extern "system" {
             fn SystemTimeToFileTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SystemTimeToFileTime(::std::mem::transmute(lpsystemtime), ::std::mem::transmute(lpfiletime)))
+        ::core::mem::transmute(SystemTimeToFileTime(::core::mem::transmute(lpsystemtime), ::core::mem::transmute(lpfiletime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -225,7 +225,7 @@ pub unsafe fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: *const TIME
         extern "system" {
             fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lpuniversaltime: *const super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SystemTimeToTzSpecificLocalTime(::std::mem::transmute(lptimezoneinformation), ::std::mem::transmute(lpuniversaltime), ::std::mem::transmute(lplocaltime)))
+        ::core::mem::transmute(SystemTimeToTzSpecificLocalTime(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lpuniversaltime), ::core::mem::transmute(lplocaltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -240,12 +240,12 @@ pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: *const DY
         extern "system" {
             fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpuniversaltime: *const super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SystemTimeToTzSpecificLocalTimeEx(::std::mem::transmute(lptimezoneinformation), ::std::mem::transmute(lpuniversaltime), ::std::mem::transmute(lplocaltime)))
+        ::core::mem::transmute(SystemTimeToTzSpecificLocalTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lpuniversaltime), ::core::mem::transmute(lplocaltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
@@ -261,14 +261,14 @@ pub struct TIME_ZONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TIME_ZONE_INFORMATION {
+impl ::core::default::Default for TIME_ZONE_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TIME_ZONE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TIME_ZONE_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TIME_ZONE_INFORMATION")
             .field("Bias", &self.Bias)
             .field("StandardName", &self.StandardName)
@@ -281,13 +281,13 @@ impl ::std::fmt::Debug for TIME_ZONE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TIME_ZONE_INFORMATION {
+impl ::core::cmp::PartialEq for TIME_ZONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TIME_ZONE_INFORMATION {}
+impl ::core::cmp::Eq for TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TIME_ZONE_INFORMATION {
     type Abi = Self;
@@ -310,7 +310,7 @@ pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *const TIME
         extern "system" {
             fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TzSpecificLocalTimeToSystemTime(::std::mem::transmute(lptimezoneinformation), ::std::mem::transmute(lplocaltime), ::std::mem::transmute(lpuniversaltime)))
+        ::core::mem::transmute(TzSpecificLocalTimeToSystemTime(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -325,7 +325,7 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DY
         extern "system" {
             fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TzSpecificLocalTimeToSystemTimeEx(::std::mem::transmute(lptimezoneinformation), ::std::mem::transmute(lplocaltime), ::std::mem::transmute(lpuniversaltime)))
+        ::core::mem::transmute(TzSpecificLocalTimeToSystemTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

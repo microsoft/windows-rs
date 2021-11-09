@@ -1,3 +1,4 @@
+use std::convert::TryInto;
 use test_win32::*;
 use windows::runtime::HRESULT;
 use Windows::Win32::Foundation::*;
@@ -7,8 +8,10 @@ fn test_message() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
     let code: HRESULT = ERROR_SUCCESS.into();
-    assert_eq!(code.message(), "The operation completed successfully.");
+    let message: String = code.message().try_into().unwrap();
+    assert_eq!(message.trim_end(), "The operation completed successfully.");
 
     let code: HRESULT = ERROR_IO_PENDING.into();
-    assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
+    let message: String = code.message().try_into().unwrap();
+    assert_eq!(message.trim_end(), "Overlapped I/O operation is in progress.");
 }

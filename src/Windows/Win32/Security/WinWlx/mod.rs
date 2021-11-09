@@ -10,7 +10,7 @@ pub type PWLX_ASSIGN_SHELL_PROTECTION = unsafe extern "system" fn(hwlx: super::s
 pub type PWLX_CHANGE_PASSWORD_NOTIFY = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: super::super::Foundation::PWSTR, reserved: *mut ::std::ffi::c_void) -> i32;
+pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> i32;
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub type PWLX_CLOSE_USER_DESKTOP = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
@@ -61,7 +61,7 @@ pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = unsafe extern "system" fn(pcred: *mut
 pub type PWLX_SAS_NOTIFY = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32);
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLX_SET_CONTEXT_POINTER = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut ::std::ffi::c_void);
+pub type PWLX_SET_CONTEXT_POINTER = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SET_OPTION = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL;
@@ -87,7 +87,7 @@ pub type PWLX_WIN31_MIGRATE = unsafe extern "system" fn(hwlx: super::super::Foun
 pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -101,30 +101,30 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+impl ::core::default::Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_CLIENT_CREDENTIALS_INFO_V1_0").field("dwType", &self.dwType).field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("fPromptForPassword", &self.fPromptForPassword).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+impl ::core::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType && self.pszUserName == other.pszUserName && self.pszDomain == other.pszDomain && self.pszPassword == other.pszPassword && self.fPromptForPassword == other.fPromptForPassword
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
+impl ::core::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -139,14 +139,14 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+impl ::core::default::Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_CLIENT_CREDENTIALS_INFO_V2_0")
             .field("dwType", &self.dwType)
             .field("pszUserName", &self.pszUserName)
@@ -158,20 +158,20 @@ impl ::std::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+impl ::core::cmp::PartialEq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType && self.pszUserName == other.pszUserName && self.pszDomain == other.pszDomain && self.pszPassword == other.pszPassword && self.fPromptForPassword == other.fPromptForPassword && self.fDisconnectOnLogonFailure == other.fDisconnectOnLogonFailure
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
+impl ::core::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -207,14 +207,14 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+impl ::core::default::Default for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0")
             .field("dwType", &self.dwType)
             .field("UserToken", &self.UserToken)
@@ -247,7 +247,7 @@ impl ::std::fmt::Debug for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+impl ::core::cmp::PartialEq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType
             && self.UserToken == other.UserToken
@@ -279,7 +279,7 @@ impl ::std::cmp::PartialEq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
+impl ::core::cmp::Eq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
@@ -294,7 +294,7 @@ pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1u32;
 pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CURRENT_VERSION: u32 = 65540u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
@@ -307,25 +307,25 @@ pub struct WLX_DESKTOP {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 impl WLX_DESKTOP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::default::Default for WLX_DESKTOP {
+impl ::core::default::Default for WLX_DESKTOP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::fmt::Debug for WLX_DESKTOP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_DESKTOP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_DESKTOP").field("Size", &self.Size).field("Flags", &self.Flags).field("hDesktop", &self.hDesktop).field("pszDesktopName", &self.pszDesktopName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::cmp::PartialEq for WLX_DESKTOP {
+impl ::core::cmp::PartialEq for WLX_DESKTOP {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Flags == other.Flags && self.hDesktop == other.hDesktop && self.pszDesktopName == other.pszDesktopName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::cmp::Eq for WLX_DESKTOP {}
+impl ::core::cmp::Eq for WLX_DESKTOP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 unsafe impl ::windows::runtime::Abi for WLX_DESKTOP {
     type Abi = Self;
@@ -336,41 +336,41 @@ pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
 pub const WLX_DESKTOP_NAME: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_0 {
-    pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
-    pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
-    pub WlxSasNotify: ::std::option::Option<PWLX_SAS_NOTIFY>,
-    pub WlxSetTimeout: ::std::option::Option<PWLX_SET_TIMEOUT>,
-    pub WlxAssignShellProtection: ::std::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
-    pub WlxMessageBox: ::std::option::Option<PWLX_MESSAGE_BOX>,
-    pub WlxDialogBox: ::std::option::Option<PWLX_DIALOG_BOX>,
-    pub WlxDialogBoxParam: ::std::option::Option<PWLX_DIALOG_BOX_PARAM>,
-    pub WlxDialogBoxIndirect: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
-    pub WlxDialogBoxIndirectParam: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
-    pub WlxSwitchDesktopToUser: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
-    pub WlxSwitchDesktopToWinlogon: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
-    pub WlxChangePasswordNotify: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
+    pub WlxUseCtrlAltDel: ::core::option::Option<PWLX_USE_CTRL_ALT_DEL>,
+    pub WlxSetContextPointer: ::core::option::Option<PWLX_SET_CONTEXT_POINTER>,
+    pub WlxSasNotify: ::core::option::Option<PWLX_SAS_NOTIFY>,
+    pub WlxSetTimeout: ::core::option::Option<PWLX_SET_TIMEOUT>,
+    pub WlxAssignShellProtection: ::core::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
+    pub WlxMessageBox: ::core::option::Option<PWLX_MESSAGE_BOX>,
+    pub WlxDialogBox: ::core::option::Option<PWLX_DIALOG_BOX>,
+    pub WlxDialogBoxParam: ::core::option::Option<PWLX_DIALOG_BOX_PARAM>,
+    pub WlxDialogBoxIndirect: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
+    pub WlxDialogBoxIndirectParam: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
+    pub WlxSwitchDesktopToUser: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
+    pub WlxSwitchDesktopToWinlogon: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
+    pub WlxChangePasswordNotify: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl WLX_DISPATCH_VERSION_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for WLX_DISPATCH_VERSION_1_0 {
+impl ::core::default::Default for WLX_DISPATCH_VERSION_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for WLX_DISPATCH_VERSION_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_DISPATCH_VERSION_1_0").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_0 {
+impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.WlxUseCtrlAltDel.map(|f| f as usize) == other.WlxUseCtrlAltDel.map(|f| f as usize)
             && self.WlxSetContextPointer.map(|f| f as usize) == other.WlxSetContextPointer.map(|f| f as usize)
@@ -388,50 +388,50 @@ impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_0 {}
+impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_0 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_1 {
-    pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
-    pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
-    pub WlxSasNotify: ::std::option::Option<PWLX_SAS_NOTIFY>,
-    pub WlxSetTimeout: ::std::option::Option<PWLX_SET_TIMEOUT>,
-    pub WlxAssignShellProtection: ::std::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
-    pub WlxMessageBox: ::std::option::Option<PWLX_MESSAGE_BOX>,
-    pub WlxDialogBox: ::std::option::Option<PWLX_DIALOG_BOX>,
-    pub WlxDialogBoxParam: ::std::option::Option<PWLX_DIALOG_BOX_PARAM>,
-    pub WlxDialogBoxIndirect: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
-    pub WlxDialogBoxIndirectParam: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
-    pub WlxSwitchDesktopToUser: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
-    pub WlxSwitchDesktopToWinlogon: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
-    pub WlxChangePasswordNotify: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
-    pub WlxGetSourceDesktop: ::std::option::Option<PWLX_GET_SOURCE_DESKTOP>,
-    pub WlxSetReturnDesktop: ::std::option::Option<PWLX_SET_RETURN_DESKTOP>,
-    pub WlxCreateUserDesktop: ::std::option::Option<PWLX_CREATE_USER_DESKTOP>,
-    pub WlxChangePasswordNotifyEx: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
+    pub WlxUseCtrlAltDel: ::core::option::Option<PWLX_USE_CTRL_ALT_DEL>,
+    pub WlxSetContextPointer: ::core::option::Option<PWLX_SET_CONTEXT_POINTER>,
+    pub WlxSasNotify: ::core::option::Option<PWLX_SAS_NOTIFY>,
+    pub WlxSetTimeout: ::core::option::Option<PWLX_SET_TIMEOUT>,
+    pub WlxAssignShellProtection: ::core::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
+    pub WlxMessageBox: ::core::option::Option<PWLX_MESSAGE_BOX>,
+    pub WlxDialogBox: ::core::option::Option<PWLX_DIALOG_BOX>,
+    pub WlxDialogBoxParam: ::core::option::Option<PWLX_DIALOG_BOX_PARAM>,
+    pub WlxDialogBoxIndirect: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
+    pub WlxDialogBoxIndirectParam: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
+    pub WlxSwitchDesktopToUser: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
+    pub WlxSwitchDesktopToWinlogon: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
+    pub WlxChangePasswordNotify: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
+    pub WlxGetSourceDesktop: ::core::option::Option<PWLX_GET_SOURCE_DESKTOP>,
+    pub WlxSetReturnDesktop: ::core::option::Option<PWLX_SET_RETURN_DESKTOP>,
+    pub WlxCreateUserDesktop: ::core::option::Option<PWLX_CREATE_USER_DESKTOP>,
+    pub WlxChangePasswordNotifyEx: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl WLX_DISPATCH_VERSION_1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for WLX_DISPATCH_VERSION_1_1 {
+impl ::core::default::Default for WLX_DISPATCH_VERSION_1_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for WLX_DISPATCH_VERSION_1_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_DISPATCH_VERSION_1_1").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_1 {
+impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_1 {
     fn eq(&self, other: &Self) -> bool {
         self.WlxUseCtrlAltDel.map(|f| f as usize) == other.WlxUseCtrlAltDel.map(|f| f as usize)
             && self.WlxSetContextPointer.map(|f| f as usize) == other.WlxSetContextPointer.map(|f| f as usize)
@@ -453,51 +453,51 @@ impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_1 {}
+impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_1 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_2 {
-    pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
-    pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
-    pub WlxSasNotify: ::std::option::Option<PWLX_SAS_NOTIFY>,
-    pub WlxSetTimeout: ::std::option::Option<PWLX_SET_TIMEOUT>,
-    pub WlxAssignShellProtection: ::std::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
-    pub WlxMessageBox: ::std::option::Option<PWLX_MESSAGE_BOX>,
-    pub WlxDialogBox: ::std::option::Option<PWLX_DIALOG_BOX>,
-    pub WlxDialogBoxParam: ::std::option::Option<PWLX_DIALOG_BOX_PARAM>,
-    pub WlxDialogBoxIndirect: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
-    pub WlxDialogBoxIndirectParam: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
-    pub WlxSwitchDesktopToUser: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
-    pub WlxSwitchDesktopToWinlogon: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
-    pub WlxChangePasswordNotify: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
-    pub WlxGetSourceDesktop: ::std::option::Option<PWLX_GET_SOURCE_DESKTOP>,
-    pub WlxSetReturnDesktop: ::std::option::Option<PWLX_SET_RETURN_DESKTOP>,
-    pub WlxCreateUserDesktop: ::std::option::Option<PWLX_CREATE_USER_DESKTOP>,
-    pub WlxChangePasswordNotifyEx: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
-    pub WlxCloseUserDesktop: ::std::option::Option<PWLX_CLOSE_USER_DESKTOP>,
+    pub WlxUseCtrlAltDel: ::core::option::Option<PWLX_USE_CTRL_ALT_DEL>,
+    pub WlxSetContextPointer: ::core::option::Option<PWLX_SET_CONTEXT_POINTER>,
+    pub WlxSasNotify: ::core::option::Option<PWLX_SAS_NOTIFY>,
+    pub WlxSetTimeout: ::core::option::Option<PWLX_SET_TIMEOUT>,
+    pub WlxAssignShellProtection: ::core::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
+    pub WlxMessageBox: ::core::option::Option<PWLX_MESSAGE_BOX>,
+    pub WlxDialogBox: ::core::option::Option<PWLX_DIALOG_BOX>,
+    pub WlxDialogBoxParam: ::core::option::Option<PWLX_DIALOG_BOX_PARAM>,
+    pub WlxDialogBoxIndirect: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
+    pub WlxDialogBoxIndirectParam: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
+    pub WlxSwitchDesktopToUser: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
+    pub WlxSwitchDesktopToWinlogon: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
+    pub WlxChangePasswordNotify: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
+    pub WlxGetSourceDesktop: ::core::option::Option<PWLX_GET_SOURCE_DESKTOP>,
+    pub WlxSetReturnDesktop: ::core::option::Option<PWLX_SET_RETURN_DESKTOP>,
+    pub WlxCreateUserDesktop: ::core::option::Option<PWLX_CREATE_USER_DESKTOP>,
+    pub WlxChangePasswordNotifyEx: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
+    pub WlxCloseUserDesktop: ::core::option::Option<PWLX_CLOSE_USER_DESKTOP>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl WLX_DISPATCH_VERSION_1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for WLX_DISPATCH_VERSION_1_2 {
+impl ::core::default::Default for WLX_DISPATCH_VERSION_1_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for WLX_DISPATCH_VERSION_1_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_DISPATCH_VERSION_1_2").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_2 {
+impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_2 {
     fn eq(&self, other: &Self) -> bool {
         self.WlxUseCtrlAltDel.map(|f| f as usize) == other.WlxUseCtrlAltDel.map(|f| f as usize)
             && self.WlxSetContextPointer.map(|f| f as usize) == other.WlxSetContextPointer.map(|f| f as usize)
@@ -520,58 +520,58 @@ impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_2 {}
+impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_2 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_3 {
-    pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
-    pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
-    pub WlxSasNotify: ::std::option::Option<PWLX_SAS_NOTIFY>,
-    pub WlxSetTimeout: ::std::option::Option<PWLX_SET_TIMEOUT>,
-    pub WlxAssignShellProtection: ::std::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
-    pub WlxMessageBox: ::std::option::Option<PWLX_MESSAGE_BOX>,
-    pub WlxDialogBox: ::std::option::Option<PWLX_DIALOG_BOX>,
-    pub WlxDialogBoxParam: ::std::option::Option<PWLX_DIALOG_BOX_PARAM>,
-    pub WlxDialogBoxIndirect: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
-    pub WlxDialogBoxIndirectParam: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
-    pub WlxSwitchDesktopToUser: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
-    pub WlxSwitchDesktopToWinlogon: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
-    pub WlxChangePasswordNotify: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
-    pub WlxGetSourceDesktop: ::std::option::Option<PWLX_GET_SOURCE_DESKTOP>,
-    pub WlxSetReturnDesktop: ::std::option::Option<PWLX_SET_RETURN_DESKTOP>,
-    pub WlxCreateUserDesktop: ::std::option::Option<PWLX_CREATE_USER_DESKTOP>,
-    pub WlxChangePasswordNotifyEx: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
-    pub WlxCloseUserDesktop: ::std::option::Option<PWLX_CLOSE_USER_DESKTOP>,
-    pub WlxSetOption: ::std::option::Option<PWLX_SET_OPTION>,
-    pub WlxGetOption: ::std::option::Option<PWLX_GET_OPTION>,
-    pub WlxWin31Migrate: ::std::option::Option<PWLX_WIN31_MIGRATE>,
-    pub WlxQueryClientCredentials: ::std::option::Option<PWLX_QUERY_CLIENT_CREDENTIALS>,
-    pub WlxQueryInetConnectorCredentials: ::std::option::Option<PWLX_QUERY_IC_CREDENTIALS>,
-    pub WlxDisconnect: ::std::option::Option<PWLX_DISCONNECT>,
-    pub WlxQueryTerminalServicesData: ::std::option::Option<PWLX_QUERY_TERMINAL_SERVICES_DATA>,
+    pub WlxUseCtrlAltDel: ::core::option::Option<PWLX_USE_CTRL_ALT_DEL>,
+    pub WlxSetContextPointer: ::core::option::Option<PWLX_SET_CONTEXT_POINTER>,
+    pub WlxSasNotify: ::core::option::Option<PWLX_SAS_NOTIFY>,
+    pub WlxSetTimeout: ::core::option::Option<PWLX_SET_TIMEOUT>,
+    pub WlxAssignShellProtection: ::core::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
+    pub WlxMessageBox: ::core::option::Option<PWLX_MESSAGE_BOX>,
+    pub WlxDialogBox: ::core::option::Option<PWLX_DIALOG_BOX>,
+    pub WlxDialogBoxParam: ::core::option::Option<PWLX_DIALOG_BOX_PARAM>,
+    pub WlxDialogBoxIndirect: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
+    pub WlxDialogBoxIndirectParam: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
+    pub WlxSwitchDesktopToUser: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
+    pub WlxSwitchDesktopToWinlogon: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
+    pub WlxChangePasswordNotify: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
+    pub WlxGetSourceDesktop: ::core::option::Option<PWLX_GET_SOURCE_DESKTOP>,
+    pub WlxSetReturnDesktop: ::core::option::Option<PWLX_SET_RETURN_DESKTOP>,
+    pub WlxCreateUserDesktop: ::core::option::Option<PWLX_CREATE_USER_DESKTOP>,
+    pub WlxChangePasswordNotifyEx: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
+    pub WlxCloseUserDesktop: ::core::option::Option<PWLX_CLOSE_USER_DESKTOP>,
+    pub WlxSetOption: ::core::option::Option<PWLX_SET_OPTION>,
+    pub WlxGetOption: ::core::option::Option<PWLX_GET_OPTION>,
+    pub WlxWin31Migrate: ::core::option::Option<PWLX_WIN31_MIGRATE>,
+    pub WlxQueryClientCredentials: ::core::option::Option<PWLX_QUERY_CLIENT_CREDENTIALS>,
+    pub WlxQueryInetConnectorCredentials: ::core::option::Option<PWLX_QUERY_IC_CREDENTIALS>,
+    pub WlxDisconnect: ::core::option::Option<PWLX_DISCONNECT>,
+    pub WlxQueryTerminalServicesData: ::core::option::Option<PWLX_QUERY_TERMINAL_SERVICES_DATA>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl WLX_DISPATCH_VERSION_1_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for WLX_DISPATCH_VERSION_1_3 {
+impl ::core::default::Default for WLX_DISPATCH_VERSION_1_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for WLX_DISPATCH_VERSION_1_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_DISPATCH_VERSION_1_3").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_3 {
+impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_3 {
     fn eq(&self, other: &Self) -> bool {
         self.WlxUseCtrlAltDel.map(|f| f as usize) == other.WlxUseCtrlAltDel.map(|f| f as usize)
             && self.WlxSetContextPointer.map(|f| f as usize) == other.WlxSetContextPointer.map(|f| f as usize)
@@ -601,60 +601,60 @@ impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_3 {}
+impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_3 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_4 {
-    pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
-    pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
-    pub WlxSasNotify: ::std::option::Option<PWLX_SAS_NOTIFY>,
-    pub WlxSetTimeout: ::std::option::Option<PWLX_SET_TIMEOUT>,
-    pub WlxAssignShellProtection: ::std::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
-    pub WlxMessageBox: ::std::option::Option<PWLX_MESSAGE_BOX>,
-    pub WlxDialogBox: ::std::option::Option<PWLX_DIALOG_BOX>,
-    pub WlxDialogBoxParam: ::std::option::Option<PWLX_DIALOG_BOX_PARAM>,
-    pub WlxDialogBoxIndirect: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
-    pub WlxDialogBoxIndirectParam: ::std::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
-    pub WlxSwitchDesktopToUser: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
-    pub WlxSwitchDesktopToWinlogon: ::std::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
-    pub WlxChangePasswordNotify: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
-    pub WlxGetSourceDesktop: ::std::option::Option<PWLX_GET_SOURCE_DESKTOP>,
-    pub WlxSetReturnDesktop: ::std::option::Option<PWLX_SET_RETURN_DESKTOP>,
-    pub WlxCreateUserDesktop: ::std::option::Option<PWLX_CREATE_USER_DESKTOP>,
-    pub WlxChangePasswordNotifyEx: ::std::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
-    pub WlxCloseUserDesktop: ::std::option::Option<PWLX_CLOSE_USER_DESKTOP>,
-    pub WlxSetOption: ::std::option::Option<PWLX_SET_OPTION>,
-    pub WlxGetOption: ::std::option::Option<PWLX_GET_OPTION>,
-    pub WlxWin31Migrate: ::std::option::Option<PWLX_WIN31_MIGRATE>,
-    pub WlxQueryClientCredentials: ::std::option::Option<PWLX_QUERY_CLIENT_CREDENTIALS>,
-    pub WlxQueryInetConnectorCredentials: ::std::option::Option<PWLX_QUERY_IC_CREDENTIALS>,
-    pub WlxDisconnect: ::std::option::Option<PWLX_DISCONNECT>,
-    pub WlxQueryTerminalServicesData: ::std::option::Option<PWLX_QUERY_TERMINAL_SERVICES_DATA>,
-    pub WlxQueryConsoleSwitchCredentials: ::std::option::Option<PWLX_QUERY_CONSOLESWITCH_CREDENTIALS>,
-    pub WlxQueryTsLogonCredentials: ::std::option::Option<PWLX_QUERY_TS_LOGON_CREDENTIALS>,
+    pub WlxUseCtrlAltDel: ::core::option::Option<PWLX_USE_CTRL_ALT_DEL>,
+    pub WlxSetContextPointer: ::core::option::Option<PWLX_SET_CONTEXT_POINTER>,
+    pub WlxSasNotify: ::core::option::Option<PWLX_SAS_NOTIFY>,
+    pub WlxSetTimeout: ::core::option::Option<PWLX_SET_TIMEOUT>,
+    pub WlxAssignShellProtection: ::core::option::Option<PWLX_ASSIGN_SHELL_PROTECTION>,
+    pub WlxMessageBox: ::core::option::Option<PWLX_MESSAGE_BOX>,
+    pub WlxDialogBox: ::core::option::Option<PWLX_DIALOG_BOX>,
+    pub WlxDialogBoxParam: ::core::option::Option<PWLX_DIALOG_BOX_PARAM>,
+    pub WlxDialogBoxIndirect: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT>,
+    pub WlxDialogBoxIndirectParam: ::core::option::Option<PWLX_DIALOG_BOX_INDIRECT_PARAM>,
+    pub WlxSwitchDesktopToUser: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_USER>,
+    pub WlxSwitchDesktopToWinlogon: ::core::option::Option<PWLX_SWITCH_DESKTOP_TO_WINLOGON>,
+    pub WlxChangePasswordNotify: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY>,
+    pub WlxGetSourceDesktop: ::core::option::Option<PWLX_GET_SOURCE_DESKTOP>,
+    pub WlxSetReturnDesktop: ::core::option::Option<PWLX_SET_RETURN_DESKTOP>,
+    pub WlxCreateUserDesktop: ::core::option::Option<PWLX_CREATE_USER_DESKTOP>,
+    pub WlxChangePasswordNotifyEx: ::core::option::Option<PWLX_CHANGE_PASSWORD_NOTIFY_EX>,
+    pub WlxCloseUserDesktop: ::core::option::Option<PWLX_CLOSE_USER_DESKTOP>,
+    pub WlxSetOption: ::core::option::Option<PWLX_SET_OPTION>,
+    pub WlxGetOption: ::core::option::Option<PWLX_GET_OPTION>,
+    pub WlxWin31Migrate: ::core::option::Option<PWLX_WIN31_MIGRATE>,
+    pub WlxQueryClientCredentials: ::core::option::Option<PWLX_QUERY_CLIENT_CREDENTIALS>,
+    pub WlxQueryInetConnectorCredentials: ::core::option::Option<PWLX_QUERY_IC_CREDENTIALS>,
+    pub WlxDisconnect: ::core::option::Option<PWLX_DISCONNECT>,
+    pub WlxQueryTerminalServicesData: ::core::option::Option<PWLX_QUERY_TERMINAL_SERVICES_DATA>,
+    pub WlxQueryConsoleSwitchCredentials: ::core::option::Option<PWLX_QUERY_CONSOLESWITCH_CREDENTIALS>,
+    pub WlxQueryTsLogonCredentials: ::core::option::Option<PWLX_QUERY_TS_LOGON_CREDENTIALS>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 impl WLX_DISPATCH_VERSION_1_4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for WLX_DISPATCH_VERSION_1_4 {
+impl ::core::default::Default for WLX_DISPATCH_VERSION_1_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for WLX_DISPATCH_VERSION_1_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_DISPATCH_VERSION_1_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_DISPATCH_VERSION_1_4").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_4 {
+impl ::core::cmp::PartialEq for WLX_DISPATCH_VERSION_1_4 {
     fn eq(&self, other: &Self) -> bool {
         self.WlxUseCtrlAltDel.map(|f| f as usize) == other.WlxUseCtrlAltDel.map(|f| f as usize)
             && self.WlxSetContextPointer.map(|f| f as usize) == other.WlxSetContextPointer.map(|f| f as usize)
@@ -686,10 +686,10 @@ impl ::std::cmp::PartialEq for WLX_DISPATCH_VERSION_1_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_4 {}
+impl ::core::cmp::Eq for WLX_DISPATCH_VERSION_1_4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_4 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
@@ -701,7 +701,7 @@ pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
 pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -714,30 +714,30 @@ pub struct WLX_MPR_NOTIFY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_MPR_NOTIFY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_MPR_NOTIFY_INFO {
+impl ::core::default::Default for WLX_MPR_NOTIFY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_MPR_NOTIFY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_MPR_NOTIFY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_MPR_NOTIFY_INFO").field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("pszOldPassword", &self.pszOldPassword).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_MPR_NOTIFY_INFO {
+impl ::core::cmp::PartialEq for WLX_MPR_NOTIFY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszUserName == other.pszUserName && self.pszDomain == other.pszDomain && self.pszPassword == other.pszPassword && self.pszOldPassword == other.pszOldPassword
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_MPR_NOTIFY_INFO {}
+impl ::core::cmp::Eq for WLX_MPR_NOTIFY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_MPR_NOTIFY_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
@@ -749,33 +749,33 @@ pub struct WLX_NOTIFICATION_INFO {
     pub WindowStation: super::super::Foundation::PWSTR,
     pub hToken: super::super::Foundation::HANDLE,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
-    pub pStatusCallback: ::std::option::Option<PFNMSGECALLBACK>,
+    pub pStatusCallback: ::core::option::Option<PFNMSGECALLBACK>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 impl WLX_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::default::Default for WLX_NOTIFICATION_INFO {
+impl ::core::default::Default for WLX_NOTIFICATION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::fmt::Debug for WLX_NOTIFICATION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_NOTIFICATION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_NOTIFICATION_INFO").field("Size", &self.Size).field("Flags", &self.Flags).field("UserName", &self.UserName).field("Domain", &self.Domain).field("WindowStation", &self.WindowStation).field("hToken", &self.hToken).field("hDesktop", &self.hDesktop).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::cmp::PartialEq for WLX_NOTIFICATION_INFO {
+impl ::core::cmp::PartialEq for WLX_NOTIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Flags == other.Flags && self.UserName == other.UserName && self.Domain == other.Domain && self.WindowStation == other.WindowStation && self.hToken == other.hToken && self.hDesktop == other.hDesktop && self.pStatusCallback.map(|f| f as usize) == other.pStatusCallback.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-impl ::std::cmp::Eq for WLX_NOTIFICATION_INFO {}
+impl ::core::cmp::Eq for WLX_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 unsafe impl ::windows::runtime::Abi for WLX_NOTIFICATION_INFO {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
@@ -799,7 +799,7 @@ pub const WLX_OPTION_USE_SMART_CARD: u32 = 3u32;
 pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -810,30 +810,30 @@ pub struct WLX_PROFILE_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_PROFILE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_PROFILE_V1_0 {
+impl ::core::default::Default for WLX_PROFILE_V1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_PROFILE_V1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_PROFILE_V1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_PROFILE_V1_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_PROFILE_V1_0 {
+impl ::core::cmp::PartialEq for WLX_PROFILE_V1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType && self.pszProfile == other.pszProfile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_PROFILE_V1_0 {}
+impl ::core::cmp::Eq for WLX_PROFILE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -848,14 +848,14 @@ pub struct WLX_PROFILE_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_PROFILE_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_PROFILE_V2_0 {
+impl ::core::default::Default for WLX_PROFILE_V2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_PROFILE_V2_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_PROFILE_V2_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_PROFILE_V2_0")
             .field("dwType", &self.dwType)
             .field("pszProfile", &self.pszProfile)
@@ -867,13 +867,13 @@ impl ::std::fmt::Debug for WLX_PROFILE_V2_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_PROFILE_V2_0 {
+impl ::core::cmp::PartialEq for WLX_PROFILE_V2_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType && self.pszProfile == other.pszProfile && self.pszPolicy == other.pszPolicy && self.pszNetworkDefaultUserProfile == other.pszNetworkDefaultUserProfile && self.pszServerName == other.pszServerName && self.pszEnvironment == other.pszEnvironment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_PROFILE_V2_0 {}
+impl ::core::cmp::Eq for WLX_PROFILE_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V2_0 {
     type Abi = Self;
@@ -930,7 +930,7 @@ pub const WLX_SAS_TYPE_SWITCHUSER: u32 = 10u32;
 pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
@@ -943,37 +943,37 @@ pub struct WLX_SC_NOTIFICATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl WLX_SC_NOTIFICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WLX_SC_NOTIFICATION_INFO {
+impl ::core::default::Default for WLX_SC_NOTIFICATION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WLX_SC_NOTIFICATION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_SC_NOTIFICATION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_SC_NOTIFICATION_INFO").field("pszCard", &self.pszCard).field("pszReader", &self.pszReader).field("pszContainer", &self.pszContainer).field("pszCryptoProvider", &self.pszCryptoProvider).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WLX_SC_NOTIFICATION_INFO {
+impl ::core::cmp::PartialEq for WLX_SC_NOTIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszCard == other.pszCard && self.pszReader == other.pszReader && self.pszContainer == other.pszContainer && self.pszCryptoProvider == other.pszCryptoProvider
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WLX_SC_NOTIFICATION_INFO {}
+impl ::core::cmp::Eq for WLX_SC_NOTIFICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_SC_NOTIFICATION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
 pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
 pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
 pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
-impl ::std::convert::From<u32> for WLX_SHUTDOWN_TYPE {
+impl ::core::convert::From<u32> for WLX_SHUTDOWN_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -981,35 +981,35 @@ impl ::std::convert::From<u32> for WLX_SHUTDOWN_TYPE {
 unsafe impl ::windows::runtime::Abi for WLX_SHUTDOWN_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WLX_SHUTDOWN_TYPE {
+impl ::core::ops::BitOr for WLX_SHUTDOWN_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WLX_SHUTDOWN_TYPE {
+impl ::core::ops::BitAnd for WLX_SHUTDOWN_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WLX_SHUTDOWN_TYPE {
+impl ::core::ops::BitOrAssign for WLX_SHUTDOWN_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WLX_SHUTDOWN_TYPE {
+impl ::core::ops::BitAndAssign for WLX_SHUTDOWN_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WLX_SHUTDOWN_TYPE {
+impl ::core::ops::Not for WLX_SHUTDOWN_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub struct WLX_TERMINAL_SERVICES_DATA {
@@ -1018,22 +1018,22 @@ pub struct WLX_TERMINAL_SERVICES_DATA {
     pub HomeDirDrive: [u16; 4],
 }
 impl WLX_TERMINAL_SERVICES_DATA {}
-impl ::std::default::Default for WLX_TERMINAL_SERVICES_DATA {
+impl ::core::default::Default for WLX_TERMINAL_SERVICES_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WLX_TERMINAL_SERVICES_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WLX_TERMINAL_SERVICES_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WLX_TERMINAL_SERVICES_DATA").field("ProfilePath", &self.ProfilePath).field("HomeDir", &self.HomeDir).field("HomeDirDrive", &self.HomeDirDrive).finish()
     }
 }
-impl ::std::cmp::PartialEq for WLX_TERMINAL_SERVICES_DATA {
+impl ::core::cmp::PartialEq for WLX_TERMINAL_SERVICES_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.ProfilePath == other.ProfilePath && self.HomeDir == other.HomeDir && self.HomeDirDrive == other.HomeDirDrive
     }
 }
-impl ::std::cmp::Eq for WLX_TERMINAL_SERVICES_DATA {}
+impl ::core::cmp::Eq for WLX_TERMINAL_SERVICES_DATA {}
 unsafe impl ::windows::runtime::Abi for WLX_TERMINAL_SERVICES_DATA {
     type Abi = Self;
 }

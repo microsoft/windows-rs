@@ -6,16 +6,16 @@ impl GameControllerProviderInfo {
     #[doc = "*Required features: `Gaming_Input_Preview`, `Gaming_Input_Custom`*"]
     pub fn GetParentProviderId<'a, Param0: ::windows::runtime::IntoParam<'a, super::Custom::IGameControllerProvider>>(provider: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
     #[doc = "*Required features: `Gaming_Input_Preview`, `Gaming_Input_Custom`*"]
     pub fn GetProviderId<'a, Param0: ::windows::runtime::IntoParam<'a, super::Custom::IGameControllerProvider>>(provider: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     pub fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -42,8 +42,8 @@ pub struct IGameControllerProviderInfoStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Gaming_Input_Custom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, provider: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Gaming_Input_Custom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, provider: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))] usize,
-    #[cfg(feature = "Gaming_Input_Custom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, provider: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Gaming_Input_Custom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, provider: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))] usize,
 );

@@ -65,27 +65,27 @@ impl InterfaceInfo {
             InterfaceKind::Default => {
                 quote! {
                     #cfg
-                    impl<#constraints> ::std::convert::From<#from> for #into {
+                    impl<#constraints> ::core::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
-                            unsafe { ::std::mem::transmute(value) }
+                            unsafe { ::core::mem::transmute(value) }
                         }
                     }
                     #cfg
-                    impl<#constraints> ::std::convert::From<&#from> for #into {
+                    impl<#constraints> ::core::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
-                            ::std::convert::From::from(::std::clone::Clone::clone(value))
+                            ::core::convert::From::from(::core::clone::Clone::clone(value))
                         }
                     }
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+                            ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
                         }
                     }
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+                            ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                         }
                     }
                 }
@@ -95,14 +95,14 @@ impl InterfaceInfo {
                 // may be added in subsequent versions of a class.
                 quote! {
                     #cfg
-                    impl<#constraints> ::std::convert::TryFrom<#from> for #into {
+                    impl<#constraints> ::core::convert::TryFrom<#from> for #into {
                         type Error = ::windows::runtime::Error;
                         fn try_from(value: #from) -> ::windows::runtime::Result<Self> {
-                            ::std::convert::TryFrom::try_from(&value)
+                            ::core::convert::TryFrom::try_from(&value)
                         }
                     }
                     #cfg
-                    impl<#constraints> ::std::convert::TryFrom<&#from> for #into {
+                    impl<#constraints> ::core::convert::TryFrom<&#from> for #into {
                         type Error = ::windows::runtime::Error;
                         fn try_from(value: &#from) -> ::windows::runtime::Result<Self> {
                             ::windows::runtime::Interface::cast(value)
@@ -117,7 +117,7 @@ impl InterfaceInfo {
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::std::convert::TryInto::<#into>::try_into(self)
+                            ::core::convert::TryInto::<#into>::try_into(self)
                                 .map(::windows::runtime::Param::Owned)
                                 .unwrap_or(::windows::runtime::Param::None)
                         }

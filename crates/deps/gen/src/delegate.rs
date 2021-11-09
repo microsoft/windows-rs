@@ -45,7 +45,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         #cfg
         #doc
         #[repr(transparent)]
-        #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
         pub struct #name(::windows::runtime::IUnknown, #(#struct_phantoms,)*) where #constraints;
         #cfg
         impl<#constraints> #name {
@@ -56,7 +56,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                     invoke,
                 };
                 unsafe {
-                    std::mem::transmute(::std::boxed::Box::new(com))
+                    core::mem::transmute(::std::boxed::Box::new(com))
                 }
             }
             #invoke
@@ -104,7 +104,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                     iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
                         &mut (*this).vtable as *mut _ as _
                     } else {
-                        ::std::ptr::null_mut()
+                        ::core::ptr::null_mut()
                     };
 
                 // TODO: implement IMarshal

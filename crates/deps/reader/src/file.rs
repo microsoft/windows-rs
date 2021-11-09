@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use super::*;
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 #[derive(Default)]
 pub struct TableData {
@@ -86,8 +86,8 @@ impl TableData {
     }
 }
 
-impl std::fmt::Debug for File {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for File {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}", self.name)
     }
 }
@@ -113,7 +113,7 @@ impl File {
 
         unsafe {
             let len = strlen(self.bytes.as_ptr().add(offset));
-            std::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
+            core::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
         }
     }
 
@@ -499,7 +499,7 @@ fn offset_from_rva(section: &ImageSectionHeader, rva: u32) -> u32 {
 }
 
 fn sizeof<T>() -> u32 {
-    std::mem::size_of::<T>() as u32
+    core::mem::size_of::<T>() as u32
 }
 
 fn composite_index_size(tables: &[&TableData]) -> u32 {
@@ -542,7 +542,7 @@ macro_rules! assert_proper_length_and_alignment {
 
         let ptr = &$self[$cli_offset as usize] as *const u8 as *const $t;
 
-        let properly_aligned = ptr.align_offset(std::mem::align_of::<$t>()) == 0;
+        let properly_aligned = ptr.align_offset(core::mem::align_of::<$t>()) == 0;
 
         assert!(properly_aligned, "Invalid file: offset {} is not properly aligned to T", $cli_offset);
         ptr
@@ -559,16 +559,16 @@ impl View for [u8] {
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
         let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>() * len);
 
-        unsafe { std::slice::from_raw_parts(ptr, len as usize) }
+        unsafe { core::slice::from_raw_parts(ptr, len as usize) }
     }
 
     fn copy_as<T: CopyPod>(&self, cli_offset: u32) -> T {
         assert_proper_length!(self, T, cli_offset, sizeof::<T>());
 
         unsafe {
-            let mut data = std::mem::MaybeUninit::zeroed().assume_init();
+            let mut data = core::mem::MaybeUninit::zeroed().assume_init();
 
-            std::ptr::copy_nonoverlapping(self[cli_offset as usize..].as_ptr(), &mut data as *mut T as *mut u8, std::mem::size_of::<T>());
+            core::ptr::copy_nonoverlapping(self[cli_offset as usize..].as_ptr(), &mut data as *mut T as *mut u8, core::mem::size_of::<T>());
 
             data
         }

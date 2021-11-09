@@ -39,12 +39,12 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         };
 
         return quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
+            #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
             #[repr(transparent)]
             pub struct #name(pub #signature);
-            impl ::std::default::Default for #name {
+            impl ::core::default::Default for #name {
                 fn default() -> Self {
-                    unsafe { ::std::mem::zeroed() }
+                    unsafe { ::core::mem::zeroed() }
                 }
             }
             unsafe impl ::windows::runtime::Handle for #name {}
@@ -87,7 +87,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         } else {
             return quote! {
                 #[repr(C)]
-                #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
+                #[derive(::core::clone::Clone, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy)]
                 pub struct #name(pub u8);
             };
         }
@@ -132,12 +132,12 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
 
     let clone_or_copy = if def.is_blittable() {
         quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy)]
+            #[derive(::core::clone::Clone, ::core::marker::Copy)]
         }
     } else if is_union || has_union || is_packed {
         quote! {
             #cfg
-            impl ::std::clone::Clone for #name {
+            impl ::core::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     // TODO: this can transmute for blittable but not non-blittable structs
                     unimplemented!()
@@ -146,7 +146,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         }
     } else {
         quote! {
-            #[derive(::std::clone::Clone)]
+            #[derive(::core::clone::Clone)]
         }
     };
 
@@ -181,7 +181,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         quote! {
             #cfg
             unsafe impl ::windows::runtime::Abi for #name {
-                type Abi = ::std::mem::ManuallyDrop<Self>;
+                type Abi = ::core::mem::ManuallyDrop<Self>;
             }
         }
     };
@@ -204,14 +204,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     let compare = if is_union | has_union | has_complex_array | is_packed {
         quote! {
             #cfg
-            impl ::std::cmp::PartialEq for #name {
+            impl ::core::cmp::PartialEq for #name {
                 fn eq(&self, _other: &Self) -> bool {
                     // TODO: figure out how to compare complex structs
                     unimplemented!()
                 }
             }
             #cfg
-            impl ::std::cmp::Eq for #name {}
+            impl ::core::cmp::Eq for #name {}
         }
     } else {
         let compare = fields.iter().map(|(_, signature, name)| {
@@ -231,24 +231,24 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         if layout.is_some() {
             quote! {
                 #cfg
-                impl ::std::cmp::PartialEq for #name {
+                impl ::core::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         unsafe { #(#compare)&&* }
                     }
                 }
                 #cfg
-                impl ::std::cmp::Eq for #name {}
+                impl ::core::cmp::Eq for #name {}
             }
         } else {
             quote! {
                 #cfg
-                impl ::std::cmp::PartialEq for #name {
+                impl ::core::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         #(#compare)&&*
                     }
                 }
                 #cfg
-                impl ::std::cmp::Eq for #name {}
+                impl ::core::cmp::Eq for #name {}
             }
         }
     };
@@ -280,8 +280,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         if layout.is_some() {
             quote! {
                 #cfg
-                impl ::std::fmt::Debug for #name {
-                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                impl ::core::fmt::Debug for #name {
+                    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         unsafe {
                             fmt.debug_struct(#debug_name)
                                 #(#debug_fields)*
@@ -293,8 +293,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         } else {
             quote! {
                 #cfg
-                impl ::std::fmt::Debug for #name {
-                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                impl ::core::fmt::Debug for #name {
+                    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         fmt.debug_struct(#debug_name)
                             #(#debug_fields)*
                             .finish()
@@ -318,9 +318,9 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
             #(#constants)*
         }
         #cfg
-        impl ::std::default::Default for #name {
+        impl ::core::default::Default for #name {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
         #debug

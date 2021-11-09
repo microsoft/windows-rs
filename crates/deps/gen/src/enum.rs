@@ -12,31 +12,31 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     // on the flags attribute.
     let bitwise = if bitwise || def.has_flags() {
         quote! {
-            impl ::std::ops::BitOr for #name {
+            impl ::core::ops::BitOr for #name {
                 type Output = Self;
 
                 fn bitor(self, rhs: Self) -> Self {
                     Self(self.0 | rhs.0)
                 }
             }
-            impl ::std::ops::BitAnd for #name {
+            impl ::core::ops::BitAnd for #name {
                 type Output = Self;
 
                 fn bitand(self, rhs: Self) -> Self {
                     Self(self.0 & rhs.0)
                 }
             }
-            impl ::std::ops::BitOrAssign for #name {
+            impl ::core::ops::BitOrAssign for #name {
                 fn bitor_assign(&mut self, rhs: Self) {
                     self.0.bitor_assign(rhs.0)
                 }
             }
-            impl ::std::ops::BitAndAssign for #name {
+            impl ::core::ops::BitAndAssign for #name {
                 fn bitand_assign(&mut self, rhs: Self) {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            impl ::std::ops::Not for #name {
+            impl ::core::ops::Not for #name {
                 type Output = Self;
 
                 fn not(self) -> Self {
@@ -121,11 +121,11 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
 
     quote! {
         #doc
-        #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default, ::core::fmt::Debug)]
         #[repr(transparent)]
         pub struct #name(pub #underlying_type);
         #fields
-        impl ::std::convert::From<#underlying_type> for #name {
+        impl ::core::convert::From<#underlying_type> for #name {
             fn from(value: #underlying_type) -> Self {
                 Self(value)
             }

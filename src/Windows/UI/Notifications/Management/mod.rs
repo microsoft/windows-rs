@@ -48,7 +48,7 @@ pub struct IUserNotificationListenerStatics_abi(
 );
 #[doc = "*Required features: `UI_Notifications_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserNotificationListener(pub ::windows::runtime::IInspectable);
 impl UserNotificationListener {
     #[cfg(feature = "Foundation")]
@@ -56,16 +56,16 @@ impl UserNotificationListener {
     pub fn RequestAccessAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
     pub fn GetAccessStatus(&self) -> ::windows::runtime::Result<UserNotificationListenerAccessStatus> {
         let this = self;
         unsafe {
-            let mut result__: UserNotificationListenerAccessStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
+            let mut result__: UserNotificationListenerAccessStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -73,48 +73,48 @@ impl UserNotificationListener {
     pub fn NotificationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`*"]
     pub fn RemoveNotificationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `UI_Notifications_Management`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
     pub fn GetNotification(&self, notificationid: u32) -> ::windows::runtime::Result<super::UserNotification> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
         }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
     pub fn ClearNotifications(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
     pub fn RemoveNotification(&self, notificationid: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), notificationid).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), notificationid).ok() }
     }
     #[doc = "*Required features: `UI_Notifications_Management`*"]
     pub fn Current() -> ::windows::runtime::Result<UserNotificationListener> {
         Self::IUserNotificationListenerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListener>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListener>(result__)
         })
     }
     pub fn IUserNotificationListenerStatics<R, F: FnOnce(&IUserNotificationListenerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -132,12 +132,12 @@ unsafe impl ::windows::runtime::Interface for UserNotificationListener {
 impl ::windows::runtime::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
-impl ::std::convert::From<UserNotificationListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserNotificationListener> for ::windows::runtime::IUnknown {
     fn from(value: UserNotificationListener) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserNotificationListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserNotificationListener> for ::windows::runtime::IUnknown {
     fn from(value: &UserNotificationListener) -> Self {
         value.0 .0.clone()
     }
@@ -152,12 +152,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserNotificationListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserNotificationListener> for ::windows::runtime::IInspectable {
     fn from(value: UserNotificationListener) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserNotificationListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserNotificationListener> for ::windows::runtime::IInspectable {
     fn from(value: &UserNotificationListener) -> Self {
         value.0.clone()
     }
@@ -172,10 +172,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserNotificationListener {}
-unsafe impl ::std::marker::Sync for UserNotificationListener {}
+unsafe impl ::core::marker::Send for UserNotificationListener {}
+unsafe impl ::core::marker::Sync for UserNotificationListener {}
 #[doc = "*Required features: `UI_Notifications_Management`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {
@@ -183,7 +183,7 @@ impl UserNotificationListenerAccessStatus {
     pub const Allowed: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(1i32);
     pub const Denied: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(2i32);
 }
-impl ::std::convert::From<i32> for UserNotificationListenerAccessStatus {
+impl ::core::convert::From<i32> for UserNotificationListenerAccessStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }

@@ -58,8 +58,8 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                 quote! {}
             } else {
                 quote! {
-                    unsafe impl<#constraints> ::std::marker::Send for #name {}
-                    unsafe impl<#constraints> ::std::marker::Sync for #name {}
+                    unsafe impl<#constraints> ::core::marker::Send for #name {}
+                    unsafe impl<#constraints> ::core::marker::Sync for #name {}
                 }
             };
 
@@ -84,7 +84,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         let derive = if is_exclusive {
             quote! {}
         } else {
-            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)] }
+            quote! { #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)] }
         };
 
         quote! {
@@ -113,7 +113,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
     } else {
         quote! {
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone, ::core::fmt::Debug)]
             #[doc(hidden)]
             pub struct #name(pub ::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::runtime::Interface for #name {

@@ -46,20 +46,20 @@ pub const FunctionDiscovery: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub const FunctionInstanceCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3129052389, 46431, 17471, [173, 57, 47, 232, 155, 230, 25, 31]);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscovery(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscovery {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn GetInstanceCollection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszcategory: Param0, pszsubcategory: Param1, fincludeallsubcategories: Param2) -> ::windows::runtime::Result<IFunctionInstanceCollection> {
-        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), fincludeallsubcategories.into_param().abi(), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
+        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), fincludeallsubcategories.into_param().abi(), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn GetInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfunctioninstanceidentity: Param0) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszfunctioninstanceidentity.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszfunctioninstanceidentity.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
@@ -70,37 +70,37 @@ impl IFunctionDiscovery {
         fincludeallsubcategories: Param2,
         pifunctiondiscoverynotification: Param3,
         pfdqcquerycontext: *mut u64,
-        ppifunctioninstancecollectionquery: *mut ::std::option::Option<IFunctionInstanceCollectionQuery>,
+        ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), fincludeallsubcategories.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), ::std::mem::transmute(pfdqcquerycontext), ::std::mem::transmute(ppifunctioninstancecollectionquery)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), fincludeallsubcategories.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), ::core::mem::transmute(pfdqcquerycontext), ::core::mem::transmute(ppifunctioninstancecollectionquery)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
-    pub unsafe fn CreateInstanceQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryNotification>>(&self, pszfunctioninstanceidentity: Param0, pifunctiondiscoverynotification: Param1, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::std::option::Option<IFunctionInstanceQuery>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszfunctioninstanceidentity.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), ::std::mem::transmute(pfdqcquerycontext), ::std::mem::transmute(ppifunctioninstancequery)).ok()
+    pub unsafe fn CreateInstanceQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryNotification>>(&self, pszfunctioninstanceidentity: Param0, pifunctiondiscoverynotification: Param1, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszfunctioninstanceidentity.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), ::core::mem::transmute(pfdqcquerycontext), ::core::mem::transmute(ppifunctioninstancequery)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn AddInstance<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: Param1, pszsubcategory: Param2, pszcategoryidentity: Param3) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(enumsystemvisibility), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), pszcategoryidentity.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumsystemvisibility), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), pszcategoryidentity.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn RemoveInstance<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: Param1, pszsubcategory: Param2, pszcategoryidentity: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(enumsystemvisibility), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), pszcategoryidentity.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumsystemvisibility), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), pszcategoryidentity.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionDiscovery {
     type Vtable = IFunctionDiscovery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1308203888, 57672, 17458, [176, 4, 76, 158, 235, 83, 90, 94]);
 }
-impl ::std::convert::From<IFunctionDiscovery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionDiscovery> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionDiscovery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionDiscovery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionDiscovery> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionDiscovery) -> Self {
         value.0.clone()
     }
@@ -136,34 +136,34 @@ pub struct IFunctionDiscovery_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscoveryNotification(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscoveryNotification {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn OnUpdate<'a, Param2: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(enumqueryupdateaction), ::std::mem::transmute(fdqcquerycontext), pifunctioninstance.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumqueryupdateaction), ::core::mem::transmute(fdqcquerycontext), pifunctioninstance.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn OnError<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hr: ::windows::runtime::HRESULT, fdqcquerycontext: u64, pszprovider: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr), ::std::mem::transmute(fdqcquerycontext), pszprovider.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hr), ::core::mem::transmute(fdqcquerycontext), pszprovider.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn OnEvent<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dweventid), ::std::mem::transmute(fdqcquerycontext), pszprovider.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweventid), ::core::mem::transmute(fdqcquerycontext), pszprovider.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionDiscoveryNotification {
     type Vtable = IFunctionDiscoveryNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1600920488, 21296, 16942, [163, 104, 87, 43, 36, 77, 63, 135]);
 }
-impl ::std::convert::From<IFunctionDiscoveryNotification> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionDiscoveryNotification> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionDiscoveryNotification) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionDiscoveryNotification> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionDiscoveryNotification> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionDiscoveryNotification) -> Self {
         value.0.clone()
     }
@@ -192,57 +192,57 @@ pub struct IFunctionDiscoveryNotification_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscoveryProvider(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscoveryProvider {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryProviderFactory>, Param1: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryNotification>>(&self, pifunctiondiscoveryproviderfactory: Param0, pifunctiondiscoverynotification: Param1, lciduserdefault: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pifunctiondiscoveryproviderfactory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), ::std::mem::transmute(lciduserdefault), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pifunctiondiscoveryproviderfactory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), ::core::mem::transmute(lciduserdefault), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Query<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryProviderQuery>>(&self, pifunctiondiscoveryproviderquery: Param0) -> ::windows::runtime::Result<IFunctionInstanceCollection> {
-        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pifunctiondiscoveryproviderquery.into_param().abi(), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
+        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pifunctiondiscoveryproviderquery.into_param().abi(), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn EndQuery(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn InstancePropertyStoreValidateAccess<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), ::std::mem::transmute(dwstgaccess)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwstgaccess)).ok()
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn InstancePropertyStoreOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), ::std::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn InstancePropertyStoreFlush<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn InstanceQueryService<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), ::std::mem::transmute(guidservice), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn InstanceReleased<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionDiscoveryProvider {
     type Vtable = IFunctionDiscoveryProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705551183, 5240, 18451, [164, 2, 246, 251, 16, 101, 114, 34]);
 }
-impl ::std::convert::From<IFunctionDiscoveryProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionDiscoveryProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionDiscoveryProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionDiscoveryProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionDiscoveryProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionDiscoveryProvider) -> Self {
         value.0.clone()
     }
@@ -275,14 +275,14 @@ pub struct IFunctionDiscoveryProvider_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscoveryProviderFactory(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscoveryProviderFactory {
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn CreatePropertyStore(&self) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
@@ -294,25 +294,25 @@ impl IFunctionDiscoveryProviderFactory {
         pipropertystore: Param3,
         pifunctiondiscoveryprovider: Param4,
     ) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pszproviderinstanceidentity.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), pipropertystore.into_param().abi(), pifunctiondiscoveryprovider.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pszproviderinstanceidentity.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), pipropertystore.into_param().abi(), pifunctiondiscoveryprovider.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn CreateFunctionInstanceCollection(&self) -> ::windows::runtime::Result<IFunctionInstanceCollection> {
-        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
+        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionDiscoveryProviderFactory {
     type Vtable = IFunctionDiscoveryProviderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2252619760, 6869, 20072, [164, 90, 64, 194, 195, 41, 222, 59]);
 }
-impl ::std::convert::From<IFunctionDiscoveryProviderFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionDiscoveryProviderFactory> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionDiscoveryProviderFactory) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionDiscoveryProviderFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionDiscoveryProviderFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionDiscoveryProviderFactory) -> Self {
         value.0.clone()
     }
@@ -341,40 +341,40 @@ pub struct IFunctionDiscoveryProviderFactory_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscoveryProviderQuery(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscoveryProviderQuery {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn IsInstanceQuery(&self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pisinstancequery), ::std::mem::transmute(ppszconstraintvalue)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pisinstancequery), ::core::mem::transmute(ppszconstraintvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn IsSubcategoryQuery(&self, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pissubcategoryquery), ::std::mem::transmute(ppszconstraintvalue)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pissubcategoryquery), ::core::mem::transmute(ppszconstraintvalue)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetQueryConstraints(&self) -> ::windows::runtime::Result<IProviderQueryConstraintCollection> {
-        let mut result__: <IProviderQueryConstraintCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IProviderQueryConstraintCollection>(result__)
+        let mut result__: <IProviderQueryConstraintCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IProviderQueryConstraintCollection>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetPropertyConstraints(&self) -> ::windows::runtime::Result<IProviderPropertyConstraintCollection> {
-        let mut result__: <IProviderPropertyConstraintCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IProviderPropertyConstraintCollection>(result__)
+        let mut result__: <IProviderPropertyConstraintCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IProviderPropertyConstraintCollection>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionDiscoveryProviderQuery {
     type Vtable = IFunctionDiscoveryProviderQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752623768, 47852, 18139, [188, 32, 117, 167, 110, 38, 122, 58]);
 }
-impl ::std::convert::From<IFunctionDiscoveryProviderQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionDiscoveryProviderQuery> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionDiscoveryProviderQuery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionDiscoveryProviderQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionDiscoveryProviderQuery> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionDiscoveryProviderQuery) -> Self {
         value.0.clone()
     }
@@ -404,25 +404,25 @@ pub struct IFunctionDiscoveryProviderQuery_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscoveryServiceProvider(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscoveryServiceProvider {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>, T: ::windows::runtime::Interface>(&self, pifunctioninstance: Param0) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionDiscoveryServiceProvider {
     type Vtable = IFunctionDiscoveryServiceProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1283583234, 6916, 17394, [164, 81, 105, 150, 108, 188, 209, 194]);
 }
-impl ::std::convert::From<IFunctionDiscoveryServiceProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionDiscoveryServiceProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionDiscoveryServiceProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionDiscoveryServiceProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionDiscoveryServiceProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionDiscoveryServiceProvider) -> Self {
         value.0.clone()
     }
@@ -443,48 +443,48 @@ pub struct IFunctionDiscoveryServiceProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionInstance(pub ::windows::runtime::IUnknown);
 impl IFunctionInstance {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
-    pub unsafe fn QueryService(&self, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidservice), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobject)).ok()
+    pub unsafe fn QueryService(&self, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetID(&self) -> ::windows::runtime::Result<*mut u16> {
-        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
+        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetProviderInstanceID(&self) -> ::windows::runtime::Result<*mut u16> {
-        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
+        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn OpenPropertyStore(&self, dwstgaccess: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppszcomemcategory), ::std::mem::transmute(ppszcomemsubcategory)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszcomemcategory), ::core::mem::transmute(ppszcomemsubcategory)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionInstance {
     type Vtable = IFunctionInstance_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861477904, 3053, 20226, [176, 171, 21, 48, 213, 83, 62, 233]);
 }
-impl ::std::convert::From<IFunctionInstance> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionInstance> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionInstance) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionInstance> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionInstance> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionInstance) -> Self {
         value.0.clone()
     }
@@ -500,27 +500,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<IFunctionInstance> for super::super::System::Com::IServiceProvider {
+impl ::core::convert::From<IFunctionInstance> for super::super::System::Com::IServiceProvider {
     fn from(value: IFunctionInstance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<&IFunctionInstance> for super::super::System::Com::IServiceProvider {
+impl ::core::convert::From<&IFunctionInstance> for super::super::System::Com::IServiceProvider {
     fn from(value: &IFunctionInstance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IServiceProvider> for IFunctionInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IServiceProvider> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IServiceProvider> for &IFunctionInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IServiceProvider> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -529,7 +529,7 @@ pub struct IFunctionInstance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszcomemidentity: *mut *mut u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszcomemproviderinstanceidentity: *mut *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwstgaccess: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -538,52 +538,52 @@ pub struct IFunctionInstance_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionInstanceCollection(pub ::windows::runtime::IUnknown);
 impl IFunctionInstanceCollection {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
-    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppifunctioninstance: *mut ::std::option::Option<IFunctionInstance>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszinstanceidentity.into_param().abi(), ::std::mem::transmute(pdwindex), ::std::mem::transmute(ppifunctioninstance)).ok()
+    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszinstanceidentity.into_param().abi(), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppifunctioninstance)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Item(&self, dwindex: u32) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Remove(&self, dwindex: u32) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Delete(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionInstanceCollection {
     type Vtable = IFunctionInstanceCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037269653, 34140, 17058, [148, 141, 47, 151, 212, 80, 236, 177]);
 }
-impl ::std::convert::From<IFunctionInstanceCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionInstanceCollection> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionInstanceCollection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionInstanceCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionInstanceCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionInstanceCollection) -> Self {
         value.0.clone()
     }
@@ -615,35 +615,35 @@ pub struct IFunctionInstanceCollection_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionInstanceCollectionQuery(pub ::windows::runtime::IUnknown);
 impl IFunctionInstanceCollectionQuery {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn AddQueryConstraint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszconstraintname: Param0, pszconstraintvalue: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszconstraintname.into_param().abi(), pszconstraintvalue.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszconstraintname.into_param().abi(), pszconstraintvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn AddPropertyConstraint(&self, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(key), ::std::mem::transmute(pv), ::std::mem::transmute(enumpropertyconstraint)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(pv), ::core::mem::transmute(enumpropertyconstraint)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Execute(&self) -> ::windows::runtime::Result<IFunctionInstanceCollection> {
-        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
+        let mut result__: <IFunctionInstanceCollection as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IFunctionInstanceCollection>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionInstanceCollectionQuery {
     type Vtable = IFunctionInstanceCollectionQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473015762, 49306, 17033, [187, 114, 37, 240, 65, 66, 5, 142]);
 }
-impl ::std::convert::From<IFunctionInstanceCollectionQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionInstanceCollectionQuery> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionInstanceCollectionQuery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionInstanceCollectionQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionInstanceCollectionQuery> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionInstanceCollectionQuery) -> Self {
         value.0.clone()
     }
@@ -667,31 +667,31 @@ pub struct IFunctionInstanceCollectionQuery_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszconstraintname: super::super::Foundation::PWSTR, pszconstraintvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, pv: *const ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, pv: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppifunctioninstancecollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionInstanceQuery(pub ::windows::runtime::IUnknown);
 impl IFunctionInstanceQuery {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Execute(&self) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFunctionInstanceQuery {
     type Vtable = IFunctionInstanceQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1648540779, 37100, 19255, [187, 70, 226, 41, 253, 132, 237, 149]);
 }
-impl ::std::convert::From<IFunctionInstanceQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFunctionInstanceQuery> for ::windows::runtime::IUnknown {
     fn from(value: IFunctionInstanceQuery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFunctionInstanceQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFunctionInstanceQuery> for ::windows::runtime::IUnknown {
     fn from(value: &IFunctionInstanceQuery) -> Self {
         value.0.clone()
     }
@@ -716,35 +716,35 @@ pub struct IFunctionInstanceQuery_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPNPXAssociation(pub ::windows::runtime::IUnknown);
 impl IPNPXAssociation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Associate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsubcategory: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Unassociate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsubcategory: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsubcategory: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPNPXAssociation {
     type Vtable = IPNPXAssociation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(198698273, 19878, 17109, [129, 186, 25, 129, 182, 185, 64, 117]);
 }
-impl ::std::convert::From<IPNPXAssociation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPNPXAssociation> for ::windows::runtime::IUnknown {
     fn from(value: IPNPXAssociation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPNPXAssociation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPNPXAssociation> for ::windows::runtime::IUnknown {
     fn from(value: &IPNPXAssociation) -> Self {
         value.0.clone()
     }
@@ -774,35 +774,35 @@ pub struct IPNPXAssociation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPNPXDeviceAssociation(pub ::windows::runtime::IUnknown);
 impl IPNPXDeviceAssociation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Associate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryNotification>>(&self, pszsubcategory: Param0, pifunctiondiscoverynotification: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Unassociate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryNotification>>(&self, pszsubcategory: Param0, pifunctiondiscoverynotification: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryNotification>>(&self, pszsubcategory: Param0, pifunctiondiscoverynotification: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszsubcategory.into_param().abi(), pifunctiondiscoverynotification.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPNPXDeviceAssociation {
     type Vtable = IPNPXDeviceAssociation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4006831824, 13752, 20421, [141, 32, 126, 91, 211, 31, 109, 237]);
 }
-impl ::std::convert::From<IPNPXDeviceAssociation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPNPXDeviceAssociation> for ::windows::runtime::IUnknown {
     fn from(value: IPNPXDeviceAssociation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPNPXDeviceAssociation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPNPXDeviceAssociation> for ::windows::runtime::IUnknown {
     fn from(value: &IPNPXDeviceAssociation) -> Self {
         value.0.clone()
     }
@@ -832,55 +832,55 @@ pub struct IPNPXDeviceAssociation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPropertyStoreCollection(pub ::windows::runtime::IUnknown);
 impl IPropertyStoreCollection {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppipropertystore: *mut ::std::option::Option<super::super::System::PropertiesSystem::IPropertyStore>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszinstanceidentity.into_param().abi(), ::std::mem::transmute(pdwindex), ::std::mem::transmute(ppipropertystore)).ok()
+    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::System::PropertiesSystem::IPropertyStore>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszinstanceidentity.into_param().abi(), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppipropertystore)).ok()
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Item(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::PropertiesSystem::IPropertyStore>>(&self, pipropertystore: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pipropertystore.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pipropertystore.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Remove(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Delete(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPropertyStoreCollection {
     type Vtable = IPropertyStoreCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3511524400, 4818, 17112, [188, 228, 198, 12, 43, 178, 38, 250]);
 }
-impl ::std::convert::From<IPropertyStoreCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPropertyStoreCollection> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyStoreCollection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPropertyStoreCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPropertyStoreCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IPropertyStoreCollection) -> Self {
         value.0.clone()
     }
@@ -915,42 +915,42 @@ pub struct IPropertyStoreCollection_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProviderProperties(pub ::windows::runtime::IUnknown);
 impl IProviderProperties {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCount<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetAt<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwindex: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::PROPERTYKEY> {
-        let mut result__: <super::super::System::PropertiesSystem::PROPERTYKEY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), ::std::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::PROPERTYKEY>(result__)
+        let mut result__: <super::super::System::PropertiesSystem::PROPERTYKEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::PROPERTYKEY>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), ::std::mem::transmute(key), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(key), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::std::mem::transmute(iproviderinstancecontext), ::std::mem::transmute(key), ::std::mem::transmute(ppropvar)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProviderProperties {
     type Vtable = IProviderProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482873510, 15199, 19551, [184, 138, 47, 139, 32, 206, 239, 23]);
 }
-impl ::std::convert::From<IProviderProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProviderProperties> for ::windows::runtime::IUnknown {
     fn from(value: IProviderProperties) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProviderProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProviderProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IProviderProperties) -> Self {
         value.0.clone()
     }
@@ -975,56 +975,56 @@ pub struct IProviderProperties_abi(
     #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *const ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProviderPropertyConstraintCollection(pub ::windows::runtime::IUnknown);
 impl IProviderPropertyConstraintCollection {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Get(&self, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(key), ::std::mem::transmute(ppropvar), ::std::mem::transmute(pdwpropertyconstraint)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pdwpropertyconstraint)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Item(&self, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pkey), ::std::mem::transmute(ppropvar), ::std::mem::transmute(pdwpropertyconstraint)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pkey), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pdwpropertyconstraint)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Next(&self, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pkey), ::std::mem::transmute(ppropvar), ::std::mem::transmute(pdwpropertyconstraint)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pdwpropertyconstraint)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Skip(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProviderPropertyConstraintCollection {
     type Vtable = IProviderPropertyConstraintCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110083119, 22392, 18963, [133, 64, 181, 253, 140, 19, 152, 221]);
 }
-impl ::std::convert::From<IProviderPropertyConstraintCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProviderPropertyConstraintCollection> for ::windows::runtime::IUnknown {
     fn from(value: IProviderPropertyConstraintCollection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProviderPropertyConstraintCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProviderPropertyConstraintCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IProviderPropertyConstraintCollection) -> Self {
         value.0.clone()
     }
@@ -1046,43 +1046,44 @@ pub struct IProviderPropertyConstraintCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProviderPublishing(pub ::windows::runtime::IUnknown);
 impl IProviderPublishing {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstance<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: Param1, pszproviderinstanceidentity: Param2) -> ::windows::runtime::Result<IFunctionInstance> {
-        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(enumvisibilityflags), pszsubcategory.into_param().abi(), pszproviderinstanceidentity.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
+        let mut result__: <IFunctionInstance as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumvisibilityflags), pszsubcategory.into_param().abi(), pszproviderinstanceidentity.into_param().abi(), &mut result__).from_abi::<IFunctionInstance>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn RemoveInstance<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: Param1, pszproviderinstanceidentity: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(enumvisibilityflags), pszsubcategory.into_param().abi(), pszproviderinstanceidentity.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumvisibilityflags), pszsubcategory.into_param().abi(), pszproviderinstanceidentity.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProviderPublishing {
     type Vtable = IProviderPublishing_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441138180, 8300, 18949, [160, 200, 22, 53, 162, 26, 43, 124]);
 }
-impl ::std::convert::From<IProviderPublishing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProviderPublishing> for ::windows::runtime::IUnknown {
     fn from(value: IProviderPublishing) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProviderPublishing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProviderPublishing> for ::windows::runtime::IUnknown {
     fn from(value: &IProviderPublishing) -> Self {
         value.0.clone()
     }
@@ -1110,47 +1111,47 @@ pub struct IProviderPublishing_abi(
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProviderQueryConstraintCollection(pub ::windows::runtime::IUnknown);
 impl IProviderQueryConstraintCollection {
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszconstraintname: Param0) -> ::windows::runtime::Result<*mut u16> {
-        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszconstraintname.into_param().abi(), &mut result__).from_abi::<*mut u16>(result__)
+        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszconstraintname.into_param().abi(), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Item(&self, dwindex: u32, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(ppszconstraintname), ::std::mem::transmute(ppszconstraintvalue)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(ppszconstraintname), ::core::mem::transmute(ppszconstraintvalue)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Next(&self, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppszconstraintname), ::std::mem::transmute(ppszconstraintvalue)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszconstraintname), ::core::mem::transmute(ppszconstraintvalue)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Skip(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProviderQueryConstraintCollection {
     type Vtable = IProviderQueryConstraintCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619620881, 12897, 19405, [185, 34, 132, 168, 115, 212, 96, 174]);
 }
-impl ::std::convert::From<IProviderQueryConstraintCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProviderQueryConstraintCollection> for ::windows::runtime::IUnknown {
     fn from(value: IProviderQueryConstraintCollection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProviderQueryConstraintCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProviderQueryConstraintCollection> for ::windows::runtime::IUnknown {
     fn from(value: &IProviderQueryConstraintCollection) -> Self {
         value.0.clone()
     }
@@ -1194,7 +1195,7 @@ pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PropertyConstraint(pub i32);
 pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
@@ -1207,7 +1208,7 @@ pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
 pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
 pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
 pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
-impl ::std::convert::From<i32> for PropertyConstraint {
+impl ::core::convert::From<i32> for PropertyConstraint {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1218,12 +1219,12 @@ unsafe impl ::windows::runtime::Abi for PropertyConstraint {
 pub const PropertyStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833161040, 57185, 17547, [145, 147, 19, 252, 19, 65, 177, 99]);
 pub const PropertyStoreCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990052905, 55123, 18530, [170, 91, 91, 204, 173, 42, 77, 41]);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QueryCategoryType(pub i32);
 pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
 pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
-impl ::std::convert::From<i32> for QueryCategoryType {
+impl ::core::convert::From<i32> for QueryCategoryType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1232,13 +1233,13 @@ unsafe impl ::windows::runtime::Abi for QueryCategoryType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QueryUpdateAction(pub i32);
 pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
 pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
 pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
-impl ::std::convert::From<i32> for QueryUpdateAction {
+impl ::core::convert::From<i32> for QueryUpdateAction {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1259,12 +1260,12 @@ pub const SID_UPnPActivator: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub const SID_UninstallDeviceFunction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3374339694, 22129, 17558, [128, 37, 191, 11, 137, 189, 68, 205]);
 pub const SID_UnpairProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309292796, 34171, 18072, [160, 183, 2, 113, 146, 0, 47, 158]);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemVisibilityFlags(pub i32);
 pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
 pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
-impl ::std::convert::From<i32> for SystemVisibilityFlags {
+impl ::core::convert::From<i32> for SystemVisibilityFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }

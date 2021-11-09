@@ -7,15 +7,15 @@ pub mod Telemetry;
 pub mod TraceReporting;
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DiagnosticActionResult(pub ::windows::runtime::IInspectable);
 impl DiagnosticActionResult {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -23,8 +23,8 @@ impl DiagnosticActionResult {
     pub fn Results(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -38,12 +38,12 @@ unsafe impl ::windows::runtime::Interface for DiagnosticActionResult {
 impl ::windows::runtime::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
 }
-impl ::std::convert::From<DiagnosticActionResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DiagnosticActionResult> for ::windows::runtime::IUnknown {
     fn from(value: DiagnosticActionResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DiagnosticActionResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DiagnosticActionResult> for ::windows::runtime::IUnknown {
     fn from(value: &DiagnosticActionResult) -> Self {
         value.0 .0.clone()
     }
@@ -58,12 +58,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DiagnosticActionResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DiagnosticActionResult> for ::windows::runtime::IInspectable {
     fn from(value: DiagnosticActionResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DiagnosticActionResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DiagnosticActionResult> for ::windows::runtime::IInspectable {
     fn from(value: &DiagnosticActionResult) -> Self {
         value.0.clone()
     }
@@ -78,10 +78,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DiagnosticActionResult {}
-unsafe impl ::std::marker::Sync for DiagnosticActionResult {}
+unsafe impl ::core::marker::Send for DiagnosticActionResult {}
+unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[doc = "*Required features: `System_Diagnostics`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
@@ -93,7 +93,7 @@ impl DiagnosticActionState {
     pub const VerifyingResolution: DiagnosticActionState = DiagnosticActionState(5i32);
     pub const Executing: DiagnosticActionState = DiagnosticActionState(6i32);
 }
-impl ::std::convert::From<i32> for DiagnosticActionState {
+impl ::core::convert::From<i32> for DiagnosticActionState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -109,7 +109,7 @@ impl ::windows::runtime::DefaultType for DiagnosticActionState {
 }
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DiagnosticInvoker(pub ::windows::runtime::IInspectable);
 impl DiagnosticInvoker {
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
@@ -117,29 +117,29 @@ impl DiagnosticInvoker {
     pub fn RunDiagnosticActionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Json::JsonObject>>(&self, context: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DiagnosticInvoker>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DiagnosticInvoker>(result__)
         })
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::User>>(user: Param0) -> ::windows::runtime::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<DiagnosticInvoker>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<DiagnosticInvoker>(result__)
         })
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -147,8 +147,8 @@ impl DiagnosticInvoker {
     pub fn RunDiagnosticActionFromStringAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, context: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &::windows::runtime::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     pub fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -166,12 +166,12 @@ unsafe impl ::windows::runtime::Interface for DiagnosticInvoker {
 impl ::windows::runtime::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
 }
-impl ::std::convert::From<DiagnosticInvoker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DiagnosticInvoker> for ::windows::runtime::IUnknown {
     fn from(value: DiagnosticInvoker) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DiagnosticInvoker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DiagnosticInvoker> for ::windows::runtime::IUnknown {
     fn from(value: &DiagnosticInvoker) -> Self {
         value.0 .0.clone()
     }
@@ -186,12 +186,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DiagnosticInvoker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DiagnosticInvoker> for ::windows::runtime::IInspectable {
     fn from(value: DiagnosticInvoker) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DiagnosticInvoker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DiagnosticInvoker> for ::windows::runtime::IInspectable {
     fn from(value: &DiagnosticInvoker) -> Self {
         value.0.clone()
     }
@@ -206,8 +206,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DiagnosticInvoker {}
-unsafe impl ::std::marker::Sync for DiagnosticInvoker {}
+unsafe impl ::core::marker::Send for DiagnosticInvoker {}
+unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IDiagnosticActionResult(pub ::windows::runtime::IInspectable);
@@ -263,7 +263,7 @@ pub struct IDiagnosticInvoker2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -342,7 +342,7 @@ pub struct IProcessDiagnosticInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -633,15 +633,15 @@ pub struct ISystemMemoryUsageReport_abi(
 );
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessCpuUsage(pub ::windows::runtime::IInspectable);
 impl ProcessCpuUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetReport(&self) -> ::windows::runtime::Result<ProcessCpuUsageReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessCpuUsageReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessCpuUsageReport>(result__)
         }
     }
 }
@@ -655,12 +655,12 @@ unsafe impl ::windows::runtime::Interface for ProcessCpuUsage {
 impl ::windows::runtime::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
 }
-impl ::std::convert::From<ProcessCpuUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessCpuUsage> for ::windows::runtime::IUnknown {
     fn from(value: ProcessCpuUsage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessCpuUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessCpuUsage> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessCpuUsage) -> Self {
         value.0 .0.clone()
     }
@@ -675,12 +675,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessCpuUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessCpuUsage> for ::windows::runtime::IInspectable {
     fn from(value: ProcessCpuUsage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessCpuUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessCpuUsage> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessCpuUsage) -> Self {
         value.0.clone()
     }
@@ -695,11 +695,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessCpuUsage {}
-unsafe impl ::std::marker::Sync for ProcessCpuUsage {}
+unsafe impl ::core::marker::Send for ProcessCpuUsage {}
+unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessCpuUsageReport(pub ::windows::runtime::IInspectable);
 impl ProcessCpuUsageReport {
     #[cfg(feature = "Foundation")]
@@ -707,8 +707,8 @@ impl ProcessCpuUsageReport {
     pub fn KernelTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -716,8 +716,8 @@ impl ProcessCpuUsageReport {
     pub fn UserTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -731,12 +731,12 @@ unsafe impl ::windows::runtime::Interface for ProcessCpuUsageReport {
 impl ::windows::runtime::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
 }
-impl ::std::convert::From<ProcessCpuUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessCpuUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: ProcessCpuUsageReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessCpuUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessCpuUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessCpuUsageReport) -> Self {
         value.0 .0.clone()
     }
@@ -751,12 +751,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessCpuUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessCpuUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: ProcessCpuUsageReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessCpuUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessCpuUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessCpuUsageReport) -> Self {
         value.0.clone()
     }
@@ -771,35 +771,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessCpuUsageReport {}
-unsafe impl ::std::marker::Sync for ProcessCpuUsageReport {}
+unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
+unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessDiagnosticInfo(pub ::windows::runtime::IInspectable);
 impl ProcessDiagnosticInfo {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn ProcessId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn ExecutableFileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<ProcessDiagnosticInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -807,47 +807,47 @@ impl ProcessDiagnosticInfo {
     pub fn ProcessStartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn DiskUsage(&self) -> ::windows::runtime::Result<ProcessDiskUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiskUsage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiskUsage>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn MemoryUsage(&self) -> ::windows::runtime::Result<ProcessMemoryUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryUsage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryUsage>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn CpuUsage(&self) -> ::windows::runtime::Result<ProcessCpuUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessCpuUsage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessCpuUsage>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System_Diagnostics`, `Foundation_Collections`*"]
     pub fn GetForProcesses() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>(result__)
         })
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetForCurrentProcess() -> ::windows::runtime::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -855,23 +855,23 @@ impl ProcessDiagnosticInfo {
     pub fn GetAppDiagnosticInfos(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
         let this = &::windows::runtime::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn IsPackaged(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn TryGetForProcessId(processid: u32) -> ::windows::runtime::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), processid, &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), processid, &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
         })
     }
     pub fn IProcessDiagnosticInfoStatics<R, F: FnOnce(&IProcessDiagnosticInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -893,12 +893,12 @@ unsafe impl ::windows::runtime::Interface for ProcessDiagnosticInfo {
 impl ::windows::runtime::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
 }
-impl ::std::convert::From<ProcessDiagnosticInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessDiagnosticInfo> for ::windows::runtime::IUnknown {
     fn from(value: ProcessDiagnosticInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessDiagnosticInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessDiagnosticInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessDiagnosticInfo) -> Self {
         value.0 .0.clone()
     }
@@ -913,12 +913,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessDiagnosticInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessDiagnosticInfo> for ::windows::runtime::IInspectable {
     fn from(value: ProcessDiagnosticInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessDiagnosticInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessDiagnosticInfo> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessDiagnosticInfo) -> Self {
         value.0.clone()
     }
@@ -933,19 +933,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessDiagnosticInfo {}
-unsafe impl ::std::marker::Sync for ProcessDiagnosticInfo {}
+unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
+unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessDiskUsage(pub ::windows::runtime::IInspectable);
 impl ProcessDiskUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetReport(&self) -> ::windows::runtime::Result<ProcessDiskUsageReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiskUsageReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiskUsageReport>(result__)
         }
     }
 }
@@ -959,12 +959,12 @@ unsafe impl ::windows::runtime::Interface for ProcessDiskUsage {
 impl ::windows::runtime::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
 }
-impl ::std::convert::From<ProcessDiskUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessDiskUsage> for ::windows::runtime::IUnknown {
     fn from(value: ProcessDiskUsage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessDiskUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessDiskUsage> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessDiskUsage) -> Self {
         value.0 .0.clone()
     }
@@ -979,12 +979,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessDiskUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessDiskUsage> for ::windows::runtime::IInspectable {
     fn from(value: ProcessDiskUsage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessDiskUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessDiskUsage> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessDiskUsage) -> Self {
         value.0.clone()
     }
@@ -999,59 +999,59 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessDiskUsage {}
-unsafe impl ::std::marker::Sync for ProcessDiskUsage {}
+unsafe impl ::core::marker::Send for ProcessDiskUsage {}
+unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessDiskUsageReport(pub ::windows::runtime::IInspectable);
 impl ProcessDiskUsageReport {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn ReadOperationCount(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn WriteOperationCount(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn OtherOperationCount(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn BytesReadCount(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn BytesWrittenCount(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn OtherBytesCount(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
 }
@@ -1065,12 +1065,12 @@ unsafe impl ::windows::runtime::Interface for ProcessDiskUsageReport {
 impl ::windows::runtime::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
 }
-impl ::std::convert::From<ProcessDiskUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessDiskUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: ProcessDiskUsageReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessDiskUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessDiskUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessDiskUsageReport) -> Self {
         value.0 .0.clone()
     }
@@ -1085,12 +1085,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessDiskUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessDiskUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: ProcessDiskUsageReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessDiskUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessDiskUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessDiskUsageReport) -> Self {
         value.0.clone()
     }
@@ -1105,19 +1105,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessDiskUsageReport {}
-unsafe impl ::std::marker::Sync for ProcessDiskUsageReport {}
+unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
+unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessMemoryUsage(pub ::windows::runtime::IInspectable);
 impl ProcessMemoryUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetReport(&self) -> ::windows::runtime::Result<ProcessMemoryUsageReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryUsageReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryUsageReport>(result__)
         }
     }
 }
@@ -1131,12 +1131,12 @@ unsafe impl ::windows::runtime::Interface for ProcessMemoryUsage {
 impl ::windows::runtime::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
 }
-impl ::std::convert::From<ProcessMemoryUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessMemoryUsage> for ::windows::runtime::IUnknown {
     fn from(value: ProcessMemoryUsage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessMemoryUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessMemoryUsage> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessMemoryUsage) -> Self {
         value.0 .0.clone()
     }
@@ -1151,12 +1151,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessMemoryUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessMemoryUsage> for ::windows::runtime::IInspectable {
     fn from(value: ProcessMemoryUsage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessMemoryUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessMemoryUsage> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessMemoryUsage) -> Self {
         value.0.clone()
     }
@@ -1171,107 +1171,107 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessMemoryUsage {}
-unsafe impl ::std::marker::Sync for ProcessMemoryUsage {}
+unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
+unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessMemoryUsageReport(pub ::windows::runtime::IInspectable);
 impl ProcessMemoryUsageReport {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn NonPagedPoolSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PageFaultCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PageFileSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PagedPoolSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PeakNonPagedPoolSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PeakPageFileSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PeakPagedPoolSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PeakVirtualMemorySizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PeakWorkingSetSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PrivatePageCount(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn VirtualMemorySizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn WorkingSetSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -1285,12 +1285,12 @@ unsafe impl ::windows::runtime::Interface for ProcessMemoryUsageReport {
 impl ::windows::runtime::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
 }
-impl ::std::convert::From<ProcessMemoryUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessMemoryUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: ProcessMemoryUsageReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessMemoryUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessMemoryUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessMemoryUsageReport) -> Self {
         value.0 .0.clone()
     }
@@ -1305,12 +1305,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessMemoryUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessMemoryUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: ProcessMemoryUsageReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessMemoryUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessMemoryUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessMemoryUsageReport) -> Self {
         value.0.clone()
     }
@@ -1325,19 +1325,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessMemoryUsageReport {}
-unsafe impl ::std::marker::Sync for ProcessMemoryUsageReport {}
+unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
+unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SystemCpuUsage(pub ::windows::runtime::IInspectable);
 impl SystemCpuUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetReport(&self) -> ::windows::runtime::Result<SystemCpuUsageReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemCpuUsageReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemCpuUsageReport>(result__)
         }
     }
 }
@@ -1351,12 +1351,12 @@ unsafe impl ::windows::runtime::Interface for SystemCpuUsage {
 impl ::windows::runtime::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
 }
-impl ::std::convert::From<SystemCpuUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemCpuUsage> for ::windows::runtime::IUnknown {
     fn from(value: SystemCpuUsage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SystemCpuUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemCpuUsage> for ::windows::runtime::IUnknown {
     fn from(value: &SystemCpuUsage) -> Self {
         value.0 .0.clone()
     }
@@ -1371,12 +1371,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SystemCpuUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemCpuUsage> for ::windows::runtime::IInspectable {
     fn from(value: SystemCpuUsage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SystemCpuUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemCpuUsage> for ::windows::runtime::IInspectable {
     fn from(value: &SystemCpuUsage) -> Self {
         value.0.clone()
     }
@@ -1391,11 +1391,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SystemCpuUsage {}
-unsafe impl ::std::marker::Sync for SystemCpuUsage {}
+unsafe impl ::core::marker::Send for SystemCpuUsage {}
+unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SystemCpuUsageReport(pub ::windows::runtime::IInspectable);
 impl SystemCpuUsageReport {
     #[cfg(feature = "Foundation")]
@@ -1403,8 +1403,8 @@ impl SystemCpuUsageReport {
     pub fn KernelTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1412,8 +1412,8 @@ impl SystemCpuUsageReport {
     pub fn UserTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1421,8 +1421,8 @@ impl SystemCpuUsageReport {
     pub fn IdleTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -1436,12 +1436,12 @@ unsafe impl ::windows::runtime::Interface for SystemCpuUsageReport {
 impl ::windows::runtime::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
 }
-impl ::std::convert::From<SystemCpuUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemCpuUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: SystemCpuUsageReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SystemCpuUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemCpuUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: &SystemCpuUsageReport) -> Self {
         value.0 .0.clone()
     }
@@ -1456,12 +1456,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SystemCpuUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemCpuUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: SystemCpuUsageReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SystemCpuUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemCpuUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: &SystemCpuUsageReport) -> Self {
         value.0.clone()
     }
@@ -1476,48 +1476,48 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SystemCpuUsageReport {}
-unsafe impl ::std::marker::Sync for SystemCpuUsageReport {}
+unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
+unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SystemDiagnosticInfo(pub ::windows::runtime::IInspectable);
 impl SystemDiagnosticInfo {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn MemoryUsage(&self) -> ::windows::runtime::Result<SystemMemoryUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemMemoryUsage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemMemoryUsage>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn CpuUsage(&self) -> ::windows::runtime::Result<SystemCpuUsage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemCpuUsage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemCpuUsage>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetForCurrentSystem() -> ::windows::runtime::Result<SystemDiagnosticInfo> {
         Self::ISystemDiagnosticInfoStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemDiagnosticInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemDiagnosticInfo>(result__)
         })
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> ::windows::runtime::Result<bool> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn PreferredArchitecture() -> ::windows::runtime::Result<super::ProcessorArchitecture> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: super::ProcessorArchitecture = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ProcessorArchitecture>(result__)
+            let mut result__: super::ProcessorArchitecture = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ProcessorArchitecture>(result__)
         })
     }
     pub fn ISystemDiagnosticInfoStatics<R, F: FnOnce(&ISystemDiagnosticInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1539,12 +1539,12 @@ unsafe impl ::windows::runtime::Interface for SystemDiagnosticInfo {
 impl ::windows::runtime::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
 }
-impl ::std::convert::From<SystemDiagnosticInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemDiagnosticInfo> for ::windows::runtime::IUnknown {
     fn from(value: SystemDiagnosticInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SystemDiagnosticInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemDiagnosticInfo> for ::windows::runtime::IUnknown {
     fn from(value: &SystemDiagnosticInfo) -> Self {
         value.0 .0.clone()
     }
@@ -1559,12 +1559,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SystemDiagnosticInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemDiagnosticInfo> for ::windows::runtime::IInspectable {
     fn from(value: SystemDiagnosticInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SystemDiagnosticInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemDiagnosticInfo> for ::windows::runtime::IInspectable {
     fn from(value: &SystemDiagnosticInfo) -> Self {
         value.0.clone()
     }
@@ -1579,19 +1579,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SystemDiagnosticInfo {}
-unsafe impl ::std::marker::Sync for SystemDiagnosticInfo {}
+unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
+unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SystemMemoryUsage(pub ::windows::runtime::IInspectable);
 impl SystemMemoryUsage {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn GetReport(&self) -> ::windows::runtime::Result<SystemMemoryUsageReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemMemoryUsageReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemMemoryUsageReport>(result__)
         }
     }
 }
@@ -1605,12 +1605,12 @@ unsafe impl ::windows::runtime::Interface for SystemMemoryUsage {
 impl ::windows::runtime::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
 }
-impl ::std::convert::From<SystemMemoryUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemMemoryUsage> for ::windows::runtime::IUnknown {
     fn from(value: SystemMemoryUsage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SystemMemoryUsage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemMemoryUsage> for ::windows::runtime::IUnknown {
     fn from(value: &SystemMemoryUsage) -> Self {
         value.0 .0.clone()
     }
@@ -1625,12 +1625,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SystemMemoryUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemMemoryUsage> for ::windows::runtime::IInspectable {
     fn from(value: SystemMemoryUsage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SystemMemoryUsage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemMemoryUsage> for ::windows::runtime::IInspectable {
     fn from(value: &SystemMemoryUsage) -> Self {
         value.0.clone()
     }
@@ -1645,35 +1645,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SystemMemoryUsage {}
-unsafe impl ::std::marker::Sync for SystemMemoryUsage {}
+unsafe impl ::core::marker::Send for SystemMemoryUsage {}
+unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[doc = "*Required features: `System_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SystemMemoryUsageReport(pub ::windows::runtime::IInspectable);
 impl SystemMemoryUsageReport {
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn TotalPhysicalSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn AvailableSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System_Diagnostics`*"]
     pub fn CommittedSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -1687,12 +1687,12 @@ unsafe impl ::windows::runtime::Interface for SystemMemoryUsageReport {
 impl ::windows::runtime::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";
 }
-impl ::std::convert::From<SystemMemoryUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SystemMemoryUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: SystemMemoryUsageReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SystemMemoryUsageReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SystemMemoryUsageReport> for ::windows::runtime::IUnknown {
     fn from(value: &SystemMemoryUsageReport) -> Self {
         value.0 .0.clone()
     }
@@ -1707,12 +1707,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SystemMemoryUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SystemMemoryUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: SystemMemoryUsageReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SystemMemoryUsageReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SystemMemoryUsageReport> for ::windows::runtime::IInspectable {
     fn from(value: &SystemMemoryUsageReport) -> Self {
         value.0.clone()
     }
@@ -1727,5 +1727,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SystemMemoryUsageReport {}
-unsafe impl ::std::marker::Sync for SystemMemoryUsageReport {}
+unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
+unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}

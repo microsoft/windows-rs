@@ -21,7 +21,7 @@ pub const BATTERY_TYPE_NIMH: u32 = 3u32;
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_TYPE_WIRED: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_BATTERY_INFORMATION {
@@ -29,26 +29,26 @@ pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryLevel: u8,
 }
 impl XINPUT_BATTERY_INFORMATION {}
-impl ::std::default::Default for XINPUT_BATTERY_INFORMATION {
+impl ::core::default::Default for XINPUT_BATTERY_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for XINPUT_BATTERY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for XINPUT_BATTERY_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("XINPUT_BATTERY_INFORMATION").field("BatteryType", &self.BatteryType).field("BatteryLevel", &self.BatteryLevel).finish()
     }
 }
-impl ::std::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
+impl ::core::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.BatteryType == other.BatteryType && self.BatteryLevel == other.BatteryLevel
     }
 }
-impl ::std::cmp::Eq for XINPUT_BATTERY_INFORMATION {}
+impl ::core::cmp::Eq for XINPUT_BATTERY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for XINPUT_BATTERY_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_CAPABILITIES {
@@ -59,22 +59,22 @@ pub struct XINPUT_CAPABILITIES {
     pub Vibration: XINPUT_VIBRATION,
 }
 impl XINPUT_CAPABILITIES {}
-impl ::std::default::Default for XINPUT_CAPABILITIES {
+impl ::core::default::Default for XINPUT_CAPABILITIES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for XINPUT_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for XINPUT_CAPABILITIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("XINPUT_CAPABILITIES").field("Type", &self.Type).field("SubType", &self.SubType).field("Flags", &self.Flags).field("Gamepad", &self.Gamepad).field("Vibration", &self.Vibration).finish()
     }
 }
-impl ::std::cmp::PartialEq for XINPUT_CAPABILITIES {
+impl ::core::cmp::PartialEq for XINPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.SubType == other.SubType && self.Flags == other.Flags && self.Gamepad == other.Gamepad && self.Vibration == other.Vibration
     }
 }
-impl ::std::cmp::Eq for XINPUT_CAPABILITIES {}
+impl ::core::cmp::Eq for XINPUT_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for XINPUT_CAPABILITIES {
     type Abi = Self;
 }
@@ -114,7 +114,7 @@ pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_GAMEPAD {
@@ -127,22 +127,22 @@ pub struct XINPUT_GAMEPAD {
     pub sThumbRY: i16,
 }
 impl XINPUT_GAMEPAD {}
-impl ::std::default::Default for XINPUT_GAMEPAD {
+impl ::core::default::Default for XINPUT_GAMEPAD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for XINPUT_GAMEPAD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for XINPUT_GAMEPAD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("XINPUT_GAMEPAD").field("wButtons", &self.wButtons).field("bLeftTrigger", &self.bLeftTrigger).field("bRightTrigger", &self.bRightTrigger).field("sThumbLX", &self.sThumbLX).field("sThumbLY", &self.sThumbLY).field("sThumbRX", &self.sThumbRX).field("sThumbRY", &self.sThumbRY).finish()
     }
 }
-impl ::std::cmp::PartialEq for XINPUT_GAMEPAD {
+impl ::core::cmp::PartialEq for XINPUT_GAMEPAD {
     fn eq(&self, other: &Self) -> bool {
         self.wButtons == other.wButtons && self.bLeftTrigger == other.bLeftTrigger && self.bRightTrigger == other.bRightTrigger && self.sThumbLX == other.sThumbLX && self.sThumbLY == other.sThumbLY && self.sThumbRX == other.sThumbRX && self.sThumbRY == other.sThumbRY
     }
 }
-impl ::std::cmp::Eq for XINPUT_GAMEPAD {}
+impl ::core::cmp::Eq for XINPUT_GAMEPAD {}
 unsafe impl ::windows::runtime::Abi for XINPUT_GAMEPAD {
     type Abi = Self;
 }
@@ -180,7 +180,7 @@ pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
 pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_KEYSTROKE {
@@ -191,22 +191,22 @@ pub struct XINPUT_KEYSTROKE {
     pub HidCode: u8,
 }
 impl XINPUT_KEYSTROKE {}
-impl ::std::default::Default for XINPUT_KEYSTROKE {
+impl ::core::default::Default for XINPUT_KEYSTROKE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for XINPUT_KEYSTROKE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for XINPUT_KEYSTROKE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("XINPUT_KEYSTROKE").field("VirtualKey", &self.VirtualKey).field("Unicode", &self.Unicode).field("Flags", &self.Flags).field("UserIndex", &self.UserIndex).field("HidCode", &self.HidCode).finish()
     }
 }
-impl ::std::cmp::PartialEq for XINPUT_KEYSTROKE {
+impl ::core::cmp::PartialEq for XINPUT_KEYSTROKE {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Unicode == other.Unicode && self.Flags == other.Flags && self.UserIndex == other.UserIndex && self.HidCode == other.HidCode
     }
 }
-impl ::std::cmp::Eq for XINPUT_KEYSTROKE {}
+impl ::core::cmp::Eq for XINPUT_KEYSTROKE {}
 unsafe impl ::windows::runtime::Abi for XINPUT_KEYSTROKE {
     type Abi = Self;
 }
@@ -216,7 +216,7 @@ pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_STATE {
@@ -224,26 +224,26 @@ pub struct XINPUT_STATE {
     pub Gamepad: XINPUT_GAMEPAD,
 }
 impl XINPUT_STATE {}
-impl ::std::default::Default for XINPUT_STATE {
+impl ::core::default::Default for XINPUT_STATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for XINPUT_STATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for XINPUT_STATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("XINPUT_STATE").field("dwPacketNumber", &self.dwPacketNumber).field("Gamepad", &self.Gamepad).finish()
     }
 }
-impl ::std::cmp::PartialEq for XINPUT_STATE {
+impl ::core::cmp::PartialEq for XINPUT_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.dwPacketNumber == other.dwPacketNumber && self.Gamepad == other.Gamepad
     }
 }
-impl ::std::cmp::Eq for XINPUT_STATE {}
+impl ::core::cmp::Eq for XINPUT_STATE {}
 unsafe impl ::windows::runtime::Abi for XINPUT_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_VIBRATION {
@@ -251,27 +251,27 @@ pub struct XINPUT_VIBRATION {
     pub wRightMotorSpeed: u16,
 }
 impl XINPUT_VIBRATION {}
-impl ::std::default::Default for XINPUT_VIBRATION {
+impl ::core::default::Default for XINPUT_VIBRATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for XINPUT_VIBRATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for XINPUT_VIBRATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("XINPUT_VIBRATION").field("wLeftMotorSpeed", &self.wLeftMotorSpeed).field("wRightMotorSpeed", &self.wRightMotorSpeed).finish()
     }
 }
-impl ::std::cmp::PartialEq for XINPUT_VIBRATION {
+impl ::core::cmp::PartialEq for XINPUT_VIBRATION {
     fn eq(&self, other: &Self) -> bool {
         self.wLeftMotorSpeed == other.wLeftMotorSpeed && self.wRightMotorSpeed == other.wRightMotorSpeed
     }
 }
-impl ::std::cmp::Eq for XINPUT_VIBRATION {}
+impl ::core::cmp::Eq for XINPUT_VIBRATION {}
 unsafe impl ::windows::runtime::Abi for XINPUT_VIBRATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
 pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22528u16);
@@ -306,7 +306,7 @@ pub const VK_PAD_RTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22580u16
 pub const VK_PAD_RTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22581u16);
 pub const VK_PAD_RTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22582u16);
 pub const VK_PAD_RTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22583u16);
-impl ::std::convert::From<u16> for XINPUT_VIRTUAL_KEY {
+impl ::core::convert::From<u16> for XINPUT_VIRTUAL_KEY {
     fn from(value: u16) -> Self {
         Self(value)
     }
@@ -324,7 +324,7 @@ pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn XInputEnable(enable: super::super::super::Foundation::BOOL);
         }
-        ::std::mem::transmute(XInputEnable(enable.into_param().abi()))
+        ::core::mem::transmute(XInputEnable(enable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -339,7 +339,7 @@ pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::
         extern "system" {
             fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(XInputGetAudioDeviceIds(::std::mem::transmute(dwuserindex), ::std::mem::transmute(prenderdeviceid), ::std::mem::transmute(prendercount), ::std::mem::transmute(pcapturedeviceid), ::std::mem::transmute(pcapturecount)))
+        ::core::mem::transmute(XInputGetAudioDeviceIds(::core::mem::transmute(dwuserindex), ::core::mem::transmute(prenderdeviceid), ::core::mem::transmute(prendercount), ::core::mem::transmute(pcapturedeviceid), ::core::mem::transmute(pcapturecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -353,7 +353,7 @@ pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatter
         extern "system" {
             fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(XInputGetBatteryInformation(::std::mem::transmute(dwuserindex), ::std::mem::transmute(devtype), ::std::mem::transmute(pbatteryinformation)))
+        ::core::mem::transmute(XInputGetBatteryInformation(::core::mem::transmute(dwuserindex), ::core::mem::transmute(devtype), ::core::mem::transmute(pbatteryinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -367,7 +367,7 @@ pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilitie
         extern "system" {
             fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
         }
-        ::std::mem::transmute(XInputGetCapabilities(::std::mem::transmute(dwuserindex), ::std::mem::transmute(dwflags), ::std::mem::transmute(pcapabilities)))
+        ::core::mem::transmute(XInputGetCapabilities(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcapabilities)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -381,7 +381,7 @@ pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: 
         extern "system" {
             fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
         }
-        ::std::mem::transmute(XInputGetKeystroke(::std::mem::transmute(dwuserindex), ::std::mem::transmute(dwreserved), ::std::mem::transmute(pkeystroke)))
+        ::core::mem::transmute(XInputGetKeystroke(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pkeystroke)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -395,7 +395,7 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
         extern "system" {
             fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
         }
-        ::std::mem::transmute(XInputGetState(::std::mem::transmute(dwuserindex), ::std::mem::transmute(pstate)))
+        ::core::mem::transmute(XInputGetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pstate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -409,7 +409,7 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
         extern "system" {
             fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
         }
-        ::std::mem::transmute(XInputSetState(::std::mem::transmute(dwuserindex), ::std::mem::transmute(pvibration)))
+        ::core::mem::transmute(XInputSetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pvibration)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

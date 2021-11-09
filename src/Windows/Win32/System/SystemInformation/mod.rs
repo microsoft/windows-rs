@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct CACHE_DESCRIPTOR {
@@ -10,26 +10,26 @@ pub struct CACHE_DESCRIPTOR {
     pub Type: PROCESSOR_CACHE_TYPE,
 }
 impl CACHE_DESCRIPTOR {}
-impl ::std::default::Default for CACHE_DESCRIPTOR {
+impl ::core::default::Default for CACHE_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CACHE_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CACHE_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CACHE_DESCRIPTOR").field("Level", &self.Level).field("Associativity", &self.Associativity).field("LineSize", &self.LineSize).field("Size", &self.Size).field("Type", &self.Type).finish()
     }
 }
-impl ::std::cmp::PartialEq for CACHE_DESCRIPTOR {
+impl ::core::cmp::PartialEq for CACHE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Level == other.Level && self.Associativity == other.Associativity && self.LineSize == other.LineSize && self.Size == other.Size && self.Type == other.Type
     }
 }
-impl ::std::cmp::Eq for CACHE_DESCRIPTOR {}
+impl ::core::cmp::Eq for CACHE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for CACHE_DESCRIPTOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct CACHE_RELATIONSHIP {
@@ -43,21 +43,21 @@ pub struct CACHE_RELATIONSHIP {
     pub Anonymous: CACHE_RELATIONSHIP_0,
 }
 impl CACHE_RELATIONSHIP {}
-impl ::std::default::Default for CACHE_RELATIONSHIP {
+impl ::core::default::Default for CACHE_RELATIONSHIP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CACHE_RELATIONSHIP {
+impl ::core::cmp::PartialEq for CACHE_RELATIONSHIP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CACHE_RELATIONSHIP {}
+impl ::core::cmp::Eq for CACHE_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union CACHE_RELATIONSHIP_0 {
@@ -65,22 +65,22 @@ pub union CACHE_RELATIONSHIP_0 {
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
 impl CACHE_RELATIONSHIP_0 {}
-impl ::std::default::Default for CACHE_RELATIONSHIP_0 {
+impl ::core::default::Default for CACHE_RELATIONSHIP_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CACHE_RELATIONSHIP_0 {
+impl ::core::cmp::PartialEq for CACHE_RELATIONSHIP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CACHE_RELATIONSHIP_0 {}
+impl ::core::cmp::Eq for CACHE_RELATIONSHIP_0 {}
 unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPUTER_NAME_FORMAT(pub i32);
 pub const ComputerNameNetBIOS: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(0i32);
@@ -92,7 +92,7 @@ pub const ComputerNamePhysicalDnsHostname: COMPUTER_NAME_FORMAT = COMPUTER_NAME_
 pub const ComputerNamePhysicalDnsDomain: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(6i32);
 pub const ComputerNamePhysicalDnsFullyQualified: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(7i32);
 pub const ComputerNameMax: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(8i32);
-impl ::std::convert::From<i32> for COMPUTER_NAME_FORMAT {
+impl ::core::convert::From<i32> for COMPUTER_NAME_FORMAT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -101,11 +101,11 @@ unsafe impl ::windows::runtime::Abi for COMPUTER_NAME_FORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CPU_SET_INFORMATION_TYPE(pub i32);
 pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = CPU_SET_INFORMATION_TYPE(0i32);
-impl ::std::convert::From<i32> for CPU_SET_INFORMATION_TYPE {
+impl ::core::convert::From<i32> for CPU_SET_INFORMATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -114,7 +114,7 @@ unsafe impl ::windows::runtime::Abi for CPU_SET_INFORMATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
 pub const DEPPolicyAlwaysOff: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(0i32);
@@ -122,7 +122,7 @@ pub const DEPPolicyAlwaysOn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(1i3
 pub const DEPPolicyOptIn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(2i32);
 pub const DEPPolicyOptOut: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(3i32);
 pub const DEPTotalPolicyCount: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(4i32);
-impl ::std::convert::From<i32> for DEP_SYSTEM_POLICY_TYPE {
+impl ::core::convert::From<i32> for DEP_SYSTEM_POLICY_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -140,7 +140,7 @@ pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn DnsHostnameToComputerNameExW(hostname: super::super::Foundation::PWSTR, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsHostnameToComputerNameExW(hostname.into_param().abi(), ::std::mem::transmute(computername), ::std::mem::transmute(nsize)))
+        ::core::mem::transmute(DnsHostnameToComputerNameExW(hostname.into_param().abi(), ::core::mem::transmute(computername), ::core::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -154,17 +154,17 @@ pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_
         extern "system" {
             fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32;
         }
-        ::std::mem::transmute(EnumSystemFirmwareTables(::std::mem::transmute(firmwaretableprovidersignature), ::std::mem::transmute(pfirmwaretableenumbuffer), ::std::mem::transmute(buffersize)))
+        ::core::mem::transmute(EnumSystemFirmwareTables(::core::mem::transmute(firmwaretableprovidersignature), ::core::mem::transmute(pfirmwaretableenumbuffer), ::core::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FIRMWARE_TABLE_ID(pub u32);
-impl ::std::default::Default for FIRMWARE_TABLE_ID {
+impl ::core::default::Default for FIRMWARE_TABLE_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FIRMWARE_TABLE_ID {}
@@ -172,13 +172,13 @@ unsafe impl ::windows::runtime::Abi for FIRMWARE_TABLE_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);
 pub const FIRM: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1179210317u32);
 pub const RSMB: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1381190978u32);
-impl ::std::convert::From<u32> for FIRMWARE_TABLE_PROVIDER {
+impl ::core::convert::From<u32> for FIRMWARE_TABLE_PROVIDER {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -186,43 +186,43 @@ impl ::std::convert::From<u32> for FIRMWARE_TABLE_PROVIDER {
 unsafe impl ::windows::runtime::Abi for FIRMWARE_TABLE_PROVIDER {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FIRMWARE_TABLE_PROVIDER {
+impl ::core::ops::BitOr for FIRMWARE_TABLE_PROVIDER {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FIRMWARE_TABLE_PROVIDER {
+impl ::core::ops::BitAnd for FIRMWARE_TABLE_PROVIDER {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FIRMWARE_TABLE_PROVIDER {
+impl ::core::ops::BitOrAssign for FIRMWARE_TABLE_PROVIDER {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FIRMWARE_TABLE_PROVIDER {
+impl ::core::ops::BitAndAssign for FIRMWARE_TABLE_PROVIDER {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FIRMWARE_TABLE_PROVIDER {
+impl ::core::ops::Not for FIRMWARE_TABLE_PROVIDER {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FIRMWARE_TYPE(pub i32);
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = FIRMWARE_TYPE(0i32);
 pub const FirmwareTypeBios: FIRMWARE_TYPE = FIRMWARE_TYPE(1i32);
 pub const FirmwareTypeUefi: FIRMWARE_TYPE = FIRMWARE_TYPE(2i32);
 pub const FirmwareTypeMax: FIRMWARE_TYPE = FIRMWARE_TYPE(3i32);
-impl ::std::convert::From<i32> for FIRMWARE_TYPE {
+impl ::core::convert::From<i32> for FIRMWARE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -230,7 +230,7 @@ impl ::std::convert::From<i32> for FIRMWARE_TYPE {
 unsafe impl ::windows::runtime::Abi for FIRMWARE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct GROUP_AFFINITY {
@@ -239,26 +239,26 @@ pub struct GROUP_AFFINITY {
     pub Reserved: [u16; 3],
 }
 impl GROUP_AFFINITY {}
-impl ::std::default::Default for GROUP_AFFINITY {
+impl ::core::default::Default for GROUP_AFFINITY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GROUP_AFFINITY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_AFFINITY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_AFFINITY").field("Mask", &self.Mask).field("Group", &self.Group).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for GROUP_AFFINITY {
+impl ::core::cmp::PartialEq for GROUP_AFFINITY {
     fn eq(&self, other: &Self) -> bool {
         self.Mask == other.Mask && self.Group == other.Group && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for GROUP_AFFINITY {}
+impl ::core::cmp::Eq for GROUP_AFFINITY {}
 unsafe impl ::windows::runtime::Abi for GROUP_AFFINITY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct GROUP_RELATIONSHIP {
@@ -268,22 +268,22 @@ pub struct GROUP_RELATIONSHIP {
     pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
 }
 impl GROUP_RELATIONSHIP {}
-impl ::std::default::Default for GROUP_RELATIONSHIP {
+impl ::core::default::Default for GROUP_RELATIONSHIP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GROUP_RELATIONSHIP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_RELATIONSHIP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_RELATIONSHIP").field("MaximumGroupCount", &self.MaximumGroupCount).field("ActiveGroupCount", &self.ActiveGroupCount).field("Reserved", &self.Reserved).field("GroupInfo", &self.GroupInfo).finish()
     }
 }
-impl ::std::cmp::PartialEq for GROUP_RELATIONSHIP {
+impl ::core::cmp::PartialEq for GROUP_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
         self.MaximumGroupCount == other.MaximumGroupCount && self.ActiveGroupCount == other.ActiveGroupCount && self.Reserved == other.Reserved && self.GroupInfo == other.GroupInfo
     }
 }
-impl ::std::cmp::Eq for GROUP_RELATIONSHIP {}
+impl ::core::cmp::Eq for GROUP_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for GROUP_RELATIONSHIP {
     type Abi = Self;
 }
@@ -297,7 +297,7 @@ pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super
         extern "system" {
             fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetComputerNameExA(::std::mem::transmute(nametype), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize)))
+        ::core::mem::transmute(GetComputerNameExA(::core::mem::transmute(nametype), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -312,7 +312,7 @@ pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super
         extern "system" {
             fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetComputerNameExW(::std::mem::transmute(nametype), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize)))
+        ::core::mem::transmute(GetComputerNameExW(::core::mem::transmute(nametype), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -327,7 +327,7 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
         extern "system" {
             fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFirmwareType(::std::mem::transmute(firmwaretype)))
+        ::core::mem::transmute(GetFirmwareType(::core::mem::transmute(firmwaretype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -341,7 +341,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         GetIntegratedDisplaySize(&mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
@@ -357,7 +357,7 @@ pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTI
         extern "system" {
             fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
         }
-        ::std::mem::transmute(GetLocalTime(::std::mem::transmute(lpsystemtime)))
+        ::core::mem::transmute(GetLocalTime(::core::mem::transmute(lpsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -372,7 +372,7 @@ pub unsafe fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESS
         extern "system" {
             fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLogicalProcessorInformation(::std::mem::transmute(buffer), ::std::mem::transmute(returnedlength)))
+        ::core::mem::transmute(GetLogicalProcessorInformation(::core::mem::transmute(buffer), ::core::mem::transmute(returnedlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -387,7 +387,7 @@ pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESS
         extern "system" {
             fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLogicalProcessorInformationEx(::std::mem::transmute(relationshiptype), ::std::mem::transmute(buffer), ::std::mem::transmute(returnedlength)))
+        ::core::mem::transmute(GetLogicalProcessorInformationEx(::core::mem::transmute(relationshiptype), ::core::mem::transmute(buffer), ::core::mem::transmute(returnedlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -402,7 +402,7 @@ pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
         extern "system" {
             fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
         }
-        ::std::mem::transmute(GetNativeSystemInfo(::std::mem::transmute(lpsysteminfo)))
+        ::core::mem::transmute(GetNativeSystemInfo(::core::mem::transmute(lpsysteminfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -417,7 +417,7 @@ pub unsafe fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::B
         extern "system" {
             fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetOsManufacturingMode(::std::mem::transmute(pbenabled)))
+        ::core::mem::transmute(GetOsManufacturingMode(::core::mem::transmute(pbenabled)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -432,7 +432,7 @@ pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BO
         extern "system" {
             fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetOsSafeBootMode(::std::mem::transmute(flags)))
+        ::core::mem::transmute(GetOsSafeBootMode(::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -447,7 +447,7 @@ pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u6
         extern "system" {
             fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPhysicallyInstalledSystemMemory(::std::mem::transmute(totalmemoryinkilobytes)))
+        ::core::mem::transmute(GetPhysicallyInstalledSystemMemory(::core::mem::transmute(totalmemoryinkilobytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -462,7 +462,7 @@ pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCES
         extern "system" {
             fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetProcessorSystemCycleTime(::std::mem::transmute(group), ::std::mem::transmute(buffer), ::std::mem::transmute(returnedlength)))
+        ::core::mem::transmute(GetProcessorSystemCycleTime(::core::mem::transmute(group), ::core::mem::transmute(buffer), ::core::mem::transmute(returnedlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -477,7 +477,7 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
         extern "system" {
             fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetProductInfo(::std::mem::transmute(dwosmajorversion), ::std::mem::transmute(dwosminorversion), ::std::mem::transmute(dwspmajorversion), ::std::mem::transmute(dwspminorversion), ::std::mem::transmute(pdwreturnedproducttype)))
+        ::core::mem::transmute(GetProductInfo(::core::mem::transmute(dwosmajorversion), ::core::mem::transmute(dwosminorversion), ::core::mem::transmute(dwspmajorversion), ::core::mem::transmute(dwspminorversion), ::core::mem::transmute(pdwreturnedproducttype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -491,7 +491,7 @@ pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
         extern "system" {
             fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
         }
-        ::std::mem::transmute(GetSystemDEPPolicy())
+        ::core::mem::transmute(GetSystemDEPPolicy())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -506,7 +506,7 @@ pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usiz
         extern "system" {
             fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemDirectoryA(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetSystemDirectoryA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -521,21 +521,21 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usi
         extern "system" {
             fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemDirectoryW(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetSystemDirectoryW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
-pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::runtime::IntoParam<'a, FIRMWARE_TABLE_ID>>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: Param1, pfirmwaretablebuffer: *mut ::std::ffi::c_void, buffersize: u32) -> u32 {
+pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::runtime::IntoParam<'a, FIRMWARE_TABLE_ID>>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: Param1, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::std::ffi::c_void, buffersize: u32) -> u32;
+            fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemFirmwareTable(::std::mem::transmute(firmwaretableprovidersignature), firmwaretableid.into_param().abi(), ::std::mem::transmute(pfirmwaretablebuffer), ::std::mem::transmute(buffersize)))
+        ::core::mem::transmute(GetSystemFirmwareTable(::core::mem::transmute(firmwaretableprovidersignature), firmwaretableid.into_param().abi(), ::core::mem::transmute(pfirmwaretablebuffer), ::core::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -550,7 +550,7 @@ pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
         extern "system" {
             fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
         }
-        ::std::mem::transmute(GetSystemInfo(::std::mem::transmute(lpsysteminfo)))
+        ::core::mem::transmute(GetSystemInfo(::core::mem::transmute(lpsysteminfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -565,7 +565,7 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundat
         extern "system" {
             fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundation::BOOL, flags: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSystemLeapSecondInformation(::std::mem::transmute(enabled), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(GetSystemLeapSecondInformation(::core::mem::transmute(enabled), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -580,7 +580,7 @@ pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMT
         extern "system" {
             fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
         }
-        ::std::mem::transmute(GetSystemTime(::std::mem::transmute(lpsystemtime)))
+        ::core::mem::transmute(GetSystemTime(::core::mem::transmute(lpsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -595,7 +595,7 @@ pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincremen
         extern "system" {
             fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSystemTimeAdjustment(::std::mem::transmute(lptimeadjustment), ::std::mem::transmute(lptimeincrement), ::std::mem::transmute(lptimeadjustmentdisabled)))
+        ::core::mem::transmute(GetSystemTimeAdjustment(::core::mem::transmute(lptimeadjustment), ::core::mem::transmute(lptimeincrement), ::core::mem::transmute(lptimeadjustmentdisabled)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -610,7 +610,7 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
         extern "system" {
             fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSystemTimeAdjustmentPrecise(::std::mem::transmute(lptimeadjustment), ::std::mem::transmute(lptimeincrement), ::std::mem::transmute(lptimeadjustmentdisabled)))
+        ::core::mem::transmute(GetSystemTimeAdjustmentPrecise(::core::mem::transmute(lptimeadjustment), ::core::mem::transmute(lptimeincrement), ::core::mem::transmute(lptimeadjustmentdisabled)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -625,7 +625,7 @@ pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super:
         extern "system" {
             fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
         }
-        ::std::mem::transmute(GetSystemTimeAsFileTime(::std::mem::transmute(lpsystemtimeasfiletime)))
+        ::core::mem::transmute(GetSystemTimeAsFileTime(::core::mem::transmute(lpsystemtimeasfiletime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -640,7 +640,7 @@ pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super:
         extern "system" {
             fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
         }
-        ::std::mem::transmute(GetSystemTimePreciseAsFileTime(::std::mem::transmute(lpsystemtimeasfiletime)))
+        ::core::mem::transmute(GetSystemTimePreciseAsFileTime(::core::mem::transmute(lpsystemtimeasfiletime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -655,7 +655,7 @@ pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PST
         extern "system" {
             fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemWindowsDirectoryA(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetSystemWindowsDirectoryA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -670,7 +670,7 @@ pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWS
         extern "system" {
             fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemWindowsDirectoryW(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetSystemWindowsDirectoryW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -685,7 +685,7 @@ pub unsafe fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR
         extern "system" {
             fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR, usize: u32, imagefilemachinetype: u16) -> u32;
         }
-        ::std::mem::transmute(GetSystemWow64Directory2A(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize), ::std::mem::transmute(imagefilemachinetype)))
+        ::core::mem::transmute(GetSystemWow64Directory2A(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize), ::core::mem::transmute(imagefilemachinetype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -700,7 +700,7 @@ pub unsafe fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWST
         extern "system" {
             fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
         }
-        ::std::mem::transmute(GetSystemWow64Directory2W(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize), ::std::mem::transmute(imagefilemachinetype)))
+        ::core::mem::transmute(GetSystemWow64Directory2W(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize), ::core::mem::transmute(imagefilemachinetype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -715,7 +715,7 @@ pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR,
         extern "system" {
             fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemWow64DirectoryA(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetSystemWow64DirectoryA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -730,7 +730,7 @@ pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR
         extern "system" {
             fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetSystemWow64DirectoryW(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetSystemWow64DirectoryW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -744,7 +744,7 @@ pub unsafe fn GetTickCount() -> u32 {
         extern "system" {
             fn GetTickCount() -> u32;
         }
-        ::std::mem::transmute(GetTickCount())
+        ::core::mem::transmute(GetTickCount())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -758,7 +758,7 @@ pub unsafe fn GetTickCount64() -> u64 {
         extern "system" {
             fn GetTickCount64() -> u64;
         }
-        ::std::mem::transmute(GetTickCount64())
+        ::core::mem::transmute(GetTickCount64())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -772,7 +772,7 @@ pub unsafe fn GetVersion() -> u32 {
         extern "system" {
             fn GetVersion() -> u32;
         }
-        ::std::mem::transmute(GetVersion())
+        ::core::mem::transmute(GetVersion())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -787,7 +787,7 @@ pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super:
         extern "system" {
             fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVersionExA(::std::mem::transmute(lpversioninformation)))
+        ::core::mem::transmute(GetVersionExA(::core::mem::transmute(lpversioninformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -802,7 +802,7 @@ pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super:
         extern "system" {
             fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVersionExW(::std::mem::transmute(lpversioninformation)))
+        ::core::mem::transmute(GetVersionExW(::core::mem::transmute(lpversioninformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -817,7 +817,7 @@ pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usi
         extern "system" {
             fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetWindowsDirectoryA(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetWindowsDirectoryA(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -832,7 +832,7 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, us
         extern "system" {
             fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
         }
-        ::std::mem::transmute(GetWindowsDirectoryW(::std::mem::transmute(lpbuffer), ::std::mem::transmute(usize)))
+        ::core::mem::transmute(GetWindowsDirectoryW(::core::mem::transmute(lpbuffer), ::core::mem::transmute(usize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -846,7 +846,7 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
         extern "system" {
             fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS);
         }
-        ::std::mem::transmute(GlobalMemoryStatus(::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(GlobalMemoryStatus(::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -861,7 +861,7 @@ pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::supe
         extern "system" {
             fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GlobalMemoryStatusEx(::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(GlobalMemoryStatusEx(::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -876,7 +876,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
         extern "system" {
             fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsUserCetAvailableInEnvironment(::std::mem::transmute(usercetenvironment)))
+        ::core::mem::transmute(IsUserCetAvailableInEnvironment(::core::mem::transmute(usercetenvironment)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -891,14 +891,14 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::r
         extern "system" {
             fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        IsWow64GuestMachineSupported(::std::mem::transmute(wowguestmachine), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        IsWow64GuestMachineSupported(::core::mem::transmute(wowguestmachine), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
 pub const RelationProcessorCore: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(0i32);
@@ -910,7 +910,7 @@ pub const RelationProcessorDie: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESS
 pub const RelationNumaNodeEx: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(6i32);
 pub const RelationProcessorModule: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(7i32);
 pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(65535i32);
-impl ::std::convert::From<i32> for LOGICAL_PROCESSOR_RELATIONSHIP {
+impl ::core::convert::From<i32> for LOGICAL_PROCESSOR_RELATIONSHIP {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -918,7 +918,7 @@ impl ::std::convert::From<i32> for LOGICAL_PROCESSOR_RELATIONSHIP {
 unsafe impl ::windows::runtime::Abi for LOGICAL_PROCESSOR_RELATIONSHIP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct MEMORYSTATUS {
@@ -932,13 +932,13 @@ pub struct MEMORYSTATUS {
     pub dwAvailVirtual: usize,
 }
 impl MEMORYSTATUS {}
-impl ::std::default::Default for MEMORYSTATUS {
+impl ::core::default::Default for MEMORYSTATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MEMORYSTATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MEMORYSTATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MEMORYSTATUS")
             .field("dwLength", &self.dwLength)
             .field("dwMemoryLoad", &self.dwMemoryLoad)
@@ -951,16 +951,16 @@ impl ::std::fmt::Debug for MEMORYSTATUS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for MEMORYSTATUS {
+impl ::core::cmp::PartialEq for MEMORYSTATUS {
     fn eq(&self, other: &Self) -> bool {
         self.dwLength == other.dwLength && self.dwMemoryLoad == other.dwMemoryLoad && self.dwTotalPhys == other.dwTotalPhys && self.dwAvailPhys == other.dwAvailPhys && self.dwTotalPageFile == other.dwTotalPageFile && self.dwAvailPageFile == other.dwAvailPageFile && self.dwTotalVirtual == other.dwTotalVirtual && self.dwAvailVirtual == other.dwAvailVirtual
     }
 }
-impl ::std::cmp::Eq for MEMORYSTATUS {}
+impl ::core::cmp::Eq for MEMORYSTATUS {}
 unsafe impl ::windows::runtime::Abi for MEMORYSTATUS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct MEMORYSTATUSEX {
@@ -975,13 +975,13 @@ pub struct MEMORYSTATUSEX {
     pub ullAvailExtendedVirtual: u64,
 }
 impl MEMORYSTATUSEX {}
-impl ::std::default::Default for MEMORYSTATUSEX {
+impl ::core::default::Default for MEMORYSTATUSEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MEMORYSTATUSEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MEMORYSTATUSEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MEMORYSTATUSEX")
             .field("dwLength", &self.dwLength)
             .field("dwMemoryLoad", &self.dwMemoryLoad)
@@ -995,12 +995,12 @@ impl ::std::fmt::Debug for MEMORYSTATUSEX {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for MEMORYSTATUSEX {
+impl ::core::cmp::PartialEq for MEMORYSTATUSEX {
     fn eq(&self, other: &Self) -> bool {
         self.dwLength == other.dwLength && self.dwMemoryLoad == other.dwMemoryLoad && self.ullTotalPhys == other.ullTotalPhys && self.ullAvailPhys == other.ullAvailPhys && self.ullTotalPageFile == other.ullTotalPageFile && self.ullAvailPageFile == other.ullAvailPageFile && self.ullTotalVirtual == other.ullTotalVirtual && self.ullAvailVirtual == other.ullAvailVirtual && self.ullAvailExtendedVirtual == other.ullAvailExtendedVirtual
     }
 }
-impl ::std::cmp::Eq for MEMORYSTATUSEX {}
+impl ::core::cmp::Eq for MEMORYSTATUSEX {}
 unsafe impl ::windows::runtime::Abi for MEMORYSTATUSEX {
     type Abi = Self;
 }
@@ -1100,7 +1100,7 @@ pub const NTDDI_WS08SP2: u32 = 100663808u32;
 pub const NTDDI_WS08SP3: u32 = 100664064u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct NUMA_NODE_RELATIONSHIP {
@@ -1110,21 +1110,21 @@ pub struct NUMA_NODE_RELATIONSHIP {
     pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
 }
 impl NUMA_NODE_RELATIONSHIP {}
-impl ::std::default::Default for NUMA_NODE_RELATIONSHIP {
+impl ::core::default::Default for NUMA_NODE_RELATIONSHIP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for NUMA_NODE_RELATIONSHIP {
+impl ::core::cmp::PartialEq for NUMA_NODE_RELATIONSHIP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for NUMA_NODE_RELATIONSHIP {}
+impl ::core::cmp::Eq for NUMA_NODE_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union NUMA_NODE_RELATIONSHIP_0 {
@@ -1132,21 +1132,21 @@ pub union NUMA_NODE_RELATIONSHIP_0 {
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
 impl NUMA_NODE_RELATIONSHIP_0 {}
-impl ::std::default::Default for NUMA_NODE_RELATIONSHIP_0 {
+impl ::core::default::Default for NUMA_NODE_RELATIONSHIP_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for NUMA_NODE_RELATIONSHIP_0 {
+impl ::core::cmp::PartialEq for NUMA_NODE_RELATIONSHIP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for NUMA_NODE_RELATIONSHIP_0 {}
+impl ::core::cmp::Eq for NUMA_NODE_RELATIONSHIP_0 {}
 unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -1161,14 +1161,14 @@ pub struct OSVERSIONINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl OSVERSIONINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for OSVERSIONINFOA {
+impl ::core::default::Default for OSVERSIONINFOA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for OSVERSIONINFOA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OSVERSIONINFOA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OSVERSIONINFOA")
             .field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize)
             .field("dwMajorVersion", &self.dwMajorVersion)
@@ -1180,18 +1180,18 @@ impl ::std::fmt::Debug for OSVERSIONINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for OSVERSIONINFOA {
+impl ::core::cmp::PartialEq for OSVERSIONINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.dwBuildNumber == other.dwBuildNumber && self.dwPlatformId == other.dwPlatformId && self.szCSDVersion == other.szCSDVersion
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for OSVERSIONINFOA {}
+impl ::core::cmp::Eq for OSVERSIONINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -1211,14 +1211,14 @@ pub struct OSVERSIONINFOEXA {
 #[cfg(feature = "Win32_Foundation")]
 impl OSVERSIONINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for OSVERSIONINFOEXA {
+impl ::core::default::Default for OSVERSIONINFOEXA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for OSVERSIONINFOEXA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OSVERSIONINFOEXA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OSVERSIONINFOEXA")
             .field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize)
             .field("dwMajorVersion", &self.dwMajorVersion)
@@ -1235,7 +1235,7 @@ impl ::std::fmt::Debug for OSVERSIONINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for OSVERSIONINFOEXA {
+impl ::core::cmp::PartialEq for OSVERSIONINFOEXA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize
             && self.dwMajorVersion == other.dwMajorVersion
@@ -1251,12 +1251,12 @@ impl ::std::cmp::PartialEq for OSVERSIONINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for OSVERSIONINFOEXA {}
+impl ::core::cmp::Eq for OSVERSIONINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct OSVERSIONINFOEXW {
@@ -1273,13 +1273,13 @@ pub struct OSVERSIONINFOEXW {
     pub wReserved: u8,
 }
 impl OSVERSIONINFOEXW {}
-impl ::std::default::Default for OSVERSIONINFOEXW {
+impl ::core::default::Default for OSVERSIONINFOEXW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for OSVERSIONINFOEXW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OSVERSIONINFOEXW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OSVERSIONINFOEXW")
             .field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize)
             .field("dwMajorVersion", &self.dwMajorVersion)
@@ -1295,7 +1295,7 @@ impl ::std::fmt::Debug for OSVERSIONINFOEXW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for OSVERSIONINFOEXW {
+impl ::core::cmp::PartialEq for OSVERSIONINFOEXW {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize
             && self.dwMajorVersion == other.dwMajorVersion
@@ -1310,11 +1310,11 @@ impl ::std::cmp::PartialEq for OSVERSIONINFOEXW {
             && self.wReserved == other.wReserved
     }
 }
-impl ::std::cmp::Eq for OSVERSIONINFOEXW {}
+impl ::core::cmp::Eq for OSVERSIONINFOEXW {}
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct OSVERSIONINFOW {
@@ -1326,13 +1326,13 @@ pub struct OSVERSIONINFOW {
     pub szCSDVersion: [u16; 128],
 }
 impl OSVERSIONINFOW {}
-impl ::std::default::Default for OSVERSIONINFOW {
+impl ::core::default::Default for OSVERSIONINFOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for OSVERSIONINFOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OSVERSIONINFOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OSVERSIONINFOW")
             .field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize)
             .field("dwMajorVersion", &self.dwMajorVersion)
@@ -1343,19 +1343,19 @@ impl ::std::fmt::Debug for OSVERSIONINFOW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for OSVERSIONINFOW {
+impl ::core::cmp::PartialEq for OSVERSIONINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.dwBuildNumber == other.dwBuildNumber && self.dwPlatformId == other.dwPlatformId && self.szCSDVersion == other.szCSDVersion
     }
 }
-impl ::std::cmp::Eq for OSVERSIONINFOW {}
+impl ::core::cmp::Eq for OSVERSIONINFOW {}
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OS_PRODUCT_TYPE(pub u32);
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
@@ -1454,7 +1454,7 @@ pub const PRODUCT_ULTIMATE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(28u32);
 pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(0u32);
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(17u32);
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(29u32);
-impl ::std::convert::From<u32> for OS_PRODUCT_TYPE {
+impl ::core::convert::From<u32> for OS_PRODUCT_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1462,29 +1462,29 @@ impl ::std::convert::From<u32> for OS_PRODUCT_TYPE {
 unsafe impl ::windows::runtime::Abi for OS_PRODUCT_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for OS_PRODUCT_TYPE {
+impl ::core::ops::BitOr for OS_PRODUCT_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for OS_PRODUCT_TYPE {
+impl ::core::ops::BitAnd for OS_PRODUCT_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for OS_PRODUCT_TYPE {
+impl ::core::ops::BitOrAssign for OS_PRODUCT_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for OS_PRODUCT_TYPE {
+impl ::core::ops::BitAndAssign for OS_PRODUCT_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for OS_PRODUCT_TYPE {
+impl ::core::ops::Not for OS_PRODUCT_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1497,14 +1497,14 @@ pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: sup
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROCESSOR_CACHE_TYPE(pub i32);
 pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);
 pub const CacheInstruction: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(1i32);
 pub const CacheData: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(2i32);
 pub const CacheTrace: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(3i32);
-impl ::std::convert::From<i32> for PROCESSOR_CACHE_TYPE {
+impl ::core::convert::From<i32> for PROCESSOR_CACHE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1512,7 +1512,7 @@ impl ::std::convert::From<i32> for PROCESSOR_CACHE_TYPE {
 unsafe impl ::windows::runtime::Abi for PROCESSOR_CACHE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct PROCESSOR_GROUP_INFO {
@@ -1522,26 +1522,26 @@ pub struct PROCESSOR_GROUP_INFO {
     pub ActiveProcessorMask: usize,
 }
 impl PROCESSOR_GROUP_INFO {}
-impl ::std::default::Default for PROCESSOR_GROUP_INFO {
+impl ::core::default::Default for PROCESSOR_GROUP_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PROCESSOR_GROUP_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PROCESSOR_GROUP_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PROCESSOR_GROUP_INFO").field("MaximumProcessorCount", &self.MaximumProcessorCount).field("ActiveProcessorCount", &self.ActiveProcessorCount).field("Reserved", &self.Reserved).field("ActiveProcessorMask", &self.ActiveProcessorMask).finish()
     }
 }
-impl ::std::cmp::PartialEq for PROCESSOR_GROUP_INFO {
+impl ::core::cmp::PartialEq for PROCESSOR_GROUP_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.MaximumProcessorCount == other.MaximumProcessorCount && self.ActiveProcessorCount == other.ActiveProcessorCount && self.Reserved == other.Reserved && self.ActiveProcessorMask == other.ActiveProcessorMask
     }
 }
-impl ::std::cmp::Eq for PROCESSOR_GROUP_INFO {}
+impl ::core::cmp::Eq for PROCESSOR_GROUP_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_GROUP_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct PROCESSOR_RELATIONSHIP {
@@ -1552,22 +1552,22 @@ pub struct PROCESSOR_RELATIONSHIP {
     pub GroupMask: [GROUP_AFFINITY; 1],
 }
 impl PROCESSOR_RELATIONSHIP {}
-impl ::std::default::Default for PROCESSOR_RELATIONSHIP {
+impl ::core::default::Default for PROCESSOR_RELATIONSHIP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PROCESSOR_RELATIONSHIP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PROCESSOR_RELATIONSHIP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PROCESSOR_RELATIONSHIP").field("Flags", &self.Flags).field("EfficiencyClass", &self.EfficiencyClass).field("Reserved", &self.Reserved).field("GroupCount", &self.GroupCount).field("GroupMask", &self.GroupMask).finish()
     }
 }
-impl ::std::cmp::PartialEq for PROCESSOR_RELATIONSHIP {
+impl ::core::cmp::PartialEq for PROCESSOR_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.EfficiencyClass == other.EfficiencyClass && self.Reserved == other.Reserved && self.GroupCount == other.GroupCount && self.GroupMask == other.GroupMask
     }
 }
-impl ::std::cmp::Eq for PROCESSOR_RELATIONSHIP {}
+impl ::core::cmp::Eq for PROCESSOR_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_RELATIONSHIP {
     type Abi = Self;
 }
@@ -1577,7 +1577,7 @@ pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SUBVERSION_MASK: u32 = 255u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_CPU_SET_INFORMATION {
@@ -1586,42 +1586,42 @@ pub struct SYSTEM_CPU_SET_INFORMATION {
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
 }
 impl SYSTEM_CPU_SET_INFORMATION {}
-impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION {
+impl ::core::default::Default for SYSTEM_CPU_SET_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION {
+impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION {}
+impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_CPU_SET_INFORMATION_0 {
     pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
 }
 impl SYSTEM_CPU_SET_INFORMATION_0 {}
-impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0 {
+impl ::core::default::Default for SYSTEM_CPU_SET_INFORMATION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0 {
+impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0 {}
+impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
@@ -1637,21 +1637,21 @@ pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
     pub AllocationTag: u64,
 }
 impl SYSTEM_CPU_SET_INFORMATION_0_0 {}
-impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
+impl ::core::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0 {
+impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0 {}
+impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
@@ -1659,47 +1659,47 @@ pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
 }
 impl SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
-impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+impl ::core::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
+impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     pub _bitfield: u8,
 }
 impl SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
-impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+impl ::core::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
+impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
@@ -1707,29 +1707,29 @@ pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     pub SchedulingClass: u8,
 }
 impl SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
-impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+impl ::core::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+impl ::core::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
+impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
 pub struct SYSTEM_INFO {
     pub Anonymous: SYSTEM_INFO_0,
     pub dwPageSize: u32,
-    pub lpMinimumApplicationAddress: *mut ::std::ffi::c_void,
-    pub lpMaximumApplicationAddress: *mut ::std::ffi::c_void,
+    pub lpMinimumApplicationAddress: *mut ::core::ffi::c_void,
+    pub lpMaximumApplicationAddress: *mut ::core::ffi::c_void,
     pub dwActiveProcessorMask: usize,
     pub dwNumberOfProcessors: u32,
     pub dwProcessorType: u32,
@@ -1740,24 +1740,24 @@ pub struct SYSTEM_INFO {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl SYSTEM_INFO {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::default::Default for SYSTEM_INFO {
+impl ::core::default::Default for SYSTEM_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::cmp::PartialEq for SYSTEM_INFO {
+impl ::core::cmp::PartialEq for SYSTEM_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::cmp::Eq for SYSTEM_INFO {}
+impl ::core::cmp::Eq for SYSTEM_INFO {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union SYSTEM_INFO_0 {
@@ -1767,24 +1767,24 @@ pub union SYSTEM_INFO_0 {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl SYSTEM_INFO_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::default::Default for SYSTEM_INFO_0 {
+impl ::core::default::Default for SYSTEM_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::cmp::PartialEq for SYSTEM_INFO_0 {
+impl ::core::cmp::PartialEq for SYSTEM_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::cmp::Eq for SYSTEM_INFO_0 {}
+impl ::core::cmp::Eq for SYSTEM_INFO_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct SYSTEM_INFO_0_0 {
@@ -1794,30 +1794,30 @@ pub struct SYSTEM_INFO_0_0 {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl SYSTEM_INFO_0_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::default::Default for SYSTEM_INFO_0_0 {
+impl ::core::default::Default for SYSTEM_INFO_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::fmt::Debug for SYSTEM_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_INFO_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wReserved", &self.wReserved).finish()
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::cmp::PartialEq for SYSTEM_INFO_0_0 {
+impl ::core::cmp::PartialEq for SYSTEM_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.wProcessorArchitecture == other.wProcessorArchitecture && self.wReserved == other.wReserved
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::std::cmp::Eq for SYSTEM_INFO_0_0 {}
+impl ::core::cmp::Eq for SYSTEM_INFO_0_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
@@ -1826,21 +1826,21 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
 }
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
-impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+impl ::core::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
+impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
@@ -1850,73 +1850,73 @@ pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     pub Reserved: [u64; 2],
 }
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
-impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+impl ::core::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
+impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub NodeNumber: u32,
 }
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
-impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+impl ::core::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NumaNode_e__Struct").field("NodeNumber", &self.NodeNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.NodeNumber == other.NodeNumber
     }
 }
-impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
+impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub Flags: u8,
 }
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
-impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+impl ::core::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_ProcessorCore_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
+impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
@@ -1925,21 +1925,21 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
 }
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
-impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+impl ::core::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
+impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
@@ -1949,21 +1949,21 @@ pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     pub Group: GROUP_RELATIONSHIP,
 }
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
-impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+impl ::core::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+impl ::core::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
+impl ::core::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -1973,78 +1973,78 @@ pub struct SYSTEM_POOL_ZEROING_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl SYSTEM_POOL_ZEROING_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SYSTEM_POOL_ZEROING_INFORMATION {
+impl ::core::default::Default for SYSTEM_POOL_ZEROING_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SYSTEM_POOL_ZEROING_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_POOL_ZEROING_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_POOL_ZEROING_INFORMATION").field("PoolZeroingSupportPresent", &self.PoolZeroingSupportPresent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SYSTEM_POOL_ZEROING_INFORMATION {
+impl ::core::cmp::PartialEq for SYSTEM_POOL_ZEROING_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.PoolZeroingSupportPresent == other.PoolZeroingSupportPresent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SYSTEM_POOL_ZEROING_INFORMATION {}
+impl ::core::cmp::Eq for SYSTEM_POOL_ZEROING_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_POOL_ZEROING_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     pub CycleTime: u64,
 }
 impl SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
-impl ::std::default::Default for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+impl ::core::default::Default for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION").field("CycleTime", &self.CycleTime).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+impl ::core::cmp::PartialEq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.CycleTime == other.CycleTime
     }
 }
-impl ::std::cmp::Eq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
+impl ::core::cmp::Eq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
 }
 impl SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
-impl ::std::default::Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+impl ::core::default::Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+impl ::core::cmp::PartialEq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
+impl ::core::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     type Abi = Self;
 }
@@ -2058,7 +2058,7 @@ pub unsafe fn SetComputerNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetComputerNameA(lpcomputername: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetComputerNameA(lpcomputername.into_param().abi()))
+        ::core::mem::transmute(SetComputerNameA(lpcomputername.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2073,7 +2073,7 @@ pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetComputerNameEx2W(::std::mem::transmute(nametype), ::std::mem::transmute(flags), lpbuffer.into_param().abi()))
+        ::core::mem::transmute(SetComputerNameEx2W(::core::mem::transmute(nametype), ::core::mem::transmute(flags), lpbuffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2088,7 +2088,7 @@ pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetComputerNameExA(::std::mem::transmute(nametype), lpbuffer.into_param().abi()))
+        ::core::mem::transmute(SetComputerNameExA(::core::mem::transmute(nametype), lpbuffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2103,7 +2103,7 @@ pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetComputerNameExW(::std::mem::transmute(nametype), lpbuffer.into_param().abi()))
+        ::core::mem::transmute(SetComputerNameExW(::core::mem::transmute(nametype), lpbuffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2118,7 +2118,7 @@ pub unsafe fn SetComputerNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetComputerNameW(lpcomputername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetComputerNameW(lpcomputername.into_param().abi()))
+        ::core::mem::transmute(SetComputerNameW(lpcomputername.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2133,7 +2133,7 @@ pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEM
         extern "system" {
             fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetLocalTime(::std::mem::transmute(lpsystemtime)))
+        ::core::mem::transmute(SetLocalTime(::core::mem::transmute(lpsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2148,7 +2148,7 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
         extern "system" {
             fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSystemTime(::std::mem::transmute(lpsystemtime)))
+        ::core::mem::transmute(SetSystemTime(::core::mem::transmute(lpsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2163,7 +2163,7 @@ pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::runtime::IntoParam<
         extern "system" {
             fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSystemTimeAdjustment(::std::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.into_param().abi()))
+        ::core::mem::transmute(SetSystemTimeAdjustment(::core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2178,20 +2178,20 @@ pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::runtime::Int
         extern "system" {
             fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSystemTimeAdjustmentPrecise(::std::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.into_param().abi()))
+        ::core::mem::transmute(SetSystemTimeAdjustmentPrecise(::core::mem::transmute(dwtimeadjustment), btimeadjustmentdisabled.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_CET_ENVIRONMENT(pub u32);
 pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(0u32);
 pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(2u32);
 pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(16u32);
 pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(17u32);
-impl ::std::convert::From<u32> for USER_CET_ENVIRONMENT {
+impl ::core::convert::From<u32> for USER_CET_ENVIRONMENT {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2199,36 +2199,36 @@ impl ::std::convert::From<u32> for USER_CET_ENVIRONMENT {
 unsafe impl ::windows::runtime::Abi for USER_CET_ENVIRONMENT {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for USER_CET_ENVIRONMENT {
+impl ::core::ops::BitOr for USER_CET_ENVIRONMENT {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for USER_CET_ENVIRONMENT {
+impl ::core::ops::BitAnd for USER_CET_ENVIRONMENT {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for USER_CET_ENVIRONMENT {
+impl ::core::ops::BitOrAssign for USER_CET_ENVIRONMENT {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for USER_CET_ENVIRONMENT {
+impl ::core::ops::BitAndAssign for USER_CET_ENVIRONMENT {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for USER_CET_ENVIRONMENT {
+impl ::core::ops::Not for USER_CET_ENVIRONMENT {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VER_FLAGS(pub u32);
 pub const VER_MINORVERSION: VER_FLAGS = VER_FLAGS(1u32);
@@ -2239,7 +2239,7 @@ pub const VER_SERVICEPACKMINOR: VER_FLAGS = VER_FLAGS(16u32);
 pub const VER_SERVICEPACKMAJOR: VER_FLAGS = VER_FLAGS(32u32);
 pub const VER_SUITENAME: VER_FLAGS = VER_FLAGS(64u32);
 pub const VER_PRODUCT_TYPE: VER_FLAGS = VER_FLAGS(128u32);
-impl ::std::convert::From<u32> for VER_FLAGS {
+impl ::core::convert::From<u32> for VER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2247,29 +2247,29 @@ impl ::std::convert::From<u32> for VER_FLAGS {
 unsafe impl ::windows::runtime::Abi for VER_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for VER_FLAGS {
+impl ::core::ops::BitOr for VER_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VER_FLAGS {
+impl ::core::ops::BitAnd for VER_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VER_FLAGS {
+impl ::core::ops::BitOrAssign for VER_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VER_FLAGS {
+impl ::core::ops::BitAndAssign for VER_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VER_FLAGS {
+impl ::core::ops::Not for VER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -2284,7 +2284,7 @@ pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condi
         extern "system" {
             fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64;
         }
-        ::std::mem::transmute(VerSetConditionMask(::std::mem::transmute(conditionmask), ::std::mem::transmute(typemask), ::std::mem::transmute(condition)))
+        ::core::mem::transmute(VerSetConditionMask(::core::mem::transmute(conditionmask), ::core::mem::transmute(typemask), ::core::mem::transmute(condition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2299,7 +2299,7 @@ pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dw
         extern "system" {
             fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(VerifyVersionInfoA(::std::mem::transmute(lpversioninformation), ::std::mem::transmute(dwtypemask), ::std::mem::transmute(dwlconditionmask)))
+        ::core::mem::transmute(VerifyVersionInfoA(::core::mem::transmute(lpversioninformation), ::core::mem::transmute(dwtypemask), ::core::mem::transmute(dwlconditionmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2314,7 +2314,7 @@ pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dw
         extern "system" {
             fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(VerifyVersionInfoW(::std::mem::transmute(lpversioninformation), ::std::mem::transmute(dwtypemask), ::std::mem::transmute(dwlconditionmask)))
+        ::core::mem::transmute(VerifyVersionInfoW(::core::mem::transmute(lpversioninformation), ::core::mem::transmute(dwtypemask), ::core::mem::transmute(dwlconditionmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

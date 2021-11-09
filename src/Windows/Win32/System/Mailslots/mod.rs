@@ -9,7 +9,7 @@ pub unsafe fn CreateMailslotA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn CreateMailslotA(lpname: super::super::Foundation::PSTR, nmaxmessagesize: u32, lreadtimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateMailslotA(lpname.into_param().abi(), ::std::mem::transmute(nmaxmessagesize), ::std::mem::transmute(lreadtimeout), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateMailslotA(lpname.into_param().abi(), ::core::mem::transmute(nmaxmessagesize), ::core::mem::transmute(lreadtimeout), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,7 +24,7 @@ pub unsafe fn CreateMailslotW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn CreateMailslotW(lpname: super::super::Foundation::PWSTR, nmaxmessagesize: u32, lreadtimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateMailslotW(lpname.into_param().abi(), ::std::mem::transmute(nmaxmessagesize), ::std::mem::transmute(lreadtimeout), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateMailslotW(lpname.into_param().abi(), ::core::mem::transmute(nmaxmessagesize), ::core::mem::transmute(lreadtimeout), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -39,7 +39,7 @@ pub unsafe fn GetMailslotInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetMailslotInfo(hmailslot: super::super::Foundation::HANDLE, lpmaxmessagesize: *mut u32, lpnextsize: *mut u32, lpmessagecount: *mut u32, lpreadtimeout: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMailslotInfo(hmailslot.into_param().abi(), ::std::mem::transmute(lpmaxmessagesize), ::std::mem::transmute(lpnextsize), ::std::mem::transmute(lpmessagecount), ::std::mem::transmute(lpreadtimeout)))
+        ::core::mem::transmute(GetMailslotInfo(hmailslot.into_param().abi(), ::core::mem::transmute(lpmaxmessagesize), ::core::mem::transmute(lpnextsize), ::core::mem::transmute(lpmessagecount), ::core::mem::transmute(lpreadtimeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -54,7 +54,7 @@ pub unsafe fn SetMailslotInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetMailslotInfo(hmailslot: super::super::Foundation::HANDLE, lreadtimeout: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMailslotInfo(hmailslot.into_param().abi(), ::std::mem::transmute(lreadtimeout)))
+        ::core::mem::transmute(SetMailslotInfo(hmailslot.into_param().abi(), ::core::mem::transmute(lreadtimeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

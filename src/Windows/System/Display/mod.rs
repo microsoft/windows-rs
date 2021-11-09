@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `System_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DisplayRequest(pub ::windows::runtime::IInspectable);
 impl DisplayRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -14,12 +14,12 @@ impl DisplayRequest {
     #[doc = "*Required features: `System_Display`*"]
     pub fn RequestActive(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System_Display`*"]
     pub fn RequestRelease(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayRequest {
@@ -32,12 +32,12 @@ unsafe impl ::windows::runtime::Interface for DisplayRequest {
 impl ::windows::runtime::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
-impl ::std::convert::From<DisplayRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DisplayRequest> for ::windows::runtime::IUnknown {
     fn from(value: DisplayRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DisplayRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DisplayRequest> for ::windows::runtime::IUnknown {
     fn from(value: &DisplayRequest) -> Self {
         value.0 .0.clone()
     }
@@ -52,12 +52,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DisplayRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DisplayRequest> for ::windows::runtime::IInspectable {
     fn from(value: DisplayRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DisplayRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DisplayRequest> for ::windows::runtime::IInspectable {
     fn from(value: &DisplayRequest) -> Self {
         value.0.clone()
     }

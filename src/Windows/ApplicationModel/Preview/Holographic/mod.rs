@@ -5,16 +5,16 @@ impl HolographicApplicationPreview {
     #[doc = "*Required features: `ApplicationModel_Preview_Holographic`*"]
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows::runtime::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `ApplicationModel_Preview_Holographic`, `ApplicationModel_Activation`*"]
     pub fn IsHolographicActivation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Activation::IActivatedEventArgs>>(activatedeventargs: Param0) -> ::windows::runtime::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), activatedeventargs.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), activatedeventargs.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IHolographicApplicationPreviewStatics<R, F: FnOnce(&IHolographicApplicationPreviewStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -27,7 +27,7 @@ impl ::windows::runtime::RuntimeName for HolographicApplicationPreview {
 }
 #[doc = "*Required features: `ApplicationModel_Preview_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicKeyboardPlacementOverridePreview(pub ::windows::runtime::IInspectable);
 impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(feature = "deprecated")]
@@ -35,7 +35,7 @@ impl HolographicKeyboardPlacementOverridePreview {
     #[doc = "*Required features: `ApplicationModel_Preview_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn SetPlacementOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, coordinatesystem: Param0, topcenterposition: Param1, normal: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), normal.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), normal.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -48,20 +48,20 @@ impl HolographicKeyboardPlacementOverridePreview {
         maxsize: Param3,
     ) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), normal.into_param().abi(), maxsize.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), normal.into_param().abi(), maxsize.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Preview_Holographic`*"]
     pub fn ResetPlacementOverride(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `ApplicationModel_Preview_Holographic`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HolographicKeyboardPlacementOverridePreview>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicKeyboardPlacementOverridePreview>(result__)
         })
     }
     pub fn IHolographicKeyboardPlacementOverridePreviewStatics<R, F: FnOnce(&IHolographicKeyboardPlacementOverridePreviewStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -79,12 +79,12 @@ unsafe impl ::windows::runtime::Interface for HolographicKeyboardPlacementOverri
 impl ::windows::runtime::RuntimeName for HolographicKeyboardPlacementOverridePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
 }
-impl ::std::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IUnknown {
     fn from(value: HolographicKeyboardPlacementOverridePreview) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IUnknown {
     fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
         value.0 .0.clone()
     }
@@ -99,12 +99,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IInspectable {
     fn from(value: HolographicKeyboardPlacementOverridePreview) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::windows::runtime::IInspectable {
     fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
         value.0.clone()
     }
@@ -119,8 +119,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HolographicKeyboardPlacementOverridePreview {}
-unsafe impl ::std::marker::Sync for HolographicKeyboardPlacementOverridePreview {}
+unsafe impl ::core::marker::Send for HolographicKeyboardPlacementOverridePreview {}
+unsafe impl ::core::marker::Sync for HolographicKeyboardPlacementOverridePreview {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IHolographicApplicationPreviewStatics(pub ::windows::runtime::IInspectable);

@@ -109,7 +109,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             const #interface_constant: ::windows::runtime::GUID = <#interface_ident as ::windows::runtime::Interface>::IID;
         });
 
-        for method in base_interfaces.iter().rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten() {
+        for method in base_interfaces.iter().rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten() {
             let method_ident = gen::to_ident(&method.rust_name());
 
             abi_count += 1;
@@ -147,28 +147,28 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
         if !def.is_exclusive() {
             tokens.combine(&quote! {
-                impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
+                impl <#constraints> ::core::convert::From<#impl_ident> for #interface_ident {
                     fn from(implementation: #impl_ident) -> Self {
                         let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                         unsafe {
                             let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
-                impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
+                impl <#constraints> ::core::convert::From<&mut #impl_ident> for #interface_ident {
                     fn from(implementation: &mut #impl_ident) -> Self {
                         unsafe {
                             let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                             (*ptr).count.add_ref();
-                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
                 impl<#constraints> ::windows::runtime::ToImpl<#interface_ident> for #impl_ident {
                     unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                        let this: ::windows::runtime::RawPtr = std::mem::transmute_copy(interface);
+                        let this: ::windows::runtime::RawPtr = core::mem::transmute_copy(interface);
                         let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
                         &mut (*this).implementation
                     }
@@ -179,7 +179,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         let mut phantoms = TokenStream::with_capacity();
 
         for _ in 0..def.generic_params().count() {
-            phantoms.combine(&quote! { std::marker::PhantomData, })
+            phantoms.combine(&quote! { core::marker::PhantomData, })
         }
 
         vtable_ctors.combine(&quote! {
@@ -219,28 +219,28 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 }
             }
         }
-        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::runtime::IUnknown {
+        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::runtime::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
             }
         }
-        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::runtime::IInspectable {
+        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::runtime::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
             }
         }
         impl <#constraints> ::windows::runtime::Compose for #impl_ident {
-            unsafe fn compose<'a>(implementation: Self) -> (::windows::runtime::IInspectable, &'a mut std::option::Option<::windows::runtime::IInspectable>) {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::runtime::IInspectable, &'a mut core::option::Option<::windows::runtime::IInspectable>) {
                 let inspectable: ::windows::runtime::IInspectable = implementation.into();
                 let this = (&inspectable as *const _ as *mut ::windows::runtime::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
@@ -248,7 +248,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         }
         #[repr(C)]
         struct #box_ident<#(#generics,)*> where #constraints {
-            base: ::std::option::Option<::windows::runtime::IInspectable>,
+            base: ::core::option::Option<::windows::runtime::IInspectable>,
             identity_vtable: *const ::windows::runtime::IInspectable_abi,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
@@ -269,7 +269,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             #query_constants
             fn new(implementation: #impl_ident) -> Self {
                 Self {
-                    base: ::std::option::Option::None,
+                    base: ::core::option::Option::None,
                     identity_vtable: &Self::IDENTITY_VTABLE,
                     vtables: (#(&Self::VTABLES.#vtable_ordinals,)*),
                     implementation,
@@ -283,7 +283,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                         || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
                             &mut self.identity_vtable as *mut _ as _
                     } #queries else {
-                        ::std::ptr::null_mut()
+                        ::core::ptr::null_mut()
                     };
 
                     if !(*interface).is_null() {
@@ -325,7 +325,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
                 *count = 0;
-                *values = ::std::ptr::null_mut();
+                *values = ::core::ptr::null_mut();
                 ::windows::runtime::HRESULT(0)
             }
             unsafe extern "system" fn GetRuntimeClassName(
@@ -337,7 +337,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 // implementation should return an empty string.
 
                 let h = ::windows::runtime::HSTRING::new();
-                *value = ::std::mem::transmute(h);
+                *value = ::core::mem::transmute(h);
                 ::windows::runtime::HRESULT(0)
             }
             unsafe extern "system" fn GetTrustLevel(_: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT {
@@ -364,6 +364,6 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
     });
 
     let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
-    tokens.extend(std::iter::once(original_type));
+    tokens.extend(core::iter::once(original_type));
     tokens
 }

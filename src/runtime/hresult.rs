@@ -77,13 +77,13 @@ impl HRESULT {
     }
 
     /// The error message describing the error.
-    pub fn message(&self) -> String {
-        let mut message = HeapString(std::ptr::null_mut());
+    pub fn message(&self) -> HSTRING {
+        let mut message = HeapString(core::ptr::null_mut());
 
         unsafe {
-            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, std::ptr::null(), self.0, 0, PWSTR(std::mem::transmute(&mut message.0)), 0, std::ptr::null_mut());
+            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, core::ptr::null(), self.0, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, core::ptr::null_mut());
 
-            String::from_utf16_lossy(std::slice::from_raw_parts(message.0 as *const u16, size as usize)).trim_end().to_owned()
+            HSTRING::from_wide(core::slice::from_raw_parts(message.0 as *const u16, size as usize))
         }
     }
 }
@@ -100,7 +100,7 @@ impl ::windows::runtime::DefaultType for HRESULT {
     type DefaultType = Self;
 }
 
-impl<T> std::convert::From<Result<T>> for HRESULT {
+impl<T> core::convert::From<Result<T>> for HRESULT {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
             return error.into();

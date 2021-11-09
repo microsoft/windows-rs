@@ -20,7 +20,7 @@ pub const AF_BTH: u16 = 32u16;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const ATT_PROTOCOL_UUID16: u32 = 7u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUTHENTICATION_REQUIREMENTS(pub i32);
 pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(0i32);
@@ -30,7 +30,7 @@ pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTIC
 pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(4i32);
 pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(5i32);
 pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(255i32);
-impl ::std::convert::From<i32> for AUTHENTICATION_REQUIREMENTS {
+impl ::core::convert::From<i32> for AUTHENTICATION_REQUIREMENTS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -150,28 +150,28 @@ pub const BDIF_SSP_SUPPORTED: u32 = 256u32;
 pub const BDIF_TX_POWER: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BDIF_VISIBLE: u32 = 128u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
 }
 impl BLUETOOTH_ADDRESS {}
-impl ::std::default::Default for BLUETOOTH_ADDRESS {
+impl ::core::default::Default for BLUETOOTH_ADDRESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_ADDRESS {
+impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_ADDRESS {}
+impl ::core::cmp::Eq for BLUETOOTH_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_ADDRESS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub union BLUETOOTH_ADDRESS_0 {
@@ -179,21 +179,21 @@ pub union BLUETOOTH_ADDRESS_0 {
     pub rgBytes: [u8; 6],
 }
 impl BLUETOOTH_ADDRESS_0 {}
-impl ::std::default::Default for BLUETOOTH_ADDRESS_0 {
+impl ::core::default::Default for BLUETOOTH_ADDRESS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_ADDRESS_0 {
+impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_ADDRESS_0 {}
+impl ::core::cmp::Eq for BLUETOOTH_ADDRESS_0 {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_ADDRESS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
@@ -203,21 +203,21 @@ pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub negativeResponse: u8,
 }
 impl BLUETOOTH_AUTHENTICATE_RESPONSE {}
-impl ::std::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
+impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE {
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE {}
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
@@ -227,21 +227,21 @@ pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
 }
 impl BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
-impl ::std::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -255,24 +255,24 @@ pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
@@ -282,25 +282,25 @@ pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
 pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(1i32);
@@ -308,7 +308,7 @@ pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD =
 pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(3i32);
 pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(4i32);
 pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(5i32);
-impl ::std::convert::From<i32> for BLUETOOTH_AUTHENTICATION_METHOD {
+impl ::core::convert::From<i32> for BLUETOOTH_AUTHENTICATION_METHOD {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -317,7 +317,7 @@ unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_METHOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
 pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(0i32);
@@ -327,7 +327,7 @@ pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQ
 pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(4i32);
 pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(5i32);
 pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(255i32);
-impl ::std::convert::From<i32> for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
+impl ::core::convert::From<i32> for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -335,7 +335,7 @@ impl ::std::convert::From<i32> for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -346,30 +346,30 @@ pub struct BLUETOOTH_COD_PAIRS {
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_COD_PAIRS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_COD_PAIRS {
+impl ::core::default::Default for BLUETOOTH_COD_PAIRS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for BLUETOOTH_COD_PAIRS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_COD_PAIRS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_COD_PAIRS").field("ulCODMask", &self.ulCODMask).field("pcszDescription", &self.pcszDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_COD_PAIRS {
+impl ::core::cmp::PartialEq for BLUETOOTH_COD_PAIRS {
     fn eq(&self, other: &Self) -> bool {
         self.ulCODMask == other.ulCODMask && self.pcszDescription == other.pcszDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_COD_PAIRS {}
+impl ::core::cmp::Eq for BLUETOOTH_COD_PAIRS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_COD_PAIRS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -387,26 +387,26 @@ pub struct BLUETOOTH_DEVICE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_DEVICE_INFO {
+impl ::core::default::Default for BLUETOOTH_DEVICE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_DEVICE_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_DEVICE_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_DEVICE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -423,14 +423,14 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_DEVICE_SEARCH_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+impl ::core::default::Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_DEVICE_SEARCH_PARAMS")
             .field("dwSize", &self.dwSize)
             .field("fReturnAuthenticated", &self.fReturnAuthenticated)
@@ -444,40 +444,40 @@ impl ::std::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.fReturnAuthenticated == other.fReturnAuthenticated && self.fReturnRemembered == other.fReturnRemembered && self.fReturnUnknown == other.fReturnUnknown && self.fReturnConnected == other.fReturnConnected && self.fIssueInquiry == other.fIssueInquiry && self.cTimeoutMultiplier == other.cTimeoutMultiplier && self.hRadio == other.hRadio
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
+impl ::core::cmp::Eq for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
 }
 impl BLUETOOTH_FIND_RADIO_PARAMS {}
-impl ::std::default::Default for BLUETOOTH_FIND_RADIO_PARAMS {
+impl ::core::default::Default for BLUETOOTH_FIND_RADIO_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_FIND_RADIO_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_FIND_RADIO_PARAMS").field("dwSize", &self.dwSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
+impl ::core::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
+impl ::core::cmp::Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
     type Abi = Self;
 }
@@ -498,7 +498,7 @@ pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BLUETOOTH_IO_CAPABILITY(pub i32);
 pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(0i32);
@@ -506,7 +506,7 @@ pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = BLUETO
 pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(2i32);
 pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(3i32);
 pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(255i32);
-impl ::std::convert::From<i32> for BLUETOOTH_IO_CAPABILITY {
+impl ::core::convert::From<i32> for BLUETOOTH_IO_CAPABILITY {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -514,7 +514,7 @@ impl ::std::convert::From<i32> for BLUETOOTH_IO_CAPABILITY {
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_IO_CAPABILITY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -527,19 +527,19 @@ pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_LOCAL_SERVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_LOCAL_SERVICE_INFO {
+impl ::core::default::Default for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_LOCAL_SERVICE_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_LOCAL_SERVICE_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_LOCAL_SERVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_LOCAL_SERVICE_INFO {
     type Abi = Self;
@@ -552,33 +552,33 @@ pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
 }
 impl BLUETOOTH_NUMERIC_COMPARISON_INFO {}
-impl ::std::default::Default for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+impl ::core::default::Default for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_NUMERIC_COMPARISON_INFO").field("NumericValue", &self.NumericValue).finish()
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.NumericValue == other.NumericValue
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_OOB_DATA_INFO {
@@ -586,52 +586,52 @@ pub struct BLUETOOTH_OOB_DATA_INFO {
     pub R: [u8; 16],
 }
 impl BLUETOOTH_OOB_DATA_INFO {}
-impl ::std::default::Default for BLUETOOTH_OOB_DATA_INFO {
+impl ::core::default::Default for BLUETOOTH_OOB_DATA_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BLUETOOTH_OOB_DATA_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_OOB_DATA_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_OOB_DATA_INFO").field("C", &self.C).field("R", &self.R).finish()
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.C == other.C && self.R == other.R
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_OOB_DATA_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_OOB_DATA_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_OOB_DATA_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
 }
 impl BLUETOOTH_PASSKEY_INFO {}
-impl ::std::default::Default for BLUETOOTH_PASSKEY_INFO {
+impl ::core::default::Default for BLUETOOTH_PASSKEY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BLUETOOTH_PASSKEY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_PASSKEY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_PASSKEY_INFO").field("passkey", &self.passkey).finish()
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.passkey == other.passkey
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_PASSKEY_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_PASSKEY_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_PASSKEY_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_PIN_INFO {
@@ -639,26 +639,26 @@ pub struct BLUETOOTH_PIN_INFO {
     pub pinLength: u8,
 }
 impl BLUETOOTH_PIN_INFO {}
-impl ::std::default::Default for BLUETOOTH_PIN_INFO {
+impl ::core::default::Default for BLUETOOTH_PIN_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BLUETOOTH_PIN_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_PIN_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_PIN_INFO").field("pin", &self.pin).field("pinLength", &self.pinLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_PIN_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_PIN_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pin == other.pin && self.pinLength == other.pinLength
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_PIN_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_PIN_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_PIN_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BLUETOOTH_RADIO_INFO {
@@ -670,21 +670,21 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub manufacturer: u16,
 }
 impl BLUETOOTH_RADIO_INFO {}
-impl ::std::default::Default for BLUETOOTH_RADIO_INFO {
+impl ::core::default::Default for BLUETOOTH_RADIO_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BLUETOOTH_RADIO_INFO {
+impl ::core::cmp::PartialEq for BLUETOOTH_RADIO_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BLUETOOTH_RADIO_INFO {}
+impl ::core::cmp::Eq for BLUETOOTH_RADIO_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_RADIO_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -700,22 +700,22 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub fShowUnknown: super::super::Foundation::BOOL,
     pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
     pub fSkipServicesPage: super::super::Foundation::BOOL,
-    pub pfnDeviceCallback: ::std::option::Option<PFN_DEVICE_CALLBACK>,
-    pub pvParam: *mut ::std::ffi::c_void,
+    pub pfnDeviceCallback: ::core::option::Option<PFN_DEVICE_CALLBACK>,
+    pub pvParam: *mut ::core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_SELECT_DEVICE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
+impl ::core::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BLUETOOTH_SELECT_DEVICE_PARAMS")
             .field("dwSize", &self.dwSize)
             .field("cNumOfClasses", &self.cNumOfClasses)
@@ -735,7 +735,7 @@ impl ::std::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BLUETOOTH_SELECT_DEVICE_PARAMS {
+impl ::core::cmp::PartialEq for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.cNumOfClasses == other.cNumOfClasses
@@ -755,10 +755,10 @@ impl ::std::cmp::PartialEq for BLUETOOTH_SELECT_DEVICE_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BLUETOOTH_SELECT_DEVICE_PARAMS {}
+impl ::core::cmp::Eq for BLUETOOTH_SELECT_DEVICE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
@@ -794,7 +794,7 @@ pub const BTH_ADDR_IAC_LAST: u32 = 10390335u32;
 pub const BTH_ADDR_LIAC: u32 = 10390272u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_ADDR_STRING_SIZE: u32 = 12u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -807,25 +807,25 @@ pub struct BTH_DEVICE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl BTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BTH_DEVICE_INFO {
+impl ::core::default::Default for BTH_DEVICE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for BTH_DEVICE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BTH_DEVICE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BTH_DEVICE_INFO").field("flags", &self.flags).field("address", &self.address).field("classOfDevice", &self.classOfDevice).field("name", &self.name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BTH_DEVICE_INFO {
+impl ::core::cmp::PartialEq for BTH_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags && self.address == other.address && self.classOfDevice == other.classOfDevice && self.name == other.name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BTH_DEVICE_INFO {}
+impl ::core::cmp::Eq for BTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BTH_DEVICE_INFO {
     type Abi = Self;
@@ -1000,7 +1000,7 @@ pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: u32 = 17u32;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: u32 = 26u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_HCI_EVENT_INFO {
@@ -1009,22 +1009,22 @@ pub struct BTH_HCI_EVENT_INFO {
     pub connected: u8,
 }
 impl BTH_HCI_EVENT_INFO {}
-impl ::std::default::Default for BTH_HCI_EVENT_INFO {
+impl ::core::default::Default for BTH_HCI_EVENT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BTH_HCI_EVENT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BTH_HCI_EVENT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BTH_HCI_EVENT_INFO").field("bthAddress", &self.bthAddress).field("connectionType", &self.connectionType).field("connected", &self.connected).finish()
     }
 }
-impl ::std::cmp::PartialEq for BTH_HCI_EVENT_INFO {
+impl ::core::cmp::PartialEq for BTH_HCI_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.bthAddress == other.bthAddress && self.connectionType == other.connectionType && self.connected == other.connected
     }
 }
-impl ::std::cmp::Eq for BTH_HCI_EVENT_INFO {}
+impl ::core::cmp::Eq for BTH_HCI_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for BTH_HCI_EVENT_INFO {
     type Abi = Self;
 }
@@ -1038,7 +1038,7 @@ pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_INFO_REQ {
@@ -1046,21 +1046,21 @@ pub struct BTH_INFO_REQ {
     pub infoType: u16,
 }
 impl BTH_INFO_REQ {}
-impl ::std::default::Default for BTH_INFO_REQ {
+impl ::core::default::Default for BTH_INFO_REQ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BTH_INFO_REQ {
+impl ::core::cmp::PartialEq for BTH_INFO_REQ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BTH_INFO_REQ {}
+impl ::core::cmp::Eq for BTH_INFO_REQ {}
 unsafe impl ::windows::runtime::Abi for BTH_INFO_REQ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_INFO_RSP {
@@ -1069,21 +1069,21 @@ pub struct BTH_INFO_RSP {
     pub Anonymous: BTH_INFO_RSP_0,
 }
 impl BTH_INFO_RSP {}
-impl ::std::default::Default for BTH_INFO_RSP {
+impl ::core::default::Default for BTH_INFO_RSP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BTH_INFO_RSP {
+impl ::core::cmp::PartialEq for BTH_INFO_RSP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BTH_INFO_RSP {}
+impl ::core::cmp::Eq for BTH_INFO_RSP {}
 unsafe impl ::windows::runtime::Abi for BTH_INFO_RSP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub union BTH_INFO_RSP_0 {
@@ -1091,23 +1091,23 @@ pub union BTH_INFO_RSP_0 {
     pub data: [u8; 44],
 }
 impl BTH_INFO_RSP_0 {}
-impl ::std::default::Default for BTH_INFO_RSP_0 {
+impl ::core::default::Default for BTH_INFO_RSP_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BTH_INFO_RSP_0 {
+impl ::core::cmp::PartialEq for BTH_INFO_RSP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BTH_INFO_RSP_0 {}
+impl ::core::cmp::Eq for BTH_INFO_RSP_0 {}
 unsafe impl ::windows::runtime::Abi for BTH_INFO_RSP_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_IOCTL_BASE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_L2CAP_EVENT_INFO {
@@ -1117,22 +1117,22 @@ pub struct BTH_L2CAP_EVENT_INFO {
     pub initiated: u8,
 }
 impl BTH_L2CAP_EVENT_INFO {}
-impl ::std::default::Default for BTH_L2CAP_EVENT_INFO {
+impl ::core::default::Default for BTH_L2CAP_EVENT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BTH_L2CAP_EVENT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BTH_L2CAP_EVENT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BTH_L2CAP_EVENT_INFO").field("bthAddress", &self.bthAddress).field("psm", &self.psm).field("connected", &self.connected).field("initiated", &self.initiated).finish()
     }
 }
-impl ::std::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
+impl ::core::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.bthAddress == other.bthAddress && self.psm == other.psm && self.connected == other.connected && self.initiated == other.initiated
     }
 }
-impl ::std::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
+impl ::core::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for BTH_L2CAP_EVENT_INFO {
     type Abi = Self;
 }
@@ -1435,7 +1435,7 @@ pub const BTH_MFG_WIDCOMM: u32 = 17u32;
 pub const BTH_MFG_ZEEVO: u32 = 18u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_MINORVERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_PING_REQ {
@@ -1444,21 +1444,21 @@ pub struct BTH_PING_REQ {
     pub data: [u8; 44],
 }
 impl BTH_PING_REQ {}
-impl ::std::default::Default for BTH_PING_REQ {
+impl ::core::default::Default for BTH_PING_REQ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BTH_PING_REQ {
+impl ::core::cmp::PartialEq for BTH_PING_REQ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BTH_PING_REQ {}
+impl ::core::cmp::Eq for BTH_PING_REQ {}
 unsafe impl ::windows::runtime::Abi for BTH_PING_REQ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_PING_RSP {
@@ -1466,26 +1466,26 @@ pub struct BTH_PING_RSP {
     pub data: [u8; 44],
 }
 impl BTH_PING_RSP {}
-impl ::std::default::Default for BTH_PING_RSP {
+impl ::core::default::Default for BTH_PING_RSP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BTH_PING_RSP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BTH_PING_RSP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BTH_PING_RSP").field("dataLen", &self.dataLen).field("data", &self.data).finish()
     }
 }
-impl ::std::cmp::PartialEq for BTH_PING_RSP {
+impl ::core::cmp::PartialEq for BTH_PING_RSP {
     fn eq(&self, other: &Self) -> bool {
         self.dataLen == other.dataLen && self.data == other.data
     }
 }
-impl ::std::cmp::Eq for BTH_PING_RSP {}
+impl ::core::cmp::Eq for BTH_PING_RSP {}
 unsafe impl ::windows::runtime::Abi for BTH_PING_RSP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_QUERY_DEVICE {
@@ -1493,21 +1493,21 @@ pub struct BTH_QUERY_DEVICE {
     pub length: u8,
 }
 impl BTH_QUERY_DEVICE {}
-impl ::std::default::Default for BTH_QUERY_DEVICE {
+impl ::core::default::Default for BTH_QUERY_DEVICE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BTH_QUERY_DEVICE {
+impl ::core::cmp::PartialEq for BTH_QUERY_DEVICE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BTH_QUERY_DEVICE {}
+impl ::core::cmp::Eq for BTH_QUERY_DEVICE {}
 unsafe impl ::windows::runtime::Abi for BTH_QUERY_DEVICE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct BTH_QUERY_SERVICE {
@@ -1518,21 +1518,21 @@ pub struct BTH_QUERY_SERVICE {
     pub pRange: [SdpAttributeRange; 1],
 }
 impl BTH_QUERY_SERVICE {}
-impl ::std::default::Default for BTH_QUERY_SERVICE {
+impl ::core::default::Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for BTH_QUERY_SERVICE {
+impl ::core::cmp::PartialEq for BTH_QUERY_SERVICE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for BTH_QUERY_SERVICE {}
+impl ::core::cmp::Eq for BTH_QUERY_SERVICE {}
 unsafe impl ::windows::runtime::Abi for BTH_QUERY_SERVICE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -1543,32 +1543,32 @@ pub struct BTH_RADIO_IN_RANGE {
 #[cfg(feature = "Win32_Foundation")]
 impl BTH_RADIO_IN_RANGE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BTH_RADIO_IN_RANGE {
+impl ::core::default::Default for BTH_RADIO_IN_RANGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for BTH_RADIO_IN_RANGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BTH_RADIO_IN_RANGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BTH_RADIO_IN_RANGE").field("deviceInfo", &self.deviceInfo).field("previousDeviceFlags", &self.previousDeviceFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BTH_RADIO_IN_RANGE {
+impl ::core::cmp::PartialEq for BTH_RADIO_IN_RANGE {
     fn eq(&self, other: &Self) -> bool {
         self.deviceInfo == other.deviceInfo && self.previousDeviceFlags == other.previousDeviceFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BTH_RADIO_IN_RANGE {}
+impl ::core::cmp::Eq for BTH_RADIO_IN_RANGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BTH_RADIO_IN_RANGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_SDP_VERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -1583,19 +1583,19 @@ pub struct BTH_SET_SERVICE {
 #[cfg(feature = "Win32_Foundation")]
 impl BTH_SET_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BTH_SET_SERVICE {
+impl ::core::default::Default for BTH_SET_SERVICE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BTH_SET_SERVICE {
+impl ::core::cmp::PartialEq for BTH_SET_SERVICE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BTH_SET_SERVICE {}
+impl ::core::cmp::Eq for BTH_SET_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BTH_SET_SERVICE {
     type Abi = Self;
@@ -1622,7 +1622,7 @@ pub unsafe fn BluetoothAuthenticateDevice<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR, ulpasskeylength: u32) -> u32;
         }
-        ::std::mem::transmute(BluetoothAuthenticateDevice(hwndparent.into_param().abi(), hradio.into_param().abi(), ::std::mem::transmute(pbtbi), pszpasskey.into_param().abi(), ::std::mem::transmute(ulpasskeylength)))
+        ::core::mem::transmute(BluetoothAuthenticateDevice(hwndparent.into_param().abi(), hradio.into_param().abi(), ::core::mem::transmute(pbtbi), pszpasskey.into_param().abi(), ::core::mem::transmute(ulpasskeylength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1637,7 +1637,7 @@ pub unsafe fn BluetoothAuthenticateDeviceEx<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
         }
-        ::std::mem::transmute(BluetoothAuthenticateDeviceEx(hwndparentin.into_param().abi(), hradioin.into_param().abi(), ::std::mem::transmute(pbtdiinout), ::std::mem::transmute(pbtoobdata), ::std::mem::transmute(authenticationrequirement)))
+        ::core::mem::transmute(BluetoothAuthenticateDeviceEx(hwndparentin.into_param().abi(), hradioin.into_param().abi(), ::core::mem::transmute(pbtdiinout), ::core::mem::transmute(pbtoobdata), ::core::mem::transmute(authenticationrequirement)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1652,7 +1652,7 @@ pub unsafe fn BluetoothAuthenticateMultipleDevices<'a, Param0: ::windows::runtim
         extern "system" {
             fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
         }
-        ::std::mem::transmute(BluetoothAuthenticateMultipleDevices(hwndparent.into_param().abi(), hradio.into_param().abi(), ::std::mem::transmute(cdevices), ::std::mem::transmute(rgbtdi)))
+        ::core::mem::transmute(BluetoothAuthenticateMultipleDevices(hwndparent.into_param().abi(), hradio.into_param().abi(), ::core::mem::transmute(cdevices), ::core::mem::transmute(rgbtdi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1667,7 +1667,7 @@ pub unsafe fn BluetoothDisplayDeviceProperties<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn BluetoothDisplayDeviceProperties(hwndparent: super::super::Foundation::HWND, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothDisplayDeviceProperties(hwndparent.into_param().abi(), ::std::mem::transmute(pbtdi)))
+        ::core::mem::transmute(BluetoothDisplayDeviceProperties(hwndparent.into_param().abi(), ::core::mem::transmute(pbtdi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1682,7 +1682,7 @@ pub unsafe fn BluetoothEnableDiscovery<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn BluetoothEnableDiscovery(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothEnableDiscovery(hradio.into_param().abi(), fenabled.into_param().abi()))
+        ::core::mem::transmute(BluetoothEnableDiscovery(hradio.into_param().abi(), fenabled.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1697,7 +1697,7 @@ pub unsafe fn BluetoothEnableIncomingConnections<'a, Param0: ::windows::runtime:
         extern "system" {
             fn BluetoothEnableIncomingConnections(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothEnableIncomingConnections(hradio.into_param().abi(), fenabled.into_param().abi()))
+        ::core::mem::transmute(BluetoothEnableIncomingConnections(hradio.into_param().abi(), fenabled.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1712,7 +1712,7 @@ pub unsafe fn BluetoothEnumerateInstalledServices<'a, Param0: ::windows::runtime
         extern "system" {
             fn BluetoothEnumerateInstalledServices(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pcserviceinout: *mut u32, pguidservices: *mut ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(BluetoothEnumerateInstalledServices(hradio.into_param().abi(), ::std::mem::transmute(pbtdi), ::std::mem::transmute(pcserviceinout), ::std::mem::transmute(pguidservices)))
+        ::core::mem::transmute(BluetoothEnumerateInstalledServices(hradio.into_param().abi(), ::core::mem::transmute(pbtdi), ::core::mem::transmute(pcserviceinout), ::core::mem::transmute(pguidservices)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1727,7 +1727,7 @@ pub unsafe fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation
         extern "system" {
             fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothFindDeviceClose(::std::mem::transmute(hfind)))
+        ::core::mem::transmute(BluetoothFindDeviceClose(::core::mem::transmute(hfind)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1742,7 +1742,7 @@ pub unsafe fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PAR
         extern "system" {
             fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> isize;
         }
-        ::std::mem::transmute(BluetoothFindFirstDevice(::std::mem::transmute(pbtsp), ::std::mem::transmute(pbtdi)))
+        ::core::mem::transmute(BluetoothFindFirstDevice(::core::mem::transmute(pbtsp), ::core::mem::transmute(pbtdi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1757,7 +1757,7 @@ pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS
         extern "system" {
             fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, phradio: *mut super::super::Foundation::HANDLE) -> isize;
         }
-        ::std::mem::transmute(BluetoothFindFirstRadio(::std::mem::transmute(pbtfrp), ::std::mem::transmute(phradio)))
+        ::core::mem::transmute(BluetoothFindFirstRadio(::core::mem::transmute(pbtfrp), ::core::mem::transmute(phradio)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1772,7 +1772,7 @@ pub unsafe fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE
         extern "system" {
             fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothFindNextDevice(::std::mem::transmute(hfind), ::std::mem::transmute(pbtdi)))
+        ::core::mem::transmute(BluetoothFindNextDevice(::core::mem::transmute(hfind), ::core::mem::transmute(pbtdi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1787,7 +1787,7 @@ pub unsafe fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::F
         extern "system" {
             fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothFindNextRadio(::std::mem::transmute(hfind), ::std::mem::transmute(phradio)))
+        ::core::mem::transmute(BluetoothFindNextRadio(::core::mem::transmute(hfind), ::core::mem::transmute(phradio)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1802,7 +1802,7 @@ pub unsafe fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation:
         extern "system" {
             fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothFindRadioClose(::std::mem::transmute(hfind)))
+        ::core::mem::transmute(BluetoothFindRadioClose(::core::mem::transmute(hfind)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1817,7 +1817,7 @@ pub unsafe fn BluetoothGetDeviceInfo<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn BluetoothGetDeviceInfo(hradio: super::super::Foundation::HANDLE, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
         }
-        ::std::mem::transmute(BluetoothGetDeviceInfo(hradio.into_param().abi(), ::std::mem::transmute(pbtdi)))
+        ::core::mem::transmute(BluetoothGetDeviceInfo(hradio.into_param().abi(), ::core::mem::transmute(pbtdi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1832,7 +1832,7 @@ pub unsafe fn BluetoothGetRadioInfo<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn BluetoothGetRadioInfo(hradio: super::super::Foundation::HANDLE, pradioinfo: *mut BLUETOOTH_RADIO_INFO) -> u32;
         }
-        ::std::mem::transmute(BluetoothGetRadioInfo(hradio.into_param().abi(), ::std::mem::transmute(pradioinfo)))
+        ::core::mem::transmute(BluetoothGetRadioInfo(hradio.into_param().abi(), ::core::mem::transmute(pradioinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1847,7 +1847,7 @@ pub unsafe fn BluetoothIsConnectable<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn BluetoothIsConnectable(hradio: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothIsConnectable(hradio.into_param().abi()))
+        ::core::mem::transmute(BluetoothIsConnectable(hradio.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1862,7 +1862,7 @@ pub unsafe fn BluetoothIsDiscoverable<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn BluetoothIsDiscoverable(hradio: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothIsDiscoverable(hradio.into_param().abi()))
+        ::core::mem::transmute(BluetoothIsDiscoverable(hradio.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1877,7 +1877,7 @@ pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) ->
         extern "system" {
             fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothIsVersionAvailable(::std::mem::transmute(majorversion), ::std::mem::transmute(minorversion)))
+        ::core::mem::transmute(BluetoothIsVersionAvailable(::core::mem::transmute(majorversion), ::core::mem::transmute(minorversion)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1885,14 +1885,14 @@ pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) ->
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: ::std::option::Option<PFN_AUTHENTICATION_CALLBACK>, pvparam: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: ::core::option::Option<PFN_AUTHENTICATION_CALLBACK>, pvparam: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: ::windows::runtime::RawPtr, pvparam: *const ::std::ffi::c_void) -> u32;
+            fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_INFO, phreghandle: *mut isize, pfncallback: ::windows::runtime::RawPtr, pvparam: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(BluetoothRegisterForAuthentication(::std::mem::transmute(pbtdi), ::std::mem::transmute(phreghandle), ::std::mem::transmute(pfncallback), ::std::mem::transmute(pvparam)))
+        ::core::mem::transmute(BluetoothRegisterForAuthentication(::core::mem::transmute(pbtdi), ::core::mem::transmute(phreghandle), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pvparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1900,14 +1900,14 @@ pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: *const BLUETOOTH_DEVICE_
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: ::std::option::Option<PFN_AUTHENTICATION_CALLBACK_EX>, pvparam: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: ::core::option::Option<PFN_AUTHENTICATION_CALLBACK_EX>, pvparam: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: ::windows::runtime::RawPtr, pvparam: *const ::std::ffi::c_void) -> u32;
+            fn BluetoothRegisterForAuthenticationEx(pbtdiin: *const BLUETOOTH_DEVICE_INFO, phreghandleout: *mut isize, pfncallbackin: ::windows::runtime::RawPtr, pvparam: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(BluetoothRegisterForAuthenticationEx(::std::mem::transmute(pbtdiin), ::std::mem::transmute(phreghandleout), ::std::mem::transmute(pfncallbackin), ::std::mem::transmute(pvparam)))
+        ::core::mem::transmute(BluetoothRegisterForAuthenticationEx(::core::mem::transmute(pbtdiin), ::core::mem::transmute(phreghandleout), ::core::mem::transmute(pfncallbackin), ::core::mem::transmute(pvparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1921,7 +1921,7 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
         extern "system" {
             fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32;
         }
-        ::std::mem::transmute(BluetoothRemoveDevice(::std::mem::transmute(paddress)))
+        ::core::mem::transmute(BluetoothRemoveDevice(::core::mem::transmute(paddress)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1929,14 +1929,14 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::std::option::Option<PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK>, pvparam: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::core::option::Option<PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK>, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::windows::runtime::RawPtr, pvparam: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::windows::runtime::RawPtr, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothSdpEnumAttributes(::std::mem::transmute(psdpstream), ::std::mem::transmute(cbstreamsize), ::std::mem::transmute(pfncallback), ::std::mem::transmute(pvparam)))
+        ::core::mem::transmute(BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream), ::core::mem::transmute(cbstreamsize), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pvparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1951,7 +1951,7 @@ pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordle
         extern "system" {
             fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordlength: u32, usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32;
         }
-        ::std::mem::transmute(BluetoothSdpGetAttributeValue(::std::mem::transmute(precordstream), ::std::mem::transmute(cbrecordlength), ::std::mem::transmute(usattributeid), ::std::mem::transmute(pattributedata)))
+        ::core::mem::transmute(BluetoothSdpGetAttributeValue(::core::mem::transmute(precordstream), ::core::mem::transmute(cbrecordlength), ::core::mem::transmute(usattributeid), ::core::mem::transmute(pattributedata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1966,7 +1966,7 @@ pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, c
         extern "system" {
             fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, cbcontainerlength: u32, pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32;
         }
-        ::std::mem::transmute(BluetoothSdpGetContainerElementData(::std::mem::transmute(pcontainerstream), ::std::mem::transmute(cbcontainerlength), ::std::mem::transmute(pelement), ::std::mem::transmute(pdata)))
+        ::core::mem::transmute(BluetoothSdpGetContainerElementData(::core::mem::transmute(pcontainerstream), ::core::mem::transmute(cbcontainerlength), ::core::mem::transmute(pelement), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1981,7 +1981,7 @@ pub unsafe fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlengt
         extern "system" {
             fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlength: u32, pdata: *mut SDP_ELEMENT_DATA) -> u32;
         }
-        ::std::mem::transmute(BluetoothSdpGetElementData(::std::mem::transmute(psdpstream), ::std::mem::transmute(cbsdpstreamlength), ::std::mem::transmute(pdata)))
+        ::core::mem::transmute(BluetoothSdpGetElementData(::core::mem::transmute(psdpstream), ::core::mem::transmute(cbsdpstreamlength), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1996,7 +1996,7 @@ pub unsafe fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u3
         extern "system" {
             fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: super::super::Foundation::PWSTR, pcchstringlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(BluetoothSdpGetString(::std::mem::transmute(precordstream), ::std::mem::transmute(cbrecordlength), ::std::mem::transmute(pstringdata), ::std::mem::transmute(usstringoffset), ::std::mem::transmute(pszstring), ::std::mem::transmute(pcchstringlength)))
+        ::core::mem::transmute(BluetoothSdpGetString(::core::mem::transmute(precordstream), ::core::mem::transmute(cbrecordlength), ::core::mem::transmute(pstringdata), ::core::mem::transmute(usstringoffset), ::core::mem::transmute(pszstring), ::core::mem::transmute(pcchstringlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2009,9 +2009,9 @@ pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BluetoothSelectDevices(pbtsdp: *mut ::std::mem::ManuallyDrop<BLUETOOTH_SELECT_DEVICE_PARAMS>) -> super::super::Foundation::BOOL;
+            fn BluetoothSelectDevices(pbtsdp: *mut ::core::mem::ManuallyDrop<BLUETOOTH_SELECT_DEVICE_PARAMS>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothSelectDevices(::std::mem::transmute(pbtsdp)))
+        ::core::mem::transmute(BluetoothSelectDevices(::core::mem::transmute(pbtsdp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2024,9 +2024,9 @@ pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PA
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BluetoothSelectDevicesFree(pbtsdp: *mut ::std::mem::ManuallyDrop<BLUETOOTH_SELECT_DEVICE_PARAMS>) -> super::super::Foundation::BOOL;
+            fn BluetoothSelectDevicesFree(pbtsdp: *mut ::core::mem::ManuallyDrop<BLUETOOTH_SELECT_DEVICE_PARAMS>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothSelectDevicesFree(::std::mem::transmute(pbtsdp)))
+        ::core::mem::transmute(BluetoothSelectDevicesFree(::core::mem::transmute(pbtsdp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2041,7 +2041,7 @@ pub unsafe fn BluetoothSendAuthenticationResponse<'a, Param0: ::windows::runtime
         extern "system" {
             fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(BluetoothSendAuthenticationResponse(hradio.into_param().abi(), ::std::mem::transmute(pbtdi), pszpasskey.into_param().abi()))
+        ::core::mem::transmute(BluetoothSendAuthenticationResponse(hradio.into_param().abi(), ::core::mem::transmute(pbtdi), pszpasskey.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2056,7 +2056,7 @@ pub unsafe fn BluetoothSendAuthenticationResponseEx<'a, Param0: ::windows::runti
         extern "system" {
             fn BluetoothSendAuthenticationResponseEx(hradioin: super::super::Foundation::HANDLE, pauthresponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32;
         }
-        ::std::mem::transmute(BluetoothSendAuthenticationResponseEx(hradioin.into_param().abi(), ::std::mem::transmute(pauthresponse)))
+        ::core::mem::transmute(BluetoothSendAuthenticationResponseEx(hradioin.into_param().abi(), ::core::mem::transmute(pauthresponse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2071,7 +2071,7 @@ pub unsafe fn BluetoothSetLocalServiceInfo<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn BluetoothSetLocalServiceInfo(hradioin: super::super::Foundation::HANDLE, pclassguid: *const ::windows::runtime::GUID, ulinstance: u32, pserviceinfoin: *const BLUETOOTH_LOCAL_SERVICE_INFO) -> u32;
         }
-        ::std::mem::transmute(BluetoothSetLocalServiceInfo(hradioin.into_param().abi(), ::std::mem::transmute(pclassguid), ::std::mem::transmute(ulinstance), ::std::mem::transmute(pserviceinfoin)))
+        ::core::mem::transmute(BluetoothSetLocalServiceInfo(hradioin.into_param().abi(), ::core::mem::transmute(pclassguid), ::core::mem::transmute(ulinstance), ::core::mem::transmute(pserviceinfoin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2086,7 +2086,7 @@ pub unsafe fn BluetoothSetServiceState<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn BluetoothSetServiceState(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pguidservice: *const ::windows::runtime::GUID, dwserviceflags: u32) -> u32;
         }
-        ::std::mem::transmute(BluetoothSetServiceState(hradio.into_param().abi(), ::std::mem::transmute(pbtdi), ::std::mem::transmute(pguidservice), ::std::mem::transmute(dwserviceflags)))
+        ::core::mem::transmute(BluetoothSetServiceState(hradio.into_param().abi(), ::core::mem::transmute(pbtdi), ::core::mem::transmute(pguidservice), ::core::mem::transmute(dwserviceflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2101,7 +2101,7 @@ pub unsafe fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::sup
         extern "system" {
             fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BluetoothUnregisterAuthentication(::std::mem::transmute(hreghandle)))
+        ::core::mem::transmute(BluetoothUnregisterAuthentication(::core::mem::transmute(hreghandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2116,7 +2116,7 @@ pub unsafe fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -
         extern "system" {
             fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -> u32;
         }
-        ::std::mem::transmute(BluetoothUpdateDeviceRecord(::std::mem::transmute(pbtdi)))
+        ::core::mem::transmute(BluetoothUpdateDeviceRecord(::core::mem::transmute(pbtdi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2399,12 +2399,12 @@ pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HANDLE_SDP_TYPE(pub u64);
-impl ::std::default::Default for HANDLE_SDP_TYPE {
+impl ::core::default::Default for HANDLE_SDP_TYPE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HANDLE_SDP_TYPE {}
@@ -2458,7 +2458,7 @@ pub const HealthDeviceProfileSourceServiceClassID_UUID16: u32 = 5121u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const HumanInterfaceDeviceServiceClassID_UUID16: u32 = 4388u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IO_CAPABILITY(pub i32);
 pub const IoCaps_DisplayOnly: IO_CAPABILITY = IO_CAPABILITY(0i32);
@@ -2466,7 +2466,7 @@ pub const IoCaps_DisplayYesNo: IO_CAPABILITY = IO_CAPABILITY(1i32);
 pub const IoCaps_KeyboardOnly: IO_CAPABILITY = IO_CAPABILITY(2i32);
 pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = IO_CAPABILITY(3i32);
 pub const IoCaps_Undefined: IO_CAPABILITY = IO_CAPABILITY(255i32);
-impl ::std::convert::From<i32> for IO_CAPABILITY {
+impl ::core::convert::From<i32> for IO_CAPABILITY {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2537,12 +2537,12 @@ pub const NAPServiceClassID_UUID16: u32 = 4374u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const NS_BTH: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NodeContainerType(pub i32);
 pub const NodeContainerTypeSequence: NodeContainerType = NodeContainerType(0i32);
 pub const NodeContainerTypeAlternative: NodeContainerType = NodeContainerType(1i32);
-impl ::std::convert::From<i32> for NodeContainerType {
+impl ::core::convert::From<i32> for NodeContainerType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2574,16 +2574,16 @@ pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICATION_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::std::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
+pub type PFN_AUTHENTICATION_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICATION_CALLBACK_EX = unsafe extern "system" fn(pvparam: *const ::std::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL;
+pub type PFN_AUTHENTICATION_CALLBACK_EX = unsafe extern "system" fn(pvparam: *const ::core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DEVICE_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::std::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
+pub type PFN_DEVICE_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const PF_BTH: u16 = 32u16;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
@@ -2640,7 +2640,7 @@ pub const RFCOMM_CMD_RPN: u32 = 3u32;
 pub const RFCOMM_CMD_RPN_REQUEST: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const RFCOMM_CMD_RPN_RESPONSE: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct RFCOMM_COMMAND {
@@ -2648,21 +2648,21 @@ pub struct RFCOMM_COMMAND {
     pub Data: RFCOMM_COMMAND_0,
 }
 impl RFCOMM_COMMAND {}
-impl ::std::default::Default for RFCOMM_COMMAND {
+impl ::core::default::Default for RFCOMM_COMMAND {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RFCOMM_COMMAND {
+impl ::core::cmp::PartialEq for RFCOMM_COMMAND {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RFCOMM_COMMAND {}
+impl ::core::cmp::Eq for RFCOMM_COMMAND {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_COMMAND {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub union RFCOMM_COMMAND_0 {
@@ -2671,17 +2671,17 @@ pub union RFCOMM_COMMAND_0 {
     pub RPN: RFCOMM_RPN_DATA,
 }
 impl RFCOMM_COMMAND_0 {}
-impl ::std::default::Default for RFCOMM_COMMAND_0 {
+impl ::core::default::Default for RFCOMM_COMMAND_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RFCOMM_COMMAND_0 {
+impl ::core::cmp::PartialEq for RFCOMM_COMMAND_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RFCOMM_COMMAND_0 {}
+impl ::core::cmp::Eq for RFCOMM_COMMAND_0 {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_COMMAND_0 {
     type Abi = Self;
 }
@@ -2689,7 +2689,7 @@ unsafe impl ::windows::runtime::Abi for RFCOMM_COMMAND_0 {
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const RFCOMM_MIN_MTU: u32 = 23u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct RFCOMM_MSC_DATA {
@@ -2697,54 +2697,54 @@ pub struct RFCOMM_MSC_DATA {
     pub Break: u8,
 }
 impl RFCOMM_MSC_DATA {}
-impl ::std::default::Default for RFCOMM_MSC_DATA {
+impl ::core::default::Default for RFCOMM_MSC_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RFCOMM_MSC_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RFCOMM_MSC_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RFCOMM_MSC_DATA").field("Signals", &self.Signals).field("Break", &self.Break).finish()
     }
 }
-impl ::std::cmp::PartialEq for RFCOMM_MSC_DATA {
+impl ::core::cmp::PartialEq for RFCOMM_MSC_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Signals == other.Signals && self.Break == other.Break
     }
 }
-impl ::std::cmp::Eq for RFCOMM_MSC_DATA {}
+impl ::core::cmp::Eq for RFCOMM_MSC_DATA {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_MSC_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
 }
 impl RFCOMM_RLS_DATA {}
-impl ::std::default::Default for RFCOMM_RLS_DATA {
+impl ::core::default::Default for RFCOMM_RLS_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RFCOMM_RLS_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RFCOMM_RLS_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RFCOMM_RLS_DATA").field("LineStatus", &self.LineStatus).finish()
     }
 }
-impl ::std::cmp::PartialEq for RFCOMM_RLS_DATA {
+impl ::core::cmp::PartialEq for RFCOMM_RLS_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.LineStatus == other.LineStatus
     }
 }
-impl ::std::cmp::Eq for RFCOMM_RLS_DATA {}
+impl ::core::cmp::Eq for RFCOMM_RLS_DATA {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_RLS_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct RFCOMM_RPN_DATA {
@@ -2757,22 +2757,22 @@ pub struct RFCOMM_RPN_DATA {
     pub ParameterMask2: u8,
 }
 impl RFCOMM_RPN_DATA {}
-impl ::std::default::Default for RFCOMM_RPN_DATA {
+impl ::core::default::Default for RFCOMM_RPN_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RFCOMM_RPN_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RFCOMM_RPN_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RFCOMM_RPN_DATA").field("Baud", &self.Baud).field("Data", &self.Data).field("FlowControl", &self.FlowControl).field("XonChar", &self.XonChar).field("XoffChar", &self.XoffChar).field("ParameterMask1", &self.ParameterMask1).field("ParameterMask2", &self.ParameterMask2).finish()
     }
 }
-impl ::std::cmp::PartialEq for RFCOMM_RPN_DATA {
+impl ::core::cmp::PartialEq for RFCOMM_RPN_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Baud == other.Baud && self.Data == other.Data && self.FlowControl == other.FlowControl && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ParameterMask1 == other.ParameterMask1 && self.ParameterMask2 == other.ParameterMask2
     }
 }
-impl ::std::cmp::Eq for RFCOMM_RPN_DATA {}
+impl ::core::cmp::Eq for RFCOMM_RPN_DATA {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_RPN_DATA {
     type Abi = Self;
 }
@@ -3006,7 +3006,7 @@ pub const SDP_CONNECT_CACHE: u32 = 1u32;
 pub const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
@@ -3018,24 +3018,24 @@ pub struct SDP_ELEMENT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SDP_ELEMENT_DATA {
+impl ::core::default::Default for SDP_ELEMENT_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA {
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SDP_ELEMENT_DATA {}
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union SDP_ELEMENT_DATA_0 {
@@ -3061,24 +3061,24 @@ pub union SDP_ELEMENT_DATA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SDP_ELEMENT_DATA_0 {
+impl ::core::default::Default for SDP_ELEMENT_DATA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0 {
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0 {}
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_0 {
@@ -3088,30 +3088,30 @@ pub struct SDP_ELEMENT_DATA_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SDP_ELEMENT_DATA_0_0 {
+impl ::core::default::Default for SDP_ELEMENT_DATA_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_alternative_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_1 {
@@ -3121,30 +3121,30 @@ pub struct SDP_ELEMENT_DATA_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SDP_ELEMENT_DATA_0_1 {
+impl ::core::default::Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_sequence_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_2 {
@@ -3154,30 +3154,30 @@ pub struct SDP_ELEMENT_DATA_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SDP_ELEMENT_DATA_0_2 {
+impl ::core::default::Default for SDP_ELEMENT_DATA_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_string_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_3 {
@@ -3187,25 +3187,25 @@ pub struct SDP_ELEMENT_DATA_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SDP_ELEMENT_DATA_0_3 {
+impl ::core::default::Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_url_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_3 {}
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_3 {
     type Abi = Self;
@@ -3222,7 +3222,7 @@ pub const SDP_ERROR_INVALID_RECORD_HANDLE: u32 = 2u32;
 pub const SDP_ERROR_INVALID_REQUEST_SYNTAX: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_ERROR_INVALID_SDP_VERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct SDP_LARGE_INTEGER_16 {
@@ -3230,22 +3230,22 @@ pub struct SDP_LARGE_INTEGER_16 {
     pub HighPart: i64,
 }
 impl SDP_LARGE_INTEGER_16 {}
-impl ::std::default::Default for SDP_LARGE_INTEGER_16 {
+impl ::core::default::Default for SDP_LARGE_INTEGER_16 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SDP_LARGE_INTEGER_16 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_LARGE_INTEGER_16 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SDP_LARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
+impl ::core::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::std::cmp::Eq for SDP_LARGE_INTEGER_16 {}
+impl ::core::cmp::Eq for SDP_LARGE_INTEGER_16 {}
 unsafe impl ::windows::runtime::Abi for SDP_LARGE_INTEGER_16 {
     type Abi = Self;
 }
@@ -3270,7 +3270,7 @@ pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SDP_SPECIFICTYPE(pub i32);
 pub const SDP_ST_NONE: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(0i32);
@@ -3287,7 +3287,7 @@ pub const SDP_ST_INT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1056i32);
 pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(304i32);
 pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
 pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1072i32);
-impl ::std::convert::From<i32> for SDP_SPECIFICTYPE {
+impl ::core::convert::From<i32> for SDP_SPECIFICTYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3295,7 +3295,7 @@ impl ::std::convert::From<i32> for SDP_SPECIFICTYPE {
 unsafe impl ::windows::runtime::Abi for SDP_SPECIFICTYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct SDP_STRING_TYPE_DATA {
@@ -3304,27 +3304,27 @@ pub struct SDP_STRING_TYPE_DATA {
     pub attributeId: u16,
 }
 impl SDP_STRING_TYPE_DATA {}
-impl ::std::default::Default for SDP_STRING_TYPE_DATA {
+impl ::core::default::Default for SDP_STRING_TYPE_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SDP_STRING_TYPE_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_STRING_TYPE_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SDP_STRING_TYPE_DATA").field("encoding", &self.encoding).field("mibeNum", &self.mibeNum).field("attributeId", &self.attributeId).finish()
     }
 }
-impl ::std::cmp::PartialEq for SDP_STRING_TYPE_DATA {
+impl ::core::cmp::PartialEq for SDP_STRING_TYPE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.encoding == other.encoding && self.mibeNum == other.mibeNum && self.attributeId == other.attributeId
     }
 }
-impl ::std::cmp::Eq for SDP_STRING_TYPE_DATA {}
+impl ::core::cmp::Eq for SDP_STRING_TYPE_DATA {}
 unsafe impl ::windows::runtime::Abi for SDP_STRING_TYPE_DATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SDP_TYPE(pub i32);
 pub const SDP_TYPE_NIL: SDP_TYPE = SDP_TYPE(0i32);
@@ -3337,7 +3337,7 @@ pub const SDP_TYPE_SEQUENCE: SDP_TYPE = SDP_TYPE(6i32);
 pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = SDP_TYPE(7i32);
 pub const SDP_TYPE_URL: SDP_TYPE = SDP_TYPE(8i32);
 pub const SDP_TYPE_CONTAINER: SDP_TYPE = SDP_TYPE(32i32);
-impl ::std::convert::From<i32> for SDP_TYPE {
+impl ::core::convert::From<i32> for SDP_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3345,7 +3345,7 @@ impl ::std::convert::From<i32> for SDP_TYPE {
 unsafe impl ::windows::runtime::Abi for SDP_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct SDP_ULARGE_INTEGER_16 {
@@ -3353,22 +3353,22 @@ pub struct SDP_ULARGE_INTEGER_16 {
     pub HighPart: u64,
 }
 impl SDP_ULARGE_INTEGER_16 {}
-impl ::std::default::Default for SDP_ULARGE_INTEGER_16 {
+impl ::core::default::Default for SDP_ULARGE_INTEGER_16 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SDP_ULARGE_INTEGER_16 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SDP_ULARGE_INTEGER_16 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SDP_ULARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
+impl ::core::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::std::cmp::Eq for SDP_ULARGE_INTEGER_16 {}
+impl ::core::cmp::Eq for SDP_ULARGE_INTEGER_16 {}
 unsafe impl ::windows::runtime::Abi for SDP_ULARGE_INTEGER_16 {
     type Abi = Self;
 }
@@ -3394,7 +3394,7 @@ pub const SERVICE_SECURITY_NONE: u32 = 1u32;
 pub const SERVICE_SECURITY_NO_ASK: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SERVICE_SECURITY_USE_DEFAULTS: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct SOCKADDR_BTH {
@@ -3404,17 +3404,17 @@ pub struct SOCKADDR_BTH {
     pub port: u32,
 }
 impl SOCKADDR_BTH {}
-impl ::std::default::Default for SOCKADDR_BTH {
+impl ::core::default::Default for SOCKADDR_BTH {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SOCKADDR_BTH {
+impl ::core::cmp::PartialEq for SOCKADDR_BTH {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SOCKADDR_BTH {}
+impl ::core::cmp::Eq for SOCKADDR_BTH {}
 unsafe impl ::windows::runtime::Abi for SOCKADDR_BTH {
     type Abi = Self;
 }
@@ -3449,7 +3449,7 @@ pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SYNCH_DATA_STORE_PHONEBOOK: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct SdpAttributeRange {
@@ -3457,26 +3457,26 @@ pub struct SdpAttributeRange {
     pub maxAttribute: u16,
 }
 impl SdpAttributeRange {}
-impl ::std::default::Default for SdpAttributeRange {
+impl ::core::default::Default for SdpAttributeRange {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SdpAttributeRange {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SdpAttributeRange {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SdpAttributeRange").field("minAttribute", &self.minAttribute).field("maxAttribute", &self.maxAttribute).finish()
     }
 }
-impl ::std::cmp::PartialEq for SdpAttributeRange {
+impl ::core::cmp::PartialEq for SdpAttributeRange {
     fn eq(&self, other: &Self) -> bool {
         self.minAttribute == other.minAttribute && self.maxAttribute == other.maxAttribute
     }
 }
-impl ::std::cmp::Eq for SdpAttributeRange {}
+impl ::core::cmp::Eq for SdpAttributeRange {}
 unsafe impl ::windows::runtime::Abi for SdpAttributeRange {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub struct SdpQueryUuid {
@@ -3484,21 +3484,21 @@ pub struct SdpQueryUuid {
     pub uuidType: u16,
 }
 impl SdpQueryUuid {}
-impl ::std::default::Default for SdpQueryUuid {
+impl ::core::default::Default for SdpQueryUuid {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SdpQueryUuid {
+impl ::core::cmp::PartialEq for SdpQueryUuid {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SdpQueryUuid {}
+impl ::core::cmp::Eq for SdpQueryUuid {}
 unsafe impl ::windows::runtime::Abi for SdpQueryUuid {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub union SdpQueryUuidUnion {
@@ -3507,17 +3507,17 @@ pub union SdpQueryUuidUnion {
     pub uuid16: u16,
 }
 impl SdpQueryUuidUnion {}
-impl ::std::default::Default for SdpQueryUuidUnion {
+impl ::core::default::Default for SdpQueryUuidUnion {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SdpQueryUuidUnion {
+impl ::core::cmp::PartialEq for SdpQueryUuidUnion {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SdpQueryUuidUnion {}
+impl ::core::cmp::Eq for SdpQueryUuidUnion {}
 unsafe impl ::windows::runtime::Abi for SdpQueryUuidUnion {
     type Abi = Self;
 }

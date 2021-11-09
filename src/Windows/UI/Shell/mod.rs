@@ -5,8 +5,8 @@ impl AdaptiveCardBuilder {
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
         })
     }
     pub fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -18,7 +18,7 @@ impl ::windows::runtime::RuntimeName for AdaptiveCardBuilder {
     const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCard(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCard {
@@ -30,20 +30,20 @@ impl IAdaptiveCard {
     pub fn ToJson(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
-impl ::std::convert::From<IAdaptiveCard> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAdaptiveCard> for ::windows::runtime::IUnknown {
     fn from(value: IAdaptiveCard) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IAdaptiveCard> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAdaptiveCard> for ::windows::runtime::IUnknown {
     fn from(value: &IAdaptiveCard) -> Self {
         value.0 .0.clone()
     }
@@ -58,12 +58,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IAdaptiveCard> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IAdaptiveCard> for ::windows::runtime::IInspectable {
     fn from(value: IAdaptiveCard) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAdaptiveCard> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IAdaptiveCard> for ::windows::runtime::IInspectable {
     fn from(value: &IAdaptiveCard) -> Self {
         value.0.clone()
     }
@@ -87,10 +87,10 @@ pub struct IAdaptiveCard_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCardBuilderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCardBuilderStatics {
@@ -102,20 +102,20 @@ impl IAdaptiveCardBuilderStatics {
     pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<IAdaptiveCard> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
 }
-impl ::std::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
     fn from(value: IAdaptiveCardBuilderStatics) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
     fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
         value.0 .0.clone()
     }
@@ -130,12 +130,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
     fn from(value: IAdaptiveCardBuilderStatics) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
     fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
         value.0.clone()
     }
@@ -159,7 +159,7 @@ pub struct IAdaptiveCardBuilderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -177,7 +177,7 @@ pub struct ISecurityAppManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: SecurityAppKind, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, detailsuri: ::windows::runtime::RawPtr, registerperuser: bool, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: SecurityAppKind, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, detailsuri: ::windows::runtime::RawPtr, registerperuser: bool, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: SecurityAppKind, guidregistration: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: SecurityAppKind, guidregistration: ::windows::runtime::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -292,11 +292,11 @@ pub struct ITaskbarManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tileid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tileid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, secondarytile: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_StartScreen")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tileid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tileid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -318,13 +318,13 @@ pub struct ITaskbarManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `UI_Shell`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
     pub const WebProtection: SecurityAppKind = SecurityAppKind(0i32);
 }
-impl ::std::convert::From<i32> for SecurityAppKind {
+impl ::core::convert::From<i32> for SecurityAppKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -340,7 +340,7 @@ impl ::windows::runtime::DefaultType for SecurityAppKind {
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecurityAppManager(pub ::windows::runtime::IInspectable);
 impl SecurityAppManager {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -355,20 +355,20 @@ impl SecurityAppManager {
     pub fn Register<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, displayname: Param1, detailsuri: Param2, registerperuser: bool) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), kind, displayname.into_param().abi(), detailsuri.into_param().abi(), registerperuser, &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), kind, displayname.into_param().abi(), detailsuri.into_param().abi(), registerperuser, &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn Unregister<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, kind: SecurityAppKind, guidregistration: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), kind, guidregistration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), kind, guidregistration.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn UpdateState<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, guidregistration: Param1, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: Param4) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), kind, guidregistration.into_param().abi(), state, substatus, detailsuri.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), kind, guidregistration.into_param().abi(), state, substatus, detailsuri.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SecurityAppManager {
@@ -381,12 +381,12 @@ unsafe impl ::windows::runtime::Interface for SecurityAppManager {
 impl ::windows::runtime::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
 }
-impl ::std::convert::From<SecurityAppManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecurityAppManager> for ::windows::runtime::IUnknown {
     fn from(value: SecurityAppManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecurityAppManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecurityAppManager> for ::windows::runtime::IUnknown {
     fn from(value: &SecurityAppManager) -> Self {
         value.0 .0.clone()
     }
@@ -401,12 +401,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecurityAppManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecurityAppManager> for ::windows::runtime::IInspectable {
     fn from(value: SecurityAppManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecurityAppManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecurityAppManager> for ::windows::runtime::IInspectable {
     fn from(value: &SecurityAppManager) -> Self {
         value.0.clone()
     }
@@ -421,20 +421,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecurityAppManager {}
-unsafe impl ::std::marker::Sync for SecurityAppManager {}
+unsafe impl ::core::marker::Send for SecurityAppManager {}
+unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct SecurityAppManagerContract(pub u8);
 #[doc = "*Required features: `UI_Shell`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
     pub const Disabled: SecurityAppState = SecurityAppState(0i32);
     pub const Enabled: SecurityAppState = SecurityAppState(1i32);
 }
-impl ::std::convert::From<i32> for SecurityAppState {
+impl ::core::convert::From<i32> for SecurityAppState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -449,7 +449,7 @@ impl ::windows::runtime::DefaultType for SecurityAppState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Shell`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
@@ -458,7 +458,7 @@ impl SecurityAppSubstatus {
     pub const ActionRecommended: SecurityAppSubstatus = SecurityAppSubstatus(2i32);
     pub const ActionNeeded: SecurityAppSubstatus = SecurityAppSubstatus(3i32);
 }
-impl ::std::convert::From<i32> for SecurityAppSubstatus {
+impl ::core::convert::From<i32> for SecurityAppSubstatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -473,7 +473,7 @@ impl ::windows::runtime::DefaultType for SecurityAppSubstatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Shell`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
@@ -481,7 +481,7 @@ impl ShareWindowCommand {
     pub const StartSharing: ShareWindowCommand = ShareWindowCommand(1i32);
     pub const StopSharing: ShareWindowCommand = ShareWindowCommand(2i32);
 }
-impl ::std::convert::From<i32> for ShareWindowCommand {
+impl ::core::convert::From<i32> for ShareWindowCommand {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -497,29 +497,29 @@ impl ::windows::runtime::DefaultType for ShareWindowCommand {
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ShareWindowCommandEventArgs(pub ::windows::runtime::IInspectable);
 impl ShareWindowCommandEventArgs {
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn WindowId(&self) -> ::windows::runtime::Result<super::WindowId> {
         let this = self;
         unsafe {
-            let mut result__: super::WindowId = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowId>(result__)
+            let mut result__: super::WindowId = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowId>(result__)
         }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn Command(&self) -> ::windows::runtime::Result<ShareWindowCommand> {
         let this = self;
         unsafe {
-            let mut result__: ShareWindowCommand = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommand>(result__)
+            let mut result__: ShareWindowCommand = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommand>(result__)
         }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ShareWindowCommandEventArgs {
@@ -532,12 +532,12 @@ unsafe impl ::windows::runtime::Interface for ShareWindowCommandEventArgs {
 impl ::windows::runtime::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
 }
-impl ::std::convert::From<ShareWindowCommandEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ShareWindowCommandEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ShareWindowCommandEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ShareWindowCommandEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ShareWindowCommandEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ShareWindowCommandEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -552,12 +552,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ShareWindowCommandEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ShareWindowCommandEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ShareWindowCommandEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ShareWindowCommandEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ShareWindowCommandEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ShareWindowCommandEventArgs) -> Self {
         value.0.clone()
     }
@@ -572,63 +572,63 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ShareWindowCommandEventArgs {}
-unsafe impl ::std::marker::Sync for ShareWindowCommandEventArgs {}
+unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
+unsafe impl ::core::marker::Sync for ShareWindowCommandEventArgs {}
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ShareWindowCommandSource(pub ::windows::runtime::IInspectable);
 impl ShareWindowCommandSource {
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn ReportCommandChanged(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn CommandRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn RemoveCommandRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn CommandInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn RemoveCommandInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<ShareWindowCommandSource> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommandSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommandSource>(result__)
         })
     }
     pub fn IShareWindowCommandSourceStatics<R, F: FnOnce(&IShareWindowCommandSourceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -646,12 +646,12 @@ unsafe impl ::windows::runtime::Interface for ShareWindowCommandSource {
 impl ::windows::runtime::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
 }
-impl ::std::convert::From<ShareWindowCommandSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ShareWindowCommandSource> for ::windows::runtime::IUnknown {
     fn from(value: ShareWindowCommandSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ShareWindowCommandSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ShareWindowCommandSource> for ::windows::runtime::IUnknown {
     fn from(value: &ShareWindowCommandSource) -> Self {
         value.0 .0.clone()
     }
@@ -666,12 +666,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ShareWindowCommandSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ShareWindowCommandSource> for ::windows::runtime::IInspectable {
     fn from(value: ShareWindowCommandSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ShareWindowCommandSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ShareWindowCommandSource> for ::windows::runtime::IInspectable {
     fn from(value: &ShareWindowCommandSource) -> Self {
         value.0.clone()
     }
@@ -686,27 +686,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ShareWindowCommandSource {}
-unsafe impl ::std::marker::Sync for ShareWindowCommandSource {}
+unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
+unsafe impl ::core::marker::Sync for ShareWindowCommandSource {}
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TaskbarManager(pub ::windows::runtime::IInspectable);
 impl TaskbarManager {
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn IsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn IsPinningAllowed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -714,8 +714,8 @@ impl TaskbarManager {
     pub fn IsCurrentAppPinnedAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
@@ -723,8 +723,8 @@ impl TaskbarManager {
     pub fn IsAppListEntryPinnedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -732,8 +732,8 @@ impl TaskbarManager {
     pub fn RequestPinCurrentAppAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
@@ -741,15 +741,15 @@ impl TaskbarManager {
     pub fn RequestPinAppListEntryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Shell`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<TaskbarManager> {
         Self::ITaskbarManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TaskbarManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TaskbarManager>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -757,8 +757,8 @@ impl TaskbarManager {
     pub fn IsSecondaryTilePinnedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tileid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))]
@@ -766,8 +766,8 @@ impl TaskbarManager {
     pub fn RequestPinSecondaryTileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::StartScreen::SecondaryTile>>(&self, secondarytile: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), secondarytile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), secondarytile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -775,8 +775,8 @@ impl TaskbarManager {
     pub fn TryUnpinSecondaryTileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tileid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn ITaskbarManagerStatics<R, F: FnOnce(&ITaskbarManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -794,12 +794,12 @@ unsafe impl ::windows::runtime::Interface for TaskbarManager {
 impl ::windows::runtime::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";
 }
-impl ::std::convert::From<TaskbarManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TaskbarManager> for ::windows::runtime::IUnknown {
     fn from(value: TaskbarManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TaskbarManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TaskbarManager> for ::windows::runtime::IUnknown {
     fn from(value: &TaskbarManager) -> Self {
         value.0 .0.clone()
     }
@@ -814,12 +814,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TaskbarManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TaskbarManager> for ::windows::runtime::IInspectable {
     fn from(value: TaskbarManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TaskbarManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TaskbarManager> for ::windows::runtime::IInspectable {
     fn from(value: &TaskbarManager) -> Self {
         value.0.clone()
     }
@@ -834,5 +834,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TaskbarManager {}
-unsafe impl ::std::marker::Sync for TaskbarManager {}
+unsafe impl ::core::marker::Send for TaskbarManager {}
+unsafe impl ::core::marker::Sync for TaskbarManager {}

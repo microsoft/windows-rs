@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
@@ -14,7 +14,7 @@ impl ClosedCaptionColor {
     pub const Magenta: ClosedCaptionColor = ClosedCaptionColor(7i32);
     pub const Cyan: ClosedCaptionColor = ClosedCaptionColor(8i32);
 }
-impl ::std::convert::From<i32> for ClosedCaptionColor {
+impl ::core::convert::From<i32> for ClosedCaptionColor {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -29,7 +29,7 @@ impl ::windows::runtime::DefaultType for ClosedCaptionColor {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
@@ -40,7 +40,7 @@ impl ClosedCaptionEdgeEffect {
     pub const Uniform: ClosedCaptionEdgeEffect = ClosedCaptionEdgeEffect(4i32);
     pub const DropShadow: ClosedCaptionEdgeEffect = ClosedCaptionEdgeEffect(5i32);
 }
-impl ::std::convert::From<i32> for ClosedCaptionEdgeEffect {
+impl ::core::convert::From<i32> for ClosedCaptionEdgeEffect {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -55,7 +55,7 @@ impl ::windows::runtime::DefaultType for ClosedCaptionEdgeEffect {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
@@ -65,7 +65,7 @@ impl ClosedCaptionOpacity {
     pub const TwentyFivePercent: ClosedCaptionOpacity = ClosedCaptionOpacity(3i32);
     pub const ZeroPercent: ClosedCaptionOpacity = ClosedCaptionOpacity(4i32);
 }
-impl ::std::convert::From<i32> for ClosedCaptionOpacity {
+impl ::core::convert::From<i32> for ClosedCaptionOpacity {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -85,88 +85,88 @@ impl ClosedCaptionProperties {
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn FontColor() -> ::windows::runtime::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionColor = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
+            let mut result__: ClosedCaptionColor = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
         })
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_ClosedCaptioning`, `UI`*"]
     pub fn ComputedFontColor() -> ::windows::runtime::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn FontOpacity() -> ::windows::runtime::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionOpacity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
+            let mut result__: ClosedCaptionOpacity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn FontSize() -> ::windows::runtime::Result<ClosedCaptionSize> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionSize>(result__)
+            let mut result__: ClosedCaptionSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionSize>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn FontStyle() -> ::windows::runtime::Result<ClosedCaptionStyle> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionStyle = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionStyle>(result__)
+            let mut result__: ClosedCaptionStyle = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionStyle>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn FontEffect() -> ::windows::runtime::Result<ClosedCaptionEdgeEffect> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionEdgeEffect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionEdgeEffect>(result__)
+            let mut result__: ClosedCaptionEdgeEffect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionEdgeEffect>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn BackgroundColor() -> ::windows::runtime::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionColor = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
+            let mut result__: ClosedCaptionColor = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
         })
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_ClosedCaptioning`, `UI`*"]
     pub fn ComputedBackgroundColor() -> ::windows::runtime::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn BackgroundOpacity() -> ::windows::runtime::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionOpacity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
+            let mut result__: ClosedCaptionOpacity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn RegionColor() -> ::windows::runtime::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionColor = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
+            let mut result__: ClosedCaptionColor = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
         })
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_ClosedCaptioning`, `UI`*"]
     pub fn ComputedRegionColor() -> ::windows::runtime::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         })
     }
     #[doc = "*Required features: `Media_ClosedCaptioning`*"]
     pub fn RegionOpacity() -> ::windows::runtime::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionOpacity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
+            let mut result__: ClosedCaptionOpacity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
     pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -178,7 +178,7 @@ impl ::windows::runtime::RuntimeName for ClosedCaptionProperties {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionProperties";
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
@@ -188,7 +188,7 @@ impl ClosedCaptionSize {
     pub const OneHundredFiftyPercent: ClosedCaptionSize = ClosedCaptionSize(3i32);
     pub const TwoHundredPercent: ClosedCaptionSize = ClosedCaptionSize(4i32);
 }
-impl ::std::convert::From<i32> for ClosedCaptionSize {
+impl ::core::convert::From<i32> for ClosedCaptionSize {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -203,7 +203,7 @@ impl ::windows::runtime::DefaultType for ClosedCaptionSize {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {
@@ -216,7 +216,7 @@ impl ClosedCaptionStyle {
     pub const Cursive: ClosedCaptionStyle = ClosedCaptionStyle(6i32);
     pub const SmallCapitals: ClosedCaptionStyle = ClosedCaptionStyle(7i32);
 }
-impl ::std::convert::From<i32> for ClosedCaptionStyle {
+impl ::core::convert::From<i32> for ClosedCaptionStyle {
     fn from(value: i32) -> Self {
         Self(value)
     }

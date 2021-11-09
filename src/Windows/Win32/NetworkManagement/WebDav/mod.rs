@@ -1,12 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUTHNEXTSTEP(pub i32);
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
-impl ::std::convert::From<i32> for AUTHNEXTSTEP {
+impl ::core::convert::From<i32> for AUTHNEXTSTEP {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -28,35 +28,35 @@ pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`*"]
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`*"]
 pub struct DAV_CALLBACK_AUTH_BLOB {
-    pub pBuffer: *mut ::std::ffi::c_void,
+    pub pBuffer: *mut ::core::ffi::c_void,
     pub ulSize: u32,
     pub ulType: u32,
 }
 impl DAV_CALLBACK_AUTH_BLOB {}
-impl ::std::default::Default for DAV_CALLBACK_AUTH_BLOB {
+impl ::core::default::Default for DAV_CALLBACK_AUTH_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
     }
 }
-impl ::std::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
+impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.pBuffer == other.pBuffer && self.ulSize == other.ulSize && self.ulType == other.ulType
     }
 }
-impl ::std::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
+impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
 unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_AUTH_BLOB {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`, `Win32_Foundation`*"]
@@ -69,30 +69,30 @@ pub struct DAV_CALLBACK_AUTH_UNP {
 #[cfg(feature = "Win32_Foundation")]
 impl DAV_CALLBACK_AUTH_UNP {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DAV_CALLBACK_AUTH_UNP {
+impl ::core::default::Default for DAV_CALLBACK_AUTH_UNP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
+impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
     fn eq(&self, other: &Self) -> bool {
         self.pszUserName == other.pszUserName && self.ulUserNameLength == other.ulUserNameLength && self.pszPassword == other.pszPassword && self.ulPasswordLength == other.ulPasswordLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
+impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_AUTH_UNP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`, `Win32_Foundation`*"]
@@ -105,25 +105,25 @@ pub struct DAV_CALLBACK_CRED {
 #[cfg(feature = "Win32_Foundation")]
 impl DAV_CALLBACK_CRED {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DAV_CALLBACK_CRED {
+impl ::core::default::Default for DAV_CALLBACK_CRED {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DAV_CALLBACK_CRED {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DAV_CALLBACK_CRED").field("AuthBlob", &self.AuthBlob).field("UNPBlob", &self.UNPBlob).field("bAuthBlobValid", &self.bAuthBlobValid).field("bSave", &self.bSave).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DAV_CALLBACK_CRED {
+impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {
     fn eq(&self, other: &Self) -> bool {
         self.AuthBlob == other.AuthBlob && self.UNPBlob == other.UNPBlob && self.bAuthBlobValid == other.bAuthBlobValid && self.bSave == other.bSave
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DAV_CALLBACK_CRED {}
+impl ::core::cmp::Eq for DAV_CALLBACK_CRED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_CRED {
     type Abi = Self;
@@ -138,7 +138,7 @@ pub unsafe fn DavAddConnection<'a, Param1: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn DavAddConnection(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, clientcert: *const u8, certsize: u32) -> u32;
         }
-        ::std::mem::transmute(DavAddConnection(::std::mem::transmute(connectionhandle), remotename.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::std::mem::transmute(clientcert), ::std::mem::transmute(certsize)))
+        ::core::mem::transmute(DavAddConnection(::core::mem::transmute(connectionhandle), remotename.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(clientcert), ::core::mem::transmute(certsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -153,7 +153,7 @@ pub unsafe fn DavCancelConnectionsToServer<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn DavCancelConnectionsToServer(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DavCancelConnectionsToServer(lpname.into_param().abi(), fforce.into_param().abi()))
+        ::core::mem::transmute(DavCancelConnectionsToServer(lpname.into_param().abi(), fforce.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -168,7 +168,7 @@ pub unsafe fn DavDeleteConnection<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(DavDeleteConnection(connectionhandle.into_param().abi()))
+        ::core::mem::transmute(DavDeleteConnection(connectionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -183,7 +183,7 @@ pub unsafe fn DavFlushFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(DavFlushFile(hfile.into_param().abi()))
+        ::core::mem::transmute(DavFlushFile(hfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -198,7 +198,7 @@ pub unsafe fn DavGetExtendedError<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: super::super::Foundation::PWSTR, cchsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DavGetExtendedError(hfile.into_param().abi(), ::std::mem::transmute(exterror), ::std::mem::transmute(exterrorstring), ::std::mem::transmute(cchsize)))
+        ::core::mem::transmute(DavGetExtendedError(hfile.into_param().abi(), ::core::mem::transmute(exterror), ::core::mem::transmute(exterrorstring), ::core::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -213,7 +213,7 @@ pub unsafe fn DavGetHTTPFromUNCPath<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn DavGetHTTPFromUNCPath(uncpath: super::super::Foundation::PWSTR, url: super::super::Foundation::PWSTR, lpsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DavGetHTTPFromUNCPath(uncpath.into_param().abi(), ::std::mem::transmute(url), ::std::mem::transmute(lpsize)))
+        ::core::mem::transmute(DavGetHTTPFromUNCPath(uncpath.into_param().abi(), ::core::mem::transmute(url), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -228,7 +228,7 @@ pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn DavGetTheLockOwnerOfTheFile(filename: super::super::Foundation::PWSTR, lockownername: super::super::Foundation::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DavGetTheLockOwnerOfTheFile(filename.into_param().abi(), ::std::mem::transmute(lockownername), ::std::mem::transmute(lockownernamelengthinbytes)))
+        ::core::mem::transmute(DavGetTheLockOwnerOfTheFile(filename.into_param().abi(), ::core::mem::transmute(lockownername), ::core::mem::transmute(lockownernamelengthinbytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -243,7 +243,7 @@ pub unsafe fn DavGetUNCFromHTTPPath<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn DavGetUNCFromHTTPPath(url: super::super::Foundation::PWSTR, uncpath: super::super::Foundation::PWSTR, lpsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DavGetUNCFromHTTPPath(url.into_param().abi(), ::std::mem::transmute(uncpath), ::std::mem::transmute(lpsize)))
+        ::core::mem::transmute(DavGetUNCFromHTTPPath(url.into_param().abi(), ::core::mem::transmute(uncpath), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -258,7 +258,7 @@ pub unsafe fn DavInvalidateCache<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn DavInvalidateCache(urlname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DavInvalidateCache(urlname.into_param().abi()))
+        ::core::mem::transmute(DavInvalidateCache(urlname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -266,14 +266,14 @@ pub unsafe fn DavInvalidateCache<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavRegisterAuthCallback(callback: ::std::option::Option<PFNDAVAUTHCALLBACK>, version: u32) -> u32 {
+pub unsafe fn DavRegisterAuthCallback(callback: ::core::option::Option<PFNDAVAUTHCALLBACK>, version: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DavRegisterAuthCallback(callback: ::windows::runtime::RawPtr, version: u32) -> u32;
         }
-        ::std::mem::transmute(DavRegisterAuthCallback(::std::mem::transmute(callback), ::std::mem::transmute(version)))
+        ::core::mem::transmute(DavRegisterAuthCallback(::core::mem::transmute(callback), ::core::mem::transmute(version)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -287,7 +287,7 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
         extern "system" {
             fn DavUnregisterAuthCallback(hcallback: u32);
         }
-        ::std::mem::transmute(DavUnregisterAuthCallback(::std::mem::transmute(hcallback)))
+        ::core::mem::transmute(DavUnregisterAuthCallback(::core::mem::transmute(hcallback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -296,4 +296,4 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDAVAUTHCALLBACK = unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut ::windows::runtime::RawPtr) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`*"]
-pub type PFNDAVAUTHCALLBACK_FREECRED = unsafe extern "system" fn(pbuffer: *const ::std::ffi::c_void) -> u32;
+pub type PFNDAVAUTHCALLBACK_FREECRED = unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32;

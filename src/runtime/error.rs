@@ -1,8 +1,7 @@
 use super::*;
-use std::convert::TryInto;
 
 use bindings::{
-    Windows::Win32::Foundation::{GetLastError, BSTR, S_OK},
+    Windows::Win32::Foundation::{GetLastError, BOOL, BSTR, S_OK},
     Windows::Win32::System::Ole::Automation::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
@@ -20,14 +19,12 @@ impl Error {
 
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
-    pub fn new(code: HRESULT, message: &str) -> Self {
-        let message: HSTRING = message.into();
-
+    pub fn new(code: HRESULT, message: HSTRING) -> Self {
         // RoOriginateError creates the error object and associates it with the thread.
         // Need to ignore the result, as that is the delay-load error, which would mean
         // that there's no WinRT to tell about the error.
         unsafe {
-            let _ = RoOriginateError(code, std::mem::transmute_copy(&message));
+            let _ = RoOriginateError(code, core::mem::transmute_copy(&message));
         }
 
         let info = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
@@ -57,7 +54,7 @@ impl Error {
     }
 
     /// The error message describing the error.
-    pub fn message(&self) -> String {
+    pub fn message(&self) -> HSTRING {
         // First attempt to retrieve the restricted error information.
         if let Some(info) = &self.info {
             let mut fallback = BSTR::default();
@@ -69,12 +66,9 @@ impl Error {
                 let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut unused);
             }
 
-            let message = if !message.is_empty() { message } else { fallback };
-
-            let message: String = message.try_into().unwrap_or_default();
-
             if self.code == code {
-                return message.trim_end().to_owned();
+                let message = if !message.is_empty() { message } else { fallback };
+                return HSTRING::from_wide(message.as_wide());
             }
         }
 
@@ -92,7 +86,7 @@ impl Error {
     }
 }
 
-impl std::convert::From<Error> for HRESULT {
+impl core::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
         let info = error.info.and_then(|info| info.cast().ok());
@@ -105,13 +99,14 @@ impl std::convert::From<Error> for HRESULT {
     }
 }
 
-impl std::convert::From<Error> for std::io::Error {
+#[cfg(feature = "std")]
+impl core::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error((from.code.0 & 0xFFFF) as _)
     }
 }
 
-impl std::convert::From<HRESULT> for Error {
+impl core::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
         let info: Option<IRestrictedErrorInfo> = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
 
@@ -130,16 +125,15 @@ impl std::convert::From<HRESULT> for Error {
 
         if let Ok(info) = unsafe { GetErrorInfo(0) } {
             let message = unsafe { info.GetDescription().unwrap_or_default() };
-            let message: String = message.try_into().unwrap_or_default();
-            Self::new(code, &message)
+            Self::new(code, HSTRING::from_wide(message.as_wide()))
         } else {
-            Self::new(code, "")
+            Self { code, info: None }
         }
     }
 }
 
-impl std::fmt::Debug for Error {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for Error {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
         debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message());
         if let Some(win32) = self.win32_error() {
@@ -149,16 +143,17 @@ impl std::fmt::Debug for Error {
     }
 }
 
-impl std::fmt::Display for Error {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        fmt.write_str(&self.message())
+impl core::fmt::Display for Error {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        core::write!(fmt, "{}", self.message())
     }
 }
 
+#[cfg(feature = "std")]
 impl std::error::Error for Error {}
 
 demand_load! {
-    "combase.dll" {
-        fn RoOriginateError(code: HRESULT, message: std::mem::ManuallyDrop<HSTRING>) -> i32;
+    "combase.dll\0" {
+        fn RoOriginateError(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> BOOL;
     }
 }

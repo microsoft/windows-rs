@@ -1,15 +1,15 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextCompositionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextCompositionCompletedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -17,8 +17,8 @@ impl CoreTextCompositionCompletedEventArgs {
     pub fn CompositionSegments(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -26,8 +26,8 @@ impl CoreTextCompositionCompletedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -41,12 +41,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextCompositionCompletedEventA
 impl ::windows::runtime::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
 }
-impl ::std::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextCompositionCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -61,12 +61,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextCompositionCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextCompositionCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextCompositionCompletedEventArgs) -> Self {
         value.0.clone()
     }
@@ -81,27 +81,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextCompositionCompletedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextCompositionCompletedEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextCompositionCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextCompositionCompletedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextCompositionSegment(pub ::windows::runtime::IInspectable);
 impl CoreTextCompositionSegment {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn PreconversionString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
 }
@@ -115,12 +115,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextCompositionSegment {
 impl ::windows::runtime::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
 }
-impl ::std::convert::From<CoreTextCompositionSegment> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextCompositionSegment> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextCompositionSegment) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextCompositionSegment> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextCompositionSegment> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextCompositionSegment) -> Self {
         value.0 .0.clone()
     }
@@ -135,12 +135,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextCompositionSegment> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextCompositionSegment> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextCompositionSegment) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextCompositionSegment> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextCompositionSegment> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextCompositionSegment) -> Self {
         value.0.clone()
     }
@@ -155,19 +155,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextCompositionSegment {}
-unsafe impl ::std::marker::Sync for CoreTextCompositionSegment {}
+unsafe impl ::core::marker::Send for CoreTextCompositionSegment {}
+unsafe impl ::core::marker::Sync for CoreTextCompositionSegment {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextCompositionStartedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextCompositionStartedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -175,8 +175,8 @@ impl CoreTextCompositionStartedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -190,12 +190,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextCompositionStartedEventArg
 impl ::windows::runtime::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
 }
-impl ::std::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextCompositionStartedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -210,12 +210,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextCompositionStartedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextCompositionStartedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextCompositionStartedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextCompositionStartedEventArgs) -> Self {
         value.0.clone()
     }
@@ -230,239 +230,239 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextCompositionStartedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextCompositionStartedEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextCompositionStartedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextCompositionStartedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextEditContext(pub ::windows::runtime::IInspectable);
 impl CoreTextEditContext {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn InputScope(&self) -> ::windows::runtime::Result<CoreTextInputScope> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextInputScope = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextInputScope>(result__)
+            let mut result__: CoreTextInputScope = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextInputScope>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetInputScope(&self, value: CoreTextInputScope) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetIsReadOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn InputPaneDisplayPolicy(&self) -> ::windows::runtime::Result<CoreTextInputPaneDisplayPolicy> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextInputPaneDisplayPolicy = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextInputPaneDisplayPolicy>(result__)
+            let mut result__: CoreTextInputPaneDisplayPolicy = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextInputPaneDisplayPolicy>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetInputPaneDisplayPolicy(&self, value: CoreTextInputPaneDisplayPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn TextRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveTextRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SelectionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveSelectionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn LayoutRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveLayoutRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn TextUpdating<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveTextUpdating<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SelectionUpdating<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveSelectionUpdating<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn FormatUpdating<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveFormatUpdating<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn CompositionStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveCompositionStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn CompositionCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveCompositionCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn FocusRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveFocusRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyFocusEnter(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyFocusLeave(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyTextChanged<'a, Param0: ::windows::runtime::IntoParam<'a, CoreTextRange>, Param2: ::windows::runtime::IntoParam<'a, CoreTextRange>>(&self, modifiedrange: Param0, newlength: i32, newselection: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), modifiedrange.into_param().abi(), newlength, newselection.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), modifiedrange.into_param().abi(), newlength, newselection.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifySelectionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, CoreTextRange>>(&self, selection: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), selection.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), selection.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyLayoutChanged(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn NotifyFocusLeaveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreTextEditContext2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveNotifyFocusLeaveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreTextEditContext2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextEditContext {
@@ -475,12 +475,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextEditContext {
 impl ::windows::runtime::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
 }
-impl ::std::convert::From<CoreTextEditContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextEditContext> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextEditContext) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextEditContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextEditContext> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextEditContext) -> Self {
         value.0 .0.clone()
     }
@@ -495,12 +495,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextEditContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextEditContext> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextEditContext) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextEditContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextEditContext> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextEditContext) -> Self {
         value.0.clone()
     }
@@ -515,19 +515,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextEditContext {}
-unsafe impl ::std::marker::Sync for CoreTextEditContext {}
+unsafe impl ::core::marker::Send for CoreTextEditContext {}
+unsafe impl ::core::marker::Sync for CoreTextEditContext {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextFormatUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextFormatUpdatingEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
@@ -535,8 +535,8 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn TextColor(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
@@ -544,8 +544,8 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn BackgroundColor(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
@@ -553,8 +553,8 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn UnderlineColor(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -562,37 +562,37 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn UnderlineType(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::UnderlineType>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::UnderlineType>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<CoreTextFormatUpdatingReason> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextFormatUpdatingReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextFormatUpdatingReason>(result__)
+            let mut result__: CoreTextFormatUpdatingReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextFormatUpdatingReason>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Result(&self) -> ::windows::runtime::Result<CoreTextFormatUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextFormatUpdatingResult = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextFormatUpdatingResult>(result__)
+            let mut result__: CoreTextFormatUpdatingResult = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextFormatUpdatingResult>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetResult(&self, value: CoreTextFormatUpdatingResult) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -600,8 +600,8 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -615,12 +615,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextFormatUpdatingEventArgs {
 impl ::windows::runtime::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
 }
-impl ::std::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextFormatUpdatingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -635,12 +635,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextFormatUpdatingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextFormatUpdatingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextFormatUpdatingEventArgs) -> Self {
         value.0.clone()
     }
@@ -655,10 +655,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextFormatUpdatingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextFormatUpdatingEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
@@ -668,7 +668,7 @@ impl CoreTextFormatUpdatingReason {
     pub const CompositionTargetUnconverted: CoreTextFormatUpdatingReason = CoreTextFormatUpdatingReason(3i32);
     pub const CompositionTargetConverted: CoreTextFormatUpdatingReason = CoreTextFormatUpdatingReason(4i32);
 }
-impl ::std::convert::From<i32> for CoreTextFormatUpdatingReason {
+impl ::core::convert::From<i32> for CoreTextFormatUpdatingReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -683,14 +683,14 @@ impl ::windows::runtime::DefaultType for CoreTextFormatUpdatingReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
     pub const Succeeded: CoreTextFormatUpdatingResult = CoreTextFormatUpdatingResult(0i32);
     pub const Failed: CoreTextFormatUpdatingResult = CoreTextFormatUpdatingResult(1i32);
 }
-impl ::std::convert::From<i32> for CoreTextFormatUpdatingResult {
+impl ::core::convert::From<i32> for CoreTextFormatUpdatingResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -705,14 +705,14 @@ impl ::windows::runtime::DefaultType for CoreTextFormatUpdatingResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
     pub const Automatic: CoreTextInputPaneDisplayPolicy = CoreTextInputPaneDisplayPolicy(0i32);
     pub const Manual: CoreTextInputPaneDisplayPolicy = CoreTextInputPaneDisplayPolicy(1i32);
 }
-impl ::std::convert::From<i32> for CoreTextInputPaneDisplayPolicy {
+impl ::core::convert::From<i32> for CoreTextInputPaneDisplayPolicy {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -727,7 +727,7 @@ impl ::windows::runtime::DefaultType for CoreTextInputPaneDisplayPolicy {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
@@ -799,7 +799,7 @@ impl CoreTextInputScope {
     pub const PinNumeric: CoreTextInputScope = CoreTextInputScope(64i32);
     pub const PinAlphanumeric: CoreTextInputScope = CoreTextInputScope(65i32);
 }
-impl ::std::convert::From<i32> for CoreTextInputScope {
+impl ::core::convert::From<i32> for CoreTextInputScope {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -815,7 +815,7 @@ impl ::windows::runtime::DefaultType for CoreTextInputScope {
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextLayoutBounds(pub ::windows::runtime::IInspectable);
 impl CoreTextLayoutBounds {
     #[cfg(feature = "Foundation")]
@@ -823,30 +823,30 @@ impl CoreTextLayoutBounds {
     pub fn TextBounds(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SetTextBounds<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn ControlBounds(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SetControlBounds<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextLayoutBounds {
@@ -859,12 +859,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextLayoutBounds {
 impl ::windows::runtime::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
 }
-impl ::std::convert::From<CoreTextLayoutBounds> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextLayoutBounds> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextLayoutBounds) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextLayoutBounds> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextLayoutBounds> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextLayoutBounds) -> Self {
         value.0 .0.clone()
     }
@@ -879,12 +879,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextLayoutBounds> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextLayoutBounds> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextLayoutBounds) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextLayoutBounds> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextLayoutBounds> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextLayoutBounds) -> Self {
         value.0.clone()
     }
@@ -899,35 +899,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextLayoutBounds {}
-unsafe impl ::std::marker::Sync for CoreTextLayoutBounds {}
+unsafe impl ::core::marker::Send for CoreTextLayoutBounds {}
+unsafe impl ::core::marker::Sync for CoreTextLayoutBounds {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextLayoutRequest(pub ::windows::runtime::IInspectable);
 impl CoreTextLayoutRequest {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn LayoutBounds(&self) -> ::windows::runtime::Result<CoreTextLayoutBounds> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutBounds>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutBounds>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -935,16 +935,16 @@ impl CoreTextLayoutRequest {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn LayoutBoundsVisualPixels(&self) -> ::windows::runtime::Result<CoreTextLayoutBounds> {
         let this = &::windows::runtime::Interface::cast::<ICoreTextLayoutRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutBounds>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutBounds>(result__)
         }
     }
 }
@@ -958,12 +958,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextLayoutRequest {
 impl ::windows::runtime::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
 }
-impl ::std::convert::From<CoreTextLayoutRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextLayoutRequest> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextLayoutRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextLayoutRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextLayoutRequest> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextLayoutRequest) -> Self {
         value.0 .0.clone()
     }
@@ -978,12 +978,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextLayoutRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextLayoutRequest> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextLayoutRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextLayoutRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextLayoutRequest> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextLayoutRequest) -> Self {
         value.0.clone()
     }
@@ -998,19 +998,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextLayoutRequest {}
-unsafe impl ::std::marker::Sync for CoreTextLayoutRequest {}
+unsafe impl ::core::marker::Send for CoreTextLayoutRequest {}
+unsafe impl ::core::marker::Sync for CoreTextLayoutRequest {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextLayoutRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextLayoutRequestedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<CoreTextLayoutRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutRequest>(result__)
         }
     }
 }
@@ -1024,12 +1024,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextLayoutRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
 }
-impl ::std::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextLayoutRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1044,12 +1044,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextLayoutRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextLayoutRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextLayoutRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1064,9 +1064,9 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextLayoutRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextLayoutRequestedEventArgs {}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+unsafe impl ::core::marker::Send for CoreTextLayoutRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextLayoutRequestedEventArgs {}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `UI_Text_Core`*"]
 pub struct CoreTextRange {
@@ -1074,22 +1074,22 @@ pub struct CoreTextRange {
     pub EndCaretPosition: i32,
 }
 impl CoreTextRange {}
-impl ::std::default::Default for CoreTextRange {
+impl ::core::default::Default for CoreTextRange {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CoreTextRange {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CoreTextRange {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CoreTextRange").field("StartCaretPosition", &self.StartCaretPosition).field("EndCaretPosition", &self.EndCaretPosition).finish()
     }
 }
-impl ::std::cmp::PartialEq for CoreTextRange {
+impl ::core::cmp::PartialEq for CoreTextRange {
     fn eq(&self, other: &Self) -> bool {
         self.StartCaretPosition == other.StartCaretPosition && self.EndCaretPosition == other.EndCaretPosition
     }
 }
-impl ::std::cmp::Eq for CoreTextRange {}
+impl ::core::cmp::Eq for CoreTextRange {}
 unsafe impl ::windows::runtime::Abi for CoreTextRange {
     type Abi = Self;
 }
@@ -1101,28 +1101,28 @@ impl ::windows::runtime::DefaultType for CoreTextRange {
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextSelectionRequest(pub ::windows::runtime::IInspectable);
 impl CoreTextSelectionRequest {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Selection(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetSelection<'a, Param0: ::windows::runtime::IntoParam<'a, CoreTextRange>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1130,8 +1130,8 @@ impl CoreTextSelectionRequest {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1145,12 +1145,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextSelectionRequest {
 impl ::windows::runtime::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
 }
-impl ::std::convert::From<CoreTextSelectionRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextSelectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextSelectionRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextSelectionRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextSelectionRequest> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextSelectionRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1165,12 +1165,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextSelectionRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextSelectionRequest> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextSelectionRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextSelectionRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextSelectionRequest> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextSelectionRequest) -> Self {
         value.0.clone()
     }
@@ -1185,19 +1185,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextSelectionRequest {}
-unsafe impl ::std::marker::Sync for CoreTextSelectionRequest {}
+unsafe impl ::core::marker::Send for CoreTextSelectionRequest {}
+unsafe impl ::core::marker::Sync for CoreTextSelectionRequest {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextSelectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextSelectionRequestedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<CoreTextSelectionRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextSelectionRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextSelectionRequest>(result__)
         }
     }
 }
@@ -1211,12 +1211,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextSelectionRequestedEventArg
 impl ::windows::runtime::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
 }
-impl ::std::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextSelectionRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1231,12 +1231,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextSelectionRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextSelectionRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextSelectionRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1251,40 +1251,40 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextSelectionRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextSelectionRequestedEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextSelectionRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextSelectionRequestedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextSelectionUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextSelectionUpdatingEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Selection(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Result(&self) -> ::windows::runtime::Result<CoreTextSelectionUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextSelectionUpdatingResult = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextSelectionUpdatingResult>(result__)
+            let mut result__: CoreTextSelectionUpdatingResult = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextSelectionUpdatingResult>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetResult(&self, value: CoreTextSelectionUpdatingResult) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1292,8 +1292,8 @@ impl CoreTextSelectionUpdatingEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1307,12 +1307,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextSelectionUpdatingEventArgs
 impl ::windows::runtime::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
 }
-impl ::std::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextSelectionUpdatingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1327,12 +1327,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextSelectionUpdatingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextSelectionUpdatingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextSelectionUpdatingEventArgs) -> Self {
         value.0.clone()
     }
@@ -1347,17 +1347,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextSelectionUpdatingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
     pub const Succeeded: CoreTextSelectionUpdatingResult = CoreTextSelectionUpdatingResult(0i32);
     pub const Failed: CoreTextSelectionUpdatingResult = CoreTextSelectionUpdatingResult(1i32);
 }
-impl ::std::convert::From<i32> for CoreTextSelectionUpdatingResult {
+impl ::core::convert::From<i32> for CoreTextSelectionUpdatingResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1377,8 +1377,8 @@ impl CoreTextServicesConstants {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn HiddenCharacter() -> ::windows::runtime::Result<u16> {
         Self::ICoreTextServicesStatics(|this| unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
     pub fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1391,7 +1391,7 @@ impl ::windows::runtime::RuntimeName for CoreTextServicesConstants {
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextServicesManager(pub ::windows::runtime::IInspectable);
 impl CoreTextServicesManager {
     #[cfg(feature = "Globalization")]
@@ -1399,8 +1399,8 @@ impl CoreTextServicesManager {
     pub fn InputLanguage(&self) -> ::windows::runtime::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Globalization::Language>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Globalization::Language>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1408,29 +1408,29 @@ impl CoreTextServicesManager {
     pub fn InputLanguageChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveInputLanguageChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn CreateEditContext(&self) -> ::windows::runtime::Result<CoreTextEditContext> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextEditContext>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextEditContext>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<CoreTextServicesManager> {
         Self::ICoreTextServicesManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextServicesManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextServicesManager>(result__)
         })
     }
     pub fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1448,12 +1448,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextServicesManager {
 impl ::windows::runtime::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
 }
-impl ::std::convert::From<CoreTextServicesManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextServicesManager> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextServicesManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextServicesManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextServicesManager> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextServicesManager) -> Self {
         value.0 .0.clone()
     }
@@ -1468,12 +1468,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextServicesManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextServicesManager> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextServicesManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextServicesManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextServicesManager> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextServicesManager) -> Self {
         value.0.clone()
     }
@@ -1488,40 +1488,40 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextServicesManager {}
-unsafe impl ::std::marker::Sync for CoreTextServicesManager {}
+unsafe impl ::core::marker::Send for CoreTextServicesManager {}
+unsafe impl ::core::marker::Sync for CoreTextServicesManager {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextTextRequest(pub ::windows::runtime::IInspectable);
 impl CoreTextTextRequest {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1529,8 +1529,8 @@ impl CoreTextTextRequest {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1544,12 +1544,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextTextRequest {
 impl ::windows::runtime::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
 }
-impl ::std::convert::From<CoreTextTextRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextTextRequest> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextTextRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextTextRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextTextRequest> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextTextRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1564,12 +1564,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextTextRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextTextRequest> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextTextRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextTextRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextTextRequest> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextTextRequest) -> Self {
         value.0.clone()
     }
@@ -1584,19 +1584,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextTextRequest {}
-unsafe impl ::std::marker::Sync for CoreTextTextRequest {}
+unsafe impl ::core::marker::Send for CoreTextTextRequest {}
+unsafe impl ::core::marker::Sync for CoreTextTextRequest {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextTextRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextTextRequestedEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<CoreTextTextRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextTextRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextTextRequest>(result__)
         }
     }
 }
@@ -1610,12 +1610,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextTextRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
 }
-impl ::std::convert::From<CoreTextTextRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextTextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextTextRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1630,12 +1630,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextTextRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextTextRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextTextRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextTextRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextTextRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1650,35 +1650,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextTextRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextTextRequestedEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextTextRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextTextRequestedEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextTextUpdatingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreTextTextUpdatingEventArgs {
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NewSelection(&self) -> ::windows::runtime::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextRange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
+            let mut result__: CoreTextRange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
     #[cfg(feature = "Globalization")]
@@ -1686,29 +1686,29 @@ impl CoreTextTextUpdatingEventArgs {
     pub fn InputLanguage(&self) -> ::windows::runtime::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Globalization::Language>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Globalization::Language>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Result(&self) -> ::windows::runtime::Result<CoreTextTextUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__: CoreTextTextUpdatingResult = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextTextUpdatingResult>(result__)
+            let mut result__: CoreTextTextUpdatingResult = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextTextUpdatingResult>(result__)
         }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetResult(&self, value: CoreTextTextUpdatingResult) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1716,8 +1716,8 @@ impl CoreTextTextUpdatingEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1731,12 +1731,12 @@ unsafe impl ::windows::runtime::Interface for CoreTextTextUpdatingEventArgs {
 impl ::windows::runtime::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
 }
-impl ::std::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreTextTextUpdatingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1751,12 +1751,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreTextTextUpdatingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreTextTextUpdatingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreTextTextUpdatingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreTextTextUpdatingEventArgs) -> Self {
         value.0.clone()
     }
@@ -1771,17 +1771,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreTextTextUpdatingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreTextTextUpdatingEventArgs {}
+unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[doc = "*Required features: `UI_Text_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
     pub const Succeeded: CoreTextTextUpdatingResult = CoreTextTextUpdatingResult(0i32);
     pub const Failed: CoreTextTextUpdatingResult = CoreTextTextUpdatingResult(1i32);
 }
-impl ::std::convert::From<i32> for CoreTextTextUpdatingResult {
+impl ::core::convert::From<i32> for CoreTextTextUpdatingResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1833,7 +1833,7 @@ pub struct ICoreTextCompositionSegment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreTextRange) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -1872,8 +1872,8 @@ pub struct ICoreTextEditContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreTextInputScope) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CoreTextInputScope) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
@@ -2198,8 +2198,8 @@ pub struct ICoreTextTextRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreTextRange) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -2239,7 +2239,7 @@ pub struct ICoreTextTextUpdatingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreTextRange) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreTextRange) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Globalization")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Globalization"))] usize,

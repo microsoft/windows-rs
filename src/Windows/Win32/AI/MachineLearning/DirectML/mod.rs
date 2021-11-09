@@ -2,14 +2,14 @@
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DMLCreateDevice(d3d12device: ::windows::runtime::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn DMLCreateDevice(d3d12device: ::windows::runtime::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DMLCreateDevice(d3d12device.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        DMLCreateDevice(d3d12device.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17,19 +17,19 @@ pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DMLCreateDevice1(d3d12device: ::windows::runtime::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn DMLCreateDevice1(d3d12device: ::windows::runtime::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DMLCreateDevice1(d3d12device.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(minimumfeaturelevel), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        DMLCreateDevice1(d3d12device.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(minimumfeaturelevel), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
@@ -38,26 +38,26 @@ pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
     pub Alpha: f32,
 }
 impl DML_ACTIVATION_CELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_CELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_CELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_CELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_CELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_CELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_CELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_CELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_CELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_CELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_CELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
@@ -66,26 +66,26 @@ pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
     pub Alpha: f32,
 }
 impl DML_ACTIVATION_ELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_ELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_ELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_ELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_ELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_ELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_ELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_ELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
@@ -93,26 +93,26 @@ pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_HARDMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
@@ -122,26 +122,26 @@ pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     pub Beta: f32,
 }
 impl DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
@@ -149,26 +149,26 @@ pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
@@ -177,26 +177,26 @@ pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     pub Alpha: f32,
 }
 impl DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
@@ -206,26 +206,26 @@ pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     pub Beta: f32,
 }
 impl DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
@@ -233,26 +233,26 @@ pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
@@ -261,26 +261,26 @@ pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SlopeTensor", &self.SlopeTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.SlopeTensor == other.SlopeTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
@@ -290,26 +290,26 @@ pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     pub Beta: f32,
 }
 impl DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
@@ -318,26 +318,26 @@ pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     pub OutputGradientTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
@@ -345,26 +345,26 @@ pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_RELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_RELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_RELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_RELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_RELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_RELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_RELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_RELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
@@ -374,26 +374,26 @@ pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     pub Gamma: f32,
 }
 impl DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Gamma", &self.Gamma).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Gamma == other.Gamma
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
@@ -403,26 +403,26 @@ pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     pub Beta: f32,
 }
 impl DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
@@ -432,26 +432,26 @@ pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     pub Threshold: f32,
 }
 impl DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SHRINK_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Bias", &self.Bias).field("Threshold", &self.Threshold).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Bias == other.Bias && self.Threshold == other.Threshold
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
@@ -459,26 +459,26 @@ pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
@@ -486,26 +486,26 @@ pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
@@ -514,26 +514,26 @@ pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     pub Steepness: f32,
 }
 impl DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Steepness", &self.Steepness).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Steepness == other.Steepness
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
@@ -541,26 +541,26 @@ pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
@@ -568,26 +568,26 @@ pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ACTIVATION_TANH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_TANH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_TANH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_TANH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_TANH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_TANH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_TANH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_TANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_TANH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
@@ -596,26 +596,26 @@ pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     pub Alpha: f32,
 }
 impl DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+impl ::core::default::Default for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
-impl ::std::cmp::Eq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
@@ -633,13 +633,13 @@ pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub Epsilon: f32,
 }
 impl DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+impl ::core::default::Default for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ADAM_OPTIMIZER_OPERATOR_DESC")
             .field("InputParametersTensor", &self.InputParametersTensor)
             .field("InputFirstMomentTensor", &self.InputFirstMomentTensor)
@@ -656,7 +656,7 @@ impl ::std::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputParametersTensor == other.InputParametersTensor
             && self.InputFirstMomentTensor == other.InputFirstMomentTensor
@@ -672,11 +672,11 @@ impl ::std::cmp::PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
             && self.Epsilon == other.Epsilon
     }
 }
-impl ::std::cmp::Eq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ARGMAX_OPERATOR_DESC {
@@ -687,26 +687,26 @@ pub struct DML_ARGMAX_OPERATOR_DESC {
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 impl DML_ARGMAX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ARGMAX_OPERATOR_DESC {
+impl ::core::default::Default for DML_ARGMAX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ARGMAX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ARGMAX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ARGMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ARGMAX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ARGMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.AxisDirection == other.AxisDirection
     }
 }
-impl ::std::cmp::Eq for DML_ARGMAX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ARGMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ARGMAX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ARGMIN_OPERATOR_DESC {
@@ -717,26 +717,26 @@ pub struct DML_ARGMIN_OPERATOR_DESC {
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 impl DML_ARGMIN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ARGMIN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ARGMIN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ARGMIN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ARGMIN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ARGMIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ARGMIN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ARGMIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.AxisDirection == other.AxisDirection
     }
 }
-impl ::std::cmp::Eq for DML_ARGMIN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ARGMIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ARGMIN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -753,14 +753,14 @@ pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC")
             .field("InputGradientTensor", &self.InputGradientTensor)
             .field("OutputGradientTensor", &self.OutputGradientTensor)
@@ -774,18 +774,18 @@ impl ::std::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.IncludePadding == other.IncludePadding
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -802,14 +802,14 @@ pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_AVERAGE_POOLING_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
+impl ::core::default::Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_AVERAGE_POOLING_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -823,24 +823,24 @@ impl ::std::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_AVERAGE_POOLING_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.IncludePadding == other.IncludePadding
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_AVERAGE_POOLING_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_AVERAGE_POOLING_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_AXIS_DIRECTION(pub i32);
 pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
 pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(1i32);
-impl ::std::convert::From<i32> for DML_AXIS_DIRECTION {
+impl ::core::convert::From<i32> for DML_AXIS_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -848,7 +848,7 @@ impl ::std::convert::From<i32> for DML_AXIS_DIRECTION {
 unsafe impl ::windows::runtime::Abi for DML_AXIS_DIRECTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
@@ -863,13 +863,13 @@ pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub Epsilon: f32,
 }
 impl DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("InputGradientTensor", &self.InputGradientTensor)
@@ -883,16 +883,16 @@ impl ::std::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.MeanTensor == other.MeanTensor && self.VarianceTensor == other.VarianceTensor && self.ScaleTensor == other.ScaleTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.OutputScaleGradientTensor == other.OutputScaleGradientTensor && self.OutputBiasGradientTensor == other.OutputBiasGradientTensor && self.Epsilon == other.Epsilon
     }
 }
-impl ::std::cmp::Eq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -910,14 +910,14 @@ pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+impl ::core::default::Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BATCH_NORMALIZATION_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("MeanTensor", &self.MeanTensor)
@@ -932,45 +932,45 @@ impl ::std::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.MeanTensor == other.MeanTensor && self.VarianceTensor == other.VarianceTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.Spatial == other.Spatial && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BINDING_DESC {
     pub Type: DML_BINDING_TYPE,
-    pub Desc: *mut ::std::ffi::c_void,
+    pub Desc: *mut ::core::ffi::c_void,
 }
 impl DML_BINDING_DESC {}
-impl ::std::default::Default for DML_BINDING_DESC {
+impl ::core::default::Default for DML_BINDING_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_BINDING_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BINDING_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BINDING_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_BINDING_DESC {
+impl ::core::cmp::PartialEq for DML_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Desc == other.Desc
     }
 }
-impl ::std::cmp::Eq for DML_BINDING_DESC {}
+impl ::core::cmp::Eq for DML_BINDING_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_BINDING_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BINDING_PROPERTIES {
@@ -979,31 +979,31 @@ pub struct DML_BINDING_PROPERTIES {
     pub PersistentResourceSize: u64,
 }
 impl DML_BINDING_PROPERTIES {}
-impl ::std::default::Default for DML_BINDING_PROPERTIES {
+impl ::core::default::Default for DML_BINDING_PROPERTIES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_BINDING_PROPERTIES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BINDING_PROPERTIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BINDING_PROPERTIES").field("RequiredDescriptorCount", &self.RequiredDescriptorCount).field("TemporaryResourceSize", &self.TemporaryResourceSize).field("PersistentResourceSize", &self.PersistentResourceSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_BINDING_PROPERTIES {
+impl ::core::cmp::PartialEq for DML_BINDING_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
         self.RequiredDescriptorCount == other.RequiredDescriptorCount && self.TemporaryResourceSize == other.TemporaryResourceSize && self.PersistentResourceSize == other.PersistentResourceSize
     }
 }
-impl ::std::cmp::Eq for DML_BINDING_PROPERTIES {}
+impl ::core::cmp::Eq for DML_BINDING_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for DML_BINDING_PROPERTIES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 pub struct DML_BINDING_TABLE_DESC {
-    pub Dispatchable: ::std::option::Option<IDMLDispatchable>,
+    pub Dispatchable: ::core::option::Option<IDMLDispatchable>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
@@ -1011,37 +1011,37 @@ pub struct DML_BINDING_TABLE_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl DML_BINDING_TABLE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::default::Default for DML_BINDING_TABLE_DESC {
+impl ::core::default::Default for DML_BINDING_TABLE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::fmt::Debug for DML_BINDING_TABLE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BINDING_TABLE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BINDING_TABLE_DESC").field("Dispatchable", &self.Dispatchable).field("CPUDescriptorHandle", &self.CPUDescriptorHandle).field("GPUDescriptorHandle", &self.GPUDescriptorHandle).field("SizeInDescriptors", &self.SizeInDescriptors).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::cmp::PartialEq for DML_BINDING_TABLE_DESC {
+impl ::core::cmp::PartialEq for DML_BINDING_TABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Dispatchable == other.Dispatchable && self.CPUDescriptorHandle == other.CPUDescriptorHandle && self.GPUDescriptorHandle == other.GPUDescriptorHandle && self.SizeInDescriptors == other.SizeInDescriptors
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::cmp::Eq for DML_BINDING_TABLE_DESC {}
+impl ::core::cmp::Eq for DML_BINDING_TABLE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for DML_BINDING_TABLE_DESC {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_BINDING_TYPE(pub i32);
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
 pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = DML_BINDING_TYPE(1i32);
 pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = DML_BINDING_TYPE(2i32);
-impl ::std::convert::From<i32> for DML_BINDING_TYPE {
+impl ::core::convert::From<i32> for DML_BINDING_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1049,7 +1049,7 @@ impl ::std::convert::From<i32> for DML_BINDING_TYPE {
 unsafe impl ::windows::runtime::Abi for DML_BINDING_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
@@ -1060,65 +1060,65 @@ pub struct DML_BUFFER_ARRAY_BINDING {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl DML_BUFFER_ARRAY_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::default::Default for DML_BUFFER_ARRAY_BINDING {
+impl ::core::default::Default for DML_BUFFER_ARRAY_BINDING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::fmt::Debug for DML_BUFFER_ARRAY_BINDING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BUFFER_ARRAY_BINDING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BUFFER_ARRAY_BINDING").field("BindingCount", &self.BindingCount).field("Bindings", &self.Bindings).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::cmp::PartialEq for DML_BUFFER_ARRAY_BINDING {
+impl ::core::cmp::PartialEq for DML_BUFFER_ARRAY_BINDING {
     fn eq(&self, other: &Self) -> bool {
         self.BindingCount == other.BindingCount && self.Bindings == other.Bindings
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::cmp::Eq for DML_BUFFER_ARRAY_BINDING {}
+impl ::core::cmp::Eq for DML_BUFFER_ARRAY_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for DML_BUFFER_ARRAY_BINDING {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 pub struct DML_BUFFER_BINDING {
-    pub Buffer: ::std::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Buffer: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl DML_BUFFER_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::default::Default for DML_BUFFER_BINDING {
+impl ::core::default::Default for DML_BUFFER_BINDING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::fmt::Debug for DML_BUFFER_BINDING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BUFFER_BINDING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BUFFER_BINDING").field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::cmp::PartialEq for DML_BUFFER_BINDING {
+impl ::core::cmp::PartialEq for DML_BUFFER_BINDING {
     fn eq(&self, other: &Self) -> bool {
         self.Buffer == other.Buffer && self.Offset == other.Offset && self.SizeInBytes == other.SizeInBytes
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::std::cmp::Eq for DML_BUFFER_BINDING {}
+impl ::core::cmp::Eq for DML_BUFFER_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for DML_BUFFER_BINDING {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BUFFER_TENSOR_DESC {
@@ -1131,13 +1131,13 @@ pub struct DML_BUFFER_TENSOR_DESC {
     pub GuaranteedBaseOffsetAlignment: u32,
 }
 impl DML_BUFFER_TENSOR_DESC {}
-impl ::std::default::Default for DML_BUFFER_TENSOR_DESC {
+impl ::core::default::Default for DML_BUFFER_TENSOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_BUFFER_TENSOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_BUFFER_TENSOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_BUFFER_TENSOR_DESC")
             .field("DataType", &self.DataType)
             .field("Flags", &self.Flags)
@@ -1149,16 +1149,16 @@ impl ::std::fmt::Debug for DML_BUFFER_TENSOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_BUFFER_TENSOR_DESC {
+impl ::core::cmp::PartialEq for DML_BUFFER_TENSOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.DataType == other.DataType && self.Flags == other.Flags && self.DimensionCount == other.DimensionCount && self.Sizes == other.Sizes && self.Strides == other.Strides && self.TotalTensorSizeInBytes == other.TotalTensorSizeInBytes && self.GuaranteedBaseOffsetAlignment == other.GuaranteedBaseOffsetAlignment
     }
 }
-impl ::std::cmp::Eq for DML_BUFFER_TENSOR_DESC {}
+impl ::core::cmp::Eq for DML_BUFFER_TENSOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_BUFFER_TENSOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_CAST_OPERATOR_DESC {
@@ -1166,32 +1166,32 @@ pub struct DML_CAST_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_CAST_OPERATOR_DESC {}
-impl ::std::default::Default for DML_CAST_OPERATOR_DESC {
+impl ::core::default::Default for DML_CAST_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_CAST_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_CAST_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_CAST_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_CAST_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_CAST_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_CAST_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_CAST_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_CAST_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
 pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
 pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(1i32);
-impl ::std::convert::From<i32> for DML_CONVOLUTION_DIRECTION {
+impl ::core::convert::From<i32> for DML_CONVOLUTION_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1199,7 +1199,7 @@ impl ::std::convert::From<i32> for DML_CONVOLUTION_DIRECTION {
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_DIRECTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
@@ -1216,13 +1216,13 @@ pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub GroupCount: u32,
 }
 impl DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
-impl ::std::default::Default for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+impl ::core::default::Default for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_CONVOLUTION_INTEGER_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("InputZeroPointTensor", &self.InputZeroPointTensor)
@@ -1238,22 +1238,22 @@ impl ::std::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.InputZeroPointTensor == other.InputZeroPointTensor && self.FilterTensor == other.FilterTensor && self.FilterZeroPointTensor == other.FilterZeroPointTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.GroupCount == other.GroupCount
     }
 }
-impl ::std::cmp::Eq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
 pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
 pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(1i32);
-impl ::std::convert::From<i32> for DML_CONVOLUTION_MODE {
+impl ::core::convert::From<i32> for DML_CONVOLUTION_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1261,7 +1261,7 @@ impl ::std::convert::From<i32> for DML_CONVOLUTION_MODE {
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_MODE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
@@ -1281,13 +1281,13 @@ pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub FusedActivation: *mut DML_OPERATOR_DESC,
 }
 impl DML_CONVOLUTION_OPERATOR_DESC {}
-impl ::std::default::Default for DML_CONVOLUTION_OPERATOR_DESC {
+impl ::core::default::Default for DML_CONVOLUTION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_CONVOLUTION_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("FilterTensor", &self.FilterTensor)
@@ -1306,7 +1306,7 @@ impl ::std::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.FilterTensor == other.FilterTensor
@@ -1324,17 +1324,17 @@ impl ::std::cmp::PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
             && self.FusedActivation == other.FusedActivation
     }
 }
-impl ::std::cmp::Eq for DML_CONVOLUTION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_CONVOLUTION_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
 pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0u32);
 pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1u32);
-impl ::std::convert::From<u32> for DML_CREATE_DEVICE_FLAGS {
+impl ::core::convert::From<u32> for DML_CREATE_DEVICE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1342,35 +1342,35 @@ impl ::std::convert::From<u32> for DML_CREATE_DEVICE_FLAGS {
 unsafe impl ::windows::runtime::Abi for DML_CREATE_DEVICE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DML_CREATE_DEVICE_FLAGS {
+impl ::core::ops::BitOr for DML_CREATE_DEVICE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DML_CREATE_DEVICE_FLAGS {
+impl ::core::ops::BitAnd for DML_CREATE_DEVICE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DML_CREATE_DEVICE_FLAGS {
+impl ::core::ops::BitOrAssign for DML_CREATE_DEVICE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DML_CREATE_DEVICE_FLAGS {
+impl ::core::ops::BitAndAssign for DML_CREATE_DEVICE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DML_CREATE_DEVICE_FLAGS {
+impl ::core::ops::Not for DML_CREATE_DEVICE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -1384,30 +1384,30 @@ pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+impl ::core::default::Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_CUMULATIVE_PRODUCT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveProduct", &self.HasExclusiveProduct).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.AxisDirection == other.AxisDirection && self.HasExclusiveProduct == other.HasExclusiveProduct
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -1421,36 +1421,36 @@ pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+impl ::core::default::Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_CUMULATIVE_SUMMATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveSum", &self.HasExclusiveSum).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.AxisDirection == other.AxisDirection && self.HasExclusiveSum == other.HasExclusiveSum
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
 pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
 pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(1i32);
-impl ::std::convert::From<i32> for DML_DEPTH_SPACE_ORDER {
+impl ::core::convert::From<i32> for DML_DEPTH_SPACE_ORDER {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1458,7 +1458,7 @@ impl ::std::convert::From<i32> for DML_DEPTH_SPACE_ORDER {
 unsafe impl ::windows::runtime::Abi for DML_DEPTH_SPACE_ORDER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
@@ -1468,26 +1468,26 @@ pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
 impl DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+impl ::core::default::Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_DEPTH_TO_SPACE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize && self.Order == other.Order
     }
 }
-impl ::std::cmp::Eq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
@@ -1496,26 +1496,26 @@ pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     pub BlockSize: u32,
 }
 impl DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+impl ::core::default::Default for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_DEPTH_TO_SPACE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize
     }
 }
-impl ::std::cmp::Eq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
@@ -1524,26 +1524,26 @@ pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     pub Value: f32,
 }
 impl DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+impl ::core::default::Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_DIAGONAL_MATRIX_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("Offset", &self.Offset).field("Value", &self.Value).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.OutputTensor == other.OutputTensor && self.Offset == other.Offset && self.Value == other.Value
     }
 }
-impl ::std::cmp::Eq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
@@ -1553,26 +1553,26 @@ pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputZeroPointTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+impl ::core::default::Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor
     }
 }
-impl ::std::cmp::Eq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
@@ -1581,26 +1581,26 @@ pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ABS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
@@ -1609,26 +1609,26 @@ pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
@@ -1637,26 +1637,26 @@ pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ACOS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
@@ -1666,26 +1666,26 @@ pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     pub FusedActivation: *mut DML_OPERATOR_DESC,
 }
 impl DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ADD1_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor && self.FusedActivation == other.FusedActivation
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
@@ -1694,26 +1694,26 @@ pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
@@ -1722,26 +1722,26 @@ pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ASINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
@@ -1750,26 +1750,26 @@ pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ASIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
@@ -1778,26 +1778,26 @@ pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ATANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
@@ -1806,26 +1806,26 @@ pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ATAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
@@ -1834,26 +1834,26 @@ pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
@@ -1862,26 +1862,26 @@ pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
@@ -1889,26 +1889,26 @@ pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
@@ -1916,26 +1916,26 @@ pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
@@ -1944,26 +1944,26 @@ pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
@@ -1972,26 +1972,26 @@ pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
@@ -2000,26 +2000,26 @@ pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
@@ -2028,26 +2028,26 @@ pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
@@ -2056,26 +2056,26 @@ pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_CEIL_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
@@ -2086,26 +2086,26 @@ pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub Max: f32,
 }
 impl DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.Min == other.Min && self.Max == other.Max
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
@@ -2116,26 +2116,26 @@ pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     pub Max: f32,
 }
 impl DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_CLIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Min == other.Min && self.Max == other.Max
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
@@ -2145,26 +2145,26 @@ pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     pub Exponent: f32,
 }
 impl DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Exponent", &self.Exponent).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Exponent == other.Exponent
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
@@ -2173,26 +2173,26 @@ pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_COSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
@@ -2201,26 +2201,26 @@ pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_COS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
@@ -2230,26 +2230,26 @@ pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.ZeroPointTensor == other.ZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
@@ -2258,26 +2258,26 @@ pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
@@ -2286,26 +2286,26 @@ pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
@@ -2314,26 +2314,26 @@ pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ERF_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
@@ -2342,26 +2342,26 @@ pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_EXP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
@@ -2370,26 +2370,26 @@ pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
@@ -2398,26 +2398,26 @@ pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
@@ -2427,26 +2427,26 @@ pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_IF_OPERATOR_DESC").field("ConditionTensor", &self.ConditionTensor).field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ConditionTensor == other.ConditionTensor && self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
@@ -2455,26 +2455,26 @@ pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     pub InfinityMode: DML_IS_INFINITY_MODE,
 }
 impl DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InfinityMode", &self.InfinityMode).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InfinityMode == other.InfinityMode
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
@@ -2482,26 +2482,26 @@ pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
@@ -2510,26 +2510,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
@@ -2538,26 +2538,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
@@ -2566,26 +2566,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
@@ -2594,26 +2594,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
@@ -2622,26 +2622,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
@@ -2650,26 +2650,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
@@ -2677,26 +2677,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
@@ -2705,26 +2705,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
@@ -2733,26 +2733,26 @@ pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
@@ -2761,26 +2761,26 @@ pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_LOG_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
@@ -2789,26 +2789,26 @@ pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_MAX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
@@ -2817,26 +2817,26 @@ pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_MEAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
@@ -2845,26 +2845,26 @@ pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_MIN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
@@ -2873,26 +2873,26 @@ pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
@@ -2901,26 +2901,26 @@ pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
@@ -2929,26 +2929,26 @@ pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
@@ -2958,26 +2958,26 @@ pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ExponentTensor", &self.ExponentTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.ExponentTensor == other.ExponentTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
@@ -2992,13 +2992,13 @@ pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC")
             .field("ATensor", &self.ATensor)
             .field("AScaleTensor", &self.AScaleTensor)
@@ -3012,16 +3012,16 @@ impl ::std::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.AScaleTensor == other.AScaleTensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BScaleTensor == other.BScaleTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
@@ -3031,26 +3031,26 @@ pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.ZeroPointTensor == other.ZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
@@ -3059,26 +3059,26 @@ pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_RECIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
@@ -3087,26 +3087,26 @@ pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     pub RoundingMode: DML_ROUNDING_MODE,
 }
 impl DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_ROUND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RoundingMode", &self.RoundingMode).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.RoundingMode == other.RoundingMode
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
@@ -3114,26 +3114,26 @@ pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_SIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
@@ -3142,26 +3142,26 @@ pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_SINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
@@ -3170,26 +3170,26 @@ pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_SIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
@@ -3198,26 +3198,26 @@ pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_SQRT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
@@ -3226,26 +3226,26 @@ pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
@@ -3254,26 +3254,26 @@ pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
@@ -3282,26 +3282,26 @@ pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub ScaleBias: *mut DML_SCALE_BIAS,
 }
 impl DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_TAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
@@ -3311,34 +3311,34 @@ pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     pub Min: f32,
 }
 impl DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+impl ::core::default::Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Min == other.Min
     }
 }
-impl ::std::cmp::Eq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_EXECUTION_FLAGS(pub u32);
 pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0u32);
 pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1u32);
 pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2u32);
 pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4u32);
-impl ::std::convert::From<u32> for DML_EXECUTION_FLAGS {
+impl ::core::convert::From<u32> for DML_EXECUTION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3346,41 +3346,41 @@ impl ::std::convert::From<u32> for DML_EXECUTION_FLAGS {
 unsafe impl ::windows::runtime::Abi for DML_EXECUTION_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DML_EXECUTION_FLAGS {
+impl ::core::ops::BitOr for DML_EXECUTION_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DML_EXECUTION_FLAGS {
+impl ::core::ops::BitAnd for DML_EXECUTION_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DML_EXECUTION_FLAGS {
+impl ::core::ops::BitOrAssign for DML_EXECUTION_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DML_EXECUTION_FLAGS {
+impl ::core::ops::BitAndAssign for DML_EXECUTION_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DML_EXECUTION_FLAGS {
+impl ::core::ops::Not for DML_EXECUTION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_FEATURE(pub i32);
 pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
 pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = DML_FEATURE(1i32);
-impl ::std::convert::From<i32> for DML_FEATURE {
+impl ::core::convert::From<i32> for DML_FEATURE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3388,33 +3388,33 @@ impl ::std::convert::From<i32> for DML_FEATURE {
 unsafe impl ::windows::runtime::Abi for DML_FEATURE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
     pub MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
 }
 impl DML_FEATURE_DATA_FEATURE_LEVELS {}
-impl ::std::default::Default for DML_FEATURE_DATA_FEATURE_LEVELS {
+impl ::core::default::Default for DML_FEATURE_DATA_FEATURE_LEVELS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_FEATURE_DATA_FEATURE_LEVELS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_FEATURE_DATA_FEATURE_LEVELS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_FEATURE_DATA_FEATURE_LEVELS").field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_FEATURE_DATA_FEATURE_LEVELS {
+impl ::core::cmp::PartialEq for DML_FEATURE_DATA_FEATURE_LEVELS {
     fn eq(&self, other: &Self) -> bool {
         self.MaxSupportedFeatureLevel == other.MaxSupportedFeatureLevel
     }
 }
-impl ::std::cmp::Eq for DML_FEATURE_DATA_FEATURE_LEVELS {}
+impl ::core::cmp::Eq for DML_FEATURE_DATA_FEATURE_LEVELS {}
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_FEATURE_LEVELS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -3424,31 +3424,31 @@ pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+impl ::core::default::Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT").field("IsSupported", &self.IsSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+impl ::core::cmp::PartialEq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.IsSupported == other.IsSupported
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
+impl ::core::cmp::Eq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_FEATURE_LEVEL(pub i32);
 pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(4096i32);
@@ -3457,7 +3457,7 @@ pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8448i32);
 pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32);
 pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
 pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
-impl ::std::convert::From<i32> for DML_FEATURE_LEVEL {
+impl ::core::convert::From<i32> for DML_FEATURE_LEVEL {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3465,7 +3465,7 @@ impl ::std::convert::From<i32> for DML_FEATURE_LEVEL {
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_LEVEL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
@@ -3473,52 +3473,52 @@ pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
     pub RequestedFeatureLevels: *mut DML_FEATURE_LEVEL,
 }
 impl DML_FEATURE_QUERY_FEATURE_LEVELS {}
-impl ::std::default::Default for DML_FEATURE_QUERY_FEATURE_LEVELS {
+impl ::core::default::Default for DML_FEATURE_QUERY_FEATURE_LEVELS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_FEATURE_QUERY_FEATURE_LEVELS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_FEATURE_QUERY_FEATURE_LEVELS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_FEATURE_QUERY_FEATURE_LEVELS").field("RequestedFeatureLevelCount", &self.RequestedFeatureLevelCount).field("RequestedFeatureLevels", &self.RequestedFeatureLevels).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_FEATURE_QUERY_FEATURE_LEVELS {
+impl ::core::cmp::PartialEq for DML_FEATURE_QUERY_FEATURE_LEVELS {
     fn eq(&self, other: &Self) -> bool {
         self.RequestedFeatureLevelCount == other.RequestedFeatureLevelCount && self.RequestedFeatureLevels == other.RequestedFeatureLevels
     }
 }
-impl ::std::cmp::Eq for DML_FEATURE_QUERY_FEATURE_LEVELS {}
+impl ::core::cmp::Eq for DML_FEATURE_QUERY_FEATURE_LEVELS {}
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_QUERY_FEATURE_LEVELS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     pub DataType: DML_TENSOR_DATA_TYPE,
 }
 impl DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
-impl ::std::default::Default for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+impl ::core::default::Default for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT").field("DataType", &self.DataType).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+impl ::core::cmp::PartialEq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.DataType == other.DataType
     }
 }
-impl ::std::cmp::Eq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
+impl ::core::cmp::Eq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
@@ -3527,21 +3527,21 @@ pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     pub Value: DML_SCALAR_UNION,
 }
 impl DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+impl ::core::default::Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
@@ -3551,21 +3551,21 @@ pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub ValueDelta: DML_SCALAR_UNION,
 }
 impl DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+impl ::core::default::Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
@@ -3575,26 +3575,26 @@ pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
     pub Axis: u32,
 }
 impl DML_GATHER_ELEMENTS_OPERATOR_DESC {}
-impl ::std::default::Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
+impl ::core::default::Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GATHER_ELEMENTS_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GATHER_ELEMENTS_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GATHER_ELEMENTS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GATHER_ELEMENTS_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
-impl ::std::cmp::Eq for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_ND1_OPERATOR_DESC {
@@ -3606,13 +3606,13 @@ pub struct DML_GATHER_ND1_OPERATOR_DESC {
     pub BatchDimensionCount: u32,
 }
 impl DML_GATHER_ND1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_GATHER_ND1_OPERATOR_DESC {
+impl ::core::default::Default for DML_GATHER_ND1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GATHER_ND1_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("IndicesTensor", &self.IndicesTensor)
@@ -3623,16 +3623,16 @@ impl ::std::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount && self.BatchDimensionCount == other.BatchDimensionCount
     }
 }
-impl ::std::cmp::Eq for DML_GATHER_ND1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_GATHER_ND1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_ND1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_ND_OPERATOR_DESC {
@@ -3643,26 +3643,26 @@ pub struct DML_GATHER_ND_OPERATOR_DESC {
     pub IndicesDimensionCount: u32,
 }
 impl DML_GATHER_ND_OPERATOR_DESC {}
-impl ::std::default::Default for DML_GATHER_ND_OPERATOR_DESC {
+impl ::core::default::Default for DML_GATHER_ND_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GATHER_ND_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GATHER_ND_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GATHER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GATHER_ND_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_GATHER_ND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount
     }
 }
-impl ::std::cmp::Eq for DML_GATHER_ND_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_GATHER_ND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_ND_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_OPERATOR_DESC {
@@ -3673,26 +3673,26 @@ pub struct DML_GATHER_OPERATOR_DESC {
     pub IndexDimensions: u32,
 }
 impl DML_GATHER_OPERATOR_DESC {}
-impl ::std::default::Default for DML_GATHER_OPERATOR_DESC {
+impl ::core::default::Default for DML_GATHER_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GATHER_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GATHER_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GATHER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("IndexDimensions", &self.IndexDimensions).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GATHER_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_GATHER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.IndexDimensions == other.IndexDimensions
     }
 }
-impl ::std::cmp::Eq for DML_GATHER_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_GATHER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GEMM_OPERATOR_DESC {
@@ -3707,13 +3707,13 @@ pub struct DML_GEMM_OPERATOR_DESC {
     pub FusedActivation: *mut DML_OPERATOR_DESC,
 }
 impl DML_GEMM_OPERATOR_DESC {}
-impl ::std::default::Default for DML_GEMM_OPERATOR_DESC {
+impl ::core::default::Default for DML_GEMM_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GEMM_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GEMM_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GEMM_OPERATOR_DESC")
             .field("ATensor", &self.ATensor)
             .field("BTensor", &self.BTensor)
@@ -3727,16 +3727,16 @@ impl ::std::fmt::Debug for DML_GEMM_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GEMM_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_GEMM_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.CTensor == other.CTensor && self.OutputTensor == other.OutputTensor && self.TransA == other.TransA && self.TransB == other.TransB && self.Alpha == other.Alpha && self.Beta == other.Beta && self.FusedActivation == other.FusedActivation
     }
 }
-impl ::std::cmp::Eq for DML_GEMM_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_GEMM_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GEMM_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GRAPH_DESC {
@@ -3752,13 +3752,13 @@ pub struct DML_GRAPH_DESC {
     pub IntermediateEdges: *mut DML_GRAPH_EDGE_DESC,
 }
 impl DML_GRAPH_DESC {}
-impl ::std::default::Default for DML_GRAPH_DESC {
+impl ::core::default::Default for DML_GRAPH_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GRAPH_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GRAPH_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GRAPH_DESC")
             .field("InputCount", &self.InputCount)
             .field("OutputCount", &self.OutputCount)
@@ -3773,51 +3773,51 @@ impl ::std::fmt::Debug for DML_GRAPH_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GRAPH_DESC {
+impl ::core::cmp::PartialEq for DML_GRAPH_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputCount == other.InputCount && self.OutputCount == other.OutputCount && self.NodeCount == other.NodeCount && self.Nodes == other.Nodes && self.InputEdgeCount == other.InputEdgeCount && self.InputEdges == other.InputEdges && self.OutputEdgeCount == other.OutputEdgeCount && self.OutputEdges == other.OutputEdges && self.IntermediateEdgeCount == other.IntermediateEdgeCount && self.IntermediateEdges == other.IntermediateEdges
     }
 }
-impl ::std::cmp::Eq for DML_GRAPH_DESC {}
+impl ::core::cmp::Eq for DML_GRAPH_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GRAPH_EDGE_DESC {
     pub Type: DML_GRAPH_EDGE_TYPE,
-    pub Desc: *mut ::std::ffi::c_void,
+    pub Desc: *mut ::core::ffi::c_void,
 }
 impl DML_GRAPH_EDGE_DESC {}
-impl ::std::default::Default for DML_GRAPH_EDGE_DESC {
+impl ::core::default::Default for DML_GRAPH_EDGE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GRAPH_EDGE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GRAPH_EDGE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GRAPH_EDGE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GRAPH_EDGE_DESC {
+impl ::core::cmp::PartialEq for DML_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Desc == other.Desc
     }
 }
-impl ::std::cmp::Eq for DML_GRAPH_EDGE_DESC {}
+impl ::core::cmp::Eq for DML_GRAPH_EDGE_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
 pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(0i32);
 pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(1i32);
 pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(2i32);
 pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(3i32);
-impl ::std::convert::From<i32> for DML_GRAPH_EDGE_TYPE {
+impl ::core::convert::From<i32> for DML_GRAPH_EDGE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3825,40 +3825,40 @@ impl ::std::convert::From<i32> for DML_GRAPH_EDGE_TYPE {
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GRAPH_NODE_DESC {
     pub Type: DML_GRAPH_NODE_TYPE,
-    pub Desc: *mut ::std::ffi::c_void,
+    pub Desc: *mut ::core::ffi::c_void,
 }
 impl DML_GRAPH_NODE_DESC {}
-impl ::std::default::Default for DML_GRAPH_NODE_DESC {
+impl ::core::default::Default for DML_GRAPH_NODE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_GRAPH_NODE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GRAPH_NODE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GRAPH_NODE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_GRAPH_NODE_DESC {
+impl ::core::cmp::PartialEq for DML_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Desc == other.Desc
     }
 }
-impl ::std::cmp::Eq for DML_GRAPH_NODE_DESC {}
+impl ::core::cmp::Eq for DML_GRAPH_NODE_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
 pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
 pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(1i32);
-impl ::std::convert::From<i32> for DML_GRAPH_NODE_TYPE {
+impl ::core::convert::From<i32> for DML_GRAPH_NODE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3866,7 +3866,7 @@ impl ::std::convert::From<i32> for DML_GRAPH_NODE_TYPE {
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -3887,14 +3887,14 @@ pub struct DML_GRU_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_GRU_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_GRU_OPERATOR_DESC {
+impl ::core::default::Default for DML_GRU_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_GRU_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_GRU_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_GRU_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("WeightTensor", &self.WeightTensor)
@@ -3912,7 +3912,7 @@ impl ::std::fmt::Debug for DML_GRU_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_GRU_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_GRU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.WeightTensor == other.WeightTensor
@@ -3929,12 +3929,12 @@ impl ::std::cmp::PartialEq for DML_GRU_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_GRU_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_GRU_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_GRU_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -3947,30 +3947,30 @@ pub struct DML_INPUT_GRAPH_EDGE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_INPUT_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_INPUT_GRAPH_EDGE_DESC {
+impl ::core::default::Default for DML_INPUT_GRAPH_EDGE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_INPUT_GRAPH_EDGE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_INPUT_GRAPH_EDGE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_INPUT_GRAPH_EDGE_DESC").field("GraphInputIndex", &self.GraphInputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_INPUT_GRAPH_EDGE_DESC {
+impl ::core::cmp::PartialEq for DML_INPUT_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.GraphInputIndex == other.GraphInputIndex && self.ToNodeIndex == other.ToNodeIndex && self.ToNodeInputIndex == other.ToNodeInputIndex && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_INPUT_GRAPH_EDGE_DESC {}
+impl ::core::cmp::Eq for DML_INPUT_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_INPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -3984,36 +3984,36 @@ pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+impl ::core::default::Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_INTERMEDIATE_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+impl ::core::cmp::PartialEq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.FromNodeIndex == other.FromNodeIndex && self.FromNodeOutputIndex == other.FromNodeOutputIndex && self.ToNodeIndex == other.ToNodeIndex && self.ToNodeInputIndex == other.ToNodeInputIndex && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
+impl ::core::cmp::Eq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
 pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
 pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(1i32);
-impl ::std::convert::From<i32> for DML_INTERPOLATION_MODE {
+impl ::core::convert::From<i32> for DML_INTERPOLATION_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4022,13 +4022,13 @@ unsafe impl ::windows::runtime::Abi for DML_INTERPOLATION_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
 pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
 pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(1i32);
 pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(2i32);
-impl ::std::convert::From<i32> for DML_IS_INFINITY_MODE {
+impl ::core::convert::From<i32> for DML_IS_INFINITY_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4036,7 +4036,7 @@ impl ::std::convert::From<i32> for DML_IS_INFINITY_MODE {
 unsafe impl ::windows::runtime::Abi for DML_IS_INFINITY_MODE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_JOIN_OPERATOR_DESC {
@@ -4046,26 +4046,26 @@ pub struct DML_JOIN_OPERATOR_DESC {
     pub Axis: u32,
 }
 impl DML_JOIN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_JOIN_OPERATOR_DESC {
+impl ::core::default::Default for DML_JOIN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_JOIN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_JOIN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_JOIN_OPERATOR_DESC").field("InputCount", &self.InputCount).field("InputTensors", &self.InputTensors).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_JOIN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_JOIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputCount == other.InputCount && self.InputTensors == other.InputTensors && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
-impl ::std::cmp::Eq for DML_JOIN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_JOIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_JOIN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -4082,14 +4082,14 @@ pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("InputGradientTensor", &self.InputGradientTensor)
@@ -4103,18 +4103,18 @@ impl ::std::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.CrossChannel == other.CrossChannel && self.LocalSize == other.LocalSize && self.Alpha == other.Alpha && self.Beta == other.Beta && self.Bias == other.Bias
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -4130,14 +4130,14 @@ pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -4150,18 +4150,18 @@ impl ::std::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.CrossChannel == other.CrossChannel && self.LocalSize == other.LocalSize && self.Alpha == other.Alpha && self.Beta == other.Beta && self.Bias == other.Bias
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
@@ -4172,26 +4172,26 @@ pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
     pub P: u32,
 }
 impl DML_LP_NORMALIZATION_OPERATOR_DESC {}
-impl ::std::default::Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
+impl ::core::default::Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_LP_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_LP_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_LP_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("Epsilon", &self.Epsilon).field("P", &self.P).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_LP_NORMALIZATION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_LP_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.Epsilon == other.Epsilon && self.P == other.P
     }
 }
-impl ::std::cmp::Eq for DML_LP_NORMALIZATION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_LP_NORMALIZATION_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_LP_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_LP_POOLING_OPERATOR_DESC {
@@ -4205,13 +4205,13 @@ pub struct DML_LP_POOLING_OPERATOR_DESC {
     pub P: u32,
 }
 impl DML_LP_POOLING_OPERATOR_DESC {}
-impl ::std::default::Default for DML_LP_POOLING_OPERATOR_DESC {
+impl ::core::default::Default for DML_LP_POOLING_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_LP_POOLING_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -4224,16 +4224,16 @@ impl ::std::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_LP_POOLING_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_LP_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.P == other.P
     }
 }
-impl ::std::cmp::Eq for DML_LP_POOLING_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_LP_POOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_LP_POOLING_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -4259,14 +4259,14 @@ pub struct DML_LSTM_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_LSTM_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_LSTM_OPERATOR_DESC {
+impl ::core::default::Default for DML_LSTM_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_LSTM_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_LSTM_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_LSTM_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("WeightTensor", &self.WeightTensor)
@@ -4289,7 +4289,7 @@ impl ::std::fmt::Debug for DML_LSTM_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_LSTM_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_LSTM_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.WeightTensor == other.WeightTensor
@@ -4311,12 +4311,12 @@ impl ::std::cmp::PartialEq for DML_LSTM_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_LSTM_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_LSTM_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_LSTM_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
@@ -4327,32 +4327,32 @@ pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
-impl ::std::default::Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+impl ::core::default::Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
 pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
 pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(1i32);
-impl ::std::convert::From<i32> for DML_MATRIX_TRANSFORM {
+impl ::core::convert::From<i32> for DML_MATRIX_TRANSFORM {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4360,7 +4360,7 @@ impl ::std::convert::From<i32> for DML_MATRIX_TRANSFORM {
 unsafe impl ::windows::runtime::Abi for DML_MATRIX_TRANSFORM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
@@ -4374,13 +4374,13 @@ pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub EndPadding: *mut u32,
 }
 impl DML_MAX_POOLING1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_MAX_POOLING1_OPERATOR_DESC {
+impl ::core::default::Default for DML_MAX_POOLING1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MAX_POOLING1_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -4393,16 +4393,16 @@ impl ::std::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputIndicesTensor == other.OutputIndicesTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
     }
 }
-impl ::std::cmp::Eq for DML_MAX_POOLING1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MAX_POOLING1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING2_OPERATOR_DESC {
@@ -4417,13 +4417,13 @@ pub struct DML_MAX_POOLING2_OPERATOR_DESC {
     pub Dilations: *mut u32,
 }
 impl DML_MAX_POOLING2_OPERATOR_DESC {}
-impl ::std::default::Default for DML_MAX_POOLING2_OPERATOR_DESC {
+impl ::core::default::Default for DML_MAX_POOLING2_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MAX_POOLING2_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -4437,16 +4437,16 @@ impl ::std::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputIndicesTensor == other.OutputIndicesTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.Dilations == other.Dilations
     }
 }
-impl ::std::cmp::Eq for DML_MAX_POOLING2_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MAX_POOLING2_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING2_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
@@ -4461,13 +4461,13 @@ pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     pub Dilations: *mut u32,
 }
 impl DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MAX_POOLING_GRAD_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("InputGradientTensor", &self.InputGradientTensor)
@@ -4481,16 +4481,16 @@ impl ::std::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.Dilations == other.Dilations
     }
 }
-impl ::std::cmp::Eq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING_OPERATOR_DESC {
@@ -4503,13 +4503,13 @@ pub struct DML_MAX_POOLING_OPERATOR_DESC {
     pub EndPadding: *mut u32,
 }
 impl DML_MAX_POOLING_OPERATOR_DESC {}
-impl ::std::default::Default for DML_MAX_POOLING_OPERATOR_DESC {
+impl ::core::default::Default for DML_MAX_POOLING_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MAX_POOLING_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -4521,16 +4521,16 @@ impl ::std::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
     }
 }
-impl ::std::cmp::Eq for DML_MAX_POOLING_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MAX_POOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
@@ -4539,26 +4539,26 @@ pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_MAX_UNPOOLING_OPERATOR_DESC {}
-impl ::std::default::Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
+impl ::core::default::Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_MAX_UNPOOLING_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MAX_UNPOOLING_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MAX_UNPOOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_MAX_UNPOOLING_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_MAX_UNPOOLING_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MAX_UNPOOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_UNPOOLING_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -4576,14 +4576,14 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("ScaleTensor", &self.ScaleTensor)
@@ -4598,18 +4598,18 @@ impl ::std::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.NormalizeVariance == other.NormalizeVariance && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -4626,14 +4626,14 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("ScaleTensor", &self.ScaleTensor)
@@ -4647,20 +4647,20 @@ impl ::std::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.CrossChannel == other.CrossChannel && self.NormalizeVariance == other.NormalizeVariance && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
@@ -4669,26 +4669,26 @@ pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
     pub OutputCoordinatesTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_NONZERO_COORDINATES_OPERATOR_DESC {}
-impl ::std::default::Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
+impl ::core::default::Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_NONZERO_COORDINATES_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_NONZERO_COORDINATES_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_NONZERO_COORDINATES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCountTensor", &self.OutputCountTensor).field("OutputCoordinatesTensor", &self.OutputCoordinatesTensor).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_NONZERO_COORDINATES_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputCountTensor == other.OutputCountTensor && self.OutputCoordinatesTensor == other.OutputCoordinatesTensor
     }
 }
-impl ::std::cmp::Eq for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ONE_HOT_OPERATOR_DESC {
@@ -4698,88 +4698,88 @@ pub struct DML_ONE_HOT_OPERATOR_DESC {
     pub Axis: u32,
 }
 impl DML_ONE_HOT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ONE_HOT_OPERATOR_DESC {
+impl ::core::default::Default for DML_ONE_HOT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ONE_HOT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ONE_HOT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ONE_HOT_OPERATOR_DESC").field("IndicesTensor", &self.IndicesTensor).field("ValuesTensor", &self.ValuesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ONE_HOT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ONE_HOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.IndicesTensor == other.IndicesTensor && self.ValuesTensor == other.ValuesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
-impl ::std::cmp::Eq for DML_ONE_HOT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ONE_HOT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ONE_HOT_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_OPERATOR_DESC {
     pub Type: DML_OPERATOR_TYPE,
-    pub Desc: *mut ::std::ffi::c_void,
+    pub Desc: *mut ::core::ffi::c_void,
 }
 impl DML_OPERATOR_DESC {}
-impl ::std::default::Default for DML_OPERATOR_DESC {
+impl ::core::default::Default for DML_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_OPERATOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Desc == other.Desc
     }
 }
-impl ::std::cmp::Eq for DML_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
-    pub Operator: ::std::option::Option<IDMLOperator>,
+    pub Operator: ::core::option::Option<IDMLOperator>,
     pub Name: super::super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl DML_OPERATOR_GRAPH_NODE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_OPERATOR_GRAPH_NODE_DESC {
+impl ::core::default::Default for DML_OPERATOR_GRAPH_NODE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_OPERATOR_GRAPH_NODE_DESC").field("Operator", &self.Operator).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
+impl ::core::cmp::PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Operator == other.Operator && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_OPERATOR_GRAPH_NODE_DESC {}
+impl ::core::cmp::Eq for DML_OPERATOR_GRAPH_NODE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_OPERATOR_TYPE(pub i32);
 pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(0i32);
@@ -4933,7 +4933,7 @@ pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATO
 pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
 pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(148i32);
 pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
-impl ::std::convert::From<i32> for DML_OPERATOR_TYPE {
+impl ::core::convert::From<i32> for DML_OPERATOR_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4941,7 +4941,7 @@ impl ::std::convert::From<i32> for DML_OPERATOR_TYPE {
 unsafe impl ::windows::runtime::Abi for DML_OPERATOR_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -4954,38 +4954,38 @@ pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_OUTPUT_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_OUTPUT_GRAPH_EDGE_DESC {
+impl ::core::default::Default for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_OUTPUT_GRAPH_EDGE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_OUTPUT_GRAPH_EDGE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_OUTPUT_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("GraphOutputIndex", &self.GraphOutputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_OUTPUT_GRAPH_EDGE_DESC {
+impl ::core::cmp::PartialEq for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.FromNodeIndex == other.FromNodeIndex && self.FromNodeOutputIndex == other.FromNodeOutputIndex && self.GraphOutputIndex == other.GraphOutputIndex && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_OUTPUT_GRAPH_EDGE_DESC {}
+impl ::core::cmp::Eq for DML_OUTPUT_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_OUTPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_PADDING_MODE(pub i32);
 pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
 pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = DML_PADDING_MODE(1i32);
 pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = DML_PADDING_MODE(2i32);
 pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = DML_PADDING_MODE(3i32);
-impl ::std::convert::From<i32> for DML_PADDING_MODE {
+impl ::core::convert::From<i32> for DML_PADDING_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4993,7 +4993,7 @@ impl ::std::convert::From<i32> for DML_PADDING_MODE {
 unsafe impl ::windows::runtime::Abi for DML_PADDING_MODE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_PADDING_OPERATOR_DESC {
@@ -5006,13 +5006,13 @@ pub struct DML_PADDING_OPERATOR_DESC {
     pub EndPadding: *mut u32,
 }
 impl DML_PADDING_OPERATOR_DESC {}
-impl ::std::default::Default for DML_PADDING_OPERATOR_DESC {
+impl ::core::default::Default for DML_PADDING_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_PADDING_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_PADDING_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_PADDING_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -5024,18 +5024,18 @@ impl ::std::fmt::Debug for DML_PADDING_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_PADDING_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_PADDING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.PaddingMode == other.PaddingMode && self.PaddingValue == other.PaddingValue && self.DimensionCount == other.DimensionCount && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
     }
 }
-impl ::std::cmp::Eq for DML_PADDING_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_PADDING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_PADDING_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
@@ -5057,13 +5057,13 @@ pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub GroupCount: u32,
 }
 impl DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
-impl ::std::default::Default for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+impl ::core::default::Default for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("InputScaleTensor", &self.InputScaleTensor)
@@ -5084,7 +5084,7 @@ impl ::std::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.InputScaleTensor == other.InputScaleTensor
@@ -5104,11 +5104,11 @@ impl ::std::cmp::PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
             && self.GroupCount == other.GroupCount
     }
 }
-impl ::std::cmp::Eq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
@@ -5123,13 +5123,13 @@ pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
 }
 impl DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
-impl ::std::default::Default for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+impl ::core::default::Default for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC")
             .field("ATensor", &self.ATensor)
             .field("AScaleTensor", &self.AScaleTensor)
@@ -5143,16 +5143,16 @@ impl ::std::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ATensor == other.ATensor && self.AScaleTensor == other.AScaleTensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BScaleTensor == other.BScaleTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
-impl ::std::cmp::Eq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
@@ -5162,31 +5162,31 @@ pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
     pub Type: DML_RANDOM_GENERATOR_TYPE,
 }
 impl DML_RANDOM_GENERATOR_OPERATOR_DESC {}
-impl ::std::default::Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
+impl ::core::default::Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_RANDOM_GENERATOR_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_RANDOM_GENERATOR_OPERATOR_DESC").field("InputStateTensor", &self.InputStateTensor).field("OutputTensor", &self.OutputTensor).field("OutputStateTensor", &self.OutputStateTensor).field("Type", &self.Type).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_RANDOM_GENERATOR_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputStateTensor == other.InputStateTensor && self.OutputTensor == other.OutputTensor && self.OutputStateTensor == other.OutputStateTensor && self.Type == other.Type
     }
 }
-impl ::std::cmp::Eq for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
 pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
-impl ::std::convert::From<i32> for DML_RANDOM_GENERATOR_TYPE {
+impl ::core::convert::From<i32> for DML_RANDOM_GENERATOR_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5195,13 +5195,13 @@ unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
 pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
 pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(1i32);
 pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(2i32);
-impl ::std::convert::From<i32> for DML_RECURRENT_NETWORK_DIRECTION {
+impl ::core::convert::From<i32> for DML_RECURRENT_NETWORK_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5210,7 +5210,7 @@ unsafe impl ::windows::runtime::Abi for DML_RECURRENT_NETWORK_DIRECTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
 pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
@@ -5225,7 +5225,7 @@ pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(8i3
 pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(9i32);
 pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(10i32);
 pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(11i32);
-impl ::std::convert::From<i32> for DML_REDUCE_FUNCTION {
+impl ::core::convert::From<i32> for DML_REDUCE_FUNCTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5233,7 +5233,7 @@ impl ::std::convert::From<i32> for DML_REDUCE_FUNCTION {
 unsafe impl ::windows::runtime::Abi for DML_REDUCE_FUNCTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_REDUCE_OPERATOR_DESC {
@@ -5244,26 +5244,26 @@ pub struct DML_REDUCE_OPERATOR_DESC {
     pub Axes: *mut u32,
 }
 impl DML_REDUCE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_REDUCE_OPERATOR_DESC {
+impl ::core::default::Default for DML_REDUCE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_REDUCE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_REDUCE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_REDUCE_OPERATOR_DESC").field("Function", &self.Function).field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_REDUCE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_REDUCE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Function == other.Function && self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes
     }
 }
-impl ::std::cmp::Eq for DML_REDUCE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_REDUCE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_REDUCE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
@@ -5276,13 +5276,13 @@ pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub OutputPixelOffsets: *mut f32,
 }
 impl DML_RESAMPLE1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_RESAMPLE1_OPERATOR_DESC {
+impl ::core::default::Default for DML_RESAMPLE1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_RESAMPLE1_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -5294,16 +5294,16 @@ impl ::std::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InterpolationMode == other.InterpolationMode && self.DimensionCount == other.DimensionCount && self.Scales == other.Scales && self.InputPixelOffsets == other.InputPixelOffsets && self.OutputPixelOffsets == other.OutputPixelOffsets
     }
 }
-impl ::std::cmp::Eq for DML_RESAMPLE1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_RESAMPLE1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RESAMPLE1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
@@ -5316,13 +5316,13 @@ pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub OutputPixelOffsets: *mut f32,
 }
 impl DML_RESAMPLE_GRAD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_RESAMPLE_GRAD_OPERATOR_DESC")
             .field("InputGradientTensor", &self.InputGradientTensor)
             .field("OutputGradientTensor", &self.OutputGradientTensor)
@@ -5334,16 +5334,16 @@ impl ::std::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.InterpolationMode == other.InterpolationMode && self.DimensionCount == other.DimensionCount && self.Scales == other.Scales && self.InputPixelOffsets == other.InputPixelOffsets && self.OutputPixelOffsets == other.OutputPixelOffsets
     }
 }
-impl ::std::cmp::Eq for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
@@ -5354,26 +5354,26 @@ pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub Scales: *mut f32,
 }
 impl DML_RESAMPLE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_RESAMPLE_OPERATOR_DESC {
+impl ::core::default::Default for DML_RESAMPLE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_RESAMPLE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_RESAMPLE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_RESAMPLE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("ScaleCount", &self.ScaleCount).field("Scales", &self.Scales).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_RESAMPLE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_RESAMPLE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InterpolationMode == other.InterpolationMode && self.ScaleCount == other.ScaleCount && self.Scales == other.Scales
     }
 }
-impl ::std::cmp::Eq for DML_RESAMPLE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_RESAMPLE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RESAMPLE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
@@ -5383,26 +5383,26 @@ pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     pub Axis: u32,
 }
 impl DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
-impl ::std::default::Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+impl ::core::default::Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SequenceLengthsTensor", &self.SequenceLengthsTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
-impl ::std::cmp::Eq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RNN_OPERATOR_DESC {
@@ -5419,13 +5419,13 @@ pub struct DML_RNN_OPERATOR_DESC {
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
 }
 impl DML_RNN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_RNN_OPERATOR_DESC {
+impl ::core::default::Default for DML_RNN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_RNN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_RNN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_RNN_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("WeightTensor", &self.WeightTensor)
@@ -5441,7 +5441,7 @@ impl ::std::fmt::Debug for DML_RNN_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_RNN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_RNN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.WeightTensor == other.WeightTensor
@@ -5456,11 +5456,11 @@ impl ::std::cmp::PartialEq for DML_RNN_OPERATOR_DESC {
             && self.Direction == other.Direction
     }
 }
-impl ::std::cmp::Eq for DML_RNN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_RNN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RNN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
@@ -5483,14 +5483,14 @@ pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl DML_ROI_ALIGN1_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DML_ROI_ALIGN1_OPERATOR_DESC {
+impl ::core::default::Default for DML_ROI_ALIGN1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ROI_ALIGN1_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("ROITensor", &self.ROITensor)
@@ -5510,7 +5510,7 @@ impl ::std::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DML_ROI_ALIGN1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ROI_ALIGN1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.ROITensor == other.ROITensor
@@ -5529,12 +5529,12 @@ impl ::std::cmp::PartialEq for DML_ROI_ALIGN1_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DML_ROI_ALIGN1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ROI_ALIGN1_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_ROI_ALIGN1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
@@ -5551,13 +5551,13 @@ pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub MaximumSamplesPerOutput: u32,
 }
 impl DML_ROI_ALIGN_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ROI_ALIGN_OPERATOR_DESC {
+impl ::core::default::Default for DML_ROI_ALIGN_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ROI_ALIGN_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("ROITensor", &self.ROITensor)
@@ -5573,7 +5573,7 @@ impl ::std::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor
             && self.ROITensor == other.ROITensor
@@ -5588,11 +5588,11 @@ impl ::std::cmp::PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
             && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput
     }
 }
-impl ::std::cmp::Eq for DML_ROI_ALIGN_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ROI_ALIGN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ROI_ALIGN_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ROI_POOLING_OPERATOR_DESC {
@@ -5603,33 +5603,33 @@ pub struct DML_ROI_POOLING_OPERATOR_DESC {
     pub PooledSize: DML_SIZE_2D,
 }
 impl DML_ROI_POOLING_OPERATOR_DESC {}
-impl ::std::default::Default for DML_ROI_POOLING_OPERATOR_DESC {
+impl ::core::default::Default for DML_ROI_POOLING_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_ROI_POOLING_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_ROI_POOLING_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_ROI_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ROITensor", &self.ROITensor).field("OutputTensor", &self.OutputTensor).field("SpatialScale", &self.SpatialScale).field("PooledSize", &self.PooledSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_ROI_POOLING_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_ROI_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.OutputTensor == other.OutputTensor && self.SpatialScale == other.SpatialScale && self.PooledSize == other.PooledSize
     }
 }
-impl ::std::cmp::Eq for DML_ROI_POOLING_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_ROI_POOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ROI_POOLING_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_ROUNDING_MODE(pub i32);
 pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
 pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = DML_ROUNDING_MODE(1i32);
 pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = DML_ROUNDING_MODE(2i32);
-impl ::std::convert::From<i32> for DML_ROUNDING_MODE {
+impl ::core::convert::From<i32> for DML_ROUNDING_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5637,7 +5637,7 @@ impl ::std::convert::From<i32> for DML_ROUNDING_MODE {
 unsafe impl ::windows::runtime::Abi for DML_ROUNDING_MODE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub union DML_SCALAR_UNION {
@@ -5654,21 +5654,21 @@ pub union DML_SCALAR_UNION {
     pub Float64: f64,
 }
 impl DML_SCALAR_UNION {}
-impl ::std::default::Default for DML_SCALAR_UNION {
+impl ::core::default::Default for DML_SCALAR_UNION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DML_SCALAR_UNION {
+impl ::core::cmp::PartialEq for DML_SCALAR_UNION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DML_SCALAR_UNION {}
+impl ::core::cmp::Eq for DML_SCALAR_UNION {}
 unsafe impl ::windows::runtime::Abi for DML_SCALAR_UNION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SCALE_BIAS {
@@ -5676,26 +5676,26 @@ pub struct DML_SCALE_BIAS {
     pub Bias: f32,
 }
 impl DML_SCALE_BIAS {}
-impl ::std::default::Default for DML_SCALE_BIAS {
+impl ::core::default::Default for DML_SCALE_BIAS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SCALE_BIAS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SCALE_BIAS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SCALE_BIAS").field("Scale", &self.Scale).field("Bias", &self.Bias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SCALE_BIAS {
+impl ::core::cmp::PartialEq for DML_SCALE_BIAS {
     fn eq(&self, other: &Self) -> bool {
         self.Scale == other.Scale && self.Bias == other.Bias
     }
 }
-impl ::std::cmp::Eq for DML_SCALE_BIAS {}
+impl ::core::cmp::Eq for DML_SCALE_BIAS {}
 unsafe impl ::windows::runtime::Abi for DML_SCALE_BIAS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SCATTER_ND_OPERATOR_DESC {
@@ -5707,13 +5707,13 @@ pub struct DML_SCATTER_ND_OPERATOR_DESC {
     pub IndicesDimensionCount: u32,
 }
 impl DML_SCATTER_ND_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SCATTER_ND_OPERATOR_DESC {
+impl ::core::default::Default for DML_SCATTER_ND_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SCATTER_ND_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("IndicesTensor", &self.IndicesTensor)
@@ -5724,16 +5724,16 @@ impl ::std::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.UpdatesTensor == other.UpdatesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount
     }
 }
-impl ::std::cmp::Eq for DML_SCATTER_ND_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SCATTER_ND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SCATTER_ND_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SCATTER_OPERATOR_DESC {
@@ -5744,26 +5744,26 @@ pub struct DML_SCATTER_OPERATOR_DESC {
     pub Axis: u32,
 }
 impl DML_SCATTER_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SCATTER_OPERATOR_DESC {
+impl ::core::default::Default for DML_SCATTER_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SCATTER_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SCATTER_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SCATTER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SCATTER_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SCATTER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.UpdatesTensor == other.UpdatesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
-impl ::std::cmp::Eq for DML_SCATTER_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SCATTER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SCATTER_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SIZE_2D {
@@ -5771,26 +5771,26 @@ pub struct DML_SIZE_2D {
     pub Height: u32,
 }
 impl DML_SIZE_2D {}
-impl ::std::default::Default for DML_SIZE_2D {
+impl ::core::default::Default for DML_SIZE_2D {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SIZE_2D {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SIZE_2D {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SIZE_2D").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SIZE_2D {
+impl ::core::cmp::PartialEq for DML_SIZE_2D {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height
     }
 }
-impl ::std::cmp::Eq for DML_SIZE_2D {}
+impl ::core::cmp::Eq for DML_SIZE_2D {}
 unsafe impl ::windows::runtime::Abi for DML_SIZE_2D {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SLICE1_OPERATOR_DESC {
@@ -5802,13 +5802,13 @@ pub struct DML_SLICE1_OPERATOR_DESC {
     pub InputWindowStrides: *mut i32,
 }
 impl DML_SLICE1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SLICE1_OPERATOR_DESC {
+impl ::core::default::Default for DML_SLICE1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SLICE1_OPERATOR_DESC")
             .field("InputTensor", &self.InputTensor)
             .field("OutputTensor", &self.OutputTensor)
@@ -5819,16 +5819,16 @@ impl ::std::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SLICE1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SLICE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.InputWindowOffsets == other.InputWindowOffsets && self.InputWindowSizes == other.InputWindowSizes && self.InputWindowStrides == other.InputWindowStrides
     }
 }
-impl ::std::cmp::Eq for DML_SLICE1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SLICE1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SLICE1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SLICE_GRAD_OPERATOR_DESC {
@@ -5840,13 +5840,13 @@ pub struct DML_SLICE_GRAD_OPERATOR_DESC {
     pub InputWindowStrides: *mut i32,
 }
 impl DML_SLICE_GRAD_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SLICE_GRAD_OPERATOR_DESC {
+impl ::core::default::Default for DML_SLICE_GRAD_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SLICE_GRAD_OPERATOR_DESC")
             .field("InputGradientTensor", &self.InputGradientTensor)
             .field("OutputGradientTensor", &self.OutputGradientTensor)
@@ -5857,16 +5857,16 @@ impl ::std::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.InputWindowOffsets == other.InputWindowOffsets && self.InputWindowSizes == other.InputWindowSizes && self.InputWindowStrides == other.InputWindowStrides
     }
 }
-impl ::std::cmp::Eq for DML_SLICE_GRAD_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SLICE_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SLICE_GRAD_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SLICE_OPERATOR_DESC {
@@ -5878,26 +5878,26 @@ pub struct DML_SLICE_OPERATOR_DESC {
     pub Strides: *mut u32,
 }
 impl DML_SLICE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SLICE_OPERATOR_DESC {
+impl ::core::default::Default for DML_SLICE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SLICE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SLICE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SLICE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Offsets", &self.Offsets).field("Sizes", &self.Sizes).field("Strides", &self.Strides).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SLICE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SLICE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Offsets == other.Offsets && self.Sizes == other.Sizes && self.Strides == other.Strides
     }
 }
-impl ::std::cmp::Eq for DML_SLICE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SLICE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SLICE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
@@ -5907,26 +5907,26 @@ pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
 impl DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+impl ::core::default::Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SPACE_TO_DEPTH1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize && self.Order == other.Order
     }
 }
-impl ::std::cmp::Eq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
@@ -5935,26 +5935,26 @@ pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     pub BlockSize: u32,
 }
 impl DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+impl ::core::default::Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SPACE_TO_DEPTH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize
     }
 }
-impl ::std::cmp::Eq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SPLIT_OPERATOR_DESC {
@@ -5964,22 +5964,22 @@ pub struct DML_SPLIT_OPERATOR_DESC {
     pub Axis: u32,
 }
 impl DML_SPLIT_OPERATOR_DESC {}
-impl ::std::default::Default for DML_SPLIT_OPERATOR_DESC {
+impl ::core::default::Default for DML_SPLIT_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_SPLIT_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_SPLIT_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_SPLIT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCount", &self.OutputCount).field("OutputTensors", &self.OutputTensors).field("Axis", &self.Axis).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_SPLIT_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_SPLIT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputCount == other.OutputCount && self.OutputTensors == other.OutputTensors && self.Axis == other.Axis
     }
 }
-impl ::std::cmp::Eq for DML_SPLIT_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_SPLIT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SPLIT_OPERATOR_DESC {
     type Abi = Self;
 }
@@ -5988,7 +5988,7 @@ pub const DML_TARGET_VERSION: u32 = 16384u32;
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
 pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(0i32);
@@ -6003,7 +6003,7 @@ pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE
 pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(9i32);
 pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(10i32);
 pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(11i32);
-impl ::std::convert::From<i32> for DML_TENSOR_DATA_TYPE {
+impl ::core::convert::From<i32> for DML_TENSOR_DATA_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6011,30 +6011,30 @@ impl ::std::convert::From<i32> for DML_TENSOR_DATA_TYPE {
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_DATA_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
-    pub Desc: *mut ::std::ffi::c_void,
+    pub Desc: *mut ::core::ffi::c_void,
 }
 impl DML_TENSOR_DESC {}
-impl ::std::default::Default for DML_TENSOR_DESC {
+impl ::core::default::Default for DML_TENSOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_TENSOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_TENSOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_TENSOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_TENSOR_DESC {
+impl ::core::cmp::PartialEq for DML_TENSOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Desc == other.Desc
     }
 }
-impl ::std::cmp::Eq for DML_TENSOR_DESC {}
+impl ::core::cmp::Eq for DML_TENSOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_DESC {
     type Abi = Self;
 }
@@ -6043,12 +6043,12 @@ pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_FLAGS(pub u32);
 pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0u32);
 pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1u32);
-impl ::std::convert::From<u32> for DML_TENSOR_FLAGS {
+impl ::core::convert::From<u32> for DML_TENSOR_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6056,41 +6056,41 @@ impl ::std::convert::From<u32> for DML_TENSOR_FLAGS {
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DML_TENSOR_FLAGS {
+impl ::core::ops::BitOr for DML_TENSOR_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DML_TENSOR_FLAGS {
+impl ::core::ops::BitAnd for DML_TENSOR_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DML_TENSOR_FLAGS {
+impl ::core::ops::BitOrAssign for DML_TENSOR_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DML_TENSOR_FLAGS {
+impl ::core::ops::BitAndAssign for DML_TENSOR_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DML_TENSOR_FLAGS {
+impl ::core::ops::Not for DML_TENSOR_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_TYPE(pub i32);
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
 pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = DML_TENSOR_TYPE(1i32);
-impl ::std::convert::From<i32> for DML_TENSOR_TYPE {
+impl ::core::convert::From<i32> for DML_TENSOR_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6098,7 +6098,7 @@ impl ::std::convert::From<i32> for DML_TENSOR_TYPE {
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TILE_OPERATOR_DESC {
@@ -6108,26 +6108,26 @@ pub struct DML_TILE_OPERATOR_DESC {
     pub Repeats: *mut u32,
 }
 impl DML_TILE_OPERATOR_DESC {}
-impl ::std::default::Default for DML_TILE_OPERATOR_DESC {
+impl ::core::default::Default for DML_TILE_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_TILE_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_TILE_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_TILE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RepeatsCount", &self.RepeatsCount).field("Repeats", &self.Repeats).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_TILE_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_TILE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.RepeatsCount == other.RepeatsCount && self.Repeats == other.Repeats
     }
 }
-impl ::std::cmp::Eq for DML_TILE_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_TILE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TILE_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TOP_K1_OPERATOR_DESC {
@@ -6139,26 +6139,26 @@ pub struct DML_TOP_K1_OPERATOR_DESC {
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 impl DML_TOP_K1_OPERATOR_DESC {}
-impl ::std::default::Default for DML_TOP_K1_OPERATOR_DESC {
+impl ::core::default::Default for DML_TOP_K1_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_TOP_K1_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_TOP_K1_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_TOP_K1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_TOP_K1_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_TOP_K1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputValueTensor == other.OutputValueTensor && self.OutputIndexTensor == other.OutputIndexTensor && self.Axis == other.Axis && self.K == other.K && self.AxisDirection == other.AxisDirection
     }
 }
-impl ::std::cmp::Eq for DML_TOP_K1_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_TOP_K1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TOP_K1_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TOP_K_OPERATOR_DESC {
@@ -6169,26 +6169,26 @@ pub struct DML_TOP_K_OPERATOR_DESC {
     pub K: u32,
 }
 impl DML_TOP_K_OPERATOR_DESC {}
-impl ::std::default::Default for DML_TOP_K_OPERATOR_DESC {
+impl ::core::default::Default for DML_TOP_K_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_TOP_K_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_TOP_K_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_TOP_K_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_TOP_K_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_TOP_K_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputValueTensor == other.OutputValueTensor && self.OutputIndexTensor == other.OutputIndexTensor && self.Axis == other.Axis && self.K == other.K
     }
 }
-impl ::std::cmp::Eq for DML_TOP_K_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_TOP_K_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TOP_K_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
@@ -6198,26 +6198,26 @@ pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InterpolationMode: DML_INTERPOLATION_MODE,
 }
 impl DML_UPSAMPLE_2D_OPERATOR_DESC {}
-impl ::std::default::Default for DML_UPSAMPLE_2D_OPERATOR_DESC {
+impl ::core::default::Default for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_UPSAMPLE_2D_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_UPSAMPLE_2D_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_UPSAMPLE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleSize", &self.ScaleSize).field("InterpolationMode", &self.InterpolationMode).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_UPSAMPLE_2D_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleSize == other.ScaleSize && self.InterpolationMode == other.InterpolationMode
     }
 }
-impl ::std::cmp::Eq for DML_UPSAMPLE_2D_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_UPSAMPLE_2D_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_UPSAMPLE_2D_OPERATOR_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
@@ -6228,84 +6228,84 @@ pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
     pub Bias: *mut f32,
 }
 impl DML_VALUE_SCALE_2D_OPERATOR_DESC {}
-impl ::std::default::Default for DML_VALUE_SCALE_2D_OPERATOR_DESC {
+impl ::core::default::Default for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DML_VALUE_SCALE_2D_OPERATOR_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DML_VALUE_SCALE_2D_OPERATOR_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DML_VALUE_SCALE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Scale", &self.Scale).field("ChannelCount", &self.ChannelCount).field("Bias", &self.Bias).finish()
     }
 }
-impl ::std::cmp::PartialEq for DML_VALUE_SCALE_2D_OPERATOR_DESC {
+impl ::core::cmp::PartialEq for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Scale == other.Scale && self.ChannelCount == other.ChannelCount && self.Bias == other.Bias
     }
 }
-impl ::std::cmp::Eq for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
+impl ::core::cmp::Eq for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLBindingTable(pub ::windows::runtime::IUnknown);
 impl IDMLBindingTable {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindingcount), ::std::mem::transmute(bindings)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings)))
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindOutputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindingcount), ::std::mem::transmute(bindings)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings)))
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(binding)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding)))
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(binding)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(700876764, 56948, 20027, [171, 0, 17, 104, 242, 252, 60, 252]);
 }
-impl ::std::convert::From<IDMLBindingTable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLBindingTable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLBindingTable) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLBindingTable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLBindingTable> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLBindingTable) -> Self {
         value.0.clone()
     }
@@ -6320,44 +6320,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLBindingTable> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLBindingTable> for IDMLDeviceChild {
     fn from(value: IDMLBindingTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLBindingTable> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLBindingTable> for IDMLDeviceChild {
     fn from(value: &IDMLBindingTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLBindingTable> for IDMLObject {
+impl ::core::convert::From<IDMLBindingTable> for IDMLObject {
     fn from(value: IDMLBindingTable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLBindingTable> for IDMLObject {
+impl ::core::convert::From<&IDMLBindingTable> for IDMLObject {
     fn from(value: &IDMLBindingTable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6366,62 +6366,62 @@ pub struct IDMLBindingTable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bindingcount: u32, bindings: *const DML_BINDING_DESC),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bindingcount: u32, bindings: *const DML_BINDING_DESC),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binding: *const DML_BINDING_DESC),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binding: *const DML_BINDING_DESC),
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLCommandRecorder(pub ::windows::runtime::IUnknown);
 impl IDMLCommandRecorder {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn RecordDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandList>, Param1: ::windows::runtime::IntoParam<'a, IDMLDispatchable>, Param2: ::windows::runtime::IntoParam<'a, IDMLBindingTable>>(&self, commandlist: Param0, dispatchable: Param1, bindings: Param2) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi()))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi()))
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867507318, 11838, 20445, [191, 244, 93, 43, 161, 15, 180, 83]);
 }
-impl ::std::convert::From<IDMLCommandRecorder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLCommandRecorder> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCommandRecorder) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLCommandRecorder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLCommandRecorder> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLCommandRecorder) -> Self {
         value.0.clone()
     }
@@ -6436,44 +6436,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
     fn from(value: IDMLCommandRecorder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLCommandRecorder> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLCommandRecorder> for IDMLDeviceChild {
     fn from(value: &IDMLCommandRecorder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLCommandRecorder> for IDMLObject {
+impl ::core::convert::From<IDMLCommandRecorder> for IDMLObject {
     fn from(value: IDMLCommandRecorder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLCommandRecorder> for IDMLObject {
+impl ::core::convert::From<&IDMLCommandRecorder> for IDMLObject {
     fn from(value: &IDMLCommandRecorder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6482,46 +6482,46 @@ pub struct IDMLCommandRecorder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: ::windows::runtime::RawPtr, dispatchable: ::windows::runtime::RawPtr, bindings: ::windows::runtime::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLCompiledOperator(pub ::windows::runtime::IUnknown);
 impl IDMLCompiledOperator {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
-        let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
+        let mut result__: DML_BINDING_PROPERTIES = ::core::default::Default::default();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
 }
@@ -6529,12 +6529,12 @@ unsafe impl ::windows::runtime::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796597098, 48988, 18690, [146, 216, 218, 58, 101, 10, 254, 164]);
 }
-impl ::std::convert::From<IDMLCompiledOperator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLCompiledOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCompiledOperator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLCompiledOperator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLCompiledOperator> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLCompiledOperator) -> Self {
         value.0.clone()
     }
@@ -6549,84 +6549,84 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
     fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLCompiledOperator> for IDMLDispatchable {
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDispatchable {
     fn from(value: &IDMLCompiledOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLCompiledOperator> for IDMLPageable {
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLPageable {
     fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLCompiledOperator> for IDMLPageable {
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLPageable {
     fn from(value: &IDMLCompiledOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
     fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLCompiledOperator> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLDeviceChild {
     fn from(value: &IDMLCompiledOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLCompiledOperator> for IDMLObject {
+impl ::core::convert::From<IDMLCompiledOperator> for IDMLObject {
     fn from(value: IDMLCompiledOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLCompiledOperator> for IDMLObject {
+impl ::core::convert::From<&IDMLCompiledOperator> for IDMLObject {
     fn from(value: &IDMLCompiledOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6635,35 +6635,35 @@ pub struct IDMLCompiledOperator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLDebugDevice(pub ::windows::runtime::IUnknown);
 impl IDMLDebugDevice {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, mute: Param0) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), mute.into_param().abi()))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), mute.into_param().abi()))
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2104441545, 14666, 19139, [146, 167, 57, 12, 197, 122, 130, 23]);
 }
-impl ::std::convert::From<IDMLDebugDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLDebugDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDebugDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLDebugDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLDebugDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDebugDevice) -> Self {
         value.0.clone()
     }
@@ -6689,82 +6689,82 @@ pub struct IDMLDebugDevice_abi(
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLDevice(pub ::windows::runtime::IUnknown);
 impl IDMLDevice {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(feature), ::std::mem::transmute(featurequerydatasize), ::std::mem::transmute(featurequerydata), ::std::mem::transmute(featuresupportdatasize), ::std::mem::transmute(featuresupportdata)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), op.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
+    pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
+    pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDevice {
     type Vtable = IDMLDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841128503, 38653, 16959, [169, 140, 174, 94, 124, 42, 87, 63]);
 }
-impl ::std::convert::From<IDMLDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDevice) -> Self {
         value.0.clone()
     }
@@ -6779,24 +6779,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLDevice> for IDMLObject {
+impl ::core::convert::From<IDMLDevice> for IDMLObject {
     fn from(value: IDMLDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDevice> for IDMLObject {
+impl ::core::convert::From<&IDMLDevice> for IDMLObject {
     fn from(value: &IDMLDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6805,105 +6805,105 @@ pub struct IDMLDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, op: ::windows::runtime::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, op: ::windows::runtime::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLDevice1(pub ::windows::runtime::IUnknown);
 impl IDMLDevice1 {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(feature), ::std::mem::transmute(featurequerydatasize), ::std::mem::transmute(featurequerydata), ::std::mem::transmute(featuresupportdatasize), ::std::mem::transmute(featuresupportdata)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), op.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
+    pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
+    pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(ppobjects)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn CompileGraph<T: ::windows::runtime::Interface>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    pub unsafe fn CompileGraph<T: ::windows::runtime::Interface>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(desc), ::core::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693287834, 53950, 17237, [170, 93, 89, 1, 40, 26, 209, 210]);
 }
-impl ::std::convert::From<IDMLDevice1> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLDevice1> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice1) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLDevice1> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLDevice1> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDevice1) -> Self {
         value.0.clone()
     }
@@ -6918,44 +6918,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLDevice1> for IDMLDevice {
+impl ::core::convert::From<IDMLDevice1> for IDMLDevice {
     fn from(value: IDMLDevice1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDevice1> for IDMLDevice {
+impl ::core::convert::From<&IDMLDevice1> for IDMLDevice {
     fn from(value: &IDMLDevice1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDevice> for IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDevice> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDevice> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDevice> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLDevice1> for IDMLObject {
+impl ::core::convert::From<IDMLDevice1> for IDMLObject {
     fn from(value: IDMLDevice1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDevice1> for IDMLObject {
+impl ::core::convert::From<&IDMLDevice1> for IDMLObject {
     fn from(value: &IDMLDevice1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6964,62 +6964,62 @@ pub struct IDMLDevice1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, op: ::windows::runtime::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, op: ::windows::runtime::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLDeviceChild(pub ::windows::runtime::IUnknown);
 impl IDMLDeviceChild {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChild_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(669528386, 33125, 18915, [151, 78, 47, 214, 110, 76, 182, 157]);
 }
-impl ::std::convert::From<IDMLDeviceChild> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLDeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDeviceChild) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLDeviceChild> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLDeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDeviceChild) -> Self {
         value.0.clone()
     }
@@ -7034,24 +7034,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLDeviceChild> for IDMLObject {
+impl ::core::convert::From<IDMLDeviceChild> for IDMLObject {
     fn from(value: IDMLDeviceChild) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDeviceChild> for IDMLObject {
+impl ::core::convert::From<&IDMLDeviceChild> for IDMLObject {
     fn from(value: &IDMLDeviceChild) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7060,44 +7060,44 @@ pub struct IDMLDeviceChild_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLDispatchable(pub ::windows::runtime::IUnknown);
 impl IDMLDispatchable {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
-        let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
+        let mut result__: DML_BINDING_PROPERTIES = ::core::default::Default::default();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
 }
@@ -7105,12 +7105,12 @@ unsafe impl ::windows::runtime::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703054760, 4153, 17438, [159, 28, 177, 117, 156, 47, 60, 236]);
 }
-impl ::std::convert::From<IDMLDispatchable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLDispatchable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDispatchable) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLDispatchable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLDispatchable> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLDispatchable) -> Self {
         value.0.clone()
     }
@@ -7125,64 +7125,64 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLDispatchable> for IDMLPageable {
+impl ::core::convert::From<IDMLDispatchable> for IDMLPageable {
     fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDispatchable> for IDMLPageable {
+impl ::core::convert::From<&IDMLDispatchable> for IDMLPageable {
     fn from(value: &IDMLDispatchable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLDispatchable> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLDispatchable> for IDMLDeviceChild {
     fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDispatchable> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLDispatchable> for IDMLDeviceChild {
     fn from(value: &IDMLDispatchable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLDispatchable> for IDMLObject {
+impl ::core::convert::From<IDMLDispatchable> for IDMLObject {
     fn from(value: IDMLDispatchable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLDispatchable> for IDMLObject {
+impl ::core::convert::From<&IDMLDispatchable> for IDMLObject {
     fn from(value: &IDMLDispatchable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7191,47 +7191,47 @@ pub struct IDMLDispatchable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLObject(pub ::windows::runtime::IUnknown);
 impl IDMLObject {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLObject {
     type Vtable = IDMLObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357948588, 40460, 18989, [155, 142, 0, 117, 33, 163, 49, 124]);
 }
-impl ::std::convert::From<IDMLObject> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLObject> for ::windows::runtime::IUnknown {
     fn from(value: IDMLObject) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLObject> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLObject> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLObject) -> Self {
         value.0.clone()
     }
@@ -7252,50 +7252,50 @@ pub struct IDMLObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLOperator(pub ::windows::runtime::IUnknown);
 impl IDMLOperator {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLOperator {
     type Vtable = IDMLOperator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(650817146, 12417, 17971, [149, 129, 34, 111, 190, 87, 105, 93]);
 }
-impl ::std::convert::From<IDMLOperator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLOperator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLOperator> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLOperator) -> Self {
         value.0.clone()
     }
@@ -7310,44 +7310,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLOperator> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLOperator> for IDMLDeviceChild {
     fn from(value: IDMLOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLOperator> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLOperator> for IDMLDeviceChild {
     fn from(value: &IDMLOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLOperator> for IDMLObject {
+impl ::core::convert::From<IDMLOperator> for IDMLObject {
     fn from(value: IDMLOperator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLOperator> for IDMLObject {
+impl ::core::convert::From<&IDMLOperator> for IDMLObject {
     fn from(value: &IDMLOperator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7356,61 +7356,61 @@ pub struct IDMLOperator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLOperatorInitializer(pub ::windows::runtime::IUnknown);
 impl IDMLOperatorInitializer {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
-        let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
+        let mut result__: DML_BINDING_PROPERTIES = ::core::default::Default::default();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn Reset(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators)).ok()
+    pub unsafe fn Reset(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorcount), ::core::mem::transmute(operators)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115427091, 17244, 18076, [134, 118, 77, 93, 208, 114, 248, 19]);
 }
-impl ::std::convert::From<IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperatorInitializer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLOperatorInitializer) -> Self {
         value.0.clone()
     }
@@ -7425,84 +7425,84 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
     fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLDispatchable {
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDispatchable {
     fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLOperatorInitializer> for IDMLPageable {
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLPageable {
     fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLPageable {
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLPageable {
     fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
     fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLDeviceChild {
     fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLOperatorInitializer> for IDMLObject {
+impl ::core::convert::From<IDMLOperatorInitializer> for IDMLObject {
     fn from(value: IDMLOperatorInitializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLObject {
+impl ::core::convert::From<&IDMLOperatorInitializer> for IDMLObject {
     fn from(value: &IDMLOperatorInitializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7511,53 +7511,53 @@ pub struct IDMLOperatorInitializer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDMLPageable(pub ::windows::runtime::IUnknown);
 impl IDMLPageable {
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLPageable {
     type Vtable = IDMLPageable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980775973, 17730, 19019, [134, 23, 109, 222, 110, 143, 98, 1]);
 }
-impl ::std::convert::From<IDMLPageable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDMLPageable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLPageable) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDMLPageable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDMLPageable> for ::windows::runtime::IUnknown {
     fn from(value: &IDMLPageable) -> Self {
         value.0.clone()
     }
@@ -7572,44 +7572,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDMLPageable> for IDMLDeviceChild {
+impl ::core::convert::From<IDMLPageable> for IDMLDeviceChild {
     fn from(value: IDMLPageable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLPageable> for IDMLDeviceChild {
+impl ::core::convert::From<&IDMLPageable> for IDMLDeviceChild {
     fn from(value: &IDMLPageable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDMLPageable> for IDMLObject {
+impl ::core::convert::From<IDMLPageable> for IDMLObject {
     fn from(value: IDMLPageable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDMLPageable> for IDMLObject {
+impl ::core::convert::From<&IDMLPageable> for IDMLObject {
     fn from(value: &IDMLPageable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7618,10 +7618,10 @@ pub struct IDMLPageable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );

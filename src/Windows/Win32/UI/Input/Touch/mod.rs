@@ -9,7 +9,7 @@ pub unsafe fn CloseGestureInfoHandle<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CloseGestureInfoHandle(hgestureinfo.into_param().abi()))
+        ::core::mem::transmute(CloseGestureInfoHandle(hgestureinfo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,12 +24,12 @@ pub unsafe fn CloseTouchInputHandle<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CloseTouchInputHandle(htouchinput.into_param().abi()))
+        ::core::mem::transmute(CloseTouchInputHandle(htouchinput.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 pub struct GESTURECONFIG {
@@ -38,27 +38,27 @@ pub struct GESTURECONFIG {
     pub dwBlock: u32,
 }
 impl GESTURECONFIG {}
-impl ::std::default::Default for GESTURECONFIG {
+impl ::core::default::Default for GESTURECONFIG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GESTURECONFIG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GESTURECONFIG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GESTURECONFIG").field("dwID", &self.dwID).field("dwWant", &self.dwWant).field("dwBlock", &self.dwBlock).finish()
     }
 }
-impl ::std::cmp::PartialEq for GESTURECONFIG {
+impl ::core::cmp::PartialEq for GESTURECONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.dwID == other.dwID && self.dwWant == other.dwWant && self.dwBlock == other.dwBlock
     }
 }
-impl ::std::cmp::Eq for GESTURECONFIG {}
+impl ::core::cmp::Eq for GESTURECONFIG {}
 unsafe impl ::windows::runtime::Abi for GESTURECONFIG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GESTURECONFIG_ID(pub u32);
 pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
@@ -69,7 +69,7 @@ pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
 pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
 pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
 pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-impl ::std::convert::From<u32> for GESTURECONFIG_ID {
+impl ::core::convert::From<u32> for GESTURECONFIG_ID {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -77,35 +77,35 @@ impl ::std::convert::From<u32> for GESTURECONFIG_ID {
 unsafe impl ::windows::runtime::Abi for GESTURECONFIG_ID {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GESTURECONFIG_ID {
+impl ::core::ops::BitOr for GESTURECONFIG_ID {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GESTURECONFIG_ID {
+impl ::core::ops::BitAnd for GESTURECONFIG_ID {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GESTURECONFIG_ID {
+impl ::core::ops::BitOrAssign for GESTURECONFIG_ID {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GESTURECONFIG_ID {
+impl ::core::ops::BitAndAssign for GESTURECONFIG_ID {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GESTURECONFIG_ID {
+impl ::core::ops::Not for GESTURECONFIG_ID {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
@@ -123,14 +123,14 @@ pub struct GESTUREINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl GESTUREINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GESTUREINFO {
+impl ::core::default::Default for GESTUREINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GESTUREINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GESTUREINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GESTUREINFO")
             .field("cbSize", &self.cbSize)
             .field("dwFlags", &self.dwFlags)
@@ -145,18 +145,18 @@ impl ::std::fmt::Debug for GESTUREINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GESTUREINFO {
+impl ::core::cmp::PartialEq for GESTUREINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwID == other.dwID && self.hwndTarget == other.hwndTarget && self.ptsLocation == other.ptsLocation && self.dwInstanceID == other.dwInstanceID && self.dwSequenceID == other.dwSequenceID && self.ullArguments == other.ullArguments && self.cbExtraArgs == other.cbExtraArgs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GESTUREINFO {}
+impl ::core::cmp::Eq for GESTUREINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GESTUREINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
@@ -170,25 +170,25 @@ pub struct GESTURENOTIFYSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl GESTURENOTIFYSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GESTURENOTIFYSTRUCT {
+impl ::core::default::Default for GESTURENOTIFYSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GESTURENOTIFYSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GESTURENOTIFYSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GESTURENOTIFYSTRUCT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GESTURENOTIFYSTRUCT {
+impl ::core::cmp::PartialEq for GESTURENOTIFYSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTarget == other.hwndTarget && self.ptsLocation == other.ptsLocation && self.dwInstanceID == other.dwInstanceID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GESTURENOTIFYSTRUCT {}
+impl ::core::cmp::Eq for GESTURENOTIFYSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GESTURENOTIFYSTRUCT {
     type Abi = Self;
@@ -203,7 +203,7 @@ pub unsafe fn GetGestureConfig<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetGestureConfig(hwnd.into_param().abi(), ::std::mem::transmute(dwreserved), ::std::mem::transmute(dwflags), ::std::mem::transmute(pcids), ::std::mem::transmute(pgestureconfig), ::std::mem::transmute(cbsize)))
+        ::core::mem::transmute(GetGestureConfig(hwnd.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcids), ::core::mem::transmute(pgestureconfig), ::core::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -218,7 +218,7 @@ pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetGestureExtraArgs(hgestureinfo.into_param().abi(), ::std::mem::transmute(cbextraargs), ::std::mem::transmute(pextraargs)))
+        ::core::mem::transmute(GetGestureExtraArgs(hgestureinfo.into_param().abi(), ::core::mem::transmute(cbextraargs), ::core::mem::transmute(pextraargs)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -233,7 +233,7 @@ pub unsafe fn GetGestureInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HGEST
         extern "system" {
             fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetGestureInfo(hgestureinfo.into_param().abi(), ::std::mem::transmute(pgestureinfo)))
+        ::core::mem::transmute(GetGestureInfo(hgestureinfo.into_param().abi(), ::core::mem::transmute(pgestureinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -248,29 +248,29 @@ pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HT
         extern "system" {
             fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, cinputs: u32, pinputs: *mut TOUCHINPUT, cbsize: i32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTouchInputInfo(htouchinput.into_param().abi(), ::std::mem::transmute(cinputs), ::std::mem::transmute(pinputs), ::std::mem::transmute(cbsize)))
+        ::core::mem::transmute(GetTouchInputInfo(htouchinput.into_param().abi(), ::core::mem::transmute(cinputs), ::core::mem::transmute(pinputs), ::core::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HGESTUREINFO(pub isize);
-impl ::std::default::Default for HGESTUREINFO {
+impl ::core::default::Default for HGESTUREINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HGESTUREINFO {}
 unsafe impl ::windows::runtime::Abi for HGESTUREINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HTOUCHINPUT(pub isize);
-impl ::std::default::Default for HTOUCHINPUT {
+impl ::core::default::Default for HTOUCHINPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HTOUCHINPUT {}
@@ -279,242 +279,242 @@ unsafe impl ::windows::runtime::Abi for HTOUCHINPUT {
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IInertiaProcessor(pub ::windows::runtime::IUnknown);
 impl IInertiaProcessor {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialOriginX(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialOriginX(&self, x: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(x)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(x)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialOriginY(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialOriginY(&self, y: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(y)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialVelocityX(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialVelocityX(&self, x: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(x)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(x)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialVelocityY(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialVelocityY(&self, y: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(y)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialAngularVelocity(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialAngularVelocity(&self, velocity: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(velocity)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(velocity)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialExpansionVelocity(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialExpansionVelocity(&self, velocity: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(velocity)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(velocity)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialRadius(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialRadius(&self, radius: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(radius)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(radius)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn BoundaryLeft(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetBoundaryLeft(&self, left: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(left)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(left)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn BoundaryTop(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetBoundaryTop(&self, top: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(top)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(top)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn BoundaryRight(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetBoundaryRight(&self, right: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(right)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(right)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn BoundaryBottom(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetBoundaryBottom(&self, bottom: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bottom)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(bottom)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ElasticMarginLeft(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetElasticMarginLeft(&self, left: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(left)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(left)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ElasticMarginTop(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetElasticMarginTop(&self, top: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(top)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(top)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ElasticMarginRight(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetElasticMarginRight(&self, right: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(right)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(right)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ElasticMarginBottom(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetElasticMarginBottom(&self, bottom: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(bottom)).ok()
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(bottom)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn DesiredDisplacement(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetDesiredDisplacement(&self, displacement: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(displacement)).ok()
+        (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(displacement)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn DesiredRotation(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetDesiredRotation(&self, rotation: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(rotation)).ok()
+        (::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn DesiredExpansion(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetDesiredExpansion(&self, expansion: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(expansion)).ok()
+        (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(expansion)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn DesiredDeceleration(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetDesiredDeceleration(&self, deceleration: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(deceleration)).ok()
+        (::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn DesiredAngularDeceleration(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).41)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetDesiredAngularDeceleration(&self, deceleration: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), ::std::mem::transmute(deceleration)).ok()
+        (::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn DesiredExpansionDeceleration(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetDesiredExpansionDeceleration(&self, deceleration: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(deceleration)).ok()
+        (::windows::runtime::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(deceleration)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialTimestamp(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).45)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetInitialTimestamp(&self, timestamp: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(timestamp)).ok()
+        (::windows::runtime::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).47)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
     pub unsafe fn Process(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
     pub unsafe fn ProcessTime(&self, timestamp: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(timestamp), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn Complete(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).50)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn CompleteTime(&self, timestamp: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(timestamp)).ok()
+        (::windows::runtime::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(timestamp)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414190701, 50670, 16817, [144, 169, 157, 74, 146, 144, 149, 173]);
 }
-impl ::std::convert::From<IInertiaProcessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInertiaProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IInertiaProcessor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IInertiaProcessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInertiaProcessor> for ::windows::runtime::IUnknown {
     fn from(value: &IInertiaProcessor) -> Self {
         value.0.clone()
     }
@@ -589,113 +589,113 @@ pub struct IInertiaProcessor_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IManipulationProcessor(pub ::windows::runtime::IUnknown);
 impl IManipulationProcessor {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SupportedManipulations(&self) -> ::windows::runtime::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
-        let mut result__: <MANIPULATION_PROCESSOR_MANIPULATIONS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<MANIPULATION_PROCESSOR_MANIPULATIONS>(result__)
+        let mut result__: <MANIPULATION_PROCESSOR_MANIPULATIONS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<MANIPULATION_PROCESSOR_MANIPULATIONS>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulations)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulations)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn PivotPointX(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetPivotPointX(&self, pivotpointx: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pivotpointx)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotpointx)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn PivotPointY(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetPivotPointY(&self, pivotpointy: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pivotpointy)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotpointy)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn PivotRadius(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetPivotRadius(&self, pivotradius: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pivotradius)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pivotradius)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn CompleteManipulation(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ProcessDown(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulatorid), ::std::mem::transmute(x), ::std::mem::transmute(y)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ProcessMove(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulatorid), ::std::mem::transmute(x), ::std::mem::transmute(y)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ProcessUp(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulatorid), ::std::mem::transmute(x), ::std::mem::transmute(y)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ProcessDownWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulatorid), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(timestamp)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ProcessMoveWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulatorid), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(timestamp)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ProcessUpWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(manipulatorid), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(timestamp)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn GetVelocityX(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn GetVelocityY(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn GetExpansionVelocity(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn GetAngularVelocity(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn MinimumScaleRotateRadius(&self) -> ::windows::runtime::Result<f32> {
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(minradius)).ok()
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(minradius)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2720711961, 33536, 18592, [190, 244, 241, 190, 135, 55, 219, 164]);
 }
-impl ::std::convert::From<IManipulationProcessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IManipulationProcessor> for ::windows::runtime::IUnknown {
     fn from(value: IManipulationProcessor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IManipulationProcessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IManipulationProcessor> for ::windows::runtime::IUnknown {
     fn from(value: &IManipulationProcessor) -> Self {
         value.0.clone()
     }
@@ -749,13 +749,13 @@ pub unsafe fn IsTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: *mut u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsTouchWindow(hwnd.into_param().abi(), ::std::mem::transmute(pulflags)))
+        ::core::mem::transmute(IsTouchWindow(hwnd.into_param().abi(), ::core::mem::transmute(pulflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
 pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(0i32);
@@ -764,7 +764,7 @@ pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIP
 pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(4i32);
 pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(8i32);
 pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
-impl ::std::convert::From<i32> for MANIPULATION_PROCESSOR_MANIPULATIONS {
+impl ::core::convert::From<i32> for MANIPULATION_PROCESSOR_MANIPULATIONS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -774,12 +774,12 @@ unsafe impl ::windows::runtime::Abi for MANIPULATION_PROCESSOR_MANIPULATIONS {
 }
 pub const ManipulationProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1501384624, 18429, 19199, [137, 185, 198, 207, 174, 140, 240, 142]);
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
 pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
 pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
-impl ::std::convert::From<u32> for REGISTER_TOUCH_WINDOW_FLAGS {
+impl ::core::convert::From<u32> for REGISTER_TOUCH_WINDOW_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -787,29 +787,29 @@ impl ::std::convert::From<u32> for REGISTER_TOUCH_WINDOW_FLAGS {
 unsafe impl ::windows::runtime::Abi for REGISTER_TOUCH_WINDOW_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for REGISTER_TOUCH_WINDOW_FLAGS {
+impl ::core::ops::BitOr for REGISTER_TOUCH_WINDOW_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for REGISTER_TOUCH_WINDOW_FLAGS {
+impl ::core::ops::BitAnd for REGISTER_TOUCH_WINDOW_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for REGISTER_TOUCH_WINDOW_FLAGS {
+impl ::core::ops::BitOrAssign for REGISTER_TOUCH_WINDOW_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for REGISTER_TOUCH_WINDOW_FLAGS {
+impl ::core::ops::BitAndAssign for REGISTER_TOUCH_WINDOW_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for REGISTER_TOUCH_WINDOW_FLAGS {
+impl ::core::ops::Not for REGISTER_TOUCH_WINDOW_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -825,7 +825,7 @@ pub unsafe fn RegisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterTouchWindow(hwnd.into_param().abi(), ::std::mem::transmute(ulflags)))
+        ::core::mem::transmute(RegisterTouchWindow(hwnd.into_param().abi(), ::core::mem::transmute(ulflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -840,13 +840,13 @@ pub unsafe fn SetGestureConfig<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetGestureConfig(hwnd.into_param().abi(), ::std::mem::transmute(dwreserved), ::std::mem::transmute(cids), ::std::mem::transmute(pgestureconfig), ::std::mem::transmute(cbsize)))
+        ::core::mem::transmute(SetGestureConfig(hwnd.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(cids), ::core::mem::transmute(pgestureconfig), ::core::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
 pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
@@ -857,7 +857,7 @@ pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(16u32);
 pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(32u32);
 pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(64u32);
 pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(128u32);
-impl ::std::convert::From<u32> for TOUCHEVENTF_FLAGS {
+impl ::core::convert::From<u32> for TOUCHEVENTF_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -865,35 +865,35 @@ impl ::std::convert::From<u32> for TOUCHEVENTF_FLAGS {
 unsafe impl ::windows::runtime::Abi for TOUCHEVENTF_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TOUCHEVENTF_FLAGS {
+impl ::core::ops::BitOr for TOUCHEVENTF_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TOUCHEVENTF_FLAGS {
+impl ::core::ops::BitAnd for TOUCHEVENTF_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TOUCHEVENTF_FLAGS {
+impl ::core::ops::BitOrAssign for TOUCHEVENTF_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TOUCHEVENTF_FLAGS {
+impl ::core::ops::BitAndAssign for TOUCHEVENTF_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TOUCHEVENTF_FLAGS {
+impl ::core::ops::Not for TOUCHEVENTF_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
@@ -912,14 +912,14 @@ pub struct TOUCHINPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl TOUCHINPUT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOUCHINPUT {
+impl ::core::default::Default for TOUCHINPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOUCHINPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOUCHINPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOUCHINPUT")
             .field("x", &self.x)
             .field("y", &self.y)
@@ -935,25 +935,25 @@ impl ::std::fmt::Debug for TOUCHINPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOUCHINPUT {
+impl ::core::cmp::PartialEq for TOUCHINPUT {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y && self.hSource == other.hSource && self.dwID == other.dwID && self.dwFlags == other.dwFlags && self.dwMask == other.dwMask && self.dwTime == other.dwTime && self.dwExtraInfo == other.dwExtraInfo && self.cxContact == other.cxContact && self.cyContact == other.cyContact
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOUCHINPUT {}
+impl ::core::cmp::Eq for TOUCHINPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOUCHINPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOUCHINPUTMASKF_MASK(pub u32);
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);
 pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);
 pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
-impl ::std::convert::From<u32> for TOUCHINPUTMASKF_MASK {
+impl ::core::convert::From<u32> for TOUCHINPUTMASKF_MASK {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -961,29 +961,29 @@ impl ::std::convert::From<u32> for TOUCHINPUTMASKF_MASK {
 unsafe impl ::windows::runtime::Abi for TOUCHINPUTMASKF_MASK {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TOUCHINPUTMASKF_MASK {
+impl ::core::ops::BitOr for TOUCHINPUTMASKF_MASK {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TOUCHINPUTMASKF_MASK {
+impl ::core::ops::BitAnd for TOUCHINPUTMASKF_MASK {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TOUCHINPUTMASKF_MASK {
+impl ::core::ops::BitOrAssign for TOUCHINPUTMASKF_MASK {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TOUCHINPUTMASKF_MASK {
+impl ::core::ops::BitAndAssign for TOUCHINPUTMASKF_MASK {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TOUCHINPUTMASKF_MASK {
+impl ::core::ops::Not for TOUCHINPUTMASKF_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -999,50 +999,50 @@ pub unsafe fn UnregisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnregisterTouchWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(UnregisterTouchWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct _IManipulationEvents(pub ::windows::runtime::IUnknown);
 impl _IManipulationEvents {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(translationdeltax),
-            ::std::mem::transmute(translationdeltay),
-            ::std::mem::transmute(scaledelta),
-            ::std::mem::transmute(expansiondelta),
-            ::std::mem::transmute(rotationdelta),
-            ::std::mem::transmute(cumulativetranslationx),
-            ::std::mem::transmute(cumulativetranslationy),
-            ::std::mem::transmute(cumulativescale),
-            ::std::mem::transmute(cumulativeexpansion),
-            ::std::mem::transmute(cumulativerotation),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(translationdeltax),
+            ::core::mem::transmute(translationdeltay),
+            ::core::mem::transmute(scaledelta),
+            ::core::mem::transmute(expansiondelta),
+            ::core::mem::transmute(rotationdelta),
+            ::core::mem::transmute(cumulativetranslationx),
+            ::core::mem::transmute(cumulativetranslationy),
+            ::core::mem::transmute(cumulativescale),
+            ::core::mem::transmute(cumulativeexpansion),
+            ::core::mem::transmute(cumulativerotation),
         )
         .ok()
     }
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(cumulativetranslationx),
-            ::std::mem::transmute(cumulativetranslationy),
-            ::std::mem::transmute(cumulativescale),
-            ::std::mem::transmute(cumulativeexpansion),
-            ::std::mem::transmute(cumulativerotation),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(cumulativetranslationx),
+            ::core::mem::transmute(cumulativetranslationy),
+            ::core::mem::transmute(cumulativescale),
+            ::core::mem::transmute(cumulativeexpansion),
+            ::core::mem::transmute(cumulativerotation),
         )
         .ok()
     }
@@ -1051,12 +1051,12 @@ unsafe impl ::windows::runtime::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331874010, 40019, 19234, [147, 223, 146, 122, 134, 43, 187, 3]);
 }
-impl ::std::convert::From<_IManipulationEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<_IManipulationEvents> for ::windows::runtime::IUnknown {
     fn from(value: _IManipulationEvents) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&_IManipulationEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&_IManipulationEvents> for ::windows::runtime::IUnknown {
     fn from(value: &_IManipulationEvents) -> Self {
         value.0.clone()
     }

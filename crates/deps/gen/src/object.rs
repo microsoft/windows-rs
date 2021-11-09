@@ -2,12 +2,12 @@ use super::*;
 
 pub fn gen_unknown(name: &TokenStream) -> TokenStream {
     quote! {
-        impl ::std::convert::From<#name> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<#name> for ::windows::runtime::IUnknown {
             fn from(value: #name) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&#name> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<&#name> for ::windows::runtime::IUnknown {
             fn from(value: &#name) -> Self {
                 value.0.clone()
             }
@@ -28,13 +28,13 @@ pub fn gen_unknown(name: &TokenStream) -> TokenStream {
 pub fn gen_inspectable(name: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
     quote! {
         #features
-        impl<#constraints> ::std::convert::From<#name> for ::windows::runtime::IUnknown {
+        impl<#constraints> ::core::convert::From<#name> for ::windows::runtime::IUnknown {
             fn from(value: #name) -> Self {
                 value.0.0
             }
         }
         #features
-        impl<#constraints> ::std::convert::From<&#name> for ::windows::runtime::IUnknown {
+        impl<#constraints> ::core::convert::From<&#name> for ::windows::runtime::IUnknown {
             fn from(value: &#name) -> Self {
                 value.0.0.clone()
             }
@@ -53,13 +53,13 @@ pub fn gen_inspectable(name: &TokenStream, constraints: &TokenStream, features: 
         }
 
         #features
-        impl<#constraints> ::std::convert::From<#name> for ::windows::runtime::IInspectable {
+        impl<#constraints> ::core::convert::From<#name> for ::windows::runtime::IInspectable {
             fn from(value: #name) -> Self {
                 value.0
             }
         }
         #features
-        impl<#constraints> ::std::convert::From<&#name> for ::windows::runtime::IInspectable {
+        impl<#constraints> ::core::convert::From<&#name> for ::windows::runtime::IInspectable {
             fn from(value: &#name) -> Self {
                 value.0.clone()
             }

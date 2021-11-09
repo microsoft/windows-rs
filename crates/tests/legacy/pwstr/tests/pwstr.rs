@@ -27,6 +27,6 @@ fn get_pwstr_from<'a>(t: impl IntoParam<'a, PWSTR>) -> Param<'a, PWSTR> {
 }
 
 fn from_parts(p: *const u16, len: usize) -> String {
-    let buf = unsafe { std::slice::from_raw_parts(p, len) };
+    let buf = unsafe { core::slice::from_raw_parts(p, len) };
     String::from_utf16_lossy(buf)
 }

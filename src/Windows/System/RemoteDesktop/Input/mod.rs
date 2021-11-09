@@ -41,48 +41,48 @@ pub struct IRemoteTextConnectionFactory_abi(
 );
 #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteTextConnection(pub ::windows::runtime::IInspectable);
 impl RemoteTextConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_RemoteDesktop_Input`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn RegisterThread(&self, threadid: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), threadid).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), threadid).ok() }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn UnregisterThread(&self, threadid: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), threadid).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), threadid).ok() }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn ReportDataReceived(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), pdudata.len() as u32, ::std::mem::transmute(pdudata.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, RemoteTextConnectionDataHandler>>(connectionid: Param0, pduforwarder: Param1) -> ::windows::runtime::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), &mut result__).from_abi::<RemoteTextConnection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), &mut result__).from_abi::<RemoteTextConnection>(result__)
         })
     }
     pub fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -100,12 +100,12 @@ unsafe impl ::windows::runtime::Interface for RemoteTextConnection {
 impl ::windows::runtime::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";
 }
-impl ::std::convert::From<RemoteTextConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RemoteTextConnection> for ::windows::runtime::IUnknown {
     fn from(value: RemoteTextConnection) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RemoteTextConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RemoteTextConnection> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteTextConnection) -> Self {
         value.0 .0.clone()
     }
@@ -120,12 +120,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RemoteTextConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RemoteTextConnection> for ::windows::runtime::IInspectable {
     fn from(value: RemoteTextConnection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RemoteTextConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RemoteTextConnection> for ::windows::runtime::IInspectable {
     fn from(value: &RemoteTextConnection) -> Self {
         value.0.clone()
     }
@@ -141,14 +141,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<RemoteTextConnection> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<RemoteTextConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: RemoteTextConnection) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&RemoteTextConnection> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&RemoteTextConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &RemoteTextConnection) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -163,14 +163,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &RemoteTextConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for RemoteTextConnection {}
-unsafe impl ::std::marker::Sync for RemoteTextConnection {}
+unsafe impl ::core::marker::Send for RemoteTextConnection {}
+unsafe impl ::core::marker::Sync for RemoteTextConnection {}
 #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteTextConnectionDataHandler(::windows::runtime::IUnknown);
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static>(invoke: F) -> Self {
@@ -179,14 +179,14 @@ impl RemoteTextConnectionDataHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), pdudata.len() as u32, ::std::mem::transmute(pdudata.as_ptr()), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr()), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -218,7 +218,7 @@ impl<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::wind
         *interface = if iid == &<RemoteTextConnectionDataHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -241,13 +241,13 @@ impl<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::wind
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        match ((*this).invoke)(::std::slice::from_raw_parts(::std::mem::transmute_copy(&pdudata), pduData_array_size as _)) {
-            ::std::result::Result::Ok(ok__) => {
-                *result__ = ::std::mem::transmute_copy(&ok__);
-                ::std::mem::forget(ok__);
+        match ((*this).invoke)(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pdudata), pduData_array_size as _)) {
+            ::core::result::Result::Ok(ok__) => {
+                *result__ = ::core::mem::transmute_copy(&ok__);
+                ::core::mem::forget(ok__);
                 ::windows::runtime::HRESULT(0)
             }
-            ::std::result::Result::Err(err) => err.into(),
+            ::core::result::Result::Err(err) => err.into(),
         }
     }
 }

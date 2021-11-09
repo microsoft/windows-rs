@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Pwm_Provider`*"]
 pub struct IPwmControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmControllerProvider {
@@ -12,77 +12,77 @@ impl IPwmControllerProvider {
     pub fn PinCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn ActualFrequency(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn SetDesiredFrequency(&self, frequency: f64) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), frequency, &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), frequency, &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn MaxFrequency(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn MinFrequency(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn AcquirePin(&self, pin: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), pin).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), pin).ok() }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn ReleasePin(&self, pin: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), pin).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), pin).ok() }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn EnablePin(&self, pin: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), pin).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), pin).ok() }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn DisablePin(&self, pin: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), pin).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), pin).ok() }
     }
     #[doc = "*Required features: `Devices_Pwm_Provider`*"]
     pub fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), pin, dutycycle, invertpolarity).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPwmControllerProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
 }
-impl ::std::convert::From<IPwmControllerProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPwmControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: IPwmControllerProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPwmControllerProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPwmControllerProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IPwmControllerProvider) -> Self {
         value.0 .0.clone()
     }
@@ -97,12 +97,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPwmControllerProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPwmControllerProvider> for ::windows::runtime::IInspectable {
     fn from(value: IPwmControllerProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPwmControllerProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPwmControllerProvider> for ::windows::runtime::IInspectable {
     fn from(value: &IPwmControllerProvider) -> Self {
         value.0.clone()
     }
@@ -138,7 +138,7 @@ pub struct IPwmControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Pwm_Provider`*"]
 pub struct IPwmProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPwmProvider {
@@ -151,20 +151,20 @@ impl IPwmProvider {
     pub fn GetControllers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPwmProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
 }
-impl ::std::convert::From<IPwmProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPwmProvider> for ::windows::runtime::IUnknown {
     fn from(value: IPwmProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPwmProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPwmProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IPwmProvider) -> Self {
         value.0 .0.clone()
     }
@@ -179,12 +179,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPwmProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPwmProvider> for ::windows::runtime::IInspectable {
     fn from(value: IPwmProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPwmProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPwmProvider> for ::windows::runtime::IInspectable {
     fn from(value: &IPwmProvider) -> Self {
         value.0.clone()
     }

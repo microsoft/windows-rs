@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Matrix3x2 {
@@ -11,22 +11,22 @@ pub struct Matrix3x2 {
     pub M32: f32,
 }
 impl Matrix3x2 {}
-impl ::std::default::Default for Matrix3x2 {
+impl ::core::default::Default for Matrix3x2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Matrix3x2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Matrix3x2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Matrix3x2").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
     }
 }
-impl ::std::cmp::PartialEq for Matrix3x2 {
+impl ::core::cmp::PartialEq for Matrix3x2 {
     fn eq(&self, other: &Self) -> bool {
         self.M11 == other.M11 && self.M12 == other.M12 && self.M21 == other.M21 && self.M22 == other.M22 && self.M31 == other.M31 && self.M32 == other.M32
     }
 }
-impl ::std::cmp::Eq for Matrix3x2 {}
+impl ::core::cmp::Eq for Matrix3x2 {}
 unsafe impl ::windows::runtime::Abi for Matrix3x2 {
     type Abi = Self;
 }
@@ -100,91 +100,91 @@ impl Matrix3x2 {
         }
     }
 }
-impl ::std::ops::Add<Matrix3x2> for Matrix3x2 {
+impl ::core::ops::Add<Matrix3x2> for Matrix3x2 {
     type Output = Matrix3x2;
     fn add(self, rhs: Matrix3x2) -> Matrix3x2 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Matrix3x2> for Matrix3x2 {
+impl ::core::ops::Add<&Matrix3x2> for Matrix3x2 {
     type Output = Matrix3x2;
     fn add(self, rhs: &Matrix3x2) -> Matrix3x2 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Add<Matrix3x2> for &Matrix3x2 {
+impl ::core::ops::Add<Matrix3x2> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn add(self, rhs: Matrix3x2) -> Matrix3x2 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Matrix3x2> for &Matrix3x2 {
+impl ::core::ops::Add<&Matrix3x2> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn add(self, rhs: &Matrix3x2) -> Matrix3x2 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Sub<Matrix3x2> for Matrix3x2 {
+impl ::core::ops::Sub<Matrix3x2> for Matrix3x2 {
     type Output = Matrix3x2;
     fn sub(self, rhs: Matrix3x2) -> Matrix3x2 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Matrix3x2> for Matrix3x2 {
+impl ::core::ops::Sub<&Matrix3x2> for Matrix3x2 {
     type Output = Matrix3x2;
     fn sub(self, rhs: &Matrix3x2) -> Matrix3x2 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Sub<Matrix3x2> for &Matrix3x2 {
+impl ::core::ops::Sub<Matrix3x2> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn sub(self, rhs: Matrix3x2) -> Matrix3x2 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Matrix3x2> for &Matrix3x2 {
+impl ::core::ops::Sub<&Matrix3x2> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn sub(self, rhs: &Matrix3x2) -> Matrix3x2 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Mul<Matrix3x2> for Matrix3x2 {
+impl ::core::ops::Mul<Matrix3x2> for Matrix3x2 {
     type Output = Matrix3x2;
     fn mul(self, rhs: Matrix3x2) -> Matrix3x2 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Matrix3x2> for Matrix3x2 {
+impl ::core::ops::Mul<&Matrix3x2> for Matrix3x2 {
     type Output = Matrix3x2;
     fn mul(self, rhs: &Matrix3x2) -> Matrix3x2 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<Matrix3x2> for &Matrix3x2 {
+impl ::core::ops::Mul<Matrix3x2> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn mul(self, rhs: Matrix3x2) -> Matrix3x2 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Matrix3x2> for &Matrix3x2 {
+impl ::core::ops::Mul<&Matrix3x2> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn mul(self, rhs: &Matrix3x2) -> Matrix3x2 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for Matrix3x2 {
+impl ::core::ops::Mul<f32> for Matrix3x2 {
     type Output = Matrix3x2;
     fn mul(self, rhs: f32) -> Matrix3x2 {
         self.impl_mul_f32(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for &Matrix3x2 {
+impl ::core::ops::Mul<f32> for &Matrix3x2 {
     type Output = Matrix3x2;
     fn mul(self, rhs: f32) -> Matrix3x2 {
         self.impl_mul_f32(rhs)
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Matrix4x4 {
@@ -206,13 +206,13 @@ pub struct Matrix4x4 {
     pub M44: f32,
 }
 impl Matrix4x4 {}
-impl ::std::default::Default for Matrix4x4 {
+impl ::core::default::Default for Matrix4x4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Matrix4x4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Matrix4x4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Matrix4x4")
             .field("M11", &self.M11)
             .field("M12", &self.M12)
@@ -233,12 +233,12 @@ impl ::std::fmt::Debug for Matrix4x4 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for Matrix4x4 {
+impl ::core::cmp::PartialEq for Matrix4x4 {
     fn eq(&self, other: &Self) -> bool {
         self.M11 == other.M11 && self.M12 == other.M12 && self.M13 == other.M13 && self.M14 == other.M14 && self.M21 == other.M21 && self.M22 == other.M22 && self.M23 == other.M23 && self.M24 == other.M24 && self.M31 == other.M31 && self.M32 == other.M32 && self.M33 == other.M33 && self.M34 == other.M34 && self.M41 == other.M41 && self.M42 == other.M42 && self.M43 == other.M43 && self.M44 == other.M44
     }
 }
-impl ::std::cmp::Eq for Matrix4x4 {}
+impl ::core::cmp::Eq for Matrix4x4 {}
 unsafe impl ::windows::runtime::Abi for Matrix4x4 {
     type Abi = Self;
 }
@@ -330,91 +330,91 @@ impl Matrix4x4 {
         }
     }
 }
-impl ::std::ops::Add<Matrix4x4> for Matrix4x4 {
+impl ::core::ops::Add<Matrix4x4> for Matrix4x4 {
     type Output = Matrix4x4;
     fn add(self, rhs: Matrix4x4) -> Matrix4x4 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Matrix4x4> for Matrix4x4 {
+impl ::core::ops::Add<&Matrix4x4> for Matrix4x4 {
     type Output = Matrix4x4;
     fn add(self, rhs: &Matrix4x4) -> Matrix4x4 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Add<Matrix4x4> for &Matrix4x4 {
+impl ::core::ops::Add<Matrix4x4> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn add(self, rhs: Matrix4x4) -> Matrix4x4 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Matrix4x4> for &Matrix4x4 {
+impl ::core::ops::Add<&Matrix4x4> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn add(self, rhs: &Matrix4x4) -> Matrix4x4 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Sub<Matrix4x4> for Matrix4x4 {
+impl ::core::ops::Sub<Matrix4x4> for Matrix4x4 {
     type Output = Matrix4x4;
     fn sub(self, rhs: Matrix4x4) -> Matrix4x4 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Matrix4x4> for Matrix4x4 {
+impl ::core::ops::Sub<&Matrix4x4> for Matrix4x4 {
     type Output = Matrix4x4;
     fn sub(self, rhs: &Matrix4x4) -> Matrix4x4 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Sub<Matrix4x4> for &Matrix4x4 {
+impl ::core::ops::Sub<Matrix4x4> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn sub(self, rhs: Matrix4x4) -> Matrix4x4 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Matrix4x4> for &Matrix4x4 {
+impl ::core::ops::Sub<&Matrix4x4> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn sub(self, rhs: &Matrix4x4) -> Matrix4x4 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Mul<Matrix4x4> for Matrix4x4 {
+impl ::core::ops::Mul<Matrix4x4> for Matrix4x4 {
     type Output = Matrix4x4;
     fn mul(self, rhs: Matrix4x4) -> Matrix4x4 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Matrix4x4> for Matrix4x4 {
+impl ::core::ops::Mul<&Matrix4x4> for Matrix4x4 {
     type Output = Matrix4x4;
     fn mul(self, rhs: &Matrix4x4) -> Matrix4x4 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<Matrix4x4> for &Matrix4x4 {
+impl ::core::ops::Mul<Matrix4x4> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn mul(self, rhs: Matrix4x4) -> Matrix4x4 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Matrix4x4> for &Matrix4x4 {
+impl ::core::ops::Mul<&Matrix4x4> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn mul(self, rhs: &Matrix4x4) -> Matrix4x4 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for Matrix4x4 {
+impl ::core::ops::Mul<f32> for Matrix4x4 {
     type Output = Matrix4x4;
     fn mul(self, rhs: f32) -> Matrix4x4 {
         self.impl_mul_f32(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for &Matrix4x4 {
+impl ::core::ops::Mul<f32> for &Matrix4x4 {
     type Output = Matrix4x4;
     fn mul(self, rhs: f32) -> Matrix4x4 {
         self.impl_mul_f32(rhs)
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Plane {
@@ -422,22 +422,22 @@ pub struct Plane {
     pub D: f32,
 }
 impl Plane {}
-impl ::std::default::Default for Plane {
+impl ::core::default::Default for Plane {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Plane {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Plane {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Plane").field("Normal", &self.Normal).field("D", &self.D).finish()
     }
 }
-impl ::std::cmp::PartialEq for Plane {
+impl ::core::cmp::PartialEq for Plane {
     fn eq(&self, other: &Self) -> bool {
         self.Normal == other.Normal && self.D == other.D
     }
 }
-impl ::std::cmp::Eq for Plane {}
+impl ::core::cmp::Eq for Plane {}
 unsafe impl ::windows::runtime::Abi for Plane {
     type Abi = Self;
 }
@@ -447,7 +447,7 @@ unsafe impl ::windows::runtime::RuntimeType for Plane {
 impl ::windows::runtime::DefaultType for Plane {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Quaternion {
@@ -457,22 +457,22 @@ pub struct Quaternion {
     pub W: f32,
 }
 impl Quaternion {}
-impl ::std::default::Default for Quaternion {
+impl ::core::default::Default for Quaternion {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Quaternion {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Quaternion {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Quaternion").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
     }
 }
-impl ::std::cmp::PartialEq for Quaternion {
+impl ::core::cmp::PartialEq for Quaternion {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
     }
 }
-impl ::std::cmp::Eq for Quaternion {}
+impl ::core::cmp::Eq for Quaternion {}
 unsafe impl ::windows::runtime::Abi for Quaternion {
     type Abi = Self;
 }
@@ -482,7 +482,7 @@ unsafe impl ::windows::runtime::RuntimeType for Quaternion {
 impl ::windows::runtime::DefaultType for Quaternion {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Rational {
@@ -490,22 +490,22 @@ pub struct Rational {
     pub Denominator: u32,
 }
 impl Rational {}
-impl ::std::default::Default for Rational {
+impl ::core::default::Default for Rational {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Rational {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Rational {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Rational").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
-impl ::std::cmp::PartialEq for Rational {
+impl ::core::cmp::PartialEq for Rational {
     fn eq(&self, other: &Self) -> bool {
         self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
-impl ::std::cmp::Eq for Rational {}
+impl ::core::cmp::Eq for Rational {}
 unsafe impl ::windows::runtime::Abi for Rational {
     type Abi = Self;
 }
@@ -515,7 +515,7 @@ unsafe impl ::windows::runtime::RuntimeType for Rational {
 impl ::windows::runtime::DefaultType for Rational {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Vector2 {
@@ -523,22 +523,22 @@ pub struct Vector2 {
     pub Y: f32,
 }
 impl Vector2 {}
-impl ::std::default::Default for Vector2 {
+impl ::core::default::Default for Vector2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Vector2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Vector2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Vector2").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
-impl ::std::cmp::PartialEq for Vector2 {
+impl ::core::cmp::PartialEq for Vector2 {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y
     }
 }
-impl ::std::cmp::Eq for Vector2 {}
+impl ::core::cmp::Eq for Vector2 {}
 unsafe impl ::windows::runtime::Abi for Vector2 {
     type Abi = Self;
 }
@@ -601,127 +601,127 @@ impl Vector2 {
         Self { X: self.X * rhs, Y: self.Y * rhs }
     }
 }
-impl ::std::ops::Add<Vector2> for Vector2 {
+impl ::core::ops::Add<Vector2> for Vector2 {
     type Output = Vector2;
     fn add(self, rhs: Vector2) -> Vector2 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Vector2> for Vector2 {
+impl ::core::ops::Add<&Vector2> for Vector2 {
     type Output = Vector2;
     fn add(self, rhs: &Vector2) -> Vector2 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Add<Vector2> for &Vector2 {
+impl ::core::ops::Add<Vector2> for &Vector2 {
     type Output = Vector2;
     fn add(self, rhs: Vector2) -> Vector2 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Vector2> for &Vector2 {
+impl ::core::ops::Add<&Vector2> for &Vector2 {
     type Output = Vector2;
     fn add(self, rhs: &Vector2) -> Vector2 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Sub<Vector2> for Vector2 {
+impl ::core::ops::Sub<Vector2> for Vector2 {
     type Output = Vector2;
     fn sub(self, rhs: Vector2) -> Vector2 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Vector2> for Vector2 {
+impl ::core::ops::Sub<&Vector2> for Vector2 {
     type Output = Vector2;
     fn sub(self, rhs: &Vector2) -> Vector2 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Sub<Vector2> for &Vector2 {
+impl ::core::ops::Sub<Vector2> for &Vector2 {
     type Output = Vector2;
     fn sub(self, rhs: Vector2) -> Vector2 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Vector2> for &Vector2 {
+impl ::core::ops::Sub<&Vector2> for &Vector2 {
     type Output = Vector2;
     fn sub(self, rhs: &Vector2) -> Vector2 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Div<Vector2> for Vector2 {
+impl ::core::ops::Div<Vector2> for Vector2 {
     type Output = Vector2;
     fn div(self, rhs: Vector2) -> Vector2 {
         self.impl_div(&rhs)
     }
 }
-impl ::std::ops::Div<&Vector2> for Vector2 {
+impl ::core::ops::Div<&Vector2> for Vector2 {
     type Output = Vector2;
     fn div(self, rhs: &Vector2) -> Vector2 {
         self.impl_div(rhs)
     }
 }
-impl ::std::ops::Div<Vector2> for &Vector2 {
+impl ::core::ops::Div<Vector2> for &Vector2 {
     type Output = Vector2;
     fn div(self, rhs: Vector2) -> Vector2 {
         self.impl_div(&rhs)
     }
 }
-impl ::std::ops::Div<&Vector2> for &Vector2 {
+impl ::core::ops::Div<&Vector2> for &Vector2 {
     type Output = Vector2;
     fn div(self, rhs: &Vector2) -> Vector2 {
         self.impl_div(rhs)
     }
 }
-impl ::std::ops::Div<f32> for Vector2 {
+impl ::core::ops::Div<f32> for Vector2 {
     type Output = Vector2;
     fn div(self, rhs: f32) -> Vector2 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::std::ops::Div<f32> for &Vector2 {
+impl ::core::ops::Div<f32> for &Vector2 {
     type Output = Vector2;
     fn div(self, rhs: f32) -> Vector2 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::std::ops::Mul<Vector2> for Vector2 {
+impl ::core::ops::Mul<Vector2> for Vector2 {
     type Output = Vector2;
     fn mul(self, rhs: Vector2) -> Vector2 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Vector2> for Vector2 {
+impl ::core::ops::Mul<&Vector2> for Vector2 {
     type Output = Vector2;
     fn mul(self, rhs: &Vector2) -> Vector2 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<Vector2> for &Vector2 {
+impl ::core::ops::Mul<Vector2> for &Vector2 {
     type Output = Vector2;
     fn mul(self, rhs: Vector2) -> Vector2 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Vector2> for &Vector2 {
+impl ::core::ops::Mul<&Vector2> for &Vector2 {
     type Output = Vector2;
     fn mul(self, rhs: &Vector2) -> Vector2 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for Vector2 {
+impl ::core::ops::Mul<f32> for Vector2 {
     type Output = Vector2;
     fn mul(self, rhs: f32) -> Vector2 {
         self.impl_mul_f32(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for &Vector2 {
+impl ::core::ops::Mul<f32> for &Vector2 {
     type Output = Vector2;
     fn mul(self, rhs: f32) -> Vector2 {
         self.impl_mul_f32(rhs)
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Vector3 {
@@ -730,22 +730,22 @@ pub struct Vector3 {
     pub Z: f32,
 }
 impl Vector3 {}
-impl ::std::default::Default for Vector3 {
+impl ::core::default::Default for Vector3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Vector3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Vector3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Vector3").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
-impl ::std::cmp::PartialEq for Vector3 {
+impl ::core::cmp::PartialEq for Vector3 {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
-impl ::std::cmp::Eq for Vector3 {}
+impl ::core::cmp::Eq for Vector3 {}
 unsafe impl ::windows::runtime::Abi for Vector3 {
     type Abi = Self;
 }
@@ -811,127 +811,127 @@ impl Vector3 {
         Self { X: self.X * rhs, Y: self.Y * rhs, Z: self.Z * rhs }
     }
 }
-impl ::std::ops::Add<Vector3> for Vector3 {
+impl ::core::ops::Add<Vector3> for Vector3 {
     type Output = Vector3;
     fn add(self, rhs: Vector3) -> Vector3 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Vector3> for Vector3 {
+impl ::core::ops::Add<&Vector3> for Vector3 {
     type Output = Vector3;
     fn add(self, rhs: &Vector3) -> Vector3 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Add<Vector3> for &Vector3 {
+impl ::core::ops::Add<Vector3> for &Vector3 {
     type Output = Vector3;
     fn add(self, rhs: Vector3) -> Vector3 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Vector3> for &Vector3 {
+impl ::core::ops::Add<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn add(self, rhs: &Vector3) -> Vector3 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Sub<Vector3> for Vector3 {
+impl ::core::ops::Sub<Vector3> for Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: Vector3) -> Vector3 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Vector3> for Vector3 {
+impl ::core::ops::Sub<&Vector3> for Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: &Vector3) -> Vector3 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Sub<Vector3> for &Vector3 {
+impl ::core::ops::Sub<Vector3> for &Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: Vector3) -> Vector3 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Vector3> for &Vector3 {
+impl ::core::ops::Sub<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn sub(self, rhs: &Vector3) -> Vector3 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Div<Vector3> for Vector3 {
+impl ::core::ops::Div<Vector3> for Vector3 {
     type Output = Vector3;
     fn div(self, rhs: Vector3) -> Vector3 {
         self.impl_div(&rhs)
     }
 }
-impl ::std::ops::Div<&Vector3> for Vector3 {
+impl ::core::ops::Div<&Vector3> for Vector3 {
     type Output = Vector3;
     fn div(self, rhs: &Vector3) -> Vector3 {
         self.impl_div(rhs)
     }
 }
-impl ::std::ops::Div<Vector3> for &Vector3 {
+impl ::core::ops::Div<Vector3> for &Vector3 {
     type Output = Vector3;
     fn div(self, rhs: Vector3) -> Vector3 {
         self.impl_div(&rhs)
     }
 }
-impl ::std::ops::Div<&Vector3> for &Vector3 {
+impl ::core::ops::Div<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn div(self, rhs: &Vector3) -> Vector3 {
         self.impl_div(rhs)
     }
 }
-impl ::std::ops::Div<f32> for Vector3 {
+impl ::core::ops::Div<f32> for Vector3 {
     type Output = Vector3;
     fn div(self, rhs: f32) -> Vector3 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::std::ops::Div<f32> for &Vector3 {
+impl ::core::ops::Div<f32> for &Vector3 {
     type Output = Vector3;
     fn div(self, rhs: f32) -> Vector3 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::std::ops::Mul<Vector3> for Vector3 {
+impl ::core::ops::Mul<Vector3> for Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: Vector3) -> Vector3 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Vector3> for Vector3 {
+impl ::core::ops::Mul<&Vector3> for Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: &Vector3) -> Vector3 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<Vector3> for &Vector3 {
+impl ::core::ops::Mul<Vector3> for &Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: Vector3) -> Vector3 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Vector3> for &Vector3 {
+impl ::core::ops::Mul<&Vector3> for &Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: &Vector3) -> Vector3 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for Vector3 {
+impl ::core::ops::Mul<f32> for Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: f32) -> Vector3 {
         self.impl_mul_f32(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for &Vector3 {
+impl ::core::ops::Mul<f32> for &Vector3 {
     type Output = Vector3;
     fn mul(self, rhs: f32) -> Vector3 {
         self.impl_mul_f32(rhs)
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Vector4 {
@@ -941,22 +941,22 @@ pub struct Vector4 {
     pub W: f32,
 }
 impl Vector4 {}
-impl ::std::default::Default for Vector4 {
+impl ::core::default::Default for Vector4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Vector4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Vector4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Vector4").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
     }
 }
-impl ::std::cmp::PartialEq for Vector4 {
+impl ::core::cmp::PartialEq for Vector4 {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
     }
 }
-impl ::std::cmp::Eq for Vector4 {}
+impl ::core::cmp::Eq for Vector4 {}
 unsafe impl ::windows::runtime::Abi for Vector4 {
     type Abi = Self;
 }
@@ -1025,121 +1025,121 @@ impl Vector4 {
         Self { X: self.X * rhs, Y: self.Y * rhs, Z: self.Z * rhs, W: self.W * rhs }
     }
 }
-impl ::std::ops::Add<Vector4> for Vector4 {
+impl ::core::ops::Add<Vector4> for Vector4 {
     type Output = Vector4;
     fn add(self, rhs: Vector4) -> Vector4 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Vector4> for Vector4 {
+impl ::core::ops::Add<&Vector4> for Vector4 {
     type Output = Vector4;
     fn add(self, rhs: &Vector4) -> Vector4 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Add<Vector4> for &Vector4 {
+impl ::core::ops::Add<Vector4> for &Vector4 {
     type Output = Vector4;
     fn add(self, rhs: Vector4) -> Vector4 {
         self.impl_add(&rhs)
     }
 }
-impl ::std::ops::Add<&Vector4> for &Vector4 {
+impl ::core::ops::Add<&Vector4> for &Vector4 {
     type Output = Vector4;
     fn add(self, rhs: &Vector4) -> Vector4 {
         self.impl_add(rhs)
     }
 }
-impl ::std::ops::Sub<Vector4> for Vector4 {
+impl ::core::ops::Sub<Vector4> for Vector4 {
     type Output = Vector4;
     fn sub(self, rhs: Vector4) -> Vector4 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Vector4> for Vector4 {
+impl ::core::ops::Sub<&Vector4> for Vector4 {
     type Output = Vector4;
     fn sub(self, rhs: &Vector4) -> Vector4 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Sub<Vector4> for &Vector4 {
+impl ::core::ops::Sub<Vector4> for &Vector4 {
     type Output = Vector4;
     fn sub(self, rhs: Vector4) -> Vector4 {
         self.impl_sub(&rhs)
     }
 }
-impl ::std::ops::Sub<&Vector4> for &Vector4 {
+impl ::core::ops::Sub<&Vector4> for &Vector4 {
     type Output = Vector4;
     fn sub(self, rhs: &Vector4) -> Vector4 {
         self.impl_sub(rhs)
     }
 }
-impl ::std::ops::Div<Vector4> for Vector4 {
+impl ::core::ops::Div<Vector4> for Vector4 {
     type Output = Vector4;
     fn div(self, rhs: Vector4) -> Vector4 {
         self.impl_div(&rhs)
     }
 }
-impl ::std::ops::Div<&Vector4> for Vector4 {
+impl ::core::ops::Div<&Vector4> for Vector4 {
     type Output = Vector4;
     fn div(self, rhs: &Vector4) -> Vector4 {
         self.impl_div(rhs)
     }
 }
-impl ::std::ops::Div<Vector4> for &Vector4 {
+impl ::core::ops::Div<Vector4> for &Vector4 {
     type Output = Vector4;
     fn div(self, rhs: Vector4) -> Vector4 {
         self.impl_div(&rhs)
     }
 }
-impl ::std::ops::Div<&Vector4> for &Vector4 {
+impl ::core::ops::Div<&Vector4> for &Vector4 {
     type Output = Vector4;
     fn div(self, rhs: &Vector4) -> Vector4 {
         self.impl_div(rhs)
     }
 }
-impl ::std::ops::Div<f32> for Vector4 {
+impl ::core::ops::Div<f32> for Vector4 {
     type Output = Vector4;
     fn div(self, rhs: f32) -> Vector4 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::std::ops::Div<f32> for &Vector4 {
+impl ::core::ops::Div<f32> for &Vector4 {
     type Output = Vector4;
     fn div(self, rhs: f32) -> Vector4 {
         self.impl_div_f32(rhs)
     }
 }
-impl ::std::ops::Mul<Vector4> for Vector4 {
+impl ::core::ops::Mul<Vector4> for Vector4 {
     type Output = Vector4;
     fn mul(self, rhs: Vector4) -> Vector4 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Vector4> for Vector4 {
+impl ::core::ops::Mul<&Vector4> for Vector4 {
     type Output = Vector4;
     fn mul(self, rhs: &Vector4) -> Vector4 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<Vector4> for &Vector4 {
+impl ::core::ops::Mul<Vector4> for &Vector4 {
     type Output = Vector4;
     fn mul(self, rhs: Vector4) -> Vector4 {
         self.impl_mul(&rhs)
     }
 }
-impl ::std::ops::Mul<&Vector4> for &Vector4 {
+impl ::core::ops::Mul<&Vector4> for &Vector4 {
     type Output = Vector4;
     fn mul(self, rhs: &Vector4) -> Vector4 {
         self.impl_mul(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for Vector4 {
+impl ::core::ops::Mul<f32> for Vector4 {
     type Output = Vector4;
     fn mul(self, rhs: f32) -> Vector4 {
         self.impl_mul_f32(rhs)
     }
 }
-impl ::std::ops::Mul<f32> for &Vector4 {
+impl ::core::ops::Mul<f32> for &Vector4 {
     type Output = Vector4;
     fn mul(self, rhs: f32) -> Vector4 {
         self.impl_mul_f32(rhs)

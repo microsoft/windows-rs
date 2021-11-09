@@ -5,7 +5,7 @@ use bindings::Windows::Win32::{
     Foundation::E_NOINTERFACE,
     System::WinRT::{IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi},
 };
-use std::sync::atomic::{AtomicIsize, Ordering};
+use core::sync::atomic::{AtomicIsize, Ordering};
 
 #[doc(hidden)]
 #[repr(transparent)]
@@ -39,7 +39,7 @@ impl WeakRefCount {
     /// # Safety
     pub unsafe fn query(&self, iid: &::windows::runtime::GUID, object: RawPtr) -> RawPtr {
         if iid != &IWeakReferenceSource::IID {
-            return std::ptr::null_mut();
+            return core::ptr::null_mut();
         }
 
         let mut count_or_pointer = self.0.load(Ordering::Relaxed);
@@ -49,13 +49,13 @@ impl WeakRefCount {
         }
 
         let tear_off = TearOff::new(object, count_or_pointer as _);
-        let tear_off_ptr: RawPtr = std::mem::transmute_copy(&tear_off);
-        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+        let tear_off_ptr: RawPtr = core::mem::transmute_copy(&tear_off);
+        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (core::mem::size_of::<usize>() * 8 - 1));
 
         loop {
             match self.0.compare_exchange_weak(count_or_pointer, encoding as _, Ordering::AcqRel, Ordering::Relaxed) {
                 Ok(_) => {
-                    let result: RawPtr = std::mem::transmute(tear_off);
+                    let result: RawPtr = core::mem::transmute(tear_off);
                     TearOff::from_strong_ptr(result).strong_count.add_ref();
                     return result;
                 }
@@ -87,19 +87,23 @@ struct TearOff {
 impl TearOff {
     #[allow(clippy::new_ret_no_self)]
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-        std::mem::transmute(Box::new(TearOff {
+        // TODO: allow this failure to propagate
+        let tearoff = heap_alloc(core::mem::size_of::<TearOff>()).expect("Could not successfully allocate for TearOff") as *mut TearOff;
+        *tearoff = TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
             strong_count: RefCount::new(strong_count),
             weak_count: RefCount::new(1),
-        }))
+        };
+
+        core::mem::transmute(tearoff)
     }
 
     unsafe fn from_encoding(encoding: isize) -> RawPtr {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
-        std::mem::transmute(tear_off)
+        core::mem::transmute(tear_off)
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(Self::StrongQueryInterface, Self::StrongAddRef, Self::StrongRelease, Self::StrongDowngrade);
@@ -115,7 +119,7 @@ impl TearOff {
     }
 
     unsafe fn decode<'a>(value: isize) -> &'a mut Self {
-        std::mem::transmute(value << 1)
+        core::mem::transmute(value << 1)
     }
 
     unsafe fn query_interface(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
@@ -145,7 +149,7 @@ impl TearOff {
         // tear-off, it represents a distinct COM identity and thus does not share or delegate to
         // the object.
 
-        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { std::ptr::null_mut() };
+        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { core::ptr::null_mut() };
 
         // TODO: implement IMarshal
 
@@ -188,7 +192,7 @@ impl TearOff {
         // If there are no remaining references, it means that the object has already been
         // destroyed. Go ahead and destroy the tear-off.
         if remaining == 0 {
-            Box::from_raw(this);
+            heap_free(this as *mut _ as _);
         }
 
         remaining
@@ -224,7 +228,7 @@ impl TearOff {
                 result
             })
             .unwrap_or_else(|_| {
-                *interface = std::ptr::null_mut();
+                *interface = core::ptr::null_mut();
                 HRESULT(0)
             })
     }

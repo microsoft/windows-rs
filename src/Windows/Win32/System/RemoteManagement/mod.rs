@@ -1023,44 +1023,44 @@ pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSMan(pub ::windows::runtime::IUnknown);
 impl IWSMan {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), connection.into_param().abi(), ::std::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), connection.into_param().abi(), ::core::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateConnectionOptions(&self) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSMan {
     type Vtable = IWSMan_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420316727, 23763, 18797, [173, 36, 105, 99, 107, 181, 163, 181]);
 }
-impl ::std::convert::From<IWSMan> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSMan> for ::windows::runtime::IUnknown {
     fn from(value: IWSMan) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSMan> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSMan> for ::windows::runtime::IUnknown {
     fn from(value: &IWSMan) -> Self {
         value.0.clone()
     }
@@ -1076,27 +1076,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSMan> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSMan> for super::Ole::Automation::IDispatch {
     fn from(value: IWSMan) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSMan> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSMan> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSMan) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSMan {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSMan {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1111,49 +1111,49 @@ pub struct IWSMan_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionoptions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManConnectionOptions(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetPassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, password: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), password.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), password.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManConnectionOptions {
     type Vtable = IWSManConnectionOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4144293985, 40530, 17999, [183, 134, 218, 94, 178, 50, 15, 221]);
 }
-impl ::std::convert::From<IWSManConnectionOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManConnectionOptions> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManConnectionOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManConnectionOptions> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManConnectionOptions) -> Self {
         value.0.clone()
     }
@@ -1169,27 +1169,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManConnectionOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManConnectionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManConnectionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1204,79 +1204,90 @@ pub struct IWSManConnectionOptions_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManConnectionOptionsEx(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptionsEx {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetPassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, password: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), password.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), password.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn CertificateThumbprint(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetCertificateThumbprint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, thumbprint: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), thumbprint.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), thumbprint.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx {
     type Vtable = IWSManConnectionOptionsEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014206455, 10824, 19859, [149, 38, 139, 214, 171, 109, 74, 107]);
 }
-impl ::std::convert::From<IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManConnectionOptionsEx) -> Self {
         value.0.clone()
     }
@@ -1291,48 +1302,48 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IWSManConnectionOptionsEx> for IWSManConnectionOptions {
+impl ::core::convert::From<IWSManConnectionOptionsEx> for IWSManConnectionOptions {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManConnectionOptionsEx> for IWSManConnectionOptions {
+impl ::core::convert::From<&IWSManConnectionOptionsEx> for IWSManConnectionOptions {
     fn from(value: &IWSManConnectionOptionsEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for &IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManConnectionOptionsEx> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManConnectionOptionsEx> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManConnectionOptionsEx> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManConnectionOptionsEx> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManConnectionOptionsEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1347,123 +1358,134 @@ pub struct IWSManConnectionOptionsEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManConnectionOptionsEx2(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptionsEx2 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetPassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, password: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), password.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), password.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn CertificateThumbprint(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetCertificateThumbprint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, thumbprint: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), thumbprint.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), thumbprint.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetProxy<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, accesstype: i32, authenticationmechanism: i32, username: Param2, password: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(accesstype), ::std::mem::transmute(authenticationmechanism), username.into_param().abi(), password.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(accesstype), ::core::mem::transmute(authenticationmechanism), username.into_param().abi(), password.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyIEConfig(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyWinHttpConfig(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyAutoDetect(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyNoProxyServer(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyAuthenticationUseNegotiate(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyAuthenticationUseBasic(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ProxyAuthenticationUseDigest(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx2 {
     type Vtable = IWSManConnectionOptionsEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110469612, 9454, 18603, [179, 141, 252, 154, 22, 76, 101, 142]);
 }
-impl ::std::convert::From<IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManConnectionOptionsEx2) -> Self {
         value.0.clone()
     }
@@ -1478,68 +1500,68 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptionsEx {
+impl ::core::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptionsEx {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManConnectionOptionsEx2> for IWSManConnectionOptionsEx {
+impl ::core::convert::From<&IWSManConnectionOptionsEx2> for IWSManConnectionOptionsEx {
     fn from(value: &IWSManConnectionOptionsEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptionsEx> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptionsEx> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptionsEx> for &IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptionsEx> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptions {
+impl ::core::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptions {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManConnectionOptionsEx2> for IWSManConnectionOptions {
+impl ::core::convert::From<&IWSManConnectionOptionsEx2> for IWSManConnectionOptions {
     fn from(value: &IWSManConnectionOptionsEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for &IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManConnectionOptionsEx2> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManConnectionOptionsEx2> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManConnectionOptionsEx2> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManConnectionOptionsEx2> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManConnectionOptionsEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1554,19 +1576,19 @@ pub struct IWSManConnectionOptionsEx2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, thumbprint: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, accesstype: i32, authenticationmechanism: i32, username: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, password: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, accesstype: i32, authenticationmechanism: i32, username: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
@@ -1578,37 +1600,37 @@ pub struct IWSManConnectionOptionsEx2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManEnumerator(pub ::windows::runtime::IUnknown);
 impl IWSManEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn ReadItem(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn AtEndOfStream(&self) -> ::windows::runtime::Result<i16> {
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManEnumerator {
     type Vtable = IWSManEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4081417385, 43961, 20389, [184, 80, 144, 232, 202, 48, 14, 127]);
 }
-impl ::std::convert::From<IWSManEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEnumerator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManEnumerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManEnumerator> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEnumerator) -> Self {
         value.0.clone()
     }
@@ -1624,27 +1646,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManEnumerator> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManEnumerator> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManEnumerator> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManEnumerator> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1659,177 +1681,188 @@ pub struct IWSManEnumerator_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eos: *mut i16) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManEx(pub ::windows::runtime::IUnknown);
 impl IWSManEx {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), connection.into_param().abi(), ::std::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), connection.into_param().abi(), ::core::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateConnectionOptions(&self) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateResourceLocator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strresourcelocator: Param0) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strresourcelocator.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), strresourcelocator.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagCredUsernamePassword(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipCACheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipCNCheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseDigest(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseNegotiate(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseBasic(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseKerberos(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagNoEncryption(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagEnableSPNServerPort(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseNoAuthentication(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagNonXmlText(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnEPR(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnObjectAndEPR(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetErrorMessage(&self, errornumber: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(errornumber), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(errornumber), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyDeep(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyShallow(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnObject(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManEx {
     type Vtable = IWSManEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760462762, 31118, 18918, [161, 170, 116, 208, 18, 86, 244, 17]);
 }
-impl ::std::convert::From<IWSManEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManEx> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManEx> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEx) -> Self {
         value.0.clone()
     }
@@ -1844,48 +1877,48 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IWSManEx> for IWSMan {
+impl ::core::convert::From<IWSManEx> for IWSMan {
     fn from(value: IWSManEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManEx> for IWSMan {
+impl ::core::convert::From<&IWSManEx> for IWSMan {
     fn from(value: &IWSManEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManEx> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManEx> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManEx> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManEx> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1900,17 +1933,17 @@ pub struct IWSManEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionoptions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strresourcelocator: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strresourcelocator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
@@ -1926,7 +1959,7 @@ pub struct IWSManEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errornumber: u32, errormessage: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errornumber: u32, errormessage: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
@@ -1935,172 +1968,183 @@ pub struct IWSManEx_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManEx2(pub ::windows::runtime::IUnknown);
 impl IWSManEx2 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), connection.into_param().abi(), ::std::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), connection.into_param().abi(), ::core::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateConnectionOptions(&self) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateResourceLocator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strresourcelocator: Param0) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strresourcelocator.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), strresourcelocator.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagCredUsernamePassword(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipCACheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipCNCheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseDigest(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseNegotiate(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseBasic(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseKerberos(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagNoEncryption(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagEnableSPNServerPort(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseNoAuthentication(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagNonXmlText(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnEPR(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnObjectAndEPR(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetErrorMessage(&self, errornumber: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(errornumber), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(errornumber), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyDeep(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyShallow(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnObject(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseClientCertificate(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManEx2 {
     type Vtable = IWSManEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488332000, 17113, 16417, [130, 97, 57, 135, 97, 149, 18, 233]);
 }
-impl ::std::convert::From<IWSManEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManEx2> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManEx2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManEx2> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEx2) -> Self {
         value.0.clone()
     }
@@ -2115,68 +2159,68 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IWSManEx2> for IWSManEx {
+impl ::core::convert::From<IWSManEx2> for IWSManEx {
     fn from(value: IWSManEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManEx2> for IWSManEx {
+impl ::core::convert::From<&IWSManEx2> for IWSManEx {
     fn from(value: &IWSManEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for &IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IWSManEx2> for IWSMan {
+impl ::core::convert::From<IWSManEx2> for IWSMan {
     fn from(value: IWSManEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManEx2> for IWSMan {
+impl ::core::convert::From<&IWSManEx2> for IWSMan {
     fn from(value: &IWSManEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManEx2> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManEx2> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEx2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManEx2> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManEx2> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEx2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2191,17 +2235,17 @@ pub struct IWSManEx2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionoptions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strresourcelocator: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strresourcelocator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
@@ -2217,7 +2261,7 @@ pub struct IWSManEx2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errornumber: u32, errormessage: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errornumber: u32, errormessage: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
@@ -2227,207 +2271,218 @@ pub struct IWSManEx2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManEx3(pub ::windows::runtime::IUnknown);
 impl IWSManEx3 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), connection.into_param().abi(), ::std::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), connection.into_param().abi(), ::core::mem::transmute(flags), connectionoptions.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateConnectionOptions(&self) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateResourceLocator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strresourcelocator: Param0) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strresourcelocator.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), strresourcelocator.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagCredUsernamePassword(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipCACheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipCNCheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseDigest(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseNegotiate(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseBasic(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseKerberos(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagNoEncryption(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagEnableSPNServerPort(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseNoAuthentication(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagNonXmlText(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnEPR(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnObjectAndEPR(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetErrorMessage(&self, errornumber: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(errornumber), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(errornumber), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyDeep(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyShallow(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagReturnObject(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseClientCertificate(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUTF16(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseCredSsp(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagAssociationInstance(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn EnumerationFlagAssociatedInstance(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagSkipRevocationCheck(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SessionFlagUseSsl(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManEx3 {
     type Vtable = IWSManEx3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677781350, 285, 20140, [132, 116, 4, 158, 8, 72, 175, 173]);
 }
-impl ::std::convert::From<IWSManEx3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManEx3> for ::windows::runtime::IUnknown {
     fn from(value: IWSManEx3) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManEx3> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManEx3> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManEx3) -> Self {
         value.0.clone()
     }
@@ -2442,88 +2497,88 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IWSManEx3> for IWSManEx2 {
+impl ::core::convert::From<IWSManEx3> for IWSManEx2 {
     fn from(value: IWSManEx3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManEx3> for IWSManEx2 {
+impl ::core::convert::From<&IWSManEx3> for IWSManEx2 {
     fn from(value: &IWSManEx3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx2> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx2> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx2> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx2> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IWSManEx3> for IWSManEx {
+impl ::core::convert::From<IWSManEx3> for IWSManEx {
     fn from(value: IWSManEx3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManEx3> for IWSManEx {
+impl ::core::convert::From<&IWSManEx3> for IWSManEx {
     fn from(value: &IWSManEx3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IWSManEx3> for IWSMan {
+impl ::core::convert::From<IWSManEx3> for IWSMan {
     fn from(value: IWSManEx3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IWSManEx3> for IWSMan {
+impl ::core::convert::From<&IWSManEx3> for IWSMan {
     fn from(value: &IWSManEx3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManEx3> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManEx3> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEx3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManEx3> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManEx3> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEx3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2538,17 +2593,17 @@ pub struct IWSManEx3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::runtime::RawPtr, session: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionoptions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strresourcelocator: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strresourcelocator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
@@ -2564,7 +2619,7 @@ pub struct IWSManEx3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errornumber: u32, errormessage: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errornumber: u32, errormessage: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
@@ -2581,26 +2636,26 @@ pub struct IWSManEx3_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManInternal(pub ::windows::runtime::IUnknown);
 impl IWSManInternal {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ConfigSDDL<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, session: Param0, resourceuri: Param1, flags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), session.into_param().abi(), resourceuri.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), session.into_param().abi(), resourceuri.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManInternal {
     type Vtable = IWSManInternal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(78523165, 39252, 19865, [148, 169, 169, 97, 231, 44, 58, 19]);
 }
-impl ::std::convert::From<IWSManInternal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManInternal> for ::windows::runtime::IUnknown {
     fn from(value: IWSManInternal) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManInternal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManInternal> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManInternal) -> Self {
         value.0.clone()
     }
@@ -2616,27 +2671,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManInternal> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManInternal> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManInternal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManInternal> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManInternal> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManInternal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2651,95 +2706,95 @@ pub struct IWSManInternal_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManResourceLocator(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetResourceURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, uri: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), uri.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), uri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn ResourceURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddSelector<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, resourceselname: Param0, selvalue: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), resourceselname.into_param().abi(), selvalue.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), resourceselname.into_param().abi(), selvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ClearSelectors(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn FragmentPath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetFragmentPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn FragmentDialect(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetFragmentDialect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddOption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, optionname: Param0, optionvalue: Param1, mustcomply: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), optionname.into_param().abi(), optionvalue.into_param().abi(), mustcomply.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), optionname.into_param().abi(), optionvalue.into_param().abi(), mustcomply.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetMustUnderstandOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, mustunderstand: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), mustunderstand.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), mustunderstand.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn MustUnderstandOptions(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn ClearOptions(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManResourceLocator {
     type Vtable = IWSManResourceLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812394024, 56897, 18026, [173, 10, 196, 5, 158, 173, 116, 40]);
 }
-impl ::std::convert::From<IWSManResourceLocator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManResourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: IWSManResourceLocator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManResourceLocator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManResourceLocator> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManResourceLocator) -> Self {
         value.0.clone()
     }
@@ -2755,27 +2810,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManResourceLocator> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManResourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManResourceLocator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManResourceLocator> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManResourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManResourceLocator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManResourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManResourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2790,48 +2845,48 @@ pub struct IWSManResourceLocator_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceselname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, selvalue: ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceselname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, selvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, optionname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionvalue: ::std::mem::ManuallyDrop<super::Com::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, optionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mustunderstand: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mustunderstand: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManResourceLocatorInternal(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocatorInternal {}
 unsafe impl ::windows::runtime::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4026198743, 32456, 18198, [185, 190, 242, 231, 233, 251, 74, 219]);
 }
-impl ::std::convert::From<IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
     fn from(value: IWSManResourceLocatorInternal) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManResourceLocatorInternal) -> Self {
         value.0.clone()
     }
@@ -2855,85 +2910,85 @@ pub struct IWSManResourceLocatorInternal_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSManSession(pub ::windows::runtime::IUnknown);
 impl IWSManSession {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, resourceuri: Param0, flags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), resourceuri.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), resourceuri.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, resourceuri: Param0, resource: Param1, flags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), resourceuri.into_param().abi(), resource.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), resourceuri.into_param().abi(), resource.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, resourceuri: Param0, resource: Param1, flags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), resourceuri.into_param().abi(), resource.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), resourceuri.into_param().abi(), resource.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, resourceuri: Param0, flags: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), resourceuri.into_param().abi(), ::std::mem::transmute(flags)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), resourceuri.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, actionuri: Param0, resourceuri: Param1, parameters: Param2, flags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), actionuri.into_param().abi(), resourceuri.into_param().abi(), parameters.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), actionuri.into_param().abi(), resourceuri.into_param().abi(), parameters.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Enumerate<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, resourceuri: Param0, filter: Param1, dialect: Param2, flags: i32) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
-        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), resourceuri.into_param().abi(), filter.into_param().abi(), dialect.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), resourceuri.into_param().abi(), filter.into_param().abi(), dialect.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Identify(&self, flags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
     pub unsafe fn Error(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn BatchItems(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SetBatchItems(&self, value: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn Timeout(&self) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn SetTimeout(&self, value: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWSManSession {
     type Vtable = IWSManSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4236573784, 4742, 16580, [157, 160, 200, 239, 110, 194, 65, 224]);
 }
-impl ::std::convert::From<IWSManSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWSManSession> for ::windows::runtime::IUnknown {
     fn from(value: IWSManSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWSManSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWSManSession> for ::windows::runtime::IUnknown {
     fn from(value: &IWSManSession) -> Self {
         value.0.clone()
     }
@@ -2949,27 +3004,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<IWSManSession> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<IWSManSession> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&IWSManSession> for super::Ole::Automation::IDispatch {
+impl ::core::convert::From<&IWSManSession> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2984,23 +3039,23 @@ pub struct IWSManSession_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultresource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultresource: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, newuri: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, newuri: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actionuri: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, result: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actionuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, result: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>, filter: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, dialect: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, filter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dialect: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: i32, result: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: i32, result: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
@@ -3008,9 +3063,9 @@ pub struct IWSManSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WSMAN_API(pub u8);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3021,24 +3076,24 @@ pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_AUTHENTICATION_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_AUTHENTICATION_CREDENTIALS {
+impl ::core::default::Default for WSMAN_AUTHENTICATION_CREDENTIALS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_AUTHENTICATION_CREDENTIALS {
+impl ::core::cmp::PartialEq for WSMAN_AUTHENTICATION_CREDENTIALS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS {}
+impl ::core::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_AUTHENTICATION_CREDENTIALS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
@@ -3048,24 +3103,24 @@ pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_AUTHENTICATION_CREDENTIALS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
+impl ::core::default::Default for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
+impl ::core::cmp::PartialEq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {}
+impl ::core::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub struct WSMAN_AUTHZ_QUOTA {
@@ -3075,13 +3130,13 @@ pub struct WSMAN_AUTHZ_QUOTA {
     pub maxAllowedOperationsPerTimeslot: u32,
 }
 impl WSMAN_AUTHZ_QUOTA {}
-impl ::std::default::Default for WSMAN_AUTHZ_QUOTA {
+impl ::core::default::Default for WSMAN_AUTHZ_QUOTA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WSMAN_AUTHZ_QUOTA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_AUTHZ_QUOTA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_AUTHZ_QUOTA")
             .field("maxAllowedConcurrentShells", &self.maxAllowedConcurrentShells)
             .field("maxAllowedConcurrentOperations", &self.maxAllowedConcurrentOperations)
@@ -3090,16 +3145,16 @@ impl ::std::fmt::Debug for WSMAN_AUTHZ_QUOTA {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WSMAN_AUTHZ_QUOTA {
+impl ::core::cmp::PartialEq for WSMAN_AUTHZ_QUOTA {
     fn eq(&self, other: &Self) -> bool {
         self.maxAllowedConcurrentShells == other.maxAllowedConcurrentShells && self.maxAllowedConcurrentOperations == other.maxAllowedConcurrentOperations && self.timeslotSize == other.timeslotSize && self.maxAllowedOperationsPerTimeslot == other.maxAllowedOperationsPerTimeslot
     }
 }
-impl ::std::cmp::Eq for WSMAN_AUTHZ_QUOTA {}
+impl ::core::cmp::Eq for WSMAN_AUTHZ_QUOTA {}
 unsafe impl ::windows::runtime::Abi for WSMAN_AUTHZ_QUOTA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3112,33 +3167,33 @@ pub struct WSMAN_CERTIFICATE_DETAILS {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_CERTIFICATE_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_CERTIFICATE_DETAILS {
+impl ::core::default::Default for WSMAN_CERTIFICATE_DETAILS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_CERTIFICATE_DETAILS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_CERTIFICATE_DETAILS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_CERTIFICATE_DETAILS").field("subject", &self.subject).field("issuerName", &self.issuerName).field("issuerThumbprint", &self.issuerThumbprint).field("subjectName", &self.subjectName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_CERTIFICATE_DETAILS {
+impl ::core::cmp::PartialEq for WSMAN_CERTIFICATE_DETAILS {
     fn eq(&self, other: &Self) -> bool {
         self.subject == other.subject && self.issuerName == other.issuerName && self.issuerThumbprint == other.issuerThumbprint && self.subjectName == other.subjectName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_CERTIFICATE_DETAILS {}
+impl ::core::cmp::Eq for WSMAN_CERTIFICATE_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_CERTIFICATE_DETAILS {
     type Abi = Self;
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WSMAN_COMMAND(pub u8);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3149,30 +3204,30 @@ pub struct WSMAN_COMMAND_ARG_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_COMMAND_ARG_SET {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_COMMAND_ARG_SET {
+impl ::core::default::Default for WSMAN_COMMAND_ARG_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_COMMAND_ARG_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_COMMAND_ARG_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_COMMAND_ARG_SET").field("argsCount", &self.argsCount).field("args", &self.args).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_COMMAND_ARG_SET {
+impl ::core::cmp::PartialEq for WSMAN_COMMAND_ARG_SET {
     fn eq(&self, other: &Self) -> bool {
         self.argsCount == other.argsCount && self.args == other.args
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_COMMAND_ARG_SET {}
+impl ::core::cmp::Eq for WSMAN_COMMAND_ARG_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_COMMAND_ARG_SET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3182,24 +3237,24 @@ pub struct WSMAN_CONNECT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_CONNECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_CONNECT_DATA {
+impl ::core::default::Default for WSMAN_CONNECT_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_CONNECT_DATA {
+impl ::core::cmp::PartialEq for WSMAN_CONNECT_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_CONNECT_DATA {}
+impl ::core::cmp::Eq for WSMAN_CONNECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_CONNECT_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3209,24 +3264,24 @@ pub struct WSMAN_CREATE_SHELL_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_CREATE_SHELL_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_CREATE_SHELL_DATA {
+impl ::core::default::Default for WSMAN_CREATE_SHELL_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_CREATE_SHELL_DATA {
+impl ::core::cmp::PartialEq for WSMAN_CREATE_SHELL_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_CREATE_SHELL_DATA {}
+impl ::core::cmp::Eq for WSMAN_CREATE_SHELL_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_CREATE_SHELL_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3237,24 +3292,24 @@ pub struct WSMAN_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_DATA {
+impl ::core::default::Default for WSMAN_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_DATA {
+impl ::core::cmp::PartialEq for WSMAN_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_DATA {}
+impl ::core::cmp::Eq for WSMAN_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WSMAN_DATA_0 {
@@ -3265,24 +3320,24 @@ pub union WSMAN_DATA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_DATA_0 {
+impl ::core::default::Default for WSMAN_DATA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_DATA_0 {
+impl ::core::cmp::PartialEq for WSMAN_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_DATA_0 {}
+impl ::core::cmp::Eq for WSMAN_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub struct WSMAN_DATA_BINARY {
@@ -3290,26 +3345,26 @@ pub struct WSMAN_DATA_BINARY {
     pub data: *mut u8,
 }
 impl WSMAN_DATA_BINARY {}
-impl ::std::default::Default for WSMAN_DATA_BINARY {
+impl ::core::default::Default for WSMAN_DATA_BINARY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WSMAN_DATA_BINARY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_DATA_BINARY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_DATA_BINARY").field("dataLength", &self.dataLength).field("data", &self.data).finish()
     }
 }
-impl ::std::cmp::PartialEq for WSMAN_DATA_BINARY {
+impl ::core::cmp::PartialEq for WSMAN_DATA_BINARY {
     fn eq(&self, other: &Self) -> bool {
         self.dataLength == other.dataLength && self.data == other.data
     }
 }
-impl ::std::cmp::Eq for WSMAN_DATA_BINARY {}
+impl ::core::cmp::Eq for WSMAN_DATA_BINARY {}
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA_BINARY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3320,32 +3375,32 @@ pub struct WSMAN_DATA_TEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_DATA_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_DATA_TEXT {
+impl ::core::default::Default for WSMAN_DATA_TEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_DATA_TEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_DATA_TEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_DATA_TEXT").field("bufferLength", &self.bufferLength).field("buffer", &self.buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_DATA_TEXT {
+impl ::core::cmp::PartialEq for WSMAN_DATA_TEXT {
     fn eq(&self, other: &Self) -> bool {
         self.bufferLength == other.bufferLength && self.buffer == other.buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_DATA_TEXT {}
+impl ::core::cmp::Eq for WSMAN_DATA_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA_TEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3356,30 +3411,30 @@ pub struct WSMAN_ENVIRONMENT_VARIABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_ENVIRONMENT_VARIABLE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_ENVIRONMENT_VARIABLE {
+impl ::core::default::Default for WSMAN_ENVIRONMENT_VARIABLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_ENVIRONMENT_VARIABLE").field("name", &self.name).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_ENVIRONMENT_VARIABLE {
+impl ::core::cmp::PartialEq for WSMAN_ENVIRONMENT_VARIABLE {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE {}
+impl ::core::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_ENVIRONMENT_VARIABLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3390,30 +3445,30 @@ pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_ENVIRONMENT_VARIABLE_SET {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_ENVIRONMENT_VARIABLE_SET {
+impl ::core::default::Default for WSMAN_ENVIRONMENT_VARIABLE_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_ENVIRONMENT_VARIABLE_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_ENVIRONMENT_VARIABLE_SET").field("varsCount", &self.varsCount).field("vars", &self.vars).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_ENVIRONMENT_VARIABLE_SET {
+impl ::core::cmp::PartialEq for WSMAN_ENVIRONMENT_VARIABLE_SET {
     fn eq(&self, other: &Self) -> bool {
         self.varsCount == other.varsCount && self.vars == other.vars
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE_SET {}
+impl ::core::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_ENVIRONMENT_VARIABLE_SET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3427,30 +3482,30 @@ pub struct WSMAN_ERROR {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_ERROR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_ERROR {
+impl ::core::default::Default for WSMAN_ERROR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_ERROR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_ERROR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_ERROR").field("code", &self.code).field("errorDetail", &self.errorDetail).field("language", &self.language).field("machineName", &self.machineName).field("pluginName", &self.pluginName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_ERROR {
+impl ::core::cmp::PartialEq for WSMAN_ERROR {
     fn eq(&self, other: &Self) -> bool {
         self.code == other.code && self.errorDetail == other.errorDetail && self.language == other.language && self.machineName == other.machineName && self.pluginName == other.pluginName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_ERROR {}
+impl ::core::cmp::Eq for WSMAN_ERROR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_ERROR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3461,25 +3516,25 @@ pub struct WSMAN_FILTER {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_FILTER {
+impl ::core::default::Default for WSMAN_FILTER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_FILTER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_FILTER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_FILTER").field("filter", &self.filter).field("dialect", &self.dialect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_FILTER {
+impl ::core::cmp::PartialEq for WSMAN_FILTER {
     fn eq(&self, other: &Self) -> bool {
         self.filter == other.filter && self.dialect == other.dialect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_FILTER {}
+impl ::core::cmp::Eq for WSMAN_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_FILTER {
     type Abi = Self;
@@ -3496,7 +3551,7 @@ pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_0: u32 = 0u32;
 pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3507,30 +3562,30 @@ pub struct WSMAN_FRAGMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_FRAGMENT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_FRAGMENT {
+impl ::core::default::Default for WSMAN_FRAGMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_FRAGMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_FRAGMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_FRAGMENT").field("path", &self.path).field("dialect", &self.dialect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_FRAGMENT {
+impl ::core::cmp::PartialEq for WSMAN_FRAGMENT {
     fn eq(&self, other: &Self) -> bool {
         self.path == other.path && self.dialect == other.dialect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_FRAGMENT {}
+impl ::core::cmp::Eq for WSMAN_FRAGMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_FRAGMENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3541,33 +3596,33 @@ pub struct WSMAN_KEY {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_KEY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_KEY {
+impl ::core::default::Default for WSMAN_KEY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_KEY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_KEY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_KEY").field("key", &self.key).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_KEY {
+impl ::core::cmp::PartialEq for WSMAN_KEY {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_KEY {}
+impl ::core::cmp::Eq for WSMAN_KEY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_KEY {
     type Abi = Self;
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WSMAN_OPERATION(pub u8);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3576,36 +3631,36 @@ pub struct WSMAN_OPERATION_INFO {
     pub filter: WSMAN_FILTER,
     pub selectorSet: WSMAN_SELECTOR_SET,
     pub optionSet: WSMAN_OPTION_SET,
-    pub reserved: *mut ::std::ffi::c_void,
+    pub reserved: *mut ::core::ffi::c_void,
     pub version: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_OPERATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_OPERATION_INFO {
+impl ::core::default::Default for WSMAN_OPERATION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_OPERATION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_OPERATION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_OPERATION_INFO").field("fragment", &self.fragment).field("filter", &self.filter).field("selectorSet", &self.selectorSet).field("optionSet", &self.optionSet).field("reserved", &self.reserved).field("version", &self.version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_OPERATION_INFO {
+impl ::core::cmp::PartialEq for WSMAN_OPERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.fragment == other.fragment && self.filter == other.filter && self.selectorSet == other.selectorSet && self.optionSet == other.optionSet && self.reserved == other.reserved && self.version == other.version
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_OPERATION_INFO {}
+impl ::core::cmp::Eq for WSMAN_OPERATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPERATION_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3621,25 +3676,25 @@ pub struct WSMAN_OPERATION_INFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_OPERATION_INFOEX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_OPERATION_INFOEX {
+impl ::core::default::Default for WSMAN_OPERATION_INFOEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_OPERATION_INFOEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_OPERATION_INFOEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_OPERATION_INFOEX").field("fragment", &self.fragment).field("filter", &self.filter).field("selectorSet", &self.selectorSet).field("optionSet", &self.optionSet).field("version", &self.version).field("uiLocale", &self.uiLocale).field("dataLocale", &self.dataLocale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_OPERATION_INFOEX {
+impl ::core::cmp::PartialEq for WSMAN_OPERATION_INFOEX {
     fn eq(&self, other: &Self) -> bool {
         self.fragment == other.fragment && self.filter == other.filter && self.selectorSet == other.selectorSet && self.optionSet == other.optionSet && self.version == other.version && self.uiLocale == other.uiLocale && self.dataLocale == other.dataLocale
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_OPERATION_INFOEX {}
+impl ::core::cmp::Eq for WSMAN_OPERATION_INFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPERATION_INFOEX {
     type Abi = Self;
@@ -3648,7 +3703,7 @@ unsafe impl ::windows::runtime::Abi for WSMAN_OPERATION_INFOEX {
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3660,30 +3715,30 @@ pub struct WSMAN_OPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_OPTION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_OPTION {
+impl ::core::default::Default for WSMAN_OPTION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_OPTION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_OPTION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_OPTION").field("name", &self.name).field("value", &self.value).field("mustComply", &self.mustComply).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_OPTION {
+impl ::core::cmp::PartialEq for WSMAN_OPTION {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.value == other.value && self.mustComply == other.mustComply
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_OPTION {}
+impl ::core::cmp::Eq for WSMAN_OPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3695,30 +3750,30 @@ pub struct WSMAN_OPTION_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_OPTION_SET {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_OPTION_SET {
+impl ::core::default::Default for WSMAN_OPTION_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_OPTION_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_OPTION_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_OPTION_SET").field("optionsCount", &self.optionsCount).field("options", &self.options).field("optionsMustUnderstand", &self.optionsMustUnderstand).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_OPTION_SET {
+impl ::core::cmp::PartialEq for WSMAN_OPTION_SET {
     fn eq(&self, other: &Self) -> bool {
         self.optionsCount == other.optionsCount && self.options == other.options && self.optionsMustUnderstand == other.optionsMustUnderstand
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_OPTION_SET {}
+impl ::core::cmp::Eq for WSMAN_OPTION_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION_SET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3731,46 +3786,46 @@ pub struct WSMAN_OPTION_SETEX {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_OPTION_SETEX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_OPTION_SETEX {
+impl ::core::default::Default for WSMAN_OPTION_SETEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_OPTION_SETEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_OPTION_SETEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_OPTION_SETEX").field("optionsCount", &self.optionsCount).field("options", &self.options).field("optionsMustUnderstand", &self.optionsMustUnderstand).field("optionTypes", &self.optionTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_OPTION_SETEX {
+impl ::core::cmp::PartialEq for WSMAN_OPTION_SETEX {
     fn eq(&self, other: &Self) -> bool {
         self.optionsCount == other.optionsCount && self.options == other.options && self.optionsMustUnderstand == other.optionsMustUnderstand && self.optionTypes == other.optionTypes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_OPTION_SETEX {}
+impl ::core::cmp::Eq for WSMAN_OPTION_SETEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION_SETEX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
+pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
+pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = unsafe extern "system" fn(userauthorizationcontext: *const ::std::ffi::c_void);
+pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_USER = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
+pub type WSMAN_PLUGIN_AUTHORIZE_USER = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_COMMAND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET);
+pub type WSMAN_PLUGIN_COMMAND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_CONNECT = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA);
+pub type WSMAN_PLUGIN_CONNECT = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
@@ -3795,12 +3850,12 @@ pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
 pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_RECEIVE = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET);
+pub type WSMAN_PLUGIN_RECEIVE = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void);
+pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::std::ffi::c_void);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3816,14 +3871,14 @@ pub struct WSMAN_PLUGIN_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_PLUGIN_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_PLUGIN_REQUEST {
+impl ::core::default::Default for WSMAN_PLUGIN_REQUEST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_PLUGIN_REQUEST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_PLUGIN_REQUEST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_PLUGIN_REQUEST")
             .field("senderDetails", &self.senderDetails)
             .field("locale", &self.locale)
@@ -3836,25 +3891,25 @@ impl ::std::fmt::Debug for WSMAN_PLUGIN_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_PLUGIN_REQUEST {
+impl ::core::cmp::PartialEq for WSMAN_PLUGIN_REQUEST {
     fn eq(&self, other: &Self) -> bool {
         self.senderDetails == other.senderDetails && self.locale == other.locale && self.resourceUri == other.resourceUri && self.operationInfo == other.operationInfo && self.shutdownNotification == other.shutdownNotification && self.shutdownNotificationHandle == other.shutdownNotificationHandle && self.dataLocale == other.dataLocale
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_PLUGIN_REQUEST {}
+impl ::core::cmp::Eq for WSMAN_PLUGIN_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_PLUGIN_REQUEST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
+pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SHELL = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA);
+pub type WSMAN_PLUGIN_SHELL = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-pub type WSMAN_PLUGIN_SHUTDOWN = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, flags: u32, reason: u32) -> u32;
+pub type WSMAN_PLUGIN_SHUTDOWN = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, flags: u32, reason: u32) -> u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
@@ -3865,17 +3920,17 @@ pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SIGNAL = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, code: super::super::Foundation::PWSTR);
+pub type WSMAN_PLUGIN_SIGNAL = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, code: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_STARTUP = unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::std::ffi::c_void) -> u32;
+pub type WSMAN_PLUGIN_STARTUP = unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3886,24 +3941,24 @@ pub struct WSMAN_PROXY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_PROXY_INFO {
+impl ::core::default::Default for WSMAN_PROXY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_PROXY_INFO {
+impl ::core::cmp::PartialEq for WSMAN_PROXY_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_PROXY_INFO {}
+impl ::core::cmp::Eq for WSMAN_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_PROXY_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3916,24 +3971,24 @@ pub struct WSMAN_RECEIVE_DATA_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_RECEIVE_DATA_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_RECEIVE_DATA_RESULT {
+impl ::core::default::Default for WSMAN_RECEIVE_DATA_RESULT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_RECEIVE_DATA_RESULT {
+impl ::core::cmp::PartialEq for WSMAN_RECEIVE_DATA_RESULT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_RECEIVE_DATA_RESULT {}
+impl ::core::cmp::Eq for WSMAN_RECEIVE_DATA_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_RECEIVE_DATA_RESULT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3945,24 +4000,24 @@ pub union WSMAN_RESPONSE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_RESPONSE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_RESPONSE_DATA {
+impl ::core::default::Default for WSMAN_RESPONSE_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_RESPONSE_DATA {
+impl ::core::cmp::PartialEq for WSMAN_RESPONSE_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_RESPONSE_DATA {}
+impl ::core::cmp::Eq for WSMAN_RESPONSE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_RESPONSE_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -3973,30 +4028,30 @@ pub struct WSMAN_SELECTOR_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SELECTOR_SET {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_SELECTOR_SET {
+impl ::core::default::Default for WSMAN_SELECTOR_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_SELECTOR_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_SELECTOR_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_SELECTOR_SET").field("numberKeys", &self.numberKeys).field("keys", &self.keys).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_SELECTOR_SET {
+impl ::core::cmp::PartialEq for WSMAN_SELECTOR_SET {
     fn eq(&self, other: &Self) -> bool {
         self.numberKeys == other.numberKeys && self.keys == other.keys
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_SELECTOR_SET {}
+impl ::core::cmp::Eq for WSMAN_SELECTOR_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SELECTOR_SET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4010,99 +4065,99 @@ pub struct WSMAN_SENDER_DETAILS {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SENDER_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_SENDER_DETAILS {
+impl ::core::default::Default for WSMAN_SENDER_DETAILS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_SENDER_DETAILS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_SENDER_DETAILS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_SENDER_DETAILS").field("senderName", &self.senderName).field("authenticationMechanism", &self.authenticationMechanism).field("certificateDetails", &self.certificateDetails).field("clientToken", &self.clientToken).field("httpURL", &self.httpURL).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_SENDER_DETAILS {
+impl ::core::cmp::PartialEq for WSMAN_SENDER_DETAILS {
     fn eq(&self, other: &Self) -> bool {
         self.senderName == other.senderName && self.authenticationMechanism == other.authenticationMechanism && self.certificateDetails == other.certificateDetails && self.clientToken == other.clientToken && self.httpURL == other.httpURL
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_SENDER_DETAILS {}
+impl ::core::cmp::Eq for WSMAN_SENDER_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SENDER_DETAILS {
     type Abi = Self;
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WSMAN_SESSION(pub u8);
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WSMAN_SHELL(pub u8);
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 pub struct WSMAN_SHELL_ASYNC {
-    pub operationContext: *mut ::std::ffi::c_void,
-    pub completionFunction: ::std::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
+    pub operationContext: *mut ::core::ffi::c_void,
+    pub completionFunction: ::core::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SHELL_ASYNC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_SHELL_ASYNC {
+impl ::core::default::Default for WSMAN_SHELL_ASYNC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_SHELL_ASYNC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_SHELL_ASYNC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_SHELL_ASYNC {
+impl ::core::cmp::PartialEq for WSMAN_SHELL_ASYNC {
     fn eq(&self, other: &Self) -> bool {
         self.operationContext == other.operationContext && self.completionFunction.map(|f| f as usize) == other.completionFunction.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_SHELL_ASYNC {}
+impl ::core::cmp::Eq for WSMAN_SHELL_ASYNC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_ASYNC {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::std::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {
     pub idleTimeoutMs: u32,
 }
 impl WSMAN_SHELL_DISCONNECT_INFO {}
-impl ::std::default::Default for WSMAN_SHELL_DISCONNECT_INFO {
+impl ::core::default::Default for WSMAN_SHELL_DISCONNECT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WSMAN_SHELL_DISCONNECT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_SHELL_DISCONNECT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_SHELL_DISCONNECT_INFO").field("idleTimeoutMs", &self.idleTimeoutMs).finish()
     }
 }
-impl ::std::cmp::PartialEq for WSMAN_SHELL_DISCONNECT_INFO {
+impl ::core::cmp::PartialEq for WSMAN_SHELL_DISCONNECT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.idleTimeoutMs == other.idleTimeoutMs
     }
 }
-impl ::std::cmp::Eq for WSMAN_SHELL_DISCONNECT_INFO {}
+impl ::core::cmp::Eq for WSMAN_SHELL_DISCONNECT_INFO {}
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_DISCONNECT_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4116,30 +4171,30 @@ pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SHELL_STARTUP_INFO_V10 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_SHELL_STARTUP_INFO_V10 {
+impl ::core::default::Default for WSMAN_SHELL_STARTUP_INFO_V10 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V10 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V10 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_SHELL_STARTUP_INFO_V10").field("inputStreamSet", &self.inputStreamSet).field("outputStreamSet", &self.outputStreamSet).field("idleTimeoutMs", &self.idleTimeoutMs).field("workingDirectory", &self.workingDirectory).field("variableSet", &self.variableSet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_SHELL_STARTUP_INFO_V10 {
+impl ::core::cmp::PartialEq for WSMAN_SHELL_STARTUP_INFO_V10 {
     fn eq(&self, other: &Self) -> bool {
         self.inputStreamSet == other.inputStreamSet && self.outputStreamSet == other.outputStreamSet && self.idleTimeoutMs == other.idleTimeoutMs && self.workingDirectory == other.workingDirectory && self.variableSet == other.variableSet
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V10 {}
+impl ::core::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_STARTUP_INFO_V10 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4150,30 +4205,30 @@ pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SHELL_STARTUP_INFO_V11 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_SHELL_STARTUP_INFO_V11 {
+impl ::core::default::Default for WSMAN_SHELL_STARTUP_INFO_V11 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V11 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V11 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_SHELL_STARTUP_INFO_V11").field("__AnonymousBase_wsman_L665_C48", &self.__AnonymousBase_wsman_L665_C48).field("name", &self.name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_SHELL_STARTUP_INFO_V11 {
+impl ::core::cmp::PartialEq for WSMAN_SHELL_STARTUP_INFO_V11 {
     fn eq(&self, other: &Self) -> bool {
         self.__AnonymousBase_wsman_L665_C48 == other.__AnonymousBase_wsman_L665_C48 && self.name == other.name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V11 {}
+impl ::core::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V11 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_STARTUP_INFO_V11 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4184,30 +4239,30 @@ pub struct WSMAN_STREAM_ID_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_STREAM_ID_SET {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_STREAM_ID_SET {
+impl ::core::default::Default for WSMAN_STREAM_ID_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_STREAM_ID_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_STREAM_ID_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_STREAM_ID_SET").field("streamIDsCount", &self.streamIDsCount).field("streamIDs", &self.streamIDs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_STREAM_ID_SET {
+impl ::core::cmp::PartialEq for WSMAN_STREAM_ID_SET {
     fn eq(&self, other: &Self) -> bool {
         self.streamIDsCount == other.streamIDsCount && self.streamIDs == other.streamIDs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_STREAM_ID_SET {}
+impl ::core::cmp::Eq for WSMAN_STREAM_ID_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_STREAM_ID_SET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4218,32 +4273,32 @@ pub struct WSMAN_USERNAME_PASSWORD_CREDS {
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_USERNAME_PASSWORD_CREDS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WSMAN_USERNAME_PASSWORD_CREDS {
+impl ::core::default::Default for WSMAN_USERNAME_PASSWORD_CREDS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WSMAN_USERNAME_PASSWORD_CREDS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WSMAN_USERNAME_PASSWORD_CREDS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WSMAN_USERNAME_PASSWORD_CREDS").field("username", &self.username).field("password", &self.password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WSMAN_USERNAME_PASSWORD_CREDS {
+impl ::core::cmp::PartialEq for WSMAN_USERNAME_PASSWORD_CREDS {
     fn eq(&self, other: &Self) -> bool {
         self.username == other.username && self.password == other.password
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WSMAN_USERNAME_PASSWORD_CREDS {}
+impl ::core::cmp::Eq for WSMAN_USERNAME_PASSWORD_CREDS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_USERNAME_PASSWORD_CREDS {
     type Abi = Self;
 }
 pub const WSMan: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3169673595, 60419, 16907, [133, 8, 151, 125, 199, 166, 134, 189]);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManAuthenticationFlags(pub i32);
 pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(0i32);
@@ -4254,7 +4309,7 @@ pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationF
 pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = WSManAuthenticationFlags(16i32);
 pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = WSManAuthenticationFlags(128i32);
 pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
-impl ::std::convert::From<i32> for WSManAuthenticationFlags {
+impl ::core::convert::From<i32> for WSManAuthenticationFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4263,7 +4318,7 @@ unsafe impl ::windows::runtime::Abi for WSManAuthenticationFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManCallbackFlags(pub i32);
 pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = WSManCallbackFlags(1i32);
@@ -4276,7 +4331,7 @@ pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFl
 pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = WSManCallbackFlags(2048i32);
 pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = WSManCallbackFlags(4096i32);
 pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = WSManCallbackFlags(8192i32);
-impl ::std::convert::From<i32> for WSManCallbackFlags {
+impl ::core::convert::From<i32> for WSManCallbackFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4292,9 +4347,9 @@ pub unsafe fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
         }
-        ::std::mem::transmute(WSManCloseCommand(::std::mem::transmute(commandhandle), ::std::mem::transmute(flags), ::std::mem::transmute(r#async)))
+        ::core::mem::transmute(WSManCloseCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4308,7 +4363,7 @@ pub unsafe fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: 
         extern "system" {
             fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: u32) -> u32;
         }
-        ::std::mem::transmute(WSManCloseOperation(::std::mem::transmute(operationhandle), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(WSManCloseOperation(::core::mem::transmute(operationhandle), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4322,7 +4377,7 @@ pub unsafe fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32 
         extern "system" {
             fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32;
         }
-        ::std::mem::transmute(WSManCloseSession(::std::mem::transmute(session), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(WSManCloseSession(::core::mem::transmute(session), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4335,9 +4390,9 @@ pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
         }
-        ::std::mem::transmute(WSManCloseShell(::std::mem::transmute(shellhandle), ::std::mem::transmute(flags), ::std::mem::transmute(r#async)))
+        ::core::mem::transmute(WSManCloseShell(::core::mem::transmute(shellhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4350,9 +4405,9 @@ pub unsafe fn WSManConnectShell<'a, Param2: ::windows::runtime::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
+            fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
         }
-        ::std::mem::transmute(WSManConnectShell(::std::mem::transmute(session), ::std::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::std::mem::transmute(options), ::std::mem::transmute(connectxml), ::std::mem::transmute(r#async), ::std::mem::transmute(shell)))
+        ::core::mem::transmute(WSManConnectShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4365,9 +4420,9 @@ pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::runtime::IntoParam
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
+            fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
         }
-        ::std::mem::transmute(WSManConnectShellCommand(::std::mem::transmute(shell), ::std::mem::transmute(flags), commandid.into_param().abi(), ::std::mem::transmute(options), ::std::mem::transmute(connectxml), ::std::mem::transmute(r#async), ::std::mem::transmute(command)))
+        ::core::mem::transmute(WSManConnectShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4382,7 +4437,7 @@ pub unsafe fn WSManCreateSession<'a, Param1: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn WSManCreateSession(apihandle: *const WSMAN_API, connection: super::super::Foundation::PWSTR, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32;
         }
-        ::std::mem::transmute(WSManCreateSession(::std::mem::transmute(apihandle), connection.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(serverauthenticationcredentials), ::std::mem::transmute(proxyinfo), ::std::mem::transmute(session)))
+        ::core::mem::transmute(WSManCreateSession(::core::mem::transmute(apihandle), connection.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(serverauthenticationcredentials), ::core::mem::transmute(proxyinfo), ::core::mem::transmute(session)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4395,9 +4450,9 @@ pub unsafe fn WSManCreateShell<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
+            fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
         }
-        ::std::mem::transmute(WSManCreateShell(::std::mem::transmute(session), ::std::mem::transmute(flags), resourceuri.into_param().abi(), ::std::mem::transmute(startupinfo), ::std::mem::transmute(options), ::std::mem::transmute(createxml), ::std::mem::transmute(r#async), ::std::mem::transmute(shell)))
+        ::core::mem::transmute(WSManCreateShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4410,32 +4465,32 @@ pub unsafe fn WSManCreateShellEx<'a, Param2: ::windows::runtime::IntoParam<'a, s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
+            fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
         }
-        ::std::mem::transmute(WSManCreateShellEx(
-            ::std::mem::transmute(session),
-            ::std::mem::transmute(flags),
+        ::core::mem::transmute(WSManCreateShellEx(
+            ::core::mem::transmute(session),
+            ::core::mem::transmute(flags),
             resourceuri.into_param().abi(),
             shellid.into_param().abi(),
-            ::std::mem::transmute(startupinfo),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(createxml),
-            ::std::mem::transmute(r#async),
-            ::std::mem::transmute(shell),
+            ::core::mem::transmute(startupinfo),
+            ::core::mem::transmute(options),
+            ::core::mem::transmute(createxml),
+            ::core::mem::transmute(r#async),
+            ::core::mem::transmute(shell),
         ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManDataType(pub i32);
 pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
 pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = WSManDataType(1i32);
 pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
 pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
-impl ::std::convert::From<i32> for WSManDataType {
+impl ::core::convert::From<i32> for WSManDataType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4452,7 +4507,7 @@ pub unsafe fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32 {
         extern "system" {
             fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32;
         }
-        ::std::mem::transmute(WSManDeinitialize(::std::mem::transmute(apihandle), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(WSManDeinitialize(::core::mem::transmute(apihandle), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4465,15 +4520,15 @@ pub unsafe fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconne
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
         }
-        ::std::mem::transmute(WSManDisconnectShell(::std::mem::transmute(shell), ::std::mem::transmute(flags), ::std::mem::transmute(disconnectinfo), ::std::mem::transmute(r#async)))
+        ::core::mem::transmute(WSManDisconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(disconnectinfo), ::core::mem::transmute(r#async)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManEnumFlags(pub i32);
 pub const WSManFlagNonXmlText: WSManEnumFlags = WSManEnumFlags(1i32);
@@ -4485,7 +4540,7 @@ pub const WSManFlagHierarchyShallow: WSManEnumFlags = WSManEnumFlags(32i32);
 pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = WSManEnumFlags(64i32);
 pub const WSManFlagAssociatedInstance: WSManEnumFlags = WSManEnumFlags(0i32);
 pub const WSManFlagAssociationInstance: WSManEnumFlags = WSManEnumFlags(128i32);
-impl ::std::convert::From<i32> for WSManEnumFlags {
+impl ::core::convert::From<i32> for WSManEnumFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4503,7 +4558,7 @@ pub unsafe fn WSManGetErrorMessage<'a, Param2: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn WSManGetErrorMessage(apihandle: *const WSMAN_API, flags: u32, languagecode: super::super::Foundation::PWSTR, errorcode: u32, messagelength: u32, message: super::super::Foundation::PWSTR, messagelengthused: *mut u32) -> u32;
         }
-        ::std::mem::transmute(WSManGetErrorMessage(::std::mem::transmute(apihandle), ::std::mem::transmute(flags), languagecode.into_param().abi(), ::std::mem::transmute(errorcode), ::std::mem::transmute(messagelength), ::std::mem::transmute(message), ::std::mem::transmute(messagelengthused)))
+        ::core::mem::transmute(WSManGetErrorMessage(::core::mem::transmute(apihandle), ::core::mem::transmute(flags), languagecode.into_param().abi(), ::core::mem::transmute(errorcode), ::core::mem::transmute(messagelength), ::core::mem::transmute(message), ::core::mem::transmute(messagelengthused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4517,7 +4572,7 @@ pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option
         extern "system" {
             fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32;
         }
-        ::std::mem::transmute(WSManGetSessionOptionAsDword(::std::mem::transmute(session), ::std::mem::transmute(option), ::std::mem::transmute(value)))
+        ::core::mem::transmute(WSManGetSessionOptionAsDword(::core::mem::transmute(session), ::core::mem::transmute(option), ::core::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4532,7 +4587,7 @@ pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, optio
         extern "system" {
             fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: super::super::Foundation::PWSTR, stringlengthused: *mut u32) -> u32;
         }
-        ::std::mem::transmute(WSManGetSessionOptionAsString(::std::mem::transmute(session), ::std::mem::transmute(option), ::std::mem::transmute(stringlength), ::std::mem::transmute(string), ::std::mem::transmute(stringlengthused)))
+        ::core::mem::transmute(WSManGetSessionOptionAsString(::core::mem::transmute(session), ::core::mem::transmute(option), ::core::mem::transmute(stringlength), ::core::mem::transmute(string), ::core::mem::transmute(stringlengthused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4546,7 +4601,7 @@ pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32
         extern "system" {
             fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32;
         }
-        ::std::mem::transmute(WSManInitialize(::std::mem::transmute(flags), ::std::mem::transmute(apihandle)))
+        ::core::mem::transmute(WSManInitialize(::core::mem::transmute(flags), ::core::mem::transmute(apihandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4555,14 +4610,14 @@ pub const WSManInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::std::ffi::c_void, errorcode: u32, extendederrorinformation: Param4) -> u32 {
+pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManPluginAuthzOperationComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::std::ffi::c_void, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
+            fn WSManPluginAuthzOperationComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(WSManPluginAuthzOperationComplete(::std::mem::transmute(senderdetails), ::std::mem::transmute(flags), ::std::mem::transmute(userauthorizationcontext), ::std::mem::transmute(errorcode), extendederrorinformation.into_param().abi()))
+        ::core::mem::transmute(WSManPluginAuthzOperationComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(userauthorizationcontext), ::core::mem::transmute(errorcode), extendederrorinformation.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4577,7 +4632,7 @@ pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::windows::runtime:
         extern "system" {
             fn WSManPluginAuthzQueryQuotaComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(WSManPluginAuthzQueryQuotaComplete(::std::mem::transmute(senderdetails), ::std::mem::transmute(flags), ::std::mem::transmute(quota), ::std::mem::transmute(errorcode), extendederrorinformation.into_param().abi()))
+        ::core::mem::transmute(WSManPluginAuthzQueryQuotaComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(quota), ::core::mem::transmute(errorcode), extendederrorinformation.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4585,20 +4640,20 @@ pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::windows::runtime:
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::std::ffi::c_void, impersonationtoken: Param3, userisadministrator: Param4, errorcode: u32, extendederrorinformation: Param6) -> u32 {
+pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: Param3, userisadministrator: Param4, errorcode: u32, extendederrorinformation: Param6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManPluginAuthzUserComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::std::ffi::c_void, impersonationtoken: super::super::Foundation::HANDLE, userisadministrator: super::super::Foundation::BOOL, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
+            fn WSManPluginAuthzUserComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: super::super::Foundation::HANDLE, userisadministrator: super::super::Foundation::BOOL, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(WSManPluginAuthzUserComplete(
-            ::std::mem::transmute(senderdetails),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(userauthorizationcontext),
+        ::core::mem::transmute(WSManPluginAuthzUserComplete(
+            ::core::mem::transmute(senderdetails),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(userauthorizationcontext),
             impersonationtoken.into_param().abi(),
             userisadministrator.into_param().abi(),
-            ::std::mem::transmute(errorcode),
+            ::core::mem::transmute(errorcode),
             extendederrorinformation.into_param().abi(),
         ))
     }
@@ -4615,7 +4670,7 @@ pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_
         extern "system" {
             fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32;
         }
-        ::std::mem::transmute(WSManPluginFreeRequestDetails(::std::mem::transmute(requestdetails)))
+        ::core::mem::transmute(WSManPluginFreeRequestDetails(::core::mem::transmute(requestdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4623,14 +4678,14 @@ pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::std::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32 {
+pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManPluginGetConfiguration(plugincontext: *const ::std::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32;
+            fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32;
         }
-        ::std::mem::transmute(WSManPluginGetConfiguration(::std::mem::transmute(plugincontext), ::std::mem::transmute(flags), ::std::mem::transmute(data)))
+        ::core::mem::transmute(WSManPluginGetConfiguration(::core::mem::transmute(plugincontext), ::core::mem::transmute(flags), ::core::mem::transmute(data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4645,7 +4700,7 @@ pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLU
         extern "system" {
             fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, data: *mut WSMAN_DATA) -> u32;
         }
-        ::std::mem::transmute(WSManPluginGetOperationParameters(::std::mem::transmute(requestdetails), ::std::mem::transmute(flags), ::std::mem::transmute(data)))
+        ::core::mem::transmute(WSManPluginGetOperationParameters(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), ::core::mem::transmute(data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4660,7 +4715,7 @@ pub unsafe fn WSManPluginOperationComplete<'a, Param3: ::windows::runtime::IntoP
         extern "system" {
             fn WSManPluginOperationComplete(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(WSManPluginOperationComplete(::std::mem::transmute(requestdetails), ::std::mem::transmute(flags), ::std::mem::transmute(errorcode), extendedinformation.into_param().abi()))
+        ::core::mem::transmute(WSManPluginOperationComplete(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), ::core::mem::transmute(errorcode), extendedinformation.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4675,21 +4730,21 @@ pub unsafe fn WSManPluginReceiveResult<'a, Param2: ::windows::runtime::IntoParam
         extern "system" {
             fn WSManPluginReceiveResult(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: super::super::Foundation::PWSTR, streamresult: *const WSMAN_DATA, commandstate: super::super::Foundation::PWSTR, exitcode: u32) -> u32;
         }
-        ::std::mem::transmute(WSManPluginReceiveResult(::std::mem::transmute(requestdetails), ::std::mem::transmute(flags), stream.into_param().abi(), ::std::mem::transmute(streamresult), commandstate.into_param().abi(), ::std::mem::transmute(exitcode)))
+        ::core::mem::transmute(WSManPluginReceiveResult(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), stream.into_param().abi(), ::core::mem::transmute(streamresult), commandstate.into_param().abi(), ::core::mem::transmute(exitcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[inline]
-pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::std::ffi::c_void, flags: u32) -> u32 {
+pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_void, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManPluginReportCompletion(plugincontext: *const ::std::ffi::c_void, flags: u32) -> u32;
+            fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_void, flags: u32) -> u32;
         }
-        ::std::mem::transmute(WSManPluginReportCompletion(::std::mem::transmute(plugincontext), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(WSManPluginReportCompletion(::core::mem::transmute(plugincontext), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4697,27 +4752,27 @@ pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::std::ffi::c_vo
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::std::ffi::c_void) -> u32;
+            fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(WSManPluginReportContext(::std::mem::transmute(requestdetails), ::std::mem::transmute(flags), ::std::mem::transmute(context)))
+        ::core::mem::transmute(WSManPluginReportContext(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), ::core::mem::transmute(context)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManProxyAccessType(pub i32);
 pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);
 pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(2i32);
 pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = WSManProxyAccessType(4i32);
 pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = WSManProxyAccessType(8i32);
-impl ::std::convert::From<i32> for WSManProxyAccessType {
+impl ::core::convert::From<i32> for WSManProxyAccessType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4726,14 +4781,14 @@ unsafe impl ::windows::runtime::Abi for WSManProxyAccessType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManProxyAccessTypeFlags(pub i32);
 pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(1i32);
 pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(2i32);
 pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(4i32);
 pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(8i32);
-impl ::std::convert::From<i32> for WSManProxyAccessTypeFlags {
+impl ::core::convert::From<i32> for WSManProxyAccessTypeFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4742,13 +4797,13 @@ unsafe impl ::windows::runtime::Abi for WSManProxyAccessTypeFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManProxyAuthenticationFlags(pub i32);
 pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(1i32);
 pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(2i32);
 pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(4i32);
-impl ::std::convert::From<i32> for WSManProxyAuthenticationFlags {
+impl ::core::convert::From<i32> for WSManProxyAuthenticationFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4764,9 +4819,9 @@ pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const W
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, receiveoperation: *mut *mut WSMAN_OPERATION);
+            fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, receiveoperation: *mut *mut WSMAN_OPERATION);
         }
-        ::std::mem::transmute(WSManReceiveShellOutput(::std::mem::transmute(shell), ::std::mem::transmute(command), ::std::mem::transmute(flags), ::std::mem::transmute(desiredstreamset), ::std::mem::transmute(r#async), ::std::mem::transmute(receiveoperation)))
+        ::core::mem::transmute(WSManReceiveShellOutput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), ::core::mem::transmute(desiredstreamset), ::core::mem::transmute(r#async), ::core::mem::transmute(receiveoperation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4779,9 +4834,9 @@ pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
         }
-        ::std::mem::transmute(WSManReconnectShell(::std::mem::transmute(shell), ::std::mem::transmute(flags), ::std::mem::transmute(r#async)))
+        ::core::mem::transmute(WSManReconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4794,9 +4849,9 @@ pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flag
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
         }
-        ::std::mem::transmute(WSManReconnectShellCommand(::std::mem::transmute(commandhandle), ::std::mem::transmute(flags), ::std::mem::transmute(r#async)))
+        ::core::mem::transmute(WSManReconnectShellCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4809,9 +4864,9 @@ pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::runtime::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
+            fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
         }
-        ::std::mem::transmute(WSManRunShellCommand(::std::mem::transmute(shell), ::std::mem::transmute(flags), commandline.into_param().abi(), ::std::mem::transmute(args), ::std::mem::transmute(options), ::std::mem::transmute(r#async), ::std::mem::transmute(command)))
+        ::core::mem::transmute(WSManRunShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4824,9 +4879,9 @@ pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::runtime::IntoParam<'
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
+            fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
         }
-        ::std::mem::transmute(WSManRunShellCommandEx(::std::mem::transmute(shell), ::std::mem::transmute(flags), commandid.into_param().abi(), commandline.into_param().abi(), ::std::mem::transmute(args), ::std::mem::transmute(options), ::std::mem::transmute(r#async), ::std::mem::transmute(command)))
+        ::core::mem::transmute(WSManRunShellCommandEx(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4839,15 +4894,15 @@ pub unsafe fn WSManSendShellInput<'a, Param3: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: super::super::Foundation::PWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, sendoperation: *mut *mut WSMAN_OPERATION);
+            fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: super::super::Foundation::PWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, sendoperation: *mut *mut WSMAN_OPERATION);
         }
-        ::std::mem::transmute(WSManSendShellInput(::std::mem::transmute(shell), ::std::mem::transmute(command), ::std::mem::transmute(flags), streamid.into_param().abi(), ::std::mem::transmute(streamdata), endofstream.into_param().abi(), ::std::mem::transmute(r#async), ::std::mem::transmute(sendoperation)))
+        ::core::mem::transmute(WSManSendShellInput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), streamid.into_param().abi(), ::core::mem::transmute(streamdata), endofstream.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(sendoperation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManSessionFlags(pub i32);
 pub const WSManFlagUTF8: WSManSessionFlags = WSManSessionFlags(1i32);
@@ -4867,7 +4922,7 @@ pub const WSManFlagUseCredSsp: WSManSessionFlags = WSManSessionFlags(16777216i32
 pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = WSManSessionFlags(33554432i32);
 pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = WSManSessionFlags(67108864i32);
 pub const WSManFlagUseSsl: WSManSessionFlags = WSManSessionFlags(134217728i32);
-impl ::std::convert::From<i32> for WSManSessionFlags {
+impl ::core::convert::From<i32> for WSManSessionFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4876,7 +4931,7 @@ unsafe impl ::windows::runtime::Abi for WSManSessionFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManSessionOption(pub i32);
 pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
@@ -4902,7 +4957,7 @@ pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = WSManSessionO
 pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
 pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = WSManSessionOption(33i32);
 pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = WSManSessionOption(34i32);
-impl ::std::convert::From<i32> for WSManSessionOption {
+impl ::core::convert::From<i32> for WSManSessionOption {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4920,13 +4975,13 @@ pub unsafe fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSMan
         extern "system" {
             fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32;
         }
-        ::std::mem::transmute(WSManSetSessionOption(::std::mem::transmute(session), ::std::mem::transmute(option), ::std::mem::transmute(data)))
+        ::core::mem::transmute(WSManSetSessionOption(::core::mem::transmute(session), ::core::mem::transmute(option), ::core::mem::transmute(data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WSManShellFlag(pub i32);
 pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = WSManShellFlag(1i32);
@@ -4934,7 +4989,7 @@ pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = WSManShellFlag(2i32
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = WSManShellFlag(4i32);
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = WSManShellFlag(8i32);
 pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = WSManShellFlag(16i32);
-impl ::std::convert::From<i32> for WSManShellFlag {
+impl ::core::convert::From<i32> for WSManShellFlag {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4950,9 +5005,9 @@ pub unsafe fn WSManSignalShell<'a, Param3: ::windows::runtime::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: super::super::Foundation::PWSTR, r#async: *const ::std::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, signaloperation: *mut *mut WSMAN_OPERATION);
+            fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: super::super::Foundation::PWSTR, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, signaloperation: *mut *mut WSMAN_OPERATION);
         }
-        ::std::mem::transmute(WSManSignalShell(::std::mem::transmute(shell), ::std::mem::transmute(command), ::std::mem::transmute(flags), code.into_param().abi(), ::std::mem::transmute(r#async), ::std::mem::transmute(signaloperation)))
+        ::core::mem::transmute(WSManSignalShell(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), code.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(signaloperation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

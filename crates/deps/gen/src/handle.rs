@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen_handle() -> TokenStream {
     quote! {
-        #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
+        #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
         #[repr(transparent)]
         pub struct HANDLE(pub isize);
         unsafe impl ::windows::runtime::Handle for HANDLE {

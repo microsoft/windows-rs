@@ -1,4 +1,4 @@
-use std::convert::TryInto;
+use core::convert::TryInto;
 use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]

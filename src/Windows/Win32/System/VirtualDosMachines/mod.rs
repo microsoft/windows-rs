@@ -45,7 +45,7 @@ pub const DBG_TOOLHELP: u32 = 15u32;
 pub const DBG_WOWINIT: u32 = 17u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-pub type DEBUGEVENTPROC = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>, param1: *mut ::std::ffi::c_void) -> u32;
+pub type DEBUGEVENTPROC = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>, param1: *mut ::core::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ACCELERATORS: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -78,7 +78,7 @@ pub const GD_RCDATA: u32 = 10u32;
 pub const GD_STRING: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_USERDEFINED: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
@@ -100,19 +100,19 @@ pub struct GLOBALENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl GLOBALENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GLOBALENTRY {
+impl ::core::default::Default for GLOBALENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GLOBALENTRY {
+impl ::core::cmp::PartialEq for GLOBALENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GLOBALENTRY {}
+impl ::core::cmp::Eq for GLOBALENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GLOBALENTRY {
     type Abi = Self;
@@ -145,7 +145,7 @@ pub const GT_SENTINEL: u32 = 9u32;
 pub const GT_TASK: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_UNKNOWN: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
@@ -158,25 +158,25 @@ pub struct IMAGE_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl IMAGE_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IMAGE_NOTE {
+impl ::core::default::Default for IMAGE_NOTE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IMAGE_NOTE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IMAGE_NOTE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IMAGE_NOTE {
+impl ::core::cmp::PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IMAGE_NOTE {}
+impl ::core::cmp::Eq for IMAGE_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMAGE_NOTE {
     type Abi = Self;
@@ -185,7 +185,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_NOTE {
 pub const MAX_MODULE_NAME: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const MAX_PATH16: u32 = 255u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
@@ -200,19 +200,19 @@ pub struct MODULEENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl MODULEENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MODULEENTRY {
+impl ::core::default::Default for MODULEENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MODULEENTRY {
+impl ::core::cmp::PartialEq for MODULEENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MODULEENTRY {}
+impl ::core::cmp::Eq for MODULEENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY {
     type Abi = Self;
@@ -220,7 +220,7 @@ unsafe impl ::windows::runtime::Abi for MODULEENTRY {
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PROCESSENUMPROC = unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
@@ -236,25 +236,25 @@ pub struct SEGMENT_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl SEGMENT_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SEGMENT_NOTE {
+impl ::core::default::Default for SEGMENT_NOTE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SEGMENT_NOTE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SEGMENT_NOTE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SEGMENT_NOTE {
+impl ::core::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SEGMENT_NOTE {}
+impl ::core::cmp::Eq for SEGMENT_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SEGMENT_NOTE {
     type Abi = Self;
@@ -273,7 +273,7 @@ pub type TASKENUMPROC = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, 
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TASKENUMPROCEX = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
@@ -285,25 +285,25 @@ pub struct TEMP_BP_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl TEMP_BP_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TEMP_BP_NOTE {
+impl ::core::default::Default for TEMP_BP_NOTE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TEMP_BP_NOTE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TEMP_BP_NOTE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TEMP_BP_NOTE {
+impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Seg == other.Seg && self.Offset == other.Offset && self.bPM == other.bPM
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TEMP_BP_NOTE {}
+impl ::core::cmp::Eq for TEMP_BP_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TEMP_BP_NOTE {
     type Abi = Self;
@@ -345,7 +345,7 @@ pub const VDMADDR_V86: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMBREAKTHREADPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -382,15 +382,15 @@ pub struct VDMCONTEXT {
 impl VDMCONTEXT {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::default::Default for VDMCONTEXT {
+impl ::core::default::Default for VDMCONTEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::fmt::Debug for VDMCONTEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VDMCONTEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VDMCONTEXT")
             .field("ContextFlags", &self.ContextFlags)
             .field("Dr0", &self.Dr0)
@@ -422,7 +422,7 @@ impl ::std::fmt::Debug for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::cmp::PartialEq for VDMCONTEXT {
+impl ::core::cmp::PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.ContextFlags == other.ContextFlags
             && self.Dr0 == other.Dr0
@@ -453,13 +453,13 @@ impl ::std::cmp::PartialEq for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::cmp::Eq for VDMCONTEXT {}
+impl ::core::cmp::Eq for VDMCONTEXT {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::runtime::Abi for VDMCONTEXT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_System_Kernel`*"]
@@ -492,14 +492,14 @@ pub struct VDMCONTEXT_WITHOUT_XSAVE {
 #[cfg(feature = "Win32_System_Kernel")]
 impl VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::default::Default for VDMCONTEXT_WITHOUT_XSAVE {
+impl ::core::default::Default for VDMCONTEXT_WITHOUT_XSAVE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VDMCONTEXT_WITHOUT_XSAVE")
             .field("ContextFlags", &self.ContextFlags)
             .field("Dr0", &self.Dr0)
@@ -529,7 +529,7 @@ impl ::std::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
+impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
     fn eq(&self, other: &Self) -> bool {
         self.ContextFlags == other.ContextFlags
             && self.Dr0 == other.Dr0
@@ -558,7 +558,7 @@ impl ::std::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::std::cmp::Eq for VDMCONTEXT_WITHOUT_XSAVE {}
+impl ::core::cmp::Eq for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::runtime::Abi for VDMCONTEXT_WITHOUT_XSAVE {
     type Abi = Self;
@@ -648,17 +648,17 @@ pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super
 pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMKILLWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -670,24 +670,24 @@ pub struct VDMLDT_ENTRY {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for VDMLDT_ENTRY {
+impl ::core::default::Default for VDMLDT_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for VDMLDT_ENTRY {
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for VDMLDT_ENTRY {}
+impl ::core::cmp::Eq for VDMLDT_ENTRY {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub union VDMLDT_ENTRY_0 {
@@ -697,24 +697,24 @@ pub union VDMLDT_ENTRY_0 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for VDMLDT_ENTRY_0 {
+impl ::core::default::Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0 {
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for VDMLDT_ENTRY_0 {}
+impl ::core::cmp::Eq for VDMLDT_ENTRY_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY_0_0 {
@@ -723,30 +723,30 @@ pub struct VDMLDT_ENTRY_0_0 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY_0_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for VDMLDT_ENTRY_0_0 {
+impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for VDMLDT_ENTRY_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Bits_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for VDMLDT_ENTRY_0_0 {}
+impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY_0_1 {
@@ -758,38 +758,38 @@ pub struct VDMLDT_ENTRY_0_1 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY_0_1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for VDMLDT_ENTRY_0_1 {
+impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for VDMLDT_ENTRY_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Bytes_e__Struct").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for VDMLDT_ENTRY_0_1 {}
+impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-pub type VDMMODULENEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMMODULENEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-pub type VDMPROCESSEXCEPTIONPROC = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>) -> super::super::Foundation::BOOL;
+pub type VDMPROCESSEXCEPTIONPROC = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -811,7 +811,7 @@ pub type VDMTERMINATETASKINWOWPROC = unsafe extern "system" fn(param0: u32, para
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
@@ -826,25 +826,25 @@ pub struct VDM_SEGINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl VDM_SEGINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for VDM_SEGINFO {
+impl ::core::default::Default for VDM_SEGINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for VDM_SEGINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VDM_SEGINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for VDM_SEGINFO {
+impl ::core::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
         self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for VDM_SEGINFO {}
+impl ::core::cmp::Eq for VDM_SEGINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDM_SEGINFO {
     type Abi = Self;

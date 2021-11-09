@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
 pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
@@ -10,7 +10,7 @@ pub const TH32CS_SNAPMODULE: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SN
 pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(16u32);
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
-impl ::std::convert::From<u32> for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+impl ::core::convert::From<u32> for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -18,29 +18,29 @@ impl ::std::convert::From<u32> for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 unsafe impl ::windows::runtime::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+impl ::core::ops::BitOr for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+impl ::core::ops::BitAnd for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+impl ::core::ops::BitOrAssign for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+impl ::core::ops::BitAndAssign for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+impl ::core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -56,12 +56,12 @@ pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, 
         extern "system" {
             fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> super::super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateToolhelp32Snapshot(::std::mem::transmute(dwflags), ::std::mem::transmute(th32processid)))
+        ::core::mem::transmute(CreateToolhelp32Snapshot(::core::mem::transmute(dwflags), ::core::mem::transmute(th32processid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
@@ -79,14 +79,14 @@ pub struct HEAPENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl HEAPENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HEAPENTRY32 {
+impl ::core::default::Default for HEAPENTRY32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HEAPENTRY32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HEAPENTRY32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HEAPENTRY32")
             .field("dwSize", &self.dwSize)
             .field("hHandle", &self.hHandle)
@@ -101,25 +101,25 @@ impl ::std::fmt::Debug for HEAPENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HEAPENTRY32 {
+impl ::core::cmp::PartialEq for HEAPENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.hHandle == other.hHandle && self.dwAddress == other.dwAddress && self.dwBlockSize == other.dwBlockSize && self.dwFlags == other.dwFlags && self.dwLockCount == other.dwLockCount && self.dwResvd == other.dwResvd && self.th32ProcessID == other.th32ProcessID && self.th32HeapID == other.th32HeapID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HEAPENTRY32 {}
+impl ::core::cmp::Eq for HEAPENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HEAPENTRY32 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
 pub const LF32_FIXED: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(1u32);
 pub const LF32_FREE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(2u32);
 pub const LF32_MOVEABLE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(4u32);
-impl ::std::convert::From<u32> for HEAPENTRY32_FLAGS {
+impl ::core::convert::From<u32> for HEAPENTRY32_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -127,35 +127,35 @@ impl ::std::convert::From<u32> for HEAPENTRY32_FLAGS {
 unsafe impl ::windows::runtime::Abi for HEAPENTRY32_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for HEAPENTRY32_FLAGS {
+impl ::core::ops::BitOr for HEAPENTRY32_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for HEAPENTRY32_FLAGS {
+impl ::core::ops::BitAnd for HEAPENTRY32_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for HEAPENTRY32_FLAGS {
+impl ::core::ops::BitOrAssign for HEAPENTRY32_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for HEAPENTRY32_FLAGS {
+impl ::core::ops::BitAndAssign for HEAPENTRY32_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for HEAPENTRY32_FLAGS {
+impl ::core::ops::Not for HEAPENTRY32_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 pub struct HEAPLIST32 {
@@ -165,22 +165,22 @@ pub struct HEAPLIST32 {
     pub dwFlags: u32,
 }
 impl HEAPLIST32 {}
-impl ::std::default::Default for HEAPLIST32 {
+impl ::core::default::Default for HEAPLIST32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HEAPLIST32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HEAPLIST32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HEAPLIST32").field("dwSize", &self.dwSize).field("th32ProcessID", &self.th32ProcessID).field("th32HeapID", &self.th32HeapID).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for HEAPLIST32 {
+impl ::core::cmp::PartialEq for HEAPLIST32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.th32ProcessID == other.th32ProcessID && self.th32HeapID == other.th32HeapID && self.dwFlags == other.dwFlags
     }
 }
-impl ::std::cmp::Eq for HEAPLIST32 {}
+impl ::core::cmp::Eq for HEAPLIST32 {}
 unsafe impl ::windows::runtime::Abi for HEAPLIST32 {
     type Abi = Self;
 }
@@ -198,7 +198,7 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
         extern "system" {
             fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32First(::std::mem::transmute(lphe), ::std::mem::transmute(th32processid), ::std::mem::transmute(th32heapid)))
+        ::core::mem::transmute(Heap32First(::core::mem::transmute(lphe), ::core::mem::transmute(th32processid), ::core::mem::transmute(th32heapid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -213,7 +213,7 @@ pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn Heap32ListFirst(hsnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32ListFirst(hsnapshot.into_param().abi(), ::std::mem::transmute(lphl)))
+        ::core::mem::transmute(Heap32ListFirst(hsnapshot.into_param().abi(), ::core::mem::transmute(lphl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -228,7 +228,7 @@ pub unsafe fn Heap32ListNext<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn Heap32ListNext(hsnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32ListNext(hsnapshot.into_param().abi(), ::std::mem::transmute(lphl)))
+        ::core::mem::transmute(Heap32ListNext(hsnapshot.into_param().abi(), ::core::mem::transmute(lphl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -243,14 +243,14 @@ pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundat
         extern "system" {
             fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32Next(::std::mem::transmute(lphe)))
+        ::core::mem::transmute(Heap32Next(::core::mem::transmute(lphe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 pub const MAX_MODULE_NAME32: u32 = 255u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
@@ -269,14 +269,14 @@ pub struct MODULEENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl MODULEENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MODULEENTRY32 {
+impl ::core::default::Default for MODULEENTRY32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MODULEENTRY32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MODULEENTRY32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MODULEENTRY32")
             .field("dwSize", &self.dwSize)
             .field("th32ModuleID", &self.th32ModuleID)
@@ -292,18 +292,18 @@ impl ::std::fmt::Debug for MODULEENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MODULEENTRY32 {
+impl ::core::cmp::PartialEq for MODULEENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.th32ModuleID == other.th32ModuleID && self.th32ProcessID == other.th32ProcessID && self.GlblcntUsage == other.GlblcntUsage && self.ProccntUsage == other.ProccntUsage && self.modBaseAddr == other.modBaseAddr && self.modBaseSize == other.modBaseSize && self.hModule == other.hModule && self.szModule == other.szModule && self.szExePath == other.szExePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MODULEENTRY32 {}
+impl ::core::cmp::Eq for MODULEENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY32 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
@@ -322,14 +322,14 @@ pub struct MODULEENTRY32W {
 #[cfg(feature = "Win32_Foundation")]
 impl MODULEENTRY32W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MODULEENTRY32W {
+impl ::core::default::Default for MODULEENTRY32W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MODULEENTRY32W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MODULEENTRY32W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MODULEENTRY32W")
             .field("dwSize", &self.dwSize)
             .field("th32ModuleID", &self.th32ModuleID)
@@ -345,13 +345,13 @@ impl ::std::fmt::Debug for MODULEENTRY32W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MODULEENTRY32W {
+impl ::core::cmp::PartialEq for MODULEENTRY32W {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.th32ModuleID == other.th32ModuleID && self.th32ProcessID == other.th32ProcessID && self.GlblcntUsage == other.GlblcntUsage && self.ProccntUsage == other.ProccntUsage && self.modBaseAddr == other.modBaseAddr && self.modBaseSize == other.modBaseSize && self.hModule == other.hModule && self.szModule == other.szModule && self.szExePath == other.szExePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MODULEENTRY32W {}
+impl ::core::cmp::Eq for MODULEENTRY32W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY32W {
     type Abi = Self;
@@ -366,7 +366,7 @@ pub unsafe fn Module32First<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn Module32First(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32First(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
+        ::core::mem::transmute(Module32First(hsnapshot.into_param().abi(), ::core::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -381,7 +381,7 @@ pub unsafe fn Module32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn Module32FirstW(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32FirstW(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
+        ::core::mem::transmute(Module32FirstW(hsnapshot.into_param().abi(), ::core::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -396,7 +396,7 @@ pub unsafe fn Module32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn Module32Next(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32Next(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
+        ::core::mem::transmute(Module32Next(hsnapshot.into_param().abi(), ::core::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -411,12 +411,12 @@ pub unsafe fn Module32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn Module32NextW(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32NextW(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
+        ::core::mem::transmute(Module32NextW(hsnapshot.into_param().abi(), ::core::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
@@ -435,14 +435,14 @@ pub struct PROCESSENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl PROCESSENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PROCESSENTRY32 {
+impl ::core::default::Default for PROCESSENTRY32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for PROCESSENTRY32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PROCESSENTRY32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PROCESSENTRY32")
             .field("dwSize", &self.dwSize)
             .field("cntUsage", &self.cntUsage)
@@ -458,18 +458,18 @@ impl ::std::fmt::Debug for PROCESSENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PROCESSENTRY32 {
+impl ::core::cmp::PartialEq for PROCESSENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ProcessID == other.th32ProcessID && self.th32DefaultHeapID == other.th32DefaultHeapID && self.th32ModuleID == other.th32ModuleID && self.cntThreads == other.cntThreads && self.th32ParentProcessID == other.th32ParentProcessID && self.pcPriClassBase == other.pcPriClassBase && self.dwFlags == other.dwFlags && self.szExeFile == other.szExeFile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PROCESSENTRY32 {}
+impl ::core::cmp::Eq for PROCESSENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESSENTRY32 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 pub struct PROCESSENTRY32W {
@@ -485,13 +485,13 @@ pub struct PROCESSENTRY32W {
     pub szExeFile: [u16; 260],
 }
 impl PROCESSENTRY32W {}
-impl ::std::default::Default for PROCESSENTRY32W {
+impl ::core::default::Default for PROCESSENTRY32W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PROCESSENTRY32W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PROCESSENTRY32W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PROCESSENTRY32W")
             .field("dwSize", &self.dwSize)
             .field("cntUsage", &self.cntUsage)
@@ -506,12 +506,12 @@ impl ::std::fmt::Debug for PROCESSENTRY32W {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for PROCESSENTRY32W {
+impl ::core::cmp::PartialEq for PROCESSENTRY32W {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ProcessID == other.th32ProcessID && self.th32DefaultHeapID == other.th32DefaultHeapID && self.th32ModuleID == other.th32ModuleID && self.cntThreads == other.cntThreads && self.th32ParentProcessID == other.th32ParentProcessID && self.pcPriClassBase == other.pcPriClassBase && self.dwFlags == other.dwFlags && self.szExeFile == other.szExeFile
     }
 }
-impl ::std::cmp::Eq for PROCESSENTRY32W {}
+impl ::core::cmp::Eq for PROCESSENTRY32W {}
 unsafe impl ::windows::runtime::Abi for PROCESSENTRY32W {
     type Abi = Self;
 }
@@ -525,7 +525,7 @@ pub unsafe fn Process32First<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn Process32First(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32First(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
+        ::core::mem::transmute(Process32First(hsnapshot.into_param().abi(), ::core::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -540,7 +540,7 @@ pub unsafe fn Process32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn Process32FirstW(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32FirstW(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
+        ::core::mem::transmute(Process32FirstW(hsnapshot.into_param().abi(), ::core::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -555,7 +555,7 @@ pub unsafe fn Process32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn Process32Next(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32Next(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
+        ::core::mem::transmute(Process32Next(hsnapshot.into_param().abi(), ::core::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -570,12 +570,12 @@ pub unsafe fn Process32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn Process32NextW(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32NextW(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
+        ::core::mem::transmute(Process32NextW(hsnapshot.into_param().abi(), ::core::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 pub struct THREADENTRY32 {
@@ -588,13 +588,13 @@ pub struct THREADENTRY32 {
     pub dwFlags: u32,
 }
 impl THREADENTRY32 {}
-impl ::std::default::Default for THREADENTRY32 {
+impl ::core::default::Default for THREADENTRY32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for THREADENTRY32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for THREADENTRY32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("THREADENTRY32")
             .field("dwSize", &self.dwSize)
             .field("cntUsage", &self.cntUsage)
@@ -606,12 +606,12 @@ impl ::std::fmt::Debug for THREADENTRY32 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for THREADENTRY32 {
+impl ::core::cmp::PartialEq for THREADENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ThreadID == other.th32ThreadID && self.th32OwnerProcessID == other.th32OwnerProcessID && self.tpBasePri == other.tpBasePri && self.tpDeltaPri == other.tpDeltaPri && self.dwFlags == other.dwFlags
     }
 }
-impl ::std::cmp::Eq for THREADENTRY32 {}
+impl ::core::cmp::Eq for THREADENTRY32 {}
 unsafe impl ::windows::runtime::Abi for THREADENTRY32 {
     type Abi = Self;
 }
@@ -625,7 +625,7 @@ pub unsafe fn Thread32First<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn Thread32First(hsnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Thread32First(hsnapshot.into_param().abi(), ::std::mem::transmute(lpte)))
+        ::core::mem::transmute(Thread32First(hsnapshot.into_param().abi(), ::core::mem::transmute(lpte)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -640,7 +640,7 @@ pub unsafe fn Thread32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn Thread32Next(hsnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Thread32Next(hsnapshot.into_param().abi(), ::std::mem::transmute(lpte)))
+        ::core::mem::transmute(Thread32Next(hsnapshot.into_param().abi(), ::core::mem::transmute(lpte)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -648,14 +648,14 @@ pub unsafe fn Thread32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL;
+            fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Toolhelp32ReadProcessMemory(::std::mem::transmute(th32processid), ::std::mem::transmute(lpbaseaddress), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbread), ::std::mem::transmute(lpnumberofbytesread)))
+        ::core::mem::transmute(Toolhelp32ReadProcessMemory(::core::mem::transmute(th32processid), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbread), ::core::mem::transmute(lpnumberofbytesread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

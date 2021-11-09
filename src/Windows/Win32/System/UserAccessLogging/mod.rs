@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_System_UserAccessLogging`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
@@ -13,25 +13,25 @@ pub struct UAL_DATA_BLOB {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl UAL_DATA_BLOB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::default::Default for UAL_DATA_BLOB {
+impl ::core::default::Default for UAL_DATA_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::fmt::Debug for UAL_DATA_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for UAL_DATA_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("UAL_DATA_BLOB").field("Size", &self.Size).field("RoleGuid", &self.RoleGuid).field("TenantId", &self.TenantId).field("Address", &self.Address).field("UserName", &self.UserName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::cmp::PartialEq for UAL_DATA_BLOB {
+impl ::core::cmp::PartialEq for UAL_DATA_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.RoleGuid == other.RoleGuid && self.TenantId == other.TenantId && self.Address == other.Address && self.UserName == other.UserName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::cmp::Eq for UAL_DATA_BLOB {}
+impl ::core::cmp::Eq for UAL_DATA_BLOB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for UAL_DATA_BLOB {
     type Abi = Self;
@@ -46,7 +46,7 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::R
         extern "system" {
             fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::HRESULT;
         }
-        UalInstrument(::std::mem::transmute(data)).ok()
+        UalInstrument(::core::mem::transmute(data)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -76,7 +76,7 @@ pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result
         extern "system" {
             fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::HRESULT;
         }
-        UalStart(::std::mem::transmute(data)).ok()
+        UalStart(::core::mem::transmute(data)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -91,7 +91,7 @@ pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<
         extern "system" {
             fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::HRESULT;
         }
-        UalStop(::std::mem::transmute(data)).ok()
+        UalStop(::core::mem::transmute(data)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

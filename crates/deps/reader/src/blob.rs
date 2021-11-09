@@ -1,5 +1,5 @@
 use super::{Decode, File, TypeDefOrRef};
-use std::convert::TryInto;
+use core::convert::TryInto;
 
 pub struct Blob {
     pub file: &'static File,
@@ -59,17 +59,17 @@ impl Blob {
     pub fn read_str(&mut self) -> &'static str {
         let len = self.read_unsigned() as usize;
         self.offset += len;
-        std::str::from_utf8(&self.file.bytes[self.offset - len..self.offset]).unwrap()
+        core::str::from_utf8(&self.file.bytes[self.offset - len..self.offset]).unwrap()
     }
 
     pub fn read_utf16(&self) -> String {
         let bytes = &self.file.bytes[self.offset..];
-        if bytes.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+        if bytes.as_ptr().align_offset(core::mem::align_of::<u16>()) > 0 {
             let bytes = bytes.chunks_exact(2).take(self.size / 2).map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap())).collect::<Vec<u16>>();
             String::from_utf16(&bytes).unwrap()
         } else {
             assert!(bytes.len() >= self.size, "Attempt to read from end of memory");
-            let bytes = unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
+            let bytes = unsafe { core::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
             String::from_utf16(bytes).unwrap()
         }
     }

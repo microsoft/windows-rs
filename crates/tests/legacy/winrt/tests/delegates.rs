@@ -1,4 +1,4 @@
-use std::convert::*;
+use core::convert::*;
 
 use test_winrt::{
     Windows::Foundation::Collections::{CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet},

@@ -10,8 +10,8 @@ pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ICreateDeviceAccessAsync as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::std::mem::transmute(desiredaccess), &mut result__).from_abi::<ICreateDeviceAccessAsync>(result__)
+        let mut result__: <ICreateDeviceAccessAsync as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(desiredaccess), &mut result__).from_abi::<ICreateDeviceAccessAsync>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -106,37 +106,37 @@ pub const ED_TOP: u32 = 1u32;
 pub const ED_VIDEO: i32 = 33554432i32;
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICreateDeviceAccessAsync(pub ::windows::runtime::IUnknown);
 impl ICreateDeviceAccessAsync {
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn Wait(&self, timeout: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(timeout)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn GetResult<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsync_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(880042639, 26685, 17106, [171, 203, 219, 1, 140, 101, 3, 188]);
 }
-impl ::std::convert::From<ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
     fn from(value: ICreateDeviceAccessAsync) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICreateDeviceAccessAsync> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateDeviceAccessAsync) -> Self {
         value.0.clone()
     }
@@ -160,46 +160,46 @@ pub struct ICreateDeviceAccessAsync_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timeout: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, deviceaccess: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, deviceaccess: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDeviceIoControl(pub ::windows::runtime::IUnknown);
 impl IDeviceIoControl {
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(iocontrolcode), ::std::mem::transmute(inputbuffer), ::std::mem::transmute(inputbuffersize), ::std::mem::transmute(outputbuffer), ::std::mem::transmute(outputbuffersize), ::std::mem::transmute(bytesreturned)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(iocontrolcode), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(inputbuffersize), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(outputbuffersize), ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn DeviceIoControlAsync<'a, Param5: ::windows::runtime::IntoParam<'a, IDeviceRequestCompletionCallback>>(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: Param5, cancelcontext: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(iocontrolcode),
-            ::std::mem::transmute(inputbuffer),
-            ::std::mem::transmute(inputbuffersize),
-            ::std::mem::transmute(outputbuffer),
-            ::std::mem::transmute(outputbuffersize),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(iocontrolcode),
+            ::core::mem::transmute(inputbuffer),
+            ::core::mem::transmute(inputbuffersize),
+            ::core::mem::transmute(outputbuffer),
+            ::core::mem::transmute(outputbuffersize),
             requestcompletioncallback.into_param().abi(),
-            ::std::mem::transmute(cancelcontext),
+            ::core::mem::transmute(cancelcontext),
         )
         .ok()
     }
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn CancelOperation(&self, cancelcontext: usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cancelcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(cancelcontext)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDeviceIoControl {
     type Vtable = IDeviceIoControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2666520929, 9131, 20248, [155, 73, 153, 27, 88, 106, 233, 112]);
 }
-impl ::std::convert::From<IDeviceIoControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDeviceIoControl> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceIoControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDeviceIoControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDeviceIoControl> for ::windows::runtime::IUnknown {
     fn from(value: &IDeviceIoControl) -> Self {
         value.0.clone()
     }
@@ -226,24 +226,24 @@ pub struct IDeviceIoControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDeviceRequestCompletionCallback(pub ::windows::runtime::IUnknown);
 impl IDeviceRequestCompletionCallback {
     #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
     pub unsafe fn Invoke(&self, requestresult: ::windows::runtime::HRESULT, bytesreturned: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(requestresult), ::std::mem::transmute(bytesreturned)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestresult), ::core::mem::transmute(bytesreturned)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDeviceRequestCompletionCallback {
     type Vtable = IDeviceRequestCompletionCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2577116452, 39629, 17851, [134, 105, 42, 47, 192, 40, 139, 4]);
 }
-impl ::std::convert::From<IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
     fn from(value: IDeviceRequestCompletionCallback) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDeviceRequestCompletionCallback> for ::windows::runtime::IUnknown {
     fn from(value: &IDeviceRequestCompletionCallback) -> Self {
         value.0.clone()
     }

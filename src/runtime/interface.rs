@@ -20,13 +20,13 @@ pub unsafe trait Interface: Sized {
 
     #[doc(hidden)]
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
-        let this: RawPtr = std::mem::transmute_copy(self);
+        let this: RawPtr = core::mem::transmute_copy(self);
         &(*(*(this as *mut *mut _) as *mut _))
     }
 
     #[doc(hidden)]
     unsafe fn query(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
-        (self.assume_vtable::<IUnknown>().0)(std::mem::transmute_copy(self), iid, interface)
+        (self.assume_vtable::<IUnknown>().0)(core::mem::transmute_copy(self), iid, interface)
     }
 
     /// Attempts to cast the current interface to another interface using `QueryInterface`.
@@ -36,7 +36,7 @@ pub unsafe trait Interface: Sized {
         unsafe {
             let mut result = None;
 
-            (self.assume_vtable::<IUnknown>().0)(std::mem::transmute_copy(self), &T::IID, &mut result as *mut _ as _).and_some(result)
+            (self.assume_vtable::<IUnknown>().0)(core::mem::transmute_copy(self), &T::IID, &mut result as *mut _ as _).and_some(result)
         }
     }
 

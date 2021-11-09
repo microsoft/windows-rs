@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Phone_Speech_Recognition`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionUIStatus(pub i32);
 impl SpeechRecognitionUIStatus {
@@ -10,7 +10,7 @@ impl SpeechRecognitionUIStatus {
     pub const Preempted: SpeechRecognitionUIStatus = SpeechRecognitionUIStatus(3i32);
     pub const PrivacyPolicyDeclined: SpeechRecognitionUIStatus = SpeechRecognitionUIStatus(4i32);
 }
-impl ::std::convert::From<i32> for SpeechRecognitionUIStatus {
+impl ::core::convert::From<i32> for SpeechRecognitionUIStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }

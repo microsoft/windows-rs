@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -20,14 +20,14 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_CODE_PROPERTIES_V1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_CODE_PROPERTIES_V1 {
+impl ::core::default::Default for SAFER_CODE_PROPERTIES_V1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_CODE_PROPERTIES_V1")
             .field("cbSize", &self.cbSize)
             .field("dwCheckFlags", &self.dwCheckFlags)
@@ -45,18 +45,18 @@ impl ::std::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_CODE_PROPERTIES_V1 {
+impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_CODE_PROPERTIES_V1 {}
+impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_CODE_PROPERTIES_V1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -82,14 +82,14 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_CODE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_CODE_PROPERTIES_V2 {
+impl ::core::default::Default for SAFER_CODE_PROPERTIES_V2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_CODE_PROPERTIES_V2")
             .field("cbSize", &self.cbSize)
             .field("dwCheckFlags", &self.dwCheckFlags)
@@ -112,7 +112,7 @@ impl ::std::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
+impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
             && self.dwCheckFlags == other.dwCheckFlags
@@ -134,20 +134,20 @@ impl ::std::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_CODE_PROPERTIES_V2 {}
+impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_CODE_PROPERTIES_V2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
 pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2u32);
 pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
 pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
-impl ::std::convert::From<u32> for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+impl ::core::convert::From<u32> for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -155,29 +155,29 @@ impl ::std::convert::From<u32> for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
 unsafe impl ::windows::runtime::Abi for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+impl ::core::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+impl ::core::ops::BitAnd for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+impl ::core::ops::BitOrAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+impl ::core::ops::BitAndAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+impl ::core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -197,7 +197,7 @@ pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
 pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -214,14 +214,14 @@ pub struct SAFER_HASH_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_HASH_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_HASH_IDENTIFICATION {
+impl ::core::default::Default for SAFER_HASH_IDENTIFICATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_HASH_IDENTIFICATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_HASH_IDENTIFICATION")
             .field("header", &self.header)
             .field("Description", &self.Description)
@@ -235,18 +235,18 @@ impl ::std::fmt::Debug for SAFER_HASH_IDENTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_HASH_IDENTIFICATION {
+impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.Description == other.Description && self.FriendlyName == other.FriendlyName && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm && self.ImageSize == other.ImageSize && self.dwSaferFlags == other.dwSaferFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_HASH_IDENTIFICATION {}
+impl ::core::cmp::Eq for SAFER_HASH_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -259,30 +259,30 @@ pub struct SAFER_HASH_IDENTIFICATION2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_HASH_IDENTIFICATION2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_HASH_IDENTIFICATION2 {
+impl ::core::default::Default for SAFER_HASH_IDENTIFICATION2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_HASH_IDENTIFICATION2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_HASH_IDENTIFICATION2").field("hashIdentification", &self.hashIdentification).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_HASH_IDENTIFICATION2 {
+impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION2 {
     fn eq(&self, other: &Self) -> bool {
         self.hashIdentification == other.hashIdentification && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_HASH_IDENTIFICATION2 {}
+impl ::core::cmp::Eq for SAFER_HASH_IDENTIFICATION2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -295,31 +295,31 @@ pub struct SAFER_IDENTIFICATION_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_IDENTIFICATION_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_IDENTIFICATION_HEADER {
+impl ::core::default::Default for SAFER_IDENTIFICATION_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_IDENTIFICATION_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_IDENTIFICATION_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_IDENTIFICATION_HEADER").field("dwIdentificationType", &self.dwIdentificationType).field("cbStructSize", &self.cbStructSize).field("IdentificationGuid", &self.IdentificationGuid).field("lastModified", &self.lastModified).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_IDENTIFICATION_HEADER {
+impl ::core::cmp::PartialEq for SAFER_IDENTIFICATION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.dwIdentificationType == other.dwIdentificationType && self.cbStructSize == other.cbStructSize && self.IdentificationGuid == other.IdentificationGuid && self.lastModified == other.lastModified
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_IDENTIFICATION_HEADER {}
+impl ::core::cmp::Eq for SAFER_IDENTIFICATION_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_IDENTIFICATION_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
 pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
@@ -327,7 +327,7 @@ pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIF
 pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2i32);
 pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3i32);
 pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4i32);
-impl ::std::convert::From<i32> for SAFER_IDENTIFICATION_TYPES {
+impl ::core::convert::From<i32> for SAFER_IDENTIFICATION_TYPES {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -354,7 +354,7 @@ pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
 pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1i32);
@@ -373,7 +373,7 @@ pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT
 pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
 pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
 pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
-impl ::std::convert::From<i32> for SAFER_OBJECT_INFO_CLASS {
+impl ::core::convert::From<i32> for SAFER_OBJECT_INFO_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -381,7 +381,7 @@ impl ::std::convert::From<i32> for SAFER_OBJECT_INFO_CLASS {
 unsafe impl ::windows::runtime::Abi for SAFER_OBJECT_INFO_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -394,25 +394,25 @@ pub struct SAFER_PATHNAME_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_PATHNAME_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_PATHNAME_IDENTIFICATION {
+impl ::core::default::Default for SAFER_PATHNAME_IDENTIFICATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_PATHNAME_IDENTIFICATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_PATHNAME_IDENTIFICATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_PATHNAME_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("ImageName", &self.ImageName).field("dwSaferFlags", &self.dwSaferFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_PATHNAME_IDENTIFICATION {
+impl ::core::cmp::PartialEq for SAFER_PATHNAME_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.Description == other.Description && self.ImageName == other.ImageName && self.dwSaferFlags == other.dwSaferFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_PATHNAME_IDENTIFICATION {}
+impl ::core::cmp::Eq for SAFER_PATHNAME_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_PATHNAME_IDENTIFICATION {
     type Abi = Self;
@@ -422,7 +422,7 @@ pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
 pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
@@ -432,7 +432,7 @@ pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_I
 pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
 pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6i32);
 pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7i32);
-impl ::std::convert::From<i32> for SAFER_POLICY_INFO_CLASS {
+impl ::core::convert::From<i32> for SAFER_POLICY_INFO_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -464,7 +464,7 @@ pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
 pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -476,25 +476,25 @@ pub struct SAFER_URLZONE_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl SAFER_URLZONE_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SAFER_URLZONE_IDENTIFICATION {
+impl ::core::default::Default for SAFER_URLZONE_IDENTIFICATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SAFER_URLZONE_IDENTIFICATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SAFER_URLZONE_IDENTIFICATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SAFER_URLZONE_IDENTIFICATION").field("header", &self.header).field("UrlZoneId", &self.UrlZoneId).field("dwSaferFlags", &self.dwSaferFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SAFER_URLZONE_IDENTIFICATION {
+impl ::core::cmp::PartialEq for SAFER_URLZONE_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.UrlZoneId == other.UrlZoneId && self.dwSaferFlags == other.dwSaferFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SAFER_URLZONE_IDENTIFICATION {}
+impl ::core::cmp::Eq for SAFER_URLZONE_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_URLZONE_IDENTIFICATION {
     type Abi = Self;
@@ -509,7 +509,7 @@ pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SaferCloseLevel(hlevelhandle: super::SAFER_LEVEL_HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferCloseLevel(hlevelhandle.into_param().abi()))
+        ::core::mem::transmute(SaferCloseLevel(hlevelhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -517,14 +517,14 @@ pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(levelhandle: Param0, inaccesstoken: Param1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(levelhandle: Param0, inaccesstoken: Param1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferComputeTokenFromLevel(levelhandle: super::SAFER_LEVEL_HANDLE, inaccesstoken: super::super::Foundation::HANDLE, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferComputeTokenFromLevel(levelhandle: super::SAFER_LEVEL_HANDLE, inaccesstoken: super::super::Foundation::HANDLE, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferComputeTokenFromLevel(levelhandle.into_param().abi(), inaccesstoken.into_param().abi(), ::std::mem::transmute(outaccesstoken), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferComputeTokenFromLevel(levelhandle.into_param().abi(), inaccesstoken.into_param().abi(), ::core::mem::transmute(outaccesstoken), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -532,14 +532,14 @@ pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferCreateLevel(::std::mem::transmute(dwscopeid), ::std::mem::transmute(dwlevelid), ::std::mem::transmute(openflags), ::std::mem::transmute(plevelhandle), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferCreateLevel(::core::mem::transmute(dwscopeid), ::core::mem::transmute(dwlevelid), ::core::mem::transmute(openflags), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -547,14 +547,14 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::std::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferGetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::std::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL;
+            fn SaferGetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferGetLevelInformation(levelhandle.into_param().abi(), ::std::mem::transmute(dwinfotype), ::std::mem::transmute(lpquerybuffer), ::std::mem::transmute(dwinbuffersize), ::std::mem::transmute(lpdwoutbuffersize)))
+        ::core::mem::transmute(SaferGetLevelInformation(levelhandle.into_param().abi(), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpquerybuffer), ::core::mem::transmute(dwinbuffersize), ::core::mem::transmute(lpdwoutbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -562,14 +562,14 @@ pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::std::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::std::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferGetPolicyInformation(::std::mem::transmute(dwscopeid), ::std::mem::transmute(saferpolicyinfoclass), ::std::mem::transmute(infobuffersize), ::std::mem::transmute(infobuffer), ::std::mem::transmute(infobufferretsize), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferGetPolicyInformation(::core::mem::transmute(dwscopeid), ::core::mem::transmute(saferpolicyinfoclass), ::core::mem::transmute(infobuffersize), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferretsize), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -577,14 +577,14 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferIdentifyLevel(::std::mem::transmute(dwnumproperties), ::std::mem::transmute(pcodeproperties), ::std::mem::transmute(plevelhandle), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferIdentifyLevel(::core::mem::transmute(dwnumproperties), ::core::mem::transmute(pcodeproperties), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -592,14 +592,14 @@ pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const S
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: super::super::Foundation::PWSTR, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: super::super::Foundation::PWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -607,14 +607,14 @@ pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::std::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::std::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL;
+            fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferSetLevelInformation(levelhandle.into_param().abi(), ::std::mem::transmute(dwinfotype), ::std::mem::transmute(lpquerybuffer), ::std::mem::transmute(dwinbuffersize)))
+        ::core::mem::transmute(SaferSetLevelInformation(levelhandle.into_param().abi(), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpquerybuffer), ::core::mem::transmute(dwinbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -622,14 +622,14 @@ pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferSetPolicyInformation(::std::mem::transmute(dwscopeid), ::std::mem::transmute(saferpolicyinfoclass), ::std::mem::transmute(infobuffersize), ::std::mem::transmute(infobuffer), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferSetPolicyInformation(::core::mem::transmute(dwscopeid), ::core::mem::transmute(saferpolicyinfoclass), ::core::mem::transmute(infobuffersize), ::core::mem::transmute(infobuffer), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -644,7 +644,7 @@ pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn SaferiIsExecutableFileType(szfullpathname: super::super::Foundation::PWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi()))
+        ::core::mem::transmute(SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

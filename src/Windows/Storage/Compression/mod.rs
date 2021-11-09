@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Storage_Compression`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
@@ -11,7 +11,7 @@ impl CompressAlgorithm {
     pub const XpressHuff: CompressAlgorithm = CompressAlgorithm(4i32);
     pub const Lzms: CompressAlgorithm = CompressAlgorithm(5i32);
 }
-impl ::std::convert::From<i32> for CompressAlgorithm {
+impl ::core::convert::From<i32> for CompressAlgorithm {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -27,7 +27,7 @@ impl ::windows::runtime::DefaultType for CompressAlgorithm {
 }
 #[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Compressor(pub ::windows::runtime::IInspectable);
 impl Compressor {
     #[cfg(feature = "Foundation")]
@@ -35,8 +35,8 @@ impl Compressor {
     pub fn FinishAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -44,23 +44,23 @@ impl Compressor {
     pub fn DetachStream(&self) -> ::windows::runtime::Result<super::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Storage_Compression`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Storage_Compression`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -68,24 +68,24 @@ impl Compressor {
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn CreateCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0) -> ::windows::runtime::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Compressor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Compressor>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn CreateCompressorEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::runtime::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), underlyingstream.into_param().abi(), algorithm, blocksize, &mut result__).from_abi::<Compressor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), underlyingstream.into_param().abi(), algorithm, blocksize, &mut result__).from_abi::<Compressor>(result__)
         })
     }
     pub fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -103,12 +103,12 @@ unsafe impl ::windows::runtime::Interface for Compressor {
 impl ::windows::runtime::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
 }
-impl ::std::convert::From<Compressor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Compressor> for ::windows::runtime::IUnknown {
     fn from(value: Compressor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Compressor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Compressor> for ::windows::runtime::IUnknown {
     fn from(value: &Compressor) -> Self {
         value.0 .0.clone()
     }
@@ -123,12 +123,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Compressor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Compressor> for ::windows::runtime::IInspectable {
     fn from(value: Compressor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Compressor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Compressor> for ::windows::runtime::IInspectable {
     fn from(value: &Compressor) -> Self {
         value.0.clone()
     }
@@ -144,14 +144,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<Compressor> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<Compressor> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Compressor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&Compressor> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&Compressor> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Compressor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -166,18 +166,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &Compressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<Compressor> for super::Streams::IOutputStream {
+impl ::core::convert::TryFrom<Compressor> for super::Streams::IOutputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Compressor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&Compressor> for super::Streams::IOutputStream {
+impl ::core::convert::TryFrom<&Compressor> for super::Streams::IOutputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Compressor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -192,14 +192,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream> for Co
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream> for &Compressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Streams::IOutputStream> {
-        ::std::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for Compressor {}
-unsafe impl ::std::marker::Sync for Compressor {}
+unsafe impl ::core::marker::Send for Compressor {}
+unsafe impl ::core::marker::Sync for Compressor {}
 #[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Decompressor(pub ::windows::runtime::IInspectable);
 impl Decompressor {
     #[cfg(feature = "Storage_Streams")]
@@ -207,31 +207,31 @@ impl Decompressor {
     pub fn DetachStream(&self) -> ::windows::runtime::Result<super::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Storage_Compression`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Storage_Compression`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn CreateDecompressor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IInputStream>>(underlyingstream: Param0) -> ::windows::runtime::Result<Decompressor> {
         Self::IDecompressorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Decompressor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Decompressor>(result__)
         })
     }
     pub fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -249,12 +249,12 @@ unsafe impl ::windows::runtime::Interface for Decompressor {
 impl ::windows::runtime::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
 }
-impl ::std::convert::From<Decompressor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Decompressor> for ::windows::runtime::IUnknown {
     fn from(value: Decompressor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Decompressor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Decompressor> for ::windows::runtime::IUnknown {
     fn from(value: &Decompressor) -> Self {
         value.0 .0.clone()
     }
@@ -269,12 +269,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Decompressor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Decompressor> for ::windows::runtime::IInspectable {
     fn from(value: Decompressor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Decompressor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Decompressor> for ::windows::runtime::IInspectable {
     fn from(value: &Decompressor) -> Self {
         value.0.clone()
     }
@@ -290,14 +290,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<Decompressor> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<Decompressor> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Decompressor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&Decompressor> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&Decompressor> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Decompressor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -312,18 +312,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &Decompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<Decompressor> for super::Streams::IInputStream {
+impl ::core::convert::TryFrom<Decompressor> for super::Streams::IInputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Decompressor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&Decompressor> for super::Streams::IInputStream {
+impl ::core::convert::TryFrom<&Decompressor> for super::Streams::IInputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Decompressor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -338,11 +338,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IInputStream> for Dec
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IInputStream> for &Decompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Streams::IInputStream> {
-        ::std::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for Decompressor {}
-unsafe impl ::std::marker::Sync for Decompressor {}
+unsafe impl ::core::marker::Send for Decompressor {}
+unsafe impl ::core::marker::Sync for Decompressor {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct ICompressor(pub ::windows::runtime::IInspectable);

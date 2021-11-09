@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub struct CATALOG_INFO {
@@ -7,26 +7,26 @@ pub struct CATALOG_INFO {
     pub wszCatalogFile: [u16; 260],
 }
 impl CATALOG_INFO {}
-impl ::std::default::Default for CATALOG_INFO {
+impl ::core::default::Default for CATALOG_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CATALOG_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CATALOG_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CATALOG_INFO").field("cbStruct", &self.cbStruct).field("wszCatalogFile", &self.wszCatalogFile).finish()
     }
 }
-impl ::std::cmp::PartialEq for CATALOG_INFO {
+impl ::core::cmp::PartialEq for CATALOG_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.wszCatalogFile == other.wszCatalogFile
     }
 }
-impl ::std::cmp::Eq for CATALOG_INFO {}
+impl ::core::cmp::Eq for CATALOG_INFO {}
 unsafe impl ::windows::runtime::Abi for CATALOG_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
@@ -41,30 +41,30 @@ pub struct CRYPTCATATTRIBUTE {
 #[cfg(feature = "Win32_Foundation")]
 impl CRYPTCATATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CRYPTCATATTRIBUTE {
+impl ::core::default::Default for CRYPTCATATTRIBUTE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CRYPTCATATTRIBUTE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CRYPTCATATTRIBUTE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CRYPTCATATTRIBUTE").field("cbStruct", &self.cbStruct).field("pwszReferenceTag", &self.pwszReferenceTag).field("dwAttrTypeAndAction", &self.dwAttrTypeAndAction).field("cbValue", &self.cbValue).field("pbValue", &self.pbValue).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CRYPTCATATTRIBUTE {
+impl ::core::cmp::PartialEq for CRYPTCATATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.dwAttrTypeAndAction == other.dwAttrTypeAndAction && self.cbValue == other.cbValue && self.pbValue == other.pbValue && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CRYPTCATATTRIBUTE {}
+impl ::core::cmp::Eq for CRYPTCATATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTCATATTRIBUTE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
@@ -80,14 +80,14 @@ pub struct CRYPTCATCDF {
 #[cfg(feature = "Win32_Foundation")]
 impl CRYPTCATCDF {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CRYPTCATCDF {
+impl ::core::default::Default for CRYPTCATCDF {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CRYPTCATCDF {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CRYPTCATCDF {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CRYPTCATCDF")
             .field("cbStruct", &self.cbStruct)
             .field("hFile", &self.hFile)
@@ -100,18 +100,18 @@ impl ::std::fmt::Debug for CRYPTCATCDF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CRYPTCATCDF {
+impl ::core::cmp::PartialEq for CRYPTCATCDF {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.hFile == other.hFile && self.dwCurFilePos == other.dwCurFilePos && self.dwLastMemberOffset == other.dwLastMemberOffset && self.fEOF == other.fEOF && self.pwszResultDir == other.pwszResultDir && self.hCATStore == other.hCATStore
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CRYPTCATCDF {}
+impl ::core::cmp::Eq for CRYPTCATCDF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTCATCDF {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
@@ -131,14 +131,14 @@ pub struct CRYPTCATMEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPTCATMEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::std::default::Default for CRYPTCATMEMBER {
+impl ::core::default::Default for CRYPTCATMEMBER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::std::fmt::Debug for CRYPTCATMEMBER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CRYPTCATMEMBER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CRYPTCATMEMBER")
             .field("cbStruct", &self.cbStruct)
             .field("pwszReferenceTag", &self.pwszReferenceTag)
@@ -155,7 +155,7 @@ impl ::std::fmt::Debug for CRYPTCATMEMBER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::std::cmp::PartialEq for CRYPTCATMEMBER {
+impl ::core::cmp::PartialEq for CRYPTCATMEMBER {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.pwszReferenceTag == other.pwszReferenceTag
@@ -171,12 +171,12 @@ impl ::std::cmp::PartialEq for CRYPTCATMEMBER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::std::cmp::Eq for CRYPTCATMEMBER {}
+impl ::core::cmp::Eq for CRYPTCATMEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for CRYPTCATMEMBER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
@@ -189,20 +189,20 @@ pub struct CRYPTCATSTORE {
     pub fdwStoreFlags: CRYPTCAT_OPEN_FLAGS,
     pub hReserved: super::super::super::Foundation::HANDLE,
     pub hAttrs: super::super::super::Foundation::HANDLE,
-    pub hCryptMsg: *mut ::std::ffi::c_void,
+    pub hCryptMsg: *mut ::core::ffi::c_void,
     pub hSorted: super::super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl CRYPTCATSTORE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CRYPTCATSTORE {
+impl ::core::default::Default for CRYPTCATSTORE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CRYPTCATSTORE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CRYPTCATSTORE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CRYPTCATSTORE")
             .field("cbStruct", &self.cbStruct)
             .field("dwPublicVersion", &self.dwPublicVersion)
@@ -218,13 +218,13 @@ impl ::std::fmt::Debug for CRYPTCATSTORE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CRYPTCATSTORE {
+impl ::core::cmp::PartialEq for CRYPTCATSTORE {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.dwPublicVersion == other.dwPublicVersion && self.pwszP7File == other.pwszP7File && self.hProv == other.hProv && self.dwEncodingType == other.dwEncodingType && self.fdwStoreFlags == other.fdwStoreFlags && self.hReserved == other.hReserved && self.hAttrs == other.hAttrs && self.hCryptMsg == other.hCryptMsg && self.hSorted == other.hSorted
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CRYPTCATSTORE {}
+impl ::core::cmp::Eq for CRYPTCATSTORE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTCATSTORE {
     type Abi = Self;
@@ -278,7 +278,7 @@ pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
 pub const CRYPTCAT_OPEN_ALWAYS: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(2u32);
@@ -290,7 +290,7 @@ pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS
 pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(536870912u32);
 pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1073741824u32);
 pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4294901760u32);
-impl ::std::convert::From<u32> for CRYPTCAT_OPEN_FLAGS {
+impl ::core::convert::From<u32> for CRYPTCAT_OPEN_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -298,41 +298,41 @@ impl ::std::convert::From<u32> for CRYPTCAT_OPEN_FLAGS {
 unsafe impl ::windows::runtime::Abi for CRYPTCAT_OPEN_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
+impl ::core::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CRYPTCAT_OPEN_FLAGS {
+impl ::core::ops::BitAnd for CRYPTCAT_OPEN_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CRYPTCAT_OPEN_FLAGS {
+impl ::core::ops::BitOrAssign for CRYPTCAT_OPEN_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CRYPTCAT_OPEN_FLAGS {
+impl ::core::ops::BitAndAssign for CRYPTCAT_OPEN_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CRYPTCAT_OPEN_FLAGS {
+impl ::core::ops::Not for CRYPTCAT_OPEN_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTCAT_VERSION(pub u32);
 pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = CRYPTCAT_VERSION(256u32);
 pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = CRYPTCAT_VERSION(512u32);
-impl ::std::convert::From<u32> for CRYPTCAT_VERSION {
+impl ::core::convert::From<u32> for CRYPTCAT_VERSION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -340,29 +340,29 @@ impl ::std::convert::From<u32> for CRYPTCAT_VERSION {
 unsafe impl ::windows::runtime::Abi for CRYPTCAT_VERSION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CRYPTCAT_VERSION {
+impl ::core::ops::BitOr for CRYPTCAT_VERSION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CRYPTCAT_VERSION {
+impl ::core::ops::BitAnd for CRYPTCAT_VERSION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CRYPTCAT_VERSION {
+impl ::core::ops::BitOrAssign for CRYPTCAT_VERSION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CRYPTCAT_VERSION {
+impl ::core::ops::BitAndAssign for CRYPTCAT_VERSION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CRYPTCAT_VERSION {
+impl ::core::ops::Not for CRYPTCAT_VERSION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -378,7 +378,7 @@ pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *
         extern "system" {
             fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const ::windows::runtime::GUID, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminAcquireContext(::std::mem::transmute(phcatadmin), ::std::mem::transmute(pgsubsystem), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminAcquireContext(::core::mem::transmute(phcatadmin), ::core::mem::transmute(pgsubsystem), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -393,7 +393,7 @@ pub unsafe fn CryptCATAdminAcquireContext2<'a, Param2: ::windows::runtime::IntoP
         extern "system" {
             fn CryptCATAdminAcquireContext2(phcatadmin: *mut isize, pgsubsystem: *const ::windows::runtime::GUID, pwszhashalgorithm: super::super::super::Foundation::PWSTR, pstronghashpolicy: *const super::CERT_STRONG_SIGN_PARA, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminAcquireContext2(::std::mem::transmute(phcatadmin), ::std::mem::transmute(pgsubsystem), pwszhashalgorithm.into_param().abi(), ::std::mem::transmute(pstronghashpolicy), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminAcquireContext2(::core::mem::transmute(phcatadmin), ::core::mem::transmute(pgsubsystem), pwszhashalgorithm.into_param().abi(), ::core::mem::transmute(pstronghashpolicy), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -408,7 +408,7 @@ pub unsafe fn CryptCATAdminAddCatalog<'a, Param1: ::windows::runtime::IntoParam<
         extern "system" {
             fn CryptCATAdminAddCatalog(hcatadmin: isize, pwszcatalogfile: super::super::super::Foundation::PWSTR, pwszselectbasename: super::super::super::Foundation::PWSTR, dwflags: u32) -> isize;
         }
-        ::std::mem::transmute(CryptCATAdminAddCatalog(::std::mem::transmute(hcatadmin), pwszcatalogfile.into_param().abi(), pwszselectbasename.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminAddCatalog(::core::mem::transmute(hcatadmin), pwszcatalogfile.into_param().abi(), pwszselectbasename.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -423,7 +423,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle<'a, Param0: ::windows::runtime
         extern "system" {
             fn CryptCATAdminCalcHashFromFileHandle(hfile: super::super::super::Foundation::HANDLE, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminCalcHashFromFileHandle(hfile.into_param().abi(), ::std::mem::transmute(pcbhash), ::std::mem::transmute(pbhash), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminCalcHashFromFileHandle(hfile.into_param().abi(), ::core::mem::transmute(pcbhash), ::core::mem::transmute(pbhash), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -438,7 +438,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<'a, Param1: ::windows::runtim
         extern "system" {
             fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin: isize, hfile: super::super::super::Foundation::HANDLE, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminCalcHashFromFileHandle2(::std::mem::transmute(hcatadmin), hfile.into_param().abi(), ::std::mem::transmute(pcbhash), ::std::mem::transmute(pbhash), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminCalcHashFromFileHandle2(::core::mem::transmute(hcatadmin), hfile.into_param().abi(), ::core::mem::transmute(pcbhash), ::core::mem::transmute(pbhash), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -452,7 +452,7 @@ pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const 
         extern "system" {
             fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize;
         }
-        ::std::mem::transmute(CryptCATAdminEnumCatalogFromHash(::std::mem::transmute(hcatadmin), ::std::mem::transmute(pbhash), ::std::mem::transmute(cbhash), ::std::mem::transmute(dwflags), ::std::mem::transmute(phprevcatinfo)))
+        ::core::mem::transmute(CryptCATAdminEnumCatalogFromHash(::core::mem::transmute(hcatadmin), ::core::mem::transmute(pbhash), ::core::mem::transmute(cbhash), ::core::mem::transmute(dwflags), ::core::mem::transmute(phprevcatinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -467,7 +467,7 @@ pub unsafe fn CryptCATAdminPauseServiceForBackup<'a, Param1: ::windows::runtime:
         extern "system" {
             fn CryptCATAdminPauseServiceForBackup(dwflags: u32, fresume: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminPauseServiceForBackup(::std::mem::transmute(dwflags), fresume.into_param().abi()))
+        ::core::mem::transmute(CryptCATAdminPauseServiceForBackup(::core::mem::transmute(dwflags), fresume.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -482,7 +482,7 @@ pub unsafe fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isi
         extern "system" {
             fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isize, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminReleaseCatalogContext(::std::mem::transmute(hcatadmin), ::std::mem::transmute(hcatinfo), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminReleaseCatalogContext(::core::mem::transmute(hcatadmin), ::core::mem::transmute(hcatinfo), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -497,7 +497,7 @@ pub unsafe fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> sup
         extern "system" {
             fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminReleaseContext(::std::mem::transmute(hcatadmin), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminReleaseContext(::core::mem::transmute(hcatadmin), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -512,7 +512,7 @@ pub unsafe fn CryptCATAdminRemoveCatalog<'a, Param1: ::windows::runtime::IntoPar
         extern "system" {
             fn CryptCATAdminRemoveCatalog(hcatadmin: isize, pwszcatalogfile: super::super::super::Foundation::PWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminRemoveCatalog(::std::mem::transmute(hcatadmin), pwszcatalogfile.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminRemoveCatalog(::core::mem::transmute(hcatadmin), pwszcatalogfile.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -527,7 +527,7 @@ pub unsafe fn CryptCATAdminResolveCatalogPath<'a, Param1: ::windows::runtime::In
         extern "system" {
             fn CryptCATAdminResolveCatalogPath(hcatadmin: isize, pwszcatalogfile: super::super::super::Foundation::PWSTR, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATAdminResolveCatalogPath(::std::mem::transmute(hcatadmin), pwszcatalogfile.into_param().abi(), ::std::mem::transmute(pscatinfo), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATAdminResolveCatalogPath(::core::mem::transmute(hcatadmin), pwszcatalogfile.into_param().abi(), ::core::mem::transmute(pscatinfo), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -542,7 +542,7 @@ pub unsafe fn CryptCATAllocSortedMemberInfo<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn CryptCATAllocSortedMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATMEMBER;
         }
-        ::std::mem::transmute(CryptCATAllocSortedMemberInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi()))
+        ::core::mem::transmute(CryptCATAllocSortedMemberInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -557,7 +557,7 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
         extern "system" {
             fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATCDFClose(::std::mem::transmute(pcdf)))
+        ::core::mem::transmute(CryptCATCDFClose(::core::mem::transmute(pcdf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -565,14 +565,14 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
+pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::windows::runtime::RawPtr) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATCDFEnumAttributes(::std::mem::transmute(pcdf), ::std::mem::transmute(pmember), ::std::mem::transmute(pprevattr), ::std::mem::transmute(pfnparseerror)))
+        ::core::mem::transmute(CryptCATCDFEnumAttributes(::core::mem::transmute(pcdf), ::core::mem::transmute(pmember), ::core::mem::transmute(pprevattr), ::core::mem::transmute(pfnparseerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -580,14 +580,14 @@ pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CR
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
+pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::windows::runtime::RawPtr) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATCDFEnumCatAttributes(::std::mem::transmute(pcdf), ::std::mem::transmute(pprevattr), ::std::mem::transmute(pfnparseerror)))
+        ::core::mem::transmute(CryptCATCDFEnumCatAttributes(::core::mem::transmute(pcdf), ::core::mem::transmute(pprevattr), ::core::mem::transmute(pfnparseerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -595,14 +595,14 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *m
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATMEMBER {
+pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: ::windows::runtime::RawPtr) -> *mut CRYPTCATMEMBER;
         }
-        ::std::mem::transmute(CryptCATCDFEnumMembers(::std::mem::transmute(pcdf), ::std::mem::transmute(pprevmember), ::std::mem::transmute(pfnparseerror)))
+        ::core::mem::transmute(CryptCATCDFEnumMembers(::core::mem::transmute(pcdf), ::core::mem::transmute(pprevmember), ::core::mem::transmute(pfnparseerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -610,14 +610,14 @@ pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut C
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilepath: Param0, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATCDF {
+pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilepath: Param0, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATCDF {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFOpen(pwszfilepath: super::super::super::Foundation::PWSTR, pfnparseerror: ::windows::runtime::RawPtr) -> *mut CRYPTCATCDF;
         }
-        ::std::mem::transmute(CryptCATCDFOpen(pwszfilepath.into_param().abi(), ::std::mem::transmute(pfnparseerror)))
+        ::core::mem::transmute(CryptCATCDFOpen(pwszfilepath.into_param().abi(), ::core::mem::transmute(pfnparseerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -632,7 +632,7 @@ pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CA
         extern "system" {
             fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATCatalogInfoFromContext(::std::mem::transmute(hcatinfo), ::std::mem::transmute(pscatinfo), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CryptCATCatalogInfoFromContext(::core::mem::transmute(hcatinfo), ::core::mem::transmute(pscatinfo), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -647,7 +647,7 @@ pub unsafe fn CryptCATClose<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn CryptCATClose(hcatalog: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATClose(hcatalog.into_param().abi()))
+        ::core::mem::transmute(CryptCATClose(hcatalog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -662,7 +662,7 @@ pub unsafe fn CryptCATEnumerateAttr<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CryptCATEnumerateAttr(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATEnumerateAttr(hcatalog.into_param().abi(), ::std::mem::transmute(pcatmember), ::std::mem::transmute(pprevattr)))
+        ::core::mem::transmute(CryptCATEnumerateAttr(hcatalog.into_param().abi(), ::core::mem::transmute(pcatmember), ::core::mem::transmute(pprevattr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -677,7 +677,7 @@ pub unsafe fn CryptCATEnumerateCatAttr<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn CryptCATEnumerateCatAttr(hcatalog: super::super::super::Foundation::HANDLE, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATEnumerateCatAttr(hcatalog.into_param().abi(), ::std::mem::transmute(pprevattr)))
+        ::core::mem::transmute(CryptCATEnumerateCatAttr(hcatalog.into_param().abi(), ::core::mem::transmute(pprevattr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -692,7 +692,7 @@ pub unsafe fn CryptCATEnumerateMember<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn CryptCATEnumerateMember(hcatalog: super::super::super::Foundation::HANDLE, pprevmember: *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER;
         }
-        ::std::mem::transmute(CryptCATEnumerateMember(hcatalog.into_param().abi(), ::std::mem::transmute(pprevmember)))
+        ::core::mem::transmute(CryptCATEnumerateMember(hcatalog.into_param().abi(), ::core::mem::transmute(pprevmember)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -707,7 +707,7 @@ pub unsafe fn CryptCATFreeSortedMemberInfo<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn CryptCATFreeSortedMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER);
         }
-        ::std::mem::transmute(CryptCATFreeSortedMemberInfo(hcatalog.into_param().abi(), ::std::mem::transmute(pcatmember)))
+        ::core::mem::transmute(CryptCATFreeSortedMemberInfo(hcatalog.into_param().abi(), ::core::mem::transmute(pcatmember)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -722,7 +722,7 @@ pub unsafe fn CryptCATGetAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn CryptCATGetAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATGetAttrInfo(hcatalog.into_param().abi(), ::std::mem::transmute(pcatmember), pwszreferencetag.into_param().abi()))
+        ::core::mem::transmute(CryptCATGetAttrInfo(hcatalog.into_param().abi(), ::core::mem::transmute(pcatmember), pwszreferencetag.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -737,7 +737,7 @@ pub unsafe fn CryptCATGetCatAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn CryptCATGetCatAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATGetCatAttrInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi()))
+        ::core::mem::transmute(CryptCATGetCatAttrInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -752,7 +752,7 @@ pub unsafe fn CryptCATGetMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CryptCATGetMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATMEMBER;
         }
-        ::std::mem::transmute(CryptCATGetMemberInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi()))
+        ::core::mem::transmute(CryptCATGetMemberInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -767,7 +767,7 @@ pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::s
         extern "system" {
             fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CryptCATHandleFromStore(::std::mem::transmute(pcatstore)))
+        ::core::mem::transmute(CryptCATHandleFromStore(::core::mem::transmute(pcatstore)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -782,7 +782,7 @@ pub unsafe fn CryptCATOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn CryptCATOpen(pwszfilename: super::super::super::Foundation::PWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CryptCATOpen(pwszfilename.into_param().abi(), ::std::mem::transmute(fdwopenflags), ::std::mem::transmute(hprov), ::std::mem::transmute(dwpublicversion), ::std::mem::transmute(dwencodingtype)))
+        ::core::mem::transmute(CryptCATOpen(pwszfilename.into_param().abi(), ::core::mem::transmute(fdwopenflags), ::core::mem::transmute(hprov), ::core::mem::transmute(dwpublicversion), ::core::mem::transmute(dwencodingtype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -797,7 +797,7 @@ pub unsafe fn CryptCATPersistStore<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn CryptCATPersistStore(hcatalog: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptCATPersistStore(hcatalog.into_param().abi()))
+        ::core::mem::transmute(CryptCATPersistStore(hcatalog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -812,7 +812,7 @@ pub unsafe fn CryptCATPutAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn CryptCATPutAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: super::super::super::Foundation::PWSTR, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATPutAttrInfo(hcatalog.into_param().abi(), ::std::mem::transmute(pcatmember), pwszreferencetag.into_param().abi(), ::std::mem::transmute(dwattrtypeandaction), ::std::mem::transmute(cbdata), ::std::mem::transmute(pbdata)))
+        ::core::mem::transmute(CryptCATPutAttrInfo(hcatalog.into_param().abi(), ::core::mem::transmute(pcatmember), pwszreferencetag.into_param().abi(), ::core::mem::transmute(dwattrtypeandaction), ::core::mem::transmute(cbdata), ::core::mem::transmute(pbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -827,7 +827,7 @@ pub unsafe fn CryptCATPutCatAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn CryptCATPutCatAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE;
         }
-        ::std::mem::transmute(CryptCATPutCatAttrInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi(), ::std::mem::transmute(dwattrtypeandaction), ::std::mem::transmute(cbdata), ::std::mem::transmute(pbdata)))
+        ::core::mem::transmute(CryptCATPutCatAttrInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi(), ::core::mem::transmute(dwattrtypeandaction), ::core::mem::transmute(cbdata), ::core::mem::transmute(pbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -842,7 +842,7 @@ pub unsafe fn CryptCATPutMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CryptCATPutMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR, pwszreferencetag: super::super::super::Foundation::PWSTR, pgsubjecttype: *mut ::windows::runtime::GUID, dwcertversion: u32, cbsipindirectdata: u32, pbsipindirectdata: *mut u8) -> *mut CRYPTCATMEMBER;
         }
-        ::std::mem::transmute(CryptCATPutMemberInfo(hcatalog.into_param().abi(), pwszfilename.into_param().abi(), pwszreferencetag.into_param().abi(), ::std::mem::transmute(pgsubjecttype), ::std::mem::transmute(dwcertversion), ::std::mem::transmute(cbsipindirectdata), ::std::mem::transmute(pbsipindirectdata)))
+        ::core::mem::transmute(CryptCATPutMemberInfo(hcatalog.into_param().abi(), pwszfilename.into_param().abi(), pwszreferencetag.into_param().abi(), ::core::mem::transmute(pgsubjecttype), ::core::mem::transmute(dwcertversion), ::core::mem::transmute(cbsipindirectdata), ::core::mem::transmute(pbsipindirectdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -857,7 +857,7 @@ pub unsafe fn CryptCATStoreFromHandle<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn CryptCATStoreFromHandle(hcatalog: super::super::super::Foundation::HANDLE) -> *mut CRYPTCATSTORE;
         }
-        ::std::mem::transmute(CryptCATStoreFromHandle(hcatalog.into_param().abi()))
+        ::core::mem::transmute(CryptCATStoreFromHandle(hcatalog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -872,7 +872,7 @@ pub unsafe fn IsCatalogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn IsCatalogFile(hfile: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCatalogFile(hfile.into_param().abi(), pwszfilename.into_param().abi()))
+        ::core::mem::transmute(IsCatalogFile(hfile.into_param().abi(), pwszfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

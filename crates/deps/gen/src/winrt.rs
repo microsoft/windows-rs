@@ -7,25 +7,25 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
         Some(return_sig) if return_sig.is_array => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
-                    ::std::result::Result::Ok(ok__) => {
+                    ::core::result::Result::Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
                         *result__ = ok_data__;
                         *result_size__ = ok_data_len__;
                         ::windows::runtime::HRESULT(0)
                     }
-                    ::std::result::Result::Err(err) => err.into()
+                    ::core::result::Result::Err(err) => err.into()
                 }
             }
         }
         Some(_) => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
-                    ::std::result::Result::Ok(ok__) => {
-                        *result__ = ::std::mem::transmute_copy(&ok__);
-                        ::std::mem::forget(ok__);
+                    ::core::result::Result::Ok(ok__) => {
+                        *result__ = ::core::mem::transmute_copy(&ok__);
+                        ::core::mem::forget(ok__);
                         ::windows::runtime::HRESULT(0)
                     }
-                    ::std::result::Result::Err(err) => err.into()
+                    ::core::result::Result::Err(err) => err.into()
                 }
             }
         }
@@ -86,11 +86,11 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         let abi_size_name = to_ident(&format!("{}_array_size", param.param.name()));
 
         if param.param.is_input() {
-            quote! { ::std::slice::from_raw_parts(::std::mem::transmute_copy(&#name), #abi_size_name as _) }
+            quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         } else if param.signature.by_ref {
-            quote! { ::windows::runtime::ArrayProxy::from_raw_parts(::std::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+            quote! { ::windows::runtime::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
         } else {
-            quote! { ::std::slice::from_raw_parts_mut(::std::mem::transmute_copy(&#name), #abi_size_name as _) }
+            quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         }
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
@@ -101,7 +101,7 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
             quote! { &*(&#name as *const <#kind as ::windows::runtime::Abi>::Abi as *const <#kind as ::windows::runtime::DefaultType>::DefaultType) }
         }
     } else {
-        quote! { ::std::mem::transmute_copy(&#name) }
+        quote! { ::core::mem::transmute_copy(&#name) }
     }
 }
 
@@ -129,7 +129,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                     quote! { #name: #tokens, }
                 }
             } else if param.signature.kind.is_nullable() {
-                quote! { #name: &mut ::std::option::Option<#tokens>, }
+                quote! { #name: &mut ::core::option::Option<#tokens>, }
             } else if let ElementType::GenericParam(_) = param.signature.kind {
                 quote! { &mut <#tokens as ::windows::runtime::DefaultType>::DefaultType, }
             } else if param.signature.pointers > 0 {
@@ -186,10 +186,10 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match interface.kind {
         InterfaceKind::Composable => quote! {
-            ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
+            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
         },
         InterfaceKind::Extend => quote! {
-            ::std::mem::transmute_copy(&derived__), base__ as *mut _ as _,
+            ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
         },
         _ => quote! {},
     };
@@ -197,22 +197,22 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     let vcall = if let Some(return_sig) = &sig.return_sig {
         if return_sig.is_array {
             quote! {
-                let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                (::windows::runtime::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                (::windows::runtime::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                     .and_then(|| result__ )
             }
         } else {
             let abi_type_name = gen_abi_type_name(&return_sig.kind, gen);
 
             quote! {
-                let mut result__: #abi_type_name = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                let mut result__: #abi_type_name = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                         .from_abi::<#return_type_tokens>(result__ )
             }
         }
     } else {
         quote! {
-            (::windows::runtime::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
+            (::windows::runtime::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
         }
     };
 
@@ -285,11 +285,11 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
 
     if param.signature.is_array {
         if param.param.is_input() {
-            quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()) }
+            quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
         } else if param.signature.by_ref {
             quote! { #name.set_abi_len(), #name as *mut _ as _ }
         } else {
-            quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
+            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
         }
     } else if param.param.is_input() {
         if param.is_convertible() {
@@ -301,9 +301,9 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         } else if param.signature.kind.is_blittable() {
             quote! { #name }
         } else if param.signature.pointers == 0 {
-            quote! { ::std::mem::transmute_copy(#name) }
+            quote! { ::core::mem::transmute_copy(#name) }
         } else {
-            quote! { ::std::mem::transmute(#name) }
+            quote! { ::core::mem::transmute(#name) }
         }
     } else if param.signature.kind.is_blittable() || (param.signature.pointers > 0 && !param.signature.kind.is_nullable()) {
         quote! { #name }
@@ -329,12 +329,12 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
         } else if param.signature.kind.is_primitive() {
             quote! { #tokens }
         } else if param.signature.kind.is_nullable() {
-            quote! { &::std::option::Option<#tokens> }
+            quote! { &::core::option::Option<#tokens> }
         } else {
             quote! { &#tokens }
         }
     } else if param.signature.kind.is_nullable() {
-        quote! { &mut ::std::option::Option<#tokens> }
+        quote! { &mut ::core::option::Option<#tokens> }
     } else {
         quote! { &mut #tokens }
     }
@@ -343,7 +343,7 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
         let g = gen_name(g, &Gen::absolute());
-        quote! { ::std::marker::PhantomData::<#g> }
+        quote! { ::core::marker::PhantomData::<#g> }
     })
 }
 

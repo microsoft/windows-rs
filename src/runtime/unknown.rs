@@ -5,7 +5,7 @@ use super::*;
 /// under the hood to provide reference-counted lifetime management as well as the ability
 /// to query for additional interfaces that the object may implement.
 #[repr(transparent)]
-pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
+pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
@@ -20,7 +20,7 @@ unsafe impl Interface for IUnknown {
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().1)(std::mem::transmute_copy(self)); // AddRef
+            (self.vtable().1)(core::mem::transmute_copy(self)); // AddRef
         }
 
         Self(self.0)
@@ -30,7 +30,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().2)(std::mem::transmute_copy(self)); // Release
+            (self.vtable().2)(core::mem::transmute_copy(self)); // Release
         }
     }
 }
@@ -47,8 +47,8 @@ impl PartialEq for IUnknown {
 
 impl Eq for IUnknown {}
 
-impl std::fmt::Debug for IUnknown {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IUnknown {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{:?}", self.0)
     }
 }

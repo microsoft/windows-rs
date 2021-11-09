@@ -12,7 +12,7 @@ use windows::runtime::{Interface, Result};
 // activate WinRT types directly as it can do so far more efficiently.
 #[test]
 fn test() -> Result<()> {
-    unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED)? };
+    unsafe { CoInitializeEx(core::ptr::null_mut(), COINIT_MULTITHREADED)? };
 
     let instance = unsafe { RoActivateInstance("Windows.Foundation.Collections.StringMap")? };
 

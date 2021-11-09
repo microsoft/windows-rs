@@ -39,25 +39,25 @@ pub struct IVibrationDeviceStatics_abi(
 );
 #[doc = "*Required features: `Phone_Devices_Notification`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VibrationDevice(pub ::windows::runtime::IInspectable);
 impl VibrationDevice {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_Devices_Notification`, `Foundation`*"]
     pub fn Vibrate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, duration: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), duration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), duration.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Phone_Devices_Notification`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Phone_Devices_Notification`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VibrationDevice>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VibrationDevice>(result__)
         })
     }
     pub fn IVibrationDeviceStatics<R, F: FnOnce(&IVibrationDeviceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -75,12 +75,12 @@ unsafe impl ::windows::runtime::Interface for VibrationDevice {
 impl ::windows::runtime::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
 }
-impl ::std::convert::From<VibrationDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VibrationDevice> for ::windows::runtime::IUnknown {
     fn from(value: VibrationDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VibrationDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VibrationDevice> for ::windows::runtime::IUnknown {
     fn from(value: &VibrationDevice) -> Self {
         value.0 .0.clone()
     }
@@ -95,12 +95,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VibrationDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VibrationDevice> for ::windows::runtime::IInspectable {
     fn from(value: VibrationDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VibrationDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VibrationDevice> for ::windows::runtime::IInspectable {
     fn from(value: &VibrationDevice) -> Self {
         value.0.clone()
     }
@@ -115,5 +115,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VibrationDevice {}
-unsafe impl ::std::marker::Sync for VibrationDevice {}
+unsafe impl ::core::marker::Send for VibrationDevice {}
+unsafe impl ::core::marker::Sync for VibrationDevice {}

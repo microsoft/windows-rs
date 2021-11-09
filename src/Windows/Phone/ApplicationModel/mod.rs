@@ -5,8 +5,8 @@ impl ApplicationProfile {
     #[doc = "*Required features: `Phone_ApplicationModel`*"]
     pub fn Modes() -> ::windows::runtime::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
-            let mut result__: ApplicationProfileModes = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
+            let mut result__: ApplicationProfileModes = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
         })
     }
     pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -18,14 +18,14 @@ impl ::windows::runtime::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
 #[doc = "*Required features: `Phone_ApplicationModel`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {
     pub const Default: ApplicationProfileModes = ApplicationProfileModes(0u32);
     pub const Alternate: ApplicationProfileModes = ApplicationProfileModes(1u32);
 }
-impl ::std::convert::From<u32> for ApplicationProfileModes {
+impl ::core::convert::From<u32> for ApplicationProfileModes {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -39,29 +39,29 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationProfileModes {
 impl ::windows::runtime::DefaultType for ApplicationProfileModes {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for ApplicationProfileModes {
+impl ::core::ops::BitOr for ApplicationProfileModes {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ApplicationProfileModes {
+impl ::core::ops::BitAnd for ApplicationProfileModes {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ApplicationProfileModes {
+impl ::core::ops::BitOrAssign for ApplicationProfileModes {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ApplicationProfileModes {
+impl ::core::ops::BitAndAssign for ApplicationProfileModes {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ApplicationProfileModes {
+impl ::core::ops::Not for ApplicationProfileModes {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

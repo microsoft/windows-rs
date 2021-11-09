@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Web_Http_Filters`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpBaseProtocolFilter(pub ::windows::runtime::IInspectable);
 impl HttpBaseProtocolFilter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -15,55 +15,55 @@ impl HttpBaseProtocolFilter {
     pub fn AllowAutoRedirect(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetAllowAutoRedirect(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn AllowUI(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetAllowUI(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn AutomaticDecompression(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetAutomaticDecompression(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn CacheControl(&self) -> ::windows::runtime::Result<HttpCacheControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheControl>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn CookieManager(&self) -> ::windows::runtime::Result<super::HttpCookieManager> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpCookieManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpCookieManager>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -71,157 +71,157 @@ impl HttpBaseProtocolFilter {
     pub fn ClientCertificate(&self) -> ::windows::runtime::Result<super::super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Web_Http_Filters`, `Security_Cryptography_Certificates`*"]
     pub fn SetClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn MaxConnectionsPerServer(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetMaxConnectionsPerServer(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Web_Http_Filters`, `Security_Credentials`*"]
     pub fn ProxyCredential(&self) -> ::windows::runtime::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Web_Http_Filters`, `Security_Credentials`*"]
     pub fn SetProxyCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Web_Http_Filters`, `Security_Credentials`*"]
     pub fn ServerCredential(&self) -> ::windows::runtime::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Web_Http_Filters`, `Security_Credentials`*"]
     pub fn SetServerCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn UseProxy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetUseProxy(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn MaxVersion(&self) -> ::windows::runtime::Result<super::HttpVersion> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
         unsafe {
-            let mut result__: super::HttpVersion = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpVersion>(result__)
+            let mut result__: super::HttpVersion = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpVersion>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetMaxVersion(&self, value: super::HttpVersion) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation`*"]
     pub fn SendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HttpRequestMessage>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn CookieUsageBehavior(&self) -> ::windows::runtime::Result<HttpCookieUsageBehavior> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
         unsafe {
-            let mut result__: HttpCookieUsageBehavior = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpCookieUsageBehavior>(result__)
+            let mut result__: HttpCookieUsageBehavior = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCookieUsageBehavior>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetCookieUsageBehavior(&self, value: HttpCookieUsageBehavior) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation`*"]
     pub fn ServerCustomValidationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation`*"]
     pub fn RemoveServerCustomValidationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn ClearAuthenticationCache(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "System")]
     #[doc = "*Required features: `Web_Http_Filters`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<IHttpBaseProtocolFilter5>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "System")]
     #[doc = "*Required features: `Web_Http_Filters`, `System`*"]
     pub fn CreateForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<HttpBaseProtocolFilter> {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<HttpBaseProtocolFilter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<HttpBaseProtocolFilter>(result__)
         })
     }
     pub fn IHttpBaseProtocolFilterStatics<R, F: FnOnce(&IHttpBaseProtocolFilterStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -239,12 +239,12 @@ unsafe impl ::windows::runtime::Interface for HttpBaseProtocolFilter {
 impl ::windows::runtime::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
 }
-impl ::std::convert::From<HttpBaseProtocolFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HttpBaseProtocolFilter> for ::windows::runtime::IUnknown {
     fn from(value: HttpBaseProtocolFilter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HttpBaseProtocolFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HttpBaseProtocolFilter> for ::windows::runtime::IUnknown {
     fn from(value: &HttpBaseProtocolFilter) -> Self {
         value.0 .0.clone()
     }
@@ -259,12 +259,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HttpBaseProtocolFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HttpBaseProtocolFilter> for ::windows::runtime::IInspectable {
     fn from(value: HttpBaseProtocolFilter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HttpBaseProtocolFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HttpBaseProtocolFilter> for ::windows::runtime::IInspectable {
     fn from(value: &HttpBaseProtocolFilter) -> Self {
         value.0.clone()
     }
@@ -280,14 +280,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<HttpBaseProtocolFilter> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<HttpBaseProtocolFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: HttpBaseProtocolFilter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&HttpBaseProtocolFilter> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&HttpBaseProtocolFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &HttpBaseProtocolFilter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -302,16 +302,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &HttpBaseProtocolFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<HttpBaseProtocolFilter> for IHttpFilter {
+impl ::core::convert::TryFrom<HttpBaseProtocolFilter> for IHttpFilter {
     type Error = ::windows::runtime::Error;
     fn try_from(value: HttpBaseProtocolFilter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&HttpBaseProtocolFilter> for IHttpFilter {
+impl ::core::convert::TryFrom<&HttpBaseProtocolFilter> for IHttpFilter {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &HttpBaseProtocolFilter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -324,41 +324,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, IHttpFilter> for HttpBaseProtocolFilt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpFilter> for &HttpBaseProtocolFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpFilter> {
-        ::std::convert::TryInto::<IHttpFilter>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IHttpFilter>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for HttpBaseProtocolFilter {}
-unsafe impl ::std::marker::Sync for HttpBaseProtocolFilter {}
+unsafe impl ::core::marker::Send for HttpBaseProtocolFilter {}
+unsafe impl ::core::marker::Sync for HttpBaseProtocolFilter {}
 #[doc = "*Required features: `Web_Http_Filters`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpCacheControl(pub ::windows::runtime::IInspectable);
 impl HttpCacheControl {
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn ReadBehavior(&self) -> ::windows::runtime::Result<HttpCacheReadBehavior> {
         let this = self;
         unsafe {
-            let mut result__: HttpCacheReadBehavior = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheReadBehavior>(result__)
+            let mut result__: HttpCacheReadBehavior = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheReadBehavior>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetReadBehavior(&self, value: HttpCacheReadBehavior) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn WriteBehavior(&self) -> ::windows::runtime::Result<HttpCacheWriteBehavior> {
         let this = self;
         unsafe {
-            let mut result__: HttpCacheWriteBehavior = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheWriteBehavior>(result__)
+            let mut result__: HttpCacheWriteBehavior = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheWriteBehavior>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn SetWriteBehavior(&self, value: HttpCacheWriteBehavior) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for HttpCacheControl {
@@ -371,12 +371,12 @@ unsafe impl ::windows::runtime::Interface for HttpCacheControl {
 impl ::windows::runtime::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
 }
-impl ::std::convert::From<HttpCacheControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HttpCacheControl> for ::windows::runtime::IUnknown {
     fn from(value: HttpCacheControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HttpCacheControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HttpCacheControl> for ::windows::runtime::IUnknown {
     fn from(value: &HttpCacheControl) -> Self {
         value.0 .0.clone()
     }
@@ -391,12 +391,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HttpCacheControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HttpCacheControl> for ::windows::runtime::IInspectable {
     fn from(value: HttpCacheControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HttpCacheControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HttpCacheControl> for ::windows::runtime::IInspectable {
     fn from(value: &HttpCacheControl) -> Self {
         value.0.clone()
     }
@@ -411,10 +411,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HttpCacheControl {}
-unsafe impl ::std::marker::Sync for HttpCacheControl {}
+unsafe impl ::core::marker::Send for HttpCacheControl {}
+unsafe impl ::core::marker::Sync for HttpCacheControl {}
 #[doc = "*Required features: `Web_Http_Filters`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
@@ -423,7 +423,7 @@ impl HttpCacheReadBehavior {
     pub const OnlyFromCache: HttpCacheReadBehavior = HttpCacheReadBehavior(2i32);
     pub const NoCache: HttpCacheReadBehavior = HttpCacheReadBehavior(3i32);
 }
-impl ::std::convert::From<i32> for HttpCacheReadBehavior {
+impl ::core::convert::From<i32> for HttpCacheReadBehavior {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -438,14 +438,14 @@ impl ::windows::runtime::DefaultType for HttpCacheReadBehavior {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Http_Filters`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
     pub const Default: HttpCacheWriteBehavior = HttpCacheWriteBehavior(0i32);
     pub const NoCache: HttpCacheWriteBehavior = HttpCacheWriteBehavior(1i32);
 }
-impl ::std::convert::From<i32> for HttpCacheWriteBehavior {
+impl ::core::convert::From<i32> for HttpCacheWriteBehavior {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -460,14 +460,14 @@ impl ::windows::runtime::DefaultType for HttpCacheWriteBehavior {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Http_Filters`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {
     pub const Default: HttpCookieUsageBehavior = HttpCookieUsageBehavior(0i32);
     pub const NoCookies: HttpCookieUsageBehavior = HttpCookieUsageBehavior(1i32);
 }
-impl ::std::convert::From<i32> for HttpCookieUsageBehavior {
+impl ::core::convert::From<i32> for HttpCookieUsageBehavior {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -483,15 +483,15 @@ impl ::windows::runtime::DefaultType for HttpCookieUsageBehavior {
 }
 #[doc = "*Required features: `Web_Http_Filters`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpServerCustomValidationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl HttpServerCustomValidationRequestedEventArgs {
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn RequestMessage(&self) -> ::windows::runtime::Result<super::HttpRequestMessage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpRequestMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpRequestMessage>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -499,8 +499,8 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -508,8 +508,8 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<super::super::super::Networking::Sockets::SocketSslErrorSeverity> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Networking::Sockets::SocketSslErrorSeverity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
+            let mut result__: super::super::super::Networking::Sockets::SocketSslErrorSeverity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -517,8 +517,8 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -526,22 +526,22 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `Web_Http_Filters`*"]
     pub fn Reject(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -555,12 +555,12 @@ unsafe impl ::windows::runtime::Interface for HttpServerCustomValidationRequeste
 impl ::windows::runtime::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
 }
-impl ::std::convert::From<HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HttpServerCustomValidationRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HttpServerCustomValidationRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -575,12 +575,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: HttpServerCustomValidationRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HttpServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &HttpServerCustomValidationRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -595,8 +595,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter(pub ::windows::runtime::IInspectable);
@@ -760,7 +760,7 @@ pub struct IHttpCacheControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: HttpCacheWriteBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Web_Http_Filters`*"]
 pub struct IHttpFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpFilter {
@@ -773,26 +773,26 @@ impl IHttpFilter {
     pub fn SendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HttpRequestMessage>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Web_Http_Filters`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IHttpFilter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a4cb6dd5-0902-439e-bfd7-e12552b165ce}");
 }
-impl ::std::convert::From<IHttpFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IHttpFilter> for ::windows::runtime::IUnknown {
     fn from(value: IHttpFilter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IHttpFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IHttpFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IHttpFilter) -> Self {
         value.0 .0.clone()
     }
@@ -807,12 +807,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IHttpFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IHttpFilter> for ::windows::runtime::IInspectable {
     fn from(value: IHttpFilter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IHttpFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IHttpFilter> for ::windows::runtime::IInspectable {
     fn from(value: &IHttpFilter) -> Self {
         value.0.clone()
     }
@@ -828,14 +828,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<IHttpFilter> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<IHttpFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IHttpFilter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&IHttpFilter> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&IHttpFilter> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IHttpFilter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -850,7 +850,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &IHttpFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]

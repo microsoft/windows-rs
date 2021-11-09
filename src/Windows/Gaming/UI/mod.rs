@@ -6,40 +6,40 @@ impl GameBar {
     #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn VisibilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IGameBarStatics(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn RemoveVisibilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IGameBarStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IGameBarStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn IsInputRedirectedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IGameBarStatics(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn RemoveIsInputRedirectedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IGameBarStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IGameBarStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn Visible() -> ::windows::runtime::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn IsInputRedirected() -> ::windows::runtime::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IGameBarStatics<R, F: FnOnce(&IGameBarStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -51,14 +51,14 @@ impl ::windows::runtime::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
 #[doc = "*Required features: `Gaming_UI`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
     pub const Voice: GameChatMessageOrigin = GameChatMessageOrigin(0i32);
     pub const Text: GameChatMessageOrigin = GameChatMessageOrigin(1i32);
 }
-impl ::std::convert::From<i32> for GameChatMessageOrigin {
+impl ::core::convert::From<i32> for GameChatMessageOrigin {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -74,47 +74,47 @@ impl ::windows::runtime::DefaultType for GameChatMessageOrigin {
 }
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl GameChatMessageReceivedEventArgs {
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AppId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AppDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn SenderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn Origin(&self) -> ::windows::runtime::Result<GameChatMessageOrigin> {
         let this = self;
         unsafe {
-            let mut result__: GameChatMessageOrigin = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameChatMessageOrigin>(result__)
+            let mut result__: GameChatMessageOrigin = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameChatMessageOrigin>(result__)
         }
     }
 }
@@ -128,12 +128,12 @@ unsafe impl ::windows::runtime::Interface for GameChatMessageReceivedEventArgs {
 impl ::windows::runtime::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
 }
-impl ::std::convert::From<GameChatMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameChatMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GameChatMessageReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -148,12 +148,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameChatMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameChatMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: GameChatMessageReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -168,36 +168,36 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameChatMessageReceivedEventArgs {}
-unsafe impl ::std::marker::Sync for GameChatMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatOverlay(pub ::windows::runtime::IInspectable);
 impl GameChatOverlay {
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn DesiredPosition(&self) -> ::windows::runtime::Result<GameChatOverlayPosition> {
         let this = self;
         unsafe {
-            let mut result__: GameChatOverlayPosition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameChatOverlayPosition>(result__)
+            let mut result__: GameChatOverlayPosition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameChatOverlayPosition>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn SetDesiredPosition(&self, value: GameChatOverlayPosition) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AddMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, sender: Param0, message: Param1, origin: GameChatMessageOrigin) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), sender.into_param().abi(), message.into_param().abi(), origin).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), sender.into_param().abi(), message.into_param().abi(), origin).ok() }
     }
     #[doc = "*Required features: `Gaming_UI`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<GameChatOverlay> {
         Self::IGameChatOverlayStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameChatOverlay>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameChatOverlay>(result__)
         })
     }
     pub fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -215,12 +215,12 @@ unsafe impl ::windows::runtime::Interface for GameChatOverlay {
 impl ::windows::runtime::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
 }
-impl ::std::convert::From<GameChatOverlay> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameChatOverlay> for ::windows::runtime::IUnknown {
     fn from(value: GameChatOverlay) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameChatOverlay> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameChatOverlay> for ::windows::runtime::IUnknown {
     fn from(value: &GameChatOverlay) -> Self {
         value.0 .0.clone()
     }
@@ -235,12 +235,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameChatOverlay> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameChatOverlay> for ::windows::runtime::IInspectable {
     fn from(value: GameChatOverlay) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameChatOverlay> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameChatOverlay> for ::windows::runtime::IInspectable {
     fn from(value: &GameChatOverlay) -> Self {
         value.0.clone()
     }
@@ -255,14 +255,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameChatOverlay {}
-unsafe impl ::std::marker::Sync for GameChatOverlay {}
+unsafe impl ::core::marker::Send for GameChatOverlay {}
+unsafe impl ::core::marker::Sync for GameChatOverlay {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GameChatOverlayContract(pub u8);
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatOverlayMessageSource(pub ::windows::runtime::IInspectable);
 impl GameChatOverlayMessageSource {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -277,21 +277,21 @@ impl GameChatOverlayMessageSource {
     pub fn MessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn SetDelayBeforeClosingAfterMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for GameChatOverlayMessageSource {
@@ -304,12 +304,12 @@ unsafe impl ::windows::runtime::Interface for GameChatOverlayMessageSource {
 impl ::windows::runtime::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
 }
-impl ::std::convert::From<GameChatOverlayMessageSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameChatOverlayMessageSource> for ::windows::runtime::IUnknown {
     fn from(value: GameChatOverlayMessageSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameChatOverlayMessageSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameChatOverlayMessageSource> for ::windows::runtime::IUnknown {
     fn from(value: &GameChatOverlayMessageSource) -> Self {
         value.0 .0.clone()
     }
@@ -324,12 +324,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameChatOverlayMessageSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameChatOverlayMessageSource> for ::windows::runtime::IInspectable {
     fn from(value: GameChatOverlayMessageSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameChatOverlayMessageSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameChatOverlayMessageSource> for ::windows::runtime::IInspectable {
     fn from(value: &GameChatOverlayMessageSource) -> Self {
         value.0.clone()
     }
@@ -344,10 +344,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameChatOverlayMessageSource {}
-unsafe impl ::std::marker::Sync for GameChatOverlayMessageSource {}
+unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
+unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
 #[doc = "*Required features: `Gaming_UI`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
@@ -360,7 +360,7 @@ impl GameChatOverlayPosition {
     pub const TopLeft: GameChatOverlayPosition = GameChatOverlayPosition(6i32);
     pub const TopRight: GameChatOverlayPosition = GameChatOverlayPosition(7i32);
 }
-impl ::std::convert::From<i32> for GameChatOverlayPosition {
+impl ::core::convert::From<i32> for GameChatOverlayPosition {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -376,7 +376,7 @@ impl ::windows::runtime::DefaultType for GameChatOverlayPosition {
 }
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameUIProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 impl GameUIProviderActivatedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -384,23 +384,23 @@ impl GameUIProviderActivatedEventArgs {
     pub fn GameUIArgs(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Gaming_UI`, `Foundation_Collections`*"]
     pub fn ReportCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, results: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), results.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), results.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `Gaming_UI`, `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -408,8 +408,8 @@ impl GameUIProviderActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -417,8 +417,8 @@ impl GameUIProviderActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
 }
@@ -432,12 +432,12 @@ unsafe impl ::windows::runtime::Interface for GameUIProviderActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
-impl ::std::convert::From<GameUIProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameUIProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GameUIProviderActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -452,12 +452,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameUIProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameUIProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: GameUIProviderActivatedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -473,14 +473,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GameUIProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &GameUIProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -495,13 +495,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &GameUIProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for GameUIProviderActivatedEventArgs {}
-unsafe impl ::std::marker::Sync for GameUIProviderActivatedEventArgs {}
+unsafe impl ::core::marker::Send for GameUIProviderActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for GameUIProviderActivatedEventArgs {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GamingUIProviderContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
@@ -546,10 +546,10 @@ pub struct IGameChatMessageReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GameChatMessageOrigin) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -570,7 +570,7 @@ pub struct IGameChatOverlay_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GameChatOverlayPosition) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: GameChatOverlayPosition) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, message: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, origin: GameChatMessageOrigin) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, message: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, origin: GameChatMessageOrigin) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]

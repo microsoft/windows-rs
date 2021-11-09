@@ -15,13 +15,13 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, codelength: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, codelength: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, authenticationtoken: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, wnschannelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, authenticationtoken: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, wnschannelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, channeluri: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, channeluri: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountidlist: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
@@ -29,11 +29,11 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, authenticationsessioninfo: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, useraccountid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -90,7 +90,7 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
@@ -113,9 +113,9 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
@@ -147,7 +147,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_abi(
 );
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(pub ::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
     #[cfg(feature = "Foundation")]
@@ -155,8 +155,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn GetOneTimePassCodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, useraccountid: Param0, codelength: u32) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), useraccountid.into_param().abi(), codelength, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), codelength, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -164,8 +164,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn AddDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, useraccountid: Param0, authenticationtoken: Param1, wnschannelid: Param2) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), useraccountid.into_param().abi(), authenticationtoken.into_param().abi(), wnschannelid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), authenticationtoken.into_param().abi(), wnschannelid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -173,8 +173,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn RemoveDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, useraccountid: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), useraccountid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -182,8 +182,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn UpdateWnsChannelAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, useraccountid: Param0, channeluri: Param1) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), useraccountid.into_param().abi(), channeluri.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), channeluri.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -191,8 +191,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn GetSessionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, useraccountidlist: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -200,8 +200,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn GetSessionsAndUnregisteredAccountsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, useraccountidlist: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -209,8 +209,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn ApproveSessionUsingAuthSessionInfoAsync<'a, Param1: ::windows::runtime::IntoParam<'a, MicrosoftAccountMultiFactorSessionInfo>>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: Param1) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), sessionauthentictionstatus, authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), sessionauthentictionstatus, authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -224,8 +224,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     ) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), sessionauthentictionstatus, useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), sessionauthentictionstatus, useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -233,8 +233,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn DenySessionUsingAuthSessionInfoAsync<'a, Param0: ::windows::runtime::IntoParam<'a, MicrosoftAccountMultiFactorSessionInfo>>(&self, authenticationsessioninfo: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -242,15 +242,15 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     pub fn DenySessionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, useraccountid: Param0, sessionid: Param1, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn Current() -> ::windows::runtime::Result<MicrosoftAccountMultiFactorAuthenticationManager> {
         Self::IMicrosoftAccountMultiFactorAuthenticatorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationManager>(result__)
         })
     }
     pub fn IMicrosoftAccountMultiFactorAuthenticatorStatics<R, F: FnOnce(&IMicrosoftAccountMultiFactorAuthenticatorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -268,12 +268,12 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorAuthent
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager";
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IUnknown {
     fn from(value: MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IUnknown {
     fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
         value.0 .0.clone()
     }
@@ -288,12 +288,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IInspectable {
     fn from(value: MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::runtime::IInspectable {
     fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
         value.0.clone()
     }
@@ -308,17 +308,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
-unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
     pub const User: MicrosoftAccountMultiFactorAuthenticationType = MicrosoftAccountMultiFactorAuthenticationType(0i32);
     pub const Device: MicrosoftAccountMultiFactorAuthenticationType = MicrosoftAccountMultiFactorAuthenticationType(1i32);
 }
-impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorAuthenticationType {
+impl ::core::convert::From<i32> for MicrosoftAccountMultiFactorAuthenticationType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -334,7 +334,7 @@ impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorAuthenticati
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(pub ::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
     #[cfg(feature = "Foundation_Collections")]
@@ -342,16 +342,16 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
     pub fn Sessions(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ServiceResponse(&self) -> ::windows::runtime::Result<MicrosoftAccountMultiFactorServiceResponse> {
         let this = self;
         unsafe {
-            let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
+            let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
         }
     }
 }
@@ -365,12 +365,12 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorGetSess
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult";
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IUnknown {
     fn from(value: MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IUnknown {
     fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
         value.0 .0.clone()
     }
@@ -385,12 +385,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IInspectable {
     fn from(value: MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::runtime::IInspectable {
     fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
         value.0.clone()
     }
@@ -405,19 +405,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
-unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(pub ::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn Code(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -425,8 +425,8 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
     pub fn TimeInterval(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -434,16 +434,16 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
     pub fn TimeToLive(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ServiceResponse(&self) -> ::windows::runtime::Result<MicrosoftAccountMultiFactorServiceResponse> {
         let this = self;
         unsafe {
-            let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
+            let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
         }
     }
 }
@@ -457,12 +457,12 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorOneTime
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo";
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IUnknown {
     fn from(value: MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IUnknown {
     fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
         value.0 .0.clone()
     }
@@ -477,12 +477,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IInspectable {
     fn from(value: MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::runtime::IInspectable {
     fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
         value.0.clone()
     }
@@ -497,10 +497,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
-unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
@@ -527,7 +527,7 @@ impl MicrosoftAccountMultiFactorServiceResponse {
     pub const UIRequired: MicrosoftAccountMultiFactorServiceResponse = MicrosoftAccountMultiFactorServiceResponse(20i32);
     pub const DeviceIdChanged: MicrosoftAccountMultiFactorServiceResponse = MicrosoftAccountMultiFactorServiceResponse(21i32);
 }
-impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorServiceResponse {
+impl ::core::convert::From<i32> for MicrosoftAccountMultiFactorServiceResponse {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -542,7 +542,7 @@ impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorServiceRespo
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
@@ -550,7 +550,7 @@ impl MicrosoftAccountMultiFactorSessionApprovalStatus {
     pub const Approved: MicrosoftAccountMultiFactorSessionApprovalStatus = MicrosoftAccountMultiFactorSessionApprovalStatus(1i32);
     pub const Denied: MicrosoftAccountMultiFactorSessionApprovalStatus = MicrosoftAccountMultiFactorSessionApprovalStatus(2i32);
 }
-impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorSessionApprovalStatus {
+impl ::core::convert::From<i32> for MicrosoftAccountMultiFactorSessionApprovalStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -565,14 +565,14 @@ impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorSessionAppro
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     pub const Authenticated: MicrosoftAccountMultiFactorSessionAuthenticationStatus = MicrosoftAccountMultiFactorSessionAuthenticationStatus(0i32);
     pub const Unauthenticated: MicrosoftAccountMultiFactorSessionAuthenticationStatus = MicrosoftAccountMultiFactorSessionAuthenticationStatus(1i32);
 }
-impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+impl ::core::convert::From<i32> for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -588,47 +588,47 @@ impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorSessionAuthe
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(pub ::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorSessionInfo {
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn UserAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn SessionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn DisplaySessionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ApprovalStatus(&self) -> ::windows::runtime::Result<MicrosoftAccountMultiFactorSessionApprovalStatus> {
         let this = self;
         unsafe {
-            let mut result__: MicrosoftAccountMultiFactorSessionApprovalStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorSessionApprovalStatus>(result__)
+            let mut result__: MicrosoftAccountMultiFactorSessionApprovalStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorSessionApprovalStatus>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn AuthenticationType(&self) -> ::windows::runtime::Result<MicrosoftAccountMultiFactorAuthenticationType> {
         let this = self;
         unsafe {
-            let mut result__: MicrosoftAccountMultiFactorAuthenticationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationType>(result__)
+            let mut result__: MicrosoftAccountMultiFactorAuthenticationType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -636,8 +636,8 @@ impl MicrosoftAccountMultiFactorSessionInfo {
     pub fn RequestTime(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -645,8 +645,8 @@ impl MicrosoftAccountMultiFactorSessionInfo {
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -660,12 +660,12 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorSession
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo";
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IUnknown {
     fn from(value: MicrosoftAccountMultiFactorSessionInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
         value.0 .0.clone()
     }
@@ -680,12 +680,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IInspectable {
     fn from(value: MicrosoftAccountMultiFactorSessionInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::runtime::IInspectable {
     fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
         value.0.clone()
     }
@@ -700,11 +700,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
-unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(pub ::windows::runtime::IInspectable);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     #[cfg(feature = "Foundation_Collections")]
@@ -712,8 +712,8 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     pub fn Sessions(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -721,16 +721,16 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     pub fn UnregisteredAccounts(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ServiceResponse(&self) -> ::windows::runtime::Result<MicrosoftAccountMultiFactorServiceResponse> {
         let this = self;
         unsafe {
-            let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
+            let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
         }
     }
 }
@@ -744,12 +744,12 @@ unsafe impl ::windows::runtime::Interface for MicrosoftAccountMultiFactorUnregis
 impl ::windows::runtime::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IUnknown {
     fn from(value: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
         value.0 .0.clone()
     }
@@ -764,12 +764,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IInspectable {
     fn from(value: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::runtime::IInspectable {
     fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
         value.0.clone()
     }
@@ -784,5 +784,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
-unsafe impl ::std::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}

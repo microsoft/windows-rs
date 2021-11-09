@@ -1,15 +1,15 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Phone_Devices_Power`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Battery(pub ::windows::runtime::IInspectable);
 impl Battery {
     #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn RemainingChargePercent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -17,8 +17,8 @@ impl Battery {
     pub fn RemainingDischargeTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -26,21 +26,21 @@ impl Battery {
     pub fn RemainingChargePercentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(&self, changehandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), changehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), changehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemoveRemainingChargePercentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Battery>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Battery>(result__)
         })
     }
     pub fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -58,12 +58,12 @@ unsafe impl ::windows::runtime::Interface for Battery {
 impl ::windows::runtime::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
 }
-impl ::std::convert::From<Battery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Battery> for ::windows::runtime::IUnknown {
     fn from(value: Battery) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Battery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Battery> for ::windows::runtime::IUnknown {
     fn from(value: &Battery) -> Self {
         value.0 .0.clone()
     }
@@ -78,12 +78,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Battery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Battery> for ::windows::runtime::IInspectable {
     fn from(value: Battery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Battery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Battery> for ::windows::runtime::IInspectable {
     fn from(value: &Battery) -> Self {
         value.0.clone()
     }
@@ -98,8 +98,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Battery {}
-unsafe impl ::std::marker::Sync for Battery {}
+unsafe impl ::core::marker::Send for Battery {}
+unsafe impl ::core::marker::Sync for Battery {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IBattery(pub ::windows::runtime::IInspectable);

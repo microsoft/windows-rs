@@ -1,31 +1,31 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Magnification`*"]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
 impl MAGCOLOREFFECT {}
-impl ::std::default::Default for MAGCOLOREFFECT {
+impl ::core::default::Default for MAGCOLOREFFECT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MAGCOLOREFFECT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MAGCOLOREFFECT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MAGCOLOREFFECT").field("transform", &self.transform).finish()
     }
 }
-impl ::std::cmp::PartialEq for MAGCOLOREFFECT {
+impl ::core::cmp::PartialEq for MAGCOLOREFFECT {
     fn eq(&self, other: &Self) -> bool {
         self.transform == other.transform
     }
 }
-impl ::std::cmp::Eq for MAGCOLOREFFECT {}
+impl ::core::cmp::Eq for MAGCOLOREFFECT {}
 unsafe impl ::windows::runtime::Abi for MAGCOLOREFFECT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Magnification`*"]
 pub struct MAGIMAGEHEADER {
@@ -37,48 +37,48 @@ pub struct MAGIMAGEHEADER {
     pub cbSize: usize,
 }
 impl MAGIMAGEHEADER {}
-impl ::std::default::Default for MAGIMAGEHEADER {
+impl ::core::default::Default for MAGIMAGEHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MAGIMAGEHEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MAGIMAGEHEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MAGIMAGEHEADER").field("width", &self.width).field("height", &self.height).field("format", &self.format).field("stride", &self.stride).field("offset", &self.offset).field("cbSize", &self.cbSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for MAGIMAGEHEADER {
+impl ::core::cmp::PartialEq for MAGIMAGEHEADER {
     fn eq(&self, other: &Self) -> bool {
         self.width == other.width && self.height == other.height && self.format == other.format && self.stride == other.stride && self.offset == other.offset && self.cbSize == other.cbSize
     }
 }
-impl ::std::cmp::Eq for MAGIMAGEHEADER {}
+impl ::core::cmp::Eq for MAGIMAGEHEADER {}
 unsafe impl ::windows::runtime::Abi for MAGIMAGEHEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Magnification`*"]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }
 impl MAGTRANSFORM {}
-impl ::std::default::Default for MAGTRANSFORM {
+impl ::core::default::Default for MAGTRANSFORM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MAGTRANSFORM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MAGTRANSFORM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MAGTRANSFORM").field("v", &self.v).finish()
     }
 }
-impl ::std::cmp::PartialEq for MAGTRANSFORM {
+impl ::core::cmp::PartialEq for MAGTRANSFORM {
     fn eq(&self, other: &Self) -> bool {
         self.v == other.v
     }
 }
-impl ::std::cmp::Eq for MAGTRANSFORM {}
+impl ::core::cmp::Eq for MAGTRANSFORM {}
 unsafe impl ::windows::runtime::Abi for MAGTRANSFORM {
     type Abi = Self;
 }
@@ -102,7 +102,7 @@ pub unsafe fn MagGetColorEffect<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn MagGetColorEffect(hwnd: super::super::Foundation::HWND, peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagGetColorEffect(hwnd.into_param().abi(), ::std::mem::transmute(peffect)))
+        ::core::mem::transmute(MagGetColorEffect(hwnd.into_param().abi(), ::core::mem::transmute(peffect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -117,7 +117,7 @@ pub unsafe fn MagGetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> super
         extern "system" {
             fn MagGetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagGetFullscreenColorEffect(::std::mem::transmute(peffect)))
+        ::core::mem::transmute(MagGetFullscreenColorEffect(::core::mem::transmute(peffect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -132,7 +132,7 @@ pub unsafe fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32,
         extern "system" {
             fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32, pyoffset: *mut i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagGetFullscreenTransform(::std::mem::transmute(pmaglevel), ::std::mem::transmute(pxoffset), ::std::mem::transmute(pyoffset)))
+        ::core::mem::transmute(MagGetFullscreenTransform(::core::mem::transmute(pmaglevel), ::core::mem::transmute(pxoffset), ::core::mem::transmute(pyoffset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -140,14 +140,14 @@ pub unsafe fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32,
 #[doc = "*Required features: `Win32_UI_Magnification`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MagGetImageScalingCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::std::option::Option<MagImageScalingCallback> {
+pub unsafe fn MagGetImageScalingCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::core::option::Option<MagImageScalingCallback> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MagGetImageScalingCallback(hwnd: super::super::Foundation::HWND) -> ::std::option::Option<MagImageScalingCallback>;
+            fn MagGetImageScalingCallback(hwnd: super::super::Foundation::HWND) -> ::core::option::Option<MagImageScalingCallback>;
         }
-        ::std::mem::transmute(MagGetImageScalingCallback(hwnd.into_param().abi()))
+        ::core::mem::transmute(MagGetImageScalingCallback(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -162,7 +162,7 @@ pub unsafe fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOO
         extern "system" {
             fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOOL, prectsource: *mut super::super::Foundation::RECT, prectdest: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagGetInputTransform(::std::mem::transmute(pfenabled), ::std::mem::transmute(prectsource), ::std::mem::transmute(prectdest)))
+        ::core::mem::transmute(MagGetInputTransform(::core::mem::transmute(pfenabled), ::core::mem::transmute(prectsource), ::core::mem::transmute(prectdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -177,7 +177,7 @@ pub unsafe fn MagGetWindowFilterList<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn MagGetWindowFilterList(hwnd: super::super::Foundation::HWND, pdwfiltermode: *mut u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32;
         }
-        ::std::mem::transmute(MagGetWindowFilterList(hwnd.into_param().abi(), ::std::mem::transmute(pdwfiltermode), ::std::mem::transmute(count), ::std::mem::transmute(phwnd)))
+        ::core::mem::transmute(MagGetWindowFilterList(hwnd.into_param().abi(), ::core::mem::transmute(pdwfiltermode), ::core::mem::transmute(count), ::core::mem::transmute(phwnd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -192,7 +192,7 @@ pub unsafe fn MagGetWindowSource<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn MagGetWindowSource(hwnd: super::super::Foundation::HWND, prect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagGetWindowSource(hwnd.into_param().abi(), ::std::mem::transmute(prect)))
+        ::core::mem::transmute(MagGetWindowSource(hwnd.into_param().abi(), ::core::mem::transmute(prect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -207,14 +207,14 @@ pub unsafe fn MagGetWindowTransform<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn MagGetWindowTransform(hwnd: super::super::Foundation::HWND, ptransform: *mut MAGTRANSFORM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagGetWindowTransform(hwnd.into_param().abi(), ::std::mem::transmute(ptransform)))
+        ::core::mem::transmute(MagGetWindowTransform(hwnd.into_param().abi(), ::core::mem::transmute(ptransform)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Magnification`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type MagImageScalingCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::std::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::std::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL;
+pub type MagImageScalingCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_Magnification`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -225,7 +225,7 @@ pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
         extern "system" {
             fn MagInitialize() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagInitialize())
+        ::core::mem::transmute(MagInitialize())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -240,7 +240,7 @@ pub unsafe fn MagSetColorEffect<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn MagSetColorEffect(hwnd: super::super::Foundation::HWND, peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetColorEffect(hwnd.into_param().abi(), ::std::mem::transmute(peffect)))
+        ::core::mem::transmute(MagSetColorEffect(hwnd.into_param().abi(), ::core::mem::transmute(peffect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -255,7 +255,7 @@ pub unsafe fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> sup
         extern "system" {
             fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetFullscreenColorEffect(::std::mem::transmute(peffect)))
+        ::core::mem::transmute(MagSetFullscreenColorEffect(::core::mem::transmute(peffect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -270,7 +270,7 @@ pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i3
         extern "system" {
             fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetFullscreenTransform(::std::mem::transmute(maglevel), ::std::mem::transmute(xoffset), ::std::mem::transmute(yoffset)))
+        ::core::mem::transmute(MagSetFullscreenTransform(::core::mem::transmute(maglevel), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -278,14 +278,14 @@ pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i3
 #[doc = "*Required features: `Win32_UI_Magnification`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, callback: ::std::option::Option<MagImageScalingCallback>) -> super::super::Foundation::BOOL {
+pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, callback: ::core::option::Option<MagImageScalingCallback>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MagSetImageScalingCallback(hwnd: super::super::Foundation::HWND, callback: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetImageScalingCallback(hwnd.into_param().abi(), ::std::mem::transmute(callback)))
+        ::core::mem::transmute(MagSetImageScalingCallback(hwnd.into_param().abi(), ::core::mem::transmute(callback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -300,7 +300,7 @@ pub unsafe fn MagSetInputTransform<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn MagSetInputTransform(fenabled: super::super::Foundation::BOOL, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetInputTransform(fenabled.into_param().abi(), ::std::mem::transmute(prectsource), ::std::mem::transmute(prectdest)))
+        ::core::mem::transmute(MagSetInputTransform(fenabled.into_param().abi(), ::core::mem::transmute(prectsource), ::core::mem::transmute(prectdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -315,7 +315,7 @@ pub unsafe fn MagSetWindowFilterList<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn MagSetWindowFilterList(hwnd: super::super::Foundation::HWND, dwfiltermode: u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetWindowFilterList(hwnd.into_param().abi(), ::std::mem::transmute(dwfiltermode), ::std::mem::transmute(count), ::std::mem::transmute(phwnd)))
+        ::core::mem::transmute(MagSetWindowFilterList(hwnd.into_param().abi(), ::core::mem::transmute(dwfiltermode), ::core::mem::transmute(count), ::core::mem::transmute(phwnd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -330,7 +330,7 @@ pub unsafe fn MagSetWindowSource<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn MagSetWindowSource(hwnd: super::super::Foundation::HWND, rect: super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetWindowSource(hwnd.into_param().abi(), rect.into_param().abi()))
+        ::core::mem::transmute(MagSetWindowSource(hwnd.into_param().abi(), rect.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -345,7 +345,7 @@ pub unsafe fn MagSetWindowTransform<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn MagSetWindowTransform(hwnd: super::super::Foundation::HWND, ptransform: *mut MAGTRANSFORM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagSetWindowTransform(hwnd.into_param().abi(), ::std::mem::transmute(ptransform)))
+        ::core::mem::transmute(MagSetWindowTransform(hwnd.into_param().abi(), ::core::mem::transmute(ptransform)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -360,7 +360,7 @@ pub unsafe fn MagShowSystemCursor<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn MagShowSystemCursor(fshowcursor: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagShowSystemCursor(fshowcursor.into_param().abi()))
+        ::core::mem::transmute(MagShowSystemCursor(fshowcursor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -375,7 +375,7 @@ pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {
         extern "system" {
             fn MagUninitialize() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MagUninitialize())
+        ::core::mem::transmute(MagUninitialize())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

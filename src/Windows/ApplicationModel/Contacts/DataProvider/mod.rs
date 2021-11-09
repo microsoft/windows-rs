@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactDataProviderConnection(pub ::windows::runtime::IInspectable);
 impl ContactDataProviderConnection {
     #[cfg(feature = "Foundation")]
@@ -9,65 +9,65 @@ impl ContactDataProviderConnection {
     pub fn SyncRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn RemoveSyncRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn ServerSearchReadBatchRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn RemoveServerSearchReadBatchRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn CreateOrUpdateContactRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn RemoveCreateOrUpdateContactRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactDataProviderConnection2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn DeleteContactRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`, `Foundation`*"]
     pub fn RemoveDeleteContactRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactDataProviderConnection2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactDataProviderConnection {
@@ -80,12 +80,12 @@ unsafe impl ::windows::runtime::Interface for ContactDataProviderConnection {
 impl ::windows::runtime::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
 }
-impl ::std::convert::From<ContactDataProviderConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactDataProviderConnection> for ::windows::runtime::IUnknown {
     fn from(value: ContactDataProviderConnection) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactDataProviderConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactDataProviderConnection> for ::windows::runtime::IUnknown {
     fn from(value: &ContactDataProviderConnection) -> Self {
         value.0 .0.clone()
     }
@@ -100,12 +100,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactDataProviderConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactDataProviderConnection> for ::windows::runtime::IInspectable {
     fn from(value: ContactDataProviderConnection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactDataProviderConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactDataProviderConnection> for ::windows::runtime::IInspectable {
     fn from(value: &ContactDataProviderConnection) -> Self {
         value.0.clone()
     }
@@ -120,19 +120,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactDataProviderConnection {}
-unsafe impl ::std::marker::Sync for ContactDataProviderConnection {}
+unsafe impl ::core::marker::Send for ContactDataProviderConnection {}
+unsafe impl ::core::marker::Sync for ContactDataProviderConnection {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 impl ContactDataProviderTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<ContactDataProviderConnection> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactDataProviderConnection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactDataProviderConnection>(result__)
         }
     }
 }
@@ -146,12 +146,12 @@ unsafe impl ::windows::runtime::Interface for ContactDataProviderTriggerDetails 
 impl ::windows::runtime::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
 }
-impl ::std::convert::From<ContactDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: ContactDataProviderTriggerDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &ContactDataProviderTriggerDetails) -> Self {
         value.0 .0.clone()
     }
@@ -166,12 +166,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: ContactDataProviderTriggerDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: &ContactDataProviderTriggerDetails) -> Self {
         value.0.clone()
     }
@@ -186,27 +186,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactDataProviderTriggerDetails {}
-unsafe impl ::std::marker::Sync for ContactDataProviderTriggerDetails {}
+unsafe impl ::core::marker::Send for ContactDataProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for ContactDataProviderTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListCreateOrUpdateContactRequest(pub ::windows::runtime::IInspectable);
 impl ContactListCreateOrUpdateContactRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn ContactListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Contact(&self) -> ::windows::runtime::Result<super::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contact>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -214,8 +214,8 @@ impl ContactListCreateOrUpdateContactRequest {
     pub fn ReportCompletedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Contact>>(&self, createdorupdatedcontact: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), createdorupdatedcontact.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), createdorupdatedcontact.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -223,8 +223,8 @@ impl ContactListCreateOrUpdateContactRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -238,12 +238,12 @@ unsafe impl ::windows::runtime::Interface for ContactListCreateOrUpdateContactRe
 impl ::windows::runtime::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
 }
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IUnknown {
     fn from(value: ContactListCreateOrUpdateContactRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
         value.0 .0.clone()
     }
@@ -258,12 +258,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IInspectable {
     fn from(value: ContactListCreateOrUpdateContactRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
         value.0.clone()
     }
@@ -278,19 +278,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListCreateOrUpdateContactRequest {}
-unsafe impl ::std::marker::Sync for ContactListCreateOrUpdateContactRequest {}
+unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequest {}
+unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<ContactListCreateOrUpdateContactRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListCreateOrUpdateContactRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListCreateOrUpdateContactRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -298,8 +298,8 @@ impl ContactListCreateOrUpdateContactRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -313,12 +313,12 @@ unsafe impl ::windows::runtime::Interface for ContactListCreateOrUpdateContactRe
 impl ::windows::runtime::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
 }
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -333,12 +333,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -353,27 +353,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
-unsafe impl ::std::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
+unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListDeleteContactRequest(pub ::windows::runtime::IInspectable);
 impl ContactListDeleteContactRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn ContactListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn ContactId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -381,8 +381,8 @@ impl ContactListDeleteContactRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -390,8 +390,8 @@ impl ContactListDeleteContactRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -405,12 +405,12 @@ unsafe impl ::windows::runtime::Interface for ContactListDeleteContactRequest {
 impl ::windows::runtime::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
 }
-impl ::std::convert::From<ContactListDeleteContactRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListDeleteContactRequest> for ::windows::runtime::IUnknown {
     fn from(value: ContactListDeleteContactRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListDeleteContactRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListDeleteContactRequest> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListDeleteContactRequest) -> Self {
         value.0 .0.clone()
     }
@@ -425,12 +425,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListDeleteContactRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListDeleteContactRequest> for ::windows::runtime::IInspectable {
     fn from(value: ContactListDeleteContactRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListDeleteContactRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListDeleteContactRequest> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListDeleteContactRequest) -> Self {
         value.0.clone()
     }
@@ -445,19 +445,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListDeleteContactRequest {}
-unsafe impl ::std::marker::Sync for ContactListDeleteContactRequest {}
+unsafe impl ::core::marker::Send for ContactListDeleteContactRequest {}
+unsafe impl ::core::marker::Sync for ContactListDeleteContactRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListDeleteContactRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl ContactListDeleteContactRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<ContactListDeleteContactRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListDeleteContactRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListDeleteContactRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -465,8 +465,8 @@ impl ContactListDeleteContactRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -480,12 +480,12 @@ unsafe impl ::windows::runtime::Interface for ContactListDeleteContactRequestEve
 impl ::windows::runtime::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
 }
-impl ::std::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ContactListDeleteContactRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -500,12 +500,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ContactListDeleteContactRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -520,43 +520,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListDeleteContactRequestEventArgs {}
-unsafe impl ::std::marker::Sync for ContactListDeleteContactRequestEventArgs {}
+unsafe impl ::core::marker::Send for ContactListDeleteContactRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListDeleteContactRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListServerSearchReadBatchRequest(pub ::windows::runtime::IInspectable);
 impl ContactListServerSearchReadBatchRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn SessionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn ContactListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<super::ContactQueryOptions> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ContactQueryOptions>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ContactQueryOptions>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn SuggestedBatchSize(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -564,8 +564,8 @@ impl ContactListServerSearchReadBatchRequest {
     pub fn SaveContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), contact.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), contact.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -573,8 +573,8 @@ impl ContactListServerSearchReadBatchRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -582,8 +582,8 @@ impl ContactListServerSearchReadBatchRequest {
     pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), batchstatus, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), batchstatus, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -597,12 +597,12 @@ unsafe impl ::windows::runtime::Interface for ContactListServerSearchReadBatchRe
 impl ::windows::runtime::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
 }
-impl ::std::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::runtime::IUnknown {
     fn from(value: ContactListServerSearchReadBatchRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
         value.0 .0.clone()
     }
@@ -617,12 +617,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::runtime::IInspectable {
     fn from(value: ContactListServerSearchReadBatchRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
         value.0.clone()
     }
@@ -637,19 +637,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListServerSearchReadBatchRequest {}
-unsafe impl ::std::marker::Sync for ContactListServerSearchReadBatchRequest {}
+unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequest {}
+unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl ContactListServerSearchReadBatchRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<ContactListServerSearchReadBatchRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListServerSearchReadBatchRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListServerSearchReadBatchRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -657,8 +657,8 @@ impl ContactListServerSearchReadBatchRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -672,12 +672,12 @@ unsafe impl ::windows::runtime::Interface for ContactListServerSearchReadBatchRe
 impl ::windows::runtime::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
 }
-impl ::std::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ContactListServerSearchReadBatchRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -692,12 +692,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ContactListServerSearchReadBatchRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -712,19 +712,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
-unsafe impl ::std::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
+unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 impl ContactListSyncManagerSyncRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn ContactListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -732,8 +732,8 @@ impl ContactListSyncManagerSyncRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -741,8 +741,8 @@ impl ContactListSyncManagerSyncRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -756,12 +756,12 @@ unsafe impl ::windows::runtime::Interface for ContactListSyncManagerSyncRequest 
 impl ::windows::runtime::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
 }
-impl ::std::convert::From<ContactListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
     fn from(value: ContactListSyncManagerSyncRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
         value.0 .0.clone()
     }
@@ -776,12 +776,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
     fn from(value: ContactListSyncManagerSyncRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
         value.0.clone()
     }
@@ -796,19 +796,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListSyncManagerSyncRequest {}
-unsafe impl ::std::marker::Sync for ContactListSyncManagerSyncRequest {}
+unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequest {}
+unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl ContactListSyncManagerSyncRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<ContactListSyncManagerSyncRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListSyncManagerSyncRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListSyncManagerSyncRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -816,8 +816,8 @@ impl ContactListSyncManagerSyncRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -831,12 +831,12 @@ unsafe impl ::windows::runtime::Interface for ContactListSyncManagerSyncRequestE
 impl ::windows::runtime::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";
 }
-impl ::std::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ContactListSyncManagerSyncRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -851,12 +851,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ContactListSyncManagerSyncRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -871,8 +871,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
-unsafe impl ::std::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
+unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IContactDataProviderConnection(pub ::windows::runtime::IInspectable);
@@ -958,7 +958,7 @@ pub struct IContactListCreateOrUpdateContactRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, createdorupdatedcontact: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -1001,8 +1001,8 @@ pub struct IContactListDeleteContactRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1044,8 +1044,8 @@ pub struct IContactListServerSearchReadBatchRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contact: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1091,7 +1091,7 @@ pub struct IContactListSyncManagerSyncRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,

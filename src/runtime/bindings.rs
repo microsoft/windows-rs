@@ -1,28 +1,28 @@
 #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub mod Windows {
     pub mod Foundation {
-        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
         #[repr(C)]
         pub struct DateTime {
             pub UniversalTime: i64,
         }
         impl DateTime {}
-        impl ::std::default::Default for DateTime {
+        impl ::core::default::Default for DateTime {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for DateTime {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for DateTime {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
             }
         }
-        impl ::std::cmp::PartialEq for DateTime {
+        impl ::core::cmp::PartialEq for DateTime {
             fn eq(&self, other: &Self) -> bool {
                 self.UniversalTime == other.UniversalTime
             }
         }
-        impl ::std::cmp::Eq for DateTime {}
+        impl ::core::cmp::Eq for DateTime {}
         unsafe impl ::windows::runtime::Abi for DateTime {
             type Abi = Self;
         }
@@ -33,7 +33,7 @@ pub mod Windows {
             type DefaultType = Self;
         }
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
         pub struct IPropertyValue(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValue {
             type Vtable = IPropertyValue_abi;
@@ -43,229 +43,229 @@ pub mod Windows {
             pub fn Type(&self) -> ::windows::runtime::Result<PropertyType> {
                 let this = self;
                 unsafe {
-                    let mut result__: PropertyType = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyType>(result__)
+                    let mut result__: PropertyType = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyType>(result__)
                 }
             }
             pub fn IsNumericScalar(&self) -> ::windows::runtime::Result<bool> {
                 let this = self;
                 unsafe {
-                    let mut result__: bool = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+                    let mut result__: bool = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
                 }
             }
             pub fn GetUInt8(&self) -> ::windows::runtime::Result<u8> {
                 let this = self;
                 unsafe {
-                    let mut result__: u8 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+                    let mut result__: u8 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
                 }
             }
             pub fn GetInt16(&self) -> ::windows::runtime::Result<i16> {
                 let this = self;
                 unsafe {
-                    let mut result__: i16 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i16>(result__)
+                    let mut result__: i16 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i16>(result__)
                 }
             }
             pub fn GetUInt16(&self) -> ::windows::runtime::Result<u16> {
                 let this = self;
                 unsafe {
-                    let mut result__: u16 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+                    let mut result__: u16 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
                 }
             }
             pub fn GetInt32(&self) -> ::windows::runtime::Result<i32> {
                 let this = self;
                 unsafe {
-                    let mut result__: i32 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+                    let mut result__: i32 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
                 }
             }
             pub fn GetUInt32(&self) -> ::windows::runtime::Result<u32> {
                 let this = self;
                 unsafe {
-                    let mut result__: u32 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+                    let mut result__: u32 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
                 }
             }
             pub fn GetInt64(&self) -> ::windows::runtime::Result<i64> {
                 let this = self;
                 unsafe {
-                    let mut result__: i64 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+                    let mut result__: i64 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
                 }
             }
             pub fn GetUInt64(&self) -> ::windows::runtime::Result<u64> {
                 let this = self;
                 unsafe {
-                    let mut result__: u64 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+                    let mut result__: u64 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
                 }
             }
             pub fn GetSingle(&self) -> ::windows::runtime::Result<f32> {
                 let this = self;
                 unsafe {
-                    let mut result__: f32 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+                    let mut result__: f32 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
                 }
             }
             pub fn GetDouble(&self) -> ::windows::runtime::Result<f64> {
                 let this = self;
                 unsafe {
-                    let mut result__: f64 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+                    let mut result__: f64 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
                 }
             }
             pub fn GetChar16(&self) -> ::windows::runtime::Result<u16> {
                 let this = self;
                 unsafe {
-                    let mut result__: u16 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+                    let mut result__: u16 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
                 }
             }
             pub fn GetBoolean(&self) -> ::windows::runtime::Result<bool> {
                 let this = self;
                 unsafe {
-                    let mut result__: bool = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+                    let mut result__: bool = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
                 }
             }
             pub fn GetString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+                    let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
                 }
             }
             pub fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
                 let this = self;
                 unsafe {
-                    let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+                    let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
                 }
             }
             pub fn GetDateTime(&self) -> ::windows::runtime::Result<DateTime> {
                 let this = self;
                 unsafe {
-                    let mut result__: DateTime = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DateTime>(result__)
+                    let mut result__: DateTime = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DateTime>(result__)
                 }
             }
             pub fn GetTimeSpan(&self) -> ::windows::runtime::Result<TimeSpan> {
                 let this = self;
                 unsafe {
-                    let mut result__: TimeSpan = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimeSpan>(result__)
+                    let mut result__: TimeSpan = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimeSpan>(result__)
                 }
             }
             pub fn GetPoint(&self) -> ::windows::runtime::Result<Point> {
                 let this = self;
                 unsafe {
-                    let mut result__: Point = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Point>(result__)
+                    let mut result__: Point = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Point>(result__)
                 }
             }
             pub fn GetSize(&self) -> ::windows::runtime::Result<Size> {
                 let this = self;
                 unsafe {
-                    let mut result__: Size = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Size>(result__)
+                    let mut result__: Size = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Size>(result__)
                 }
             }
             pub fn GetRect(&self) -> ::windows::runtime::Result<Rect> {
                 let this = self;
                 unsafe {
-                    let mut result__: Rect = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Rect>(result__)
+                    let mut result__: Rect = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Rect>(result__)
                 }
             }
             pub fn GetUInt8Array(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInt16Array(&self, value: &mut ::windows::runtime::Array<i16>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetUInt16Array(&self, value: &mut ::windows::runtime::Array<u16>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInt32Array(&self, value: &mut ::windows::runtime::Array<i32>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetUInt32Array(&self, value: &mut ::windows::runtime::Array<u32>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInt64Array(&self, value: &mut ::windows::runtime::Array<i64>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetUInt64Array(&self, value: &mut ::windows::runtime::Array<u64>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetSingleArray(&self, value: &mut ::windows::runtime::Array<f32>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetDoubleArray(&self, value: &mut ::windows::runtime::Array<f64>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetChar16Array(&self, value: &mut ::windows::runtime::Array<u16>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetBooleanArray(&self, value: &mut ::windows::runtime::Array<bool>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetStringArray(&self, value: &mut ::windows::runtime::Array<::windows::runtime::HSTRING>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInspectableArray(&self, value: &mut ::windows::runtime::Array<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetGuidArray(&self, value: &mut ::windows::runtime::Array<::windows::runtime::GUID>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetDateTimeArray(&self, value: &mut ::windows::runtime::Array<DateTime>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetTimeSpanArray(&self, value: &mut ::windows::runtime::Array<TimeSpan>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetPointArray(&self, value: &mut ::windows::runtime::Array<Point>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetSizeArray(&self, value: &mut ::windows::runtime::Array<Size>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetRectArray(&self, value: &mut ::windows::runtime::Array<Rect>) -> ::windows::runtime::Result<()> {
                 let this = self;
-                unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
         }
         unsafe impl ::windows::runtime::RuntimeType for IPropertyValue {
             const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
         }
-        impl ::std::convert::From<IPropertyValue> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<IPropertyValue> for ::windows::runtime::IUnknown {
             fn from(value: IPropertyValue) -> Self {
                 value.0 .0
             }
         }
-        impl ::std::convert::From<&IPropertyValue> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<&IPropertyValue> for ::windows::runtime::IUnknown {
             fn from(value: &IPropertyValue) -> Self {
                 value.0 .0.clone()
             }
@@ -280,12 +280,12 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0 .0)
             }
         }
-        impl ::std::convert::From<IPropertyValue> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<IPropertyValue> for ::windows::runtime::IInspectable {
             fn from(value: IPropertyValue) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&IPropertyValue> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<&IPropertyValue> for ::windows::runtime::IInspectable {
             fn from(value: &IPropertyValue) -> Self {
                 value.0.clone()
             }
@@ -322,7 +322,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DateTime) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimeSpan) -> ::windows::runtime::HRESULT,
@@ -340,7 +340,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut f64) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut u16) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut bool) -> ::windows::runtime::HRESULT,
-            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut DateTime) -> ::windows::runtime::HRESULT,
@@ -377,7 +377,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: DateTime, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -396,7 +396,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const f64, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const DateTime, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -406,8 +406,8 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const Rect, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
         );
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
-        pub struct IReference<T>(pub ::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
+        #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
+        pub struct IReference<T>(pub ::windows::runtime::IInspectable, ::core::marker::PhantomData<T>)
         where
             T: ::windows::runtime::RuntimeType + 'static;
         unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::Interface for IReference<T> {
@@ -418,236 +418,236 @@ pub mod Windows {
             pub fn Value(&self) -> ::windows::runtime::Result<T> {
                 let this = self;
                 unsafe {
-                    let mut result__: <T as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<T>(result__)
+                    let mut result__: <T as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<T>(result__)
                 }
             }
             pub fn Type(&self) -> ::windows::runtime::Result<PropertyType> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: PropertyType = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyType>(result__)
+                    let mut result__: PropertyType = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyType>(result__)
                 }
             }
             pub fn IsNumericScalar(&self) -> ::windows::runtime::Result<bool> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: bool = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+                    let mut result__: bool = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
                 }
             }
             pub fn GetUInt8(&self) -> ::windows::runtime::Result<u8> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: u8 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+                    let mut result__: u8 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
                 }
             }
             pub fn GetInt16(&self) -> ::windows::runtime::Result<i16> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: i16 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i16>(result__)
+                    let mut result__: i16 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i16>(result__)
                 }
             }
             pub fn GetUInt16(&self) -> ::windows::runtime::Result<u16> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: u16 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+                    let mut result__: u16 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
                 }
             }
             pub fn GetInt32(&self) -> ::windows::runtime::Result<i32> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: i32 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+                    let mut result__: i32 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
                 }
             }
             pub fn GetUInt32(&self) -> ::windows::runtime::Result<u32> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: u32 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+                    let mut result__: u32 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
                 }
             }
             pub fn GetInt64(&self) -> ::windows::runtime::Result<i64> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: i64 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+                    let mut result__: i64 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
                 }
             }
             pub fn GetUInt64(&self) -> ::windows::runtime::Result<u64> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: u64 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+                    let mut result__: u64 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
                 }
             }
             pub fn GetSingle(&self) -> ::windows::runtime::Result<f32> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: f32 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+                    let mut result__: f32 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
                 }
             }
             pub fn GetDouble(&self) -> ::windows::runtime::Result<f64> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: f64 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+                    let mut result__: f64 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
                 }
             }
             pub fn GetChar16(&self) -> ::windows::runtime::Result<u16> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: u16 = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+                    let mut result__: u16 = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
                 }
             }
             pub fn GetBoolean(&self) -> ::windows::runtime::Result<bool> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: bool = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+                    let mut result__: bool = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
                 }
             }
             pub fn GetString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+                    let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
                 }
             }
             pub fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+                    let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
                 }
             }
             pub fn GetDateTime(&self) -> ::windows::runtime::Result<DateTime> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: DateTime = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DateTime>(result__)
+                    let mut result__: DateTime = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DateTime>(result__)
                 }
             }
             pub fn GetTimeSpan(&self) -> ::windows::runtime::Result<TimeSpan> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: TimeSpan = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimeSpan>(result__)
+                    let mut result__: TimeSpan = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimeSpan>(result__)
                 }
             }
             pub fn GetPoint(&self) -> ::windows::runtime::Result<Point> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: Point = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Point>(result__)
+                    let mut result__: Point = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Point>(result__)
                 }
             }
             pub fn GetSize(&self) -> ::windows::runtime::Result<Size> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: Size = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Size>(result__)
+                    let mut result__: Size = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Size>(result__)
                 }
             }
             pub fn GetRect(&self) -> ::windows::runtime::Result<Rect> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: Rect = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Rect>(result__)
+                    let mut result__: Rect = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Rect>(result__)
                 }
             }
             pub fn GetUInt8Array(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInt16Array(&self, value: &mut ::windows::runtime::Array<i16>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetUInt16Array(&self, value: &mut ::windows::runtime::Array<u16>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInt32Array(&self, value: &mut ::windows::runtime::Array<i32>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetUInt32Array(&self, value: &mut ::windows::runtime::Array<u32>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInt64Array(&self, value: &mut ::windows::runtime::Array<i64>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetUInt64Array(&self, value: &mut ::windows::runtime::Array<u64>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetSingleArray(&self, value: &mut ::windows::runtime::Array<f32>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetDoubleArray(&self, value: &mut ::windows::runtime::Array<f64>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetChar16Array(&self, value: &mut ::windows::runtime::Array<u16>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetBooleanArray(&self, value: &mut ::windows::runtime::Array<bool>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetStringArray(&self, value: &mut ::windows::runtime::Array<::windows::runtime::HSTRING>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetInspectableArray(&self, value: &mut ::windows::runtime::Array<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetGuidArray(&self, value: &mut ::windows::runtime::Array<::windows::runtime::GUID>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetDateTimeArray(&self, value: &mut ::windows::runtime::Array<DateTime>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetTimeSpanArray(&self, value: &mut ::windows::runtime::Array<TimeSpan>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetPointArray(&self, value: &mut ::windows::runtime::Array<Point>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetSizeArray(&self, value: &mut ::windows::runtime::Array<Size>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
             pub fn GetRectArray(&self, value: &mut ::windows::runtime::Array<Rect>) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
-                unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+                unsafe { (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
             }
         }
         unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IReference<T> {
             const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IReference<T>> for ::windows::runtime::IUnknown {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::runtime::IUnknown {
             fn from(value: IReference<T>) -> Self {
                 value.0 .0
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for ::windows::runtime::IUnknown {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::runtime::IUnknown {
             fn from(value: &IReference<T>) -> Self {
                 value.0 .0.clone()
             }
@@ -662,12 +662,12 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0 .0)
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IReference<T>> for ::windows::runtime::IInspectable {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::runtime::IInspectable {
             fn from(value: IReference<T>) -> Self {
                 value.0
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for ::windows::runtime::IInspectable {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::runtime::IInspectable {
             fn from(value: &IReference<T>) -> Self {
                 value.0.clone()
             }
@@ -682,13 +682,13 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0)
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IReference<T>> for IPropertyValue {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::TryFrom<IReference<T>> for IPropertyValue {
             type Error = ::windows::runtime::Error;
             fn try_from(value: IReference<T>) -> ::windows::runtime::Result<Self> {
-                ::std::convert::TryFrom::try_from(&value)
+                ::core::convert::TryFrom::try_from(&value)
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<&IReference<T>> for IPropertyValue {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for IPropertyValue {
             type Error = ::windows::runtime::Error;
             fn try_from(value: &IReference<T>) -> ::windows::runtime::Result<Self> {
                 ::windows::runtime::Interface::cast(value)
@@ -701,7 +701,7 @@ pub mod Windows {
         }
         impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, IPropertyValue> for &IReference<T> {
             fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyValue> {
-                ::std::convert::TryInto::<IPropertyValue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+                ::core::convert::TryInto::<IPropertyValue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
             }
         }
         #[repr(C)]
@@ -714,12 +714,12 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut <T as ::windows::runtime::Abi>::Abi) -> ::windows::runtime::HRESULT,
-            pub ::std::marker::PhantomData<T>,
+            pub ::core::marker::PhantomData<T>,
         )
         where
             T: ::windows::runtime::RuntimeType + 'static;
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
         pub struct IStringable(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IStringable {
             type Vtable = IStringable_abi;
@@ -729,20 +729,20 @@ pub mod Windows {
             pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+                    let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
                 }
             }
         }
         unsafe impl ::windows::runtime::RuntimeType for IStringable {
             const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
         }
-        impl ::std::convert::From<IStringable> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<IStringable> for ::windows::runtime::IUnknown {
             fn from(value: IStringable) -> Self {
                 value.0 .0
             }
         }
-        impl ::std::convert::From<&IStringable> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<&IStringable> for ::windows::runtime::IUnknown {
             fn from(value: &IStringable) -> Self {
                 value.0 .0.clone()
             }
@@ -757,12 +757,12 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0 .0)
             }
         }
-        impl ::std::convert::From<IStringable> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<IStringable> for ::windows::runtime::IInspectable {
             fn from(value: IStringable) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&IStringable> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<&IStringable> for ::windows::runtime::IInspectable {
             fn from(value: &IStringable) -> Self {
                 value.0.clone()
             }
@@ -786,31 +786,31 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
         );
-        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
         #[repr(C)]
         pub struct Point {
             pub X: f32,
             pub Y: f32,
         }
         impl Point {}
-        impl ::std::default::Default for Point {
+        impl ::core::default::Default for Point {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for Point {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for Point {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
             }
         }
-        impl ::std::cmp::PartialEq for Point {
+        impl ::core::cmp::PartialEq for Point {
             fn eq(&self, other: &Self) -> bool {
                 self.X == other.X && self.Y == other.Y
             }
         }
-        impl ::std::cmp::Eq for Point {}
+        impl ::core::cmp::Eq for Point {}
         unsafe impl ::windows::runtime::Abi for Point {
             type Abi = Self;
         }
@@ -820,7 +820,7 @@ pub mod Windows {
         impl ::windows::runtime::DefaultType for Point {
             type DefaultType = Self;
         }
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+        #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
         #[repr(transparent)]
         pub struct PropertyType(pub i32);
         impl PropertyType {
@@ -866,7 +866,7 @@ pub mod Windows {
             pub const RectArray: PropertyType = PropertyType(1043i32);
             pub const OtherTypeArray: PropertyType = PropertyType(1044i32);
         }
-        impl ::std::convert::From<i32> for PropertyType {
+        impl ::core::convert::From<i32> for PropertyType {
             fn from(value: i32) -> Self {
                 Self(value)
             }
@@ -884,236 +884,236 @@ pub mod Windows {
         impl PropertyValue {
             pub fn CreateEmpty() -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt8(value: u8) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInt16(value: i16) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt16(value: u16) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInt32(value: i32) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt32(value: u32) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInt64(value: i64) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt64(value: u64) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateSingle(value: f32) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateDouble(value: f64) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateChar16(value: u16) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateBoolean(value: bool) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInspectable<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateGuid<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateDateTime<'a, Param0: ::windows::runtime::IntoParam<'a, DateTime>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateTimeSpan<'a, Param0: ::windows::runtime::IntoParam<'a, TimeSpan>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreatePoint<'a, Param0: ::windows::runtime::IntoParam<'a, Point>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateSize<'a, Param0: ::windows::runtime::IntoParam<'a, Size>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateRect<'a, Param0: ::windows::runtime::IntoParam<'a, Rect>>(value: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt8Array(value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInt16Array(value: &[<i16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt16Array(value: &[<u16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInt32Array(value: &[<i32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt32Array(value: &[<u32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInt64Array(value: &[<i64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt64Array(value: &[<u64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateSingleArray(value: &[<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateDoubleArray(value: &[<f64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateChar16Array(value: &[<u16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateBooleanArray(value: &[<bool as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateStringArray(value: &[<::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateInspectableArray(value: &[<::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateGuidArray(value: &[<::windows::runtime::GUID as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateDateTimeArray(value: &[<DateTime as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateTimeSpanArray(value: &[<TimeSpan as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreatePointArray(value: &[<Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateSizeArray(value: &[<Size as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn CreateRectArray(value: &[<Rect as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-                    (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+                    let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
                 })
             }
             pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1124,7 +1124,7 @@ pub mod Windows {
         impl ::windows::runtime::RuntimeName for PropertyValue {
             const NAME: &'static str = "Windows.Foundation.PropertyValue";
         }
-        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
         #[repr(C)]
         pub struct Rect {
             pub X: f32,
@@ -1133,22 +1133,22 @@ pub mod Windows {
             pub Height: f32,
         }
         impl Rect {}
-        impl ::std::default::Default for Rect {
+        impl ::core::default::Default for Rect {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for Rect {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for Rect {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
             }
         }
-        impl ::std::cmp::PartialEq for Rect {
+        impl ::core::cmp::PartialEq for Rect {
             fn eq(&self, other: &Self) -> bool {
                 self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
             }
         }
-        impl ::std::cmp::Eq for Rect {}
+        impl ::core::cmp::Eq for Rect {}
         unsafe impl ::windows::runtime::Abi for Rect {
             type Abi = Self;
         }
@@ -1158,29 +1158,29 @@ pub mod Windows {
         impl ::windows::runtime::DefaultType for Rect {
             type DefaultType = Self;
         }
-        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
         #[repr(C)]
         pub struct Size {
             pub Width: f32,
             pub Height: f32,
         }
         impl Size {}
-        impl ::std::default::Default for Size {
+        impl ::core::default::Default for Size {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for Size {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for Size {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
             }
         }
-        impl ::std::cmp::PartialEq for Size {
+        impl ::core::cmp::PartialEq for Size {
             fn eq(&self, other: &Self) -> bool {
                 self.Width == other.Width && self.Height == other.Height
             }
         }
-        impl ::std::cmp::Eq for Size {}
+        impl ::core::cmp::Eq for Size {}
         unsafe impl ::windows::runtime::Abi for Size {
             type Abi = Self;
         }
@@ -1190,28 +1190,28 @@ pub mod Windows {
         impl ::windows::runtime::DefaultType for Size {
             type DefaultType = Self;
         }
-        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
         #[repr(C)]
         pub struct TimeSpan {
             pub Duration: i64,
         }
         impl TimeSpan {}
-        impl ::std::default::Default for TimeSpan {
+        impl ::core::default::Default for TimeSpan {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for TimeSpan {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for TimeSpan {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
             }
         }
-        impl ::std::cmp::PartialEq for TimeSpan {
+        impl ::core::cmp::PartialEq for TimeSpan {
             fn eq(&self, other: &Self) -> bool {
                 self.Duration == other.Duration
             }
         }
-        impl ::std::cmp::Eq for TimeSpan {}
+        impl ::core::cmp::Eq for TimeSpan {}
         unsafe impl ::windows::runtime::Abi for TimeSpan {
             type Abi = Self;
         }
@@ -1221,17 +1221,17 @@ pub mod Windows {
         impl ::windows::runtime::DefaultType for TimeSpan {
             type DefaultType = Self;
         }
-        impl ::std::convert::From<::std::time::Duration> for TimeSpan {
-            fn from(value: ::std::time::Duration) -> Self {
+        impl ::core::convert::From<::core::time::Duration> for TimeSpan {
+            fn from(value: ::core::time::Duration) -> Self {
                 Self { Duration: (value.as_nanos() / 100) as i64 }
             }
         }
-        impl ::std::convert::From<TimeSpan> for ::std::time::Duration {
+        impl ::core::convert::From<TimeSpan> for ::core::time::Duration {
             fn from(value: TimeSpan) -> Self {
-                ::std::time::Duration::from_nanos((value.Duration * 100) as u64)
+                ::core::time::Duration::from_nanos((value.Duration * 100) as u64)
             }
         }
-        impl<'a> ::windows::runtime::IntoParam<'a, TimeSpan> for ::std::time::Duration {
+        impl<'a> ::windows::runtime::IntoParam<'a, TimeSpan> for ::core::time::Duration {
             fn into_param(self) -> ::windows::runtime::Param<'a, TimeSpan> {
                 ::windows::runtime::Param::Owned(self.into())
             }
@@ -1240,7 +1240,7 @@ pub mod Windows {
     pub mod Win32 {
         pub mod Foundation {
             #[repr(transparent)]
-            #[derive(:: std :: default :: Default, :: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: fmt :: Debug)]
+            #[derive(:: core :: default :: Default, :: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: fmt :: Debug)]
             pub struct BOOL(pub i32);
             unsafe impl ::windows::runtime::Abi for BOOL {
                 type Abi = Self;
@@ -1269,17 +1269,17 @@ pub mod Windows {
                     self.ok().expect(msg);
                 }
             }
-            impl ::std::convert::From<BOOL> for bool {
+            impl ::core::convert::From<BOOL> for bool {
                 fn from(value: BOOL) -> Self {
                     value.as_bool()
                 }
             }
-            impl ::std::convert::From<&BOOL> for bool {
+            impl ::core::convert::From<&BOOL> for bool {
                 fn from(value: &BOOL) -> Self {
                     value.as_bool()
                 }
             }
-            impl ::std::convert::From<bool> for BOOL {
+            impl ::core::convert::From<bool> for BOOL {
                 fn from(value: bool) -> Self {
                     if value {
                         BOOL(1)
@@ -1288,22 +1288,22 @@ pub mod Windows {
                     }
                 }
             }
-            impl ::std::convert::From<&bool> for BOOL {
+            impl ::core::convert::From<&bool> for BOOL {
                 fn from(value: &bool) -> Self {
                     (*value).into()
                 }
             }
-            impl ::std::cmp::PartialEq<bool> for BOOL {
+            impl ::core::cmp::PartialEq<bool> for BOOL {
                 fn eq(&self, other: &bool) -> bool {
                     self.as_bool() == *other
                 }
             }
-            impl ::std::cmp::PartialEq<BOOL> for bool {
+            impl ::core::cmp::PartialEq<BOOL> for bool {
                 fn eq(&self, other: &BOOL) -> bool {
                     *self == other.as_bool()
                 }
             }
-            impl std::ops::Not for BOOL {
+            impl ::core::ops::Not for BOOL {
                 type Output = Self;
                 fn not(self) -> Self::Output {
                     if self.as_bool() {
@@ -1319,11 +1319,11 @@ pub mod Windows {
                 }
             }
             #[repr(transparent)]
-            #[derive(:: std :: cmp :: Eq)]
+            #[derive(:: core :: cmp :: Eq)]
             pub struct BSTR(pub *mut u16);
             impl BSTR {
                 pub fn new() -> Self {
-                    Self(std::ptr::null_mut())
+                    Self(core::ptr::null_mut())
                 }
                 pub fn is_empty(&self) -> bool {
                     self.len() == 0
@@ -1337,7 +1337,7 @@ pub mod Windows {
                 }
                 pub fn from_wide(value: &[u16]) -> Self {
                     if value.len() == 0 {
-                        return Self(::std::ptr::null_mut());
+                        return Self(::core::ptr::null_mut());
                     }
                     unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
                 }
@@ -1345,87 +1345,93 @@ pub mod Windows {
                     if self.0.is_null() {
                         return &[];
                     }
-                    unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, self.len()) }
+                    unsafe { ::core::slice::from_raw_parts(self.0 as *const u16, self.len()) }
                 }
             }
-            impl ::std::clone::Clone for BSTR {
+            impl ::core::clone::Clone for BSTR {
                 fn clone(&self) -> Self {
                     Self::from_wide(self.as_wide())
                 }
             }
-            impl ::std::convert::From<&str> for BSTR {
+            #[cfg(feature = "std")]
+            impl ::core::convert::From<&str> for BSTR {
                 fn from(value: &str) -> Self {
                     let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                     Self::from_wide(&value)
                 }
             }
-            impl ::std::convert::From<::std::string::String> for BSTR {
+            #[cfg(feature = "std")]
+            impl ::core::convert::From<::std::string::String> for BSTR {
                 fn from(value: ::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
-            impl ::std::convert::From<&::std::string::String> for BSTR {
+            #[cfg(feature = "std")]
+            impl ::core::convert::From<&::std::string::String> for BSTR {
                 fn from(value: &::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
-            impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
+            #[cfg(feature = "std")]
+            impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
-                fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
+                fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
                     ::std::string::String::from_utf16(value.as_wide())
                 }
             }
-            impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
+            #[cfg(feature = "std")]
+            impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
-                fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
+                fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
                     ::std::string::String::try_from(&value)
                 }
             }
-            impl ::std::default::Default for BSTR {
+            impl ::core::default::Default for BSTR {
                 fn default() -> Self {
-                    Self(::std::ptr::null_mut())
+                    Self(::core::ptr::null_mut())
                 }
             }
-            impl ::std::fmt::Display for BSTR {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    use std::fmt::Write;
-                    for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
-                        f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
+            impl ::core::fmt::Display for BSTR {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    use core::fmt::Write;
+                    for c in ::core::char::decode_utf16(self.as_wide().iter().cloned()) {
+                        f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
                     }
                     Ok(())
                 }
             }
-            impl ::std::fmt::Debug for BSTR {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    ::std::write!(f, "{}", self)
+            impl ::core::fmt::Debug for BSTR {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    ::core::write!(f, "{}", self)
                 }
             }
-            impl ::std::cmp::PartialEq for BSTR {
+            impl ::core::cmp::PartialEq for BSTR {
                 fn eq(&self, other: &Self) -> bool {
                     self.as_wide() == other.as_wide()
                 }
             }
-            impl ::std::cmp::PartialEq<::std::string::String> for BSTR {
+            #[cfg(feature = "std")]
+            impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
                 fn eq(&self, other: &::std::string::String) -> bool {
                     self == other.as_str()
                 }
             }
-            impl ::std::cmp::PartialEq<str> for BSTR {
+            impl ::core::cmp::PartialEq<str> for BSTR {
                 fn eq(&self, other: &str) -> bool {
                     self == other
                 }
             }
-            impl ::std::cmp::PartialEq<&str> for BSTR {
+            impl ::core::cmp::PartialEq<&str> for BSTR {
                 fn eq(&self, other: &&str) -> bool {
                     self.as_wide().iter().copied().eq(other.encode_utf16())
                 }
             }
-            impl ::std::cmp::PartialEq<BSTR> for &str {
+            impl ::core::cmp::PartialEq<BSTR> for &str {
                 fn eq(&self, other: &BSTR) -> bool {
                     other == self
                 }
             }
-            impl ::std::ops::Drop for BSTR {
+            impl ::core::ops::Drop for BSTR {
                 fn drop(&mut self) {
                     if !self.0.is_null() {
                         unsafe { SysFreeString(self as &Self) }
@@ -1433,19 +1439,22 @@ pub mod Windows {
                 }
             }
             unsafe impl ::windows::runtime::Abi for BSTR {
-                type Abi = ::std::mem::ManuallyDrop<Self>;
+                type Abi = ::core::mem::ManuallyDrop<Self>;
             }
             pub type BSTR_abi = *mut u16;
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                     ::windows::runtime::Param::Owned(self.into())
                 }
             }
-            impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for String {
+            #[cfg(feature = "std")]
+            impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for ::std::string::String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                     ::windows::runtime::Param::Owned(self.into())
                 }
             }
+            pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221231i32 as _);
             #[inline]
             pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
                 #[cfg(windows)]
@@ -1454,12 +1463,13 @@ pub mod Windows {
                     extern "system" {
                         fn CloseHandle(hobject: HANDLE) -> BOOL;
                     }
-                    ::std::mem::transmute(CloseHandle(hobject.into_param().abi()))
+                    ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
             pub const E_NOINTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147467262i32 as _);
+            pub const E_OUTOFMEMORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024882i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
             #[inline]
             pub unsafe fn GetLastError() -> WIN32_ERROR {
@@ -1469,12 +1479,12 @@ pub mod Windows {
                     extern "system" {
                         fn GetLastError() -> WIN32_ERROR;
                     }
-                    ::std::mem::transmute(GetLastError())
+                    ::core::mem::transmute(GetLastError())
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct HANDLE(pub isize);
             unsafe impl ::windows::runtime::Handle for HANDLE {
@@ -1492,19 +1502,19 @@ pub mod Windows {
             unsafe impl ::windows::runtime::Abi for HANDLE {
                 type Abi = Self;
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
-            impl ::std::default::Default for HINSTANCE {
+            impl ::core::default::Default for HINSTANCE {
                 fn default() -> Self {
-                    unsafe { ::std::mem::zeroed() }
+                    unsafe { ::core::mem::zeroed() }
                 }
             }
             unsafe impl ::windows::runtime::Handle for HINSTANCE {}
             unsafe impl ::windows::runtime::Abi for HINSTANCE {
                 type Abi = Self;
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct PSTR(pub *mut u8);
             impl PSTR {
@@ -1512,9 +1522,9 @@ pub mod Windows {
                     self.0.is_null()
                 }
             }
-            impl ::std::default::Default for PSTR {
+            impl ::core::default::Default for PSTR {
                 fn default() -> Self {
-                    Self(::std::ptr::null_mut())
+                    Self(::core::ptr::null_mut())
                 }
             }
             unsafe impl ::windows::runtime::Abi for PSTR {
@@ -1522,24 +1532,31 @@ pub mod Windows {
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
-                            unsafe {
-                                ::std::boxed::Box::from_raw(value.0);
-                            }
+                            unsafe { ::windows::runtime::heap_free(value.0 as *mut _) }
                         }
                     }
                 }
             }
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                    ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+                    let len = self.as_bytes().len();
+                    if let Ok(value) = ::windows::runtime::heap_alloc(len + 1) {
+                        let value = unsafe { core::slice::from_raw_parts_mut(value as *mut u8, len + 1) };
+                        value[..len].copy_from_slice(self.as_bytes());
+                        value[len] = 0;
+                        ::windows::runtime::Param::Boxed(PSTR(value.as_mut_ptr()))
+                    } else {
+                        ::windows::runtime::Param::None
+                    }
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                    ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+                    ::windows::runtime::IntoParam::into_param(self.as_str())
                 }
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct PWSTR(pub *mut u16);
             impl PWSTR {
@@ -1547,13 +1564,14 @@ pub mod Windows {
                     self.0.is_null()
                 }
             }
-            impl ::std::default::Default for PWSTR {
+            impl ::core::default::Default for PWSTR {
                 fn default() -> Self {
-                    Self(::std::ptr::null_mut())
+                    Self(::core::ptr::null_mut())
                 }
             }
             unsafe impl ::windows::runtime::Abi for PWSTR {
                 type Abi = Self;
+                #[cfg(feature = "std")]
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
@@ -1564,28 +1582,29 @@ pub mod Windows {
                     }
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    ::windows::runtime::IntoParam::into_param(self.as_str())
                 }
             }
-            #[cfg(windows)]
+            #[cfg(all(windows, feature = "std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
-                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(windows)]
+            #[cfg(all(windows, feature = "std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                    use std::os::windows::ffi::OsStrExt;
-                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    ::windows::runtime::IntoParam::into_param(self.as_os_str())
                 }
             }
             pub const S_OK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(0i32 as _);
@@ -1597,7 +1616,7 @@ pub mod Windows {
                     extern "system" {
                         fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
                     }
-                    ::std::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui)))
+                    ::core::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::core::mem::transmute(ui)))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
@@ -1608,9 +1627,9 @@ pub mod Windows {
                 {
                     #[link(name = "windows")]
                     extern "system" {
-                        fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
+                        fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
                     }
-                    ::std::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
+                    ::core::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
@@ -1621,17 +1640,17 @@ pub mod Windows {
                 {
                     #[link(name = "windows")]
                     extern "system" {
-                        fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
+                        fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
                     }
-                    ::std::mem::transmute(SysStringLen(pbstr.into_param().abi()))
+                    ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
-            #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+            #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
             #[repr(transparent)]
             pub struct WIN32_ERROR(pub u32);
-            impl ::std::convert::From<u32> for WIN32_ERROR {
+            impl ::core::convert::From<u32> for WIN32_ERROR {
                 fn from(value: u32) -> Self {
                     Self(value)
                 }
@@ -1639,35 +1658,35 @@ pub mod Windows {
             unsafe impl ::windows::runtime::Abi for WIN32_ERROR {
                 type Abi = Self;
             }
-            impl ::std::ops::BitOr for WIN32_ERROR {
+            impl ::core::ops::BitOr for WIN32_ERROR {
                 type Output = Self;
                 fn bitor(self, rhs: Self) -> Self {
                     Self(self.0 | rhs.0)
                 }
             }
-            impl ::std::ops::BitAnd for WIN32_ERROR {
+            impl ::core::ops::BitAnd for WIN32_ERROR {
                 type Output = Self;
                 fn bitand(self, rhs: Self) -> Self {
                     Self(self.0 & rhs.0)
                 }
             }
-            impl ::std::ops::BitOrAssign for WIN32_ERROR {
+            impl ::core::ops::BitOrAssign for WIN32_ERROR {
                 fn bitor_assign(&mut self, rhs: Self) {
                     self.0.bitor_assign(rhs.0)
                 }
             }
-            impl ::std::ops::BitAndAssign for WIN32_ERROR {
+            impl ::core::ops::BitAndAssign for WIN32_ERROR {
                 fn bitand_assign(&mut self, rhs: Self) {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            impl ::std::ops::Not for WIN32_ERROR {
+            impl ::core::ops::Not for WIN32_ERROR {
                 type Output = Self;
                 fn not(self) -> Self {
                     Self(self.0.not())
                 }
             }
-            impl ::std::convert::From<WIN32_ERROR> for ::windows::runtime::HRESULT {
+            impl ::core::convert::From<WIN32_ERROR> for ::windows::runtime::HRESULT {
                 fn from(value: WIN32_ERROR) -> Self {
                     Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 })
                 }
@@ -1679,30 +1698,30 @@ pub mod Windows {
             }
         }
         pub mod Security {
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
             #[repr(C)]
             pub struct SECURITY_ATTRIBUTES {
                 pub nLength: u32,
-                pub lpSecurityDescriptor: *mut ::std::ffi::c_void,
+                pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
                 pub bInheritHandle: super::Foundation::BOOL,
             }
             impl SECURITY_ATTRIBUTES {}
-            impl ::std::default::Default for SECURITY_ATTRIBUTES {
+            impl ::core::default::Default for SECURITY_ATTRIBUTES {
                 fn default() -> Self {
-                    unsafe { ::std::mem::zeroed() }
+                    unsafe { ::core::mem::zeroed() }
                 }
             }
-            impl ::std::fmt::Debug for SECURITY_ATTRIBUTES {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+            impl ::core::fmt::Debug for SECURITY_ATTRIBUTES {
+                fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     fmt.debug_struct("SECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
                 }
             }
-            impl ::std::cmp::PartialEq for SECURITY_ATTRIBUTES {
+            impl ::core::cmp::PartialEq for SECURITY_ATTRIBUTES {
                 fn eq(&self, other: &Self) -> bool {
                     self.nLength == other.nLength && self.lpSecurityDescriptor == other.lpSecurityDescriptor && self.bInheritHandle == other.bInheritHandle
                 }
             }
-            impl ::std::cmp::Eq for SECURITY_ATTRIBUTES {}
+            impl ::core::cmp::Eq for SECURITY_ATTRIBUTES {}
             unsafe impl ::windows::runtime::Abi for SECURITY_ATTRIBUTES {
                 type Abi = Self;
             }
@@ -1717,52 +1736,52 @@ pub mod Windows {
                         extern "system" {
                             fn CoCreateGuid(pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
                         }
-                        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+                        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
                         CoCreateGuid(&mut result__).from_abi::<::windows::runtime::GUID>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
+                pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
+                            fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
                         }
-                        ::std::mem::transmute(CoTaskMemAlloc(::std::mem::transmute(cb)))
+                        ::core::mem::transmute(CoTaskMemAlloc(::core::mem::transmute(cb)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
+                pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn CoTaskMemFree(pv: *const ::std::ffi::c_void);
+                            fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
                         }
-                        ::std::mem::transmute(CoTaskMemFree(::std::mem::transmute(pv)))
+                        ::core::mem::transmute(CoTaskMemFree(::core::mem::transmute(pv)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IAgileObject(pub ::windows::runtime::IUnknown);
                 impl IAgileObject {}
                 unsafe impl ::windows::runtime::Interface for IAgileObject {
                     type Vtable = IAgileObject_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498374548, 59852, 18912, [192, 255, 238, 100, 202, 143, 91, 144]);
                 }
-                impl ::std::convert::From<IAgileObject> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IAgileObject> for ::windows::runtime::IUnknown {
                     fn from(value: IAgileObject) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IAgileObject> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IAgileObject> for ::windows::runtime::IUnknown {
                     fn from(value: &IAgileObject) -> Self {
                         value.0.clone()
                     }
@@ -1787,7 +1806,7 @@ pub mod Windows {
             }
             pub mod Diagnostics {
                 pub mod Debug {
-                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+                    #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
                     #[repr(transparent)]
                     pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
                     pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(256u32);
@@ -1796,7 +1815,7 @@ pub mod Windows {
                     pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(1024u32);
                     pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(4096u32);
                     pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(512u32);
-                    impl ::std::convert::From<u32> for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::convert::From<u32> for FORMAT_MESSAGE_OPTIONS {
                         fn from(value: u32) -> Self {
                             Self(value)
                         }
@@ -1804,43 +1823,43 @@ pub mod Windows {
                     unsafe impl ::windows::runtime::Abi for FORMAT_MESSAGE_OPTIONS {
                         type Abi = Self;
                     }
-                    impl ::std::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
                         fn bitor(self, rhs: Self) -> Self {
                             Self(self.0 | rhs.0)
                         }
                     }
-                    impl ::std::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
                         fn bitand(self, rhs: Self) -> Self {
                             Self(self.0 & rhs.0)
                         }
                     }
-                    impl ::std::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
                         fn bitor_assign(&mut self, rhs: Self) {
                             self.0.bitor_assign(rhs.0)
                         }
                     }
-                    impl ::std::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
                         fn bitand_assign(&mut self, rhs: Self) {
                             self.0.bitand_assign(rhs.0)
                         }
                     }
-                    impl ::std::ops::Not for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::Not for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
                         fn not(self) -> Self {
                             Self(self.0.not())
                         }
                     }
                     #[inline]
-                    pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::std::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
+                    pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
                         #[cfg(windows)]
                         {
                             #[link(name = "windows")]
                             extern "system" {
-                                fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::std::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
+                                fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
                             }
-                            ::std::mem::transmute(FormatMessageW(::std::mem::transmute(dwflags), ::std::mem::transmute(lpsource), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwlanguageid), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize), ::std::mem::transmute(arguments)))
+                            ::core::mem::transmute(FormatMessageW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
@@ -1856,20 +1875,20 @@ pub mod Windows {
                         extern "system" {
                             fn FreeLibrary(hlibmodule: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
                         }
-                        ::std::mem::transmute(FreeLibrary(hlibmodule.into_param().abi()))
+                        ::core::mem::transmute(FreeLibrary(hlibmodule.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn GetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> ::std::option::Option<super::super::Foundation::FARPROC> {
+                pub unsafe fn GetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> ::core::option::Option<super::super::Foundation::FARPROC> {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> ::std::option::Option<super::super::Foundation::FARPROC>;
+                            fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> ::core::option::Option<super::super::Foundation::FARPROC>;
                         }
-                        ::std::mem::transmute(GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi()))
+                        ::core::mem::transmute(GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -1882,7 +1901,7 @@ pub mod Windows {
                         extern "system" {
                             fn LoadLibraryA(lplibfilename: super::super::Foundation::PSTR) -> super::super::Foundation::HINSTANCE;
                         }
-                        ::std::mem::transmute(LoadLibraryA(lplibfilename.into_param().abi()))
+                        ::core::mem::transmute(LoadLibraryA(lplibfilename.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -1897,12 +1916,12 @@ pub mod Windows {
                         extern "system" {
                             fn GetProcessHeap() -> HeapHandle;
                         }
-                        ::std::mem::transmute(GetProcessHeap())
+                        ::core::mem::transmute(GetProcessHeap())
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
                 #[repr(transparent)]
                 pub struct HEAP_FLAGS(pub u32);
                 pub const HEAP_NONE: HEAP_FLAGS = HEAP_FLAGS(0u32);
@@ -1922,7 +1941,7 @@ pub mod Windows {
                 pub const HEAP_TAG_SHIFT: HEAP_FLAGS = HEAP_FLAGS(18u32);
                 pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = HEAP_FLAGS(256u32);
                 pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = HEAP_FLAGS(512u32);
-                impl ::std::convert::From<u32> for HEAP_FLAGS {
+                impl ::core::convert::From<u32> for HEAP_FLAGS {
                     fn from(value: u32) -> Self {
                         Self(value)
                     }
@@ -1930,66 +1949,66 @@ pub mod Windows {
                 unsafe impl ::windows::runtime::Abi for HEAP_FLAGS {
                     type Abi = Self;
                 }
-                impl ::std::ops::BitOr for HEAP_FLAGS {
+                impl ::core::ops::BitOr for HEAP_FLAGS {
                     type Output = Self;
                     fn bitor(self, rhs: Self) -> Self {
                         Self(self.0 | rhs.0)
                     }
                 }
-                impl ::std::ops::BitAnd for HEAP_FLAGS {
+                impl ::core::ops::BitAnd for HEAP_FLAGS {
                     type Output = Self;
                     fn bitand(self, rhs: Self) -> Self {
                         Self(self.0 & rhs.0)
                     }
                 }
-                impl ::std::ops::BitOrAssign for HEAP_FLAGS {
+                impl ::core::ops::BitOrAssign for HEAP_FLAGS {
                     fn bitor_assign(&mut self, rhs: Self) {
                         self.0.bitor_assign(rhs.0)
                     }
                 }
-                impl ::std::ops::BitAndAssign for HEAP_FLAGS {
+                impl ::core::ops::BitAndAssign for HEAP_FLAGS {
                     fn bitand_assign(&mut self, rhs: Self) {
                         self.0.bitand_assign(rhs.0)
                     }
                 }
-                impl ::std::ops::Not for HEAP_FLAGS {
+                impl ::core::ops::Not for HEAP_FLAGS {
                     type Output = Self;
                     fn not(self) -> Self {
                         Self(self.0.not())
                     }
                 }
                 #[inline]
-                pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::std::ffi::c_void {
+                pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::std::ffi::c_void;
+                            fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
                         }
-                        ::std::mem::transmute(HeapAlloc(hheap.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwbytes)))
+                        ::core::mem::transmute(HeapAlloc(hheap.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwbytes)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn HeapFree<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+                pub unsafe fn HeapFree<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+                            fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
                         }
-                        ::std::mem::transmute(HeapFree(hheap.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpmem)))
+                        ::core::mem::transmute(HeapFree(hheap.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+                #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
-                impl ::std::default::Default for HeapHandle {
+                impl ::core::default::Default for HeapHandle {
                     fn default() -> Self {
-                        unsafe { ::std::mem::zeroed() }
+                        unsafe { ::core::mem::zeroed() }
                     }
                 }
                 unsafe impl ::windows::runtime::Handle for HeapHandle {}
@@ -2007,47 +2026,47 @@ pub mod Windows {
                             extern "system" {
                                 fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
                             }
-                            let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                            GetErrorInfo(::std::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
+                            let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                            GetErrorInfo(::core::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
                     }
                     #[repr(transparent)]
-                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                    #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                     pub struct IErrorInfo(pub ::windows::runtime::IUnknown);
                     impl IErrorInfo {
                         pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-                            let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+                            let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                            (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
                         }
                         pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                            (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
                         }
                         pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                            (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
                         }
                         pub unsafe fn GetHelpFile(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                            (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
                         }
                         pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
-                            let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+                            let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                            (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
                         }
                     }
                     unsafe impl ::windows::runtime::Interface for IErrorInfo {
                         type Vtable = IErrorInfo_abi;
                         const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
                     }
-                    impl ::std::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
+                    impl ::core::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
                         fn from(value: IErrorInfo) -> Self {
                             value.0
                         }
                     }
-                    impl ::std::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
+                    impl ::core::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
                         fn from(value: &IErrorInfo) -> Self {
                             value.0.clone()
                         }
@@ -2069,9 +2088,9 @@ pub mod Windows {
                         pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                         pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                         pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
                         pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwhelpcontext: *mut u32) -> ::windows::runtime::HRESULT,
                     );
                     #[inline]
@@ -2082,7 +2101,7 @@ pub mod Windows {
                             extern "system" {
                                 fn SetErrorInfo(dwreserved: u32, perrinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
                             }
-                            SetErrorInfo(::std::mem::transmute(dwreserved), perrinfo.into_param().abi()).ok()
+                            SetErrorInfo(::core::mem::transmute(dwreserved), perrinfo.into_param().abi()).ok()
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
@@ -2098,7 +2117,7 @@ pub mod Windows {
                         extern "system" {
                             fn CreateEventA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
                         }
-                        ::std::mem::transmute(CreateEventA(::std::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi()))
+                        ::core::mem::transmute(CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -2111,7 +2130,7 @@ pub mod Windows {
                         extern "system" {
                             fn SetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
                         }
-                        ::std::mem::transmute(SetEvent(hevent.into_param().abi()))
+                        ::core::mem::transmute(SetEvent(hevent.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -2124,7 +2143,7 @@ pub mod Windows {
                         extern "system" {
                             fn WaitForSingleObject(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
                         }
-                        ::std::mem::transmute(WaitForSingleObject(hhandle.into_param().abi(), ::std::mem::transmute(dwmilliseconds)))
+                        ::core::mem::transmute(WaitForSingleObject(hhandle.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -2132,24 +2151,24 @@ pub mod Windows {
             }
             pub mod WinRT {
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct ILanguageExceptionErrorInfo(pub ::windows::runtime::IUnknown);
                 impl ILanguageExceptionErrorInfo {
                     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-                        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
+                        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
                     }
                 }
                 unsafe impl ::windows::runtime::Interface for ILanguageExceptionErrorInfo {
                     type Vtable = ILanguageExceptionErrorInfo_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77782003, 57219, 4460, [9, 70, 8, 18, 171, 246, 224, 125]);
                 }
-                impl ::std::convert::From<ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: ILanguageExceptionErrorInfo) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: &ILanguageExceptionErrorInfo) -> Self {
                         value.0.clone()
                     }
@@ -2173,35 +2192,35 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languageexception: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct ILanguageExceptionErrorInfo2(pub ::windows::runtime::IUnknown);
                 impl ILanguageExceptionErrorInfo2 {
                     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-                        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
+                        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
                     }
                     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::runtime::Result<ILanguageExceptionErrorInfo2> {
-                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
+                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
                     pub unsafe fn CapturePropagationContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, languageexception: Param0) -> ::windows::runtime::Result<()> {
-                        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), languageexception.into_param().abi()).ok()
+                        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), languageexception.into_param().abi()).ok()
                     }
                     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::runtime::Result<ILanguageExceptionErrorInfo2> {
-                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
+                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
                 }
                 unsafe impl ::windows::runtime::Interface for ILanguageExceptionErrorInfo2 {
                     type Vtable = ILanguageExceptionErrorInfo2_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464264132, 23447, 16972, [182, 32, 40, 34, 145, 87, 52, 221]);
                 }
-                impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
                     fn from(value: ILanguageExceptionErrorInfo2) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
                     fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
                         value.0.clone()
                     }
@@ -2216,24 +2235,24 @@ pub mod Windows {
                         ::windows::runtime::Param::Borrowed(&self.0)
                     }
                 }
-                impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
+                impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
                     fn from(value: ILanguageExceptionErrorInfo2) -> Self {
-                        unsafe { ::std::mem::transmute(value) }
+                        unsafe { ::core::mem::transmute(value) }
                     }
                 }
-                impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
+                impl ::core::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
                     fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
-                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                        ::core::convert::From::from(::core::clone::Clone::clone(value))
                     }
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-                        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+                        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
                     }
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for &ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-                        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+                        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                     }
                 }
                 #[repr(C)]
@@ -2248,27 +2267,27 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propagatedlanguageexceptionerrorinfohead: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IRestrictedErrorInfo(pub ::windows::runtime::IUnknown);
                 impl IRestrictedErrorInfo {
                     pub unsafe fn GetErrorDetails(&self, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::runtime::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-                        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(description), ::std::mem::transmute(error), ::std::mem::transmute(restricteddescription), ::std::mem::transmute(capabilitysid)).ok()
+                        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(description), ::core::mem::transmute(error), ::core::mem::transmute(restricteddescription), ::core::mem::transmute(capabilitysid)).ok()
                     }
                     pub unsafe fn GetReference(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-                        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                 }
                 unsafe impl ::windows::runtime::Interface for IRestrictedErrorInfo {
                     type Vtable = IRestrictedErrorInfo_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193256594, 19592, 17021, [167, 188, 22, 221, 147, 254, 182, 126]);
                 }
-                impl ::std::convert::From<IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: IRestrictedErrorInfo) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: &IRestrictedErrorInfo) -> Self {
                         value.0.clone()
                     }
@@ -2283,36 +2302,36 @@ pub mod Windows {
                         ::windows::runtime::Param::Borrowed(&self.0)
                     }
                 }
-                unsafe impl ::std::marker::Send for IRestrictedErrorInfo {}
-                unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
+                unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
+                unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
                 #[repr(C)]
                 #[doc(hidden)]
                 pub struct IRestrictedErrorInfo_abi(
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, description: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, error: *mut ::windows::runtime::HRESULT, restricteddescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, capabilitysid: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, description: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, error: *mut ::windows::runtime::HRESULT, restricteddescription: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, capabilitysid: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IWeakReference(pub ::windows::runtime::IUnknown);
                 impl IWeakReference {
                     pub unsafe fn Resolve<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-                        let mut result__ = ::std::option::Option::None;
-                        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                        let mut result__ = ::core::option::Option::None;
+                        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                     }
                 }
                 unsafe impl ::windows::runtime::Interface for IWeakReference {
                     type Vtable = IWeakReference_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(55, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
                 }
-                impl ::std::convert::From<IWeakReference> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IWeakReference> for ::windows::runtime::IUnknown {
                     fn from(value: IWeakReference) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IWeakReference> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IWeakReference> for ::windows::runtime::IUnknown {
                     fn from(value: &IWeakReference) -> Self {
                         value.0.clone()
                     }
@@ -2333,27 +2352,27 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IWeakReferenceSource(pub ::windows::runtime::IUnknown);
                 impl IWeakReferenceSource {
                     pub unsafe fn GetWeakReference(&self) -> ::windows::runtime::Result<IWeakReference> {
-                        let mut result__: <IWeakReference as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWeakReference>(result__)
+                        let mut result__: <IWeakReference as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IWeakReference>(result__)
                     }
                 }
                 unsafe impl ::windows::runtime::Interface for IWeakReferenceSource {
                     type Vtable = IWeakReferenceSource_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
                 }
-                impl ::std::convert::From<IWeakReferenceSource> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IWeakReferenceSource> for ::windows::runtime::IUnknown {
                     fn from(value: IWeakReferenceSource) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IWeakReferenceSource> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IWeakReferenceSource> for ::windows::runtime::IUnknown {
                     fn from(value: &IWeakReferenceSource) -> Self {
                         value.0.clone()
                     }

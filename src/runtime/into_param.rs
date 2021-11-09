@@ -41,6 +41,7 @@ impl<'a> IntoParam<'a, HSTRING> for &str {
     }
 }
 
+#[cfg(feature = "std")]
 impl<'a> IntoParam<'a, HSTRING> for String {
     fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())

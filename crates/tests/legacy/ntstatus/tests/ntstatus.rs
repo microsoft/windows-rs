@@ -25,7 +25,7 @@ fn test() -> Result<()> {
 
         let mut random = GUID::zeroed();
 
-        BCryptGenRandom(provider, &mut random as *mut _ as _, std::mem::size_of::<GUID>() as _, 0)?;
+        BCryptGenRandom(provider, &mut random as *mut _ as _, core::mem::size_of::<GUID>() as _, 0)?;
 
         assert_ne!(random, GUID::zeroed());
     }

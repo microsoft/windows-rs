@@ -6,7 +6,7 @@ use Component::Interfaces::IProperty;
 
 #[test]
 fn expect() -> Result<()> {
-    assert!(Test::ExpectTimeSpan(std::time::Duration::from_millis(1234))? == 1234);
+    assert!(Test::ExpectTimeSpan(core::time::Duration::from_millis(1234))? == 1234);
 
     assert!(Test::ExpectObject(Required::new()?)? == "Component.Classes.Required");
 

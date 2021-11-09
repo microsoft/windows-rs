@@ -44,7 +44,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        let mut result__ = ::std::option::Option::None;
+                        let mut result__ = ::core::option::Option::None;
                         #name(#(#args,)* &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                     }
                     #[cfg(not(windows))]
@@ -60,7 +60,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             quote! {
                 #cfg
                 #[inline]
-                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
                     {
                         #link_attr
@@ -90,7 +90,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        let mut result__: <#return_type_tokens as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+                        let mut result__: <#return_type_tokens as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
                         #name(#(#args,)* &mut result__).from_abi::<#return_type_tokens>(result__)
                     }
                     #[cfg(not(windows))]
@@ -133,7 +133,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        ::std::mem::transmute(#name(#(#args),*))
+                        ::core::mem::transmute(#name(#(#args),*))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");

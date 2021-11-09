@@ -107,7 +107,7 @@ pub struct IUserDataStorageItemProtectionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserDataAvailability) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Security_DataProtection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
@@ -115,7 +115,7 @@ impl UserDataAvailability {
     pub const AfterFirstUnlock: UserDataAvailability = UserDataAvailability(1i32);
     pub const WhileUnlocked: UserDataAvailability = UserDataAvailability(2i32);
 }
-impl ::std::convert::From<i32> for UserDataAvailability {
+impl ::core::convert::From<i32> for UserDataAvailability {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -131,7 +131,7 @@ impl ::windows::runtime::DefaultType for UserDataAvailability {
 }
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserDataAvailabilityStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataAvailabilityStateChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -139,8 +139,8 @@ impl UserDataAvailabilityStateChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -154,12 +154,12 @@ unsafe impl ::windows::runtime::Interface for UserDataAvailabilityStateChangedEv
 impl ::windows::runtime::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
-impl ::std::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: UserDataAvailabilityStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -174,12 +174,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: UserDataAvailabilityStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -194,19 +194,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
-unsafe impl ::std::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
+unsafe impl ::core::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserDataBufferUnprotectResult(pub ::windows::runtime::IInspectable);
 impl UserDataBufferUnprotectResult {
     #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<UserDataBufferUnprotectStatus> {
         let this = self;
         unsafe {
-            let mut result__: UserDataBufferUnprotectStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserDataBufferUnprotectStatus>(result__)
+            let mut result__: UserDataBufferUnprotectStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataBufferUnprotectStatus>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -214,8 +214,8 @@ impl UserDataBufferUnprotectResult {
     pub fn UnprotectedBuffer(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -229,12 +229,12 @@ unsafe impl ::windows::runtime::Interface for UserDataBufferUnprotectResult {
 impl ::windows::runtime::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
-impl ::std::convert::From<UserDataBufferUnprotectResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserDataBufferUnprotectResult> for ::windows::runtime::IUnknown {
     fn from(value: UserDataBufferUnprotectResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserDataBufferUnprotectResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserDataBufferUnprotectResult> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataBufferUnprotectResult) -> Self {
         value.0 .0.clone()
     }
@@ -249,12 +249,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserDataBufferUnprotectResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserDataBufferUnprotectResult> for ::windows::runtime::IInspectable {
     fn from(value: UserDataBufferUnprotectResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserDataBufferUnprotectResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserDataBufferUnprotectResult> for ::windows::runtime::IInspectable {
     fn from(value: &UserDataBufferUnprotectResult) -> Self {
         value.0.clone()
     }
@@ -269,17 +269,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserDataBufferUnprotectResult {}
-unsafe impl ::std::marker::Sync for UserDataBufferUnprotectResult {}
+unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
+unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 #[doc = "*Required features: `Security_DataProtection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
     pub const Succeeded: UserDataBufferUnprotectStatus = UserDataBufferUnprotectStatus(0i32);
     pub const Unavailable: UserDataBufferUnprotectStatus = UserDataBufferUnprotectStatus(1i32);
 }
-impl ::std::convert::From<i32> for UserDataBufferUnprotectStatus {
+impl ::core::convert::From<i32> for UserDataBufferUnprotectStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -295,7 +295,7 @@ impl ::windows::runtime::DefaultType for UserDataBufferUnprotectStatus {
 }
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserDataProtectionManager(pub ::windows::runtime::IInspectable);
 impl UserDataProtectionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -303,8 +303,8 @@ impl UserDataProtectionManager {
     pub fn ProtectStorageItemAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageItem>>(&self, storageitem: Param0, availability: UserDataAvailability) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), storageitem.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), storageitem.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -312,8 +312,8 @@ impl UserDataProtectionManager {
     pub fn GetStorageItemProtectionInfoAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageItem>>(&self, storageitem: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), storageitem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), storageitem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -321,8 +321,8 @@ impl UserDataProtectionManager {
     pub fn ProtectBufferAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, unprotectedbuffer: Param0, availability: UserDataAvailability) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), unprotectedbuffer.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), unprotectedbuffer.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -330,16 +330,16 @@ impl UserDataProtectionManager {
     pub fn UnprotectBufferAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, protectedbuffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), protectedbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), protectedbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>(result__)
         }
     }
     #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), availability, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), availability, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -347,29 +347,29 @@ impl UserDataProtectionManager {
     pub fn DataAvailabilityStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_DataProtection`, `Foundation`*"]
     pub fn RemoveDataAvailabilityStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn TryGetDefault() -> ::windows::runtime::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserDataProtectionManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataProtectionManager>(result__)
         })
     }
     #[cfg(feature = "System")]
     #[doc = "*Required features: `Security_DataProtection`, `System`*"]
     pub fn TryGetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<UserDataProtectionManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<UserDataProtectionManager>(result__)
         })
     }
     pub fn IUserDataProtectionManagerStatics<R, F: FnOnce(&IUserDataProtectionManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -387,12 +387,12 @@ unsafe impl ::windows::runtime::Interface for UserDataProtectionManager {
 impl ::windows::runtime::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
-impl ::std::convert::From<UserDataProtectionManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserDataProtectionManager> for ::windows::runtime::IUnknown {
     fn from(value: UserDataProtectionManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserDataProtectionManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserDataProtectionManager> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataProtectionManager) -> Self {
         value.0 .0.clone()
     }
@@ -407,12 +407,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserDataProtectionManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserDataProtectionManager> for ::windows::runtime::IInspectable {
     fn from(value: UserDataProtectionManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserDataProtectionManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserDataProtectionManager> for ::windows::runtime::IInspectable {
     fn from(value: &UserDataProtectionManager) -> Self {
         value.0.clone()
     }
@@ -427,19 +427,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserDataProtectionManager {}
-unsafe impl ::std::marker::Sync for UserDataProtectionManager {}
+unsafe impl ::core::marker::Send for UserDataProtectionManager {}
+unsafe impl ::core::marker::Sync for UserDataProtectionManager {}
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserDataStorageItemProtectionInfo(pub ::windows::runtime::IInspectable);
 impl UserDataStorageItemProtectionInfo {
     #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn Availability(&self) -> ::windows::runtime::Result<UserDataAvailability> {
         let this = self;
         unsafe {
-            let mut result__: UserDataAvailability = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAvailability>(result__)
+            let mut result__: UserDataAvailability = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAvailability>(result__)
         }
     }
 }
@@ -453,12 +453,12 @@ unsafe impl ::windows::runtime::Interface for UserDataStorageItemProtectionInfo 
 impl ::windows::runtime::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
 }
-impl ::std::convert::From<UserDataStorageItemProtectionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserDataStorageItemProtectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: UserDataStorageItemProtectionInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
         value.0 .0.clone()
     }
@@ -473,12 +473,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserDataStorageItemProtectionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserDataStorageItemProtectionInfo> for ::windows::runtime::IInspectable {
     fn from(value: UserDataStorageItemProtectionInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::runtime::IInspectable {
     fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
         value.0.clone()
     }
@@ -493,10 +493,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserDataStorageItemProtectionInfo {}
-unsafe impl ::std::marker::Sync for UserDataStorageItemProtectionInfo {}
+unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
+unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[doc = "*Required features: `Security_DataProtection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {
@@ -504,7 +504,7 @@ impl UserDataStorageItemProtectionStatus {
     pub const NotProtectable: UserDataStorageItemProtectionStatus = UserDataStorageItemProtectionStatus(1i32);
     pub const DataUnavailable: UserDataStorageItemProtectionStatus = UserDataStorageItemProtectionStatus(2i32);
 }
-impl ::std::convert::From<i32> for UserDataStorageItemProtectionStatus {
+impl ::core::convert::From<i32> for UserDataStorageItemProtectionStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }

@@ -41,7 +41,7 @@ pub const CLSID_DirectInput: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub const CLSID_DirectInput8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832804, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 pub const CLSID_DirectInputDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832801, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 pub const CLSID_DirectInputDevice8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832805, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct CPOINT {
@@ -49,22 +49,22 @@ pub struct CPOINT {
     pub dwLog: u32,
 }
 impl CPOINT {}
-impl ::std::default::Default for CPOINT {
+impl ::core::default::Default for CPOINT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CPOINT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CPOINT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CPOINT").field("lP", &self.lP).field("dwLog", &self.dwLog).finish()
     }
 }
-impl ::std::cmp::PartialEq for CPOINT {
+impl ::core::cmp::PartialEq for CPOINT {
     fn eq(&self, other: &Self) -> bool {
         self.lP == other.lP && self.dwLog == other.dwLog
     }
 }
-impl ::std::cmp::Eq for CPOINT {}
+impl ::core::cmp::Eq for CPOINT {}
 unsafe impl ::windows::runtime::Abi for CPOINT {
     type Abi = Self;
 }
@@ -266,7 +266,7 @@ pub const DI8DEVTYPE_REMOTE: u32 = 27u32;
 pub const DI8DEVTYPE_SCREENPOINTER: u32 = 26u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DI8DEVTYPE_SUPPLEMENTAL: u32 = 28u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -282,24 +282,24 @@ pub struct DIACTIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIACTIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIACTIONA {
+impl ::core::default::Default for DIACTIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIACTIONA {
+impl ::core::cmp::PartialEq for DIACTIONA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIACTIONA {}
+impl ::core::cmp::Eq for DIACTIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DIACTIONA_0 {
@@ -309,24 +309,24 @@ pub union DIACTIONA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl DIACTIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIACTIONA_0 {
+impl ::core::default::Default for DIACTIONA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIACTIONA_0 {
+impl ::core::cmp::PartialEq for DIACTIONA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIACTIONA_0 {}
+impl ::core::cmp::Eq for DIACTIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -349,14 +349,14 @@ pub struct DIACTIONFORMATA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIACTIONFORMATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIACTIONFORMATA {
+impl ::core::default::Default for DIACTIONFORMATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIACTIONFORMATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIACTIONFORMATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIACTIONFORMATA")
             .field("dwSize", &self.dwSize)
             .field("dwActionSize", &self.dwActionSize)
@@ -376,7 +376,7 @@ impl ::std::fmt::Debug for DIACTIONFORMATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIACTIONFORMATA {
+impl ::core::cmp::PartialEq for DIACTIONFORMATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwActionSize == other.dwActionSize
@@ -395,12 +395,12 @@ impl ::std::cmp::PartialEq for DIACTIONFORMATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIACTIONFORMATA {}
+impl ::core::cmp::Eq for DIACTIONFORMATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONFORMATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -423,14 +423,14 @@ pub struct DIACTIONFORMATW {
 #[cfg(feature = "Win32_Foundation")]
 impl DIACTIONFORMATW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIACTIONFORMATW {
+impl ::core::default::Default for DIACTIONFORMATW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIACTIONFORMATW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIACTIONFORMATW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIACTIONFORMATW")
             .field("dwSize", &self.dwSize)
             .field("dwActionSize", &self.dwActionSize)
@@ -450,7 +450,7 @@ impl ::std::fmt::Debug for DIACTIONFORMATW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIACTIONFORMATW {
+impl ::core::cmp::PartialEq for DIACTIONFORMATW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwActionSize == other.dwActionSize
@@ -469,12 +469,12 @@ impl ::std::cmp::PartialEq for DIACTIONFORMATW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIACTIONFORMATW {}
+impl ::core::cmp::Eq for DIACTIONFORMATW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONFORMATW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -490,24 +490,24 @@ pub struct DIACTIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl DIACTIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIACTIONW {
+impl ::core::default::Default for DIACTIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIACTIONW {
+impl ::core::cmp::PartialEq for DIACTIONW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIACTIONW {}
+impl ::core::cmp::Eq for DIACTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DIACTIONW_0 {
@@ -517,19 +517,19 @@ pub union DIACTIONW_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl DIACTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIACTIONW_0 {
+impl ::core::default::Default for DIACTIONW_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIACTIONW_0 {
+impl ::core::cmp::PartialEq for DIACTIONW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIACTIONW_0 {}
+impl ::core::cmp::Eq for DIACTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONW_0 {
     type Abi = Self;
@@ -2220,7 +2220,7 @@ pub const DIBUTTON_TPS_VIEW: u32 = 167789574u32;
 pub const DICD_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DICD_EDIT: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DICOLORSET {
@@ -2235,13 +2235,13 @@ pub struct DICOLORSET {
     pub cAreaFill: u32,
 }
 impl DICOLORSET {}
-impl ::std::default::Default for DICOLORSET {
+impl ::core::default::Default for DICOLORSET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DICOLORSET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DICOLORSET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DICOLORSET")
             .field("dwSize", &self.dwSize)
             .field("cTextFore", &self.cTextFore)
@@ -2255,16 +2255,16 @@ impl ::std::fmt::Debug for DICOLORSET {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DICOLORSET {
+impl ::core::cmp::PartialEq for DICOLORSET {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.cTextFore == other.cTextFore && self.cTextHighlight == other.cTextHighlight && self.cCalloutLine == other.cCalloutLine && self.cCalloutHighlight == other.cCalloutHighlight && self.cBorder == other.cBorder && self.cControlFill == other.cControlFill && self.cHighlightFill == other.cHighlightFill && self.cAreaFill == other.cAreaFill
     }
 }
-impl ::std::cmp::Eq for DICOLORSET {}
+impl ::core::cmp::Eq for DICOLORSET {}
 unsafe impl ::windows::runtime::Abi for DICOLORSET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DICONDITION {
@@ -2276,13 +2276,13 @@ pub struct DICONDITION {
     pub lDeadBand: i32,
 }
 impl DICONDITION {}
-impl ::std::default::Default for DICONDITION {
+impl ::core::default::Default for DICONDITION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DICONDITION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DICONDITION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DICONDITION")
             .field("lOffset", &self.lOffset)
             .field("lPositiveCoefficient", &self.lPositiveCoefficient)
@@ -2293,16 +2293,16 @@ impl ::std::fmt::Debug for DICONDITION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DICONDITION {
+impl ::core::cmp::PartialEq for DICONDITION {
     fn eq(&self, other: &Self) -> bool {
         self.lOffset == other.lOffset && self.lPositiveCoefficient == other.lPositiveCoefficient && self.lNegativeCoefficient == other.lNegativeCoefficient && self.dwPositiveSaturation == other.dwPositiveSaturation && self.dwNegativeSaturation == other.dwNegativeSaturation && self.lDeadBand == other.lDeadBand
     }
 }
-impl ::std::cmp::Eq for DICONDITION {}
+impl ::core::cmp::Eq for DICONDITION {}
 unsafe impl ::windows::runtime::Abi for DICONDITION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2314,19 +2314,19 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::std::option::Option<::windows::runtime::IUnknown>,
+    pub lpUnkDDSTarget: ::core::option::Option<::windows::runtime::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl DICONFIGUREDEVICESPARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DICONFIGUREDEVICESPARAMSA {
+impl ::core::default::Default for DICONFIGUREDEVICESPARAMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DICONFIGUREDEVICESPARAMSA")
             .field("dwSize", &self.dwSize)
             .field("dwcUsers", &self.dwcUsers)
@@ -2340,18 +2340,18 @@ impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
+impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DICONFIGUREDEVICESPARAMSA {}
+impl ::core::cmp::Eq for DICONFIGUREDEVICESPARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DICONFIGUREDEVICESPARAMSA {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2363,19 +2363,19 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::std::option::Option<::windows::runtime::IUnknown>,
+    pub lpUnkDDSTarget: ::core::option::Option<::windows::runtime::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl DICONFIGUREDEVICESPARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DICONFIGUREDEVICESPARAMSW {
+impl ::core::default::Default for DICONFIGUREDEVICESPARAMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DICONFIGUREDEVICESPARAMSW")
             .field("dwSize", &self.dwSize)
             .field("dwcUsers", &self.dwcUsers)
@@ -2389,44 +2389,44 @@ impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {
+impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DICONFIGUREDEVICESPARAMSW {}
+impl ::core::cmp::Eq for DICONFIGUREDEVICESPARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DICONFIGUREDEVICESPARAMSW {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
 impl DICONSTANTFORCE {}
-impl ::std::default::Default for DICONSTANTFORCE {
+impl ::core::default::Default for DICONSTANTFORCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DICONSTANTFORCE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DICONSTANTFORCE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DICONSTANTFORCE").field("lMagnitude", &self.lMagnitude).finish()
     }
 }
-impl ::std::cmp::PartialEq for DICONSTANTFORCE {
+impl ::core::cmp::PartialEq for DICONSTANTFORCE {
     fn eq(&self, other: &Self) -> bool {
         self.lMagnitude == other.lMagnitude
     }
 }
-impl ::std::cmp::Eq for DICONSTANTFORCE {}
+impl ::core::cmp::Eq for DICONSTANTFORCE {}
 unsafe impl ::windows::runtime::Abi for DICONSTANTFORCE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DICUSTOMFORCE {
@@ -2436,22 +2436,22 @@ pub struct DICUSTOMFORCE {
     pub rglForceData: *mut i32,
 }
 impl DICUSTOMFORCE {}
-impl ::std::default::Default for DICUSTOMFORCE {
+impl ::core::default::Default for DICUSTOMFORCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DICUSTOMFORCE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DICUSTOMFORCE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DICUSTOMFORCE").field("cChannels", &self.cChannels).field("dwSamplePeriod", &self.dwSamplePeriod).field("cSamples", &self.cSamples).field("rglForceData", &self.rglForceData).finish()
     }
 }
-impl ::std::cmp::PartialEq for DICUSTOMFORCE {
+impl ::core::cmp::PartialEq for DICUSTOMFORCE {
     fn eq(&self, other: &Self) -> bool {
         self.cChannels == other.cChannels && self.dwSamplePeriod == other.dwSamplePeriod && self.cSamples == other.cSamples && self.rglForceData == other.rglForceData
     }
 }
-impl ::std::cmp::Eq for DICUSTOMFORCE {}
+impl ::core::cmp::Eq for DICUSTOMFORCE {}
 unsafe impl ::windows::runtime::Abi for DICUSTOMFORCE {
     type Abi = Self;
 }
@@ -2467,7 +2467,7 @@ pub const DIDAL_MIDDLE: u32 = 0u32;
 pub const DIDAL_RIGHTALIGNED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDAL_TOPALIGNED: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDATAFORMAT {
@@ -2479,22 +2479,22 @@ pub struct DIDATAFORMAT {
     pub rgodf: *mut DIOBJECTDATAFORMAT,
 }
 impl DIDATAFORMAT {}
-impl ::std::default::Default for DIDATAFORMAT {
+impl ::core::default::Default for DIDATAFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDATAFORMAT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDATAFORMAT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDATAFORMAT").field("dwSize", &self.dwSize).field("dwObjSize", &self.dwObjSize).field("dwFlags", &self.dwFlags).field("dwDataSize", &self.dwDataSize).field("dwNumObjs", &self.dwNumObjs).field("rgodf", &self.rgodf).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDATAFORMAT {
+impl ::core::cmp::PartialEq for DIDATAFORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwObjSize == other.dwObjSize && self.dwFlags == other.dwFlags && self.dwDataSize == other.dwDataSize && self.dwNumObjs == other.dwNumObjs && self.rgodf == other.rgodf
     }
 }
-impl ::std::cmp::Eq for DIDATAFORMAT {}
+impl ::core::cmp::Eq for DIDATAFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIDATAFORMAT {
     type Abi = Self;
 }
@@ -2536,7 +2536,7 @@ pub const DIDC_POSNEGSATURATION: u32 = 8192u32;
 pub const DIDC_SATURATION: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDC_STARTDELAY: u32 = 32768u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVCAPS {
@@ -2553,13 +2553,13 @@ pub struct DIDEVCAPS {
     pub dwFFDriverVersion: u32,
 }
 impl DIDEVCAPS {}
-impl ::std::default::Default for DIDEVCAPS {
+impl ::core::default::Default for DIDEVCAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVCAPS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVCAPS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVCAPS")
             .field("dwSize", &self.dwSize)
             .field("dwFlags", &self.dwFlags)
@@ -2575,16 +2575,16 @@ impl ::std::fmt::Debug for DIDEVCAPS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVCAPS {
+impl ::core::cmp::PartialEq for DIDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
     }
 }
-impl ::std::cmp::Eq for DIDEVCAPS {}
+impl ::core::cmp::Eq for DIDEVCAPS {}
 unsafe impl ::windows::runtime::Abi for DIDEVCAPS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVCAPS_DX3 {
@@ -2596,26 +2596,26 @@ pub struct DIDEVCAPS_DX3 {
     pub dwPOVs: u32,
 }
 impl DIDEVCAPS_DX3 {}
-impl ::std::default::Default for DIDEVCAPS_DX3 {
+impl ::core::default::Default for DIDEVCAPS_DX3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVCAPS_DX3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVCAPS_DX3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVCAPS_DX3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDevType", &self.dwDevType).field("dwAxes", &self.dwAxes).field("dwButtons", &self.dwButtons).field("dwPOVs", &self.dwPOVs).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVCAPS_DX3 {
+impl ::core::cmp::PartialEq for DIDEVCAPS_DX3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs
     }
 }
-impl ::std::cmp::Eq for DIDEVCAPS_DX3 {}
+impl ::core::cmp::Eq for DIDEVCAPS_DX3 {}
 unsafe impl ::windows::runtime::Abi for DIDEVCAPS_DX3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2633,14 +2633,14 @@ pub struct DIDEVICEIMAGEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEIMAGEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEIMAGEINFOA {
+impl ::core::default::Default for DIDEVICEIMAGEINFOA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEIMAGEINFOA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEIMAGEINFOA")
             .field("tszImagePath", &self.tszImagePath)
             .field("dwFlags", &self.dwFlags)
@@ -2655,18 +2655,18 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOA {
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEIMAGEINFOA {}
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2684,14 +2684,14 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEIMAGEINFOHEADERA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEIMAGEINFOHEADERA {
+impl ::core::default::Default for DIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEIMAGEINFOHEADERA")
             .field("dwSize", &self.dwSize)
             .field("dwSizeImageInfo", &self.dwSizeImageInfo)
@@ -2706,18 +2706,18 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEIMAGEINFOHEADERA {}
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOHEADERA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOHEADERA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2735,14 +2735,14 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEIMAGEINFOHEADERW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEIMAGEINFOHEADERW {
+impl ::core::default::Default for DIDEVICEIMAGEINFOHEADERW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEIMAGEINFOHEADERW")
             .field("dwSize", &self.dwSize)
             .field("dwSizeImageInfo", &self.dwSizeImageInfo)
@@ -2757,18 +2757,18 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERW {
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEIMAGEINFOHEADERW {}
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOHEADERW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOHEADERW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2786,14 +2786,14 @@ pub struct DIDEVICEIMAGEINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEIMAGEINFOW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEIMAGEINFOW {
+impl ::core::default::Default for DIDEVICEIMAGEINFOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEIMAGEINFOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEIMAGEINFOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEIMAGEINFOW")
             .field("tszImagePath", &self.tszImagePath)
             .field("dwFlags", &self.dwFlags)
@@ -2808,18 +2808,18 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOW {
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEIMAGEINFOW {}
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2837,14 +2837,14 @@ pub struct DIDEVICEINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEINSTANCEA {
+impl ::core::default::Default for DIDEVICEINSTANCEA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEINSTANCEA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEINSTANCEA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEINSTANCEA")
             .field("dwSize", &self.dwSize)
             .field("guidInstance", &self.guidInstance)
@@ -2859,18 +2859,18 @@ impl ::std::fmt::Debug for DIDEVICEINSTANCEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEINSTANCEA {
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEINSTANCEA {}
+impl ::core::cmp::Eq for DIDEVICEINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCEA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICEINSTANCEW {
@@ -2885,13 +2885,13 @@ pub struct DIDEVICEINSTANCEW {
     pub wUsage: u16,
 }
 impl DIDEVICEINSTANCEW {}
-impl ::std::default::Default for DIDEVICEINSTANCEW {
+impl ::core::default::Default for DIDEVICEINSTANCEW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICEINSTANCEW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEINSTANCEW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEINSTANCEW")
             .field("dwSize", &self.dwSize)
             .field("guidInstance", &self.guidInstance)
@@ -2905,16 +2905,16 @@ impl ::std::fmt::Debug for DIDEVICEINSTANCEW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICEINSTANCEW {
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCEW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
-impl ::std::cmp::Eq for DIDEVICEINSTANCEW {}
+impl ::core::cmp::Eq for DIDEVICEINSTANCEW {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCEW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -2929,30 +2929,30 @@ pub struct DIDEVICEINSTANCE_DX3A {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEINSTANCE_DX3A {
+impl ::core::default::Default for DIDEVICEINSTANCE_DX3A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEINSTANCE_DX3A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
+impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCE_DX3A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICEINSTANCE_DX3W {
@@ -2964,26 +2964,26 @@ pub struct DIDEVICEINSTANCE_DX3W {
     pub tszProductName: [u16; 260],
 }
 impl DIDEVICEINSTANCE_DX3W {}
-impl ::std::default::Default for DIDEVICEINSTANCE_DX3W {
+impl ::core::default::Default for DIDEVICEINSTANCE_DX3W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICEINSTANCE_DX3W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
-impl ::std::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
+impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCE_DX3W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICEOBJECTDATA {
@@ -2994,26 +2994,26 @@ pub struct DIDEVICEOBJECTDATA {
     pub uAppData: usize,
 }
 impl DIDEVICEOBJECTDATA {}
-impl ::std::default::Default for DIDEVICEOBJECTDATA {
+impl ::core::default::Default for DIDEVICEOBJECTDATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICEOBJECTDATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEOBJECTDATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTDATA").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).field("uAppData", &self.uAppData).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICEOBJECTDATA {
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence && self.uAppData == other.uAppData
     }
 }
-impl ::std::cmp::Eq for DIDEVICEOBJECTDATA {}
+impl ::core::cmp::Eq for DIDEVICEOBJECTDATA {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTDATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICEOBJECTDATA_DX3 {
@@ -3023,26 +3023,26 @@ pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwSequence: u32,
 }
 impl DIDEVICEOBJECTDATA_DX3 {}
-impl ::std::default::Default for DIDEVICEOBJECTDATA_DX3 {
+impl ::core::default::Default for DIDEVICEOBJECTDATA_DX3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICEOBJECTDATA_DX3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEOBJECTDATA_DX3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTDATA_DX3").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence
     }
 }
-impl ::std::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
+impl ::core::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTDATA_DX3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -3066,14 +3066,14 @@ pub struct DIDEVICEOBJECTINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEOBJECTINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEOBJECTINSTANCEA {
+impl ::core::default::Default for DIDEVICEOBJECTINSTANCEA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTINSTANCEA")
             .field("dwSize", &self.dwSize)
             .field("guidType", &self.guidType)
@@ -3094,7 +3094,7 @@ impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.guidType == other.guidType
@@ -3114,12 +3114,12 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCEA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICEOBJECTINSTANCEW {
@@ -3140,13 +3140,13 @@ pub struct DIDEVICEOBJECTINSTANCEW {
     pub wReportId: u16,
 }
 impl DIDEVICEOBJECTINSTANCEW {}
-impl ::std::default::Default for DIDEVICEOBJECTINSTANCEW {
+impl ::core::default::Default for DIDEVICEOBJECTINSTANCEW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCEW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTINSTANCEW")
             .field("dwSize", &self.dwSize)
             .field("guidType", &self.guidType)
@@ -3166,7 +3166,7 @@ impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCEW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.guidType == other.guidType
@@ -3185,11 +3185,11 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
             && self.wReportId == other.wReportId
     }
 }
-impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCEW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -3204,30 +3204,30 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3A {
 #[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEOBJECTINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIDEVICEOBJECTINSTANCE_DX3A {
+impl ::core::default::Default for DIDEVICEOBJECTINSTANCE_DX3A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCE_DX3A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
@@ -3239,26 +3239,26 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub tszName: [u16; 260],
 }
 impl DIDEVICEOBJECTINSTANCE_DX3W {}
-impl ::std::default::Default for DIDEVICEOBJECTINSTANCE_DX3W {
+impl ::core::default::Default for DIDEVICEOBJECTINSTANCE_DX3W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
-impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCE_DX3W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDEVICESTATE {
@@ -3267,22 +3267,22 @@ pub struct DIDEVICESTATE {
     pub dwLoad: u32,
 }
 impl DIDEVICESTATE {}
-impl ::std::default::Default for DIDEVICESTATE {
+impl ::core::default::Default for DIDEVICESTATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDEVICESTATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDEVICESTATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDEVICESTATE").field("dwSize", &self.dwSize).field("dwState", &self.dwState).field("dwLoad", &self.dwLoad).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDEVICESTATE {
+impl ::core::cmp::PartialEq for DIDEVICESTATE {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwState == other.dwState && self.dwLoad == other.dwLoad
     }
 }
-impl ::std::cmp::Eq for DIDEVICESTATE {}
+impl ::core::cmp::Eq for DIDEVICESTATE {}
 unsafe impl ::windows::runtime::Abi for DIDEVICESTATE {
     type Abi = Self;
 }
@@ -3410,7 +3410,7 @@ pub const DIDOI_FFEFFECTTRIGGER: u32 = 2u32;
 pub const DIDOI_GUIDISUSAGE: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDOI_POLLED: u32 = 32768u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIDRIVERVERSIONS {
@@ -3420,22 +3420,22 @@ pub struct DIDRIVERVERSIONS {
     pub dwFFDriverVersion: u32,
 }
 impl DIDRIVERVERSIONS {}
-impl ::std::default::Default for DIDRIVERVERSIONS {
+impl ::core::default::Default for DIDRIVERVERSIONS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIDRIVERVERSIONS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIDRIVERVERSIONS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIDRIVERVERSIONS").field("dwSize", &self.dwSize).field("dwFirmwareRevision", &self.dwFirmwareRevision).field("dwHardwareRevision", &self.dwHardwareRevision).field("dwFFDriverVersion", &self.dwFFDriverVersion).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIDRIVERVERSIONS {
+impl ::core::cmp::PartialEq for DIDRIVERVERSIONS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
     }
 }
-impl ::std::cmp::Eq for DIDRIVERVERSIONS {}
+impl ::core::cmp::Eq for DIDRIVERVERSIONS {}
 unsafe impl ::windows::runtime::Abi for DIDRIVERVERSIONS {
     type Abi = Self;
 }
@@ -3481,7 +3481,7 @@ pub const DIEDFL_INCLUDEALIASES: u32 = 65536u32;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIEFFECT {
@@ -3497,17 +3497,17 @@ pub struct DIEFFECT {
     pub rglDirection: *mut i32,
     pub lpEnvelope: *mut DIENVELOPE,
     pub cbTypeSpecificParams: u32,
-    pub lpvTypeSpecificParams: *mut ::std::ffi::c_void,
+    pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
     pub dwStartDelay: u32,
 }
 impl DIEFFECT {}
-impl ::std::default::Default for DIEFFECT {
+impl ::core::default::Default for DIEFFECT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIEFFECT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIEFFECT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIEFFECT")
             .field("dwSize", &self.dwSize)
             .field("dwFlags", &self.dwFlags)
@@ -3526,7 +3526,7 @@ impl ::std::fmt::Debug for DIEFFECT {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DIEFFECT {
+impl ::core::cmp::PartialEq for DIEFFECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwFlags == other.dwFlags
@@ -3544,11 +3544,11 @@ impl ::std::cmp::PartialEq for DIEFFECT {
             && self.dwStartDelay == other.dwStartDelay
     }
 }
-impl ::std::cmp::Eq for DIEFFECT {}
+impl ::core::cmp::Eq for DIEFFECT {}
 unsafe impl ::windows::runtime::Abi for DIEFFECT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIEFFECTATTRIBUTES {
@@ -3559,26 +3559,26 @@ pub struct DIEFFECTATTRIBUTES {
     pub dwCoords: u32,
 }
 impl DIEFFECTATTRIBUTES {}
-impl ::std::default::Default for DIEFFECTATTRIBUTES {
+impl ::core::default::Default for DIEFFECTATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIEFFECTATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIEFFECTATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIEFFECTATTRIBUTES").field("dwEffectId", &self.dwEffectId).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("dwCoords", &self.dwCoords).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIEFFECTATTRIBUTES {
+impl ::core::cmp::PartialEq for DIEFFECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.dwEffectId == other.dwEffectId && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.dwCoords == other.dwCoords
     }
 }
-impl ::std::cmp::Eq for DIEFFECTATTRIBUTES {}
+impl ::core::cmp::Eq for DIEFFECTATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIEFFECTATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -3593,30 +3593,30 @@ pub struct DIEFFECTINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl DIEFFECTINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIEFFECTINFOA {
+impl ::core::default::Default for DIEFFECTINFOA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIEFFECTINFOA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIEFFECTINFOA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIEFFECTINFOA").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIEFFECTINFOA {
+impl ::core::cmp::PartialEq for DIEFFECTINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIEFFECTINFOA {}
+impl ::core::cmp::Eq for DIEFFECTINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIEFFECTINFOA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIEFFECTINFOW {
@@ -3628,26 +3628,26 @@ pub struct DIEFFECTINFOW {
     pub tszName: [u16; 260],
 }
 impl DIEFFECTINFOW {}
-impl ::std::default::Default for DIEFFECTINFOW {
+impl ::core::default::Default for DIEFFECTINFOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIEFFECTINFOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIEFFECTINFOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIEFFECTINFOW").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIEFFECTINFOW {
+impl ::core::cmp::PartialEq for DIEFFECTINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
-impl ::std::cmp::Eq for DIEFFECTINFOW {}
+impl ::core::cmp::Eq for DIEFFECTINFOW {}
 unsafe impl ::windows::runtime::Abi for DIEFFECTINFOW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIEFFECT_DX5 {
@@ -3663,16 +3663,16 @@ pub struct DIEFFECT_DX5 {
     pub rglDirection: *mut i32,
     pub lpEnvelope: *mut DIENVELOPE,
     pub cbTypeSpecificParams: u32,
-    pub lpvTypeSpecificParams: *mut ::std::ffi::c_void,
+    pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
 }
 impl DIEFFECT_DX5 {}
-impl ::std::default::Default for DIEFFECT_DX5 {
+impl ::core::default::Default for DIEFFECT_DX5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIEFFECT_DX5 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIEFFECT_DX5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIEFFECT_DX5")
             .field("dwSize", &self.dwSize)
             .field("dwFlags", &self.dwFlags)
@@ -3690,7 +3690,7 @@ impl ::std::fmt::Debug for DIEFFECT_DX5 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DIEFFECT_DX5 {
+impl ::core::cmp::PartialEq for DIEFFECT_DX5 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwFlags == other.dwFlags
@@ -3707,38 +3707,38 @@ impl ::std::cmp::PartialEq for DIEFFECT_DX5 {
             && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams
     }
 }
-impl ::std::cmp::Eq for DIEFFECT_DX5 {}
+impl ::core::cmp::Eq for DIEFFECT_DX5 {}
 unsafe impl ::windows::runtime::Abi for DIEFFECT_DX5 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
-    pub lpvInBuffer: *mut ::std::ffi::c_void,
+    pub lpvInBuffer: *mut ::core::ffi::c_void,
     pub cbInBuffer: u32,
-    pub lpvOutBuffer: *mut ::std::ffi::c_void,
+    pub lpvOutBuffer: *mut ::core::ffi::c_void,
     pub cbOutBuffer: u32,
 }
 impl DIEFFESCAPE {}
-impl ::std::default::Default for DIEFFESCAPE {
+impl ::core::default::Default for DIEFFESCAPE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIEFFESCAPE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIEFFESCAPE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIEFFESCAPE").field("dwSize", &self.dwSize).field("dwCommand", &self.dwCommand).field("lpvInBuffer", &self.lpvInBuffer).field("cbInBuffer", &self.cbInBuffer).field("lpvOutBuffer", &self.lpvOutBuffer).field("cbOutBuffer", &self.cbOutBuffer).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIEFFESCAPE {
+impl ::core::cmp::PartialEq for DIEFFESCAPE {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwCommand == other.dwCommand && self.lpvInBuffer == other.lpvInBuffer && self.cbInBuffer == other.cbInBuffer && self.lpvOutBuffer == other.lpvOutBuffer && self.cbOutBuffer == other.cbOutBuffer
     }
 }
-impl ::std::cmp::Eq for DIEFFESCAPE {}
+impl ::core::cmp::Eq for DIEFFESCAPE {}
 unsafe impl ::windows::runtime::Abi for DIEFFESCAPE {
     type Abi = Self;
 }
@@ -3788,7 +3788,7 @@ pub const DIEGES_PLAYING: u32 = 1u32;
 pub const DIENUM_CONTINUE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIENUM_STOP: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIENVELOPE {
@@ -3799,22 +3799,22 @@ pub struct DIENVELOPE {
     pub dwFadeTime: u32,
 }
 impl DIENVELOPE {}
-impl ::std::default::Default for DIENVELOPE {
+impl ::core::default::Default for DIENVELOPE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIENVELOPE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIENVELOPE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIENVELOPE").field("dwSize", &self.dwSize).field("dwAttackLevel", &self.dwAttackLevel).field("dwAttackTime", &self.dwAttackTime).field("dwFadeLevel", &self.dwFadeLevel).field("dwFadeTime", &self.dwFadeTime).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIENVELOPE {
+impl ::core::cmp::PartialEq for DIENVELOPE {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwAttackLevel == other.dwAttackLevel && self.dwAttackTime == other.dwAttackTime && self.dwFadeLevel == other.dwFadeLevel && self.dwFadeTime == other.dwFadeTime
     }
 }
-impl ::std::cmp::Eq for DIENVELOPE {}
+impl ::core::cmp::Eq for DIENVELOPE {}
 unsafe impl ::windows::runtime::Abi for DIENVELOPE {
     type Abi = Self;
 }
@@ -3934,7 +3934,7 @@ pub const DIFEF_DEFAULT: u32 = 0u32;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIFFDEVICEATTRIBUTES {
@@ -3943,26 +3943,26 @@ pub struct DIFFDEVICEATTRIBUTES {
     pub dwFFMinTimeResolution: u32,
 }
 impl DIFFDEVICEATTRIBUTES {}
-impl ::std::default::Default for DIFFDEVICEATTRIBUTES {
+impl ::core::default::Default for DIFFDEVICEATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIFFDEVICEATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIFFDEVICEATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIFFDEVICEATTRIBUTES").field("dwFlags", &self.dwFlags).field("dwFFSamplePeriod", &self.dwFFSamplePeriod).field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
+impl ::core::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution
     }
 }
-impl ::std::cmp::Eq for DIFFDEVICEATTRIBUTES {}
+impl ::core::cmp::Eq for DIFFDEVICEATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIFFDEVICEATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIFFOBJECTATTRIBUTES {
@@ -3970,26 +3970,26 @@ pub struct DIFFOBJECTATTRIBUTES {
     pub dwFFForceResolution: u32,
 }
 impl DIFFOBJECTATTRIBUTES {}
-impl ::std::default::Default for DIFFOBJECTATTRIBUTES {
+impl ::core::default::Default for DIFFOBJECTATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIFFOBJECTATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIFFOBJECTATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIFFOBJECTATTRIBUTES").field("dwFFMaxForce", &self.dwFFMaxForce).field("dwFFForceResolution", &self.dwFFForceResolution).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
+impl ::core::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution
     }
 }
-impl ::std::cmp::Eq for DIFFOBJECTATTRIBUTES {}
+impl ::core::cmp::Eq for DIFFOBJECTATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIFFOBJECTATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -4002,25 +4002,25 @@ pub struct DIFILEEFFECT {
 #[cfg(feature = "Win32_Foundation")]
 impl DIFILEEFFECT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIFILEEFFECT {
+impl ::core::default::Default for DIFILEEFFECT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIFILEEFFECT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIFILEEFFECT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIFILEEFFECT").field("dwSize", &self.dwSize).field("GuidEffect", &self.GuidEffect).field("lpDiEffect", &self.lpDiEffect).field("szFriendlyName", &self.szFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIFILEEFFECT {
+impl ::core::cmp::PartialEq for DIFILEEFFECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.GuidEffect == other.GuidEffect && self.lpDiEffect == other.lpDiEffect && self.szFriendlyName == other.szFriendlyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIFILEEFFECT {}
+impl ::core::cmp::Eq for DIFILEEFFECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIFILEEFFECT {
     type Abi = Self;
@@ -4113,7 +4113,7 @@ pub const DIHATSWITCH_SPACESIM_GLANCE: u32 = 117458433u32;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: u32 = 184567297u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIHATSWITCH_TPS_GLANCE: u32 = 167790081u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -4125,25 +4125,25 @@ pub struct DIHIDFFINITINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl DIHIDFFINITINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DIHIDFFINITINFO {
+impl ::core::default::Default for DIHIDFFINITINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DIHIDFFINITINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIHIDFFINITINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIHIDFFINITINFO").field("dwSize", &self.dwSize).field("pwszDeviceInterface", &self.pwszDeviceInterface).field("GuidInstance", &self.GuidInstance).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DIHIDFFINITINFO {
+impl ::core::cmp::PartialEq for DIHIDFFINITINFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.pwszDeviceInterface == other.pwszDeviceInterface && self.GuidInstance == other.GuidInstance
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DIHIDFFINITINFO {}
+impl ::core::cmp::Eq for DIHIDFFINITINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIHIDFFINITINFO {
     type Abi = Self;
@@ -4158,7 +4158,7 @@ pub const DIJC_GUIDINSTANCE: u32 = 1u32;
 pub const DIJC_REGHWCONFIGTYPE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIJC_WDMGAMEPORT: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -4174,24 +4174,24 @@ pub struct DIJOYCONFIG {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYCONFIG {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for DIJOYCONFIG {
+impl ::core::default::Default for DIJOYCONFIG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for DIJOYCONFIG {
+impl ::core::cmp::PartialEq for DIJOYCONFIG {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for DIJOYCONFIG {}
+impl ::core::cmp::Eq for DIJOYCONFIG {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYCONFIG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -4206,24 +4206,24 @@ pub struct DIJOYCONFIG_DX5 {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYCONFIG_DX5 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for DIJOYCONFIG_DX5 {
+impl ::core::default::Default for DIJOYCONFIG_DX5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for DIJOYCONFIG_DX5 {
+impl ::core::cmp::PartialEq for DIJOYCONFIG_DX5 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for DIJOYCONFIG_DX5 {}
+impl ::core::cmp::Eq for DIJOYCONFIG_DX5 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYCONFIG_DX5 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYSTATE {
@@ -4238,26 +4238,26 @@ pub struct DIJOYSTATE {
     pub rgbButtons: [u8; 32],
 }
 impl DIJOYSTATE {}
-impl ::std::default::Default for DIJOYSTATE {
+impl ::core::default::Default for DIJOYSTATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIJOYSTATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIJOYSTATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIJOYSTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("lRx", &self.lRx).field("lRy", &self.lRy).field("lRz", &self.lRz).field("rglSlider", &self.rglSlider).field("rgdwPOV", &self.rgdwPOV).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIJOYSTATE {
+impl ::core::cmp::PartialEq for DIJOYSTATE {
     fn eq(&self, other: &Self) -> bool {
         self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.lRx == other.lRx && self.lRy == other.lRy && self.lRz == other.lRz && self.rglSlider == other.rglSlider && self.rgdwPOV == other.rgdwPOV && self.rgbButtons == other.rgbButtons
     }
 }
-impl ::std::cmp::Eq for DIJOYSTATE {}
+impl ::core::cmp::Eq for DIJOYSTATE {}
 unsafe impl ::windows::runtime::Abi for DIJOYSTATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYSTATE2 {
@@ -4293,13 +4293,13 @@ pub struct DIJOYSTATE2 {
     pub rglFSlider: [i32; 2],
 }
 impl DIJOYSTATE2 {}
-impl ::std::default::Default for DIJOYSTATE2 {
+impl ::core::default::Default for DIJOYSTATE2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIJOYSTATE2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIJOYSTATE2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIJOYSTATE2")
             .field("lX", &self.lX)
             .field("lY", &self.lY)
@@ -4334,7 +4334,7 @@ impl ::std::fmt::Debug for DIJOYSTATE2 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DIJOYSTATE2 {
+impl ::core::cmp::PartialEq for DIJOYSTATE2 {
     fn eq(&self, other: &Self) -> bool {
         self.lX == other.lX
             && self.lY == other.lY
@@ -4368,11 +4368,11 @@ impl ::std::cmp::PartialEq for DIJOYSTATE2 {
             && self.rglFSlider == other.rglFSlider
     }
 }
-impl ::std::cmp::Eq for DIJOYSTATE2 {}
+impl ::core::cmp::Eq for DIJOYSTATE2 {}
 unsafe impl ::windows::runtime::Abi for DIJOYSTATE2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -4390,24 +4390,24 @@ pub struct DIJOYTYPEINFO {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYTYPEINFO {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for DIJOYTYPEINFO {
+impl ::core::default::Default for DIJOYTYPEINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for DIJOYTYPEINFO {
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for DIJOYTYPEINFO {}
+impl ::core::cmp::Eq for DIJOYTYPEINFO {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -4421,24 +4421,24 @@ pub struct DIJOYTYPEINFO_DX5 {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYTYPEINFO_DX5 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for DIJOYTYPEINFO_DX5 {
+impl ::core::default::Default for DIJOYTYPEINFO_DX5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for DIJOYTYPEINFO_DX5 {}
+impl ::core::cmp::Eq for DIJOYTYPEINFO_DX5 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO_DX5 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -4454,24 +4454,24 @@ pub struct DIJOYTYPEINFO_DX6 {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYTYPEINFO_DX6 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for DIJOYTYPEINFO_DX6 {
+impl ::core::default::Default for DIJOYTYPEINFO_DX6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for DIJOYTYPEINFO_DX6 {}
+impl ::core::cmp::Eq for DIJOYTYPEINFO_DX6 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO_DX6 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -4484,19 +4484,19 @@ pub struct DIJOYUSERVALUES {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYUSERVALUES {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for DIJOYUSERVALUES {
+impl ::core::default::Default for DIJOYUSERVALUES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for DIJOYUSERVALUES {
+impl ::core::cmp::PartialEq for DIJOYUSERVALUES {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for DIJOYUSERVALUES {}
+impl ::core::cmp::Eq for DIJOYUSERVALUES {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYUSERVALUES {
     type Abi = Self;
@@ -5115,7 +5115,7 @@ pub const DIK_Y: u32 = 21u32;
 pub const DIK_YEN: u32 = 125u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIK_Z: u32 = 44u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIMOUSESTATE {
@@ -5125,26 +5125,26 @@ pub struct DIMOUSESTATE {
     pub rgbButtons: [u8; 4],
 }
 impl DIMOUSESTATE {}
-impl ::std::default::Default for DIMOUSESTATE {
+impl ::core::default::Default for DIMOUSESTATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIMOUSESTATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIMOUSESTATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIMOUSESTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIMOUSESTATE {
+impl ::core::cmp::PartialEq for DIMOUSESTATE {
     fn eq(&self, other: &Self) -> bool {
         self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
     }
 }
-impl ::std::cmp::Eq for DIMOUSESTATE {}
+impl ::core::cmp::Eq for DIMOUSESTATE {}
 unsafe impl ::windows::runtime::Abi for DIMOUSESTATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIMOUSESTATE2 {
@@ -5154,22 +5154,22 @@ pub struct DIMOUSESTATE2 {
     pub rgbButtons: [u8; 8],
 }
 impl DIMOUSESTATE2 {}
-impl ::std::default::Default for DIMOUSESTATE2 {
+impl ::core::default::Default for DIMOUSESTATE2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIMOUSESTATE2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIMOUSESTATE2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIMOUSESTATE2").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIMOUSESTATE2 {
+impl ::core::cmp::PartialEq for DIMOUSESTATE2 {
     fn eq(&self, other: &Self) -> bool {
         self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
     }
 }
-impl ::std::cmp::Eq for DIMOUSESTATE2 {}
+impl ::core::cmp::Eq for DIMOUSESTATE2 {}
 unsafe impl ::windows::runtime::Abi for DIMOUSESTATE2 {
     type Abi = Self;
 }
@@ -5179,7 +5179,7 @@ pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
 pub const DIMSGWP_DX8MAPPERAPPSTART: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIMSGWP_NEWAPPSTART: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIOBJECTATTRIBUTES {
@@ -5188,26 +5188,26 @@ pub struct DIOBJECTATTRIBUTES {
     pub wUsage: u16,
 }
 impl DIOBJECTATTRIBUTES {}
-impl ::std::default::Default for DIOBJECTATTRIBUTES {
+impl ::core::default::Default for DIOBJECTATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIOBJECTATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIOBJECTATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIOBJECTATTRIBUTES").field("dwFlags", &self.dwFlags).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIOBJECTATTRIBUTES {
+impl ::core::cmp::PartialEq for DIOBJECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
-impl ::std::cmp::Eq for DIOBJECTATTRIBUTES {}
+impl ::core::cmp::Eq for DIOBJECTATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIOBJECTATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIOBJECTCALIBRATION {
@@ -5216,26 +5216,26 @@ pub struct DIOBJECTCALIBRATION {
     pub lMax: i32,
 }
 impl DIOBJECTCALIBRATION {}
-impl ::std::default::Default for DIOBJECTCALIBRATION {
+impl ::core::default::Default for DIOBJECTCALIBRATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIOBJECTCALIBRATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIOBJECTCALIBRATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIOBJECTCALIBRATION").field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIOBJECTCALIBRATION {
+impl ::core::cmp::PartialEq for DIOBJECTCALIBRATION {
     fn eq(&self, other: &Self) -> bool {
         self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
     }
 }
-impl ::std::cmp::Eq for DIOBJECTCALIBRATION {}
+impl ::core::cmp::Eq for DIOBJECTCALIBRATION {}
 unsafe impl ::windows::runtime::Abi for DIOBJECTCALIBRATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIOBJECTDATAFORMAT {
@@ -5245,26 +5245,26 @@ pub struct DIOBJECTDATAFORMAT {
     pub dwFlags: u32,
 }
 impl DIOBJECTDATAFORMAT {}
-impl ::std::default::Default for DIOBJECTDATAFORMAT {
+impl ::core::default::Default for DIOBJECTDATAFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIOBJECTDATAFORMAT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIOBJECTDATAFORMAT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIOBJECTDATAFORMAT").field("pguid", &self.pguid).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIOBJECTDATAFORMAT {
+impl ::core::cmp::PartialEq for DIOBJECTDATAFORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.pguid == other.pguid && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags
     }
 }
-impl ::std::cmp::Eq for DIOBJECTDATAFORMAT {}
+impl ::core::cmp::Eq for DIOBJECTDATAFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIOBJECTDATAFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPERIODIC {
@@ -5274,22 +5274,22 @@ pub struct DIPERIODIC {
     pub dwPeriod: u32,
 }
 impl DIPERIODIC {}
-impl ::std::default::Default for DIPERIODIC {
+impl ::core::default::Default for DIPERIODIC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPERIODIC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPERIODIC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPERIODIC").field("dwMagnitude", &self.dwMagnitude).field("lOffset", &self.lOffset).field("dwPhase", &self.dwPhase).field("dwPeriod", &self.dwPeriod).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPERIODIC {
+impl ::core::cmp::PartialEq for DIPERIODIC {
     fn eq(&self, other: &Self) -> bool {
         self.dwMagnitude == other.dwMagnitude && self.lOffset == other.lOffset && self.dwPhase == other.dwPhase && self.dwPeriod == other.dwPeriod
     }
 }
-impl ::std::cmp::Eq for DIPERIODIC {}
+impl ::core::cmp::Eq for DIPERIODIC {}
 unsafe impl ::windows::runtime::Abi for DIPERIODIC {
     type Abi = Self;
 }
@@ -5301,7 +5301,7 @@ pub const DIPH_BYOFFSET: u32 = 1u32;
 pub const DIPH_BYUSAGE: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIPH_DEVICE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPOVCALIBRATION {
@@ -5309,22 +5309,22 @@ pub struct DIPOVCALIBRATION {
     pub lMax: [i32; 5],
 }
 impl DIPOVCALIBRATION {}
-impl ::std::default::Default for DIPOVCALIBRATION {
+impl ::core::default::Default for DIPOVCALIBRATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPOVCALIBRATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPOVCALIBRATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPOVCALIBRATION").field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPOVCALIBRATION {
+impl ::core::cmp::PartialEq for DIPOVCALIBRATION {
     fn eq(&self, other: &Self) -> bool {
         self.lMin == other.lMin && self.lMax == other.lMax
     }
 }
-impl ::std::cmp::Eq for DIPOVCALIBRATION {}
+impl ::core::cmp::Eq for DIPOVCALIBRATION {}
 unsafe impl ::windows::runtime::Abi for DIPOVCALIBRATION {
     type Abi = Self;
 }
@@ -5344,7 +5344,7 @@ pub const DIPROPAUTOCENTER_ON: u32 = 1u32;
 pub const DIPROPAXISMODE_ABS: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIPROPAXISMODE_REL: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPCAL {
@@ -5354,22 +5354,22 @@ pub struct DIPROPCAL {
     pub lMax: i32,
 }
 impl DIPROPCAL {}
-impl ::std::default::Default for DIPROPCAL {
+impl ::core::default::Default for DIPROPCAL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPCAL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPCAL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPCAL").field("diph", &self.diph).field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPCAL {
+impl ::core::cmp::PartialEq for DIPROPCAL {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
     }
 }
-impl ::std::cmp::Eq for DIPROPCAL {}
+impl ::core::cmp::Eq for DIPROPCAL {}
 unsafe impl ::windows::runtime::Abi for DIPROPCAL {
     type Abi = Self;
 }
@@ -5377,7 +5377,7 @@ unsafe impl ::windows::runtime::Abi for DIPROPCAL {
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPCALPOV {
@@ -5386,26 +5386,26 @@ pub struct DIPROPCALPOV {
     pub lMax: [i32; 5],
 }
 impl DIPROPCALPOV {}
-impl ::std::default::Default for DIPROPCALPOV {
+impl ::core::default::Default for DIPROPCALPOV {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPCALPOV {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPCALPOV {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPCALPOV").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPCALPOV {
+impl ::core::cmp::PartialEq for DIPROPCALPOV {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.lMin == other.lMin && self.lMax == other.lMax
     }
 }
-impl ::std::cmp::Eq for DIPROPCALPOV {}
+impl ::core::cmp::Eq for DIPROPCALPOV {}
 unsafe impl ::windows::runtime::Abi for DIPROPCALPOV {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPCPOINTS {
@@ -5414,26 +5414,26 @@ pub struct DIPROPCPOINTS {
     pub cp: [CPOINT; 8],
 }
 impl DIPROPCPOINTS {}
-impl ::std::default::Default for DIPROPCPOINTS {
+impl ::core::default::Default for DIPROPCPOINTS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPCPOINTS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPCPOINTS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPCPOINTS").field("diph", &self.diph).field("dwCPointsNum", &self.dwCPointsNum).field("cp", &self.cp).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPCPOINTS {
+impl ::core::cmp::PartialEq for DIPROPCPOINTS {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.dwCPointsNum == other.dwCPointsNum && self.cp == other.cp
     }
 }
-impl ::std::cmp::Eq for DIPROPCPOINTS {}
+impl ::core::cmp::Eq for DIPROPCPOINTS {}
 unsafe impl ::windows::runtime::Abi for DIPROPCPOINTS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPDWORD {
@@ -5441,26 +5441,26 @@ pub struct DIPROPDWORD {
     pub dwData: u32,
 }
 impl DIPROPDWORD {}
-impl ::std::default::Default for DIPROPDWORD {
+impl ::core::default::Default for DIPROPDWORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPDWORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPDWORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPDWORD").field("diph", &self.diph).field("dwData", &self.dwData).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPDWORD {
+impl ::core::cmp::PartialEq for DIPROPDWORD {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.dwData == other.dwData
     }
 }
-impl ::std::cmp::Eq for DIPROPDWORD {}
+impl ::core::cmp::Eq for DIPROPDWORD {}
 unsafe impl ::windows::runtime::Abi for DIPROPDWORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPGUIDANDPATH {
@@ -5469,26 +5469,26 @@ pub struct DIPROPGUIDANDPATH {
     pub wszPath: [u16; 260],
 }
 impl DIPROPGUIDANDPATH {}
-impl ::std::default::Default for DIPROPGUIDANDPATH {
+impl ::core::default::Default for DIPROPGUIDANDPATH {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPGUIDANDPATH {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPGUIDANDPATH {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPGUIDANDPATH").field("diph", &self.diph).field("guidClass", &self.guidClass).field("wszPath", &self.wszPath).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPGUIDANDPATH {
+impl ::core::cmp::PartialEq for DIPROPGUIDANDPATH {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.guidClass == other.guidClass && self.wszPath == other.wszPath
     }
 }
-impl ::std::cmp::Eq for DIPROPGUIDANDPATH {}
+impl ::core::cmp::Eq for DIPROPGUIDANDPATH {}
 unsafe impl ::windows::runtime::Abi for DIPROPGUIDANDPATH {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPHEADER {
@@ -5498,26 +5498,26 @@ pub struct DIPROPHEADER {
     pub dwHow: u32,
 }
 impl DIPROPHEADER {}
-impl ::std::default::Default for DIPROPHEADER {
+impl ::core::default::Default for DIPROPHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPHEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPHEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPHEADER").field("dwSize", &self.dwSize).field("dwHeaderSize", &self.dwHeaderSize).field("dwObj", &self.dwObj).field("dwHow", &self.dwHow).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPHEADER {
+impl ::core::cmp::PartialEq for DIPROPHEADER {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwHeaderSize == other.dwHeaderSize && self.dwObj == other.dwObj && self.dwHow == other.dwHow
     }
 }
-impl ::std::cmp::Eq for DIPROPHEADER {}
+impl ::core::cmp::Eq for DIPROPHEADER {}
 unsafe impl ::windows::runtime::Abi for DIPROPHEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPPOINTER {
@@ -5525,26 +5525,26 @@ pub struct DIPROPPOINTER {
     pub uData: usize,
 }
 impl DIPROPPOINTER {}
-impl ::std::default::Default for DIPROPPOINTER {
+impl ::core::default::Default for DIPROPPOINTER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPPOINTER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPPOINTER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPPOINTER").field("diph", &self.diph).field("uData", &self.uData).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPPOINTER {
+impl ::core::cmp::PartialEq for DIPROPPOINTER {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.uData == other.uData
     }
 }
-impl ::std::cmp::Eq for DIPROPPOINTER {}
+impl ::core::cmp::Eq for DIPROPPOINTER {}
 unsafe impl ::windows::runtime::Abi for DIPROPPOINTER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPRANGE {
@@ -5553,26 +5553,26 @@ pub struct DIPROPRANGE {
     pub lMax: i32,
 }
 impl DIPROPRANGE {}
-impl ::std::default::Default for DIPROPRANGE {
+impl ::core::default::Default for DIPROPRANGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPRANGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPRANGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPRANGE").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPRANGE {
+impl ::core::cmp::PartialEq for DIPROPRANGE {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.lMin == other.lMin && self.lMax == other.lMax
     }
 }
-impl ::std::cmp::Eq for DIPROPRANGE {}
+impl ::core::cmp::Eq for DIPROPRANGE {}
 unsafe impl ::windows::runtime::Abi for DIPROPRANGE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIPROPSTRING {
@@ -5580,26 +5580,26 @@ pub struct DIPROPSTRING {
     pub wsz: [u16; 260],
 }
 impl DIPROPSTRING {}
-impl ::std::default::Default for DIPROPSTRING {
+impl ::core::default::Default for DIPROPSTRING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIPROPSTRING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIPROPSTRING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIPROPSTRING").field("diph", &self.diph).field("wsz", &self.wsz).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIPROPSTRING {
+impl ::core::cmp::PartialEq for DIPROPSTRING {
     fn eq(&self, other: &Self) -> bool {
         self.diph == other.diph && self.wsz == other.wsz
     }
 }
-impl ::std::cmp::Eq for DIPROPSTRING {}
+impl ::core::cmp::Eq for DIPROPSTRING {}
 unsafe impl ::windows::runtime::Abi for DIPROPSTRING {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIRAMPFORCE {
@@ -5607,22 +5607,22 @@ pub struct DIRAMPFORCE {
     pub lEnd: i32,
 }
 impl DIRAMPFORCE {}
-impl ::std::default::Default for DIRAMPFORCE {
+impl ::core::default::Default for DIRAMPFORCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DIRAMPFORCE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DIRAMPFORCE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DIRAMPFORCE").field("lStart", &self.lStart).field("lEnd", &self.lEnd).finish()
     }
 }
-impl ::std::cmp::PartialEq for DIRAMPFORCE {
+impl ::core::cmp::PartialEq for DIRAMPFORCE {
     fn eq(&self, other: &Self) -> bool {
         self.lStart == other.lStart && self.lEnd == other.lEnd
     }
 }
-impl ::std::cmp::Eq for DIRAMPFORCE {}
+impl ::core::cmp::Eq for DIRAMPFORCE {}
 unsafe impl ::windows::runtime::Abi for DIRAMPFORCE {
     type Abi = Self;
 }
@@ -5813,20 +5813,20 @@ pub const DI_WRITEPROTECT: ::windows::runtime::HRESULT = ::windows::runtime::HRE
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectInput8Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::std::ffi::c_void, punkouter: Param4) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectInput8Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::std::ffi::c_void, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DirectInput8Create(hinst.into_param().abi(), ::std::mem::transmute(dwversion), ::std::mem::transmute(riidltf), ::std::mem::transmute(ppvout), punkouter.into_param().abi()).ok()
+        DirectInput8Create(hinst.into_param().abi(), ::core::mem::transmute(dwversion), ::core::mem::transmute(riidltf), ::core::mem::transmute(ppvout), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
 pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
@@ -5847,7 +5847,7 @@ pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_
 pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
 pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
 pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
-impl ::std::convert::From<i32> for GPIOBUTTONS_BUTTON_TYPE {
+impl ::core::convert::From<i32> for GPIOBUTTONS_BUTTON_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5894,7 +5894,7 @@ pub const GUID_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
 pub const GUID_XAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830368, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 pub const GUID_YAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830369, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 pub const GUID_ZAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830370, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDD_ATTRIBUTES {
@@ -5904,49 +5904,49 @@ pub struct HIDD_ATTRIBUTES {
     pub VersionNumber: u16,
 }
 impl HIDD_ATTRIBUTES {}
-impl ::std::default::Default for HIDD_ATTRIBUTES {
+impl ::core::default::Default for HIDD_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HIDD_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDD_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HIDD_ATTRIBUTES").field("Size", &self.Size).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for HIDD_ATTRIBUTES {
+impl ::core::cmp::PartialEq for HIDD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
     }
 }
-impl ::std::cmp::Eq for HIDD_ATTRIBUTES {}
+impl ::core::cmp::Eq for HIDD_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for HIDD_ATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDD_CONFIGURATION {
-    pub cookie: *mut ::std::ffi::c_void,
+    pub cookie: *mut ::core::ffi::c_void,
     pub size: u32,
     pub RingBufferSize: u32,
 }
 impl HIDD_CONFIGURATION {}
-impl ::std::default::Default for HIDD_CONFIGURATION {
+impl ::core::default::Default for HIDD_CONFIGURATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for HIDD_CONFIGURATION {
+impl ::core::cmp::PartialEq for HIDD_CONFIGURATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for HIDD_CONFIGURATION {}
+impl ::core::cmp::Eq for HIDD_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for HIDD_CONFIGURATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -5957,30 +5957,30 @@ pub struct HIDP_BUTTON_ARRAY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_ARRAY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_BUTTON_ARRAY_DATA {
+impl ::core::default::Default for HIDP_BUTTON_ARRAY_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HIDP_BUTTON_ARRAY_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_BUTTON_ARRAY_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HIDP_BUTTON_ARRAY_DATA").field("ArrayIndex", &self.ArrayIndex).field("On", &self.On).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_BUTTON_ARRAY_DATA {
+impl ::core::cmp::PartialEq for HIDP_BUTTON_ARRAY_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.ArrayIndex == other.ArrayIndex && self.On == other.On
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_BUTTON_ARRAY_DATA {}
+impl ::core::cmp::Eq for HIDP_BUTTON_ARRAY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_ARRAY_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -6004,24 +6004,24 @@ pub struct HIDP_BUTTON_CAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_BUTTON_CAPS {
+impl ::core::default::Default for HIDP_BUTTON_CAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS {
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_BUTTON_CAPS {}
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_BUTTON_CAPS_0 {
@@ -6031,24 +6031,24 @@ pub union HIDP_BUTTON_CAPS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_BUTTON_CAPS_0 {
+impl ::core::default::Default for HIDP_BUTTON_CAPS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_0 {
@@ -6064,14 +6064,14 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_BUTTON_CAPS_0_0 {
+impl ::core::default::Default for HIDP_BUTTON_CAPS_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NotRange_e__Struct")
             .field("Usage", &self.Usage)
             .field("Reserved1", &self.Reserved1)
@@ -6085,18 +6085,18 @@ impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_1 {
@@ -6112,14 +6112,14 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_BUTTON_CAPS_0_1 {
+impl ::core::default::Default for HIDP_BUTTON_CAPS_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Range_e__Struct")
             .field("UsageMin", &self.UsageMin)
             .field("UsageMax", &self.UsageMax)
@@ -6133,18 +6133,18 @@ impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDP_CAPS {
@@ -6166,13 +6166,13 @@ pub struct HIDP_CAPS {
     pub NumberFeatureDataIndices: u16,
 }
 impl HIDP_CAPS {}
-impl ::std::default::Default for HIDP_CAPS {
+impl ::core::default::Default for HIDP_CAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HIDP_CAPS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_CAPS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HIDP_CAPS")
             .field("Usage", &self.Usage)
             .field("UsagePage", &self.UsagePage)
@@ -6193,7 +6193,7 @@ impl ::std::fmt::Debug for HIDP_CAPS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for HIDP_CAPS {
+impl ::core::cmp::PartialEq for HIDP_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.Usage == other.Usage
             && self.UsagePage == other.UsagePage
@@ -6213,11 +6213,11 @@ impl ::std::cmp::PartialEq for HIDP_CAPS {
             && self.NumberFeatureDataIndices == other.NumberFeatureDataIndices
     }
 }
-impl ::std::cmp::Eq for HIDP_CAPS {}
+impl ::core::cmp::Eq for HIDP_CAPS {}
 unsafe impl ::windows::runtime::Abi for HIDP_CAPS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -6229,24 +6229,24 @@ pub struct HIDP_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_DATA {
+impl ::core::default::Default for HIDP_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_DATA {
+impl ::core::cmp::PartialEq for HIDP_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_DATA {}
+impl ::core::cmp::Eq for HIDP_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_DATA_0 {
@@ -6256,24 +6256,24 @@ pub union HIDP_DATA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_DATA_0 {
+impl ::core::default::Default for HIDP_DATA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_DATA_0 {
+impl ::core::cmp::PartialEq for HIDP_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_DATA_0 {}
+impl ::core::cmp::Eq for HIDP_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_DATA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
@@ -6283,27 +6283,27 @@ pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub Data: [u32; 1],
 }
 impl HIDP_EXTENDED_ATTRIBUTES {}
-impl ::std::default::Default for HIDP_EXTENDED_ATTRIBUTES {
+impl ::core::default::Default for HIDP_EXTENDED_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for HIDP_EXTENDED_ATTRIBUTES {
+impl ::core::cmp::PartialEq for HIDP_EXTENDED_ATTRIBUTES {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for HIDP_EXTENDED_ATTRIBUTES {}
+impl ::core::cmp::Eq for HIDP_EXTENDED_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for HIDP_EXTENDED_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
 pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
 pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
-impl ::std::convert::From<i32> for HIDP_KEYBOARD_DIRECTION {
+impl ::core::convert::From<i32> for HIDP_KEYBOARD_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6311,28 +6311,28 @@ impl ::std::convert::From<i32> for HIDP_KEYBOARD_DIRECTION {
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_DIRECTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
 }
 impl HIDP_KEYBOARD_MODIFIER_STATE {}
-impl ::std::default::Default for HIDP_KEYBOARD_MODIFIER_STATE {
+impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE {
+impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE {}
+impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE {}
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_MODIFIER_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
@@ -6340,47 +6340,47 @@ pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
     pub ul: u32,
 }
 impl HIDP_KEYBOARD_MODIFIER_STATE_0 {}
-impl ::std::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
+impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
 impl HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
-impl ::std::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
+impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDP_LINK_COLLECTION_NODE {
@@ -6391,31 +6391,31 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub NextSibling: u16,
     pub FirstChild: u16,
     pub _bitfield: u32,
-    pub UserContext: *mut ::std::ffi::c_void,
+    pub UserContext: *mut ::core::ffi::c_void,
 }
 impl HIDP_LINK_COLLECTION_NODE {}
-impl ::std::default::Default for HIDP_LINK_COLLECTION_NODE {
+impl ::core::default::Default for HIDP_LINK_COLLECTION_NODE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for HIDP_LINK_COLLECTION_NODE {
+impl ::core::cmp::PartialEq for HIDP_LINK_COLLECTION_NODE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for HIDP_LINK_COLLECTION_NODE {}
+impl ::core::cmp::Eq for HIDP_LINK_COLLECTION_NODE {}
 unsafe impl ::windows::runtime::Abi for HIDP_LINK_COLLECTION_NODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HIDP_REPORT_TYPE(pub i32);
 pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
 pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
 pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
-impl ::std::convert::From<i32> for HIDP_REPORT_TYPE {
+impl ::core::convert::From<i32> for HIDP_REPORT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6423,7 +6423,7 @@ impl ::std::convert::From<i32> for HIDP_REPORT_TYPE {
 unsafe impl ::windows::runtime::Abi for HIDP_REPORT_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HIDP_UNKNOWN_TOKEN {
@@ -6432,26 +6432,26 @@ pub struct HIDP_UNKNOWN_TOKEN {
     pub BitField: u32,
 }
 impl HIDP_UNKNOWN_TOKEN {}
-impl ::std::default::Default for HIDP_UNKNOWN_TOKEN {
+impl ::core::default::Default for HIDP_UNKNOWN_TOKEN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HIDP_UNKNOWN_TOKEN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_UNKNOWN_TOKEN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HIDP_UNKNOWN_TOKEN").field("Token", &self.Token).field("Reserved", &self.Reserved).field("BitField", &self.BitField).finish()
     }
 }
-impl ::std::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
+impl ::core::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
     fn eq(&self, other: &Self) -> bool {
         self.Token == other.Token && self.Reserved == other.Reserved && self.BitField == other.BitField
     }
 }
-impl ::std::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
+impl ::core::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
 unsafe impl ::windows::runtime::Abi for HIDP_UNKNOWN_TOKEN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -6483,24 +6483,24 @@ pub struct HIDP_VALUE_CAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_VALUE_CAPS {
+impl ::core::default::Default for HIDP_VALUE_CAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS {
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_VALUE_CAPS {}
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_VALUE_CAPS_0 {
@@ -6510,24 +6510,24 @@ pub union HIDP_VALUE_CAPS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_VALUE_CAPS_0 {
+impl ::core::default::Default for HIDP_VALUE_CAPS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0 {}
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_0 {
@@ -6543,14 +6543,14 @@ pub struct HIDP_VALUE_CAPS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_VALUE_CAPS_0_0 {
+impl ::core::default::Default for HIDP_VALUE_CAPS_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NotRange_e__Struct")
             .field("Usage", &self.Usage)
             .field("Reserved1", &self.Reserved1)
@@ -6564,18 +6564,18 @@ impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_1 {
@@ -6591,14 +6591,14 @@ pub struct HIDP_VALUE_CAPS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HIDP_VALUE_CAPS_0_1 {
+impl ::core::default::Default for HIDP_VALUE_CAPS_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Range_e__Struct")
             .field("UsageMin", &self.UsageMin)
             .field("UsageMax", &self.UsageMax)
@@ -6612,18 +6612,18 @@ impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -6638,30 +6638,30 @@ pub struct HID_COLLECTION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl HID_COLLECTION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HID_COLLECTION_INFORMATION {
+impl ::core::default::Default for HID_COLLECTION_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HID_COLLECTION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HID_COLLECTION_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HID_COLLECTION_INFORMATION").field("DescriptorSize", &self.DescriptorSize).field("Polled", &self.Polled).field("Reserved1", &self.Reserved1).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HID_COLLECTION_INFORMATION {
+impl ::core::cmp::PartialEq for HID_COLLECTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.DescriptorSize == other.DescriptorSize && self.Polled == other.Polled && self.Reserved1 == other.Reserved1 && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HID_COLLECTION_INFORMATION {}
+impl ::core::cmp::Eq for HID_COLLECTION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HID_COLLECTION_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HID_DRIVER_CONFIG {
@@ -6669,22 +6669,22 @@ pub struct HID_DRIVER_CONFIG {
     pub RingBufferSize: u32,
 }
 impl HID_DRIVER_CONFIG {}
-impl ::std::default::Default for HID_DRIVER_CONFIG {
+impl ::core::default::Default for HID_DRIVER_CONFIG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HID_DRIVER_CONFIG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HID_DRIVER_CONFIG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HID_DRIVER_CONFIG").field("Size", &self.Size).field("RingBufferSize", &self.RingBufferSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for HID_DRIVER_CONFIG {
+impl ::core::cmp::PartialEq for HID_DRIVER_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.RingBufferSize == other.RingBufferSize
     }
 }
-impl ::std::cmp::Eq for HID_DRIVER_CONFIG {}
+impl ::core::cmp::Eq for HID_DRIVER_CONFIG {}
 unsafe impl ::windows::runtime::Abi for HID_DRIVER_CONFIG {
     type Abi = Self;
 }
@@ -7914,7 +7914,7 @@ pub const HID_USAGE_VR_OCULOMETER: u16 = 8u16;
 pub const HID_USAGE_VR_STEREO_ENABLE: u16 = 32u16;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const HID_USAGE_VR_VEST: u16 = 9u16;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct HID_XFER_PACKET {
@@ -7923,22 +7923,22 @@ pub struct HID_XFER_PACKET {
     pub reportId: u8,
 }
 impl HID_XFER_PACKET {}
-impl ::std::default::Default for HID_XFER_PACKET {
+impl ::core::default::Default for HID_XFER_PACKET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HID_XFER_PACKET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HID_XFER_PACKET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HID_XFER_PACKET").field("reportBuffer", &self.reportBuffer).field("reportBufferLen", &self.reportBufferLen).field("reportId", &self.reportId).finish()
     }
 }
-impl ::std::cmp::PartialEq for HID_XFER_PACKET {
+impl ::core::cmp::PartialEq for HID_XFER_PACKET {
     fn eq(&self, other: &Self) -> bool {
         self.reportBuffer == other.reportBuffer && self.reportBufferLen == other.reportBufferLen && self.reportId == other.reportId
     }
 }
-impl ::std::cmp::Eq for HID_XFER_PACKET {}
+impl ::core::cmp::Eq for HID_XFER_PACKET {}
 unsafe impl ::windows::runtime::Abi for HID_XFER_PACKET {
     type Abi = Self;
 }
@@ -7954,7 +7954,7 @@ pub unsafe fn HidD_FlushQueue<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_FlushQueue(hiddeviceobject.into_param().abi()))
+        ::core::mem::transmute(HidD_FlushQueue(hiddeviceobject.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7969,7 +7969,7 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foun
         extern "system" {
             fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_FreePreparsedData(::std::mem::transmute(preparseddata)))
+        ::core::mem::transmute(HidD_FreePreparsedData(::core::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7984,7 +7984,7 @@ pub unsafe fn HidD_GetAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetAttributes(hiddeviceobject.into_param().abi(), ::std::mem::transmute(attributes)))
+        ::core::mem::transmute(HidD_GetAttributes(hiddeviceobject.into_param().abi(), ::core::mem::transmute(attributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7999,7 +7999,7 @@ pub unsafe fn HidD_GetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetConfiguration(hiddeviceobject.into_param().abi(), ::std::mem::transmute(configuration), ::std::mem::transmute(configurationlength)))
+        ::core::mem::transmute(HidD_GetConfiguration(hiddeviceobject.into_param().abi(), ::core::mem::transmute(configuration), ::core::mem::transmute(configurationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8007,14 +8007,14 @@ pub unsafe fn HidD_GetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetFeature(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
+        ::core::mem::transmute(HidD_GetFeature(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8028,7 +8028,7 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
         extern "system" {
             fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID);
         }
-        ::std::mem::transmute(HidD_GetHidGuid(::std::mem::transmute(hidguid)))
+        ::core::mem::transmute(HidD_GetHidGuid(::core::mem::transmute(hidguid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8036,14 +8036,14 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, stringindex: u32, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetIndexedString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(stringindex), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
+        ::core::mem::transmute(HidD_GetIndexedString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(stringindex), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8051,14 +8051,14 @@ pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetInputReport(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
+        ::core::mem::transmute(HidD_GetInputReport(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8066,14 +8066,14 @@ pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetManufacturerString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
+        ::core::mem::transmute(HidD_GetManufacturerString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8081,14 +8081,14 @@ pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetMsGenreDescriptor(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
+        ::core::mem::transmute(HidD_GetMsGenreDescriptor(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8103,7 +8103,7 @@ pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetNumInputBuffers(hiddeviceobject.into_param().abi(), ::std::mem::transmute(numberbuffers)))
+        ::core::mem::transmute(HidD_GetNumInputBuffers(hiddeviceobject.into_param().abi(), ::core::mem::transmute(numberbuffers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8111,14 +8111,14 @@ pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetPhysicalDescriptor(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
+        ::core::mem::transmute(HidD_GetPhysicalDescriptor(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8133,7 +8133,7 @@ pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetPreparsedData(hiddeviceobject.into_param().abi(), ::std::mem::transmute(preparseddata)))
+        ::core::mem::transmute(HidD_GetPreparsedData(hiddeviceobject.into_param().abi(), ::core::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8141,14 +8141,14 @@ pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetProductString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
+        ::core::mem::transmute(HidD_GetProductString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8156,14 +8156,14 @@ pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetSerialNumberString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
+        ::core::mem::transmute(HidD_GetSerialNumberString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8178,7 +8178,7 @@ pub unsafe fn HidD_SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetConfiguration(hiddeviceobject.into_param().abi(), ::std::mem::transmute(configuration), ::std::mem::transmute(configurationlength)))
+        ::core::mem::transmute(HidD_SetConfiguration(hiddeviceobject.into_param().abi(), ::core::mem::transmute(configuration), ::core::mem::transmute(configurationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8186,14 +8186,14 @@ pub unsafe fn HidD_SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetFeature(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
+        ::core::mem::transmute(HidD_SetFeature(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8208,7 +8208,7 @@ pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetNumInputBuffers(hiddeviceobject.into_param().abi(), ::std::mem::transmute(numberbuffers)))
+        ::core::mem::transmute(HidD_SetNumInputBuffers(hiddeviceobject.into_param().abi(), ::core::mem::transmute(numberbuffers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8216,14 +8216,14 @@ pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetOutputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetOutputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+            fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetOutputReport(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
+        ::core::mem::transmute(HidD_SetOutputReport(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8239,15 +8239,15 @@ pub unsafe fn HidP_GetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, 
             fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_GetButtonArray(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(buttondata),
-            ::std::mem::transmute(buttondatalength),
-            ::std::mem::transmute(preparseddata),
+            ::core::mem::transmute(reporttype),
+            ::core::mem::transmute(usagepage),
+            ::core::mem::transmute(linkcollection),
+            ::core::mem::transmute(usage),
+            ::core::mem::transmute(buttondata),
+            ::core::mem::transmute(buttondatalength),
+            ::core::mem::transmute(preparseddata),
             report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
+            ::core::mem::transmute(reportlength),
         )
         .ok()
     }
@@ -8264,7 +8264,7 @@ pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut 
         extern "system" {
             fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetButtonCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(buttoncaps), ::std::mem::transmute(buttoncapslength), ::std::mem::transmute(preparseddata)).ok()
+        HidP_GetButtonCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(buttoncaps), ::core::mem::transmute(buttoncapslength), ::core::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8279,7 +8279,7 @@ pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -
         extern "system" {
             fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetCaps(::std::mem::transmute(preparseddata), ::std::mem::transmute(capabilities)).ok()
+        HidP_GetCaps(::core::mem::transmute(preparseddata), ::core::mem::transmute(capabilities)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8294,7 +8294,7 @@ pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DAT
         extern "system" {
             fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetData(::std::mem::transmute(reporttype), ::std::mem::transmute(datalist), ::std::mem::transmute(datalength), ::std::mem::transmute(preparseddata), ::std::mem::transmute(report), ::std::mem::transmute(reportlength)).ok()
+        HidP_GetData(::core::mem::transmute(reporttype), ::core::mem::transmute(datalist), ::core::mem::transmute(datalength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8309,7 +8309,7 @@ pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex
         extern "system" {
             fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetExtendedAttributes(::std::mem::transmute(reporttype), ::std::mem::transmute(dataindex), ::std::mem::transmute(preparseddata), ::std::mem::transmute(attributes), ::std::mem::transmute(lengthattributes)).ok()
+        HidP_GetExtendedAttributes(::core::mem::transmute(reporttype), ::core::mem::transmute(dataindex), ::core::mem::transmute(preparseddata), ::core::mem::transmute(attributes), ::core::mem::transmute(lengthattributes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8324,7 +8324,7 @@ pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_CO
         extern "system" {
             fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetLinkCollectionNodes(::std::mem::transmute(linkcollectionnodes), ::std::mem::transmute(linkcollectionnodeslength), ::std::mem::transmute(preparseddata)).ok()
+        HidP_GetLinkCollectionNodes(::core::mem::transmute(linkcollectionnodes), ::core::mem::transmute(linkcollectionnodeslength), ::core::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8339,7 +8339,7 @@ pub unsafe fn HidP_GetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam
         extern "system" {
             fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetScaledUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_GetScaledUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8354,7 +8354,7 @@ pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage
         extern "system" {
             fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetSpecificButtonCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(buttoncaps), ::std::mem::transmute(buttoncapslength), ::std::mem::transmute(preparseddata)).ok()
+        HidP_GetSpecificButtonCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttoncaps), ::core::mem::transmute(buttoncapslength), ::core::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8369,7 +8369,7 @@ pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage:
         extern "system" {
             fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetSpecificValueCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(valuecaps), ::std::mem::transmute(valuecapslength), ::std::mem::transmute(preparseddata)).ok()
+        HidP_GetSpecificValueCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(valuecaps), ::core::mem::transmute(valuecapslength), ::core::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8384,7 +8384,7 @@ pub unsafe fn HidP_GetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_GetUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8400,15 +8400,15 @@ pub unsafe fn HidP_GetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<
             fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_GetUsageValueArray(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
+            ::core::mem::transmute(reporttype),
+            ::core::mem::transmute(usagepage),
+            ::core::mem::transmute(linkcollection),
+            ::core::mem::transmute(usage),
             usagevalue.into_param().abi(),
-            ::std::mem::transmute(usagevaluebytelength),
-            ::std::mem::transmute(preparseddata),
+            ::core::mem::transmute(usagevaluebytelength),
+            ::core::mem::transmute(preparseddata),
             report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
+            ::core::mem::transmute(reportlength),
         )
         .ok()
     }
@@ -8425,7 +8425,7 @@ pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkc
         extern "system" {
             fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsages(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usagelist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), ::std::mem::transmute(report), ::std::mem::transmute(reportlength)).ok()
+        HidP_GetUsages(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8440,7 +8440,7 @@ pub unsafe fn HidP_GetUsagesEx<'a, Param5: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsagesEx(::std::mem::transmute(reporttype), ::std::mem::transmute(linkcollection), ::std::mem::transmute(buttonlist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_GetUsagesEx(::core::mem::transmute(reporttype), ::core::mem::transmute(linkcollection), ::core::mem::transmute(buttonlist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8455,7 +8455,7 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
         extern "system" {
             fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetValueCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(valuecaps), ::std::mem::transmute(valuecapslength), ::std::mem::transmute(preparseddata)).ok()
+        HidP_GetValueCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(valuecaps), ::core::mem::transmute(valuecapslength), ::core::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8470,7 +8470,7 @@ pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid:
         extern "system" {
             fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_InitializeReportForID(::std::mem::transmute(reporttype), ::std::mem::transmute(reportid), ::std::mem::transmute(preparseddata), ::std::mem::transmute(report), ::std::mem::transmute(reportlength)).ok()
+        HidP_InitializeReportForID(::core::mem::transmute(reporttype), ::core::mem::transmute(reportid), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8484,7 +8484,7 @@ pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata
         extern "system" {
             fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32;
         }
-        ::std::mem::transmute(HidP_MaxDataListLength(::std::mem::transmute(reporttype), ::std::mem::transmute(preparseddata)))
+        ::core::mem::transmute(HidP_MaxDataListLength(::core::mem::transmute(reporttype), ::core::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8498,7 +8498,7 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u
         extern "system" {
             fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32;
         }
-        ::std::mem::transmute(HidP_MaxUsageListLength(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(preparseddata)))
+        ::core::mem::transmute(HidP_MaxUsageListLength(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8514,15 +8514,15 @@ pub unsafe fn HidP_SetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, 
             fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_SetButtonArray(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(buttondata),
-            ::std::mem::transmute(buttondatalength),
-            ::std::mem::transmute(preparseddata),
+            ::core::mem::transmute(reporttype),
+            ::core::mem::transmute(usagepage),
+            ::core::mem::transmute(linkcollection),
+            ::core::mem::transmute(usage),
+            ::core::mem::transmute(buttondata),
+            ::core::mem::transmute(buttondatalength),
+            ::core::mem::transmute(preparseddata),
             report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
+            ::core::mem::transmute(reportlength),
         )
         .ok()
     }
@@ -8539,7 +8539,7 @@ pub unsafe fn HidP_SetData<'a, Param4: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetData(::std::mem::transmute(reporttype), ::std::mem::transmute(datalist), ::std::mem::transmute(datalength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_SetData(::core::mem::transmute(reporttype), ::core::mem::transmute(datalist), ::core::mem::transmute(datalength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8554,7 +8554,7 @@ pub unsafe fn HidP_SetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam
         extern "system" {
             fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetScaledUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_SetScaledUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8569,7 +8569,7 @@ pub unsafe fn HidP_SetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_SetUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8585,15 +8585,15 @@ pub unsafe fn HidP_SetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<
             fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_SetUsageValueArray(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
+            ::core::mem::transmute(reporttype),
+            ::core::mem::transmute(usagepage),
+            ::core::mem::transmute(linkcollection),
+            ::core::mem::transmute(usage),
             usagevalue.into_param().abi(),
-            ::std::mem::transmute(usagevaluebytelength),
-            ::std::mem::transmute(preparseddata),
+            ::core::mem::transmute(usagevaluebytelength),
+            ::core::mem::transmute(preparseddata),
             report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
+            ::core::mem::transmute(reportlength),
         )
         .ok()
     }
@@ -8610,7 +8610,7 @@ pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetUsages(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usagelist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_SetUsages(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8618,14 +8618,14 @@ pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::std::option::Option<PHIDP_INSERT_SCANCODES>, insertcodescontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::core::option::Option<PHIDP_INSERT_SCANCODES>, insertcodescontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::windows::runtime::RawPtr, insertcodescontext: *const ::std::ffi::c_void) -> super::super::Foundation::NTSTATUS;
+            fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::windows::runtime::RawPtr, insertcodescontext: *const ::core::ffi::c_void) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_TranslateUsagesToI8042ScanCodes(::std::mem::transmute(changedusagelist), ::std::mem::transmute(usagelistlength), ::std::mem::transmute(keyaction), ::std::mem::transmute(modifierstate), ::std::mem::transmute(insertcodesprocedure), ::std::mem::transmute(insertcodescontext)).ok()
+        HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist), ::core::mem::transmute(usagelistlength), ::core::mem::transmute(keyaction), ::core::mem::transmute(modifierstate), ::core::mem::transmute(insertcodesprocedure), ::core::mem::transmute(insertcodescontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8640,7 +8640,7 @@ pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_UnsetUsages(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usagelist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
+        HidP_UnsetUsages(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8655,55 +8655,55 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
         extern "system" {
             fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_UsageListDifference(::std::mem::transmute(previoususagelist), ::std::mem::transmute(currentusagelist), ::std::mem::transmute(breakusagelist), ::std::mem::transmute(makeusagelist), ::std::mem::transmute(usagelistlength)).ok()
+        HidP_UsageListDifference(::core::mem::transmute(previoususagelist), ::core::mem::transmute(currentusagelist), ::core::mem::transmute(breakusagelist), ::core::mem::transmute(makeusagelist), ::core::mem::transmute(usagelistlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInput2A(pub ::windows::runtime::IUnknown);
 impl IDirectInput2A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput2A {
     type Vtable = IDirectInput2A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687650, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInput2A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInput2A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput2A) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInput2A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInput2A> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInput2A) -> Self {
         value.0.clone()
     }
@@ -8718,24 +8718,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInput2A> for IDirectInputA {
+impl ::core::convert::From<IDirectInput2A> for IDirectInputA {
     fn from(value: IDirectInput2A) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInput2A> for IDirectInputA {
+impl ::core::convert::From<&IDirectInput2A> for IDirectInputA {
     fn from(value: &IDirectInput2A) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8745,7 +8745,7 @@ pub struct IDirectInput2A_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -8757,48 +8757,48 @@ pub struct IDirectInput2A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInput2W(pub ::windows::runtime::IUnknown);
 impl IDirectInput2W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput2W {
     type Vtable = IDirectInput2W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687651, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInput2W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInput2W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput2W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInput2W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInput2W> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInput2W) -> Self {
         value.0.clone()
     }
@@ -8813,24 +8813,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInput2W> for IDirectInputW {
+impl ::core::convert::From<IDirectInput2W> for IDirectInputW {
     fn from(value: IDirectInput2W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInput2W> for IDirectInputW {
+impl ::core::convert::From<&IDirectInput2W> for IDirectInputW {
     fn from(value: &IDirectInput2W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8840,7 +8840,7 @@ pub struct IDirectInput2W_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -8852,52 +8852,52 @@ pub struct IDirectInput2W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInput7A(pub ::windows::runtime::IUnknown);
 impl IDirectInput7A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput7A {
     type Vtable = IDirectInput7A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718724, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
-impl ::std::convert::From<IDirectInput7A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInput7A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput7A) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInput7A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInput7A> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInput7A) -> Self {
         value.0.clone()
     }
@@ -8912,44 +8912,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInput7A> for IDirectInput2A {
+impl ::core::convert::From<IDirectInput7A> for IDirectInput2A {
     fn from(value: IDirectInput7A) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInput7A> for IDirectInput2A {
+impl ::core::convert::From<&IDirectInput7A> for IDirectInput2A {
     fn from(value: &IDirectInput7A) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDirectInput7A> for IDirectInputA {
+impl ::core::convert::From<IDirectInput7A> for IDirectInputA {
     fn from(value: IDirectInput7A) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInput7A> for IDirectInputA {
+impl ::core::convert::From<&IDirectInput7A> for IDirectInputA {
     fn from(value: &IDirectInput7A) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8959,7 +8959,7 @@ pub struct IDirectInput7A_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -8968,56 +8968,56 @@ pub struct IDirectInput7A_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::core::ffi::c_void, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInput7W(pub ::windows::runtime::IUnknown);
 impl IDirectInput7W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput7W {
     type Vtable = IDirectInput7W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718725, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
-impl ::std::convert::From<IDirectInput7W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInput7W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput7W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInput7W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInput7W> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInput7W) -> Self {
         value.0.clone()
     }
@@ -9032,44 +9032,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInput7W> for IDirectInput2W {
+impl ::core::convert::From<IDirectInput7W> for IDirectInput2W {
     fn from(value: IDirectInput7W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInput7W> for IDirectInput2W {
+impl ::core::convert::From<&IDirectInput7W> for IDirectInput2W {
     fn from(value: &IDirectInput7W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDirectInput7W> for IDirectInputW {
+impl ::core::convert::From<IDirectInput7W> for IDirectInputW {
     fn from(value: IDirectInput7W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInput7W> for IDirectInputW {
+impl ::core::convert::From<&IDirectInput7W> for IDirectInputW {
     fn from(value: &IDirectInput7W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9079,7 +9079,7 @@ pub struct IDirectInput7W_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -9088,62 +9088,62 @@ pub struct IDirectInput7W_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::core::ffi::c_void, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInput8A(pub ::windows::runtime::IUnknown);
 impl IDirectInput8A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATA, param2: ::std::option::Option<LPDIENUMDEVICESBYSEMANTICSCBA>, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
+    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATA, param2: ::core::option::Option<LPDIENUMDEVICESBYSEMANTICSCBA>, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn ConfigureDevices(&self, param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn ConfigureDevices(&self, param0: ::core::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput8A {
     type Vtable = IDirectInput8A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410928, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
 }
-impl ::std::convert::From<IDirectInput8A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInput8A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput8A) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInput8A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInput8A> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInput8A) -> Self {
         value.0.clone()
     }
@@ -9165,7 +9165,7 @@ pub struct IDirectInput8A_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -9174,65 +9174,65 @@ pub struct IDirectInput8A_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: ::windows::runtime::RawPtr, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: ::windows::runtime::RawPtr, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInput8W(pub ::windows::runtime::IUnknown);
 impl IDirectInput8W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATW, param2: ::std::option::Option<LPDIENUMDEVICESBYSEMANTICSCBW>, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
+    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATW, param2: ::core::option::Option<LPDIENUMDEVICESBYSEMANTICSCBW>, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn ConfigureDevices(&self, param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn ConfigureDevices(&self, param0: ::core::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput8W {
     type Vtable = IDirectInput8W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410929, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
 }
-impl ::std::convert::From<IDirectInput8W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInput8W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput8W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInput8W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInput8W> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInput8W) -> Self {
         value.0.clone()
     }
@@ -9254,7 +9254,7 @@ pub struct IDirectInput8W_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -9263,50 +9263,50 @@ pub struct IDirectInput8W_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: ::windows::runtime::RawPtr, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: ::windows::runtime::RawPtr, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputA(pub ::windows::runtime::IUnknown);
 impl IDirectInputA {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputA {
     type Vtable = IDirectInputA_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857504, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputA> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputA> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputA) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputA> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputA> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputA) -> Self {
         value.0.clone()
     }
@@ -9328,7 +9328,7 @@ pub struct IDirectInputA_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -9338,126 +9338,126 @@ pub struct IDirectInputA_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDevice2A(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice2A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687682, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputDevice2A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDevice2A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice2A) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDevice2A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDevice2A> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDevice2A) -> Self {
         value.0.clone()
     }
@@ -9472,24 +9472,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
+impl ::core::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
     fn from(value: IDirectInputDevice2A) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInputDevice2A> for IDirectInputDeviceA {
+impl ::core::convert::From<&IDirectInputDevice2A> for IDirectInputDeviceA {
     fn from(value: &IDirectInputDevice2A) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9499,13 +9499,13 @@ pub struct IDirectInputDevice2A_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -9521,13 +9521,13 @@ pub struct IDirectInputDevice2A_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -9535,123 +9535,123 @@ pub struct IDirectInputDevice2A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDevice2W(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice2W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687683, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputDevice2W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDevice2W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice2W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDevice2W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDevice2W> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDevice2W) -> Self {
         value.0.clone()
     }
@@ -9666,24 +9666,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
+impl ::core::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
     fn from(value: IDirectInputDevice2W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInputDevice2W> for IDirectInputDeviceW {
+impl ::core::convert::From<&IDirectInputDevice2W> for IDirectInputDeviceW {
     fn from(value: &IDirectInputDevice2W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9693,13 +9693,13 @@ pub struct IDirectInputDevice2W_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -9713,12 +9713,12 @@ pub struct IDirectInputDevice2W_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -9726,136 +9726,136 @@ pub struct IDirectInputDevice2W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDevice7A(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice7A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758908, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
-impl ::std::convert::From<IDirectInputDevice7A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDevice7A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice7A) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDevice7A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDevice7A> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDevice7A) -> Self {
         value.0.clone()
     }
@@ -9870,44 +9870,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
+impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
     fn from(value: IDirectInputDevice7A) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInputDevice7A> for IDirectInputDevice2A {
+impl ::core::convert::From<&IDirectInputDevice7A> for IDirectInputDevice2A {
     fn from(value: &IDirectInputDevice7A) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
+impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
     fn from(value: IDirectInputDevice7A) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInputDevice7A> for IDirectInputDeviceA {
+impl ::core::convert::From<&IDirectInputDevice7A> for IDirectInputDeviceA {
     fn from(value: &IDirectInputDevice7A) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9917,13 +9917,13 @@ pub struct IDirectInputDevice7A_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -9939,151 +9939,151 @@ pub struct IDirectInputDevice7A_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDevice7W(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice7W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758909, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
-impl ::std::convert::From<IDirectInputDevice7W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDevice7W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice7W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDevice7W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDevice7W> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDevice7W) -> Self {
         value.0.clone()
     }
@@ -10098,44 +10098,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
+impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
     fn from(value: IDirectInputDevice7W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInputDevice7W> for IDirectInputDevice2W {
+impl ::core::convert::From<&IDirectInputDevice7W> for IDirectInputDevice2W {
     fn from(value: &IDirectInputDevice7W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
+impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
     fn from(value: IDirectInputDevice7W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDirectInputDevice7W> for IDirectInputDeviceW {
+impl ::core::convert::From<&IDirectInputDevice7W> for IDirectInputDeviceW {
     fn from(value: &IDirectInputDevice7W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10145,13 +10145,13 @@ pub struct IDirectInputDevice7W_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -10165,168 +10165,168 @@ pub struct IDirectInputDevice7W_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDevice8A(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice8A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn BuildActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *mut DIACTIONFORMATA, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *mut DIACTIONFORMATA, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184000, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
 }
-impl ::std::convert::From<IDirectInputDevice8A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDevice8A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice8A) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDevice8A> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDevice8A> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDevice8A) -> Self {
         value.0.clone()
     }
@@ -10348,13 +10348,13 @@ pub struct IDirectInputDevice8A_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -10370,18 +10370,18 @@ pub struct IDirectInputDevice8A_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10394,148 +10394,148 @@ pub struct IDirectInputDevice8A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDevice8W(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice8W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumEffects(&self, param0: ::core::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::core::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::core::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn BuildActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *mut DIACTIONFORMATW, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *mut DIACTIONFORMATW, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184001, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
 }
-impl ::std::convert::From<IDirectInputDevice8W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDevice8W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice8W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDevice8W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDevice8W> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDevice8W) -> Self {
         value.0.clone()
     }
@@ -10557,13 +10557,13 @@ pub struct IDirectInputDevice8W_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -10577,17 +10577,17 @@ pub struct IDirectInputDevice8W_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10600,87 +10600,87 @@ pub struct IDirectInputDevice8W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDeviceA(pub ::windows::runtime::IUnknown);
 impl IDirectInputDeviceA {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceA_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687680, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputDeviceA> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDeviceA> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDeviceA) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDeviceA> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDeviceA> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDeviceA) -> Self {
         value.0.clone()
     }
@@ -10702,13 +10702,13 @@ pub struct IDirectInputDeviceA_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -10726,85 +10726,85 @@ pub struct IDirectInputDeviceA_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputDeviceW(pub ::windows::runtime::IUnknown);
 impl IDirectInputDeviceW {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+    pub unsafe fn EnumObjects(&self, param0: ::core::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687681, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputDeviceW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputDeviceW> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDeviceW) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputDeviceW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputDeviceW> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputDeviceW) -> Self {
         value.0.clone()
     }
@@ -10826,13 +10826,13 @@ pub struct IDirectInputDeviceW_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
@@ -10848,61 +10848,61 @@ pub struct IDirectInputDeviceW_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputEffect(pub ::windows::runtime::IUnknown);
 impl IDirectInputEffect {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetEffectGuid(&self, param0: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Start(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetEffectStatus(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Download(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unload(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890345920, 35026, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
 }
-impl ::std::convert::From<IDirectInputEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputEffect> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputEffect) -> Self {
         value.0.clone()
     }
@@ -10937,64 +10937,64 @@ pub struct IDirectInputEffect_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputEffectDriver(pub ::windows::runtime::IUnknown);
 impl IDirectInputEffectDriver {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
+    pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetVersions(&self, param0: *mut DIDRIVERVERSIONS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Escape(&self, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetGain(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetForceFeedbackState(&self, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn DownloadEffect(&self, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn DestroyEffect(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn StartEffect(&self, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn StopEffect(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetEffectStatus(&self, param0: u32, param1: u32, param2: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39026992, 35215, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
 }
-impl ::std::convert::From<IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputEffectDriver) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputEffectDriver) -> Self {
         value.0.clone()
     }
@@ -11015,7 +11015,7 @@ pub struct IDirectInputEffectDriver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDRIVERVERSIONS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32) -> ::windows::runtime::HRESULT,
@@ -11029,96 +11029,96 @@ pub struct IDirectInputEffectDriver_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputJoyConfig(pub ::windows::runtime::IUnknown);
 impl IDirectInputJoyConfig {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendNotify(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumTypes(&self, param0: ::std::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn EnumTypes(&self, param0: ::core::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn DeleteType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn DeleteConfig(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn AddNewHardware<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_System_Registry`*"]
     pub unsafe fn OpenTypeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_Registry`*"]
     pub unsafe fn OpenConfigKey(&self, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501295793, 51701, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputJoyConfig) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputJoyConfig) -> Self {
         value.0.clone()
     }
@@ -11144,7 +11144,7 @@ pub struct IDirectInputJoyConfig_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
@@ -11170,96 +11170,96 @@ pub struct IDirectInputJoyConfig_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputJoyConfig8(pub ::windows::runtime::IUnknown);
 impl IDirectInputJoyConfig8 {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SendNotify(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumTypes(&self, param0: ::std::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+    pub unsafe fn EnumTypes(&self, param0: ::core::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn DeleteType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn DeleteConfig(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn AddNewHardware<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_System_Registry`*"]
     pub unsafe fn OpenTypeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_Registry`*"]
     pub unsafe fn OpenAppStatusKey(&self, param0: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943529978, 6544, 20263, [180, 214, 237, 242, 238, 196, 164, 76]);
 }
-impl ::std::convert::From<IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputJoyConfig8) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputJoyConfig8) -> Self {
         value.0.clone()
     }
@@ -11285,7 +11285,7 @@ pub struct IDirectInputJoyConfig8_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
@@ -11311,43 +11311,43 @@ pub struct IDirectInputJoyConfig8_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectInputW(pub ::windows::runtime::IUnknown);
 impl IDirectInputW {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::core::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputW {
     type Vtable = IDirectInputW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857505, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
-impl ::std::convert::From<IDirectInputW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirectInputW> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputW) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirectInputW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirectInputW> for ::windows::runtime::IUnknown {
     fn from(value: &IDirectInputW) -> Self {
         value.0.clone()
     }
@@ -11369,7 +11369,7 @@ pub struct IDirectInputW_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
@@ -11377,7 +11377,7 @@ pub struct IDirectInputW_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct INDICATOR_LIST {
@@ -11385,26 +11385,26 @@ pub struct INDICATOR_LIST {
     pub IndicatorFlags: u16,
 }
 impl INDICATOR_LIST {}
-impl ::std::default::Default for INDICATOR_LIST {
+impl ::core::default::Default for INDICATOR_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for INDICATOR_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for INDICATOR_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("INDICATOR_LIST").field("MakeCode", &self.MakeCode).field("IndicatorFlags", &self.IndicatorFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for INDICATOR_LIST {
+impl ::core::cmp::PartialEq for INDICATOR_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.MakeCode == other.MakeCode && self.IndicatorFlags == other.IndicatorFlags
     }
 }
-impl ::std::cmp::Eq for INDICATOR_LIST {}
+impl ::core::cmp::Eq for INDICATOR_LIST {}
 unsafe impl ::windows::runtime::Abi for INDICATOR_LIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -11415,25 +11415,25 @@ pub struct INPUT_BUTTON_ENABLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl INPUT_BUTTON_ENABLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for INPUT_BUTTON_ENABLE_INFO {
+impl ::core::default::Default for INPUT_BUTTON_ENABLE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for INPUT_BUTTON_ENABLE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for INPUT_BUTTON_ENABLE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("INPUT_BUTTON_ENABLE_INFO").field("ButtonType", &self.ButtonType).field("Enabled", &self.Enabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for INPUT_BUTTON_ENABLE_INFO {
+impl ::core::cmp::PartialEq for INPUT_BUTTON_ENABLE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.ButtonType == other.ButtonType && self.Enabled == other.Enabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for INPUT_BUTTON_ENABLE_INFO {}
+impl ::core::cmp::Eq for INPUT_BUTTON_ENABLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INPUT_BUTTON_ENABLE_INFO {
     type Abi = Self;
@@ -11466,7 +11466,7 @@ pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900u32;
 pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
@@ -11478,19 +11478,19 @@ pub struct JOYREGHWVALUES {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl JOYREGHWVALUES {}
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::default::Default for JOYREGHWVALUES {
+impl ::core::default::Default for JOYREGHWVALUES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::PartialEq for JOYREGHWVALUES {
+impl ::core::cmp::PartialEq for JOYREGHWVALUES {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::std::cmp::Eq for JOYREGHWVALUES {}
+impl ::core::cmp::Eq for JOYREGHWVALUES {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for JOYREGHWVALUES {
     type Abi = Self;
@@ -11661,7 +11661,7 @@ pub const JOY_US_PRESENT: i32 = 2i32;
 pub const JOY_US_RESERVED: i32 = -2147483648i32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const JOY_US_VOLATILE: i32 = 8i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_ATTRIBUTES {
@@ -11675,13 +11675,13 @@ pub struct KEYBOARD_ATTRIBUTES {
     pub KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
 }
 impl KEYBOARD_ATTRIBUTES {}
-impl ::std::default::Default for KEYBOARD_ATTRIBUTES {
+impl ::core::default::Default for KEYBOARD_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_ATTRIBUTES")
             .field("KeyboardIdentifier", &self.KeyboardIdentifier)
             .field("KeyboardMode", &self.KeyboardMode)
@@ -11694,12 +11694,12 @@ impl ::std::fmt::Debug for KEYBOARD_ATTRIBUTES {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
+impl ::core::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.KeyboardIdentifier == other.KeyboardIdentifier && self.KeyboardMode == other.KeyboardMode && self.NumberOfFunctionKeys == other.NumberOfFunctionKeys && self.NumberOfIndicators == other.NumberOfIndicators && self.NumberOfKeysTotal == other.NumberOfKeysTotal && self.InputDataQueueLength == other.InputDataQueueLength && self.KeyRepeatMinimum == other.KeyRepeatMinimum && self.KeyRepeatMaximum == other.KeyRepeatMaximum
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_ATTRIBUTES {}
+impl ::core::cmp::Eq for KEYBOARD_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_ATTRIBUTES {
     type Abi = Self;
 }
@@ -11707,7 +11707,7 @@ unsafe impl ::windows::runtime::Abi for KEYBOARD_ATTRIBUTES {
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
@@ -11720,13 +11720,13 @@ pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub ImplementedInputAssistControls: u8,
 }
 impl KEYBOARD_EXTENDED_ATTRIBUTES {}
-impl ::std::default::Default for KEYBOARD_EXTENDED_ATTRIBUTES {
+impl ::core::default::Default for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_EXTENDED_ATTRIBUTES")
             .field("Version", &self.Version)
             .field("FormFactor", &self.FormFactor)
@@ -11738,18 +11738,18 @@ impl ::std::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
+impl ::core::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.FormFactor == other.FormFactor && self.KeyType == other.KeyType && self.PhysicalLayout == other.PhysicalLayout && self.VendorSpecificPhysicalLayout == other.VendorSpecificPhysicalLayout && self.IETFLanguageTagIndex == other.IETFLanguageTagIndex && self.ImplementedInputAssistControls == other.ImplementedInputAssistControls
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
+impl ::core::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_EXTENDED_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_ID {
@@ -11757,26 +11757,26 @@ pub struct KEYBOARD_ID {
     pub Subtype: u8,
 }
 impl KEYBOARD_ID {}
-impl ::std::default::Default for KEYBOARD_ID {
+impl ::core::default::Default for KEYBOARD_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_ID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_ID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_ID").field("Type", &self.Type).field("Subtype", &self.Subtype).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_ID {
+impl ::core::cmp::PartialEq for KEYBOARD_ID {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Subtype == other.Subtype
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_ID {}
+impl ::core::cmp::Eq for KEYBOARD_ID {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_ID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_IME_STATUS {
@@ -11785,26 +11785,26 @@ pub struct KEYBOARD_IME_STATUS {
     pub ImeConvMode: u32,
 }
 impl KEYBOARD_IME_STATUS {}
-impl ::std::default::Default for KEYBOARD_IME_STATUS {
+impl ::core::default::Default for KEYBOARD_IME_STATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_IME_STATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_IME_STATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_IME_STATUS").field("UnitId", &self.UnitId).field("ImeOpen", &self.ImeOpen).field("ImeConvMode", &self.ImeConvMode).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_IME_STATUS {
+impl ::core::cmp::PartialEq for KEYBOARD_IME_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId && self.ImeOpen == other.ImeOpen && self.ImeConvMode == other.ImeConvMode
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_IME_STATUS {}
+impl ::core::cmp::Eq for KEYBOARD_IME_STATUS {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_IME_STATUS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_INDICATOR_PARAMETERS {
@@ -11812,26 +11812,26 @@ pub struct KEYBOARD_INDICATOR_PARAMETERS {
     pub LedFlags: u16,
 }
 impl KEYBOARD_INDICATOR_PARAMETERS {}
-impl ::std::default::Default for KEYBOARD_INDICATOR_PARAMETERS {
+impl ::core::default::Default for KEYBOARD_INDICATOR_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_INDICATOR_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_INDICATOR_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_INDICATOR_PARAMETERS").field("UnitId", &self.UnitId).field("LedFlags", &self.LedFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
+impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId && self.LedFlags == other.LedFlags
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_INDICATOR_PARAMETERS {}
+impl ::core::cmp::Eq for KEYBOARD_INDICATOR_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_INDICATOR_PARAMETERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_INDICATOR_TRANSLATION {
@@ -11839,26 +11839,26 @@ pub struct KEYBOARD_INDICATOR_TRANSLATION {
     pub IndicatorList: [INDICATOR_LIST; 1],
 }
 impl KEYBOARD_INDICATOR_TRANSLATION {}
-impl ::std::default::Default for KEYBOARD_INDICATOR_TRANSLATION {
+impl ::core::default::Default for KEYBOARD_INDICATOR_TRANSLATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_INDICATOR_TRANSLATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_INDICATOR_TRANSLATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_INDICATOR_TRANSLATION").field("NumberOfIndicatorKeys", &self.NumberOfIndicatorKeys).field("IndicatorList", &self.IndicatorList).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
+impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfIndicatorKeys == other.NumberOfIndicatorKeys && self.IndicatorList == other.IndicatorList
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
+impl ::core::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_INDICATOR_TRANSLATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_INPUT_DATA {
@@ -11869,22 +11869,22 @@ pub struct KEYBOARD_INPUT_DATA {
     pub ExtraInformation: u32,
 }
 impl KEYBOARD_INPUT_DATA {}
-impl ::std::default::Default for KEYBOARD_INPUT_DATA {
+impl ::core::default::Default for KEYBOARD_INPUT_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_INPUT_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_INPUT_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_INPUT_DATA").field("UnitId", &self.UnitId).field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_INPUT_DATA {
+impl ::core::cmp::PartialEq for KEYBOARD_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId && self.MakeCode == other.MakeCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ExtraInformation == other.ExtraInformation
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_INPUT_DATA {}
+impl ::core::cmp::Eq for KEYBOARD_INPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_INPUT_DATA {
     type Abi = Self;
 }
@@ -11900,7 +11900,7 @@ pub const KEYBOARD_OVERRUN_MAKE_CODE: u32 = 255u32;
 pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEYBOARD_SHADOW: u32 = 16384u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
@@ -11909,48 +11909,48 @@ pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
     pub Delay: u16,
 }
 impl KEYBOARD_TYPEMATIC_PARAMETERS {}
-impl ::std::default::Default for KEYBOARD_TYPEMATIC_PARAMETERS {
+impl ::core::default::Default for KEYBOARD_TYPEMATIC_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_TYPEMATIC_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_TYPEMATIC_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_TYPEMATIC_PARAMETERS").field("UnitId", &self.UnitId).field("Rate", &self.Rate).field("Delay", &self.Delay).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
+impl ::core::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId && self.Rate == other.Rate && self.Delay == other.Delay
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_TYPEMATIC_PARAMETERS {}
+impl ::core::cmp::Eq for KEYBOARD_TYPEMATIC_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_TYPEMATIC_PARAMETERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
 impl KEYBOARD_UNIT_ID_PARAMETER {}
-impl ::std::default::Default for KEYBOARD_UNIT_ID_PARAMETER {
+impl ::core::default::Default for KEYBOARD_UNIT_ID_PARAMETER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBOARD_UNIT_ID_PARAMETER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBOARD_UNIT_ID_PARAMETER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBOARD_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
+impl ::core::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId
     }
 }
-impl ::std::cmp::Eq for KEYBOARD_UNIT_ID_PARAMETER {}
+impl ::core::cmp::Eq for KEYBOARD_UNIT_ID_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_UNIT_ID_PARAMETER {
     type Abi = Self;
 }
@@ -11978,40 +11978,40 @@ pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICEOBJECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICEOBJECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::windows::runtime::RawPtr, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::windows::runtime::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::windows::runtime::RawPtr, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::windows::runtime::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSINFILECALLBACK = unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMEFFECTSINFILECALLBACK = unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIJOYTYPECALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIJOYTYPECALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNSHOWJOYCPL = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND);
@@ -12021,7 +12021,7 @@ pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MAX_JOYSTRING: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct MOUSE_ATTRIBUTES {
@@ -12031,22 +12031,22 @@ pub struct MOUSE_ATTRIBUTES {
     pub InputDataQueueLength: u32,
 }
 impl MOUSE_ATTRIBUTES {}
-impl ::std::default::Default for MOUSE_ATTRIBUTES {
+impl ::core::default::Default for MOUSE_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MOUSE_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSE_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MOUSE_ATTRIBUTES").field("MouseIdentifier", &self.MouseIdentifier).field("NumberOfButtons", &self.NumberOfButtons).field("SampleRate", &self.SampleRate).field("InputDataQueueLength", &self.InputDataQueueLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for MOUSE_ATTRIBUTES {
+impl ::core::cmp::PartialEq for MOUSE_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.MouseIdentifier == other.MouseIdentifier && self.NumberOfButtons == other.NumberOfButtons && self.SampleRate == other.SampleRate && self.InputDataQueueLength == other.InputDataQueueLength
     }
 }
-impl ::std::cmp::Eq for MOUSE_ATTRIBUTES {}
+impl ::core::cmp::Eq for MOUSE_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for MOUSE_ATTRIBUTES {
     type Abi = Self;
 }
@@ -12082,7 +12082,7 @@ pub const MOUSE_HWHEEL: u32 = 2048u32;
 pub const MOUSE_I8042_HARDWARE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_INPORT_HARDWARE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct MOUSE_INPUT_DATA {
@@ -12095,21 +12095,21 @@ pub struct MOUSE_INPUT_DATA {
     pub ExtraInformation: u32,
 }
 impl MOUSE_INPUT_DATA {}
-impl ::std::default::Default for MOUSE_INPUT_DATA {
+impl ::core::default::Default for MOUSE_INPUT_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA {
+impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MOUSE_INPUT_DATA {}
+impl ::core::cmp::Eq for MOUSE_INPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for MOUSE_INPUT_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub union MOUSE_INPUT_DATA_0 {
@@ -12117,21 +12117,21 @@ pub union MOUSE_INPUT_DATA_0 {
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
 }
 impl MOUSE_INPUT_DATA_0 {}
-impl ::std::default::Default for MOUSE_INPUT_DATA_0 {
+impl ::core::default::Default for MOUSE_INPUT_DATA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA_0 {
+impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MOUSE_INPUT_DATA_0 {}
+impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for MOUSE_INPUT_DATA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct MOUSE_INPUT_DATA_0_0 {
@@ -12139,22 +12139,22 @@ pub struct MOUSE_INPUT_DATA_0_0 {
     pub ButtonData: u16,
 }
 impl MOUSE_INPUT_DATA_0_0 {}
-impl ::std::default::Default for MOUSE_INPUT_DATA_0_0 {
+impl ::core::default::Default for MOUSE_INPUT_DATA_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MOUSE_INPUT_DATA_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSE_INPUT_DATA_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("ButtonFlags", &self.ButtonFlags).field("ButtonData", &self.ButtonData).finish()
     }
 }
-impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
+impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.ButtonFlags == other.ButtonFlags && self.ButtonData == other.ButtonData
     }
 }
-impl ::std::cmp::Eq for MOUSE_INPUT_DATA_0_0 {}
+impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for MOUSE_INPUT_DATA_0_0 {
     type Abi = Self;
 }
@@ -12180,29 +12180,29 @@ pub const MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 pub const MOUSE_SERIAL_HARDWARE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
 impl MOUSE_UNIT_ID_PARAMETER {}
-impl ::std::default::Default for MOUSE_UNIT_ID_PARAMETER {
+impl ::core::default::Default for MOUSE_UNIT_ID_PARAMETER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MOUSE_UNIT_ID_PARAMETER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSE_UNIT_ID_PARAMETER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MOUSE_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
     }
 }
-impl ::std::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
+impl ::core::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId
     }
 }
-impl ::std::cmp::Eq for MOUSE_UNIT_ID_PARAMETER {}
+impl ::core::cmp::Eq for MOUSE_UNIT_ID_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for MOUSE_UNIT_ID_PARAMETER {
     type Abi = Self;
 }
@@ -12215,8 +12215,8 @@ pub const MOUSE_WHEEL: u32 = 1024u32;
 pub type PFN_HidP_GetVersionInternal = unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(context: *const ::std::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct USAGE_AND_PAGE {
@@ -12224,22 +12224,22 @@ pub struct USAGE_AND_PAGE {
     pub UsagePage: u16,
 }
 impl USAGE_AND_PAGE {}
-impl ::std::default::Default for USAGE_AND_PAGE {
+impl ::core::default::Default for USAGE_AND_PAGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USAGE_AND_PAGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USAGE_AND_PAGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USAGE_AND_PAGE").field("Usage", &self.Usage).field("UsagePage", &self.UsagePage).finish()
     }
 }
-impl ::std::cmp::PartialEq for USAGE_AND_PAGE {
+impl ::core::cmp::PartialEq for USAGE_AND_PAGE {
     fn eq(&self, other: &Self) -> bool {
         self.Usage == other.Usage && self.UsagePage == other.UsagePage
     }
 }
-impl ::std::cmp::Eq for USAGE_AND_PAGE {}
+impl ::core::cmp::Eq for USAGE_AND_PAGE {}
 unsafe impl ::windows::runtime::Abi for USAGE_AND_PAGE {
     type Abi = Self;
 }
@@ -12250,7 +12250,7 @@ pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _HIDP_PREPARSED_DATA(pub u8);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[inline]
@@ -12261,7 +12261,7 @@ pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
         extern "system" {
             fn joyConfigChanged(dwflags: u32) -> u32;
         }
-        ::std::mem::transmute(joyConfigChanged(::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(joyConfigChanged(::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

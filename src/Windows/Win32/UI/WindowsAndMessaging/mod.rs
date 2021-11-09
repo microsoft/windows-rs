@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct ACCEL {
@@ -8,26 +8,26 @@ pub struct ACCEL {
     pub cmd: u16,
 }
 impl ACCEL {}
-impl ::std::default::Default for ACCEL {
+impl ::core::default::Default for ACCEL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCEL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCEL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCEL").field("fVirt", &self.fVirt).field("key", &self.key).field("cmd", &self.cmd).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCEL {
+impl ::core::cmp::PartialEq for ACCEL {
     fn eq(&self, other: &Self) -> bool {
         self.fVirt == other.fVirt && self.key == other.key && self.cmd == other.cmd
     }
 }
-impl ::std::cmp::Eq for ACCEL {}
+impl ::core::cmp::Eq for ACCEL {}
 unsafe impl ::windows::runtime::Abi for ACCEL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -45,14 +45,14 @@ pub struct ALTTABINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ALTTABINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ALTTABINFO {
+impl ::core::default::Default for ALTTABINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ALTTABINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ALTTABINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ALTTABINFO")
             .field("cbSize", &self.cbSize)
             .field("cItems", &self.cItems)
@@ -67,19 +67,19 @@ impl ::std::fmt::Debug for ALTTABINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ALTTABINFO {
+impl ::core::cmp::PartialEq for ALTTABINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.cItems == other.cItems && self.cColumns == other.cColumns && self.cRows == other.cRows && self.iColFocus == other.iColFocus && self.iRowFocus == other.iRowFocus && self.cxItem == other.cxItem && self.cyItem == other.cyItem && self.ptStart == other.ptStart
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ALTTABINFO {}
+impl ::core::cmp::Eq for ALTTABINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ALTTABINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ANIMATE_WINDOW_FLAGS(pub u32);
 pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
@@ -91,7 +91,7 @@ pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
 pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
 pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
 pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
-impl ::std::convert::From<u32> for ANIMATE_WINDOW_FLAGS {
+impl ::core::convert::From<u32> for ANIMATE_WINDOW_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -99,35 +99,35 @@ impl ::std::convert::From<u32> for ANIMATE_WINDOW_FLAGS {
 unsafe impl ::windows::runtime::Abi for ANIMATE_WINDOW_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for ANIMATE_WINDOW_FLAGS {
+impl ::core::ops::BitOr for ANIMATE_WINDOW_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ANIMATE_WINDOW_FLAGS {
+impl ::core::ops::BitAnd for ANIMATE_WINDOW_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ANIMATE_WINDOW_FLAGS {
+impl ::core::ops::BitOrAssign for ANIMATE_WINDOW_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ANIMATE_WINDOW_FLAGS {
+impl ::core::ops::BitAndAssign for ANIMATE_WINDOW_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ANIMATE_WINDOW_FLAGS {
+impl ::core::ops::Not for ANIMATE_WINDOW_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct ANIMATIONINFO {
@@ -135,22 +135,22 @@ pub struct ANIMATIONINFO {
     pub iMinAnimate: i32,
 }
 impl ANIMATIONINFO {}
-impl ::std::default::Default for ANIMATIONINFO {
+impl ::core::default::Default for ANIMATIONINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ANIMATIONINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ANIMATIONINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ANIMATIONINFO").field("cbSize", &self.cbSize).field("iMinAnimate", &self.iMinAnimate).finish()
     }
 }
-impl ::std::cmp::PartialEq for ANIMATIONINFO {
+impl ::core::cmp::PartialEq for ANIMATIONINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iMinAnimate == other.iMinAnimate
     }
 }
-impl ::std::cmp::Eq for ANIMATIONINFO {}
+impl ::core::cmp::Eq for ANIMATIONINFO {}
 unsafe impl ::windows::runtime::Abi for ANIMATIONINFO {
     type Abi = Self;
 }
@@ -172,7 +172,7 @@ pub const ARW_STARTTOP: i32 = 2i32;
 pub const ARW_UP: i32 = 4i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ASFW_ANY: u32 = 4294967295u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -184,25 +184,25 @@ pub struct AUDIODESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl AUDIODESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AUDIODESCRIPTION {
+impl ::core::default::Default for AUDIODESCRIPTION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for AUDIODESCRIPTION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AUDIODESCRIPTION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AUDIODESCRIPTION").field("cbSize", &self.cbSize).field("Enabled", &self.Enabled).field("Locale", &self.Locale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AUDIODESCRIPTION {
+impl ::core::cmp::PartialEq for AUDIODESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.Enabled == other.Enabled && self.Locale == other.Locale
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AUDIODESCRIPTION {}
+impl ::core::cmp::Eq for AUDIODESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIODESCRIPTION {
     type Abi = Self;
@@ -217,7 +217,7 @@ pub unsafe fn AdjustWindowRect<'a, Param2: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn AdjustWindowRect(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AdjustWindowRect(::std::mem::transmute(lprect), ::std::mem::transmute(dwstyle), bmenu.into_param().abi()))
+        ::core::mem::transmute(AdjustWindowRect(::core::mem::transmute(lprect), ::core::mem::transmute(dwstyle), bmenu.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -232,7 +232,7 @@ pub unsafe fn AdjustWindowRectEx<'a, Param2: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn AdjustWindowRectEx(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: super::super::Foundation::BOOL, dwexstyle: WINDOW_EX_STYLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AdjustWindowRectEx(::std::mem::transmute(lprect), ::std::mem::transmute(dwstyle), bmenu.into_param().abi(), ::std::mem::transmute(dwexstyle)))
+        ::core::mem::transmute(AdjustWindowRectEx(::core::mem::transmute(lprect), ::core::mem::transmute(dwstyle), bmenu.into_param().abi(), ::core::mem::transmute(dwexstyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -247,7 +247,7 @@ pub unsafe fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Founda
         extern "system" {
             fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AllowSetForegroundWindow(::std::mem::transmute(dwprocessid)))
+        ::core::mem::transmute(AllowSetForegroundWindow(::core::mem::transmute(dwprocessid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -262,7 +262,7 @@ pub unsafe fn AnimateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn AnimateWindow(hwnd: super::super::Foundation::HWND, dwtime: u32, dwflags: ANIMATE_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AnimateWindow(hwnd.into_param().abi(), ::std::mem::transmute(dwtime), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(AnimateWindow(hwnd.into_param().abi(), ::core::mem::transmute(dwtime), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -277,7 +277,7 @@ pub unsafe fn AnyPopup() -> super::super::Foundation::BOOL {
         extern "system" {
             fn AnyPopup() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AnyPopup())
+        ::core::mem::transmute(AnyPopup())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -292,7 +292,7 @@ pub unsafe fn AppendMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AppendMenuA(hmenu.into_param().abi(), ::std::mem::transmute(uflags), ::std::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
+        ::core::mem::transmute(AppendMenuA(hmenu.into_param().abi(), ::core::mem::transmute(uflags), ::core::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -307,7 +307,7 @@ pub unsafe fn AppendMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AppendMenuW(hmenu.into_param().abi(), ::std::mem::transmute(uflags), ::std::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
+        ::core::mem::transmute(AppendMenuW(hmenu.into_param().abi(), ::core::mem::transmute(uflags), ::core::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -322,7 +322,7 @@ pub unsafe fn ArrangeIconicWindows<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn ArrangeIconicWindows(hwnd: super::super::Foundation::HWND) -> u32;
         }
-        ::std::mem::transmute(ArrangeIconicWindows(hwnd.into_param().abi()))
+        ::core::mem::transmute(ArrangeIconicWindows(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -444,7 +444,7 @@ pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> isize {
         extern "system" {
             fn BeginDeferWindowPos(nnumwindows: i32) -> isize;
         }
-        ::std::mem::transmute(BeginDeferWindowPos(::std::mem::transmute(nnumwindows)))
+        ::core::mem::transmute(BeginDeferWindowPos(::core::mem::transmute(nnumwindows)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -459,7 +459,7 @@ pub unsafe fn BringWindowToTop<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn BringWindowToTop(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BringWindowToTop(hwnd.into_param().abi()))
+        ::core::mem::transmute(BringWindowToTop(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -467,12 +467,12 @@ pub unsafe fn BringWindowToTop<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CALERT_SYSTEM: u32 = 6u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CASCADE_WINDOWS_HOW(pub u32);
 pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
 pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
-impl ::std::convert::From<u32> for CASCADE_WINDOWS_HOW {
+impl ::core::convert::From<u32> for CASCADE_WINDOWS_HOW {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -480,29 +480,29 @@ impl ::std::convert::From<u32> for CASCADE_WINDOWS_HOW {
 unsafe impl ::windows::runtime::Abi for CASCADE_WINDOWS_HOW {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CASCADE_WINDOWS_HOW {
+impl ::core::ops::BitOr for CASCADE_WINDOWS_HOW {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CASCADE_WINDOWS_HOW {
+impl ::core::ops::BitAnd for CASCADE_WINDOWS_HOW {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CASCADE_WINDOWS_HOW {
+impl ::core::ops::BitOrAssign for CASCADE_WINDOWS_HOW {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CASCADE_WINDOWS_HOW {
+impl ::core::ops::BitAndAssign for CASCADE_WINDOWS_HOW {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CASCADE_WINDOWS_HOW {
+impl ::core::ops::Not for CASCADE_WINDOWS_HOW {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -556,7 +556,7 @@ pub const CBS_SIMPLE: i32 = 1i32;
 pub const CBS_SORT: i32 = 256i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_UPPERCASE: i32 = 8192i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -567,30 +567,30 @@ pub struct CBTACTIVATESTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl CBTACTIVATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CBTACTIVATESTRUCT {
+impl ::core::default::Default for CBTACTIVATESTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CBTACTIVATESTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CBTACTIVATESTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CBTACTIVATESTRUCT").field("fMouse", &self.fMouse).field("hWndActive", &self.hWndActive).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CBTACTIVATESTRUCT {
+impl ::core::cmp::PartialEq for CBTACTIVATESTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.fMouse == other.fMouse && self.hWndActive == other.hWndActive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CBTACTIVATESTRUCT {}
+impl ::core::cmp::Eq for CBTACTIVATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CBTACTIVATESTRUCT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -601,30 +601,30 @@ pub struct CBT_CREATEWNDA {
 #[cfg(feature = "Win32_Foundation")]
 impl CBT_CREATEWNDA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CBT_CREATEWNDA {
+impl ::core::default::Default for CBT_CREATEWNDA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CBT_CREATEWNDA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CBT_CREATEWNDA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CBT_CREATEWNDA").field("lpcs", &self.lpcs).field("hwndInsertAfter", &self.hwndInsertAfter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CBT_CREATEWNDA {
+impl ::core::cmp::PartialEq for CBT_CREATEWNDA {
     fn eq(&self, other: &Self) -> bool {
         self.lpcs == other.lpcs && self.hwndInsertAfter == other.hwndInsertAfter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CBT_CREATEWNDA {}
+impl ::core::cmp::Eq for CBT_CREATEWNDA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CBT_CREATEWNDA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -635,25 +635,25 @@ pub struct CBT_CREATEWNDW {
 #[cfg(feature = "Win32_Foundation")]
 impl CBT_CREATEWNDW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CBT_CREATEWNDW {
+impl ::core::default::Default for CBT_CREATEWNDW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CBT_CREATEWNDW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CBT_CREATEWNDW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CBT_CREATEWNDW").field("lpcs", &self.lpcs).field("hwndInsertAfter", &self.hwndInsertAfter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CBT_CREATEWNDW {
+impl ::core::cmp::PartialEq for CBT_CREATEWNDW {
     fn eq(&self, other: &Self) -> bool {
         self.lpcs == other.lpcs && self.hwndInsertAfter == other.hwndInsertAfter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CBT_CREATEWNDW {}
+impl ::core::cmp::Eq for CBT_CREATEWNDW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CBT_CREATEWNDW {
     type Abi = Self;
@@ -742,7 +742,7 @@ pub const CB_SHOWDROPDOWN: u32 = 335u32;
 pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CCHILDREN_TITLEBAR: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct CHANGEFILTERSTRUCT {
@@ -750,32 +750,32 @@ pub struct CHANGEFILTERSTRUCT {
     pub ExtStatus: MSGFLTINFO_STATUS,
 }
 impl CHANGEFILTERSTRUCT {}
-impl ::std::default::Default for CHANGEFILTERSTRUCT {
+impl ::core::default::Default for CHANGEFILTERSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CHANGEFILTERSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CHANGEFILTERSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CHANGEFILTERSTRUCT").field("cbSize", &self.cbSize).field("ExtStatus", &self.ExtStatus).finish()
     }
 }
-impl ::std::cmp::PartialEq for CHANGEFILTERSTRUCT {
+impl ::core::cmp::PartialEq for CHANGEFILTERSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ExtStatus == other.ExtStatus
     }
 }
-impl ::std::cmp::Eq for CHANGEFILTERSTRUCT {}
+impl ::core::cmp::Eq for CHANGEFILTERSTRUCT {}
 unsafe impl ::windows::runtime::Abi for CHANGEFILTERSTRUCT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
 pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
 pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
-impl ::std::convert::From<u32> for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+impl ::core::convert::From<u32> for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -783,29 +783,29 @@ impl ::std::convert::From<u32> for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
 unsafe impl ::windows::runtime::Abi for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+impl ::core::ops::BitOr for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+impl ::core::ops::BitAnd for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+impl ::core::ops::BitOrAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+impl ::core::ops::BitAndAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+impl ::core::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -813,7 +813,7 @@ impl ::std::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CHILDID_SELF: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -824,25 +824,25 @@ pub struct CLIENTCREATESTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl CLIENTCREATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLIENTCREATESTRUCT {
+impl ::core::default::Default for CLIENTCREATESTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CLIENTCREATESTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLIENTCREATESTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLIENTCREATESTRUCT").field("hWindowMenu", &self.hWindowMenu).field("idFirstChild", &self.idFirstChild).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLIENTCREATESTRUCT {
+impl ::core::cmp::PartialEq for CLIENTCREATESTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.hWindowMenu == other.hWindowMenu && self.idFirstChild == other.idFirstChild
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLIENTCREATESTRUCT {}
+impl ::core::cmp::Eq for CLIENTCREATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLIENTCREATESTRUCT {
     type Abi = Self;
@@ -865,12 +865,12 @@ pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CREATESTRUCTA {
-    pub lpCreateParams: *mut ::std::ffi::c_void,
+    pub lpCreateParams: *mut ::core::ffi::c_void,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub hMenu: HMENU,
     pub hwndParent: super::super::Foundation::HWND,
@@ -886,14 +886,14 @@ pub struct CREATESTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl CREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CREATESTRUCTA {
+impl ::core::default::Default for CREATESTRUCTA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CREATESTRUCTA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CREATESTRUCTA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CREATESTRUCTA")
             .field("lpCreateParams", &self.lpCreateParams)
             .field("hInstance", &self.hInstance)
@@ -911,23 +911,23 @@ impl ::std::fmt::Debug for CREATESTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CREATESTRUCTA {
+impl ::core::cmp::PartialEq for CREATESTRUCTA {
     fn eq(&self, other: &Self) -> bool {
         self.lpCreateParams == other.lpCreateParams && self.hInstance == other.hInstance && self.hMenu == other.hMenu && self.hwndParent == other.hwndParent && self.cy == other.cy && self.cx == other.cx && self.y == other.y && self.x == other.x && self.style == other.style && self.lpszName == other.lpszName && self.lpszClass == other.lpszClass && self.dwExStyle == other.dwExStyle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CREATESTRUCTA {}
+impl ::core::cmp::Eq for CREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATESTRUCTA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CREATESTRUCTW {
-    pub lpCreateParams: *mut ::std::ffi::c_void,
+    pub lpCreateParams: *mut ::core::ffi::c_void,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub hMenu: HMENU,
     pub hwndParent: super::super::Foundation::HWND,
@@ -943,14 +943,14 @@ pub struct CREATESTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl CREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CREATESTRUCTW {
+impl ::core::default::Default for CREATESTRUCTW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CREATESTRUCTW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CREATESTRUCTW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CREATESTRUCTW")
             .field("lpCreateParams", &self.lpCreateParams)
             .field("hInstance", &self.hInstance)
@@ -968,13 +968,13 @@ impl ::std::fmt::Debug for CREATESTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CREATESTRUCTW {
+impl ::core::cmp::PartialEq for CREATESTRUCTW {
     fn eq(&self, other: &Self) -> bool {
         self.lpCreateParams == other.lpCreateParams && self.hInstance == other.hInstance && self.hMenu == other.hMenu && self.hwndParent == other.hwndParent && self.cy == other.cy && self.cx == other.cx && self.y == other.y && self.x == other.x && self.style == other.style && self.lpszName == other.lpszName && self.lpszClass == other.lpszClass && self.dwExStyle == other.dwExStyle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CREATESTRUCTW {}
+impl ::core::cmp::Eq for CREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATESTRUCTW {
     type Abi = Self;
@@ -997,7 +997,7 @@ pub const CTLCOLOR_MSGBOX: u32 = 0u32;
 pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_STATIC: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -1010,36 +1010,36 @@ pub struct CURSORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl CURSORINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CURSORINFO {
+impl ::core::default::Default for CURSORINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CURSORINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CURSORINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CURSORINFO").field("cbSize", &self.cbSize).field("flags", &self.flags).field("hCursor", &self.hCursor).field("ptScreenPos", &self.ptScreenPos).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CURSORINFO {
+impl ::core::cmp::PartialEq for CURSORINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.flags == other.flags && self.hCursor == other.hCursor && self.ptScreenPos == other.ptScreenPos
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CURSORINFO {}
+impl ::core::cmp::Eq for CURSORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CURSORINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CURSORINFO_FLAGS(pub u32);
 pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
 pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
-impl ::std::convert::From<u32> for CURSORINFO_FLAGS {
+impl ::core::convert::From<u32> for CURSORINFO_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1047,35 +1047,35 @@ impl ::std::convert::From<u32> for CURSORINFO_FLAGS {
 unsafe impl ::windows::runtime::Abi for CURSORINFO_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CURSORINFO_FLAGS {
+impl ::core::ops::BitOr for CURSORINFO_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CURSORINFO_FLAGS {
+impl ::core::ops::BitAnd for CURSORINFO_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CURSORINFO_FLAGS {
+impl ::core::ops::BitOrAssign for CURSORINFO_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CURSORINFO_FLAGS {
+impl ::core::ops::BitAndAssign for CURSORINFO_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CURSORINFO_FLAGS {
+impl ::core::ops::Not for CURSORINFO_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct CURSORSHAPE {
@@ -1088,22 +1088,22 @@ pub struct CURSORSHAPE {
     pub BitsPixel: u8,
 }
 impl CURSORSHAPE {}
-impl ::std::default::Default for CURSORSHAPE {
+impl ::core::default::Default for CURSORSHAPE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CURSORSHAPE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CURSORSHAPE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CURSORSHAPE").field("xHotSpot", &self.xHotSpot).field("yHotSpot", &self.yHotSpot).field("cx", &self.cx).field("cy", &self.cy).field("cbWidth", &self.cbWidth).field("Planes", &self.Planes).field("BitsPixel", &self.BitsPixel).finish()
     }
 }
-impl ::std::cmp::PartialEq for CURSORSHAPE {
+impl ::core::cmp::PartialEq for CURSORSHAPE {
     fn eq(&self, other: &Self) -> bool {
         self.xHotSpot == other.xHotSpot && self.yHotSpot == other.yHotSpot && self.cx == other.cx && self.cy == other.cy && self.cbWidth == other.cbWidth && self.Planes == other.Planes && self.BitsPixel == other.BitsPixel
     }
 }
-impl ::std::cmp::Eq for CURSORSHAPE {}
+impl ::core::cmp::Eq for CURSORSHAPE {}
 unsafe impl ::windows::runtime::Abi for CURSORSHAPE {
     type Abi = Self;
 }
@@ -1113,7 +1113,7 @@ pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CWF_CREATE_ONLY: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -1127,30 +1127,30 @@ pub struct CWPRETSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl CWPRETSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CWPRETSTRUCT {
+impl ::core::default::Default for CWPRETSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CWPRETSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CWPRETSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CWPRETSTRUCT").field("lResult", &self.lResult).field("lParam", &self.lParam).field("wParam", &self.wParam).field("message", &self.message).field("hwnd", &self.hwnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CWPRETSTRUCT {
+impl ::core::cmp::PartialEq for CWPRETSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.lResult == other.lResult && self.lParam == other.lParam && self.wParam == other.wParam && self.message == other.message && self.hwnd == other.hwnd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CWPRETSTRUCT {}
+impl ::core::cmp::Eq for CWPRETSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CWPRETSTRUCT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -1163,38 +1163,38 @@ pub struct CWPSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl CWPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CWPSTRUCT {
+impl ::core::default::Default for CWPSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CWPSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CWPSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CWPSTRUCT").field("lParam", &self.lParam).field("wParam", &self.wParam).field("message", &self.message).field("hwnd", &self.hwnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CWPSTRUCT {
+impl ::core::cmp::PartialEq for CWPSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.lParam == other.lParam && self.wParam == other.wParam && self.message == other.message && self.hwnd == other.hwnd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CWPSTRUCT {}
+impl ::core::cmp::Eq for CWPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CWPSTRUCT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CWP_FLAGS(pub u32);
 pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
 pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
 pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
 pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
-impl ::std::convert::From<u32> for CWP_FLAGS {
+impl ::core::convert::From<u32> for CWP_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1202,29 +1202,29 @@ impl ::std::convert::From<u32> for CWP_FLAGS {
 unsafe impl ::windows::runtime::Abi for CWP_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CWP_FLAGS {
+impl ::core::ops::BitOr for CWP_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CWP_FLAGS {
+impl ::core::ops::BitAnd for CWP_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CWP_FLAGS {
+impl ::core::ops::BitOrAssign for CWP_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CWP_FLAGS {
+impl ::core::ops::BitAndAssign for CWP_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CWP_FLAGS {
+impl ::core::ops::Not for CWP_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1242,7 +1242,7 @@ pub unsafe fn CalculatePopupWindowPosition(anchorpoint: *const super::super::Fou
         extern "system" {
             fn CalculatePopupWindowPosition(anchorpoint: *const super::super::Foundation::POINT, windowsize: *const super::super::Foundation::SIZE, flags: u32, excluderect: *const super::super::Foundation::RECT, popupwindowposition: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CalculatePopupWindowPosition(::std::mem::transmute(anchorpoint), ::std::mem::transmute(windowsize), ::std::mem::transmute(flags), ::std::mem::transmute(excluderect), ::std::mem::transmute(popupwindowposition)))
+        ::core::mem::transmute(CalculatePopupWindowPosition(::core::mem::transmute(anchorpoint), ::core::mem::transmute(windowsize), ::core::mem::transmute(flags), ::core::mem::transmute(excluderect), ::core::mem::transmute(popupwindowposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1257,7 +1257,7 @@ pub unsafe fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
         extern "system" {
             fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CallMsgFilterA(::std::mem::transmute(lpmsg), ::std::mem::transmute(ncode)))
+        ::core::mem::transmute(CallMsgFilterA(::core::mem::transmute(lpmsg), ::core::mem::transmute(ncode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1272,7 +1272,7 @@ pub unsafe fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
         extern "system" {
             fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CallMsgFilterW(::std::mem::transmute(lpmsg), ::std::mem::transmute(ncode)))
+        ::core::mem::transmute(CallMsgFilterW(::core::mem::transmute(lpmsg), ::core::mem::transmute(ncode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1287,7 +1287,7 @@ pub unsafe fn CallNextHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, HHOOK
         extern "system" {
             fn CallNextHookEx(hhk: HHOOK, ncode: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(CallNextHookEx(hhk.into_param().abi(), ::std::mem::transmute(ncode), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(CallNextHookEx(hhk.into_param().abi(), ::core::mem::transmute(ncode), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1295,14 +1295,14 @@ pub unsafe fn CallNextHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, HHOOK
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallWindowProcA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::std::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
+pub unsafe fn CallWindowProcA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::core::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CallWindowProcA(lpprevwndfunc: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(CallWindowProcA(::std::mem::transmute(lpprevwndfunc), hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(CallWindowProcA(::core::mem::transmute(lpprevwndfunc), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1310,14 +1310,14 @@ pub unsafe fn CallWindowProcA<'a, Param1: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallWindowProcW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::std::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
+pub unsafe fn CallWindowProcW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::core::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CallWindowProcW(lpprevwndfunc: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(CallWindowProcW(::std::mem::transmute(lpprevwndfunc), hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(CallWindowProcW(::core::mem::transmute(lpprevwndfunc), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1332,7 +1332,7 @@ pub unsafe fn CancelShutdown() -> super::super::Foundation::BOOL {
         extern "system" {
             fn CancelShutdown() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CancelShutdown())
+        ::core::mem::transmute(CancelShutdown())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1347,7 +1347,7 @@ pub unsafe fn CascadeWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CascadeWindows(hwndparent: super::super::Foundation::HWND, whow: CASCADE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16;
         }
-        ::std::mem::transmute(CascadeWindows(hwndparent.into_param().abi(), ::std::mem::transmute(whow), ::std::mem::transmute(lprect), ::std::mem::transmute(ckids), ::std::mem::transmute(lpkids)))
+        ::core::mem::transmute(CascadeWindows(hwndparent.into_param().abi(), ::core::mem::transmute(whow), ::core::mem::transmute(lprect), ::core::mem::transmute(ckids), ::core::mem::transmute(lpkids)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1362,7 +1362,7 @@ pub unsafe fn ChangeMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn ChangeMenuA(hmenu: HMENU, cmd: u32, lpsznewitem: super::super::Foundation::PSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ChangeMenuA(hmenu.into_param().abi(), ::std::mem::transmute(cmd), lpsznewitem.into_param().abi(), ::std::mem::transmute(cmdinsert), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(ChangeMenuA(hmenu.into_param().abi(), ::core::mem::transmute(cmd), lpsznewitem.into_param().abi(), ::core::mem::transmute(cmdinsert), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1377,7 +1377,7 @@ pub unsafe fn ChangeMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn ChangeMenuW(hmenu: HMENU, cmd: u32, lpsznewitem: super::super::Foundation::PWSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ChangeMenuW(hmenu.into_param().abi(), ::std::mem::transmute(cmd), lpsznewitem.into_param().abi(), ::std::mem::transmute(cmdinsert), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(ChangeMenuW(hmenu.into_param().abi(), ::core::mem::transmute(cmd), lpsznewitem.into_param().abi(), ::core::mem::transmute(cmdinsert), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1392,7 +1392,7 @@ pub unsafe fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESS
         extern "system" {
             fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ChangeWindowMessageFilter(::std::mem::transmute(message), ::std::mem::transmute(dwflag)))
+        ::core::mem::transmute(ChangeWindowMessageFilter(::core::mem::transmute(message), ::core::mem::transmute(dwflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1407,7 +1407,7 @@ pub unsafe fn ChangeWindowMessageFilterEx<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn ChangeWindowMessageFilterEx(hwnd: super::super::Foundation::HWND, message: u32, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: *mut CHANGEFILTERSTRUCT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ChangeWindowMessageFilterEx(hwnd.into_param().abi(), ::std::mem::transmute(message), ::std::mem::transmute(action), ::std::mem::transmute(pchangefilterstruct)))
+        ::core::mem::transmute(ChangeWindowMessageFilterEx(hwnd.into_param().abi(), ::core::mem::transmute(message), ::core::mem::transmute(action), ::core::mem::transmute(pchangefilterstruct)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1422,7 +1422,7 @@ pub unsafe fn CharLowerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CharLowerA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(CharLowerA(lpsz.into_param().abi()))
+        ::core::mem::transmute(CharLowerA(lpsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1437,7 +1437,7 @@ pub unsafe fn CharLowerBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CharLowerBuffA(lpsz: super::super::Foundation::PSTR, cchlength: u32) -> u32;
         }
-        ::std::mem::transmute(CharLowerBuffA(lpsz.into_param().abi(), ::std::mem::transmute(cchlength)))
+        ::core::mem::transmute(CharLowerBuffA(lpsz.into_param().abi(), ::core::mem::transmute(cchlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1452,7 +1452,7 @@ pub unsafe fn CharLowerBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CharLowerBuffW(lpsz: super::super::Foundation::PWSTR, cchlength: u32) -> u32;
         }
-        ::std::mem::transmute(CharLowerBuffW(lpsz.into_param().abi(), ::std::mem::transmute(cchlength)))
+        ::core::mem::transmute(CharLowerBuffW(lpsz.into_param().abi(), ::core::mem::transmute(cchlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1467,7 +1467,7 @@ pub unsafe fn CharLowerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CharLowerW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
-        ::std::mem::transmute(CharLowerW(lpsz.into_param().abi()))
+        ::core::mem::transmute(CharLowerW(lpsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1482,7 +1482,7 @@ pub unsafe fn CharNextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CharNextA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(CharNextA(lpsz.into_param().abi()))
+        ::core::mem::transmute(CharNextA(lpsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1497,7 +1497,7 @@ pub unsafe fn CharNextExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CharNextExA(codepage: u16, lpcurrentchar: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(CharNextExA(::std::mem::transmute(codepage), lpcurrentchar.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CharNextExA(::core::mem::transmute(codepage), lpcurrentchar.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1512,7 +1512,7 @@ pub unsafe fn CharNextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CharNextW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
-        ::std::mem::transmute(CharNextW(lpsz.into_param().abi()))
+        ::core::mem::transmute(CharNextW(lpsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1527,7 +1527,7 @@ pub unsafe fn CharPrevA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CharPrevA(lpszstart: super::super::Foundation::PSTR, lpszcurrent: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(CharPrevA(lpszstart.into_param().abi(), lpszcurrent.into_param().abi()))
+        ::core::mem::transmute(CharPrevA(lpszstart.into_param().abi(), lpszcurrent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1542,7 +1542,7 @@ pub unsafe fn CharPrevExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CharPrevExA(codepage: u16, lpstart: super::super::Foundation::PSTR, lpcurrentchar: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(CharPrevExA(::std::mem::transmute(codepage), lpstart.into_param().abi(), lpcurrentchar.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CharPrevExA(::core::mem::transmute(codepage), lpstart.into_param().abi(), lpcurrentchar.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1557,7 +1557,7 @@ pub unsafe fn CharPrevW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CharPrevW(lpszstart: super::super::Foundation::PWSTR, lpszcurrent: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
-        ::std::mem::transmute(CharPrevW(lpszstart.into_param().abi(), lpszcurrent.into_param().abi()))
+        ::core::mem::transmute(CharPrevW(lpszstart.into_param().abi(), lpszcurrent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1572,7 +1572,7 @@ pub unsafe fn CharToOemA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CharToOemA(psrc: super::super::Foundation::PSTR, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CharToOemA(psrc.into_param().abi(), ::std::mem::transmute(pdst)))
+        ::core::mem::transmute(CharToOemA(psrc.into_param().abi(), ::core::mem::transmute(pdst)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1587,7 +1587,7 @@ pub unsafe fn CharToOemBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CharToOemBuffA(lpszsrc: super::super::Foundation::PSTR, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CharToOemBuffA(lpszsrc.into_param().abi(), ::std::mem::transmute(lpszdst), ::std::mem::transmute(cchdstlength)))
+        ::core::mem::transmute(CharToOemBuffA(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst), ::core::mem::transmute(cchdstlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1602,7 +1602,7 @@ pub unsafe fn CharToOemBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CharToOemBuffW(lpszsrc: super::super::Foundation::PWSTR, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CharToOemBuffW(lpszsrc.into_param().abi(), ::std::mem::transmute(lpszdst), ::std::mem::transmute(cchdstlength)))
+        ::core::mem::transmute(CharToOemBuffW(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst), ::core::mem::transmute(cchdstlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1617,7 +1617,7 @@ pub unsafe fn CharToOemW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CharToOemW(psrc: super::super::Foundation::PWSTR, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CharToOemW(psrc.into_param().abi(), ::std::mem::transmute(pdst)))
+        ::core::mem::transmute(CharToOemW(psrc.into_param().abi(), ::core::mem::transmute(pdst)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1632,7 +1632,7 @@ pub unsafe fn CharUpperA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CharUpperA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(CharUpperA(lpsz.into_param().abi()))
+        ::core::mem::transmute(CharUpperA(lpsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1647,7 +1647,7 @@ pub unsafe fn CharUpperBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CharUpperBuffA(lpsz: super::super::Foundation::PSTR, cchlength: u32) -> u32;
         }
-        ::std::mem::transmute(CharUpperBuffA(lpsz.into_param().abi(), ::std::mem::transmute(cchlength)))
+        ::core::mem::transmute(CharUpperBuffA(lpsz.into_param().abi(), ::core::mem::transmute(cchlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1662,7 +1662,7 @@ pub unsafe fn CharUpperBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CharUpperBuffW(lpsz: super::super::Foundation::PWSTR, cchlength: u32) -> u32;
         }
-        ::std::mem::transmute(CharUpperBuffW(lpsz.into_param().abi(), ::std::mem::transmute(cchlength)))
+        ::core::mem::transmute(CharUpperBuffW(lpsz.into_param().abi(), ::core::mem::transmute(cchlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1677,7 +1677,7 @@ pub unsafe fn CharUpperW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CharUpperW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
-        ::std::mem::transmute(CharUpperW(lpsz.into_param().abi()))
+        ::core::mem::transmute(CharUpperW(lpsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1691,7 +1691,7 @@ pub unsafe fn CheckMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>
         extern "system" {
             fn CheckMenuItem(hmenu: HMENU, uidcheckitem: u32, ucheck: u32) -> u32;
         }
-        ::std::mem::transmute(CheckMenuItem(hmenu.into_param().abi(), ::std::mem::transmute(uidcheckitem), ::std::mem::transmute(ucheck)))
+        ::core::mem::transmute(CheckMenuItem(hmenu.into_param().abi(), ::core::mem::transmute(uidcheckitem), ::core::mem::transmute(ucheck)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1706,7 +1706,7 @@ pub unsafe fn CheckMenuRadioItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn CheckMenuRadioItem(hmenu: HMENU, first: u32, last: u32, check: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CheckMenuRadioItem(hmenu.into_param().abi(), ::std::mem::transmute(first), ::std::mem::transmute(last), ::std::mem::transmute(check), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(CheckMenuRadioItem(hmenu.into_param().abi(), ::core::mem::transmute(first), ::core::mem::transmute(last), ::core::mem::transmute(check), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1721,7 +1721,7 @@ pub unsafe fn ChildWindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn ChildWindowFromPoint(hwndparent: super::super::Foundation::HWND, point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(ChildWindowFromPoint(hwndparent.into_param().abi(), point.into_param().abi()))
+        ::core::mem::transmute(ChildWindowFromPoint(hwndparent.into_param().abi(), point.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1736,7 +1736,7 @@ pub unsafe fn ChildWindowFromPointEx<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn ChildWindowFromPointEx(hwnd: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, flags: CWP_FLAGS) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(ChildWindowFromPointEx(hwnd.into_param().abi(), pt.into_param().abi(), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(ChildWindowFromPointEx(hwnd.into_param().abi(), pt.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1751,7 +1751,7 @@ pub unsafe fn ClipCursor(lprect: *const super::super::Foundation::RECT) -> super
         extern "system" {
             fn ClipCursor(lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ClipCursor(::std::mem::transmute(lprect)))
+        ::core::mem::transmute(ClipCursor(::core::mem::transmute(lprect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1766,7 +1766,7 @@ pub unsafe fn CloseWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CloseWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CloseWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(CloseWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1780,7 +1780,7 @@ pub unsafe fn CopyAcceleratorTableA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: *mut ACCEL, caccelentries: i32) -> i32;
         }
-        ::std::mem::transmute(CopyAcceleratorTableA(haccelsrc.into_param().abi(), ::std::mem::transmute(lpacceldst), ::std::mem::transmute(caccelentries)))
+        ::core::mem::transmute(CopyAcceleratorTableA(haccelsrc.into_param().abi(), ::core::mem::transmute(lpacceldst), ::core::mem::transmute(caccelentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1794,7 +1794,7 @@ pub unsafe fn CopyAcceleratorTableW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: *mut ACCEL, caccelentries: i32) -> i32;
         }
-        ::std::mem::transmute(CopyAcceleratorTableW(haccelsrc.into_param().abi(), ::std::mem::transmute(lpacceldst), ::std::mem::transmute(caccelentries)))
+        ::core::mem::transmute(CopyAcceleratorTableW(haccelsrc.into_param().abi(), ::core::mem::transmute(lpacceldst), ::core::mem::transmute(caccelentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1808,7 +1808,7 @@ pub unsafe fn CopyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hic
         extern "system" {
             fn CopyIcon(hicon: HICON) -> HICON;
         }
-        ::std::mem::transmute(CopyIcon(hicon.into_param().abi()))
+        ::core::mem::transmute(CopyIcon(hicon.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1823,7 +1823,7 @@ pub unsafe fn CopyImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CopyImage(h: super::super::Foundation::HANDLE, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, flags: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CopyImage(h.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(cx), ::std::mem::transmute(cy), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(CopyImage(h.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1837,7 +1837,7 @@ pub unsafe fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACC
         extern "system" {
             fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACCEL;
         }
-        ::std::mem::transmute(CreateAcceleratorTableA(::std::mem::transmute(paccel), ::std::mem::transmute(caccel)))
+        ::core::mem::transmute(CreateAcceleratorTableA(::core::mem::transmute(paccel), ::core::mem::transmute(caccel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1851,7 +1851,7 @@ pub unsafe fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACC
         extern "system" {
             fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACCEL;
         }
-        ::std::mem::transmute(CreateAcceleratorTableW(::std::mem::transmute(paccel), ::std::mem::transmute(caccel)))
+        ::core::mem::transmute(CreateAcceleratorTableW(::core::mem::transmute(paccel), ::core::mem::transmute(caccel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1866,7 +1866,7 @@ pub unsafe fn CreateCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CreateCaret(hwnd: super::super::Foundation::HWND, hbitmap: super::super::Graphics::Gdi::HBITMAP, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateCaret(hwnd.into_param().abi(), hbitmap.into_param().abi(), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight)))
+        ::core::mem::transmute(CreateCaret(hwnd.into_param().abi(), hbitmap.into_param().abi(), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1874,14 +1874,14 @@ pub unsafe fn CreateCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinst: Param0, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::std::ffi::c_void, pvxorplane: *const ::std::ffi::c_void) -> HCURSOR {
+pub unsafe fn CreateCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinst: Param0, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::core::ffi::c_void, pvxorplane: *const ::core::ffi::c_void) -> HCURSOR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateCursor(hinst: super::super::Foundation::HINSTANCE, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::std::ffi::c_void, pvxorplane: *const ::std::ffi::c_void) -> HCURSOR;
+            fn CreateCursor(hinst: super::super::Foundation::HINSTANCE, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::core::ffi::c_void, pvxorplane: *const ::core::ffi::c_void) -> HCURSOR;
         }
-        ::std::mem::transmute(CreateCursor(hinst.into_param().abi(), ::std::mem::transmute(xhotspot), ::std::mem::transmute(yhotspot), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), ::std::mem::transmute(pvandplane), ::std::mem::transmute(pvxorplane)))
+        ::core::mem::transmute(CreateCursor(hinst.into_param().abi(), ::core::mem::transmute(xhotspot), ::core::mem::transmute(yhotspot), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), ::core::mem::transmute(pvandplane), ::core::mem::transmute(pvxorplane)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1889,14 +1889,14 @@ pub unsafe fn CreateCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
+pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateDialogIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateDialogIndirectParamA(hinstance.into_param().abi(), ::std::mem::transmute(lptemplate), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(CreateDialogIndirectParamA(hinstance.into_param().abi(), ::core::mem::transmute(lptemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1904,14 +1904,14 @@ pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
+pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateDialogIndirectParamW(hinstance.into_param().abi(), ::std::mem::transmute(lptemplate), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(CreateDialogIndirectParamW(hinstance.into_param().abi(), ::core::mem::transmute(lptemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1923,7 +1923,7 @@ pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     hinstance: Param0,
     lptemplatename: Param1,
     hwndparent: Param2,
-    lpdialogfunc: ::std::option::Option<DLGPROC>,
+    lpdialogfunc: ::core::option::Option<DLGPROC>,
     dwinitparam: Param4,
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1932,7 +1932,7 @@ pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateDialogParamA(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(CreateDialogParamA(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1944,7 +1944,7 @@ pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     hinstance: Param0,
     lptemplatename: Param1,
     hwndparent: Param2,
-    lpdialogfunc: ::std::option::Option<DLGPROC>,
+    lpdialogfunc: ::core::option::Option<DLGPROC>,
     dwinitparam: Param4,
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1953,7 +1953,7 @@ pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateDialogParamW(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(CreateDialogParamW(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1968,7 +1968,7 @@ pub unsafe fn CreateIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn CreateIcon(hinstance: super::super::Foundation::HINSTANCE, nwidth: i32, nheight: i32, cplanes: u8, cbitspixel: u8, lpbandbits: *const u8, lpbxorbits: *const u8) -> HICON;
         }
-        ::std::mem::transmute(CreateIcon(hinstance.into_param().abi(), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), ::std::mem::transmute(cplanes), ::std::mem::transmute(cbitspixel), ::std::mem::transmute(lpbandbits), ::std::mem::transmute(lpbxorbits)))
+        ::core::mem::transmute(CreateIcon(hinstance.into_param().abi(), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), ::core::mem::transmute(cplanes), ::core::mem::transmute(cbitspixel), ::core::mem::transmute(lpbandbits), ::core::mem::transmute(lpbxorbits)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1983,7 +1983,7 @@ pub unsafe fn CreateIconFromResource<'a, Param2: ::windows::runtime::IntoParam<'
         extern "system" {
             fn CreateIconFromResource(presbits: *const u8, dwressize: u32, ficon: super::super::Foundation::BOOL, dwver: u32) -> HICON;
         }
-        ::std::mem::transmute(CreateIconFromResource(::std::mem::transmute(presbits), ::std::mem::transmute(dwressize), ficon.into_param().abi(), ::std::mem::transmute(dwver)))
+        ::core::mem::transmute(CreateIconFromResource(::core::mem::transmute(presbits), ::core::mem::transmute(dwressize), ficon.into_param().abi(), ::core::mem::transmute(dwver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1998,7 +1998,7 @@ pub unsafe fn CreateIconFromResourceEx<'a, Param2: ::windows::runtime::IntoParam
         extern "system" {
             fn CreateIconFromResourceEx(presbits: *const u8, dwressize: u32, ficon: super::super::Foundation::BOOL, dwver: u32, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> HICON;
         }
-        ::std::mem::transmute(CreateIconFromResourceEx(::std::mem::transmute(presbits), ::std::mem::transmute(dwressize), ficon.into_param().abi(), ::std::mem::transmute(dwver), ::std::mem::transmute(cxdesired), ::std::mem::transmute(cydesired), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(CreateIconFromResourceEx(::core::mem::transmute(presbits), ::core::mem::transmute(dwressize), ficon.into_param().abi(), ::core::mem::transmute(dwver), ::core::mem::transmute(cxdesired), ::core::mem::transmute(cydesired), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2013,7 +2013,7 @@ pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON {
         extern "system" {
             fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON;
         }
-        ::std::mem::transmute(CreateIconIndirect(::std::mem::transmute(piconinfo)))
+        ::core::mem::transmute(CreateIconIndirect(::core::mem::transmute(piconinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2039,14 +2039,14 @@ pub unsafe fn CreateMDIWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn CreateMDIWindowA(lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateMDIWindowA(
+        ::core::mem::transmute(CreateMDIWindowA(
             lpclassname.into_param().abi(),
             lpwindowname.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(nwidth),
-            ::std::mem::transmute(nheight),
+            ::core::mem::transmute(dwstyle),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(nwidth),
+            ::core::mem::transmute(nheight),
             hwndparent.into_param().abi(),
             hinstance.into_param().abi(),
             lparam.into_param().abi(),
@@ -2076,14 +2076,14 @@ pub unsafe fn CreateMDIWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn CreateMDIWindowW(lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateMDIWindowW(
+        ::core::mem::transmute(CreateMDIWindowW(
             lpclassname.into_param().abi(),
             lpwindowname.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(nwidth),
-            ::std::mem::transmute(nheight),
+            ::core::mem::transmute(dwstyle),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(nwidth),
+            ::core::mem::transmute(nheight),
             hwndparent.into_param().abi(),
             hinstance.into_param().abi(),
             lparam.into_param().abi(),
@@ -2101,7 +2101,7 @@ pub unsafe fn CreateMenu() -> HMENU {
         extern "system" {
             fn CreateMenu() -> HMENU;
         }
-        ::std::mem::transmute(CreateMenu())
+        ::core::mem::transmute(CreateMenu())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2115,7 +2115,7 @@ pub unsafe fn CreatePopupMenu() -> HMENU {
         extern "system" {
             fn CreatePopupMenu() -> HMENU;
         }
-        ::std::mem::transmute(CreatePopupMenu())
+        ::core::mem::transmute(CreatePopupMenu())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2123,14 +2123,14 @@ pub unsafe fn CreatePopupMenu() -> HMENU {
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, extensiondllpath: Param1, ppresourceindexer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, extensiondllpath: Param1, ppresourceindexer: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateResourceIndexer(projectroot: super::super::Foundation::PWSTR, extensiondllpath: super::super::Foundation::PWSTR, ppresourceindexer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn CreateResourceIndexer(projectroot: super::super::Foundation::PWSTR, extensiondllpath: super::super::Foundation::PWSTR, ppresourceindexer: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        CreateResourceIndexer(projectroot.into_param().abi(), extensiondllpath.into_param().abi(), ::std::mem::transmute(ppresourceindexer)).ok()
+        CreateResourceIndexer(projectroot.into_param().abi(), extensiondllpath.into_param().abi(), ::core::mem::transmute(ppresourceindexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2150,27 +2150,27 @@ pub unsafe fn CreateWindowExA<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     hwndparent: Param8,
     hmenu: Param9,
     hinstance: Param10,
-    lpparam: *const ::std::ffi::c_void,
+    lpparam: *const ::core::ffi::c_void,
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::std::ffi::c_void) -> super::super::Foundation::HWND;
+            fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateWindowExA(
-            ::std::mem::transmute(dwexstyle),
+        ::core::mem::transmute(CreateWindowExA(
+            ::core::mem::transmute(dwexstyle),
             lpclassname.into_param().abi(),
             lpwindowname.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(nwidth),
-            ::std::mem::transmute(nheight),
+            ::core::mem::transmute(dwstyle),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(nwidth),
+            ::core::mem::transmute(nheight),
             hwndparent.into_param().abi(),
             hmenu.into_param().abi(),
             hinstance.into_param().abi(),
-            ::std::mem::transmute(lpparam),
+            ::core::mem::transmute(lpparam),
         ))
     }
     #[cfg(not(windows))]
@@ -2191,27 +2191,27 @@ pub unsafe fn CreateWindowExW<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     hwndparent: Param8,
     hmenu: Param9,
     hinstance: Param10,
-    lpparam: *const ::std::ffi::c_void,
+    lpparam: *const ::core::ffi::c_void,
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::std::ffi::c_void) -> super::super::Foundation::HWND;
+            fn CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(CreateWindowExW(
-            ::std::mem::transmute(dwexstyle),
+        ::core::mem::transmute(CreateWindowExW(
+            ::core::mem::transmute(dwexstyle),
             lpclassname.into_param().abi(),
             lpwindowname.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(nwidth),
-            ::std::mem::transmute(nheight),
+            ::core::mem::transmute(dwstyle),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(nwidth),
+            ::core::mem::transmute(nheight),
             hwndparent.into_param().abi(),
             hmenu.into_param().abi(),
             hinstance.into_param().abi(),
-            ::std::mem::transmute(lpparam),
+            ::core::mem::transmute(lpparam),
         ))
     }
     #[cfg(not(windows))]
@@ -2221,7 +2221,7 @@ pub unsafe fn CreateWindowExW<'a, Param1: ::windows::runtime::IntoParam<'a, supe
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -2235,25 +2235,25 @@ pub struct DEBUGHOOKINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl DEBUGHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEBUGHOOKINFO {
+impl ::core::default::Default for DEBUGHOOKINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEBUGHOOKINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DEBUGHOOKINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DEBUGHOOKINFO").field("idThread", &self.idThread).field("idThreadInstaller", &self.idThreadInstaller).field("lParam", &self.lParam).field("wParam", &self.wParam).field("code", &self.code).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEBUGHOOKINFO {
+impl ::core::cmp::PartialEq for DEBUGHOOKINFO {
     fn eq(&self, other: &Self) -> bool {
         self.idThread == other.idThread && self.idThreadInstaller == other.idThreadInstaller && self.lParam == other.lParam && self.wParam == other.wParam && self.code == other.code
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEBUGHOOKINFO {}
+impl ::core::cmp::Eq for DEBUGHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEBUGHOOKINFO {
     type Abi = Self;
@@ -2283,7 +2283,7 @@ pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DIFFERENCE: u32 = 11u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DI_FLAGS(pub u32);
 pub const DI_MASK: DI_FLAGS = DI_FLAGS(1u32);
@@ -2292,7 +2292,7 @@ pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
 pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
 pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
 pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
-impl ::std::convert::From<u32> for DI_FLAGS {
+impl ::core::convert::From<u32> for DI_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2300,29 +2300,29 @@ impl ::std::convert::From<u32> for DI_FLAGS {
 unsafe impl ::windows::runtime::Abi for DI_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DI_FLAGS {
+impl ::core::ops::BitOr for DI_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DI_FLAGS {
+impl ::core::ops::BitAnd for DI_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DI_FLAGS {
+impl ::core::ops::BitOrAssign for DI_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DI_FLAGS {
+impl ::core::ops::BitAndAssign for DI_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DI_FLAGS {
+impl ::core::ops::Not for DI_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -2350,7 +2350,7 @@ pub const DLGC_WANTCHARS: u32 = 128u32;
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTTAB: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct DLGITEMTEMPLATE {
@@ -2363,24 +2363,24 @@ pub struct DLGITEMTEMPLATE {
     pub id: u16,
 }
 impl DLGITEMTEMPLATE {}
-impl ::std::default::Default for DLGITEMTEMPLATE {
+impl ::core::default::Default for DLGITEMTEMPLATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DLGITEMTEMPLATE {
+impl ::core::cmp::PartialEq for DLGITEMTEMPLATE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DLGITEMTEMPLATE {}
+impl ::core::cmp::Eq for DLGITEMTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for DLGITEMTEMPLATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DLGPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct DLGTEMPLATE {
@@ -2393,17 +2393,17 @@ pub struct DLGTEMPLATE {
     pub cy: i16,
 }
 impl DLGTEMPLATE {}
-impl ::std::default::Default for DLGTEMPLATE {
+impl ::core::default::Default for DLGTEMPLATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DLGTEMPLATE {
+impl ::core::cmp::PartialEq for DLGTEMPLATE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DLGTEMPLATE {}
+impl ::core::cmp::Eq for DLGTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for DLGTEMPLATE {
     type Abi = Self;
 }
@@ -2433,7 +2433,7 @@ pub const DOF_SHELLDATA: u32 = 2u32;
 pub const DO_DROPFILE: i32 = 1162627398i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DO_PRINTFILE: i32 = 1414419024i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -2448,25 +2448,25 @@ pub struct DROPSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl DROPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DROPSTRUCT {
+impl ::core::default::Default for DROPSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DROPSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DROPSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DROPSTRUCT").field("hwndSource", &self.hwndSource).field("hwndSink", &self.hwndSink).field("wFmt", &self.wFmt).field("dwData", &self.dwData).field("ptDrop", &self.ptDrop).field("dwControlData", &self.dwControlData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DROPSTRUCT {
+impl ::core::cmp::PartialEq for DROPSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.hwndSource == other.hwndSource && self.hwndSink == other.hwndSink && self.wFmt == other.wFmt && self.dwData == other.dwData && self.ptDrop == other.ptDrop && self.dwControlData == other.dwControlData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DROPSTRUCT {}
+impl ::core::cmp::Eq for DROPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DROPSTRUCT {
     type Abi = Self;
@@ -2519,7 +2519,7 @@ pub unsafe fn DefDlgProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn DefDlgProcA(hdlg: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefDlgProcA(hdlg.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefDlgProcA(hdlg.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2534,7 +2534,7 @@ pub unsafe fn DefDlgProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn DefDlgProcW(hdlg: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefDlgProcW(hdlg.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefDlgProcW(hdlg.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2549,7 +2549,7 @@ pub unsafe fn DefFrameProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn DefFrameProcA(hwnd: super::super::Foundation::HWND, hwndmdiclient: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefFrameProcA(hwnd.into_param().abi(), hwndmdiclient.into_param().abi(), ::std::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefFrameProcA(hwnd.into_param().abi(), hwndmdiclient.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2564,7 +2564,7 @@ pub unsafe fn DefFrameProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn DefFrameProcW(hwnd: super::super::Foundation::HWND, hwndmdiclient: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefFrameProcW(hwnd.into_param().abi(), hwndmdiclient.into_param().abi(), ::std::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefFrameProcW(hwnd.into_param().abi(), hwndmdiclient.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2579,7 +2579,7 @@ pub unsafe fn DefMDIChildProcA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn DefMDIChildProcA(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefMDIChildProcA(hwnd.into_param().abi(), ::std::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefMDIChildProcA(hwnd.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2594,7 +2594,7 @@ pub unsafe fn DefMDIChildProcW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn DefMDIChildProcW(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefMDIChildProcW(hwnd.into_param().abi(), ::std::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefMDIChildProcW(hwnd.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2609,7 +2609,7 @@ pub unsafe fn DefWindowProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn DefWindowProcA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefWindowProcA(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefWindowProcA(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2624,7 +2624,7 @@ pub unsafe fn DefWindowProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn DefWindowProcW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefWindowProcW(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(DefWindowProcW(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2639,7 +2639,7 @@ pub unsafe fn DeferWindowPos<'a, Param1: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn DeferWindowPos(hwinposinfo: isize, hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> isize;
         }
-        ::std::mem::transmute(DeferWindowPos(::std::mem::transmute(hwinposinfo), hwnd.into_param().abi(), hwndinsertafter.into_param().abi(), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(cx), ::std::mem::transmute(cy), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(DeferWindowPos(::core::mem::transmute(hwinposinfo), hwnd.into_param().abi(), hwndinsertafter.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2654,7 +2654,7 @@ pub unsafe fn DeleteMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(h
         extern "system" {
             fn DeleteMenu(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteMenu(hmenu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(DeleteMenu(hmenu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2669,7 +2669,7 @@ pub unsafe fn DeregisterShellHookWindow<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn DeregisterShellHookWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeregisterShellHookWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(DeregisterShellHookWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2684,7 +2684,7 @@ pub unsafe fn DestroyAcceleratorTable<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn DestroyAcceleratorTable(haccel: HACCEL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyAcceleratorTable(haccel.into_param().abi()))
+        ::core::mem::transmute(DestroyAcceleratorTable(haccel.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2699,7 +2699,7 @@ pub unsafe fn DestroyCaret() -> super::super::Foundation::BOOL {
         extern "system" {
             fn DestroyCaret() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyCaret())
+        ::core::mem::transmute(DestroyCaret())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2714,7 +2714,7 @@ pub unsafe fn DestroyCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSO
         extern "system" {
             fn DestroyCursor(hcursor: HCURSOR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyCursor(hcursor.into_param().abi()))
+        ::core::mem::transmute(DestroyCursor(hcursor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2729,7 +2729,7 @@ pub unsafe fn DestroyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
         extern "system" {
             fn DestroyIcon(hicon: HICON) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyIcon(hicon.into_param().abi()))
+        ::core::mem::transmute(DestroyIcon(hicon.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2744,7 +2744,7 @@ pub unsafe fn DestroyIndexedResults<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn DestroyIndexedResults(resourceuri: super::super::Foundation::PWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
         }
-        ::std::mem::transmute(DestroyIndexedResults(resourceuri.into_param().abi(), ::std::mem::transmute(qualifiercount), ::std::mem::transmute(qualifiers)))
+        ::core::mem::transmute(DestroyIndexedResults(resourceuri.into_param().abi(), ::core::mem::transmute(qualifiercount), ::core::mem::transmute(qualifiers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2759,21 +2759,21 @@ pub unsafe fn DestroyMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
         extern "system" {
             fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyMenu(hmenu.into_param().abi()))
+        ::core::mem::transmute(DestroyMenu(hmenu.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
-pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::std::ffi::c_void) {
+pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DestroyResourceIndexer(resourceindexer: *const ::std::ffi::c_void);
+            fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
         }
-        ::std::mem::transmute(DestroyResourceIndexer(::std::mem::transmute(resourceindexer)))
+        ::core::mem::transmute(DestroyResourceIndexer(::core::mem::transmute(resourceindexer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2788,7 +2788,7 @@ pub unsafe fn DestroyWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn DestroyWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(DestroyWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2796,14 +2796,14 @@ pub unsafe fn DestroyWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DialogBoxIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
-        ::std::mem::transmute(DialogBoxIndirectParamA(hinstance.into_param().abi(), ::std::mem::transmute(hdialogtemplate), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(DialogBoxIndirectParamA(hinstance.into_param().abi(), ::core::mem::transmute(hdialogtemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2811,14 +2811,14 @@ pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
-        ::std::mem::transmute(DialogBoxIndirectParamW(hinstance.into_param().abi(), ::std::mem::transmute(hdialogtemplate), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(DialogBoxIndirectParamW(hinstance.into_param().abi(), ::core::mem::transmute(hdialogtemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2826,14 +2826,14 @@ pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
-        ::std::mem::transmute(DialogBoxParamA(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(DialogBoxParamA(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2841,14 +2841,14 @@ pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
+pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
-        ::std::mem::transmute(DialogBoxParamW(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
+        ::core::mem::transmute(DialogBoxParamW(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2862,7 +2862,7 @@ pub unsafe fn DisableProcessWindowsGhosting() {
         extern "system" {
             fn DisableProcessWindowsGhosting();
         }
-        ::std::mem::transmute(DisableProcessWindowsGhosting())
+        ::core::mem::transmute(DisableProcessWindowsGhosting())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2877,7 +2877,7 @@ pub unsafe fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::L
         extern "system" {
             fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DispatchMessageA(::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(DispatchMessageA(::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2892,7 +2892,7 @@ pub unsafe fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::L
         extern "system" {
             fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DispatchMessageW(::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(DispatchMessageW(::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2907,7 +2907,7 @@ pub unsafe fn DragObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn DragObject(hwndparent: super::super::Foundation::HWND, hwndfrom: super::super::Foundation::HWND, fmt: u32, data: usize, hcur: HCURSOR) -> u32;
         }
-        ::std::mem::transmute(DragObject(hwndparent.into_param().abi(), hwndfrom.into_param().abi(), ::std::mem::transmute(fmt), ::std::mem::transmute(data), hcur.into_param().abi()))
+        ::core::mem::transmute(DragObject(hwndparent.into_param().abi(), hwndfrom.into_param().abi(), ::core::mem::transmute(fmt), ::core::mem::transmute(data), hcur.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2922,7 +2922,7 @@ pub unsafe fn DrawIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn DrawIcon(hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, hicon: HICON) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawIcon(hdc.into_param().abi(), ::std::mem::transmute(x), ::std::mem::transmute(y), hicon.into_param().abi()))
+        ::core::mem::transmute(DrawIcon(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), hicon.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2937,7 +2937,7 @@ pub unsafe fn DrawIconEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn DrawIconEx(hdc: super::super::Graphics::Gdi::HDC, xleft: i32, ytop: i32, hicon: HICON, cxwidth: i32, cywidth: i32, istepifanicur: u32, hbrflickerfreedraw: super::super::Graphics::Gdi::HBRUSH, diflags: DI_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawIconEx(hdc.into_param().abi(), ::std::mem::transmute(xleft), ::std::mem::transmute(ytop), hicon.into_param().abi(), ::std::mem::transmute(cxwidth), ::std::mem::transmute(cywidth), ::std::mem::transmute(istepifanicur), hbrflickerfreedraw.into_param().abi(), ::std::mem::transmute(diflags)))
+        ::core::mem::transmute(DrawIconEx(hdc.into_param().abi(), ::core::mem::transmute(xleft), ::core::mem::transmute(ytop), hicon.into_param().abi(), ::core::mem::transmute(cxwidth), ::core::mem::transmute(cywidth), ::core::mem::transmute(istepifanicur), hbrflickerfreedraw.into_param().abi(), ::core::mem::transmute(diflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2952,7 +2952,7 @@ pub unsafe fn DrawMenuBar<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn DrawMenuBar(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawMenuBar(hwnd.into_param().abi()))
+        ::core::mem::transmute(DrawMenuBar(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2966,12 +2966,12 @@ pub const EC_USEFONTINFO: u32 = 65535u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EDIT_CONTROL_FEATURE(pub i32);
 pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
 pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
-impl ::std::convert::From<i32> for EDIT_CONTROL_FEATURE {
+impl ::core::convert::From<i32> for EDIT_CONTROL_FEATURE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3049,7 +3049,7 @@ pub const ES_RIGHT: i32 = 2i32;
 pub const ES_UPPERCASE: i32 = 8i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_WANTRETURN: i32 = 4096i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -3063,25 +3063,25 @@ pub struct EVENTMSG {
 #[cfg(feature = "Win32_Foundation")]
 impl EVENTMSG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for EVENTMSG {
+impl ::core::default::Default for EVENTMSG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for EVENTMSG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EVENTMSG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EVENTMSG").field("message", &self.message).field("paramL", &self.paramL).field("paramH", &self.paramH).field("time", &self.time).field("hwnd", &self.hwnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for EVENTMSG {
+impl ::core::cmp::PartialEq for EVENTMSG {
     fn eq(&self, other: &Self) -> bool {
         self.message == other.message && self.paramL == other.paramL && self.paramH == other.paramH && self.time == other.time && self.hwnd == other.hwnd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for EVENTMSG {}
+impl ::core::cmp::Eq for EVENTMSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENTMSG {
     type Abi = Self;
@@ -3282,7 +3282,7 @@ pub unsafe fn EnableMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
         extern "system" {
             fn EnableMenuItem(hmenu: HMENU, uidenableitem: u32, uenable: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnableMenuItem(hmenu.into_param().abi(), ::std::mem::transmute(uidenableitem), ::std::mem::transmute(uenable)))
+        ::core::mem::transmute(EnableMenuItem(hmenu.into_param().abi(), ::core::mem::transmute(uidenableitem), ::core::mem::transmute(uenable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3297,7 +3297,7 @@ pub unsafe fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation:
         extern "system" {
             fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EndDeferWindowPos(::std::mem::transmute(hwinposinfo)))
+        ::core::mem::transmute(EndDeferWindowPos(::core::mem::transmute(hwinposinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3312,7 +3312,7 @@ pub unsafe fn EndDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn EndDialog(hdlg: super::super::Foundation::HWND, nresult: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EndDialog(hdlg.into_param().abi(), ::std::mem::transmute(nresult)))
+        ::core::mem::transmute(EndDialog(hdlg.into_param().abi(), ::core::mem::transmute(nresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3327,7 +3327,7 @@ pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
         extern "system" {
             fn EndMenu() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EndMenu())
+        ::core::mem::transmute(EndMenu())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3335,14 +3335,14 @@ pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumChildWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndparent: Param0, lpenumfunc: ::std::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumChildWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndparent: Param0, lpenumfunc: ::core::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumChildWindows(hwndparent: super::super::Foundation::HWND, lpenumfunc: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnumChildWindows(hwndparent.into_param().abi(), ::std::mem::transmute(lpenumfunc), lparam.into_param().abi()))
+        ::core::mem::transmute(EnumChildWindows(hwndparent.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3350,14 +3350,14 @@ pub unsafe fn EnumChildWindows<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCA>) -> i32 {
+pub unsafe fn EnumPropsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCA>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumPropsA(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(EnumPropsA(hwnd.into_param().abi(), ::std::mem::transmute(lpenumfunc)))
+        ::core::mem::transmute(EnumPropsA(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3365,14 +3365,14 @@ pub unsafe fn EnumPropsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCEXA>, lparam: Param2) -> i32 {
+pub unsafe fn EnumPropsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCEXA>, lparam: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumPropsExA(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> i32;
         }
-        ::std::mem::transmute(EnumPropsExA(hwnd.into_param().abi(), ::std::mem::transmute(lpenumfunc), lparam.into_param().abi()))
+        ::core::mem::transmute(EnumPropsExA(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3380,14 +3380,14 @@ pub unsafe fn EnumPropsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCEXW>, lparam: Param2) -> i32 {
+pub unsafe fn EnumPropsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCEXW>, lparam: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumPropsExW(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> i32;
         }
-        ::std::mem::transmute(EnumPropsExW(hwnd.into_param().abi(), ::std::mem::transmute(lpenumfunc), lparam.into_param().abi()))
+        ::core::mem::transmute(EnumPropsExW(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3395,14 +3395,14 @@ pub unsafe fn EnumPropsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPropsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCW>) -> i32 {
+pub unsafe fn EnumPropsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::core::option::Option<PROPENUMPROCW>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumPropsW(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(EnumPropsW(hwnd.into_param().abi(), ::std::mem::transmute(lpenumfunc)))
+        ::core::mem::transmute(EnumPropsW(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3410,14 +3410,14 @@ pub unsafe fn EnumPropsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(dwthreadid: u32, lpfn: ::std::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(dwthreadid: u32, lpfn: ::core::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumThreadWindows(dwthreadid: u32, lpfn: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnumThreadWindows(::std::mem::transmute(dwthreadid), ::std::mem::transmute(lpfn), lparam.into_param().abi()))
+        ::core::mem::transmute(EnumThreadWindows(::core::mem::transmute(dwthreadid), ::core::mem::transmute(lpfn), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3425,14 +3425,14 @@ pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumWindows<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: ::std::option::Option<WNDENUMPROC>, lparam: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumWindows<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: ::core::option::Option<WNDENUMPROC>, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnumWindows(lpenumfunc: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnumWindows(::std::mem::transmute(lpenumfunc), lparam.into_param().abi()))
+        ::core::mem::transmute(EnumWindows(::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3471,7 +3471,7 @@ pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_INDICATOR: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -3485,31 +3485,31 @@ pub struct FLASHWINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FLASHWINFO {
+impl ::core::default::Default for FLASHWINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FLASHWINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FLASHWINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FLASHWINFO").field("cbSize", &self.cbSize).field("hwnd", &self.hwnd).field("dwFlags", &self.dwFlags).field("uCount", &self.uCount).field("dwTimeout", &self.dwTimeout).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FLASHWINFO {
+impl ::core::cmp::PartialEq for FLASHWINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hwnd == other.hwnd && self.dwFlags == other.dwFlags && self.uCount == other.uCount && self.dwTimeout == other.dwTimeout
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FLASHWINFO {}
+impl ::core::cmp::Eq for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FLASHWINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FLASHWINFO_FLAGS(pub u32);
 pub const FLASHW_ALL: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(3u32);
@@ -3518,7 +3518,7 @@ pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
 pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
 pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
 pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
-impl ::std::convert::From<u32> for FLASHWINFO_FLAGS {
+impl ::core::convert::From<u32> for FLASHWINFO_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3526,29 +3526,29 @@ impl ::std::convert::From<u32> for FLASHWINFO_FLAGS {
 unsafe impl ::windows::runtime::Abi for FLASHWINFO_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FLASHWINFO_FLAGS {
+impl ::core::ops::BitOr for FLASHWINFO_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FLASHWINFO_FLAGS {
+impl ::core::ops::BitAnd for FLASHWINFO_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FLASHWINFO_FLAGS {
+impl ::core::ops::BitOrAssign for FLASHWINFO_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FLASHWINFO_FLAGS {
+impl ::core::ops::BitAndAssign for FLASHWINFO_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FLASHWINFO_FLAGS {
+impl ::core::ops::Not for FLASHWINFO_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -3557,12 +3557,12 @@ impl ::std::ops::Not for FLASHWINFO_FLAGS {
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FNOINVERT: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
 pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
 pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
-impl ::std::convert::From<u32> for FOREGROUND_WINDOW_LOCK_CODE {
+impl ::core::convert::From<u32> for FOREGROUND_WINDOW_LOCK_CODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3570,29 +3570,29 @@ impl ::std::convert::From<u32> for FOREGROUND_WINDOW_LOCK_CODE {
 unsafe impl ::windows::runtime::Abi for FOREGROUND_WINDOW_LOCK_CODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FOREGROUND_WINDOW_LOCK_CODE {
+impl ::core::ops::BitOr for FOREGROUND_WINDOW_LOCK_CODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FOREGROUND_WINDOW_LOCK_CODE {
+impl ::core::ops::BitAnd for FOREGROUND_WINDOW_LOCK_CODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FOREGROUND_WINDOW_LOCK_CODE {
+impl ::core::ops::BitOrAssign for FOREGROUND_WINDOW_LOCK_CODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FOREGROUND_WINDOW_LOCK_CODE {
+impl ::core::ops::BitAndAssign for FOREGROUND_WINDOW_LOCK_CODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FOREGROUND_WINDOW_LOCK_CODE {
+impl ::core::ops::Not for FOREGROUND_WINDOW_LOCK_CODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -3612,7 +3612,7 @@ pub unsafe fn FindWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn FindWindowA(lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(FindWindowA(lpclassname.into_param().abi(), lpwindowname.into_param().abi()))
+        ::core::mem::transmute(FindWindowA(lpclassname.into_param().abi(), lpwindowname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3627,7 +3627,7 @@ pub unsafe fn FindWindowExA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn FindWindowExA(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: super::super::Foundation::PSTR, lpszwindow: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(FindWindowExA(hwndparent.into_param().abi(), hwndchildafter.into_param().abi(), lpszclass.into_param().abi(), lpszwindow.into_param().abi()))
+        ::core::mem::transmute(FindWindowExA(hwndparent.into_param().abi(), hwndchildafter.into_param().abi(), lpszclass.into_param().abi(), lpszwindow.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3642,7 +3642,7 @@ pub unsafe fn FindWindowExW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn FindWindowExW(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: super::super::Foundation::PWSTR, lpszwindow: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(FindWindowExW(hwndparent.into_param().abi(), hwndchildafter.into_param().abi(), lpszclass.into_param().abi(), lpszwindow.into_param().abi()))
+        ::core::mem::transmute(FindWindowExW(hwndparent.into_param().abi(), hwndchildafter.into_param().abi(), lpszclass.into_param().abi(), lpszwindow.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3657,7 +3657,7 @@ pub unsafe fn FindWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn FindWindowW(lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(FindWindowW(lpclassname.into_param().abi(), lpwindowname.into_param().abi()))
+        ::core::mem::transmute(FindWindowW(lpclassname.into_param().abi(), lpwindowname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3672,7 +3672,7 @@ pub unsafe fn FlashWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn FlashWindow(hwnd: super::super::Foundation::HWND, binvert: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FlashWindow(hwnd.into_param().abi(), binvert.into_param().abi()))
+        ::core::mem::transmute(FlashWindow(hwnd.into_param().abi(), binvert.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3687,7 +3687,7 @@ pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation
         extern "system" {
             fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FlashWindowEx(::std::mem::transmute(pfwi)))
+        ::core::mem::transmute(FlashWindowEx(::core::mem::transmute(pfwi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3695,13 +3695,13 @@ pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GDI_IMAGE_TYPE(pub u32);
 pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
 pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
 pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
-impl ::std::convert::From<u32> for GDI_IMAGE_TYPE {
+impl ::core::convert::From<u32> for GDI_IMAGE_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3709,29 +3709,29 @@ impl ::std::convert::From<u32> for GDI_IMAGE_TYPE {
 unsafe impl ::windows::runtime::Abi for GDI_IMAGE_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GDI_IMAGE_TYPE {
+impl ::core::ops::BitOr for GDI_IMAGE_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GDI_IMAGE_TYPE {
+impl ::core::ops::BitAnd for GDI_IMAGE_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GDI_IMAGE_TYPE {
+impl ::core::ops::BitOrAssign for GDI_IMAGE_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GDI_IMAGE_TYPE {
+impl ::core::ops::BitAndAssign for GDI_IMAGE_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GDI_IMAGE_TYPE {
+impl ::core::ops::Not for GDI_IMAGE_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -3754,13 +3754,13 @@ pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_ANCESTOR_FLAGS(pub u32);
 pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
 pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
 pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
-impl ::std::convert::From<u32> for GET_ANCESTOR_FLAGS {
+impl ::core::convert::From<u32> for GET_ANCESTOR_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3768,36 +3768,36 @@ impl ::std::convert::From<u32> for GET_ANCESTOR_FLAGS {
 unsafe impl ::windows::runtime::Abi for GET_ANCESTOR_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GET_ANCESTOR_FLAGS {
+impl ::core::ops::BitOr for GET_ANCESTOR_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GET_ANCESTOR_FLAGS {
+impl ::core::ops::BitAnd for GET_ANCESTOR_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GET_ANCESTOR_FLAGS {
+impl ::core::ops::BitOrAssign for GET_ANCESTOR_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GET_ANCESTOR_FLAGS {
+impl ::core::ops::BitAndAssign for GET_ANCESTOR_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GET_ANCESTOR_FLAGS {
+impl ::core::ops::Not for GET_ANCESTOR_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_CLASS_LONG_INDEX(pub i32);
 pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
@@ -3818,7 +3818,7 @@ pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
 pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
 pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
 pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-impl ::std::convert::From<i32> for GET_CLASS_LONG_INDEX {
+impl ::core::convert::From<i32> for GET_CLASS_LONG_INDEX {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3827,12 +3827,12 @@ unsafe impl ::windows::runtime::Abi for GET_CLASS_LONG_INDEX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
 pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
 pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
-impl ::std::convert::From<u32> for GET_MENU_DEFAULT_ITEM_FLAGS {
+impl ::core::convert::From<u32> for GET_MENU_DEFAULT_ITEM_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3840,36 +3840,36 @@ impl ::std::convert::From<u32> for GET_MENU_DEFAULT_ITEM_FLAGS {
 unsafe impl ::windows::runtime::Abi for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GET_MENU_DEFAULT_ITEM_FLAGS {
+impl ::core::ops::BitOr for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GET_MENU_DEFAULT_ITEM_FLAGS {
+impl ::core::ops::BitAnd for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
+impl ::core::ops::BitOrAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
+impl ::core::ops::BitAndAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
+impl ::core::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_WINDOW_CMD(pub u32);
 pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
@@ -3879,7 +3879,7 @@ pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
 pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
 pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
 pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
-impl ::std::convert::From<u32> for GET_WINDOW_CMD {
+impl ::core::convert::From<u32> for GET_WINDOW_CMD {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3887,29 +3887,29 @@ impl ::std::convert::From<u32> for GET_WINDOW_CMD {
 unsafe impl ::windows::runtime::Abi for GET_WINDOW_CMD {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GET_WINDOW_CMD {
+impl ::core::ops::BitOr for GET_WINDOW_CMD {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GET_WINDOW_CMD {
+impl ::core::ops::BitAnd for GET_WINDOW_CMD {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GET_WINDOW_CMD {
+impl ::core::ops::BitOrAssign for GET_WINDOW_CMD {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GET_WINDOW_CMD {
+impl ::core::ops::BitAndAssign for GET_WINDOW_CMD {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GET_WINDOW_CMD {
+impl ::core::ops::Not for GET_WINDOW_CMD {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -3925,7 +3925,7 @@ pub const GF_INERTIA: u32 = 2u32;
 pub const GIDC_ARRIVAL: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GIDC_REMOVAL: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -3943,14 +3943,14 @@ pub struct GUITHREADINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl GUITHREADINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GUITHREADINFO {
+impl ::core::default::Default for GUITHREADINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GUITHREADINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GUITHREADINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GUITHREADINFO")
             .field("cbSize", &self.cbSize)
             .field("flags", &self.flags)
@@ -3965,19 +3965,19 @@ impl ::std::fmt::Debug for GUITHREADINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GUITHREADINFO {
+impl ::core::cmp::PartialEq for GUITHREADINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.flags == other.flags && self.hwndActive == other.hwndActive && self.hwndFocus == other.hwndFocus && self.hwndCapture == other.hwndCapture && self.hwndMenuOwner == other.hwndMenuOwner && self.hwndMoveSize == other.hwndMoveSize && self.hwndCaret == other.hwndCaret && self.rcCaret == other.rcCaret
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GUITHREADINFO {}
+impl ::core::cmp::Eq for GUITHREADINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GUITHREADINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GUITHREADINFO_FLAGS(pub u32);
 pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(1u32);
@@ -3985,7 +3985,7 @@ pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
 pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
 pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
 pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
-impl ::std::convert::From<u32> for GUITHREADINFO_FLAGS {
+impl ::core::convert::From<u32> for GUITHREADINFO_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3993,29 +3993,29 @@ impl ::std::convert::From<u32> for GUITHREADINFO_FLAGS {
 unsafe impl ::windows::runtime::Abi for GUITHREADINFO_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GUITHREADINFO_FLAGS {
+impl ::core::ops::BitOr for GUITHREADINFO_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GUITHREADINFO_FLAGS {
+impl ::core::ops::BitAnd for GUITHREADINFO_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GUITHREADINFO_FLAGS {
+impl ::core::ops::BitOrAssign for GUITHREADINFO_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GUITHREADINFO_FLAGS {
+impl ::core::ops::BitAndAssign for GUITHREADINFO_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GUITHREADINFO_FLAGS {
+impl ::core::ops::Not for GUITHREADINFO_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -4037,7 +4037,7 @@ pub unsafe fn GetAltTabInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetAltTabInfoA(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: super::super::Foundation::PSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetAltTabInfoA(hwnd.into_param().abi(), ::std::mem::transmute(iitem), ::std::mem::transmute(pati), ::std::mem::transmute(pszitemtext), ::std::mem::transmute(cchitemtext)))
+        ::core::mem::transmute(GetAltTabInfoA(hwnd.into_param().abi(), ::core::mem::transmute(iitem), ::core::mem::transmute(pati), ::core::mem::transmute(pszitemtext), ::core::mem::transmute(cchitemtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4052,7 +4052,7 @@ pub unsafe fn GetAltTabInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetAltTabInfoW(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: super::super::Foundation::PWSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetAltTabInfoW(hwnd.into_param().abi(), ::std::mem::transmute(iitem), ::std::mem::transmute(pati), ::std::mem::transmute(pszitemtext), ::std::mem::transmute(cchitemtext)))
+        ::core::mem::transmute(GetAltTabInfoW(hwnd.into_param().abi(), ::core::mem::transmute(iitem), ::core::mem::transmute(pati), ::core::mem::transmute(pszitemtext), ::core::mem::transmute(cchitemtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4067,7 +4067,7 @@ pub unsafe fn GetAncestor<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetAncestor(hwnd: super::super::Foundation::HWND, gaflags: GET_ANCESTOR_FLAGS) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetAncestor(hwnd.into_param().abi(), ::std::mem::transmute(gaflags)))
+        ::core::mem::transmute(GetAncestor(hwnd.into_param().abi(), ::core::mem::transmute(gaflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4081,7 +4081,7 @@ pub unsafe fn GetCaretBlinkTime() -> u32 {
         extern "system" {
             fn GetCaretBlinkTime() -> u32;
         }
-        ::std::mem::transmute(GetCaretBlinkTime())
+        ::core::mem::transmute(GetCaretBlinkTime())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4096,7 +4096,7 @@ pub unsafe fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> supe
         extern "system" {
             fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCaretPos(::std::mem::transmute(lppoint)))
+        ::core::mem::transmute(GetCaretPos(::core::mem::transmute(lppoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4109,9 +4109,9 @@ pub unsafe fn GetClassInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PSTR, lpwndclass: *mut ::std::mem::ManuallyDrop<WNDCLASSA>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PSTR, lpwndclass: *mut ::core::mem::ManuallyDrop<WNDCLASSA>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetClassInfoA(hinstance.into_param().abi(), lpclassname.into_param().abi(), ::std::mem::transmute(lpwndclass)))
+        ::core::mem::transmute(GetClassInfoA(hinstance.into_param().abi(), lpclassname.into_param().abi(), ::core::mem::transmute(lpwndclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4124,9 +4124,9 @@ pub unsafe fn GetClassInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PSTR, lpwcx: *mut ::std::mem::ManuallyDrop<WNDCLASSEXA>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PSTR, lpwcx: *mut ::core::mem::ManuallyDrop<WNDCLASSEXA>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetClassInfoExA(hinstance.into_param().abi(), lpszclass.into_param().abi(), ::std::mem::transmute(lpwcx)))
+        ::core::mem::transmute(GetClassInfoExA(hinstance.into_param().abi(), lpszclass.into_param().abi(), ::core::mem::transmute(lpwcx)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4139,9 +4139,9 @@ pub unsafe fn GetClassInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PWSTR, lpwcx: *mut ::std::mem::ManuallyDrop<WNDCLASSEXW>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PWSTR, lpwcx: *mut ::core::mem::ManuallyDrop<WNDCLASSEXW>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetClassInfoExW(hinstance.into_param().abi(), lpszclass.into_param().abi(), ::std::mem::transmute(lpwcx)))
+        ::core::mem::transmute(GetClassInfoExW(hinstance.into_param().abi(), lpszclass.into_param().abi(), ::core::mem::transmute(lpwcx)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4154,9 +4154,9 @@ pub unsafe fn GetClassInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PWSTR, lpwndclass: *mut ::std::mem::ManuallyDrop<WNDCLASSW>) -> super::super::Foundation::BOOL;
+            fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PWSTR, lpwndclass: *mut ::core::mem::ManuallyDrop<WNDCLASSW>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetClassInfoW(hinstance.into_param().abi(), lpclassname.into_param().abi(), ::std::mem::transmute(lpwndclass)))
+        ::core::mem::transmute(GetClassInfoW(hinstance.into_param().abi(), lpclassname.into_param().abi(), ::core::mem::transmute(lpwndclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4171,7 +4171,7 @@ pub unsafe fn GetClassLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetClassLongA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> u32;
         }
-        ::std::mem::transmute(GetClassLongA(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetClassLongA(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4187,7 +4187,7 @@ pub unsafe fn GetClassLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetClassLongPtrA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> usize;
         }
-        ::std::mem::transmute(GetClassLongPtrA(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetClassLongPtrA(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4203,7 +4203,7 @@ pub unsafe fn GetClassLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetClassLongPtrW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> usize;
         }
-        ::std::mem::transmute(GetClassLongPtrW(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetClassLongPtrW(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4218,7 +4218,7 @@ pub unsafe fn GetClassLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetClassLongW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> u32;
         }
-        ::std::mem::transmute(GetClassLongW(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetClassLongW(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4233,7 +4233,7 @@ pub unsafe fn GetClassNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetClassNameA(hwnd: super::super::Foundation::HWND, lpclassname: super::super::Foundation::PSTR, nmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(GetClassNameA(hwnd.into_param().abi(), ::std::mem::transmute(lpclassname), ::std::mem::transmute(nmaxcount)))
+        ::core::mem::transmute(GetClassNameA(hwnd.into_param().abi(), ::core::mem::transmute(lpclassname), ::core::mem::transmute(nmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4248,7 +4248,7 @@ pub unsafe fn GetClassNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetClassNameW(hwnd: super::super::Foundation::HWND, lpclassname: super::super::Foundation::PWSTR, nmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(GetClassNameW(hwnd.into_param().abi(), ::std::mem::transmute(lpclassname), ::std::mem::transmute(nmaxcount)))
+        ::core::mem::transmute(GetClassNameW(hwnd.into_param().abi(), ::core::mem::transmute(lpclassname), ::core::mem::transmute(nmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4263,7 +4263,7 @@ pub unsafe fn GetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn GetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
         }
-        ::std::mem::transmute(GetClassWord(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetClassWord(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4278,7 +4278,7 @@ pub unsafe fn GetClientRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetClientRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetClientRect(hwnd.into_param().abi(), ::std::mem::transmute(lprect)))
+        ::core::mem::transmute(GetClientRect(hwnd.into_param().abi(), ::core::mem::transmute(lprect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4293,7 +4293,7 @@ pub unsafe fn GetClipCursor(lprect: *mut super::super::Foundation::RECT) -> supe
         extern "system" {
             fn GetClipCursor(lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetClipCursor(::std::mem::transmute(lprect)))
+        ::core::mem::transmute(GetClipCursor(::core::mem::transmute(lprect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4307,7 +4307,7 @@ pub unsafe fn GetCursor() -> HCURSOR {
         extern "system" {
             fn GetCursor() -> HCURSOR;
         }
-        ::std::mem::transmute(GetCursor())
+        ::core::mem::transmute(GetCursor())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4322,7 +4322,7 @@ pub unsafe fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::B
         extern "system" {
             fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCursorInfo(::std::mem::transmute(pci)))
+        ::core::mem::transmute(GetCursorInfo(::core::mem::transmute(pci)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4337,7 +4337,7 @@ pub unsafe fn GetCursorPos(lppoint: *mut super::super::Foundation::POINT) -> sup
         extern "system" {
             fn GetCursorPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCursorPos(::std::mem::transmute(lppoint)))
+        ::core::mem::transmute(GetCursorPos(::core::mem::transmute(lppoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4352,7 +4352,7 @@ pub unsafe fn GetDesktopWindow() -> super::super::Foundation::HWND {
         extern "system" {
             fn GetDesktopWindow() -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetDesktopWindow())
+        ::core::mem::transmute(GetDesktopWindow())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4366,7 +4366,7 @@ pub unsafe fn GetDialogBaseUnits() -> i32 {
         extern "system" {
             fn GetDialogBaseUnits() -> i32;
         }
-        ::std::mem::transmute(GetDialogBaseUnits())
+        ::core::mem::transmute(GetDialogBaseUnits())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4381,7 +4381,7 @@ pub unsafe fn GetDlgCtrlID<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn GetDlgCtrlID(hwnd: super::super::Foundation::HWND) -> i32;
         }
-        ::std::mem::transmute(GetDlgCtrlID(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetDlgCtrlID(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4396,7 +4396,7 @@ pub unsafe fn GetDlgItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn GetDlgItem(hdlg: super::super::Foundation::HWND, niddlgitem: i32) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetDlgItem(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem)))
+        ::core::mem::transmute(GetDlgItem(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4411,7 +4411,7 @@ pub unsafe fn GetDlgItemInt<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lptranslated: *mut super::super::Foundation::BOOL, bsigned: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetDlgItemInt(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), ::std::mem::transmute(lptranslated), bsigned.into_param().abi()))
+        ::core::mem::transmute(GetDlgItemInt(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), ::core::mem::transmute(lptranslated), bsigned.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4426,7 +4426,7 @@ pub unsafe fn GetDlgItemTextA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PSTR, cchmax: i32) -> u32;
         }
-        ::std::mem::transmute(GetDlgItemTextA(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchmax)))
+        ::core::mem::transmute(GetDlgItemTextA(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), ::core::mem::transmute(lpstring), ::core::mem::transmute(cchmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4441,7 +4441,7 @@ pub unsafe fn GetDlgItemTextW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PWSTR, cchmax: i32) -> u32;
         }
-        ::std::mem::transmute(GetDlgItemTextW(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchmax)))
+        ::core::mem::transmute(GetDlgItemTextW(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), ::core::mem::transmute(lpstring), ::core::mem::transmute(cchmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4456,7 +4456,7 @@ pub unsafe fn GetForegroundWindow() -> super::super::Foundation::HWND {
         extern "system" {
             fn GetForegroundWindow() -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetForegroundWindow())
+        ::core::mem::transmute(GetForegroundWindow())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4471,7 +4471,7 @@ pub unsafe fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> super
         extern "system" {
             fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetGUIThreadInfo(::std::mem::transmute(idthread), ::std::mem::transmute(pgui)))
+        ::core::mem::transmute(GetGUIThreadInfo(::core::mem::transmute(idthread), ::core::mem::transmute(pgui)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4486,7 +4486,7 @@ pub unsafe fn GetIconInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
         extern "system" {
             fn GetIconInfo(hicon: HICON, piconinfo: *mut ICONINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetIconInfo(hicon.into_param().abi(), ::std::mem::transmute(piconinfo)))
+        ::core::mem::transmute(GetIconInfo(hicon.into_param().abi(), ::core::mem::transmute(piconinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4501,7 +4501,7 @@ pub unsafe fn GetIconInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
         extern "system" {
             fn GetIconInfoExA(hicon: HICON, piconinfo: *mut ICONINFOEXA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetIconInfoExA(hicon.into_param().abi(), ::std::mem::transmute(piconinfo)))
+        ::core::mem::transmute(GetIconInfoExA(hicon.into_param().abi(), ::core::mem::transmute(piconinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4516,7 +4516,7 @@ pub unsafe fn GetIconInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
         extern "system" {
             fn GetIconInfoExW(hicon: HICON, piconinfo: *mut ICONINFOEXW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetIconInfoExW(hicon.into_param().abi(), ::std::mem::transmute(piconinfo)))
+        ::core::mem::transmute(GetIconInfoExW(hicon.into_param().abi(), ::core::mem::transmute(piconinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4531,7 +4531,7 @@ pub unsafe fn GetInputState() -> super::super::Foundation::BOOL {
         extern "system" {
             fn GetInputState() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetInputState())
+        ::core::mem::transmute(GetInputState())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4546,7 +4546,7 @@ pub unsafe fn GetLastActivePopup<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetLastActivePopup(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetLastActivePopup(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetLastActivePopup(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4561,7 +4561,7 @@ pub unsafe fn GetLayeredWindowAttributes<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, pcrkey: *mut u32, pbalpha: *mut u8, pdwflags: *mut LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLayeredWindowAttributes(hwnd.into_param().abi(), ::std::mem::transmute(pcrkey), ::std::mem::transmute(pbalpha), ::std::mem::transmute(pdwflags)))
+        ::core::mem::transmute(GetLayeredWindowAttributes(hwnd.into_param().abi(), ::core::mem::transmute(pcrkey), ::core::mem::transmute(pbalpha), ::core::mem::transmute(pdwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4576,7 +4576,7 @@ pub unsafe fn GetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
         extern "system" {
             fn GetMenu(hwnd: super::super::Foundation::HWND) -> HMENU;
         }
-        ::std::mem::transmute(GetMenu(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetMenu(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4591,7 +4591,7 @@ pub unsafe fn GetMenuBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetMenuBarInfo(hwnd: super::super::Foundation::HWND, idobject: OBJECT_IDENTIFIER, iditem: i32, pmbi: *mut MENUBARINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMenuBarInfo(hwnd.into_param().abi(), ::std::mem::transmute(idobject), ::std::mem::transmute(iditem), ::std::mem::transmute(pmbi)))
+        ::core::mem::transmute(GetMenuBarInfo(hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(iditem), ::core::mem::transmute(pmbi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4605,7 +4605,7 @@ pub unsafe fn GetMenuCheckMarkDimensions() -> i32 {
         extern "system" {
             fn GetMenuCheckMarkDimensions() -> i32;
         }
-        ::std::mem::transmute(GetMenuCheckMarkDimensions())
+        ::core::mem::transmute(GetMenuCheckMarkDimensions())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4619,7 +4619,7 @@ pub unsafe fn GetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn GetMenuDefaultItem(hmenu: HMENU, fbypos: u32, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS) -> u32;
         }
-        ::std::mem::transmute(GetMenuDefaultItem(hmenu.into_param().abi(), ::std::mem::transmute(fbypos), ::std::mem::transmute(gmdiflags)))
+        ::core::mem::transmute(GetMenuDefaultItem(hmenu.into_param().abi(), ::core::mem::transmute(fbypos), ::core::mem::transmute(gmdiflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4634,7 +4634,7 @@ pub unsafe fn GetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
         extern "system" {
             fn GetMenuInfo(param0: HMENU, param1: *mut MENUINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMenuInfo(param0.into_param().abi(), ::std::mem::transmute(param1)))
+        ::core::mem::transmute(GetMenuInfo(param0.into_param().abi(), ::core::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4648,7 +4648,7 @@ pub unsafe fn GetMenuItemCount<'a, Param0: ::windows::runtime::IntoParam<'a, HME
         extern "system" {
             fn GetMenuItemCount(hmenu: HMENU) -> i32;
         }
-        ::std::mem::transmute(GetMenuItemCount(hmenu.into_param().abi()))
+        ::core::mem::transmute(GetMenuItemCount(hmenu.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4662,7 +4662,7 @@ pub unsafe fn GetMenuItemID<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>
         extern "system" {
             fn GetMenuItemID(hmenu: HMENU, npos: i32) -> u32;
         }
-        ::std::mem::transmute(GetMenuItemID(hmenu.into_param().abi(), ::std::mem::transmute(npos)))
+        ::core::mem::transmute(GetMenuItemID(hmenu.into_param().abi(), ::core::mem::transmute(npos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4677,7 +4677,7 @@ pub unsafe fn GetMenuItemInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HME
         extern "system" {
             fn GetMenuItemInfoA(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmii: *mut MENUITEMINFOA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMenuItemInfoA(hmenu.into_param().abi(), ::std::mem::transmute(item), fbyposition.into_param().abi(), ::std::mem::transmute(lpmii)))
+        ::core::mem::transmute(GetMenuItemInfoA(hmenu.into_param().abi(), ::core::mem::transmute(item), fbyposition.into_param().abi(), ::core::mem::transmute(lpmii)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4692,7 +4692,7 @@ pub unsafe fn GetMenuItemInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HME
         extern "system" {
             fn GetMenuItemInfoW(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmii: *mut MENUITEMINFOW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMenuItemInfoW(hmenu.into_param().abi(), ::std::mem::transmute(item), fbyposition.into_param().abi(), ::std::mem::transmute(lpmii)))
+        ::core::mem::transmute(GetMenuItemInfoW(hmenu.into_param().abi(), ::core::mem::transmute(item), fbyposition.into_param().abi(), ::core::mem::transmute(lpmii)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4707,7 +4707,7 @@ pub unsafe fn GetMenuItemRect<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetMenuItemRect(hwnd: super::super::Foundation::HWND, hmenu: HMENU, uitem: u32, lprcitem: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMenuItemRect(hwnd.into_param().abi(), hmenu.into_param().abi(), ::std::mem::transmute(uitem), ::std::mem::transmute(lprcitem)))
+        ::core::mem::transmute(GetMenuItemRect(hwnd.into_param().abi(), hmenu.into_param().abi(), ::core::mem::transmute(uitem), ::core::mem::transmute(lprcitem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4721,7 +4721,7 @@ pub unsafe fn GetMenuState<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>
         extern "system" {
             fn GetMenuState(hmenu: HMENU, uid: u32, uflags: MENU_ITEM_FLAGS) -> u32;
         }
-        ::std::mem::transmute(GetMenuState(hmenu.into_param().abi(), ::std::mem::transmute(uid), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(GetMenuState(hmenu.into_param().abi(), ::core::mem::transmute(uid), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4736,7 +4736,7 @@ pub unsafe fn GetMenuStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
         extern "system" {
             fn GetMenuStringA(hmenu: HMENU, uiditem: u32, lpstring: super::super::Foundation::PSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
         }
-        ::std::mem::transmute(GetMenuStringA(hmenu.into_param().abi(), ::std::mem::transmute(uiditem), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchmax), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(GetMenuStringA(hmenu.into_param().abi(), ::core::mem::transmute(uiditem), ::core::mem::transmute(lpstring), ::core::mem::transmute(cchmax), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4751,7 +4751,7 @@ pub unsafe fn GetMenuStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
         extern "system" {
             fn GetMenuStringW(hmenu: HMENU, uiditem: u32, lpstring: super::super::Foundation::PWSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
         }
-        ::std::mem::transmute(GetMenuStringW(hmenu.into_param().abi(), ::std::mem::transmute(uiditem), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchmax), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(GetMenuStringW(hmenu.into_param().abi(), ::core::mem::transmute(uiditem), ::core::mem::transmute(lpstring), ::core::mem::transmute(cchmax), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4766,7 +4766,7 @@ pub unsafe fn GetMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetMessageA(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMessageA(::std::mem::transmute(lpmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax)))
+        ::core::mem::transmute(GetMessageA(::core::mem::transmute(lpmsg), hwnd.into_param().abi(), ::core::mem::transmute(wmsgfiltermin), ::core::mem::transmute(wmsgfiltermax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4781,7 +4781,7 @@ pub unsafe fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM {
         extern "system" {
             fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM;
         }
-        ::std::mem::transmute(GetMessageExtraInfo())
+        ::core::mem::transmute(GetMessageExtraInfo())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4795,7 +4795,7 @@ pub unsafe fn GetMessagePos() -> u32 {
         extern "system" {
             fn GetMessagePos() -> u32;
         }
-        ::std::mem::transmute(GetMessagePos())
+        ::core::mem::transmute(GetMessagePos())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4809,7 +4809,7 @@ pub unsafe fn GetMessageTime() -> i32 {
         extern "system" {
             fn GetMessageTime() -> i32;
         }
-        ::std::mem::transmute(GetMessageTime())
+        ::core::mem::transmute(GetMessageTime())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4824,7 +4824,7 @@ pub unsafe fn GetMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetMessageW(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetMessageW(::std::mem::transmute(lpmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax)))
+        ::core::mem::transmute(GetMessageW(::core::mem::transmute(lpmsg), hwnd.into_param().abi(), ::core::mem::transmute(wmsgfiltermin), ::core::mem::transmute(wmsgfiltermax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4839,7 +4839,7 @@ pub unsafe fn GetNextDlgGroupItem<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn GetNextDlgGroupItem(hdlg: super::super::Foundation::HWND, hctl: super::super::Foundation::HWND, bprevious: super::super::Foundation::BOOL) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetNextDlgGroupItem(hdlg.into_param().abi(), hctl.into_param().abi(), bprevious.into_param().abi()))
+        ::core::mem::transmute(GetNextDlgGroupItem(hdlg.into_param().abi(), hctl.into_param().abi(), bprevious.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4854,7 +4854,7 @@ pub unsafe fn GetNextDlgTabItem<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetNextDlgTabItem(hdlg: super::super::Foundation::HWND, hctl: super::super::Foundation::HWND, bprevious: super::super::Foundation::BOOL) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetNextDlgTabItem(hdlg.into_param().abi(), hctl.into_param().abi(), bprevious.into_param().abi()))
+        ::core::mem::transmute(GetNextDlgTabItem(hdlg.into_param().abi(), hctl.into_param().abi(), bprevious.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4869,7 +4869,7 @@ pub unsafe fn GetParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn GetParent(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetParent(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetParent(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4884,7 +4884,7 @@ pub unsafe fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT
         extern "system" {
             fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPhysicalCursorPos(::std::mem::transmute(lppoint)))
+        ::core::mem::transmute(GetPhysicalCursorPos(::core::mem::transmute(lppoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4899,7 +4899,7 @@ pub unsafe fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::supe
         extern "system" {
             fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetProcessDefaultLayout(::std::mem::transmute(pdwdefaultlayout)))
+        ::core::mem::transmute(GetProcessDefaultLayout(::core::mem::transmute(pdwdefaultlayout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4914,7 +4914,7 @@ pub unsafe fn GetPropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn GetPropA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(GetPropA(hwnd.into_param().abi(), lpstring.into_param().abi()))
+        ::core::mem::transmute(GetPropA(hwnd.into_param().abi(), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4929,7 +4929,7 @@ pub unsafe fn GetPropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn GetPropW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(GetPropW(hwnd.into_param().abi(), lpstring.into_param().abi()))
+        ::core::mem::transmute(GetPropW(hwnd.into_param().abi(), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4943,7 +4943,7 @@ pub unsafe fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32 {
         extern "system" {
             fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32;
         }
-        ::std::mem::transmute(GetQueueStatus(::std::mem::transmute(flags)))
+        ::core::mem::transmute(GetQueueStatus(::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4958,7 +4958,7 @@ pub unsafe fn GetScrollBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetScrollBarInfo(hwnd: super::super::Foundation::HWND, idobject: OBJECT_IDENTIFIER, psbi: *mut SCROLLBARINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetScrollBarInfo(hwnd.into_param().abi(), ::std::mem::transmute(idobject), ::std::mem::transmute(psbi)))
+        ::core::mem::transmute(GetScrollBarInfo(hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(psbi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4973,7 +4973,7 @@ pub unsafe fn GetScrollInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetScrollInfo(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: *mut SCROLLINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetScrollInfo(hwnd.into_param().abi(), ::std::mem::transmute(nbar), ::std::mem::transmute(lpsi)))
+        ::core::mem::transmute(GetScrollInfo(hwnd.into_param().abi(), ::core::mem::transmute(nbar), ::core::mem::transmute(lpsi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4988,7 +4988,7 @@ pub unsafe fn GetScrollPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn GetScrollPos(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS) -> i32;
         }
-        ::std::mem::transmute(GetScrollPos(hwnd.into_param().abi(), ::std::mem::transmute(nbar)))
+        ::core::mem::transmute(GetScrollPos(hwnd.into_param().abi(), ::core::mem::transmute(nbar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5003,7 +5003,7 @@ pub unsafe fn GetScrollRange<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetScrollRange(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: *mut i32, lpmaxpos: *mut i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetScrollRange(hwnd.into_param().abi(), ::std::mem::transmute(nbar), ::std::mem::transmute(lpminpos), ::std::mem::transmute(lpmaxpos)))
+        ::core::mem::transmute(GetScrollRange(hwnd.into_param().abi(), ::core::mem::transmute(nbar), ::core::mem::transmute(lpminpos), ::core::mem::transmute(lpmaxpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5018,7 +5018,7 @@ pub unsafe fn GetShellWindow() -> super::super::Foundation::HWND {
         extern "system" {
             fn GetShellWindow() -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetShellWindow())
+        ::core::mem::transmute(GetShellWindow())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5032,7 +5032,7 @@ pub unsafe fn GetSubMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(h
         extern "system" {
             fn GetSubMenu(hmenu: HMENU, npos: i32) -> HMENU;
         }
-        ::std::mem::transmute(GetSubMenu(hmenu.into_param().abi(), ::std::mem::transmute(npos)))
+        ::core::mem::transmute(GetSubMenu(hmenu.into_param().abi(), ::core::mem::transmute(npos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5046,7 +5046,7 @@ pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
         extern "system" {
             fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32;
         }
-        ::std::mem::transmute(GetSysColor(::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetSysColor(::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5061,7 +5061,7 @@ pub unsafe fn GetSystemMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetSystemMenu(hwnd: super::super::Foundation::HWND, brevert: super::super::Foundation::BOOL) -> HMENU;
         }
-        ::std::mem::transmute(GetSystemMenu(hwnd.into_param().abi(), brevert.into_param().abi()))
+        ::core::mem::transmute(GetSystemMenu(hwnd.into_param().abi(), brevert.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5075,7 +5075,7 @@ pub unsafe fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32 {
         extern "system" {
             fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32;
         }
-        ::std::mem::transmute(GetSystemMetrics(::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetSystemMetrics(::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5090,7 +5090,7 @@ pub unsafe fn GetTitleBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetTitleBarInfo(hwnd: super::super::Foundation::HWND, pti: *mut TITLEBARINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTitleBarInfo(hwnd.into_param().abi(), ::std::mem::transmute(pti)))
+        ::core::mem::transmute(GetTitleBarInfo(hwnd.into_param().abi(), ::core::mem::transmute(pti)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5105,7 +5105,7 @@ pub unsafe fn GetTopWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn GetTopWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetTopWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetTopWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5120,7 +5120,7 @@ pub unsafe fn GetWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn GetWindow(hwnd: super::super::Foundation::HWND, ucmd: GET_WINDOW_CMD) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetWindow(hwnd.into_param().abi(), ::std::mem::transmute(ucmd)))
+        ::core::mem::transmute(GetWindow(hwnd.into_param().abi(), ::core::mem::transmute(ucmd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5135,7 +5135,7 @@ pub unsafe fn GetWindowDisplayAffinity<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetWindowDisplayAffinity(hwnd: super::super::Foundation::HWND, pdwaffinity: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetWindowDisplayAffinity(hwnd.into_param().abi(), ::std::mem::transmute(pdwaffinity)))
+        ::core::mem::transmute(GetWindowDisplayAffinity(hwnd.into_param().abi(), ::core::mem::transmute(pdwaffinity)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5150,7 +5150,7 @@ pub unsafe fn GetWindowInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetWindowInfo(hwnd: super::super::Foundation::HWND, pwi: *mut WINDOWINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetWindowInfo(hwnd.into_param().abi(), ::std::mem::transmute(pwi)))
+        ::core::mem::transmute(GetWindowInfo(hwnd.into_param().abi(), ::core::mem::transmute(pwi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5165,7 +5165,7 @@ pub unsafe fn GetWindowLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetWindowLongA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32;
         }
-        ::std::mem::transmute(GetWindowLongA(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetWindowLongA(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5181,7 +5181,7 @@ pub unsafe fn GetWindowLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetWindowLongPtrA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize;
         }
-        ::std::mem::transmute(GetWindowLongPtrA(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetWindowLongPtrA(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5197,7 +5197,7 @@ pub unsafe fn GetWindowLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetWindowLongPtrW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> isize;
         }
-        ::std::mem::transmute(GetWindowLongPtrW(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetWindowLongPtrW(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5212,7 +5212,7 @@ pub unsafe fn GetWindowLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetWindowLongW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32;
         }
-        ::std::mem::transmute(GetWindowLongW(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetWindowLongW(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5227,7 +5227,7 @@ pub unsafe fn GetWindowModuleFileNameA<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetWindowModuleFileNameA(hwnd: super::super::Foundation::HWND, pszfilename: super::super::Foundation::PSTR, cchfilenamemax: u32) -> u32;
         }
-        ::std::mem::transmute(GetWindowModuleFileNameA(hwnd.into_param().abi(), ::std::mem::transmute(pszfilename), ::std::mem::transmute(cchfilenamemax)))
+        ::core::mem::transmute(GetWindowModuleFileNameA(hwnd.into_param().abi(), ::core::mem::transmute(pszfilename), ::core::mem::transmute(cchfilenamemax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5242,7 +5242,7 @@ pub unsafe fn GetWindowModuleFileNameW<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetWindowModuleFileNameW(hwnd: super::super::Foundation::HWND, pszfilename: super::super::Foundation::PWSTR, cchfilenamemax: u32) -> u32;
         }
-        ::std::mem::transmute(GetWindowModuleFileNameW(hwnd.into_param().abi(), ::std::mem::transmute(pszfilename), ::std::mem::transmute(cchfilenamemax)))
+        ::core::mem::transmute(GetWindowModuleFileNameW(hwnd.into_param().abi(), ::core::mem::transmute(pszfilename), ::core::mem::transmute(cchfilenamemax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5257,7 +5257,7 @@ pub unsafe fn GetWindowPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetWindowPlacement(hwnd: super::super::Foundation::HWND, lpwndpl: *mut WINDOWPLACEMENT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetWindowPlacement(hwnd.into_param().abi(), ::std::mem::transmute(lpwndpl)))
+        ::core::mem::transmute(GetWindowPlacement(hwnd.into_param().abi(), ::core::mem::transmute(lpwndpl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5272,7 +5272,7 @@ pub unsafe fn GetWindowRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetWindowRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetWindowRect(hwnd.into_param().abi(), ::std::mem::transmute(lprect)))
+        ::core::mem::transmute(GetWindowRect(hwnd.into_param().abi(), ::core::mem::transmute(lprect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5287,7 +5287,7 @@ pub unsafe fn GetWindowTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, nmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(GetWindowTextA(hwnd.into_param().abi(), ::std::mem::transmute(lpstring), ::std::mem::transmute(nmaxcount)))
+        ::core::mem::transmute(GetWindowTextA(hwnd.into_param().abi(), ::core::mem::transmute(lpstring), ::core::mem::transmute(nmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5302,7 +5302,7 @@ pub unsafe fn GetWindowTextLengthA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn GetWindowTextLengthA(hwnd: super::super::Foundation::HWND) -> i32;
         }
-        ::std::mem::transmute(GetWindowTextLengthA(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetWindowTextLengthA(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5317,7 +5317,7 @@ pub unsafe fn GetWindowTextLengthW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn GetWindowTextLengthW(hwnd: super::super::Foundation::HWND) -> i32;
         }
-        ::std::mem::transmute(GetWindowTextLengthW(hwnd.into_param().abi()))
+        ::core::mem::transmute(GetWindowTextLengthW(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5332,7 +5332,7 @@ pub unsafe fn GetWindowTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, nmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(GetWindowTextW(hwnd.into_param().abi(), ::std::mem::transmute(lpstring), ::std::mem::transmute(nmaxcount)))
+        ::core::mem::transmute(GetWindowTextW(hwnd.into_param().abi(), ::core::mem::transmute(lpstring), ::core::mem::transmute(nmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5347,7 +5347,7 @@ pub unsafe fn GetWindowThreadProcessId<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetWindowThreadProcessId(hwnd: super::super::Foundation::HWND, lpdwprocessid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetWindowThreadProcessId(hwnd.into_param().abi(), ::std::mem::transmute(lpdwprocessid)))
+        ::core::mem::transmute(GetWindowThreadProcessId(hwnd.into_param().abi(), ::core::mem::transmute(lpdwprocessid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5362,17 +5362,17 @@ pub unsafe fn GetWindowWord<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
         }
-        ::std::mem::transmute(GetWindowWord(hwnd.into_param().abi(), ::std::mem::transmute(nindex)))
+        ::core::mem::transmute(GetWindowWord(hwnd.into_param().abi(), ::core::mem::transmute(nindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACCEL(pub isize);
-impl ::std::default::Default for HACCEL {
+impl ::core::default::Default for HACCEL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HACCEL {}
@@ -5380,12 +5380,12 @@ unsafe impl ::windows::runtime::Abi for HACCEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDEDNESS(pub i32);
 pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
 pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
-impl ::std::convert::From<i32> for HANDEDNESS {
+impl ::core::convert::From<i32> for HANDEDNESS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5393,7 +5393,7 @@ impl ::std::convert::From<i32> for HANDEDNESS {
 unsafe impl ::windows::runtime::Abi for HANDEDNESS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -5406,25 +5406,25 @@ pub struct HARDWAREHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl HARDWAREHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HARDWAREHOOKSTRUCT {
+impl ::core::default::Default for HARDWAREHOOKSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HARDWAREHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HARDWAREHOOKSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HARDWAREHOOKSTRUCT").field("hwnd", &self.hwnd).field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HARDWAREHOOKSTRUCT {
+impl ::core::cmp::PartialEq for HARDWAREHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HARDWAREHOOKSTRUCT {}
+impl ::core::cmp::Eq for HARDWAREHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HARDWAREHOOKSTRUCT {
     type Abi = Self;
@@ -5486,12 +5486,12 @@ pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HCURSOR(pub isize);
-impl ::std::default::Default for HCURSOR {
+impl ::core::default::Default for HCURSOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HCURSOR {}
@@ -5563,24 +5563,24 @@ pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_WM_HELP: u32 = 12u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HHOOK(pub isize);
-impl ::std::default::Default for HHOOK {
+impl ::core::default::Default for HHOOK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HHOOK {}
 unsafe impl ::windows::runtime::Abi for HHOOK {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HICON(pub isize);
-impl ::std::default::Default for HICON {
+impl ::core::default::Default for HICON {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HICON {}
@@ -5593,12 +5593,12 @@ pub const HIDE_WINDOW: u32 = 0u32;
 pub const HKL_NEXT: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HKL_PREV: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMENU(pub isize);
-impl ::std::default::Default for HMENU {
+impl ::core::default::Default for HMENU {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMENU {}
@@ -5726,7 +5726,7 @@ pub unsafe fn HideCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn HideCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HideCaret(hwnd.into_param().abi()))
+        ::core::mem::transmute(HideCaret(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5741,12 +5741,12 @@ pub unsafe fn HiliteMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn HiliteMenuItem(hwnd: super::super::Foundation::HWND, hmenu: HMENU, uidhiliteitem: u32, uhilite: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HiliteMenuItem(hwnd.into_param().abi(), hmenu.into_param().abi(), ::std::mem::transmute(uidhiliteitem), ::std::mem::transmute(uhilite)))
+        ::core::mem::transmute(HiliteMenuItem(hwnd.into_param().abi(), hmenu.into_param().abi(), ::core::mem::transmute(uidhiliteitem), ::core::mem::transmute(uhilite)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -5760,30 +5760,30 @@ pub struct ICONINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ICONINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for ICONINFO {
+impl ::core::default::Default for ICONINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for ICONINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICONINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICONINFO").field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for ICONINFO {
+impl ::core::cmp::PartialEq for ICONINFO {
     fn eq(&self, other: &Self) -> bool {
         self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for ICONINFO {}
+impl ::core::cmp::Eq for ICONINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -5801,14 +5801,14 @@ pub struct ICONINFOEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ICONINFOEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for ICONINFOEXA {
+impl ::core::default::Default for ICONINFOEXA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for ICONINFOEXA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICONINFOEXA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICONINFOEXA")
             .field("cbSize", &self.cbSize)
             .field("fIcon", &self.fIcon)
@@ -5823,18 +5823,18 @@ impl ::std::fmt::Debug for ICONINFOEXA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for ICONINFOEXA {
+impl ::core::cmp::PartialEq for ICONINFOEXA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor && self.wResID == other.wResID && self.szModName == other.szModName && self.szResName == other.szResName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for ICONINFOEXA {}
+impl ::core::cmp::Eq for ICONINFOEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONINFOEXA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -5852,14 +5852,14 @@ pub struct ICONINFOEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ICONINFOEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for ICONINFOEXW {
+impl ::core::default::Default for ICONINFOEXW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for ICONINFOEXW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICONINFOEXW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICONINFOEXW")
             .field("cbSize", &self.cbSize)
             .field("fIcon", &self.fIcon)
@@ -5874,18 +5874,18 @@ impl ::std::fmt::Debug for ICONINFOEXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for ICONINFOEXW {
+impl ::core::cmp::PartialEq for ICONINFOEXW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor && self.wResID == other.wResID && self.szModName == other.szModName && self.szResName == other.szResName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for ICONINFOEXW {}
+impl ::core::cmp::Eq for ICONINFOEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONINFOEXW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -5899,30 +5899,30 @@ pub struct ICONMETRICSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ICONMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for ICONMETRICSA {
+impl ::core::default::Default for ICONMETRICSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for ICONMETRICSA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICONMETRICSA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICONMETRICSA").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for ICONMETRICSA {
+impl ::core::cmp::PartialEq for ICONMETRICSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for ICONMETRICSA {}
+impl ::core::cmp::Eq for ICONMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONMETRICSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
@@ -5936,25 +5936,25 @@ pub struct ICONMETRICSW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICONMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for ICONMETRICSW {
+impl ::core::default::Default for ICONMETRICSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for ICONMETRICSW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICONMETRICSW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICONMETRICSW").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for ICONMETRICSW {
+impl ::core::cmp::PartialEq for ICONMETRICSW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for ICONMETRICSW {}
+impl ::core::cmp::Eq for ICONMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICONMETRICSW {
     type Abi = Self;
@@ -6069,7 +6069,7 @@ pub const IDI_WINLOGO: super::super::Foundation::PWSTR = super::super::Foundatio
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_FLAGS(pub u32);
 pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = IMAGE_FLAGS(8192u32);
@@ -6084,7 +6084,7 @@ pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
 pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
 pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
 pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
-impl ::std::convert::From<u32> for IMAGE_FLAGS {
+impl ::core::convert::From<u32> for IMAGE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6092,29 +6092,29 @@ impl ::std::convert::From<u32> for IMAGE_FLAGS {
 unsafe impl ::windows::runtime::Abi for IMAGE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IMAGE_FLAGS {
+impl ::core::ops::BitOr for IMAGE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IMAGE_FLAGS {
+impl ::core::ops::BitAnd for IMAGE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IMAGE_FLAGS {
+impl ::core::ops::BitOrAssign for IMAGE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IMAGE_FLAGS {
+impl ::core::ops::BitAndAssign for IMAGE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IMAGE_FLAGS {
+impl ::core::ops::Not for IMAGE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -6158,21 +6158,21 @@ pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
         extern "system" {
             fn InSendMessage() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InSendMessage())
+        ::core::mem::transmute(InSendMessage())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
-pub unsafe fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn InSendMessageEx(lpreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32;
+            fn InSendMessageEx(lpreserved: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(InSendMessageEx(::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(InSendMessageEx(::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6180,19 +6180,19 @@ pub unsafe fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32 {
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IndexFilePath<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(resourceindexer: *const ::std::ffi::c_void, filepath: Param1, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows::runtime::Result<()> {
+pub unsafe fn IndexFilePath<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(resourceindexer: *const ::core::ffi::c_void, filepath: Param1, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IndexFilePath(resourceindexer: *const ::std::ffi::c_void, filepath: super::super::Foundation::PWSTR, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows::runtime::HRESULT;
+            fn IndexFilePath(resourceindexer: *const ::core::ffi::c_void, filepath: super::super::Foundation::PWSTR, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows::runtime::HRESULT;
         }
-        IndexFilePath(::std::mem::transmute(resourceindexer), filepath.into_param().abi(), ::std::mem::transmute(ppresourceuri), ::std::mem::transmute(pqualifiercount), ::std::mem::transmute(ppqualifiers)).ok()
+        IndexFilePath(::core::mem::transmute(resourceindexer), filepath.into_param().abi(), ::core::mem::transmute(ppresourceuri), ::core::mem::transmute(pqualifiercount), ::core::mem::transmute(ppqualifiers)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -6203,25 +6203,25 @@ pub struct IndexedResourceQualifier {
 #[cfg(feature = "Win32_Foundation")]
 impl IndexedResourceQualifier {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IndexedResourceQualifier {
+impl ::core::default::Default for IndexedResourceQualifier {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IndexedResourceQualifier {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IndexedResourceQualifier {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IndexedResourceQualifier").field("name", &self.name).field("value", &self.value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IndexedResourceQualifier {
+impl ::core::cmp::PartialEq for IndexedResourceQualifier {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IndexedResourceQualifier {}
+impl ::core::cmp::Eq for IndexedResourceQualifier {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IndexedResourceQualifier {
     type Abi = Self;
@@ -6236,7 +6236,7 @@ pub unsafe fn InheritWindowMonitor<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn InheritWindowMonitor(hwnd: super::super::Foundation::HWND, hwndinherit: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InheritWindowMonitor(hwnd.into_param().abi(), hwndinherit.into_param().abi()))
+        ::core::mem::transmute(InheritWindowMonitor(hwnd.into_param().abi(), hwndinherit.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6251,7 +6251,7 @@ pub unsafe fn InsertMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn InsertMenuA(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InsertMenuA(hmenu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags), ::std::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
+        ::core::mem::transmute(InsertMenuA(hmenu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags), ::core::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6266,7 +6266,7 @@ pub unsafe fn InsertMenuItemA<'a, Param0: ::windows::runtime::IntoParam<'a, HMEN
         extern "system" {
             fn InsertMenuItemA(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmi: *const MENUITEMINFOA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InsertMenuItemA(hmenu.into_param().abi(), ::std::mem::transmute(item), fbyposition.into_param().abi(), ::std::mem::transmute(lpmi)))
+        ::core::mem::transmute(InsertMenuItemA(hmenu.into_param().abi(), ::core::mem::transmute(item), fbyposition.into_param().abi(), ::core::mem::transmute(lpmi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6281,7 +6281,7 @@ pub unsafe fn InsertMenuItemW<'a, Param0: ::windows::runtime::IntoParam<'a, HMEN
         extern "system" {
             fn InsertMenuItemW(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmi: *const MENUITEMINFOW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InsertMenuItemW(hmenu.into_param().abi(), ::std::mem::transmute(item), fbyposition.into_param().abi(), ::std::mem::transmute(lpmi)))
+        ::core::mem::transmute(InsertMenuItemW(hmenu.into_param().abi(), ::core::mem::transmute(item), fbyposition.into_param().abi(), ::core::mem::transmute(lpmi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6296,7 +6296,7 @@ pub unsafe fn InsertMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn InsertMenuW(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InsertMenuW(hmenu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags), ::std::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
+        ::core::mem::transmute(InsertMenuW(hmenu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags), ::core::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6311,7 +6311,7 @@ pub unsafe fn InternalGetWindowText<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn InternalGetWindowText(hwnd: super::super::Foundation::HWND, pstring: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(InternalGetWindowText(hwnd.into_param().abi(), ::std::mem::transmute(pstring), ::std::mem::transmute(cchmaxcount)))
+        ::core::mem::transmute(InternalGetWindowText(hwnd.into_param().abi(), ::core::mem::transmute(pstring), ::core::mem::transmute(cchmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6326,7 +6326,7 @@ pub unsafe fn IsCharAlphaA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn IsCharAlphaA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharAlphaA(ch.into_param().abi()))
+        ::core::mem::transmute(IsCharAlphaA(ch.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6341,7 +6341,7 @@ pub unsafe fn IsCharAlphaNumericA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IsCharAlphaNumericA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharAlphaNumericA(ch.into_param().abi()))
+        ::core::mem::transmute(IsCharAlphaNumericA(ch.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6356,7 +6356,7 @@ pub unsafe fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL {
         extern "system" {
             fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharAlphaNumericW(::std::mem::transmute(ch)))
+        ::core::mem::transmute(IsCharAlphaNumericW(::core::mem::transmute(ch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6371,7 +6371,7 @@ pub unsafe fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL {
         extern "system" {
             fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharAlphaW(::std::mem::transmute(ch)))
+        ::core::mem::transmute(IsCharAlphaW(::core::mem::transmute(ch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6386,7 +6386,7 @@ pub unsafe fn IsCharLowerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn IsCharLowerA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharLowerA(ch.into_param().abi()))
+        ::core::mem::transmute(IsCharLowerA(ch.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6401,7 +6401,7 @@ pub unsafe fn IsCharUpperA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn IsCharUpperA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharUpperA(ch.into_param().abi()))
+        ::core::mem::transmute(IsCharUpperA(ch.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6416,7 +6416,7 @@ pub unsafe fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL {
         extern "system" {
             fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsCharUpperW(::std::mem::transmute(ch)))
+        ::core::mem::transmute(IsCharUpperW(::core::mem::transmute(ch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6431,7 +6431,7 @@ pub unsafe fn IsChild<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
         extern "system" {
             fn IsChild(hwndparent: super::super::Foundation::HWND, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsChild(hwndparent.into_param().abi(), hwnd.into_param().abi()))
+        ::core::mem::transmute(IsChild(hwndparent.into_param().abi(), hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6446,7 +6446,7 @@ pub unsafe fn IsDialogMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn IsDialogMessageA(hdlg: super::super::Foundation::HWND, lpmsg: *const MSG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsDialogMessageA(hdlg.into_param().abi(), ::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(IsDialogMessageA(hdlg.into_param().abi(), ::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6461,7 +6461,7 @@ pub unsafe fn IsDialogMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn IsDialogMessageW(hdlg: super::super::Foundation::HWND, lpmsg: *const MSG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsDialogMessageW(hdlg.into_param().abi(), ::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(IsDialogMessageW(hdlg.into_param().abi(), ::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6476,7 +6476,7 @@ pub unsafe fn IsGUIThread<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn IsGUIThread(bconvert: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsGUIThread(bconvert.into_param().abi()))
+        ::core::mem::transmute(IsGUIThread(bconvert.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6491,7 +6491,7 @@ pub unsafe fn IsHungAppWindow<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn IsHungAppWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsHungAppWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsHungAppWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6506,7 +6506,7 @@ pub unsafe fn IsIconic<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn IsIconic(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsIconic(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsIconic(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6521,7 +6521,7 @@ pub unsafe fn IsMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu
         extern "system" {
             fn IsMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsMenu(hmenu.into_param().abi()))
+        ::core::mem::transmute(IsMenu(hmenu.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6536,7 +6536,7 @@ pub unsafe fn IsProcessDPIAware() -> super::super::Foundation::BOOL {
         extern "system" {
             fn IsProcessDPIAware() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsProcessDPIAware())
+        ::core::mem::transmute(IsProcessDPIAware())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6551,7 +6551,7 @@ pub unsafe fn IsWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn IsWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6566,7 +6566,7 @@ pub unsafe fn IsWindowUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn IsWindowUnicode(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsWindowUnicode(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsWindowUnicode(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6581,7 +6581,7 @@ pub unsafe fn IsWindowVisible<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn IsWindowVisible(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsWindowVisible(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsWindowVisible(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6596,7 +6596,7 @@ pub unsafe fn IsWow64Message() -> super::super::Foundation::BOOL {
         extern "system" {
             fn IsWow64Message() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsWow64Message())
+        ::core::mem::transmute(IsWow64Message())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6611,12 +6611,12 @@ pub unsafe fn IsZoomed<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn IsZoomed(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsZoomed(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsZoomed(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct KBDLLHOOKSTRUCT {
@@ -6627,27 +6627,27 @@ pub struct KBDLLHOOKSTRUCT {
     pub dwExtraInfo: usize,
 }
 impl KBDLLHOOKSTRUCT {}
-impl ::std::default::Default for KBDLLHOOKSTRUCT {
+impl ::core::default::Default for KBDLLHOOKSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KBDLLHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KBDLLHOOKSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KBDLLHOOKSTRUCT").field("vkCode", &self.vkCode).field("scanCode", &self.scanCode).field("flags", &self.flags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::std::cmp::PartialEq for KBDLLHOOKSTRUCT {
+impl ::core::cmp::PartialEq for KBDLLHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.vkCode == other.vkCode && self.scanCode == other.scanCode && self.flags == other.flags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
-impl ::std::cmp::Eq for KBDLLHOOKSTRUCT {}
+impl ::core::cmp::Eq for KBDLLHOOKSTRUCT {}
 unsafe impl ::windows::runtime::Abi for KBDLLHOOKSTRUCT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KBDLLHOOKSTRUCT_FLAGS(pub u32);
 pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(1u32);
@@ -6655,7 +6655,7 @@ pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
 pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
 pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
 pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
-impl ::std::convert::From<u32> for KBDLLHOOKSTRUCT_FLAGS {
+impl ::core::convert::From<u32> for KBDLLHOOKSTRUCT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6663,29 +6663,29 @@ impl ::std::convert::From<u32> for KBDLLHOOKSTRUCT_FLAGS {
 unsafe impl ::windows::runtime::Abi for KBDLLHOOKSTRUCT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for KBDLLHOOKSTRUCT_FLAGS {
+impl ::core::ops::BitOr for KBDLLHOOKSTRUCT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for KBDLLHOOKSTRUCT_FLAGS {
+impl ::core::ops::BitAnd for KBDLLHOOKSTRUCT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for KBDLLHOOKSTRUCT_FLAGS {
+impl ::core::ops::BitOrAssign for KBDLLHOOKSTRUCT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for KBDLLHOOKSTRUCT_FLAGS {
+impl ::core::ops::BitAndAssign for KBDLLHOOKSTRUCT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
+impl ::core::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -6715,18 +6715,18 @@ pub unsafe fn KillTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn KillTimer(hwnd: super::super::Foundation::HWND, uidevent: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(KillTimer(hwnd.into_param().abi(), ::std::mem::transmute(uidevent)))
+        ::core::mem::transmute(KillTimer(hwnd.into_param().abi(), ::core::mem::transmute(uidevent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
 pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
 pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
-impl ::std::convert::From<u32> for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+impl ::core::convert::From<u32> for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6734,29 +6734,29 @@ impl ::std::convert::From<u32> for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
 unsafe impl ::windows::runtime::Abi for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+impl ::core::ops::BitOr for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+impl ::core::ops::BitAnd for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+impl ::core::ops::BitOrAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+impl ::core::ops::BitAndAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+impl ::core::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -6918,7 +6918,7 @@ pub unsafe fn LoadAcceleratorsA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn LoadAcceleratorsA(hinstance: super::super::Foundation::HINSTANCE, lptablename: super::super::Foundation::PSTR) -> HACCEL;
         }
-        ::std::mem::transmute(LoadAcceleratorsA(hinstance.into_param().abi(), lptablename.into_param().abi()))
+        ::core::mem::transmute(LoadAcceleratorsA(hinstance.into_param().abi(), lptablename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6933,7 +6933,7 @@ pub unsafe fn LoadAcceleratorsW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn LoadAcceleratorsW(hinstance: super::super::Foundation::HINSTANCE, lptablename: super::super::Foundation::PWSTR) -> HACCEL;
         }
-        ::std::mem::transmute(LoadAcceleratorsW(hinstance.into_param().abi(), lptablename.into_param().abi()))
+        ::core::mem::transmute(LoadAcceleratorsW(hinstance.into_param().abi(), lptablename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6948,7 +6948,7 @@ pub unsafe fn LoadCursorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LoadCursorA(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: super::super::Foundation::PSTR) -> HCURSOR;
         }
-        ::std::mem::transmute(LoadCursorA(hinstance.into_param().abi(), lpcursorname.into_param().abi()))
+        ::core::mem::transmute(LoadCursorA(hinstance.into_param().abi(), lpcursorname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6963,7 +6963,7 @@ pub unsafe fn LoadCursorFromFileA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn LoadCursorFromFileA(lpfilename: super::super::Foundation::PSTR) -> HCURSOR;
         }
-        ::std::mem::transmute(LoadCursorFromFileA(lpfilename.into_param().abi()))
+        ::core::mem::transmute(LoadCursorFromFileA(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6978,7 +6978,7 @@ pub unsafe fn LoadCursorFromFileW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn LoadCursorFromFileW(lpfilename: super::super::Foundation::PWSTR) -> HCURSOR;
         }
-        ::std::mem::transmute(LoadCursorFromFileW(lpfilename.into_param().abi()))
+        ::core::mem::transmute(LoadCursorFromFileW(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6993,7 +6993,7 @@ pub unsafe fn LoadCursorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LoadCursorW(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: super::super::Foundation::PWSTR) -> HCURSOR;
         }
-        ::std::mem::transmute(LoadCursorW(hinstance.into_param().abi(), lpcursorname.into_param().abi()))
+        ::core::mem::transmute(LoadCursorW(hinstance.into_param().abi(), lpcursorname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7008,7 +7008,7 @@ pub unsafe fn LoadIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn LoadIconA(hinstance: super::super::Foundation::HINSTANCE, lpiconname: super::super::Foundation::PSTR) -> HICON;
         }
-        ::std::mem::transmute(LoadIconA(hinstance.into_param().abi(), lpiconname.into_param().abi()))
+        ::core::mem::transmute(LoadIconA(hinstance.into_param().abi(), lpiconname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7023,7 +7023,7 @@ pub unsafe fn LoadIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn LoadIconW(hinstance: super::super::Foundation::HINSTANCE, lpiconname: super::super::Foundation::PWSTR) -> HICON;
         }
-        ::std::mem::transmute(LoadIconW(hinstance.into_param().abi(), lpiconname.into_param().abi()))
+        ::core::mem::transmute(LoadIconW(hinstance.into_param().abi(), lpiconname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7038,7 +7038,7 @@ pub unsafe fn LoadImageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn LoadImageA(hinst: super::super::Foundation::HINSTANCE, name: super::super::Foundation::PSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(LoadImageA(hinst.into_param().abi(), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(cx), ::std::mem::transmute(cy), ::std::mem::transmute(fuload)))
+        ::core::mem::transmute(LoadImageA(hinst.into_param().abi(), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(fuload)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7053,7 +7053,7 @@ pub unsafe fn LoadImageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn LoadImageW(hinst: super::super::Foundation::HINSTANCE, name: super::super::Foundation::PWSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(LoadImageW(hinst.into_param().abi(), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(cx), ::std::mem::transmute(cy), ::std::mem::transmute(fuload)))
+        ::core::mem::transmute(LoadImageW(hinst.into_param().abi(), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(fuload)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7068,35 +7068,35 @@ pub unsafe fn LoadMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn LoadMenuA(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: super::super::Foundation::PSTR) -> HMENU;
         }
-        ::std::mem::transmute(LoadMenuA(hinstance.into_param().abi(), lpmenuname.into_param().abi()))
+        ::core::mem::transmute(LoadMenuA(hinstance.into_param().abi(), lpmenuname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
-pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU {
+pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU;
+            fn LoadMenuIndirectA(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU;
         }
-        ::std::mem::transmute(LoadMenuIndirectA(::std::mem::transmute(lpmenutemplate)))
+        ::core::mem::transmute(LoadMenuIndirectA(::core::mem::transmute(lpmenutemplate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
-pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU {
+pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadMenuIndirectW(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU;
+            fn LoadMenuIndirectW(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU;
         }
-        ::std::mem::transmute(LoadMenuIndirectW(::std::mem::transmute(lpmenutemplate)))
+        ::core::mem::transmute(LoadMenuIndirectW(::core::mem::transmute(lpmenutemplate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7111,7 +7111,7 @@ pub unsafe fn LoadMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn LoadMenuW(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: super::super::Foundation::PWSTR) -> HMENU;
         }
-        ::std::mem::transmute(LoadMenuW(hinstance.into_param().abi(), lpmenuname.into_param().abi()))
+        ::core::mem::transmute(LoadMenuW(hinstance.into_param().abi(), lpmenuname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7126,7 +7126,7 @@ pub unsafe fn LoadStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LoadStringA(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: super::super::Foundation::PSTR, cchbuffermax: i32) -> i32;
         }
-        ::std::mem::transmute(LoadStringA(hinstance.into_param().abi(), ::std::mem::transmute(uid), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cchbuffermax)))
+        ::core::mem::transmute(LoadStringA(hinstance.into_param().abi(), ::core::mem::transmute(uid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cchbuffermax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7141,7 +7141,7 @@ pub unsafe fn LoadStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LoadStringW(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: super::super::Foundation::PWSTR, cchbuffermax: i32) -> i32;
         }
-        ::std::mem::transmute(LoadStringW(hinstance.into_param().abi(), ::std::mem::transmute(uid), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cchbuffermax)))
+        ::core::mem::transmute(LoadStringW(hinstance.into_param().abi(), ::core::mem::transmute(uid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cchbuffermax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7156,7 +7156,7 @@ pub unsafe fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) ->
         extern "system" {
             fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LockSetForegroundWindow(::std::mem::transmute(ulockcode)))
+        ::core::mem::transmute(LockSetForegroundWindow(::core::mem::transmute(ulockcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7171,7 +7171,7 @@ pub unsafe fn LogicalToPhysicalPoint<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn LogicalToPhysicalPoint(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LogicalToPhysicalPoint(hwnd.into_param().abi(), ::std::mem::transmute(lppoint)))
+        ::core::mem::transmute(LogicalToPhysicalPoint(hwnd.into_param().abi(), ::core::mem::transmute(lppoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7186,7 +7186,7 @@ pub unsafe fn LookupIconIdFromDirectory<'a, Param1: ::windows::runtime::IntoPara
         extern "system" {
             fn LookupIconIdFromDirectory(presbits: *const u8, ficon: super::super::Foundation::BOOL) -> i32;
         }
-        ::std::mem::transmute(LookupIconIdFromDirectory(::std::mem::transmute(presbits), ficon.into_param().abi()))
+        ::core::mem::transmute(LookupIconIdFromDirectory(::core::mem::transmute(presbits), ficon.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7201,7 +7201,7 @@ pub unsafe fn LookupIconIdFromDirectoryEx<'a, Param1: ::windows::runtime::IntoPa
         extern "system" {
             fn LookupIconIdFromDirectoryEx(presbits: *const u8, ficon: super::super::Foundation::BOOL, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> i32;
         }
-        ::std::mem::transmute(LookupIconIdFromDirectoryEx(::std::mem::transmute(presbits), ficon.into_param().abi(), ::std::mem::transmute(cxdesired), ::std::mem::transmute(cydesired), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(LookupIconIdFromDirectoryEx(::core::mem::transmute(presbits), ficon.into_param().abi(), ::core::mem::transmute(cxdesired), ::core::mem::transmute(cydesired), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7234,7 +7234,7 @@ pub const MA_ACTIVATEANDEAT: u32 = 2u32;
 pub const MA_NOACTIVATE: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -7252,30 +7252,30 @@ pub struct MDICREATESTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl MDICREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MDICREATESTRUCTA {
+impl ::core::default::Default for MDICREATESTRUCTA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MDICREATESTRUCTA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MDICREATESTRUCTA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MDICREATESTRUCTA").field("szClass", &self.szClass).field("szTitle", &self.szTitle).field("hOwner", &self.hOwner).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("style", &self.style).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MDICREATESTRUCTA {
+impl ::core::cmp::PartialEq for MDICREATESTRUCTA {
     fn eq(&self, other: &Self) -> bool {
         self.szClass == other.szClass && self.szTitle == other.szTitle && self.hOwner == other.hOwner && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.style == other.style && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MDICREATESTRUCTA {}
+impl ::core::cmp::Eq for MDICREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDICREATESTRUCTA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -7293,30 +7293,30 @@ pub struct MDICREATESTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl MDICREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MDICREATESTRUCTW {
+impl ::core::default::Default for MDICREATESTRUCTW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MDICREATESTRUCTW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MDICREATESTRUCTW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MDICREATESTRUCTW").field("szClass", &self.szClass).field("szTitle", &self.szTitle).field("hOwner", &self.hOwner).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("style", &self.style).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MDICREATESTRUCTW {
+impl ::core::cmp::PartialEq for MDICREATESTRUCTW {
     fn eq(&self, other: &Self) -> bool {
         self.szClass == other.szClass && self.szTitle == other.szTitle && self.hOwner == other.hOwner && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.style == other.style && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MDICREATESTRUCTW {}
+impl ::core::cmp::Eq for MDICREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDICREATESTRUCTW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -7328,32 +7328,32 @@ pub struct MDINEXTMENU {
 #[cfg(feature = "Win32_Foundation")]
 impl MDINEXTMENU {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MDINEXTMENU {
+impl ::core::default::Default for MDINEXTMENU {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MDINEXTMENU {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MDINEXTMENU {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MDINEXTMENU").field("hmenuIn", &self.hmenuIn).field("hmenuNext", &self.hmenuNext).field("hwndNext", &self.hwndNext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MDINEXTMENU {
+impl ::core::cmp::PartialEq for MDINEXTMENU {
     fn eq(&self, other: &Self) -> bool {
         self.hmenuIn == other.hmenuIn && self.hmenuNext == other.hmenuNext && self.hwndNext == other.hwndNext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MDINEXTMENU {}
+impl ::core::cmp::Eq for MDINEXTMENU {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDINEXTMENU {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -7367,66 +7367,66 @@ pub struct MENUBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl MENUBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MENUBARINFO {
+impl ::core::default::Default for MENUBARINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MENUBARINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUBARINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUBARINFO").field("cbSize", &self.cbSize).field("rcBar", &self.rcBar).field("hMenu", &self.hMenu).field("hwndMenu", &self.hwndMenu).field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MENUBARINFO {
+impl ::core::cmp::PartialEq for MENUBARINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.rcBar == other.rcBar && self.hMenu == other.hMenu && self.hwndMenu == other.hwndMenu && self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MENUBARINFO {}
+impl ::core::cmp::Eq for MENUBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MENUBARINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: MENUGETOBJECTINFO_FLAGS,
     pub uPos: u32,
     pub hmenu: HMENU,
-    pub riid: *mut ::std::ffi::c_void,
-    pub pvObj: *mut ::std::ffi::c_void,
+    pub riid: *mut ::core::ffi::c_void,
+    pub pvObj: *mut ::core::ffi::c_void,
 }
 impl MENUGETOBJECTINFO {}
-impl ::std::default::Default for MENUGETOBJECTINFO {
+impl ::core::default::Default for MENUGETOBJECTINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MENUGETOBJECTINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUGETOBJECTINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUGETOBJECTINFO").field("dwFlags", &self.dwFlags).field("uPos", &self.uPos).field("hmenu", &self.hmenu).field("riid", &self.riid).field("pvObj", &self.pvObj).finish()
     }
 }
-impl ::std::cmp::PartialEq for MENUGETOBJECTINFO {
+impl ::core::cmp::PartialEq for MENUGETOBJECTINFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.uPos == other.uPos && self.hmenu == other.hmenu && self.riid == other.riid && self.pvObj == other.pvObj
     }
 }
-impl ::std::cmp::Eq for MENUGETOBJECTINFO {}
+impl ::core::cmp::Eq for MENUGETOBJECTINFO {}
 unsafe impl ::windows::runtime::Abi for MENUGETOBJECTINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
 pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
 pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
-impl ::std::convert::From<u32> for MENUGETOBJECTINFO_FLAGS {
+impl ::core::convert::From<u32> for MENUGETOBJECTINFO_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7434,35 +7434,35 @@ impl ::std::convert::From<u32> for MENUGETOBJECTINFO_FLAGS {
 unsafe impl ::windows::runtime::Abi for MENUGETOBJECTINFO_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENUGETOBJECTINFO_FLAGS {
+impl ::core::ops::BitOr for MENUGETOBJECTINFO_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENUGETOBJECTINFO_FLAGS {
+impl ::core::ops::BitAnd for MENUGETOBJECTINFO_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENUGETOBJECTINFO_FLAGS {
+impl ::core::ops::BitOrAssign for MENUGETOBJECTINFO_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENUGETOBJECTINFO_FLAGS {
+impl ::core::ops::BitAndAssign for MENUGETOBJECTINFO_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENUGETOBJECTINFO_FLAGS {
+impl ::core::ops::Not for MENUGETOBJECTINFO_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
@@ -7478,31 +7478,31 @@ pub struct MENUINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl MENUINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for MENUINFO {
+impl ::core::default::Default for MENUINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for MENUINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("dwStyle", &self.dwStyle).field("cyMax", &self.cyMax).field("hbrBack", &self.hbrBack).field("dwContextHelpID", &self.dwContextHelpID).field("dwMenuData", &self.dwMenuData).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for MENUINFO {
+impl ::core::cmp::PartialEq for MENUINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.fMask == other.fMask && self.dwStyle == other.dwStyle && self.cyMax == other.cyMax && self.hbrBack == other.hbrBack && self.dwContextHelpID == other.dwContextHelpID && self.dwMenuData == other.dwMenuData
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for MENUINFO {}
+impl ::core::cmp::Eq for MENUINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for MENUINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENUINFO_MASK(pub u32);
 pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = MENUINFO_MASK(2147483648u32);
@@ -7511,7 +7511,7 @@ pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
 pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
 pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
 pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
-impl ::std::convert::From<u32> for MENUINFO_MASK {
+impl ::core::convert::From<u32> for MENUINFO_MASK {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7519,36 +7519,36 @@ impl ::std::convert::From<u32> for MENUINFO_MASK {
 unsafe impl ::windows::runtime::Abi for MENUINFO_MASK {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENUINFO_MASK {
+impl ::core::ops::BitOr for MENUINFO_MASK {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENUINFO_MASK {
+impl ::core::ops::BitAnd for MENUINFO_MASK {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENUINFO_MASK {
+impl ::core::ops::BitOrAssign for MENUINFO_MASK {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENUINFO_MASK {
+impl ::core::ops::BitAndAssign for MENUINFO_MASK {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENUINFO_MASK {
+impl ::core::ops::Not for MENUINFO_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENUINFO_STYLE(pub u32);
 pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
@@ -7557,7 +7557,7 @@ pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
 pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
 pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
 pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
-impl ::std::convert::From<u32> for MENUINFO_STYLE {
+impl ::core::convert::From<u32> for MENUINFO_STYLE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7565,35 +7565,35 @@ impl ::std::convert::From<u32> for MENUINFO_STYLE {
 unsafe impl ::windows::runtime::Abi for MENUINFO_STYLE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENUINFO_STYLE {
+impl ::core::ops::BitOr for MENUINFO_STYLE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENUINFO_STYLE {
+impl ::core::ops::BitAnd for MENUINFO_STYLE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENUINFO_STYLE {
+impl ::core::ops::BitOrAssign for MENUINFO_STYLE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENUINFO_STYLE {
+impl ::core::ops::BitAndAssign for MENUINFO_STYLE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENUINFO_STYLE {
+impl ::core::ops::Not for MENUINFO_STYLE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -7614,14 +7614,14 @@ pub struct MENUITEMINFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl MENUITEMINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for MENUITEMINFOA {
+impl ::core::default::Default for MENUITEMINFOA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for MENUITEMINFOA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUITEMINFOA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUITEMINFOA")
             .field("cbSize", &self.cbSize)
             .field("fMask", &self.fMask)
@@ -7639,18 +7639,18 @@ impl ::std::fmt::Debug for MENUITEMINFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for MENUITEMINFOA {
+impl ::core::cmp::PartialEq for MENUITEMINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.fMask == other.fMask && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hSubMenu == other.hSubMenu && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.dwTypeData == other.dwTypeData && self.cch == other.cch && self.hbmpItem == other.hbmpItem
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for MENUITEMINFOA {}
+impl ::core::cmp::Eq for MENUITEMINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MENUITEMINFOA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -7671,14 +7671,14 @@ pub struct MENUITEMINFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl MENUITEMINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for MENUITEMINFOW {
+impl ::core::default::Default for MENUITEMINFOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for MENUITEMINFOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUITEMINFOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUITEMINFOW")
             .field("cbSize", &self.cbSize)
             .field("fMask", &self.fMask)
@@ -7696,18 +7696,18 @@ impl ::std::fmt::Debug for MENUITEMINFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for MENUITEMINFOW {
+impl ::core::cmp::PartialEq for MENUITEMINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.fMask == other.fMask && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hSubMenu == other.hSubMenu && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.dwTypeData == other.dwTypeData && self.cch == other.cch && self.hbmpItem == other.hbmpItem
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for MENUITEMINFOW {}
+impl ::core::cmp::Eq for MENUITEMINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MENUITEMINFOW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MENUITEMTEMPLATE {
@@ -7716,26 +7716,26 @@ pub struct MENUITEMTEMPLATE {
     pub mtString: [u16; 1],
 }
 impl MENUITEMTEMPLATE {}
-impl ::std::default::Default for MENUITEMTEMPLATE {
+impl ::core::default::Default for MENUITEMTEMPLATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MENUITEMTEMPLATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUITEMTEMPLATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUITEMTEMPLATE").field("mtOption", &self.mtOption).field("mtID", &self.mtID).field("mtString", &self.mtString).finish()
     }
 }
-impl ::std::cmp::PartialEq for MENUITEMTEMPLATE {
+impl ::core::cmp::PartialEq for MENUITEMTEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         self.mtOption == other.mtOption && self.mtID == other.mtID && self.mtString == other.mtString
     }
 }
-impl ::std::cmp::Eq for MENUITEMTEMPLATE {}
+impl ::core::cmp::Eq for MENUITEMTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for MENUITEMTEMPLATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MENUITEMTEMPLATEHEADER {
@@ -7743,27 +7743,27 @@ pub struct MENUITEMTEMPLATEHEADER {
     pub offset: u16,
 }
 impl MENUITEMTEMPLATEHEADER {}
-impl ::std::default::Default for MENUITEMTEMPLATEHEADER {
+impl ::core::default::Default for MENUITEMTEMPLATEHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MENUITEMTEMPLATEHEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MENUITEMTEMPLATEHEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MENUITEMTEMPLATEHEADER").field("versionNumber", &self.versionNumber).field("offset", &self.offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
+impl ::core::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
     fn eq(&self, other: &Self) -> bool {
         self.versionNumber == other.versionNumber && self.offset == other.offset
     }
 }
-impl ::std::cmp::Eq for MENUITEMTEMPLATEHEADER {}
+impl ::core::cmp::Eq for MENUITEMTEMPLATEHEADER {}
 unsafe impl ::windows::runtime::Abi for MENUITEMTEMPLATEHEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_FLAGS(pub u32);
 pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
@@ -7794,7 +7794,7 @@ pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
 pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
 pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
 pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-impl ::std::convert::From<u32> for MENU_ITEM_FLAGS {
+impl ::core::convert::From<u32> for MENU_ITEM_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7802,36 +7802,36 @@ impl ::std::convert::From<u32> for MENU_ITEM_FLAGS {
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENU_ITEM_FLAGS {
+impl ::core::ops::BitOr for MENU_ITEM_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENU_ITEM_FLAGS {
+impl ::core::ops::BitAnd for MENU_ITEM_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENU_ITEM_FLAGS {
+impl ::core::ops::BitOrAssign for MENU_ITEM_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENU_ITEM_FLAGS {
+impl ::core::ops::BitAndAssign for MENU_ITEM_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENU_ITEM_FLAGS {
+impl ::core::ops::Not for MENU_ITEM_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_MASK(pub u32);
 pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
@@ -7843,7 +7843,7 @@ pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
 pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
 pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
 pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
-impl ::std::convert::From<u32> for MENU_ITEM_MASK {
+impl ::core::convert::From<u32> for MENU_ITEM_MASK {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7851,36 +7851,36 @@ impl ::std::convert::From<u32> for MENU_ITEM_MASK {
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_MASK {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENU_ITEM_MASK {
+impl ::core::ops::BitOr for MENU_ITEM_MASK {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENU_ITEM_MASK {
+impl ::core::ops::BitAnd for MENU_ITEM_MASK {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENU_ITEM_MASK {
+impl ::core::ops::BitOrAssign for MENU_ITEM_MASK {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENU_ITEM_MASK {
+impl ::core::ops::BitAndAssign for MENU_ITEM_MASK {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENU_ITEM_MASK {
+impl ::core::ops::Not for MENU_ITEM_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_STATE(pub u32);
 pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
@@ -7891,7 +7891,7 @@ pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
 pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
 pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
 pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
-impl ::std::convert::From<u32> for MENU_ITEM_STATE {
+impl ::core::convert::From<u32> for MENU_ITEM_STATE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7899,36 +7899,36 @@ impl ::std::convert::From<u32> for MENU_ITEM_STATE {
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_STATE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENU_ITEM_STATE {
+impl ::core::ops::BitOr for MENU_ITEM_STATE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENU_ITEM_STATE {
+impl ::core::ops::BitAnd for MENU_ITEM_STATE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENU_ITEM_STATE {
+impl ::core::ops::BitOrAssign for MENU_ITEM_STATE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENU_ITEM_STATE {
+impl ::core::ops::BitAndAssign for MENU_ITEM_STATE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENU_ITEM_STATE {
+impl ::core::ops::Not for MENU_ITEM_STATE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_TYPE(pub u32);
 pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
@@ -7940,7 +7940,7 @@ pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
 pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
 pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
 pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
-impl ::std::convert::From<u32> for MENU_ITEM_TYPE {
+impl ::core::convert::From<u32> for MENU_ITEM_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7948,36 +7948,36 @@ impl ::std::convert::From<u32> for MENU_ITEM_TYPE {
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MENU_ITEM_TYPE {
+impl ::core::ops::BitOr for MENU_ITEM_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MENU_ITEM_TYPE {
+impl ::core::ops::BitAnd for MENU_ITEM_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MENU_ITEM_TYPE {
+impl ::core::ops::BitOrAssign for MENU_ITEM_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MENU_ITEM_TYPE {
+impl ::core::ops::BitAndAssign for MENU_ITEM_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MENU_ITEM_TYPE {
+impl ::core::ops::Not for MENU_ITEM_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MESSAGEBOX_RESULT(pub i32);
 pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
@@ -7993,7 +7993,7 @@ pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
 pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
 pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
 pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
-impl ::std::convert::From<i32> for MESSAGEBOX_RESULT {
+impl ::core::convert::From<i32> for MESSAGEBOX_RESULT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8002,7 +8002,7 @@ unsafe impl ::windows::runtime::Abi for MESSAGEBOX_RESULT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MESSAGEBOX_STYLE(pub u32);
 pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
@@ -8042,7 +8042,7 @@ pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
 pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
 pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
 pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
-impl ::std::convert::From<u32> for MESSAGEBOX_STYLE {
+impl ::core::convert::From<u32> for MESSAGEBOX_STYLE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -8050,35 +8050,35 @@ impl ::std::convert::From<u32> for MESSAGEBOX_STYLE {
 unsafe impl ::windows::runtime::Abi for MESSAGEBOX_STYLE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MESSAGEBOX_STYLE {
+impl ::core::ops::BitOr for MESSAGEBOX_STYLE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MESSAGEBOX_STYLE {
+impl ::core::ops::BitAnd for MESSAGEBOX_STYLE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MESSAGEBOX_STYLE {
+impl ::core::ops::BitOrAssign for MESSAGEBOX_STYLE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MESSAGEBOX_STYLE {
+impl ::core::ops::BitAndAssign for MESSAGEBOX_STYLE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MESSAGEBOX_STYLE {
+impl ::core::ops::Not for MESSAGEBOX_STYLE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MESSAGE_RESOURCE_BLOCK {
@@ -8087,26 +8087,26 @@ pub struct MESSAGE_RESOURCE_BLOCK {
     pub OffsetToEntries: u32,
 }
 impl MESSAGE_RESOURCE_BLOCK {}
-impl ::std::default::Default for MESSAGE_RESOURCE_BLOCK {
+impl ::core::default::Default for MESSAGE_RESOURCE_BLOCK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MESSAGE_RESOURCE_BLOCK {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MESSAGE_RESOURCE_BLOCK {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MESSAGE_RESOURCE_BLOCK").field("LowId", &self.LowId).field("HighId", &self.HighId).field("OffsetToEntries", &self.OffsetToEntries).finish()
     }
 }
-impl ::std::cmp::PartialEq for MESSAGE_RESOURCE_BLOCK {
+impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_BLOCK {
     fn eq(&self, other: &Self) -> bool {
         self.LowId == other.LowId && self.HighId == other.HighId && self.OffsetToEntries == other.OffsetToEntries
     }
 }
-impl ::std::cmp::Eq for MESSAGE_RESOURCE_BLOCK {}
+impl ::core::cmp::Eq for MESSAGE_RESOURCE_BLOCK {}
 unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_BLOCK {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MESSAGE_RESOURCE_DATA {
@@ -8114,26 +8114,26 @@ pub struct MESSAGE_RESOURCE_DATA {
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
 }
 impl MESSAGE_RESOURCE_DATA {}
-impl ::std::default::Default for MESSAGE_RESOURCE_DATA {
+impl ::core::default::Default for MESSAGE_RESOURCE_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MESSAGE_RESOURCE_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MESSAGE_RESOURCE_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MESSAGE_RESOURCE_DATA").field("NumberOfBlocks", &self.NumberOfBlocks).field("Blocks", &self.Blocks).finish()
     }
 }
-impl ::std::cmp::PartialEq for MESSAGE_RESOURCE_DATA {
+impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfBlocks == other.NumberOfBlocks && self.Blocks == other.Blocks
     }
 }
-impl ::std::cmp::Eq for MESSAGE_RESOURCE_DATA {}
+impl ::core::cmp::Eq for MESSAGE_RESOURCE_DATA {}
 unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MESSAGE_RESOURCE_ENTRY {
@@ -8142,28 +8142,28 @@ pub struct MESSAGE_RESOURCE_ENTRY {
     pub Text: [u8; 1],
 }
 impl MESSAGE_RESOURCE_ENTRY {}
-impl ::std::default::Default for MESSAGE_RESOURCE_ENTRY {
+impl ::core::default::Default for MESSAGE_RESOURCE_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MESSAGE_RESOURCE_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MESSAGE_RESOURCE_ENTRY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MESSAGE_RESOURCE_ENTRY").field("Length", &self.Length).field("Flags", &self.Flags).field("Text", &self.Text).finish()
     }
 }
-impl ::std::cmp::PartialEq for MESSAGE_RESOURCE_ENTRY {
+impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Flags == other.Flags && self.Text == other.Text
     }
 }
-impl ::std::cmp::Eq for MESSAGE_RESOURCE_ENTRY {}
+impl ::core::cmp::Eq for MESSAGE_RESOURCE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const METRICS_USEDEFAULT: i32 = -1i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MINIMIZEDMETRICS {
@@ -8174,34 +8174,34 @@ pub struct MINIMIZEDMETRICS {
     pub iArrange: MINIMIZEDMETRICS_ARRANGE,
 }
 impl MINIMIZEDMETRICS {}
-impl ::std::default::Default for MINIMIZEDMETRICS {
+impl ::core::default::Default for MINIMIZEDMETRICS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MINIMIZEDMETRICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MINIMIZEDMETRICS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MINIMIZEDMETRICS").field("cbSize", &self.cbSize).field("iWidth", &self.iWidth).field("iHorzGap", &self.iHorzGap).field("iVertGap", &self.iVertGap).field("iArrange", &self.iArrange).finish()
     }
 }
-impl ::std::cmp::PartialEq for MINIMIZEDMETRICS {
+impl ::core::cmp::PartialEq for MINIMIZEDMETRICS {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iWidth == other.iWidth && self.iHorzGap == other.iHorzGap && self.iVertGap == other.iVertGap && self.iArrange == other.iArrange
     }
 }
-impl ::std::cmp::Eq for MINIMIZEDMETRICS {}
+impl ::core::cmp::Eq for MINIMIZEDMETRICS {}
 unsafe impl ::windows::runtime::Abi for MINIMIZEDMETRICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
 pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
 pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
 pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
 pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
-impl ::std::convert::From<i32> for MINIMIZEDMETRICS_ARRANGE {
+impl ::core::convert::From<i32> for MINIMIZEDMETRICS_ARRANGE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8211,7 +8211,7 @@ unsafe impl ::windows::runtime::Abi for MINIMIZEDMETRICS_ARRANGE {
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -8225,25 +8225,25 @@ pub struct MINMAXINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl MINMAXINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MINMAXINFO {
+impl ::core::default::Default for MINMAXINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MINMAXINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MINMAXINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MINMAXINFO").field("ptReserved", &self.ptReserved).field("ptMaxSize", &self.ptMaxSize).field("ptMaxPosition", &self.ptMaxPosition).field("ptMinTrackSize", &self.ptMinTrackSize).field("ptMaxTrackSize", &self.ptMaxTrackSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MINMAXINFO {
+impl ::core::cmp::PartialEq for MINMAXINFO {
     fn eq(&self, other: &Self) -> bool {
         self.ptReserved == other.ptReserved && self.ptMaxSize == other.ptMaxSize && self.ptMaxPosition == other.ptMaxPosition && self.ptMinTrackSize == other.ptMinTrackSize && self.ptMaxTrackSize == other.ptMaxTrackSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MINMAXINFO {}
+impl ::core::cmp::Eq for MINMAXINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MINMAXINFO {
     type Abi = Self;
@@ -8310,7 +8310,7 @@ pub const MNGO_NOINTERFACE: u32 = 0u32;
 pub const MN_GETHMENU: u32 = 481u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MONITORINFOF_PRIMARY: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -8323,30 +8323,30 @@ pub struct MOUSEHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl MOUSEHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MOUSEHOOKSTRUCT {
+impl ::core::default::Default for MOUSEHOOKSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MOUSEHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSEHOOKSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MOUSEHOOKSTRUCT").field("pt", &self.pt).field("hwnd", &self.hwnd).field("wHitTestCode", &self.wHitTestCode).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MOUSEHOOKSTRUCT {
+impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.pt == other.pt && self.hwnd == other.hwnd && self.wHitTestCode == other.wHitTestCode && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MOUSEHOOKSTRUCT {}
+impl ::core::cmp::Eq for MOUSEHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -8357,36 +8357,36 @@ pub struct MOUSEHOOKSTRUCTEX {
 #[cfg(feature = "Win32_Foundation")]
 impl MOUSEHOOKSTRUCTEX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MOUSEHOOKSTRUCTEX {
+impl ::core::default::Default for MOUSEHOOKSTRUCTEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MOUSEHOOKSTRUCTEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSEHOOKSTRUCTEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MOUSEHOOKSTRUCTEX").field("__AnonymousBase_winuser_L1166_C46", &self.__AnonymousBase_winuser_L1166_C46).field("mouseData", &self.mouseData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MOUSEHOOKSTRUCTEX {
+impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCTEX {
     fn eq(&self, other: &Self) -> bool {
         self.__AnonymousBase_winuser_L1166_C46 == other.__AnonymousBase_winuser_L1166_C46 && self.mouseData == other.mouseData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MOUSEHOOKSTRUCTEX {}
+impl ::core::cmp::Eq for MOUSEHOOKSTRUCTEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCTEX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
 pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(1u32);
 pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(2u32);
-impl ::std::convert::From<u32> for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+impl ::core::convert::From<u32> for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -8394,29 +8394,29 @@ impl ::std::convert::From<u32> for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
 unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+impl ::core::ops::BitOr for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+impl ::core::ops::BitAnd for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+impl ::core::ops::BitOrAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+impl ::core::ops::BitAndAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+impl ::core::ops::Not for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -8428,7 +8428,7 @@ pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -8443,25 +8443,25 @@ pub struct MSG {
 #[cfg(feature = "Win32_Foundation")]
 impl MSG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MSG {
+impl ::core::default::Default for MSG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MSG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSG").field("hwnd", &self.hwnd).field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).field("time", &self.time).field("pt", &self.pt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MSG {
+impl ::core::cmp::PartialEq for MSG {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam && self.time == other.time && self.pt == other.pt
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MSG {}
+impl ::core::cmp::Eq for MSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSG {
     type Abi = Self;
@@ -8469,7 +8469,7 @@ unsafe impl ::windows::runtime::Abi for MSG {
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO);
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
@@ -8482,20 +8482,20 @@ pub struct MSGBOXPARAMSA {
     pub dwStyle: MESSAGEBOX_STYLE,
     pub lpszIcon: super::super::Foundation::PSTR,
     pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: ::std::option::Option<MSGBOXCALLBACK>,
+    pub lpfnMsgBoxCallback: ::core::option::Option<MSGBOXCALLBACK>,
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl MSGBOXPARAMSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::default::Default for MSGBOXPARAMSA {
+impl ::core::default::Default for MSGBOXPARAMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::fmt::Debug for MSGBOXPARAMSA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSGBOXPARAMSA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSGBOXPARAMSA")
             .field("cbSize", &self.cbSize)
             .field("hwndOwner", &self.hwndOwner)
@@ -8510,18 +8510,18 @@ impl ::std::fmt::Debug for MSGBOXPARAMSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::cmp::PartialEq for MSGBOXPARAMSA {
+impl ::core::cmp::PartialEq for MSGBOXPARAMSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.lpszText == other.lpszText && self.lpszCaption == other.lpszCaption && self.dwStyle == other.dwStyle && self.lpszIcon == other.lpszIcon && self.dwContextHelpId == other.dwContextHelpId && self.lpfnMsgBoxCallback.map(|f| f as usize) == other.lpfnMsgBoxCallback.map(|f| f as usize) && self.dwLanguageId == other.dwLanguageId
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::cmp::Eq for MSGBOXPARAMSA {}
+impl ::core::cmp::Eq for MSGBOXPARAMSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::runtime::Abi for MSGBOXPARAMSA {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
@@ -8534,20 +8534,20 @@ pub struct MSGBOXPARAMSW {
     pub dwStyle: MESSAGEBOX_STYLE,
     pub lpszIcon: super::super::Foundation::PWSTR,
     pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: ::std::option::Option<MSGBOXCALLBACK>,
+    pub lpfnMsgBoxCallback: ::core::option::Option<MSGBOXCALLBACK>,
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl MSGBOXPARAMSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::default::Default for MSGBOXPARAMSW {
+impl ::core::default::Default for MSGBOXPARAMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::fmt::Debug for MSGBOXPARAMSW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSGBOXPARAMSW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSGBOXPARAMSW")
             .field("cbSize", &self.cbSize)
             .field("hwndOwner", &self.hwndOwner)
@@ -8562,26 +8562,26 @@ impl ::std::fmt::Debug for MSGBOXPARAMSW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::cmp::PartialEq for MSGBOXPARAMSW {
+impl ::core::cmp::PartialEq for MSGBOXPARAMSW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.lpszText == other.lpszText && self.lpszCaption == other.lpszCaption && self.dwStyle == other.dwStyle && self.lpszIcon == other.lpszIcon && self.dwContextHelpId == other.dwContextHelpId && self.lpfnMsgBoxCallback.map(|f| f as usize) == other.lpfnMsgBoxCallback.map(|f| f as usize) && self.dwLanguageId == other.dwLanguageId
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::std::cmp::Eq for MSGBOXPARAMSW {}
+impl ::core::cmp::Eq for MSGBOXPARAMSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::runtime::Abi for MSGBOXPARAMSW {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSGFLTINFO_STATUS(pub u32);
 pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
 pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
 pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
 pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
-impl ::std::convert::From<u32> for MSGFLTINFO_STATUS {
+impl ::core::convert::From<u32> for MSGFLTINFO_STATUS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -8589,29 +8589,29 @@ impl ::std::convert::From<u32> for MSGFLTINFO_STATUS {
 unsafe impl ::windows::runtime::Abi for MSGFLTINFO_STATUS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MSGFLTINFO_STATUS {
+impl ::core::ops::BitOr for MSGFLTINFO_STATUS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MSGFLTINFO_STATUS {
+impl ::core::ops::BitAnd for MSGFLTINFO_STATUS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MSGFLTINFO_STATUS {
+impl ::core::ops::BitOrAssign for MSGFLTINFO_STATUS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MSGFLTINFO_STATUS {
+impl ::core::ops::BitAndAssign for MSGFLTINFO_STATUS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MSGFLTINFO_STATUS {
+impl ::core::ops::Not for MSGFLTINFO_STATUS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -8631,7 +8631,7 @@ pub const MSGF_NEXTWINDOW: u32 = 6u32;
 pub const MSGF_SCROLLBAR: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_USER: u32 = 4096u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -8645,25 +8645,25 @@ pub struct MSLLHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl MSLLHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MSLLHOOKSTRUCT {
+impl ::core::default::Default for MSLLHOOKSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MSLLHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSLLHOOKSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSLLHOOKSTRUCT").field("pt", &self.pt).field("mouseData", &self.mouseData).field("flags", &self.flags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MSLLHOOKSTRUCT {
+impl ::core::cmp::PartialEq for MSLLHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.pt == other.pt && self.mouseData == other.mouseData && self.flags == other.flags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MSLLHOOKSTRUCT {}
+impl ::core::cmp::Eq for MSLLHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSLLHOOKSTRUCT {
     type Abi = Self;
@@ -8678,7 +8678,7 @@ pub unsafe fn MapDialogRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn MapDialogRect(hdlg: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MapDialogRect(hdlg.into_param().abi(), ::std::mem::transmute(lprect)))
+        ::core::mem::transmute(MapDialogRect(hdlg.into_param().abi(), ::core::mem::transmute(lprect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8693,7 +8693,7 @@ pub unsafe fn MenuItemFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn MenuItemFromPoint(hwnd: super::super::Foundation::HWND, hmenu: HMENU, ptscreen: super::super::Foundation::POINT) -> i32;
         }
-        ::std::mem::transmute(MenuItemFromPoint(hwnd.into_param().abi(), hmenu.into_param().abi(), ptscreen.into_param().abi()))
+        ::core::mem::transmute(MenuItemFromPoint(hwnd.into_param().abi(), hmenu.into_param().abi(), ptscreen.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8708,7 +8708,7 @@ pub unsafe fn MessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn MessageBoxA(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PSTR, lpcaption: super::super::Foundation::PSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
         }
-        ::std::mem::transmute(MessageBoxA(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::std::mem::transmute(utype)))
+        ::core::mem::transmute(MessageBoxA(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::core::mem::transmute(utype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8723,7 +8723,7 @@ pub unsafe fn MessageBoxExA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn MessageBoxExA(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PSTR, lpcaption: super::super::Foundation::PSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
         }
-        ::std::mem::transmute(MessageBoxExA(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::std::mem::transmute(utype), ::std::mem::transmute(wlanguageid)))
+        ::core::mem::transmute(MessageBoxExA(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::core::mem::transmute(utype), ::core::mem::transmute(wlanguageid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8738,7 +8738,7 @@ pub unsafe fn MessageBoxExW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn MessageBoxExW(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PWSTR, lpcaption: super::super::Foundation::PWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
         }
-        ::std::mem::transmute(MessageBoxExW(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::std::mem::transmute(utype), ::std::mem::transmute(wlanguageid)))
+        ::core::mem::transmute(MessageBoxExW(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::core::mem::transmute(utype), ::core::mem::transmute(wlanguageid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8751,9 +8751,9 @@ pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RES
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MessageBoxIndirectA(lpmbp: *const ::std::mem::ManuallyDrop<MSGBOXPARAMSA>) -> MESSAGEBOX_RESULT;
+            fn MessageBoxIndirectA(lpmbp: *const ::core::mem::ManuallyDrop<MSGBOXPARAMSA>) -> MESSAGEBOX_RESULT;
         }
-        ::std::mem::transmute(MessageBoxIndirectA(::std::mem::transmute(lpmbp)))
+        ::core::mem::transmute(MessageBoxIndirectA(::core::mem::transmute(lpmbp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8766,9 +8766,9 @@ pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RES
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MessageBoxIndirectW(lpmbp: *const ::std::mem::ManuallyDrop<MSGBOXPARAMSW>) -> MESSAGEBOX_RESULT;
+            fn MessageBoxIndirectW(lpmbp: *const ::core::mem::ManuallyDrop<MSGBOXPARAMSW>) -> MESSAGEBOX_RESULT;
         }
-        ::std::mem::transmute(MessageBoxIndirectW(::std::mem::transmute(lpmbp)))
+        ::core::mem::transmute(MessageBoxIndirectW(::core::mem::transmute(lpmbp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8783,7 +8783,7 @@ pub unsafe fn MessageBoxW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn MessageBoxW(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PWSTR, lpcaption: super::super::Foundation::PWSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
         }
-        ::std::mem::transmute(MessageBoxW(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::std::mem::transmute(utype)))
+        ::core::mem::transmute(MessageBoxW(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), ::core::mem::transmute(utype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8798,7 +8798,7 @@ pub unsafe fn ModifyMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn ModifyMenuA(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ModifyMenuA(hmnu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags), ::std::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
+        ::core::mem::transmute(ModifyMenuA(hmnu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags), ::core::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8813,7 +8813,7 @@ pub unsafe fn ModifyMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
         extern "system" {
             fn ModifyMenuW(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ModifyMenuW(hmnu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags), ::std::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
+        ::core::mem::transmute(ModifyMenuW(hmnu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags), ::core::mem::transmute(uidnewitem), lpnewitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8828,7 +8828,7 @@ pub unsafe fn MoveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn MoveWindow(hwnd: super::super::Foundation::HWND, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveWindow(hwnd.into_param().abi(), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), brepaint.into_param().abi()))
+        ::core::mem::transmute(MoveWindow(hwnd.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), brepaint.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8843,7 +8843,7 @@ pub unsafe fn MrmCreateConfig<'a, Param1: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateConfig(::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), outputxmlfile.into_param().abi()).ok()
+        MrmCreateConfig(::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), outputxmlfile.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8858,7 +8858,7 @@ pub unsafe fn MrmCreateConfigInMemory<'a, Param1: ::windows::runtime::IntoParam<
         extern "system" {
             fn MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateConfigInMemory(::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::std::mem::transmute(outputxmldata), ::std::mem::transmute(outputxmlsize)).ok()
+        MrmCreateConfigInMemory(::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::core::mem::transmute(outputxmldata), ::core::mem::transmute(outputxmlsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8873,7 +8873,7 @@ pub unsafe fn MrmCreateResourceFile<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceFile(indexer.into_param().abi(), ::std::mem::transmute(packagingmode), ::std::mem::transmute(packagingoptions), outputdirectory.into_param().abi()).ok()
+        MrmCreateResourceFile(indexer.into_param().abi(), ::core::mem::transmute(packagingmode), ::core::mem::transmute(packagingoptions), outputdirectory.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8887,7 +8887,7 @@ pub unsafe fn MrmCreateResourceFileInMemory<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceFileInMemory(indexer.into_param().abi(), ::std::mem::transmute(packagingmode), ::std::mem::transmute(packagingoptions), ::std::mem::transmute(outputpridata), ::std::mem::transmute(outputprisize)).ok()
+        MrmCreateResourceFileInMemory(indexer.into_param().abi(), ::core::mem::transmute(packagingmode), ::core::mem::transmute(packagingoptions), ::core::mem::transmute(outputpridata), ::core::mem::transmute(outputprisize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8902,7 +8902,7 @@ pub unsafe fn MrmCreateResourceFileWithChecksum<'a, Param0: ::windows::runtime::
         extern "system" {
             fn MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceFileWithChecksum(indexer.into_param().abi(), ::std::mem::transmute(packagingmode), ::std::mem::transmute(packagingoptions), ::std::mem::transmute(checksum), outputdirectory.into_param().abi()).ok()
+        MrmCreateResourceFileWithChecksum(indexer.into_param().abi(), ::core::mem::transmute(packagingmode), ::core::mem::transmute(packagingoptions), ::core::mem::transmute(checksum), outputdirectory.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8917,7 +8917,7 @@ pub unsafe fn MrmCreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn MrmCreateResourceIndexer(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceIndexer(packagefamilyname.into_param().abi(), projectroot.into_param().abi(), ::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::std::mem::transmute(indexer)).ok()
+        MrmCreateResourceIndexer(packagefamilyname.into_param().abi(), projectroot.into_param().abi(), ::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::core::mem::transmute(indexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8932,7 +8932,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<'a, Param0: ::windows:
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousPriData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, pridata: *const u8, prisize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceIndexerFromPreviousPriData(projectroot.into_param().abi(), ::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::std::mem::transmute(pridata), ::std::mem::transmute(prisize), ::std::mem::transmute(indexer)).ok()
+        MrmCreateResourceIndexerFromPreviousPriData(projectroot.into_param().abi(), ::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::core::mem::transmute(pridata), ::core::mem::transmute(prisize), ::core::mem::transmute(indexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8947,7 +8947,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<'a, Param0: ::windows:
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousPriFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, prifile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceIndexerFromPreviousPriFile(projectroot.into_param().abi(), ::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), prifile.into_param().abi(), ::std::mem::transmute(indexer)).ok()
+        MrmCreateResourceIndexerFromPreviousPriFile(projectroot.into_param().abi(), ::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), prifile.into_param().abi(), ::core::mem::transmute(indexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8962,7 +8962,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<'a, Param0: ::windo
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemaxmldata: *const u8, schemaxmlsize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.into_param().abi(), ::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::std::mem::transmute(schemaxmldata), ::std::mem::transmute(schemaxmlsize), ::std::mem::transmute(indexer)).ok()
+        MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.into_param().abi(), ::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::core::mem::transmute(schemaxmldata), ::core::mem::transmute(schemaxmlsize), ::core::mem::transmute(indexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8977,7 +8977,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<'a, Param0: ::windo
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemafile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.into_param().abi(), ::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), schemafile.into_param().abi(), ::std::mem::transmute(indexer)).ok()
+        MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.into_param().abi(), ::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), schemafile.into_param().abi(), ::core::mem::transmute(indexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8992,7 +8992,7 @@ pub unsafe fn MrmCreateResourceIndexerWithFlags<'a, Param0: ::windows::runtime::
         extern "system" {
             fn MrmCreateResourceIndexerWithFlags(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::HRESULT;
         }
-        MrmCreateResourceIndexerWithFlags(packagefamilyname.into_param().abi(), projectroot.into_param().abi(), ::std::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(indexer)).ok()
+        MrmCreateResourceIndexerWithFlags(packagefamilyname.into_param().abi(), projectroot.into_param().abi(), ::core::mem::transmute(platformversion), defaultqualifiers.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(indexer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9020,7 +9020,7 @@ pub unsafe fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32,
         extern "system" {
             fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32, schemapridata: *const u8, schemaprisize: u32, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        MrmDumpPriDataInMemory(::std::mem::transmute(inputpridata), ::std::mem::transmute(inputprisize), ::std::mem::transmute(schemapridata), ::std::mem::transmute(schemaprisize), ::std::mem::transmute(dumptype), ::std::mem::transmute(outputxmldata), ::std::mem::transmute(outputxmlsize)).ok()
+        MrmDumpPriDataInMemory(::core::mem::transmute(inputpridata), ::core::mem::transmute(inputprisize), ::core::mem::transmute(schemapridata), ::core::mem::transmute(schemaprisize), ::core::mem::transmute(dumptype), ::core::mem::transmute(outputxmldata), ::core::mem::transmute(outputxmlsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9035,7 +9035,7 @@ pub unsafe fn MrmDumpPriFile<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn MrmDumpPriFile(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        MrmDumpPriFile(indexfilename.into_param().abi(), schemaprifile.into_param().abi(), ::std::mem::transmute(dumptype), outputxmlfile.into_param().abi()).ok()
+        MrmDumpPriFile(indexfilename.into_param().abi(), schemaprifile.into_param().abi(), ::core::mem::transmute(dumptype), outputxmlfile.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9050,19 +9050,19 @@ pub unsafe fn MrmDumpPriFileInMemory<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn MrmDumpPriFileInMemory(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        MrmDumpPriFileInMemory(indexfilename.into_param().abi(), schemaprifile.into_param().abi(), ::std::mem::transmute(dumptype), ::std::mem::transmute(outputxmldata), ::std::mem::transmute(outputxmlsize)).ok()
+        MrmDumpPriFileInMemory(indexfilename.into_param().abi(), schemaprifile.into_param().abi(), ::core::mem::transmute(dumptype), ::core::mem::transmute(outputxmldata), ::core::mem::transmute(outputxmlsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmDumpType(pub i32);
 pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
 pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
 pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
-impl ::std::convert::From<i32> for MrmDumpType {
+impl ::core::convert::From<i32> for MrmDumpType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9079,7 +9079,7 @@ pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::Result<()> {
         extern "system" {
             fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::HRESULT;
         }
-        MrmFreeMemory(::std::mem::transmute(data)).ok()
+        MrmFreeMemory(::core::mem::transmute(data)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9094,7 +9094,7 @@ pub unsafe fn MrmGetPriFileContentChecksum<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn MrmGetPriFileContentChecksum(prifile: super::super::Foundation::PWSTR, checksum: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         MrmGetPriFileContentChecksum(prifile.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -9110,7 +9110,7 @@ pub unsafe fn MrmIndexEmbeddedData<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, embeddeddata: *const u8, embeddeddatasize: u32, qualifiers: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        MrmIndexEmbeddedData(indexer.into_param().abi(), resourceuri.into_param().abi(), ::std::mem::transmute(embeddeddata), ::std::mem::transmute(embeddeddatasize), qualifiers.into_param().abi()).ok()
+        MrmIndexEmbeddedData(indexer.into_param().abi(), resourceuri.into_param().abi(), ::core::mem::transmute(embeddeddata), ::core::mem::transmute(embeddeddatasize), qualifiers.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9176,13 +9176,13 @@ pub unsafe fn MrmIndexString<'a, Param0: ::windows::runtime::IntoParam<'a, MrmRe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmIndexerFlags(pub i32);
 pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
 pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
 pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
-impl ::std::convert::From<i32> for MrmIndexerFlags {
+impl ::core::convert::From<i32> for MrmIndexerFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9191,13 +9191,13 @@ unsafe impl ::windows::runtime::Abi for MrmIndexerFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmPackagingMode(pub i32);
 pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
 pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
 pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
-impl ::std::convert::From<i32> for MrmPackagingMode {
+impl ::core::convert::From<i32> for MrmPackagingMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9206,13 +9206,13 @@ unsafe impl ::windows::runtime::Abi for MrmPackagingMode {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmPackagingOptions(pub i32);
 pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
 pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
 pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
-impl ::std::convert::From<i32> for MrmPackagingOptions {
+impl ::core::convert::From<i32> for MrmPackagingOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9230,19 +9230,19 @@ pub unsafe fn MrmPeekResourceIndexerMessages<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        MrmPeekResourceIndexerMessages(handle.into_param().abi(), ::std::mem::transmute(messages), ::std::mem::transmute(nummsgs)).ok()
+        MrmPeekResourceIndexerMessages(handle.into_param().abi(), ::core::mem::transmute(messages), ::core::mem::transmute(nummsgs)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmPlatformVersion(pub i32);
 pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
 pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
 pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
-impl ::std::convert::From<i32> for MrmPlatformVersion {
+impl ::core::convert::From<i32> for MrmPlatformVersion {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9250,33 +9250,33 @@ impl ::std::convert::From<i32> for MrmPlatformVersion {
 unsafe impl ::windows::runtime::Abi for MrmPlatformVersion {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MrmResourceIndexerHandle {
-    pub handle: *mut ::std::ffi::c_void,
+    pub handle: *mut ::core::ffi::c_void,
 }
 impl MrmResourceIndexerHandle {}
-impl ::std::default::Default for MrmResourceIndexerHandle {
+impl ::core::default::Default for MrmResourceIndexerHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MrmResourceIndexerHandle {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MrmResourceIndexerHandle {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MrmResourceIndexerHandle").field("handle", &self.handle).finish()
     }
 }
-impl ::std::cmp::PartialEq for MrmResourceIndexerHandle {
+impl ::core::cmp::PartialEq for MrmResourceIndexerHandle {
     fn eq(&self, other: &Self) -> bool {
         self.handle == other.handle
     }
 }
-impl ::std::cmp::Eq for MrmResourceIndexerHandle {}
+impl ::core::cmp::Eq for MrmResourceIndexerHandle {}
 unsafe impl ::windows::runtime::Abi for MrmResourceIndexerHandle {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -9288,38 +9288,38 @@ pub struct MrmResourceIndexerMessage {
 #[cfg(feature = "Win32_Foundation")]
 impl MrmResourceIndexerMessage {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MrmResourceIndexerMessage {
+impl ::core::default::Default for MrmResourceIndexerMessage {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MrmResourceIndexerMessage {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MrmResourceIndexerMessage {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MrmResourceIndexerMessage").field("severity", &self.severity).field("id", &self.id).field("text", &self.text).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MrmResourceIndexerMessage {
+impl ::core::cmp::PartialEq for MrmResourceIndexerMessage {
     fn eq(&self, other: &Self) -> bool {
         self.severity == other.severity && self.id == other.id && self.text == other.text
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MrmResourceIndexerMessage {}
+impl ::core::cmp::Eq for MrmResourceIndexerMessage {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MrmResourceIndexerMessage {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmResourceIndexerMessageSeverity(pub i32);
 pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(0i32);
 pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
 pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
-impl ::std::convert::From<i32> for MrmResourceIndexerMessageSeverity {
+impl ::core::convert::From<i32> for MrmResourceIndexerMessageSeverity {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9333,7 +9333,7 @@ pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundat
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -9344,25 +9344,25 @@ pub struct NCCALCSIZE_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl NCCALCSIZE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NCCALCSIZE_PARAMS {
+impl ::core::default::Default for NCCALCSIZE_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NCCALCSIZE_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NCCALCSIZE_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NCCALCSIZE_PARAMS").field("rgrc", &self.rgrc).field("lppos", &self.lppos).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NCCALCSIZE_PARAMS {
+impl ::core::cmp::PartialEq for NCCALCSIZE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.rgrc == other.rgrc && self.lppos == other.lppos
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NCCALCSIZE_PARAMS {}
+impl ::core::cmp::Eq for NCCALCSIZE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCCALCSIZE_PARAMS {
     type Abi = Self;
@@ -9387,7 +9387,7 @@ pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
 pub const NID_MULTI_INPUT: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_READY: u32 = 128u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -9412,14 +9412,14 @@ pub struct NONCLIENTMETRICSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl NONCLIENTMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for NONCLIENTMETRICSA {
+impl ::core::default::Default for NONCLIENTMETRICSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for NONCLIENTMETRICSA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NONCLIENTMETRICSA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NONCLIENTMETRICSA")
             .field("cbSize", &self.cbSize)
             .field("iBorderWidth", &self.iBorderWidth)
@@ -9441,7 +9441,7 @@ impl ::std::fmt::Debug for NONCLIENTMETRICSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for NONCLIENTMETRICSA {
+impl ::core::cmp::PartialEq for NONCLIENTMETRICSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
             && self.iBorderWidth == other.iBorderWidth
@@ -9462,12 +9462,12 @@ impl ::std::cmp::PartialEq for NONCLIENTMETRICSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for NONCLIENTMETRICSA {}
+impl ::core::cmp::Eq for NONCLIENTMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for NONCLIENTMETRICSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
@@ -9492,14 +9492,14 @@ pub struct NONCLIENTMETRICSW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl NONCLIENTMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for NONCLIENTMETRICSW {
+impl ::core::default::Default for NONCLIENTMETRICSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for NONCLIENTMETRICSW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NONCLIENTMETRICSW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NONCLIENTMETRICSW")
             .field("cbSize", &self.cbSize)
             .field("iBorderWidth", &self.iBorderWidth)
@@ -9521,7 +9521,7 @@ impl ::std::fmt::Debug for NONCLIENTMETRICSW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for NONCLIENTMETRICSW {
+impl ::core::cmp::PartialEq for NONCLIENTMETRICSW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
             && self.iBorderWidth == other.iBorderWidth
@@ -9542,13 +9542,13 @@ impl ::std::cmp::PartialEq for NONCLIENTMETRICSW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for NONCLIENTMETRICSW {}
+impl ::core::cmp::Eq for NONCLIENTMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for NONCLIENTMETRICSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OBJECT_IDENTIFIER(pub i32);
 pub const OBJID_WINDOW: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(0i32);
@@ -9565,7 +9565,7 @@ pub const OBJID_ALERT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-10i32);
 pub const OBJID_SOUND: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-11i32);
 pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-12i32);
 pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-16i32);
-impl ::std::convert::From<i32> for OBJECT_IDENTIFIER {
+impl ::core::convert::From<i32> for OBJECT_IDENTIFIER {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9707,7 +9707,7 @@ pub unsafe fn OemToCharA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn OemToCharA(psrc: super::super::Foundation::PSTR, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OemToCharA(psrc.into_param().abi(), ::std::mem::transmute(pdst)))
+        ::core::mem::transmute(OemToCharA(psrc.into_param().abi(), ::core::mem::transmute(pdst)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9722,7 +9722,7 @@ pub unsafe fn OemToCharBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn OemToCharBuffA(lpszsrc: super::super::Foundation::PSTR, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OemToCharBuffA(lpszsrc.into_param().abi(), ::std::mem::transmute(lpszdst), ::std::mem::transmute(cchdstlength)))
+        ::core::mem::transmute(OemToCharBuffA(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst), ::core::mem::transmute(cchdstlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9737,7 +9737,7 @@ pub unsafe fn OemToCharBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn OemToCharBuffW(lpszsrc: super::super::Foundation::PSTR, lpszdst: super::super::Foundation::PWSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OemToCharBuffW(lpszsrc.into_param().abi(), ::std::mem::transmute(lpszdst), ::std::mem::transmute(cchdstlength)))
+        ::core::mem::transmute(OemToCharBuffW(lpszsrc.into_param().abi(), ::core::mem::transmute(lpszdst), ::core::mem::transmute(cchdstlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9752,7 +9752,7 @@ pub unsafe fn OemToCharW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn OemToCharW(psrc: super::super::Foundation::PSTR, pdst: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OemToCharW(psrc.into_param().abi(), ::std::mem::transmute(pdst)))
+        ::core::mem::transmute(OemToCharW(psrc.into_param().abi(), ::core::mem::transmute(pdst)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9767,7 +9767,7 @@ pub unsafe fn OpenIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn OpenIcon(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OpenIcon(hwnd.into_param().abi()))
+        ::core::mem::transmute(OpenIcon(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9831,7 +9831,7 @@ pub const PDC_REMOVAL: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_RESOLUTION: u32 = 512u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
 pub const PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(0u32);
@@ -9841,7 +9841,7 @@ pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(67567
 pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(9961472u32);
 pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2097152u32);
 pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(4194304u32);
-impl ::std::convert::From<u32> for PEEK_MESSAGE_REMOVE_TYPE {
+impl ::core::convert::From<u32> for PEEK_MESSAGE_REMOVE_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -9849,29 +9849,29 @@ impl ::std::convert::From<u32> for PEEK_MESSAGE_REMOVE_TYPE {
 unsafe impl ::windows::runtime::Abi for PEEK_MESSAGE_REMOVE_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
+impl ::core::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for PEEK_MESSAGE_REMOVE_TYPE {
+impl ::core::ops::BitAnd for PEEK_MESSAGE_REMOVE_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for PEEK_MESSAGE_REMOVE_TYPE {
+impl ::core::ops::BitOrAssign for PEEK_MESSAGE_REMOVE_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for PEEK_MESSAGE_REMOVE_TYPE {
+impl ::core::ops::BitAndAssign for PEEK_MESSAGE_REMOVE_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
+impl ::core::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -9920,7 +9920,7 @@ pub const PMB_ACTIVE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POINTER_INPUT_TYPE(pub i32);
 pub const PT_POINTER: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(1i32);
@@ -9928,7 +9928,7 @@ pub const PT_TOUCH: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(2i32);
 pub const PT_PEN: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(3i32);
 pub const PT_MOUSE: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(4i32);
 pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(5i32);
-impl ::std::convert::From<i32> for POINTER_INPUT_TYPE {
+impl ::core::convert::From<i32> for POINTER_INPUT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10011,7 +10011,7 @@ pub unsafe fn PeekMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn PeekMessageA(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PeekMessageA(::std::mem::transmute(lpmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax), ::std::mem::transmute(wremovemsg)))
+        ::core::mem::transmute(PeekMessageA(::core::mem::transmute(lpmsg), hwnd.into_param().abi(), ::core::mem::transmute(wmsgfiltermin), ::core::mem::transmute(wmsgfiltermax), ::core::mem::transmute(wremovemsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10026,7 +10026,7 @@ pub unsafe fn PeekMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn PeekMessageW(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PeekMessageW(::std::mem::transmute(lpmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax), ::std::mem::transmute(wremovemsg)))
+        ::core::mem::transmute(PeekMessageW(::core::mem::transmute(lpmsg), hwnd.into_param().abi(), ::core::mem::transmute(wmsgfiltermin), ::core::mem::transmute(wmsgfiltermax), ::core::mem::transmute(wremovemsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10041,7 +10041,7 @@ pub unsafe fn PhysicalToLogicalPoint<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn PhysicalToLogicalPoint(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PhysicalToLogicalPoint(hwnd.into_param().abi(), ::std::mem::transmute(lppoint)))
+        ::core::mem::transmute(PhysicalToLogicalPoint(hwnd.into_param().abi(), ::core::mem::transmute(lppoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10056,7 +10056,7 @@ pub unsafe fn PostMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn PostMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PostMessageA(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(PostMessageA(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10071,7 +10071,7 @@ pub unsafe fn PostMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn PostMessageW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PostMessageW(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(PostMessageW(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10085,7 +10085,7 @@ pub unsafe fn PostQuitMessage(nexitcode: i32) {
         extern "system" {
             fn PostQuitMessage(nexitcode: i32);
         }
-        ::std::mem::transmute(PostQuitMessage(::std::mem::transmute(nexitcode)))
+        ::core::mem::transmute(PostQuitMessage(::core::mem::transmute(nexitcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10100,7 +10100,7 @@ pub unsafe fn PostThreadMessageA<'a, Param2: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn PostThreadMessageA(idthread: u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PostThreadMessageA(::std::mem::transmute(idthread), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(PostThreadMessageA(::core::mem::transmute(idthread), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10115,7 +10115,7 @@ pub unsafe fn PostThreadMessageW<'a, Param2: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn PostThreadMessageW(idthread: u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PostThreadMessageW(::std::mem::transmute(idthread), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(PostThreadMessageW(::core::mem::transmute(idthread), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10130,7 +10130,7 @@ pub unsafe fn PrivateExtractIconsA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn PrivateExtractIconsA(szfilename: super::super::Foundation::PSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
         }
-        ::std::mem::transmute(PrivateExtractIconsA(szfilename.into_param().abi(), ::std::mem::transmute(niconindex), ::std::mem::transmute(cxicon), ::std::mem::transmute(cyicon), ::std::mem::transmute(phicon), ::std::mem::transmute(piconid), ::std::mem::transmute(nicons), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(PrivateExtractIconsA(szfilename.into_param().abi(), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10145,7 +10145,7 @@ pub unsafe fn PrivateExtractIconsW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn PrivateExtractIconsW(szfilename: super::super::Foundation::PWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
         }
-        ::std::mem::transmute(PrivateExtractIconsW(szfilename.into_param().abi(), ::std::mem::transmute(niconindex), ::std::mem::transmute(cxicon), ::std::mem::transmute(cyicon), ::std::mem::transmute(phicon), ::std::mem::transmute(piconid), ::std::mem::transmute(nicons), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(PrivateExtractIconsW(szfilename.into_param().abi(), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10155,7 +10155,7 @@ pub const QS_POINTER: u32 = 4096u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const QS_TOUCH: u32 = 2048u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUEUE_STATUS_FLAGS(pub u32);
 pub const QS_ALLEVENTS: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1215u32);
@@ -10172,7 +10172,7 @@ pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(8u32);
 pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1024u32);
 pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(64u32);
 pub const QS_TIMER: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(16u32);
-impl ::std::convert::From<u32> for QUEUE_STATUS_FLAGS {
+impl ::core::convert::From<u32> for QUEUE_STATUS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10180,29 +10180,29 @@ impl ::std::convert::From<u32> for QUEUE_STATUS_FLAGS {
 unsafe impl ::windows::runtime::Abi for QUEUE_STATUS_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for QUEUE_STATUS_FLAGS {
+impl ::core::ops::BitOr for QUEUE_STATUS_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for QUEUE_STATUS_FLAGS {
+impl ::core::ops::BitAnd for QUEUE_STATUS_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for QUEUE_STATUS_FLAGS {
+impl ::core::ops::BitOrAssign for QUEUE_STATUS_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for QUEUE_STATUS_FLAGS {
+impl ::core::ops::BitAndAssign for QUEUE_STATUS_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for QUEUE_STATUS_FLAGS {
+impl ::core::ops::Not for QUEUE_STATUS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -10328,7 +10328,7 @@ pub unsafe fn RealChildWindowFromPoint<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn RealChildWindowFromPoint(hwndparent: super::super::Foundation::HWND, ptparentclientcoords: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(RealChildWindowFromPoint(hwndparent.into_param().abi(), ptparentclientcoords.into_param().abi()))
+        ::core::mem::transmute(RealChildWindowFromPoint(hwndparent.into_param().abi(), ptparentclientcoords.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10343,7 +10343,7 @@ pub unsafe fn RealGetWindowClassA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn RealGetWindowClassA(hwnd: super::super::Foundation::HWND, ptszclassname: super::super::Foundation::PSTR, cchclassnamemax: u32) -> u32;
         }
-        ::std::mem::transmute(RealGetWindowClassA(hwnd.into_param().abi(), ::std::mem::transmute(ptszclassname), ::std::mem::transmute(cchclassnamemax)))
+        ::core::mem::transmute(RealGetWindowClassA(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname), ::core::mem::transmute(cchclassnamemax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10358,7 +10358,7 @@ pub unsafe fn RealGetWindowClassW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn RealGetWindowClassW(hwnd: super::super::Foundation::HWND, ptszclassname: super::super::Foundation::PWSTR, cchclassnamemax: u32) -> u32;
         }
-        ::std::mem::transmute(RealGetWindowClassW(hwnd.into_param().abi(), ::std::mem::transmute(ptszclassname), ::std::mem::transmute(cchclassnamemax)))
+        ::core::mem::transmute(RealGetWindowClassW(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname), ::core::mem::transmute(cchclassnamemax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10371,9 +10371,9 @@ pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassA(lpwndclass: *const ::std::mem::ManuallyDrop<WNDCLASSA>) -> u16;
+            fn RegisterClassA(lpwndclass: *const ::core::mem::ManuallyDrop<WNDCLASSA>) -> u16;
         }
-        ::std::mem::transmute(RegisterClassA(::std::mem::transmute(lpwndclass)))
+        ::core::mem::transmute(RegisterClassA(::core::mem::transmute(lpwndclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10386,9 +10386,9 @@ pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassExA(param0: *const ::std::mem::ManuallyDrop<WNDCLASSEXA>) -> u16;
+            fn RegisterClassExA(param0: *const ::core::mem::ManuallyDrop<WNDCLASSEXA>) -> u16;
         }
-        ::std::mem::transmute(RegisterClassExA(::std::mem::transmute(param0)))
+        ::core::mem::transmute(RegisterClassExA(::core::mem::transmute(param0)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10401,9 +10401,9 @@ pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassExW(param0: *const ::std::mem::ManuallyDrop<WNDCLASSEXW>) -> u16;
+            fn RegisterClassExW(param0: *const ::core::mem::ManuallyDrop<WNDCLASSEXW>) -> u16;
         }
-        ::std::mem::transmute(RegisterClassExW(::std::mem::transmute(param0)))
+        ::core::mem::transmute(RegisterClassExW(::core::mem::transmute(param0)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10416,9 +10416,9 @@ pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterClassW(lpwndclass: *const ::std::mem::ManuallyDrop<WNDCLASSW>) -> u16;
+            fn RegisterClassW(lpwndclass: *const ::core::mem::ManuallyDrop<WNDCLASSW>) -> u16;
         }
-        ::std::mem::transmute(RegisterClassW(::std::mem::transmute(lpwndclass)))
+        ::core::mem::transmute(RegisterClassW(::core::mem::transmute(lpwndclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10433,7 +10433,7 @@ pub unsafe fn RegisterShellHookWindow<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn RegisterShellHookWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterShellHookWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(RegisterShellHookWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10448,7 +10448,7 @@ pub unsafe fn RegisterWindowMessageA<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn RegisterWindowMessageA(lpstring: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(RegisterWindowMessageA(lpstring.into_param().abi()))
+        ::core::mem::transmute(RegisterWindowMessageA(lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10463,7 +10463,7 @@ pub unsafe fn RegisterWindowMessageW<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn RegisterWindowMessageW(lpstring: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(RegisterWindowMessageW(lpstring.into_param().abi()))
+        ::core::mem::transmute(RegisterWindowMessageW(lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10478,7 +10478,7 @@ pub unsafe fn RemoveMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(h
         extern "system" {
             fn RemoveMenu(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveMenu(hmenu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(RemoveMenu(hmenu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10493,7 +10493,7 @@ pub unsafe fn RemovePropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn RemovePropA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(RemovePropA(hwnd.into_param().abi(), lpstring.into_param().abi()))
+        ::core::mem::transmute(RemovePropA(hwnd.into_param().abi(), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10508,7 +10508,7 @@ pub unsafe fn RemovePropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn RemovePropW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(RemovePropW(hwnd.into_param().abi(), lpstring.into_param().abi()))
+        ::core::mem::transmute(RemovePropW(hwnd.into_param().abi(), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10523,7 +10523,7 @@ pub unsafe fn ReplyMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn ReplyMessage(lresult: super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReplyMessage(lresult.into_param().abi()))
+        ::core::mem::transmute(ReplyMessage(lresult.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10598,7 +10598,7 @@ pub const SB_THUMBTRACK: u32 = 5u32;
 pub const SB_TOP: u32 = 6u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SCF_ISSECURE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -10614,14 +10614,14 @@ pub struct SCROLLBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl SCROLLBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SCROLLBARINFO {
+impl ::core::default::Default for SCROLLBARINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SCROLLBARINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SCROLLBARINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SCROLLBARINFO")
             .field("cbSize", &self.cbSize)
             .field("rcScrollBar", &self.rcScrollBar)
@@ -10634,26 +10634,26 @@ impl ::std::fmt::Debug for SCROLLBARINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SCROLLBARINFO {
+impl ::core::cmp::PartialEq for SCROLLBARINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.rcScrollBar == other.rcScrollBar && self.dxyLineButton == other.dxyLineButton && self.xyThumbTop == other.xyThumbTop && self.xyThumbBottom == other.xyThumbBottom && self.reserved == other.reserved && self.rgstate == other.rgstate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SCROLLBARINFO {}
+impl ::core::cmp::Eq for SCROLLBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCROLLBARINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCROLLBAR_CONSTANTS(pub u32);
 pub const SB_CTL: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(2u32);
 pub const SB_HORZ: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(0u32);
 pub const SB_VERT: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(1u32);
 pub const SB_BOTH: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(3u32);
-impl ::std::convert::From<u32> for SCROLLBAR_CONSTANTS {
+impl ::core::convert::From<u32> for SCROLLBAR_CONSTANTS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10661,35 +10661,35 @@ impl ::std::convert::From<u32> for SCROLLBAR_CONSTANTS {
 unsafe impl ::windows::runtime::Abi for SCROLLBAR_CONSTANTS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SCROLLBAR_CONSTANTS {
+impl ::core::ops::BitOr for SCROLLBAR_CONSTANTS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SCROLLBAR_CONSTANTS {
+impl ::core::ops::BitAnd for SCROLLBAR_CONSTANTS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SCROLLBAR_CONSTANTS {
+impl ::core::ops::BitOrAssign for SCROLLBAR_CONSTANTS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SCROLLBAR_CONSTANTS {
+impl ::core::ops::BitAndAssign for SCROLLBAR_CONSTANTS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SCROLLBAR_CONSTANTS {
+impl ::core::ops::Not for SCROLLBAR_CONSTANTS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct SCROLLINFO {
@@ -10702,27 +10702,27 @@ pub struct SCROLLINFO {
     pub nTrackPos: i32,
 }
 impl SCROLLINFO {}
-impl ::std::default::Default for SCROLLINFO {
+impl ::core::default::Default for SCROLLINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SCROLLINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SCROLLINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SCROLLINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("nMin", &self.nMin).field("nMax", &self.nMax).field("nPage", &self.nPage).field("nPos", &self.nPos).field("nTrackPos", &self.nTrackPos).finish()
     }
 }
-impl ::std::cmp::PartialEq for SCROLLINFO {
+impl ::core::cmp::PartialEq for SCROLLINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.fMask == other.fMask && self.nMin == other.nMin && self.nMax == other.nMax && self.nPage == other.nPage && self.nPos == other.nPos && self.nTrackPos == other.nTrackPos
     }
 }
-impl ::std::cmp::Eq for SCROLLINFO {}
+impl ::core::cmp::Eq for SCROLLINFO {}
 unsafe impl ::windows::runtime::Abi for SCROLLINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCROLLINFO_MASK(pub u32);
 pub const SIF_ALL: SCROLLINFO_MASK = SCROLLINFO_MASK(23u32);
@@ -10731,7 +10731,7 @@ pub const SIF_PAGE: SCROLLINFO_MASK = SCROLLINFO_MASK(2u32);
 pub const SIF_POS: SCROLLINFO_MASK = SCROLLINFO_MASK(4u32);
 pub const SIF_RANGE: SCROLLINFO_MASK = SCROLLINFO_MASK(1u32);
 pub const SIF_TRACKPOS: SCROLLINFO_MASK = SCROLLINFO_MASK(16u32);
-impl ::std::convert::From<u32> for SCROLLINFO_MASK {
+impl ::core::convert::From<u32> for SCROLLINFO_MASK {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10739,29 +10739,29 @@ impl ::std::convert::From<u32> for SCROLLINFO_MASK {
 unsafe impl ::windows::runtime::Abi for SCROLLINFO_MASK {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SCROLLINFO_MASK {
+impl ::core::ops::BitOr for SCROLLINFO_MASK {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SCROLLINFO_MASK {
+impl ::core::ops::BitAnd for SCROLLINFO_MASK {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SCROLLINFO_MASK {
+impl ::core::ops::BitOrAssign for SCROLLINFO_MASK {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SCROLLINFO_MASK {
+impl ::core::ops::BitAndAssign for SCROLLINFO_MASK {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SCROLLINFO_MASK {
+impl ::core::ops::Not for SCROLLINFO_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -10813,7 +10813,7 @@ pub const SC_ZOOM: u32 = 61488u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SENDASYNCPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
 pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(2u32);
@@ -10821,7 +10821,7 @@ pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(1u
 pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(0u32);
 pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(8u32);
 pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(32u32);
-impl ::std::convert::From<u32> for SEND_MESSAGE_TIMEOUT_FLAGS {
+impl ::core::convert::From<u32> for SEND_MESSAGE_TIMEOUT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10829,36 +10829,36 @@ impl ::std::convert::From<u32> for SEND_MESSAGE_TIMEOUT_FLAGS {
 unsafe impl ::windows::runtime::Abi for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
+impl ::core::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SEND_MESSAGE_TIMEOUT_FLAGS {
+impl ::core::ops::BitAnd for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
+impl ::core::ops::BitOrAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
+impl ::core::ops::BitAndAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
+impl ::core::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SET_WINDOW_POS_FLAGS(pub u32);
 pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
@@ -10877,7 +10877,7 @@ pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1u32);
 pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(4u32);
 pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(64u32);
 pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-impl ::std::convert::From<u32> for SET_WINDOW_POS_FLAGS {
+impl ::core::convert::From<u32> for SET_WINDOW_POS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10885,35 +10885,35 @@ impl ::std::convert::From<u32> for SET_WINDOW_POS_FLAGS {
 unsafe impl ::windows::runtime::Abi for SET_WINDOW_POS_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SET_WINDOW_POS_FLAGS {
+impl ::core::ops::BitOr for SET_WINDOW_POS_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SET_WINDOW_POS_FLAGS {
+impl ::core::ops::BitAnd for SET_WINDOW_POS_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SET_WINDOW_POS_FLAGS {
+impl ::core::ops::BitOrAssign for SET_WINDOW_POS_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SET_WINDOW_POS_FLAGS {
+impl ::core::ops::BitAndAssign for SET_WINDOW_POS_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SET_WINDOW_POS_FLAGS {
+impl ::core::ops::Not for SET_WINDOW_POS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -10924,25 +10924,25 @@ pub struct SHELLHOOKINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl SHELLHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SHELLHOOKINFO {
+impl ::core::default::Default for SHELLHOOKINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SHELLHOOKINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHELLHOOKINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHELLHOOKINFO").field("hwnd", &self.hwnd).field("rc", &self.rc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SHELLHOOKINFO {
+impl ::core::cmp::PartialEq for SHELLHOOKINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.rc == other.rc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SHELLHOOKINFO {}
+impl ::core::cmp::Eq for SHELLHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHELLHOOKINFO {
     type Abi = Self;
@@ -10956,7 +10956,7 @@ pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_OPENWINDOW: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHOW_WINDOW_CMD(pub u32);
 pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
@@ -10982,7 +10982,7 @@ pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 pub const SW_INVALIDATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
 pub const SW_ERASE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
 pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(16u32);
-impl ::std::convert::From<u32> for SHOW_WINDOW_CMD {
+impl ::core::convert::From<u32> for SHOW_WINDOW_CMD {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10990,29 +10990,29 @@ impl ::std::convert::From<u32> for SHOW_WINDOW_CMD {
 unsafe impl ::windows::runtime::Abi for SHOW_WINDOW_CMD {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SHOW_WINDOW_CMD {
+impl ::core::ops::BitOr for SHOW_WINDOW_CMD {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SHOW_WINDOW_CMD {
+impl ::core::ops::BitAnd for SHOW_WINDOW_CMD {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SHOW_WINDOW_CMD {
+impl ::core::ops::BitOrAssign for SHOW_WINDOW_CMD {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SHOW_WINDOW_CMD {
+impl ::core::ops::BitAndAssign for SHOW_WINDOW_CMD {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SHOW_WINDOW_CMD {
+impl ::core::ops::Not for SHOW_WINDOW_CMD {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -11240,7 +11240,7 @@ pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct STYLESTRUCT {
@@ -11248,27 +11248,27 @@ pub struct STYLESTRUCT {
     pub styleNew: u32,
 }
 impl STYLESTRUCT {}
-impl ::std::default::Default for STYLESTRUCT {
+impl ::core::default::Default for STYLESTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for STYLESTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for STYLESTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("STYLESTRUCT").field("styleOld", &self.styleOld).field("styleNew", &self.styleNew).finish()
     }
 }
-impl ::std::cmp::PartialEq for STYLESTRUCT {
+impl ::core::cmp::PartialEq for STYLESTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.styleOld == other.styleOld && self.styleNew == other.styleNew
     }
 }
-impl ::std::cmp::Eq for STYLESTRUCT {}
+impl ::core::cmp::Eq for STYLESTRUCT {}
 unsafe impl ::windows::runtime::Abi for STYLESTRUCT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_CURSOR_ID(pub u32);
 pub const OCR_APPSTARTING: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32650u32);
@@ -11285,7 +11285,7 @@ pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32642u32);
 pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32644u32);
 pub const OCR_UP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32516u32);
 pub const OCR_WAIT: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32514u32);
-impl ::std::convert::From<u32> for SYSTEM_CURSOR_ID {
+impl ::core::convert::From<u32> for SYSTEM_CURSOR_ID {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11293,36 +11293,36 @@ impl ::std::convert::From<u32> for SYSTEM_CURSOR_ID {
 unsafe impl ::windows::runtime::Abi for SYSTEM_CURSOR_ID {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYSTEM_CURSOR_ID {
+impl ::core::ops::BitOr for SYSTEM_CURSOR_ID {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYSTEM_CURSOR_ID {
+impl ::core::ops::BitAnd for SYSTEM_CURSOR_ID {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYSTEM_CURSOR_ID {
+impl ::core::ops::BitOrAssign for SYSTEM_CURSOR_ID {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYSTEM_CURSOR_ID {
+impl ::core::ops::BitAndAssign for SYSTEM_CURSOR_ID {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYSTEM_CURSOR_ID {
+impl ::core::ops::Not for SYSTEM_CURSOR_ID {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_METRICS_INDEX(pub u32);
 pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(56u32);
@@ -11420,7 +11420,7 @@ pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8196u32)
 pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(86u32);
 pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(76u32);
 pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(77u32);
-impl ::std::convert::From<u32> for SYSTEM_METRICS_INDEX {
+impl ::core::convert::From<u32> for SYSTEM_METRICS_INDEX {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11428,36 +11428,36 @@ impl ::std::convert::From<u32> for SYSTEM_METRICS_INDEX {
 unsafe impl ::windows::runtime::Abi for SYSTEM_METRICS_INDEX {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYSTEM_METRICS_INDEX {
+impl ::core::ops::BitOr for SYSTEM_METRICS_INDEX {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYSTEM_METRICS_INDEX {
+impl ::core::ops::BitAnd for SYSTEM_METRICS_INDEX {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYSTEM_METRICS_INDEX {
+impl ::core::ops::BitOrAssign for SYSTEM_METRICS_INDEX {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYSTEM_METRICS_INDEX {
+impl ::core::ops::BitAndAssign for SYSTEM_METRICS_INDEX {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYSTEM_METRICS_INDEX {
+impl ::core::ops::Not for SYSTEM_METRICS_INDEX {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
 pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(1u32);
@@ -11701,7 +11701,7 @@ pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS
 pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8227u32);
 pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8228u32);
 pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8229u32);
-impl ::std::convert::From<u32> for SYSTEM_PARAMETERS_INFO_ACTION {
+impl ::core::convert::From<u32> for SYSTEM_PARAMETERS_INFO_ACTION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11709,42 +11709,42 @@ impl ::std::convert::From<u32> for SYSTEM_PARAMETERS_INFO_ACTION {
 unsafe impl ::windows::runtime::Abi for SYSTEM_PARAMETERS_INFO_ACTION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
+impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYSTEM_PARAMETERS_INFO_ACTION {
+impl ::core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_ACTION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_ACTION {
+impl ::core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_ACTION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_ACTION {
+impl ::core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_ACTION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
+impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
 pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(1u32);
 pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
 pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
-impl ::std::convert::From<u32> for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+impl ::core::convert::From<u32> for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11752,36 +11752,36 @@ impl ::std::convert::From<u32> for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
 unsafe impl ::windows::runtime::Abi for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+impl ::core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+impl ::core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+impl ::core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYS_COLOR_INDEX(pub u32);
 pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21u32);
@@ -11820,7 +11820,7 @@ pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0u32);
 pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5u32);
 pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6u32);
 pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
-impl ::std::convert::From<u32> for SYS_COLOR_INDEX {
+impl ::core::convert::From<u32> for SYS_COLOR_INDEX {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11828,29 +11828,29 @@ impl ::std::convert::From<u32> for SYS_COLOR_INDEX {
 unsafe impl ::windows::runtime::Abi for SYS_COLOR_INDEX {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYS_COLOR_INDEX {
+impl ::core::ops::BitOr for SYS_COLOR_INDEX {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYS_COLOR_INDEX {
+impl ::core::ops::BitAnd for SYS_COLOR_INDEX {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYS_COLOR_INDEX {
+impl ::core::ops::BitOrAssign for SYS_COLOR_INDEX {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYS_COLOR_INDEX {
+impl ::core::ops::BitAndAssign for SYS_COLOR_INDEX {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYS_COLOR_INDEX {
+impl ::core::ops::Not for SYS_COLOR_INDEX {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -11866,7 +11866,7 @@ pub unsafe fn ScrollDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn ScrollDC(hdc: super::super::Graphics::Gdi::HDC, dx: i32, dy: i32, lprcscroll: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT, hrgnupdate: super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ScrollDC(hdc.into_param().abi(), ::std::mem::transmute(dx), ::std::mem::transmute(dy), ::std::mem::transmute(lprcscroll), ::std::mem::transmute(lprcclip), hrgnupdate.into_param().abi(), ::std::mem::transmute(lprcupdate)))
+        ::core::mem::transmute(ScrollDC(hdc.into_param().abi(), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into_param().abi(), ::core::mem::transmute(lprcupdate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11881,7 +11881,7 @@ pub unsafe fn ScrollWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn ScrollWindow(hwnd: super::super::Foundation::HWND, xamount: i32, yamount: i32, lprect: *const super::super::Foundation::RECT, lpcliprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ScrollWindow(hwnd.into_param().abi(), ::std::mem::transmute(xamount), ::std::mem::transmute(yamount), ::std::mem::transmute(lprect), ::std::mem::transmute(lpcliprect)))
+        ::core::mem::transmute(ScrollWindow(hwnd.into_param().abi(), ::core::mem::transmute(xamount), ::core::mem::transmute(yamount), ::core::mem::transmute(lprect), ::core::mem::transmute(lpcliprect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11896,7 +11896,7 @@ pub unsafe fn ScrollWindowEx<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn ScrollWindowEx(hwnd: super::super::Foundation::HWND, dx: i32, dy: i32, prcscroll: *const super::super::Foundation::RECT, prcclip: *const super::super::Foundation::RECT, hrgnupdate: super::super::Graphics::Gdi::HRGN, prcupdate: *mut super::super::Foundation::RECT, flags: SHOW_WINDOW_CMD) -> i32;
         }
-        ::std::mem::transmute(ScrollWindowEx(hwnd.into_param().abi(), ::std::mem::transmute(dx), ::std::mem::transmute(dy), ::std::mem::transmute(prcscroll), ::std::mem::transmute(prcclip), hrgnupdate.into_param().abi(), ::std::mem::transmute(prcupdate), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(ScrollWindowEx(hwnd.into_param().abi(), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(prcscroll), ::core::mem::transmute(prcclip), hrgnupdate.into_param().abi(), ::core::mem::transmute(prcupdate), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11911,7 +11911,7 @@ pub unsafe fn SendDlgItemMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SendDlgItemMessageA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendDlgItemMessageA(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(SendDlgItemMessageA(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11926,7 +11926,7 @@ pub unsafe fn SendDlgItemMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SendDlgItemMessageW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendDlgItemMessageW(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(SendDlgItemMessageW(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11941,7 +11941,7 @@ pub unsafe fn SendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SendMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendMessageA(hwnd.into_param().abi(), ::std::mem::transmute(msg), ::std::mem::transmute(wparam), ::std::mem::transmute(lparam)))
+        ::core::mem::transmute(SendMessageA(hwnd.into_param().abi(), ::core::mem::transmute(msg), ::core::mem::transmute(wparam), ::core::mem::transmute(lparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11949,14 +11949,14 @@ pub unsafe fn SendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::std::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::core::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SendMessageCallbackA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: ::windows::runtime::RawPtr, dwdata: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SendMessageCallbackA(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(lpresultcallback), ::std::mem::transmute(dwdata)))
+        ::core::mem::transmute(SendMessageCallbackA(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(lpresultcallback), ::core::mem::transmute(dwdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11964,14 +11964,14 @@ pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::std::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::core::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SendMessageCallbackW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: ::windows::runtime::RawPtr, dwdata: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SendMessageCallbackW(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(lpresultcallback), ::std::mem::transmute(dwdata)))
+        ::core::mem::transmute(SendMessageCallbackW(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(lpresultcallback), ::core::mem::transmute(dwdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11986,7 +11986,7 @@ pub unsafe fn SendMessageTimeoutA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SendMessageTimeoutA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendMessageTimeoutA(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(fuflags), ::std::mem::transmute(utimeout), ::std::mem::transmute(lpdwresult)))
+        ::core::mem::transmute(SendMessageTimeoutA(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(fuflags), ::core::mem::transmute(utimeout), ::core::mem::transmute(lpdwresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12001,7 +12001,7 @@ pub unsafe fn SendMessageTimeoutW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SendMessageTimeoutW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendMessageTimeoutW(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(fuflags), ::std::mem::transmute(utimeout), ::std::mem::transmute(lpdwresult)))
+        ::core::mem::transmute(SendMessageTimeoutW(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(fuflags), ::core::mem::transmute(utimeout), ::core::mem::transmute(lpdwresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12016,7 +12016,7 @@ pub unsafe fn SendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SendMessageW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendMessageW(hwnd.into_param().abi(), ::std::mem::transmute(msg), ::std::mem::transmute(wparam), ::std::mem::transmute(lparam)))
+        ::core::mem::transmute(SendMessageW(hwnd.into_param().abi(), ::core::mem::transmute(msg), ::core::mem::transmute(wparam), ::core::mem::transmute(lparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12031,7 +12031,7 @@ pub unsafe fn SendNotifyMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SendNotifyMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SendNotifyMessageA(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(SendNotifyMessageA(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12046,7 +12046,7 @@ pub unsafe fn SendNotifyMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SendNotifyMessageW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SendNotifyMessageW(hwnd.into_param().abi(), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
+        ::core::mem::transmute(SendNotifyMessageW(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12061,7 +12061,7 @@ pub unsafe fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOO
         extern "system" {
             fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCaretBlinkTime(::std::mem::transmute(umseconds)))
+        ::core::mem::transmute(SetCaretBlinkTime(::core::mem::transmute(umseconds)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12076,7 +12076,7 @@ pub unsafe fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
         extern "system" {
             fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCaretPos(::std::mem::transmute(x), ::std::mem::transmute(y)))
+        ::core::mem::transmute(SetCaretPos(::core::mem::transmute(x), ::core::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12091,7 +12091,7 @@ pub unsafe fn SetClassLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn SetClassLongA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: i32) -> u32;
         }
-        ::std::mem::transmute(SetClassLongA(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetClassLongA(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12107,7 +12107,7 @@ pub unsafe fn SetClassLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetClassLongPtrA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize;
         }
-        ::std::mem::transmute(SetClassLongPtrA(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetClassLongPtrA(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12123,7 +12123,7 @@ pub unsafe fn SetClassLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetClassLongPtrW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize;
         }
-        ::std::mem::transmute(SetClassLongPtrW(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetClassLongPtrW(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12138,7 +12138,7 @@ pub unsafe fn SetClassLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn SetClassLongW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: i32) -> u32;
         }
-        ::std::mem::transmute(SetClassLongW(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetClassLongW(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12153,7 +12153,7 @@ pub unsafe fn SetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
         }
-        ::std::mem::transmute(SetClassWord(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(wnewword)))
+        ::core::mem::transmute(SetClassWord(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(wnewword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12161,14 +12161,14 @@ pub unsafe fn SetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::std::option::Option<TIMERPROC>, utolerancedelay: u32) -> usize {
+pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::core::option::Option<TIMERPROC>, utolerancedelay: u32) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetCoalescableTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: ::windows::runtime::RawPtr, utolerancedelay: u32) -> usize;
         }
-        ::std::mem::transmute(SetCoalescableTimer(hwnd.into_param().abi(), ::std::mem::transmute(nidevent), ::std::mem::transmute(uelapse), ::std::mem::transmute(lptimerfunc), ::std::mem::transmute(utolerancedelay)))
+        ::core::mem::transmute(SetCoalescableTimer(hwnd.into_param().abi(), ::core::mem::transmute(nidevent), ::core::mem::transmute(uelapse), ::core::mem::transmute(lptimerfunc), ::core::mem::transmute(utolerancedelay)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12182,7 +12182,7 @@ pub unsafe fn SetCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(
         extern "system" {
             fn SetCursor(hcursor: HCURSOR) -> HCURSOR;
         }
-        ::std::mem::transmute(SetCursor(hcursor.into_param().abi()))
+        ::core::mem::transmute(SetCursor(hcursor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12197,7 +12197,7 @@ pub unsafe fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
         extern "system" {
             fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCursorPos(::std::mem::transmute(x), ::std::mem::transmute(y)))
+        ::core::mem::transmute(SetCursorPos(::core::mem::transmute(x), ::core::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12211,7 +12211,7 @@ pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
         extern "system" {
             fn SetDebugErrorLevel(dwlevel: u32);
         }
-        ::std::mem::transmute(SetDebugErrorLevel(::std::mem::transmute(dwlevel)))
+        ::core::mem::transmute(SetDebugErrorLevel(::core::mem::transmute(dwlevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12226,7 +12226,7 @@ pub unsafe fn SetDlgItemInt<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn SetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, uvalue: u32, bsigned: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDlgItemInt(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), ::std::mem::transmute(uvalue), bsigned.into_param().abi()))
+        ::core::mem::transmute(SetDlgItemInt(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), ::core::mem::transmute(uvalue), bsigned.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12241,7 +12241,7 @@ pub unsafe fn SetDlgItemTextA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDlgItemTextA(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), lpstring.into_param().abi()))
+        ::core::mem::transmute(SetDlgItemTextA(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12256,7 +12256,7 @@ pub unsafe fn SetDlgItemTextW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDlgItemTextW(hdlg.into_param().abi(), ::std::mem::transmute(niddlgitem), lpstring.into_param().abi()))
+        ::core::mem::transmute(SetDlgItemTextW(hdlg.into_param().abi(), ::core::mem::transmute(niddlgitem), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12271,7 +12271,7 @@ pub unsafe fn SetForegroundWindow<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SetForegroundWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetForegroundWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(SetForegroundWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12286,7 +12286,7 @@ pub unsafe fn SetLayeredWindowAttributes<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn SetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, crkey: u32, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetLayeredWindowAttributes(hwnd.into_param().abi(), ::std::mem::transmute(crkey), ::std::mem::transmute(balpha), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(SetLayeredWindowAttributes(hwnd.into_param().abi(), ::core::mem::transmute(crkey), ::core::mem::transmute(balpha), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12301,7 +12301,7 @@ pub unsafe fn SetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
         extern "system" {
             fn SetMenu(hwnd: super::super::Foundation::HWND, hmenu: HMENU) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMenu(hwnd.into_param().abi(), hmenu.into_param().abi()))
+        ::core::mem::transmute(SetMenu(hwnd.into_param().abi(), hmenu.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12316,7 +12316,7 @@ pub unsafe fn SetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn SetMenuDefaultItem(hmenu: HMENU, uitem: u32, fbypos: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMenuDefaultItem(hmenu.into_param().abi(), ::std::mem::transmute(uitem), ::std::mem::transmute(fbypos)))
+        ::core::mem::transmute(SetMenuDefaultItem(hmenu.into_param().abi(), ::core::mem::transmute(uitem), ::core::mem::transmute(fbypos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12331,7 +12331,7 @@ pub unsafe fn SetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
         extern "system" {
             fn SetMenuInfo(param0: HMENU, param1: *const MENUINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMenuInfo(param0.into_param().abi(), ::std::mem::transmute(param1)))
+        ::core::mem::transmute(SetMenuInfo(param0.into_param().abi(), ::core::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12346,7 +12346,7 @@ pub unsafe fn SetMenuItemBitmaps<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn SetMenuItemBitmaps(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: super::super::Graphics::Gdi::HBITMAP, hbitmapchecked: super::super::Graphics::Gdi::HBITMAP) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMenuItemBitmaps(hmenu.into_param().abi(), ::std::mem::transmute(uposition), ::std::mem::transmute(uflags), hbitmapunchecked.into_param().abi(), hbitmapchecked.into_param().abi()))
+        ::core::mem::transmute(SetMenuItemBitmaps(hmenu.into_param().abi(), ::core::mem::transmute(uposition), ::core::mem::transmute(uflags), hbitmapunchecked.into_param().abi(), hbitmapchecked.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12361,7 +12361,7 @@ pub unsafe fn SetMenuItemInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HME
         extern "system" {
             fn SetMenuItemInfoA(hmenu: HMENU, item: u32, fbypositon: super::super::Foundation::BOOL, lpmii: *const MENUITEMINFOA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMenuItemInfoA(hmenu.into_param().abi(), ::std::mem::transmute(item), fbypositon.into_param().abi(), ::std::mem::transmute(lpmii)))
+        ::core::mem::transmute(SetMenuItemInfoA(hmenu.into_param().abi(), ::core::mem::transmute(item), fbypositon.into_param().abi(), ::core::mem::transmute(lpmii)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12376,7 +12376,7 @@ pub unsafe fn SetMenuItemInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HME
         extern "system" {
             fn SetMenuItemInfoW(hmenu: HMENU, item: u32, fbypositon: super::super::Foundation::BOOL, lpmii: *const MENUITEMINFOW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMenuItemInfoW(hmenu.into_param().abi(), ::std::mem::transmute(item), fbypositon.into_param().abi(), ::std::mem::transmute(lpmii)))
+        ::core::mem::transmute(SetMenuItemInfoW(hmenu.into_param().abi(), ::core::mem::transmute(item), fbypositon.into_param().abi(), ::core::mem::transmute(lpmii)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12391,7 +12391,7 @@ pub unsafe fn SetMessageExtraInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn SetMessageExtraInfo(lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LPARAM;
         }
-        ::std::mem::transmute(SetMessageExtraInfo(lparam.into_param().abi()))
+        ::core::mem::transmute(SetMessageExtraInfo(lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12406,7 +12406,7 @@ pub unsafe fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BO
         extern "system" {
             fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetMessageQueue(::std::mem::transmute(cmessagesmax)))
+        ::core::mem::transmute(SetMessageQueue(::core::mem::transmute(cmessagesmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12421,7 +12421,7 @@ pub unsafe fn SetParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn SetParent(hwndchild: super::super::Foundation::HWND, hwndnewparent: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(SetParent(hwndchild.into_param().abi(), hwndnewparent.into_param().abi()))
+        ::core::mem::transmute(SetParent(hwndchild.into_param().abi(), hwndnewparent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12436,7 +12436,7 @@ pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::
         extern "system" {
             fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetPhysicalCursorPos(::std::mem::transmute(x), ::std::mem::transmute(y)))
+        ::core::mem::transmute(SetPhysicalCursorPos(::core::mem::transmute(x), ::core::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12451,7 +12451,7 @@ pub unsafe fn SetProcessDPIAware() -> super::super::Foundation::BOOL {
         extern "system" {
             fn SetProcessDPIAware() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetProcessDPIAware())
+        ::core::mem::transmute(SetProcessDPIAware())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12466,7 +12466,7 @@ pub unsafe fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Fou
         extern "system" {
             fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetProcessDefaultLayout(::std::mem::transmute(dwdefaultlayout)))
+        ::core::mem::transmute(SetProcessDefaultLayout(::core::mem::transmute(dwdefaultlayout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12481,7 +12481,7 @@ pub unsafe fn SetPropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn SetPropA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetPropA(hwnd.into_param().abi(), lpstring.into_param().abi(), hdata.into_param().abi()))
+        ::core::mem::transmute(SetPropA(hwnd.into_param().abi(), lpstring.into_param().abi(), hdata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12496,7 +12496,7 @@ pub unsafe fn SetPropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn SetPropW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetPropW(hwnd.into_param().abi(), lpstring.into_param().abi(), hdata.into_param().abi()))
+        ::core::mem::transmute(SetPropW(hwnd.into_param().abi(), lpstring.into_param().abi(), hdata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12511,7 +12511,7 @@ pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues
         extern "system" {
             fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSysColors(::std::mem::transmute(celements), ::std::mem::transmute(lpaelements), ::std::mem::transmute(lpargbvalues)))
+        ::core::mem::transmute(SetSysColors(::core::mem::transmute(celements), ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12526,7 +12526,7 @@ pub unsafe fn SetSystemCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCUR
         extern "system" {
             fn SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSystemCursor(hcur.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(SetSystemCursor(hcur.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12534,14 +12534,14 @@ pub unsafe fn SetSystemCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCUR
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::std::option::Option<TIMERPROC>) -> usize {
+pub unsafe fn SetTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::core::option::Option<TIMERPROC>) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: ::windows::runtime::RawPtr) -> usize;
         }
-        ::std::mem::transmute(SetTimer(hwnd.into_param().abi(), ::std::mem::transmute(nidevent), ::std::mem::transmute(uelapse), ::std::mem::transmute(lptimerfunc)))
+        ::core::mem::transmute(SetTimer(hwnd.into_param().abi(), ::core::mem::transmute(nidevent), ::core::mem::transmute(uelapse), ::core::mem::transmute(lptimerfunc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12556,7 +12556,7 @@ pub unsafe fn SetWindowDisplayAffinity<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn SetWindowDisplayAffinity(hwnd: super::super::Foundation::HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetWindowDisplayAffinity(hwnd.into_param().abi(), ::std::mem::transmute(dwaffinity)))
+        ::core::mem::transmute(SetWindowDisplayAffinity(hwnd.into_param().abi(), ::core::mem::transmute(dwaffinity)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12571,7 +12571,7 @@ pub unsafe fn SetWindowLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn SetWindowLongA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32;
         }
-        ::std::mem::transmute(SetWindowLongA(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetWindowLongA(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12587,7 +12587,7 @@ pub unsafe fn SetWindowLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn SetWindowLongPtrA(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize;
         }
-        ::std::mem::transmute(SetWindowLongPtrA(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetWindowLongPtrA(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12603,7 +12603,7 @@ pub unsafe fn SetWindowLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn SetWindowLongPtrW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize;
         }
-        ::std::mem::transmute(SetWindowLongPtrW(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetWindowLongPtrW(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12618,7 +12618,7 @@ pub unsafe fn SetWindowLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn SetWindowLongW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32;
         }
-        ::std::mem::transmute(SetWindowLongW(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(dwnewlong)))
+        ::core::mem::transmute(SetWindowLongW(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(dwnewlong)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12633,7 +12633,7 @@ pub unsafe fn SetWindowPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SetWindowPlacement(hwnd: super::super::Foundation::HWND, lpwndpl: *const WINDOWPLACEMENT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetWindowPlacement(hwnd.into_param().abi(), ::std::mem::transmute(lpwndpl)))
+        ::core::mem::transmute(SetWindowPlacement(hwnd.into_param().abi(), ::core::mem::transmute(lpwndpl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12648,7 +12648,7 @@ pub unsafe fn SetWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SetWindowPos(hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetWindowPos(hwnd.into_param().abi(), hwndinsertafter.into_param().abi(), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(cx), ::std::mem::transmute(cy), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(SetWindowPos(hwnd.into_param().abi(), hwndinsertafter.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12663,7 +12663,7 @@ pub unsafe fn SetWindowTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn SetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetWindowTextA(hwnd.into_param().abi(), lpstring.into_param().abi()))
+        ::core::mem::transmute(SetWindowTextA(hwnd.into_param().abi(), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12678,7 +12678,7 @@ pub unsafe fn SetWindowTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn SetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetWindowTextW(hwnd.into_param().abi(), lpstring.into_param().abi()))
+        ::core::mem::transmute(SetWindowTextW(hwnd.into_param().abi(), lpstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12693,7 +12693,7 @@ pub unsafe fn SetWindowWord<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn SetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
         }
-        ::std::mem::transmute(SetWindowWord(hwnd.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(wnewword)))
+        ::core::mem::transmute(SetWindowWord(hwnd.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(wnewword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12701,14 +12701,14 @@ pub unsafe fn SetWindowWord<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::std::option::Option<HOOKPROC>) -> HHOOK {
+pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::windows::runtime::RawPtr) -> HHOOK;
         }
-        ::std::mem::transmute(SetWindowsHookA(::std::mem::transmute(nfiltertype), ::std::mem::transmute(pfnfilterproc)))
+        ::core::mem::transmute(SetWindowsHookA(::core::mem::transmute(nfiltertype), ::core::mem::transmute(pfnfilterproc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12716,14 +12716,14 @@ pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::std::option::Op
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::std::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
+pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::core::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: ::windows::runtime::RawPtr, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
         }
-        ::std::mem::transmute(SetWindowsHookExA(::std::mem::transmute(idhook), ::std::mem::transmute(lpfn), hmod.into_param().abi(), ::std::mem::transmute(dwthreadid)))
+        ::core::mem::transmute(SetWindowsHookExA(::core::mem::transmute(idhook), ::core::mem::transmute(lpfn), hmod.into_param().abi(), ::core::mem::transmute(dwthreadid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12731,14 +12731,14 @@ pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::std::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
+pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::core::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: ::windows::runtime::RawPtr, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
         }
-        ::std::mem::transmute(SetWindowsHookExW(::std::mem::transmute(idhook), ::std::mem::transmute(lpfn), hmod.into_param().abi(), ::std::mem::transmute(dwthreadid)))
+        ::core::mem::transmute(SetWindowsHookExW(::core::mem::transmute(idhook), ::core::mem::transmute(lpfn), hmod.into_param().abi(), ::core::mem::transmute(dwthreadid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12746,14 +12746,14 @@ pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::std::option::Option<HOOKPROC>) -> HHOOK {
+pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> HHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::windows::runtime::RawPtr) -> HHOOK;
         }
-        ::std::mem::transmute(SetWindowsHookW(::std::mem::transmute(nfiltertype), ::std::mem::transmute(pfnfilterproc)))
+        ::core::mem::transmute(SetWindowsHookW(::core::mem::transmute(nfiltertype), ::core::mem::transmute(pfnfilterproc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12768,7 +12768,7 @@ pub unsafe fn ShowCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn ShowCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShowCaret(hwnd.into_param().abi()))
+        ::core::mem::transmute(ShowCaret(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12783,7 +12783,7 @@ pub unsafe fn ShowCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn ShowCursor(bshow: super::super::Foundation::BOOL) -> i32;
         }
-        ::std::mem::transmute(ShowCursor(bshow.into_param().abi()))
+        ::core::mem::transmute(ShowCursor(bshow.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12798,7 +12798,7 @@ pub unsafe fn ShowOwnedPopups<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn ShowOwnedPopups(hwnd: super::super::Foundation::HWND, fshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShowOwnedPopups(hwnd.into_param().abi(), fshow.into_param().abi()))
+        ::core::mem::transmute(ShowOwnedPopups(hwnd.into_param().abi(), fshow.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12813,7 +12813,7 @@ pub unsafe fn ShowWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn ShowWindow(hwnd: super::super::Foundation::HWND, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShowWindow(hwnd.into_param().abi(), ::std::mem::transmute(ncmdshow)))
+        ::core::mem::transmute(ShowWindow(hwnd.into_param().abi(), ::core::mem::transmute(ncmdshow)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12828,7 +12828,7 @@ pub unsafe fn ShowWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn ShowWindowAsync(hwnd: super::super::Foundation::HWND, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShowWindowAsync(hwnd.into_param().abi(), ::std::mem::transmute(ncmdshow)))
+        ::core::mem::transmute(ShowWindowAsync(hwnd.into_param().abi(), ::core::mem::transmute(ncmdshow)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12843,7 +12843,7 @@ pub unsafe fn SoundSentry() -> super::super::Foundation::BOOL {
         extern "system" {
             fn SoundSentry() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SoundSentry())
+        ::core::mem::transmute(SoundSentry())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12858,7 +12858,7 @@ pub unsafe fn SwitchToThisWindow<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SwitchToThisWindow(hwnd: super::super::Foundation::HWND, funknown: super::super::Foundation::BOOL);
         }
-        ::std::mem::transmute(SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi()))
+        ::core::mem::transmute(SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12866,14 +12866,14 @@ pub unsafe fn SwitchToThisWindow<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
+            fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SystemParametersInfoA(::std::mem::transmute(uiaction), ::std::mem::transmute(uiparam), ::std::mem::transmute(pvparam), ::std::mem::transmute(fwinini)))
+        ::core::mem::transmute(SystemParametersInfoA(::core::mem::transmute(uiaction), ::core::mem::transmute(uiparam), ::core::mem::transmute(pvparam), ::core::mem::transmute(fwinini)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12881,25 +12881,25 @@ pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
+            fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SystemParametersInfoW(::std::mem::transmute(uiaction), ::std::mem::transmute(uiparam), ::std::mem::transmute(pvparam), ::std::mem::transmute(fwinini)))
+        ::core::mem::transmute(SystemParametersInfoW(::core::mem::transmute(uiaction), ::core::mem::transmute(uiparam), ::core::mem::transmute(pvparam), ::core::mem::transmute(fwinini)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TILE_WINDOWS_HOW(pub u32);
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
 pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
-impl ::std::convert::From<u32> for TILE_WINDOWS_HOW {
+impl ::core::convert::From<u32> for TILE_WINDOWS_HOW {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -12907,29 +12907,29 @@ impl ::std::convert::From<u32> for TILE_WINDOWS_HOW {
 unsafe impl ::windows::runtime::Abi for TILE_WINDOWS_HOW {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TILE_WINDOWS_HOW {
+impl ::core::ops::BitOr for TILE_WINDOWS_HOW {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TILE_WINDOWS_HOW {
+impl ::core::ops::BitAnd for TILE_WINDOWS_HOW {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TILE_WINDOWS_HOW {
+impl ::core::ops::BitOrAssign for TILE_WINDOWS_HOW {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TILE_WINDOWS_HOW {
+impl ::core::ops::BitAndAssign for TILE_WINDOWS_HOW {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TILE_WINDOWS_HOW {
+impl ::core::ops::Not for TILE_WINDOWS_HOW {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -12946,7 +12946,7 @@ pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -12958,30 +12958,30 @@ pub struct TITLEBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl TITLEBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TITLEBARINFO {
+impl ::core::default::Default for TITLEBARINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TITLEBARINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TITLEBARINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TITLEBARINFO").field("cbSize", &self.cbSize).field("rcTitleBar", &self.rcTitleBar).field("rgstate", &self.rgstate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TITLEBARINFO {
+impl ::core::cmp::PartialEq for TITLEBARINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.rcTitleBar == other.rcTitleBar && self.rgstate == other.rgstate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TITLEBARINFO {}
+impl ::core::cmp::Eq for TITLEBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TITLEBARINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -12994,25 +12994,25 @@ pub struct TITLEBARINFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl TITLEBARINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TITLEBARINFOEX {
+impl ::core::default::Default for TITLEBARINFOEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TITLEBARINFOEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TITLEBARINFOEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TITLEBARINFOEX").field("cbSize", &self.cbSize).field("rcTitleBar", &self.rcTitleBar).field("rgstate", &self.rgstate).field("rgrect", &self.rgrect).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TITLEBARINFOEX {
+impl ::core::cmp::PartialEq for TITLEBARINFOEX {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.rcTitleBar == other.rcTitleBar && self.rgstate == other.rgstate && self.rgrect == other.rgrect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TITLEBARINFOEX {}
+impl ::core::cmp::Eq for TITLEBARINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TITLEBARINFOEX {
     type Abi = Self;
@@ -13065,7 +13065,7 @@ pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -13076,31 +13076,31 @@ pub struct TPMPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl TPMPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TPMPARAMS {
+impl ::core::default::Default for TPMPARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TPMPARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TPMPARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TPMPARAMS").field("cbSize", &self.cbSize).field("rcExclude", &self.rcExclude).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TPMPARAMS {
+impl ::core::cmp::PartialEq for TPMPARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.rcExclude == other.rcExclude
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TPMPARAMS {}
+impl ::core::cmp::Eq for TPMPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TPMPARAMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
 pub const TPM_LEFTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
@@ -13123,7 +13123,7 @@ pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8
 pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16384u32);
 pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32768u32);
 pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(65536u32);
-impl ::std::convert::From<u32> for TRACK_POPUP_MENU_FLAGS {
+impl ::core::convert::From<u32> for TRACK_POPUP_MENU_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13131,29 +13131,29 @@ impl ::std::convert::From<u32> for TRACK_POPUP_MENU_FLAGS {
 unsafe impl ::windows::runtime::Abi for TRACK_POPUP_MENU_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
+impl ::core::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TRACK_POPUP_MENU_FLAGS {
+impl ::core::ops::BitAnd for TRACK_POPUP_MENU_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TRACK_POPUP_MENU_FLAGS {
+impl ::core::ops::BitOrAssign for TRACK_POPUP_MENU_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TRACK_POPUP_MENU_FLAGS {
+impl ::core::ops::BitAndAssign for TRACK_POPUP_MENU_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TRACK_POPUP_MENU_FLAGS {
+impl ::core::ops::Not for TRACK_POPUP_MENU_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -13169,12 +13169,12 @@ pub unsafe fn TileWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn TileWindows(hwndparent: super::super::Foundation::HWND, whow: TILE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16;
         }
-        ::std::mem::transmute(TileWindows(hwndparent.into_param().abi(), ::std::mem::transmute(whow), ::std::mem::transmute(lprect), ::std::mem::transmute(ckids), ::std::mem::transmute(lpkids)))
+        ::core::mem::transmute(TileWindows(hwndparent.into_param().abi(), ::core::mem::transmute(whow), ::core::mem::transmute(lprect), ::core::mem::transmute(ckids), ::core::mem::transmute(lpkids)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct TouchPredictionParameters {
@@ -13184,22 +13184,22 @@ pub struct TouchPredictionParameters {
     pub bUseHWTimeStamp: u32,
 }
 impl TouchPredictionParameters {}
-impl ::std::default::Default for TouchPredictionParameters {
+impl ::core::default::Default for TouchPredictionParameters {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TouchPredictionParameters {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TouchPredictionParameters {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TouchPredictionParameters").field("cbSize", &self.cbSize).field("dwLatency", &self.dwLatency).field("dwSampleTime", &self.dwSampleTime).field("bUseHWTimeStamp", &self.bUseHWTimeStamp).finish()
     }
 }
-impl ::std::cmp::PartialEq for TouchPredictionParameters {
+impl ::core::cmp::PartialEq for TouchPredictionParameters {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwLatency == other.dwLatency && self.dwSampleTime == other.dwSampleTime && self.bUseHWTimeStamp == other.bUseHWTimeStamp
     }
 }
-impl ::std::cmp::Eq for TouchPredictionParameters {}
+impl ::core::cmp::Eq for TouchPredictionParameters {}
 unsafe impl ::windows::runtime::Abi for TouchPredictionParameters {
     type Abi = Self;
 }
@@ -13213,7 +13213,7 @@ pub unsafe fn TrackPopupMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
         extern "system" {
             fn TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: i32, y: i32, nreserved: i32, hwnd: super::super::Foundation::HWND, prcrect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TrackPopupMenu(hmenu.into_param().abi(), ::std::mem::transmute(uflags), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(nreserved), hwnd.into_param().abi(), ::std::mem::transmute(prcrect)))
+        ::core::mem::transmute(TrackPopupMenu(hmenu.into_param().abi(), ::core::mem::transmute(uflags), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nreserved), hwnd.into_param().abi(), ::core::mem::transmute(prcrect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13228,7 +13228,7 @@ pub unsafe fn TrackPopupMenuEx<'a, Param0: ::windows::runtime::IntoParam<'a, HME
         extern "system" {
             fn TrackPopupMenuEx(hmenu: HMENU, uflags: u32, x: i32, y: i32, hwnd: super::super::Foundation::HWND, lptpm: *const TPMPARAMS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TrackPopupMenuEx(hmenu.into_param().abi(), ::std::mem::transmute(uflags), ::std::mem::transmute(x), ::std::mem::transmute(y), hwnd.into_param().abi(), ::std::mem::transmute(lptpm)))
+        ::core::mem::transmute(TrackPopupMenuEx(hmenu.into_param().abi(), ::core::mem::transmute(uflags), ::core::mem::transmute(x), ::core::mem::transmute(y), hwnd.into_param().abi(), ::core::mem::transmute(lptpm)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13243,7 +13243,7 @@ pub unsafe fn TranslateAcceleratorA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn TranslateAcceleratorA(hwnd: super::super::Foundation::HWND, hacctable: HACCEL, lpmsg: *const MSG) -> i32;
         }
-        ::std::mem::transmute(TranslateAcceleratorA(hwnd.into_param().abi(), hacctable.into_param().abi(), ::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(TranslateAcceleratorA(hwnd.into_param().abi(), hacctable.into_param().abi(), ::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13258,7 +13258,7 @@ pub unsafe fn TranslateAcceleratorW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn TranslateAcceleratorW(hwnd: super::super::Foundation::HWND, hacctable: HACCEL, lpmsg: *const MSG) -> i32;
         }
-        ::std::mem::transmute(TranslateAcceleratorW(hwnd.into_param().abi(), hacctable.into_param().abi(), ::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(TranslateAcceleratorW(hwnd.into_param().abi(), hacctable.into_param().abi(), ::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13273,7 +13273,7 @@ pub unsafe fn TranslateMDISysAccel<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn TranslateMDISysAccel(hwndclient: super::super::Foundation::HWND, lpmsg: *const MSG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TranslateMDISysAccel(hwndclient.into_param().abi(), ::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(TranslateMDISysAccel(hwndclient.into_param().abi(), ::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13288,7 +13288,7 @@ pub unsafe fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::B
         extern "system" {
             fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TranslateMessage(::std::mem::transmute(lpmsg)))
+        ::core::mem::transmute(TranslateMessage(::core::mem::transmute(lpmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13309,7 +13309,7 @@ pub const UIS_SET: u32 = 1u32;
 pub const UNICODE_NOCHAR: u32 = 65535u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -13328,14 +13328,14 @@ pub struct UPDATELAYEREDWINDOWINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl UPDATELAYEREDWINDOWINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for UPDATELAYEREDWINDOWINFO {
+impl ::core::default::Default for UPDATELAYEREDWINDOWINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for UPDATELAYEREDWINDOWINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for UPDATELAYEREDWINDOWINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("UPDATELAYEREDWINDOWINFO")
             .field("cbSize", &self.cbSize)
             .field("hdcDst", &self.hdcDst)
@@ -13351,26 +13351,26 @@ impl ::std::fmt::Debug for UPDATELAYEREDWINDOWINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for UPDATELAYEREDWINDOWINFO {
+impl ::core::cmp::PartialEq for UPDATELAYEREDWINDOWINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hdcDst == other.hdcDst && self.pptDst == other.pptDst && self.psize == other.psize && self.hdcSrc == other.hdcSrc && self.pptSrc == other.pptSrc && self.crKey == other.crKey && self.pblend == other.pblend && self.dwFlags == other.dwFlags && self.prcDirty == other.prcDirty
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for UPDATELAYEREDWINDOWINFO {}
+impl ::core::cmp::Eq for UPDATELAYEREDWINDOWINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for UPDATELAYEREDWINDOWINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
 pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(2u32);
 pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(1u32);
 pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(4u32);
 pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(8u32);
-impl ::std::convert::From<u32> for UPDATE_LAYERED_WINDOW_FLAGS {
+impl ::core::convert::From<u32> for UPDATE_LAYERED_WINDOW_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13378,29 +13378,29 @@ impl ::std::convert::From<u32> for UPDATE_LAYERED_WINDOW_FLAGS {
 unsafe impl ::windows::runtime::Abi for UPDATE_LAYERED_WINDOW_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for UPDATE_LAYERED_WINDOW_FLAGS {
+impl ::core::ops::BitOr for UPDATE_LAYERED_WINDOW_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for UPDATE_LAYERED_WINDOW_FLAGS {
+impl ::core::ops::BitAnd for UPDATE_LAYERED_WINDOW_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for UPDATE_LAYERED_WINDOW_FLAGS {
+impl ::core::ops::BitOrAssign for UPDATE_LAYERED_WINDOW_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for UPDATE_LAYERED_WINDOW_FLAGS {
+impl ::core::ops::BitAndAssign for UPDATE_LAYERED_WINDOW_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for UPDATE_LAYERED_WINDOW_FLAGS {
+impl ::core::ops::Not for UPDATE_LAYERED_WINDOW_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -13415,14 +13415,14 @@ pub const USER_TIMER_MINIMUM: u32 = 10u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::std::option::Option<HOOKPROC>) -> super::super::Foundation::BOOL {
+pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnhookWindowsHook(::std::mem::transmute(ncode), ::std::mem::transmute(pfnfilterproc)))
+        ::core::mem::transmute(UnhookWindowsHook(::core::mem::transmute(ncode), ::core::mem::transmute(pfnfilterproc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13437,7 +13437,7 @@ pub unsafe fn UnhookWindowsHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn UnhookWindowsHookEx(hhk: HHOOK) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnhookWindowsHookEx(hhk.into_param().abi()))
+        ::core::mem::transmute(UnhookWindowsHookEx(hhk.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13452,7 +13452,7 @@ pub unsafe fn UnregisterClassA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn UnregisterClassA(lpclassname: super::super::Foundation::PSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnregisterClassA(lpclassname.into_param().abi(), hinstance.into_param().abi()))
+        ::core::mem::transmute(UnregisterClassA(lpclassname.into_param().abi(), hinstance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13467,7 +13467,7 @@ pub unsafe fn UnregisterClassW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn UnregisterClassW(lpclassname: super::super::Foundation::PWSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnregisterClassW(lpclassname.into_param().abi(), hinstance.into_param().abi()))
+        ::core::mem::transmute(UnregisterClassW(lpclassname.into_param().abi(), hinstance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13492,7 +13492,7 @@ pub unsafe fn UpdateLayeredWindow<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn UpdateLayeredWindow(hwnd: super::super::Foundation::HWND, hdcdst: super::super::Graphics::Gdi::HDC, pptdst: *const super::super::Foundation::POINT, psize: *const super::super::Foundation::SIZE, hdcsrc: super::super::Graphics::Gdi::HDC, pptsrc: *const super::super::Foundation::POINT, crkey: u32, pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UpdateLayeredWindow(hwnd.into_param().abi(), hdcdst.into_param().abi(), ::std::mem::transmute(pptdst), ::std::mem::transmute(psize), hdcsrc.into_param().abi(), ::std::mem::transmute(pptsrc), ::std::mem::transmute(crkey), ::std::mem::transmute(pblend), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(UpdateLayeredWindow(hwnd.into_param().abi(), hdcdst.into_param().abi(), ::core::mem::transmute(pptdst), ::core::mem::transmute(psize), hdcsrc.into_param().abi(), ::core::mem::transmute(pptsrc), ::core::mem::transmute(crkey), ::core::mem::transmute(pblend), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13507,7 +13507,7 @@ pub unsafe fn UpdateLayeredWindowIndirect<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn UpdateLayeredWindowIndirect(hwnd: super::super::Foundation::HWND, pulwinfo: *const UPDATELAYEREDWINDOWINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UpdateLayeredWindowIndirect(hwnd.into_param().abi(), ::std::mem::transmute(pulwinfo)))
+        ::core::mem::transmute(UpdateLayeredWindowIndirect(hwnd.into_param().abi(), ::core::mem::transmute(pulwinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13530,7 +13530,7 @@ pub const WH_MAXHOOK: u32 = 14u32;
 pub const WH_MIN: i32 = -1i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_MINHOOK: i32 = -1i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -13549,14 +13549,14 @@ pub struct WINDOWINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl WINDOWINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINDOWINFO {
+impl ::core::default::Default for WINDOWINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINDOWINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINDOWINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINDOWINFO")
             .field("cbSize", &self.cbSize)
             .field("rcWindow", &self.rcWindow)
@@ -13572,18 +13572,18 @@ impl ::std::fmt::Debug for WINDOWINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINDOWINFO {
+impl ::core::cmp::PartialEq for WINDOWINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.rcWindow == other.rcWindow && self.rcClient == other.rcClient && self.dwStyle == other.dwStyle && self.dwExStyle == other.dwExStyle && self.dwWindowStatus == other.dwWindowStatus && self.cxWindowBorders == other.cxWindowBorders && self.cyWindowBorders == other.cyWindowBorders && self.atomWindowType == other.atomWindowType && self.wCreatorVersion == other.wCreatorVersion
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINDOWINFO {}
+impl ::core::cmp::Eq for WINDOWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -13598,37 +13598,37 @@ pub struct WINDOWPLACEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl WINDOWPLACEMENT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINDOWPLACEMENT {
+impl ::core::default::Default for WINDOWPLACEMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINDOWPLACEMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINDOWPLACEMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINDOWPLACEMENT").field("length", &self.length).field("flags", &self.flags).field("showCmd", &self.showCmd).field("ptMinPosition", &self.ptMinPosition).field("ptMaxPosition", &self.ptMaxPosition).field("rcNormalPosition", &self.rcNormalPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINDOWPLACEMENT {
+impl ::core::cmp::PartialEq for WINDOWPLACEMENT {
     fn eq(&self, other: &Self) -> bool {
         self.length == other.length && self.flags == other.flags && self.showCmd == other.showCmd && self.ptMinPosition == other.ptMinPosition && self.ptMaxPosition == other.ptMaxPosition && self.rcNormalPosition == other.rcNormalPosition
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINDOWPLACEMENT {}
+impl ::core::cmp::Eq for WINDOWPLACEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWPLACEMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOWPLACEMENT_FLAGS(pub u32);
 pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(4u32);
 pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(2u32);
 pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(1u32);
-impl ::std::convert::From<u32> for WINDOWPLACEMENT_FLAGS {
+impl ::core::convert::From<u32> for WINDOWPLACEMENT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13636,35 +13636,35 @@ impl ::std::convert::From<u32> for WINDOWPLACEMENT_FLAGS {
 unsafe impl ::windows::runtime::Abi for WINDOWPLACEMENT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINDOWPLACEMENT_FLAGS {
+impl ::core::ops::BitOr for WINDOWPLACEMENT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINDOWPLACEMENT_FLAGS {
+impl ::core::ops::BitAnd for WINDOWPLACEMENT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINDOWPLACEMENT_FLAGS {
+impl ::core::ops::BitOrAssign for WINDOWPLACEMENT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINDOWPLACEMENT_FLAGS {
+impl ::core::ops::BitAndAssign for WINDOWPLACEMENT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINDOWPLACEMENT_FLAGS {
+impl ::core::ops::Not for WINDOWPLACEMENT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -13680,31 +13680,31 @@ pub struct WINDOWPOS {
 #[cfg(feature = "Win32_Foundation")]
 impl WINDOWPOS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINDOWPOS {
+impl ::core::default::Default for WINDOWPOS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINDOWPOS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINDOWPOS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINDOWPOS").field("hwnd", &self.hwnd).field("hwndInsertAfter", &self.hwndInsertAfter).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("flags", &self.flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINDOWPOS {
+impl ::core::cmp::PartialEq for WINDOWPOS {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.hwndInsertAfter == other.hwndInsertAfter && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.flags == other.flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINDOWPOS {}
+impl ::core::cmp::Eq for WINDOWPOS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWPOS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOWS_HOOK_ID(pub i32);
 pub const WH_CALLWNDPROC: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(4i32);
@@ -13722,7 +13722,7 @@ pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(14i32);
 pub const WH_MSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(-1i32);
 pub const WH_SHELL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(10i32);
 pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(6i32);
-impl ::std::convert::From<i32> for WINDOWS_HOOK_ID {
+impl ::core::convert::From<i32> for WINDOWS_HOOK_ID {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13731,13 +13731,13 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_HOOK_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
 pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(0u32);
 pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(1u32);
 pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(17u32);
-impl ::std::convert::From<u32> for WINDOW_DISPLAY_AFFINITY {
+impl ::core::convert::From<u32> for WINDOW_DISPLAY_AFFINITY {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13745,36 +13745,36 @@ impl ::std::convert::From<u32> for WINDOW_DISPLAY_AFFINITY {
 unsafe impl ::windows::runtime::Abi for WINDOW_DISPLAY_AFFINITY {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINDOW_DISPLAY_AFFINITY {
+impl ::core::ops::BitOr for WINDOW_DISPLAY_AFFINITY {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINDOW_DISPLAY_AFFINITY {
+impl ::core::ops::BitAnd for WINDOW_DISPLAY_AFFINITY {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINDOW_DISPLAY_AFFINITY {
+impl ::core::ops::BitOrAssign for WINDOW_DISPLAY_AFFINITY {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINDOW_DISPLAY_AFFINITY {
+impl ::core::ops::BitAndAssign for WINDOW_DISPLAY_AFFINITY {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINDOW_DISPLAY_AFFINITY {
+impl ::core::ops::Not for WINDOW_DISPLAY_AFFINITY {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_EX_STYLE(pub u32);
 pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1u32);
@@ -13804,7 +13804,7 @@ pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(2097152u3
 pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4194304u32);
 pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(33554432u32);
 pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(134217728u32);
-impl ::std::convert::From<u32> for WINDOW_EX_STYLE {
+impl ::core::convert::From<u32> for WINDOW_EX_STYLE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13812,36 +13812,36 @@ impl ::std::convert::From<u32> for WINDOW_EX_STYLE {
 unsafe impl ::windows::runtime::Abi for WINDOW_EX_STYLE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINDOW_EX_STYLE {
+impl ::core::ops::BitOr for WINDOW_EX_STYLE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINDOW_EX_STYLE {
+impl ::core::ops::BitAnd for WINDOW_EX_STYLE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINDOW_EX_STYLE {
+impl ::core::ops::BitOrAssign for WINDOW_EX_STYLE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINDOW_EX_STYLE {
+impl ::core::ops::BitAndAssign for WINDOW_EX_STYLE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINDOW_EX_STYLE {
+impl ::core::ops::Not for WINDOW_EX_STYLE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_LONG_PTR_INDEX(pub i32);
 pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
@@ -13856,7 +13856,7 @@ pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
 pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
 pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
 pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-impl ::std::convert::From<i32> for WINDOW_LONG_PTR_INDEX {
+impl ::core::convert::From<i32> for WINDOW_LONG_PTR_INDEX {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13865,13 +13865,13 @@ unsafe impl ::windows::runtime::Abi for WINDOW_LONG_PTR_INDEX {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
 pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
 pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
 pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
-impl ::std::convert::From<u32> for WINDOW_MESSAGE_FILTER_ACTION {
+impl ::core::convert::From<u32> for WINDOW_MESSAGE_FILTER_ACTION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13879,36 +13879,36 @@ impl ::std::convert::From<u32> for WINDOW_MESSAGE_FILTER_ACTION {
 unsafe impl ::windows::runtime::Abi for WINDOW_MESSAGE_FILTER_ACTION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINDOW_MESSAGE_FILTER_ACTION {
+impl ::core::ops::BitOr for WINDOW_MESSAGE_FILTER_ACTION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINDOW_MESSAGE_FILTER_ACTION {
+impl ::core::ops::BitAnd for WINDOW_MESSAGE_FILTER_ACTION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINDOW_MESSAGE_FILTER_ACTION {
+impl ::core::ops::BitOrAssign for WINDOW_MESSAGE_FILTER_ACTION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINDOW_MESSAGE_FILTER_ACTION {
+impl ::core::ops::BitAndAssign for WINDOW_MESSAGE_FILTER_ACTION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINDOW_MESSAGE_FILTER_ACTION {
+impl ::core::ops::Not for WINDOW_MESSAGE_FILTER_ACTION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_STYLE(pub u32);
 pub const WS_OVERLAPPED: WINDOW_STYLE = WINDOW_STYLE(0u32);
@@ -13939,7 +13939,7 @@ pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
 pub const WS_POPUPWINDOW: WINDOW_STYLE = WINDOW_STYLE(2156396544u32);
 pub const WS_CHILDWINDOW: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
 pub const WS_ACTIVECAPTION: WINDOW_STYLE = WINDOW_STYLE(1u32);
-impl ::std::convert::From<u32> for WINDOW_STYLE {
+impl ::core::convert::From<u32> for WINDOW_STYLE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13947,29 +13947,29 @@ impl ::std::convert::From<u32> for WINDOW_STYLE {
 unsafe impl ::windows::runtime::Abi for WINDOW_STYLE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINDOW_STYLE {
+impl ::core::ops::BitOr for WINDOW_STYLE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINDOW_STYLE {
+impl ::core::ops::BitAnd for WINDOW_STYLE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINDOW_STYLE {
+impl ::core::ops::BitOrAssign for WINDOW_STYLE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINDOW_STYLE {
+impl ::core::ops::BitAndAssign for WINDOW_STYLE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINDOW_STYLE {
+impl ::core::ops::Not for WINDOW_STYLE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -14517,13 +14517,13 @@ pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_XBUTTONUP: u32 = 524u32;
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSA {
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::std::option::Option<WNDPROC>,
+    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -14536,14 +14536,14 @@ pub struct WNDCLASSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl WNDCLASSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for WNDCLASSA {
+impl ::core::default::Default for WNDCLASSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for WNDCLASSA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WNDCLASSA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WNDCLASSA")
             .field("style", &self.style)
             .field("cbClsExtra", &self.cbClsExtra)
@@ -14558,25 +14558,25 @@ impl ::std::fmt::Debug for WNDCLASSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for WNDCLASSA {
+impl ::core::cmp::PartialEq for WNDCLASSA {
     fn eq(&self, other: &Self) -> bool {
         self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for WNDCLASSA {}
+impl ::core::cmp::Eq for WNDCLASSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSA {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::std::option::Option<WNDPROC>,
+    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -14590,14 +14590,14 @@ pub struct WNDCLASSEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl WNDCLASSEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for WNDCLASSEXA {
+impl ::core::default::Default for WNDCLASSEXA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for WNDCLASSEXA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WNDCLASSEXA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WNDCLASSEXA")
             .field("cbSize", &self.cbSize)
             .field("style", &self.style)
@@ -14614,25 +14614,25 @@ impl ::std::fmt::Debug for WNDCLASSEXA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for WNDCLASSEXA {
+impl ::core::cmp::PartialEq for WNDCLASSEXA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName && self.hIconSm == other.hIconSm
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for WNDCLASSEXA {}
+impl ::core::cmp::Eq for WNDCLASSEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSEXA {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::std::option::Option<WNDPROC>,
+    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -14646,14 +14646,14 @@ pub struct WNDCLASSEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl WNDCLASSEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for WNDCLASSEXW {
+impl ::core::default::Default for WNDCLASSEXW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for WNDCLASSEXW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WNDCLASSEXW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WNDCLASSEXW")
             .field("cbSize", &self.cbSize)
             .field("style", &self.style)
@@ -14670,24 +14670,24 @@ impl ::std::fmt::Debug for WNDCLASSEXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for WNDCLASSEXW {
+impl ::core::cmp::PartialEq for WNDCLASSEXW {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName && self.hIconSm == other.hIconSm
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for WNDCLASSEXW {}
+impl ::core::cmp::Eq for WNDCLASSEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSEXW {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSW {
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::std::option::Option<WNDPROC>,
+    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -14700,14 +14700,14 @@ pub struct WNDCLASSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for WNDCLASSW {
+impl ::core::default::Default for WNDCLASSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for WNDCLASSW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WNDCLASSW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WNDCLASSW")
             .field("style", &self.style)
             .field("cbClsExtra", &self.cbClsExtra)
@@ -14722,19 +14722,19 @@ impl ::std::fmt::Debug for WNDCLASSW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for WNDCLASSW {
+impl ::core::cmp::PartialEq for WNDCLASSW {
     fn eq(&self, other: &Self) -> bool {
         self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for WNDCLASSW {}
+impl ::core::cmp::Eq for WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSW {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNDCLASS_STYLES(pub u32);
 pub const CS_VREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(1u32);
@@ -14750,7 +14750,7 @@ pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
 pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
 pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
 pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
-impl ::std::convert::From<u32> for WNDCLASS_STYLES {
+impl ::core::convert::From<u32> for WNDCLASS_STYLES {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -14758,29 +14758,29 @@ impl ::std::convert::From<u32> for WNDCLASS_STYLES {
 unsafe impl ::windows::runtime::Abi for WNDCLASS_STYLES {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WNDCLASS_STYLES {
+impl ::core::ops::BitOr for WNDCLASS_STYLES {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WNDCLASS_STYLES {
+impl ::core::ops::BitAnd for WNDCLASS_STYLES {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WNDCLASS_STYLES {
+impl ::core::ops::BitOrAssign for WNDCLASS_STYLES {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WNDCLASS_STYLES {
+impl ::core::ops::BitAndAssign for WNDCLASS_STYLES {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WNDCLASS_STYLES {
+impl ::core::ops::Not for WNDCLASS_STYLES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -14840,7 +14840,7 @@ pub unsafe fn WaitMessage() -> super::super::Foundation::BOOL {
         extern "system" {
             fn WaitMessage() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WaitMessage())
+        ::core::mem::transmute(WaitMessage())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14855,7 +14855,7 @@ pub unsafe fn WindowFromPhysicalPoint<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn WindowFromPhysicalPoint(point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(WindowFromPhysicalPoint(point.into_param().abi()))
+        ::core::mem::transmute(WindowFromPhysicalPoint(point.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14870,7 +14870,7 @@ pub unsafe fn WindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn WindowFromPoint(point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(WindowFromPoint(point.into_param().abi()))
+        ::core::mem::transmute(WindowFromPoint(point.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14919,7 +14919,7 @@ pub unsafe fn wsprintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn wsprintfA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(wsprintfA(::std::mem::transmute(param0), param1.into_param().abi()))
+        ::core::mem::transmute(wsprintfA(::core::mem::transmute(param0), param1.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14934,7 +14934,7 @@ pub unsafe fn wsprintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn wsprintfW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(wsprintfW(::std::mem::transmute(param0), param1.into_param().abi()))
+        ::core::mem::transmute(wsprintfW(::core::mem::transmute(param0), param1.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14949,7 +14949,7 @@ pub unsafe fn wvsprintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn wvsprintfA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, arglist: *const i8) -> i32;
         }
-        ::std::mem::transmute(wvsprintfA(::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(arglist)))
+        ::core::mem::transmute(wvsprintfA(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(arglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14964,7 +14964,7 @@ pub unsafe fn wvsprintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn wvsprintfW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, arglist: *const i8) -> i32;
         }
-        ::std::mem::transmute(wvsprintfW(::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(arglist)))
+        ::core::mem::transmute(wvsprintfW(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(arglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

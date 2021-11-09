@@ -25,7 +25,7 @@ pub struct ISecondaryAuthenticationFactorAuthentication_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicehmac: ::windows::runtime::RawPtr, sessionhmac: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorlogmessage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorlogmessage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -83,7 +83,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SecondaryAuthenticationFactorAuthenticationStage) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SecondaryAuthenticationFactorAuthenticationScenario) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -101,9 +101,9 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, message: SecondaryAuthenticationFactorAuthenticationMessage, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, message: SecondaryAuthenticationFactorAuthenticationMessage, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, serviceauthenticationnonce: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, serviceauthenticationnonce: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -128,21 +128,21 @@ pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationSta
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, deviceinstancepath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        deviceinstancepath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        deviceinstancepath: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode,
-        devicefriendlyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        devicemodelnumber: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        devicefriendlyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        devicemodelnumber: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         deviceconfigurationdata: ::windows::runtime::RawPtr,
         result__: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
@@ -162,9 +162,9 @@ pub struct ISecondaryAuthenticationFactorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
@@ -207,7 +207,7 @@ pub struct ISecondaryAuthenticationFactorRegistration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceconfigurationdata: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorlogmessage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorlogmessage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -248,10 +248,10 @@ pub struct ISecondaryAuthenticationFactorRegistrationStatics_abi(
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         capabilities: SecondaryAuthenticationFactorDeviceCapabilities,
-        devicefriendlyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        devicemodelnumber: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        devicefriendlyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        devicemodelnumber: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         devicekey: ::windows::runtime::RawPtr,
         mutualauthenticationkey: ::windows::runtime::RawPtr,
         result__: *mut ::windows::runtime::RawPtr,
@@ -259,14 +259,14 @@ pub struct ISecondaryAuthenticationFactorRegistrationStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, querytype: SecondaryAuthenticationFactorDeviceFindScope, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, deviceconfigurationdata: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, deviceconfigurationdata: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorAuthentication(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthentication {
     #[cfg(feature = "deprecated")]
@@ -275,8 +275,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     pub fn ServiceAuthenticationHmac(&self) -> ::windows::runtime::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -285,8 +285,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     pub fn SessionNonce(&self) -> ::windows::runtime::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -295,8 +295,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     pub fn DeviceNonce(&self) -> ::windows::runtime::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -305,8 +305,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     pub fn DeviceConfigurationData(&self) -> ::windows::runtime::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -315,8 +315,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     pub fn FinishAuthenticationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(&self, devicehmac: Param0, sessionhmac: Param1) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), devicehmac.into_param().abi(), sessionhmac.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), devicehmac.into_param().abi(), sessionhmac.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -325,8 +325,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     pub fn AbortAuthenticationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, errorlogmessage: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), errorlogmessage.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), errorlogmessage.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -334,8 +334,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn ShowNotificationMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(devicename: Param0, message: SecondaryAuthenticationFactorAuthenticationMessage) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), devicename.into_param().abi(), message, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), devicename.into_param().abi(), message, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -343,8 +343,8 @@ impl SecondaryAuthenticationFactorAuthentication {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`, `Storage_Streams`*"]
     pub fn StartAuthenticationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(deviceid: Param0, serviceauthenticationnonce: Param1) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), serviceauthenticationnonce.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), serviceauthenticationnonce.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -352,23 +352,23 @@ impl SecondaryAuthenticationFactorAuthentication {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn AuthenticationStageChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
-            let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn RemoveAuthenticationStageChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn GetAuthenticationStageInfoAsync() -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationStageInfo>> {
         Self::ISecondaryAuthenticationFactorAuthenticationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationStageInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationStageInfo>>(result__)
         })
     }
     pub fn ISecondaryAuthenticationFactorAuthenticationStatics<R, F: FnOnce(&ISecondaryAuthenticationFactorAuthenticationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -386,12 +386,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthe
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthentication {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthentication) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
         value.0 .0.clone()
     }
@@ -406,12 +406,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorAuthentication) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthentication> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorAuthentication) -> Self {
         value.0.clone()
     }
@@ -426,10 +426,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorAuthentication {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorAuthentication {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthentication {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationMessage {
@@ -463,7 +463,7 @@ impl SecondaryAuthenticationFactorAuthenticationMessage {
     pub const RecognitionFailed: SecondaryAuthenticationFactorAuthenticationMessage = SecondaryAuthenticationFactorAuthenticationMessage(27i32);
     pub const DeviceUnavailable: SecondaryAuthenticationFactorAuthenticationMessage = SecondaryAuthenticationFactorAuthenticationMessage(28i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationMessage {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationMessage {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -479,7 +479,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthentica
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorAuthenticationResult(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationResult {
     #[cfg(feature = "deprecated")]
@@ -487,8 +487,8 @@ impl SecondaryAuthenticationFactorAuthenticationResult {
     pub fn Status(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__: SecondaryAuthenticationFactorAuthenticationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStatus>(result__)
+            let mut result__: SecondaryAuthenticationFactorAuthenticationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStatus>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -496,8 +496,8 @@ impl SecondaryAuthenticationFactorAuthenticationResult {
     pub fn Authentication(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorAuthentication> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthentication>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthentication>(result__)
         }
     }
 }
@@ -511,12 +511,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthe
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
         value.0 .0.clone()
     }
@@ -531,12 +531,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorAuthenticationResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationResult> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationResult) -> Self {
         value.0.clone()
     }
@@ -551,17 +551,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorAuthenticationResult {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorAuthenticationResult {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationResult {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationResult {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationScenario {
     pub const SignIn: SecondaryAuthenticationFactorAuthenticationScenario = SecondaryAuthenticationFactorAuthenticationScenario(0i32);
     pub const CredentialPrompt: SecondaryAuthenticationFactorAuthenticationScenario = SecondaryAuthenticationFactorAuthenticationScenario(1i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationScenario {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationScenario {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -576,7 +576,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthentica
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationStage {
@@ -590,7 +590,7 @@ impl SecondaryAuthenticationFactorAuthenticationStage {
     pub const ReadyForLock: SecondaryAuthenticationFactorAuthenticationStage = SecondaryAuthenticationFactorAuthenticationStage(7i32);
     pub const CheckingDevicePresence: SecondaryAuthenticationFactorAuthenticationStage = SecondaryAuthenticationFactorAuthenticationStage(8i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationStage {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationStage {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -606,7 +606,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthentica
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -614,8 +614,8 @@ impl SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     pub fn StageInfo(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorAuthenticationStageInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStageInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStageInfo>(result__)
         }
     }
 }
@@ -629,12 +629,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthe
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -649,12 +649,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -669,11 +669,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorAuthenticationStageInfo {
     #[cfg(feature = "deprecated")]
@@ -681,8 +681,8 @@ impl SecondaryAuthenticationFactorAuthenticationStageInfo {
     pub fn Stage(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorAuthenticationStage> {
         let this = self;
         unsafe {
-            let mut result__: SecondaryAuthenticationFactorAuthenticationStage = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStage>(result__)
+            let mut result__: SecondaryAuthenticationFactorAuthenticationStage = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationStage>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -690,8 +690,8 @@ impl SecondaryAuthenticationFactorAuthenticationStageInfo {
     pub fn Scenario(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorAuthenticationScenario> {
         let this = self;
         unsafe {
-            let mut result__: SecondaryAuthenticationFactorAuthenticationScenario = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationScenario>(result__)
+            let mut result__: SecondaryAuthenticationFactorAuthenticationScenario = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorAuthenticationScenario>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -699,8 +699,8 @@ impl SecondaryAuthenticationFactorAuthenticationStageInfo {
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -714,12 +714,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorAuthe
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorAuthenticationStageInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
         value.0 .0.clone()
     }
@@ -734,12 +734,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationStageInfo> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationStageInfo) -> Self {
         value.0.clone()
     }
@@ -754,10 +754,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorAuthenticationStageInfo {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageInfo {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageInfo {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationStatus {
@@ -767,7 +767,7 @@ impl SecondaryAuthenticationFactorAuthenticationStatus {
     pub const DisabledByPolicy: SecondaryAuthenticationFactorAuthenticationStatus = SecondaryAuthenticationFactorAuthenticationStatus(3i32);
     pub const InvalidAuthenticationStage: SecondaryAuthenticationFactorAuthenticationStatus = SecondaryAuthenticationFactorAuthenticationStatus(4i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationStatus {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -782,7 +782,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthentica
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(pub u32);
 impl SecondaryAuthenticationFactorDeviceCapabilities {
@@ -795,7 +795,7 @@ impl SecondaryAuthenticationFactorDeviceCapabilities {
     pub const HMacSha256: SecondaryAuthenticationFactorDeviceCapabilities = SecondaryAuthenticationFactorDeviceCapabilities(32u32);
     pub const CloseRangeDataTransmission: SecondaryAuthenticationFactorDeviceCapabilities = SecondaryAuthenticationFactorDeviceCapabilities(64u32);
 }
-impl ::std::convert::From<u32> for SecondaryAuthenticationFactorDeviceCapabilities {
+impl ::core::convert::From<u32> for SecondaryAuthenticationFactorDeviceCapabilities {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -809,43 +809,43 @@ unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorDev
 impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDeviceCapabilities {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for SecondaryAuthenticationFactorDeviceCapabilities {
+impl ::core::ops::BitOr for SecondaryAuthenticationFactorDeviceCapabilities {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SecondaryAuthenticationFactorDeviceCapabilities {
+impl ::core::ops::BitAnd for SecondaryAuthenticationFactorDeviceCapabilities {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SecondaryAuthenticationFactorDeviceCapabilities {
+impl ::core::ops::BitOrAssign for SecondaryAuthenticationFactorDeviceCapabilities {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SecondaryAuthenticationFactorDeviceCapabilities {
+impl ::core::ops::BitAndAssign for SecondaryAuthenticationFactorDeviceCapabilities {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SecondaryAuthenticationFactorDeviceCapabilities {
+impl ::core::ops::Not for SecondaryAuthenticationFactorDeviceCapabilities {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(pub i32);
 impl SecondaryAuthenticationFactorDeviceFindScope {
     pub const User: SecondaryAuthenticationFactorDeviceFindScope = SecondaryAuthenticationFactorDeviceFindScope(0i32);
     pub const AllUsers: SecondaryAuthenticationFactorDeviceFindScope = SecondaryAuthenticationFactorDeviceFindScope(1i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDeviceFindScope {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorDeviceFindScope {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -860,14 +860,14 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDeviceFind
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresence(pub i32);
 impl SecondaryAuthenticationFactorDevicePresence {
     pub const Absent: SecondaryAuthenticationFactorDevicePresence = SecondaryAuthenticationFactorDevicePresence(0i32);
     pub const Present: SecondaryAuthenticationFactorDevicePresence = SecondaryAuthenticationFactorDevicePresence(1i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDevicePresence {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorDevicePresence {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -882,7 +882,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDevicePres
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(pub i32);
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
@@ -890,7 +890,7 @@ impl SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     pub const AppManaged: SecondaryAuthenticationFactorDevicePresenceMonitoringMode = SecondaryAuthenticationFactorDevicePresenceMonitoringMode(1i32);
     pub const SystemManaged: SecondaryAuthenticationFactorDevicePresenceMonitoringMode = SecondaryAuthenticationFactorDevicePresenceMonitoringMode(2i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -905,7 +905,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDevicePres
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
@@ -913,7 +913,7 @@ impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     pub const Succeeded: SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus = SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(1i32);
     pub const DisabledByPolicy: SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus = SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(2i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -928,7 +928,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDevicePres
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorFinishAuthenticationStatus {
@@ -936,7 +936,7 @@ impl SecondaryAuthenticationFactorFinishAuthenticationStatus {
     pub const Completed: SecondaryAuthenticationFactorFinishAuthenticationStatus = SecondaryAuthenticationFactorFinishAuthenticationStatus(1i32);
     pub const NonceExpired: SecondaryAuthenticationFactorFinishAuthenticationStatus = SecondaryAuthenticationFactorFinishAuthenticationStatus(2i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorFinishAuthenticationStatus {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -952,7 +952,7 @@ impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorFinishAuth
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorInfo(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorInfo {
     #[cfg(feature = "deprecated")]
@@ -960,8 +960,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -969,8 +969,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn DeviceFriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -978,8 +978,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn DeviceModelNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -988,8 +988,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn DeviceConfigurationData(&self) -> ::windows::runtime::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -997,8 +997,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn PresenceMonitoringMode(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorDevicePresenceMonitoringMode> {
         let this = &::windows::runtime::Interface::cast::<ISecondaryAuthenticationFactorInfo2>(self)?;
         unsafe {
-            let mut result__: SecondaryAuthenticationFactorDevicePresenceMonitoringMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorDevicePresenceMonitoringMode>(result__)
+            let mut result__: SecondaryAuthenticationFactorDevicePresenceMonitoringMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorDevicePresenceMonitoringMode>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1007,8 +1007,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn UpdateDevicePresenceAsync(&self, presencestate: SecondaryAuthenticationFactorDevicePresence) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<ISecondaryAuthenticationFactorInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), presencestate, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), presencestate, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1016,8 +1016,8 @@ impl SecondaryAuthenticationFactorInfo {
     pub fn IsAuthenticationSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISecondaryAuthenticationFactorInfo2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1031,12 +1031,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorInfo 
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
         value.0 .0.clone()
     }
@@ -1051,12 +1051,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorInfo> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorInfo> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorInfo) -> Self {
         value.0.clone()
     }
@@ -1071,11 +1071,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorInfo {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorInfo {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorInfo {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorRegistration(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorRegistration {
     #[cfg(feature = "deprecated")]
@@ -1084,8 +1084,8 @@ impl SecondaryAuthenticationFactorRegistration {
     pub fn FinishRegisteringDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(&self, deviceconfigurationdata: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1094,8 +1094,8 @@ impl SecondaryAuthenticationFactorRegistration {
     pub fn AbortRegisteringDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, errorlogmessage: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), errorlogmessage.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), errorlogmessage.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1110,8 +1110,8 @@ impl SecondaryAuthenticationFactorRegistration {
         mutualauthenticationkey: Param5,
     ) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), capabilities, devicefriendlyname.into_param().abi(), devicemodelnumber.into_param().abi(), devicekey.into_param().abi(), mutualauthenticationkey.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), capabilities, devicefriendlyname.into_param().abi(), devicemodelnumber.into_param().abi(), devicekey.into_param().abi(), mutualauthenticationkey.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1119,8 +1119,8 @@ impl SecondaryAuthenticationFactorRegistration {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllRegisteredDeviceInfoAsync(querytype: SecondaryAuthenticationFactorDeviceFindScope) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), querytype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), querytype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1128,8 +1128,8 @@ impl SecondaryAuthenticationFactorRegistration {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn UnregisterDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1137,8 +1137,8 @@ impl SecondaryAuthenticationFactorRegistration {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`, `Storage_Streams`*"]
     pub fn UpdateDeviceConfigurationDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IBuffer>>(deviceid: Param0, deviceconfigurationdata: Param1) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1146,8 +1146,8 @@ impl SecondaryAuthenticationFactorRegistration {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn RegisterDevicePresenceMonitoringAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0, deviceinstancepath: Param1, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), deviceinstancepath.into_param().abi(), monitoringmode, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), deviceinstancepath.into_param().abi(), monitoringmode, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1162,8 +1162,8 @@ impl SecondaryAuthenticationFactorRegistration {
         deviceconfigurationdata: Param5,
     ) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), deviceinstancepath.into_param().abi(), monitoringmode, devicefriendlyname.into_param().abi(), devicemodelnumber.into_param().abi(), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), deviceinstancepath.into_param().abi(), monitoringmode, devicefriendlyname.into_param().abi(), devicemodelnumber.into_param().abi(), deviceconfigurationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1171,16 +1171,16 @@ impl SecondaryAuthenticationFactorRegistration {
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`, `Foundation`*"]
     pub fn UnregisterDevicePresenceMonitoringAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
     pub fn IsDevicePresenceMonitoringSupported() -> ::windows::runtime::Result<bool> {
         Self::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn ISecondaryAuthenticationFactorRegistrationStatics<R, F: FnOnce(&ISecondaryAuthenticationFactorRegistrationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1202,12 +1202,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorRegis
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorRegistration {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorRegistration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
         value.0 .0.clone()
     }
@@ -1222,12 +1222,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorRegistration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorRegistration> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorRegistration) -> Self {
         value.0.clone()
     }
@@ -1242,11 +1242,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorRegistration {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorRegistration {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistration {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistration {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecondaryAuthenticationFactorRegistrationResult(pub ::windows::runtime::IInspectable);
 impl SecondaryAuthenticationFactorRegistrationResult {
     #[cfg(feature = "deprecated")]
@@ -1254,8 +1254,8 @@ impl SecondaryAuthenticationFactorRegistrationResult {
     pub fn Status(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorRegistrationStatus> {
         let this = self;
         unsafe {
-            let mut result__: SecondaryAuthenticationFactorRegistrationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorRegistrationStatus>(result__)
+            let mut result__: SecondaryAuthenticationFactorRegistrationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorRegistrationStatus>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1263,8 +1263,8 @@ impl SecondaryAuthenticationFactorRegistrationResult {
     pub fn Registration(&self) -> ::windows::runtime::Result<SecondaryAuthenticationFactorRegistration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorRegistration>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondaryAuthenticationFactorRegistration>(result__)
         }
     }
 }
@@ -1278,12 +1278,12 @@ unsafe impl ::windows::runtime::Interface for SecondaryAuthenticationFactorRegis
 impl ::windows::runtime::RuntimeName for SecondaryAuthenticationFactorRegistrationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult";
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IUnknown {
     fn from(value: SecondaryAuthenticationFactorRegistrationResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
         value.0 .0.clone()
     }
@@ -1298,12 +1298,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IInspectable {
     fn from(value: SecondaryAuthenticationFactorRegistrationResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SecondaryAuthenticationFactorRegistrationResult> for ::windows::runtime::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorRegistrationResult) -> Self {
         value.0.clone()
     }
@@ -1318,10 +1318,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SecondaryAuthenticationFactorRegistrationResult {}
-unsafe impl ::std::marker::Sync for SecondaryAuthenticationFactorRegistrationResult {}
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistrationResult {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistrationResult {}
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorRegistrationStatus {
@@ -1331,7 +1331,7 @@ impl SecondaryAuthenticationFactorRegistrationStatus {
     pub const PinSetupRequired: SecondaryAuthenticationFactorRegistrationStatus = SecondaryAuthenticationFactorRegistrationStatus(3i32);
     pub const DisabledByPolicy: SecondaryAuthenticationFactorRegistrationStatus = SecondaryAuthenticationFactorRegistrationStatus(4i32);
 }
-impl ::std::convert::From<i32> for SecondaryAuthenticationFactorRegistrationStatus {
+impl ::core::convert::From<i32> for SecondaryAuthenticationFactorRegistrationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }

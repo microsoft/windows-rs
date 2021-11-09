@@ -39,21 +39,21 @@ pub struct IPalmRejectionDelayZonePreviewStatics_abi(
 );
 #[doc = "*Required features: `UI_Input_Inking_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PalmRejectionDelayZonePreview(pub ::windows::runtime::IInspectable);
 impl PalmRejectionDelayZonePreview {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input_Inking_Preview`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     #[doc = "*Required features: `UI_Input_Inking_Preview`, `Foundation`, `UI_Composition`*"]
     pub fn CreateForVisual<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>>(inputpanelvisual: Param0, inputpanelrect: Param1) -> ::windows::runtime::Result<PalmRejectionDelayZonePreview> {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), inputpanelvisual.into_param().abi(), inputpanelrect.into_param().abi(), &mut result__).from_abi::<PalmRejectionDelayZonePreview>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputpanelvisual.into_param().abi(), inputpanelrect.into_param().abi(), &mut result__).from_abi::<PalmRejectionDelayZonePreview>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
@@ -65,8 +65,8 @@ impl PalmRejectionDelayZonePreview {
         viewportrect: Param3,
     ) -> ::windows::runtime::Result<PalmRejectionDelayZonePreview> {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), inputpanelvisual.into_param().abi(), inputpanelrect.into_param().abi(), viewportvisual.into_param().abi(), viewportrect.into_param().abi(), &mut result__).from_abi::<PalmRejectionDelayZonePreview>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), inputpanelvisual.into_param().abi(), inputpanelrect.into_param().abi(), viewportvisual.into_param().abi(), viewportrect.into_param().abi(), &mut result__).from_abi::<PalmRejectionDelayZonePreview>(result__)
         })
     }
     pub fn IPalmRejectionDelayZonePreviewStatics<R, F: FnOnce(&IPalmRejectionDelayZonePreviewStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -84,12 +84,12 @@ unsafe impl ::windows::runtime::Interface for PalmRejectionDelayZonePreview {
 impl ::windows::runtime::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
 }
-impl ::std::convert::From<PalmRejectionDelayZonePreview> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PalmRejectionDelayZonePreview> for ::windows::runtime::IUnknown {
     fn from(value: PalmRejectionDelayZonePreview) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PalmRejectionDelayZonePreview> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PalmRejectionDelayZonePreview> for ::windows::runtime::IUnknown {
     fn from(value: &PalmRejectionDelayZonePreview) -> Self {
         value.0 .0.clone()
     }
@@ -104,12 +104,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PalmRejectionDelayZonePreview> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PalmRejectionDelayZonePreview> for ::windows::runtime::IInspectable {
     fn from(value: PalmRejectionDelayZonePreview) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PalmRejectionDelayZonePreview> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PalmRejectionDelayZonePreview> for ::windows::runtime::IInspectable {
     fn from(value: &PalmRejectionDelayZonePreview) -> Self {
         value.0.clone()
     }
@@ -125,14 +125,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PalmRejectionDelayZonePreview) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PalmRejectionDelayZonePreview) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -147,8 +147,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundatio
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::IClosable> for &PalmRejectionDelayZonePreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for PalmRejectionDelayZonePreview {}
-unsafe impl ::std::marker::Sync for PalmRejectionDelayZonePreview {}
+unsafe impl ::core::marker::Send for PalmRejectionDelayZonePreview {}
+unsafe impl ::core::marker::Sync for PalmRejectionDelayZonePreview {}

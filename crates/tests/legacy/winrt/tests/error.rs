@@ -1,3 +1,4 @@
+use std::convert::TryInto;
 use test_winrt::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
@@ -7,12 +8,13 @@ fn from_hresult() {
     let error: windows::runtime::Error = windows::runtime::HRESULT(0x80004004).into();
 
     assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
-    assert_eq!(error.message(), "Operation aborted");
+    let message: String = error.message().try_into().unwrap();
+    assert_eq!(message.trim_end(), "Operation aborted");
 }
 
 #[test]
 fn originate() {
-    let error = windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate");
+    let error = windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate".into());
 
     assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
     assert_eq!(error.message(), "test originate");
@@ -39,10 +41,10 @@ fn bad_uri() {
 #[test]
 fn convertible() {
     fn windows_error() -> windows::runtime::Result<()> {
-        Err(windows::runtime::Error::new(E_NOINTERFACE, "test message"))
+        Err(windows::runtime::Error::new(E_NOINTERFACE, "test message".into()))
     }
 
-    fn convertible_error() -> std::result::Result<(), Box<dyn std::error::Error>> {
+    fn convertible_error() -> core::result::Result<(), Box<dyn std::error::Error>> {
         windows_error()?;
         Ok(())
     }
@@ -50,5 +52,5 @@ fn convertible() {
     let result = convertible_error();
     let format = format!("{:?}", result);
 
-    assert_eq!(format, "Err(Error { code: 0x80004002, message: \"test message\" })");
+    assert_eq!(format, "Err(Error { code: 0x80004002, message: test message })");
 }

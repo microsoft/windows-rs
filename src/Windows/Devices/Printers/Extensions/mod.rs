@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ExtensionsContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
@@ -18,7 +18,7 @@ pub struct IPrint3DWorkflow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
@@ -85,7 +85,7 @@ pub struct IPrint3DWorkflowPrinterChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -103,7 +103,7 @@ pub struct IPrintExtensionContextStatic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -121,9 +121,9 @@ pub struct IPrintNotificationEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -207,67 +207,67 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Print3DWorkflow(pub ::windows::runtime::IInspectable);
 impl Print3DWorkflow {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn DeviceID(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn GetPrintModelPackage(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn IsPrintReady(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn SetIsPrintReady(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Printers_Extensions`, `Foundation`*"]
     pub fn PrintRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Printers_Extensions`, `Foundation`*"]
     pub fn RemovePrintRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Printers_Extensions`, `Foundation`*"]
     pub fn PrinterChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Printers_Extensions`, `Foundation`*"]
     pub fn RemovePrinterChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrint3DWorkflow2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflow {
@@ -280,12 +280,12 @@ unsafe impl ::windows::runtime::Interface for Print3DWorkflow {
 impl ::windows::runtime::RuntimeName for Print3DWorkflow {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflow";
 }
-impl ::std::convert::From<Print3DWorkflow> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Print3DWorkflow> for ::windows::runtime::IUnknown {
     fn from(value: Print3DWorkflow) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Print3DWorkflow> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Print3DWorkflow> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DWorkflow) -> Self {
         value.0 .0.clone()
     }
@@ -300,12 +300,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Print3DWorkflow> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Print3DWorkflow> for ::windows::runtime::IInspectable {
     fn from(value: Print3DWorkflow) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Print3DWorkflow> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Print3DWorkflow> for ::windows::runtime::IInspectable {
     fn from(value: &Print3DWorkflow) -> Self {
         value.0.clone()
     }
@@ -320,10 +320,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Print3DWorkflow {}
-unsafe impl ::std::marker::Sync for Print3DWorkflow {}
+unsafe impl ::core::marker::Send for Print3DWorkflow {}
+unsafe impl ::core::marker::Sync for Print3DWorkflow {}
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
@@ -335,7 +335,7 @@ impl Print3DWorkflowDetail {
     pub const ModelNotManifold: Print3DWorkflowDetail = Print3DWorkflowDetail(5i32);
     pub const InvalidPrintTicket: Print3DWorkflowDetail = Print3DWorkflowDetail(6i32);
 }
-impl ::std::convert::From<i32> for Print3DWorkflowDetail {
+impl ::core::convert::From<i32> for Print3DWorkflowDetail {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -351,31 +351,31 @@ impl ::windows::runtime::DefaultType for Print3DWorkflowDetail {
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl Print3DWorkflowPrintRequestedEventArgs {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<Print3DWorkflowStatus> {
         let this = self;
         unsafe {
-            let mut result__: Print3DWorkflowStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Print3DWorkflowStatus>(result__)
+            let mut result__: Print3DWorkflowStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Print3DWorkflowStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn SetExtendedStatus(&self, value: Print3DWorkflowDetail) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn SetSourceChanged(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
@@ -388,12 +388,12 @@ unsafe impl ::windows::runtime::Interface for Print3DWorkflowPrintRequestedEvent
 impl ::windows::runtime::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs";
 }
-impl ::std::convert::From<Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: Print3DWorkflowPrintRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DWorkflowPrintRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -408,12 +408,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: Print3DWorkflowPrintRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Print3DWorkflowPrintRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &Print3DWorkflowPrintRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -428,19 +428,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Print3DWorkflowPrintRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for Print3DWorkflowPrintRequestedEventArgs {}
+unsafe impl ::core::marker::Send for Print3DWorkflowPrintRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl Print3DWorkflowPrinterChangedEventArgs {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn NewDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -454,12 +454,12 @@ unsafe impl ::windows::runtime::Interface for Print3DWorkflowPrinterChangedEvent
 impl ::windows::runtime::RuntimeName for Print3DWorkflowPrinterChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs";
 }
-impl ::std::convert::From<Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: Print3DWorkflowPrinterChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &Print3DWorkflowPrinterChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -474,12 +474,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: Print3DWorkflowPrinterChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Print3DWorkflowPrinterChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &Print3DWorkflowPrinterChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -494,10 +494,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
-unsafe impl ::std::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
+unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
@@ -507,7 +507,7 @@ impl Print3DWorkflowStatus {
     pub const Slicing: Print3DWorkflowStatus = Print3DWorkflowStatus(3i32);
     pub const Submitted: Print3DWorkflowStatus = Print3DWorkflowStatus(4i32);
 }
-impl ::std::convert::From<i32> for Print3DWorkflowStatus {
+impl ::core::convert::From<i32> for Print3DWorkflowStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -527,8 +527,8 @@ impl PrintExtensionContext {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn FromDeviceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         Self::IPrintExtensionContextStatic(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         })
     }
     pub fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -541,29 +541,29 @@ impl ::windows::runtime::RuntimeName for PrintExtensionContext {
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintNotificationEventDetails(pub ::windows::runtime::IInspectable);
 impl PrintNotificationEventDetails {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn PrinterName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn EventData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn SetEventData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintNotificationEventDetails {
@@ -576,12 +576,12 @@ unsafe impl ::windows::runtime::Interface for PrintNotificationEventDetails {
 impl ::windows::runtime::RuntimeName for PrintNotificationEventDetails {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintNotificationEventDetails";
 }
-impl ::std::convert::From<PrintNotificationEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintNotificationEventDetails> for ::windows::runtime::IUnknown {
     fn from(value: PrintNotificationEventDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintNotificationEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintNotificationEventDetails> for ::windows::runtime::IUnknown {
     fn from(value: &PrintNotificationEventDetails) -> Self {
         value.0 .0.clone()
     }
@@ -596,12 +596,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintNotificationEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintNotificationEventDetails> for ::windows::runtime::IInspectable {
     fn from(value: PrintNotificationEventDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintNotificationEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintNotificationEventDetails> for ::windows::runtime::IInspectable {
     fn from(value: &PrintNotificationEventDetails) -> Self {
         value.0.clone()
     }
@@ -616,19 +616,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintNotificationEventDetails {}
-unsafe impl ::std::marker::Sync for PrintNotificationEventDetails {}
+unsafe impl ::core::marker::Send for PrintNotificationEventDetails {}
+unsafe impl ::core::marker::Sync for PrintNotificationEventDetails {}
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskConfiguration(pub ::windows::runtime::IInspectable);
 impl PrintTaskConfiguration {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn PrinterExtensionContext(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -636,15 +636,15 @@ impl PrintTaskConfiguration {
     pub fn SaveRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Printers_Extensions`, `Foundation`*"]
     pub fn RemoveSaveRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTaskConfiguration {
@@ -657,12 +657,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskConfiguration {
 impl ::windows::runtime::RuntimeName for PrintTaskConfiguration {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfiguration";
 }
-impl ::std::convert::From<PrintTaskConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskConfiguration) -> Self {
         value.0 .0.clone()
     }
@@ -677,12 +677,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskConfiguration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskConfiguration) -> Self {
         value.0.clone()
     }
@@ -699,25 +699,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskConfigurationSaveRequest(pub ::windows::runtime::IInspectable);
 impl PrintTaskConfigurationSaveRequest {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, printerextensioncontext: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), printerextensioncontext.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), printerextensioncontext.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskConfigurationSaveRequestedDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskConfigurationSaveRequestedDeferral>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -725,8 +725,8 @@ impl PrintTaskConfigurationSaveRequest {
     pub fn Deadline(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -740,12 +740,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskConfigurationSaveRequest 
 impl ::windows::runtime::RuntimeName for PrintTaskConfigurationSaveRequest {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest";
 }
-impl ::std::convert::From<PrintTaskConfigurationSaveRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskConfigurationSaveRequest> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskConfigurationSaveRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskConfigurationSaveRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskConfigurationSaveRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskConfigurationSaveRequest) -> Self {
         value.0 .0.clone()
     }
@@ -760,12 +760,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskConfigurationSaveRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskConfigurationSaveRequest> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskConfigurationSaveRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskConfigurationSaveRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskConfigurationSaveRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskConfigurationSaveRequest) -> Self {
         value.0.clone()
     }
@@ -782,13 +782,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskConfigurationSaveRequestedDeferral(pub ::windows::runtime::IInspectable);
 impl PrintTaskConfigurationSaveRequestedDeferral {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
@@ -801,12 +801,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskConfigurationSaveRequeste
 impl ::windows::runtime::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral";
 }
-impl ::std::convert::From<PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskConfigurationSaveRequestedDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskConfigurationSaveRequestedDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -821,12 +821,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskConfigurationSaveRequestedDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskConfigurationSaveRequestedDeferral) -> Self {
         value.0.clone()
     }
@@ -843,15 +843,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintTaskConfigurationSaveRequestedEventArgs {
     #[doc = "*Required features: `Devices_Printers_Extensions`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<PrintTaskConfigurationSaveRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskConfigurationSaveRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskConfigurationSaveRequest>(result__)
         }
     }
 }
@@ -865,12 +865,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskConfigurationSaveRequeste
 impl ::windows::runtime::RuntimeName for PrintTaskConfigurationSaveRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs";
 }
-impl ::std::convert::From<PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskConfigurationSaveRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskConfigurationSaveRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -885,12 +885,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskConfigurationSaveRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskConfigurationSaveRequestedEventArgs) -> Self {
         value.0.clone()
     }

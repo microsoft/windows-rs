@@ -23,10 +23,10 @@ pub fn gen_build() -> TokenStream {
             let _ = cmd.output();
 
             fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
-                if let ::std::result::Result::Ok(entries) = ::std::fs::read_dir(source) {
+                if let ::core::result::Result::Ok(entries) = ::std::fs::read_dir(source) {
                     for entry in entries.filter_map(|entry| entry.ok()) {
                         let path = entry.path();
-                        if let ::std::option::Option::Some(last_path_component) = path.file_name() {
+                        if let ::core::option::Option::Some(last_path_component) = path.file_name() {
                             let _ = ::std::fs::create_dir_all(&destination);
                             destination.push(last_path_component);
                             if path.is_file() {
@@ -41,11 +41,11 @@ pub fn gen_build() -> TokenStream {
                 }
             }
             fn copy_to_profile(source: &::std::path::Path, destination: &::std::path::Path, profile: &str) {
-                if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
+                if let ::core::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
                     for file in files.filter_map(|file| file.ok())  {
                         let mut path = file.path();
                         if path.is_dir() {
-                            if let ::std::option::Option::Some(filename) = path.file_name() {
+                            if let ::core::option::Option::Some(filename) = path.file_name() {
                                 if filename == profile {
                                     copy(source, &mut path);
                                 } else {

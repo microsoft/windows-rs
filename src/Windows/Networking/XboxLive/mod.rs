@@ -19,7 +19,7 @@ pub struct IXboxLiveDeviceAddress_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffer_array_size: u32, buffer: *mut u8, byteswritten: *mut u32) -> ::windows::runtime::HRESULT,
@@ -44,7 +44,7 @@ pub struct IXboxLiveDeviceAddressStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, base64: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, base64: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffer: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffer_array_size: u32, buffer: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -79,9 +79,9 @@ pub struct IXboxLiveEndpointPair_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -140,7 +140,7 @@ pub struct IXboxLiveEndpointPairStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localSocketAddress_array_size: u32, localsocketaddress: *const u8, remoteSocketAddress_array_size: u32, remotesocketaddress: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localport: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteport: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -166,11 +166,11 @@ pub struct IXboxLiveEndpointPairTemplate_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceaddress: ::windows::runtime::RawPtr, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceaddress: ::windows::runtime::RawPtr, initiatorport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, acceptorport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceaddress: ::windows::runtime::RawPtr, initiatorport: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, acceptorport: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceaddress: ::windows::runtime::RawPtr, initiatorport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, acceptorport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceaddress: ::windows::runtime::RawPtr, initiatorport: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, acceptorport: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut XboxLiveSocketKind) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
@@ -195,7 +195,7 @@ pub struct IXboxLiveEndpointPairTemplateStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
@@ -331,7 +331,7 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_abi(
 );
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveDeviceAddress(pub ::windows::runtime::IInspectable);
 impl XboxLiveDeviceAddress {
     #[cfg(feature = "Foundation")]
@@ -339,22 +339,22 @@ impl XboxLiveDeviceAddress {
     pub fn SnapshotChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
     pub fn RemoveSnapshotChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetSnapshotAsBase64(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -362,81 +362,81 @@ impl XboxLiveDeviceAddress {
     pub fn GetSnapshotAsBuffer(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetSnapshotAsBytes(&self, buffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType], byteswritten: &mut u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute_copy(&buffer), byteswritten).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer), byteswritten).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Compare<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>>(&self, otherdeviceaddress: Param0) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), otherdeviceaddress.into_param().abi(), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), otherdeviceaddress.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn IsValid(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn IsLocal(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn NetworkAccessKind(&self) -> ::windows::runtime::Result<XboxLiveNetworkAccessKind> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveNetworkAccessKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveNetworkAccessKind>(result__)
+            let mut result__: XboxLiveNetworkAccessKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveNetworkAccessKind>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn CreateFromSnapshotBase64<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(base64: Param0) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), base64.into_param().abi(), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), base64.into_param().abi(), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_XboxLive`, `Storage_Streams`*"]
     pub fn CreateFromSnapshotBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn CreateFromSnapshotBytes(buffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute(buffer.as_ptr()), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr()), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetLocal() -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn MaxSnapshotBytesSize() -> ::windows::runtime::Result<u32> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
     pub fn IXboxLiveDeviceAddressStatics<R, F: FnOnce(&IXboxLiveDeviceAddressStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -454,12 +454,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveDeviceAddress {
 impl ::windows::runtime::RuntimeName for XboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveDeviceAddress";
 }
-impl ::std::convert::From<XboxLiveDeviceAddress> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveDeviceAddress> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveDeviceAddress) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveDeviceAddress> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveDeviceAddress> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveDeviceAddress) -> Self {
         value.0 .0.clone()
     }
@@ -474,12 +474,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveDeviceAddress> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveDeviceAddress> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveDeviceAddress) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveDeviceAddress> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveDeviceAddress> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveDeviceAddress) -> Self {
         value.0.clone()
     }
@@ -494,11 +494,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveDeviceAddress {}
-unsafe impl ::std::marker::Sync for XboxLiveDeviceAddress {}
+unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
+unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveEndpointPair(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPair {
     #[cfg(feature = "Foundation")]
@@ -506,103 +506,103 @@ impl XboxLiveEndpointPair {
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetRemoteSocketAddressBytes(&self, socketaddress: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), socketaddress.len() as u32, ::std::mem::transmute_copy(&socketaddress)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), socketaddress.len() as u32, ::core::mem::transmute_copy(&socketaddress)).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetLocalSocketAddressBytes(&self, socketaddress: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), socketaddress.len() as u32, ::std::mem::transmute_copy(&socketaddress)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), socketaddress.len() as u32, ::core::mem::transmute_copy(&socketaddress)).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn State(&self) -> ::windows::runtime::Result<XboxLiveEndpointPairState> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveEndpointPairState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairState>(result__)
+            let mut result__: XboxLiveEndpointPairState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairState>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Template(&self) -> ::windows::runtime::Result<XboxLiveEndpointPairTemplate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairTemplate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairTemplate>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn RemoteDeviceAddress(&self) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn RemoteHostName(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn RemotePort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn LocalHostName(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn LocalPort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn FindEndpointPairBySocketAddressBytes(localsocketaddress: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], remotesocketaddress: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), localsocketaddress.len() as u32, ::std::mem::transmute(localsocketaddress.as_ptr()), remotesocketaddress.len() as u32, ::std::mem::transmute(remotesocketaddress.as_ptr()), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), localsocketaddress.len() as u32, ::core::mem::transmute(localsocketaddress.as_ptr()), remotesocketaddress.len() as u32, ::core::mem::transmute(remotesocketaddress.as_ptr()), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn FindEndpointPairByHostNamesAndPorts<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::HostName>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(localhostname: Param0, localport: Param1, remotehostname: Param2, remoteport: Param3) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), localhostname.into_param().abi(), localport.into_param().abi(), remotehostname.into_param().abi(), remoteport.into_param().abi(), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), localhostname.into_param().abi(), localport.into_param().abi(), remotehostname.into_param().abi(), remoteport.into_param().abi(), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
         })
     }
     pub fn IXboxLiveEndpointPairStatics<R, F: FnOnce(&IXboxLiveEndpointPairStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -620,12 +620,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPair {
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPair";
 }
-impl ::std::convert::From<XboxLiveEndpointPair> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveEndpointPair> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPair) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPair> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveEndpointPair> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPair) -> Self {
         value.0 .0.clone()
     }
@@ -640,12 +640,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveEndpointPair> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveEndpointPair> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveEndpointPair) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPair> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveEndpointPair> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveEndpointPair) -> Self {
         value.0.clone()
     }
@@ -660,17 +660,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveEndpointPair {}
-unsafe impl ::std::marker::Sync for XboxLiveEndpointPair {}
+unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
     pub const None: XboxLiveEndpointPairCreationBehaviors = XboxLiveEndpointPairCreationBehaviors(0u32);
     pub const ReevaluatePath: XboxLiveEndpointPairCreationBehaviors = XboxLiveEndpointPairCreationBehaviors(1u32);
 }
-impl ::std::convert::From<u32> for XboxLiveEndpointPairCreationBehaviors {
+impl ::core::convert::From<u32> for XboxLiveEndpointPairCreationBehaviors {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -684,29 +684,29 @@ unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairCreationBeha
 impl ::windows::runtime::DefaultType for XboxLiveEndpointPairCreationBehaviors {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for XboxLiveEndpointPairCreationBehaviors {
+impl ::core::ops::BitOr for XboxLiveEndpointPairCreationBehaviors {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for XboxLiveEndpointPairCreationBehaviors {
+impl ::core::ops::BitAnd for XboxLiveEndpointPairCreationBehaviors {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for XboxLiveEndpointPairCreationBehaviors {
+impl ::core::ops::BitOrAssign for XboxLiveEndpointPairCreationBehaviors {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for XboxLiveEndpointPairCreationBehaviors {
+impl ::core::ops::BitAndAssign for XboxLiveEndpointPairCreationBehaviors {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for XboxLiveEndpointPairCreationBehaviors {
+impl ::core::ops::Not for XboxLiveEndpointPairCreationBehaviors {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -714,39 +714,39 @@ impl ::std::ops::Not for XboxLiveEndpointPairCreationBehaviors {
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveEndpointPairCreationResult(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPairCreationResult {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn DeviceAddress(&self) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<XboxLiveEndpointPairCreationStatus> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveEndpointPairCreationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairCreationStatus>(result__)
+            let mut result__: XboxLiveEndpointPairCreationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairCreationStatus>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn IsExistingPathEvaluation(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn EndpointPair(&self) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
         }
     }
 }
@@ -760,12 +760,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPairCreationResult
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
 }
-impl ::std::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPairCreationResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
         value.0 .0.clone()
     }
@@ -780,12 +780,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveEndpointPairCreationResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
         value.0.clone()
     }
@@ -800,10 +800,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveEndpointPairCreationResult {}
-unsafe impl ::std::marker::Sync for XboxLiveEndpointPairCreationResult {}
+unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
@@ -817,7 +817,7 @@ impl XboxLiveEndpointPairCreationStatus {
     pub const RefusedDueToConfiguration: XboxLiveEndpointPairCreationStatus = XboxLiveEndpointPairCreationStatus(7i32);
     pub const UnexpectedInternalError: XboxLiveEndpointPairCreationStatus = XboxLiveEndpointPairCreationStatus(8i32);
 }
-impl ::std::convert::From<i32> for XboxLiveEndpointPairCreationStatus {
+impl ::core::convert::From<i32> for XboxLiveEndpointPairCreationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -832,7 +832,7 @@ impl ::windows::runtime::DefaultType for XboxLiveEndpointPairCreationStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
@@ -844,7 +844,7 @@ impl XboxLiveEndpointPairState {
     pub const RemoteEndpointTerminating: XboxLiveEndpointPairState = XboxLiveEndpointPairState(5i32);
     pub const Deleted: XboxLiveEndpointPairState = XboxLiveEndpointPairState(6i32);
 }
-impl ::std::convert::From<i32> for XboxLiveEndpointPairState {
+impl ::core::convert::From<i32> for XboxLiveEndpointPairState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -860,23 +860,23 @@ impl ::windows::runtime::DefaultType for XboxLiveEndpointPairState {
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPairStateChangedEventArgs {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn OldState(&self) -> ::windows::runtime::Result<XboxLiveEndpointPairState> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveEndpointPairState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairState>(result__)
+            let mut result__: XboxLiveEndpointPairState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairState>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn NewState(&self) -> ::windows::runtime::Result<XboxLiveEndpointPairState> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveEndpointPairState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairState>(result__)
+            let mut result__: XboxLiveEndpointPairState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPairState>(result__)
         }
     }
 }
@@ -890,12 +890,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPairStateChangedEv
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
 }
-impl ::std::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPairStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -910,12 +910,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveEndpointPairStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -930,11 +930,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
-unsafe impl ::std::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
+unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveEndpointPairTemplate(pub ::windows::runtime::IInspectable);
 impl XboxLiveEndpointPairTemplate {
     #[cfg(feature = "Foundation")]
@@ -942,23 +942,23 @@ impl XboxLiveEndpointPairTemplate {
     pub fn InboundEndpointPairCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
     pub fn RemoveInboundEndpointPairCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation`*"]
     pub fn CreateEndpointPairDefaultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -966,8 +966,8 @@ impl XboxLiveEndpointPairTemplate {
     pub fn CreateEndpointPairWithBehaviorsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), behaviors, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), behaviors, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -975,8 +975,8 @@ impl XboxLiveEndpointPairTemplate {
     pub fn CreateEndpointPairForPortsDefaultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, deviceaddress: Param0, initiatorport: Param1, acceptorport: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), initiatorport.into_param().abi(), acceptorport.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), initiatorport.into_param().abi(), acceptorport.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -990,56 +990,56 @@ impl XboxLiveEndpointPairTemplate {
     ) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), initiatorport.into_param().abi(), acceptorport.into_param().abi(), behaviors, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), initiatorport.into_param().abi(), acceptorport.into_param().abi(), behaviors, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SocketKind(&self) -> ::windows::runtime::Result<XboxLiveSocketKind> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveSocketKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveSocketKind>(result__)
+            let mut result__: XboxLiveSocketKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveSocketKind>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn InitiatorBoundPortRangeLower(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn InitiatorBoundPortRangeUpper(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn AcceptorBoundPortRangeLower(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn AcceptorBoundPortRangeUpper(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1047,23 +1047,23 @@ impl XboxLiveEndpointPairTemplate {
     pub fn EndpointPairs(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetTemplateByName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<XboxLiveEndpointPairTemplate> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<XboxLiveEndpointPairTemplate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<XboxLiveEndpointPairTemplate>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_XboxLive`, `Foundation_Collections`*"]
     pub fn Templates() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>>(result__)
         })
     }
     pub fn IXboxLiveEndpointPairTemplateStatics<R, F: FnOnce(&IXboxLiveEndpointPairTemplateStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1081,12 +1081,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveEndpointPairTemplate {
 impl ::windows::runtime::RuntimeName for XboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
 }
-impl ::std::convert::From<XboxLiveEndpointPairTemplate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveEndpointPairTemplate> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveEndpointPairTemplate) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
         value.0 .0.clone()
     }
@@ -1101,12 +1101,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveEndpointPairTemplate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveEndpointPairTemplate> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveEndpointPairTemplate) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
         value.0.clone()
     }
@@ -1121,19 +1121,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveEndpointPairTemplate {}
-unsafe impl ::std::marker::Sync for XboxLiveEndpointPairTemplate {}
+unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPairTemplate {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(pub ::windows::runtime::IInspectable);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn EndpointPair(&self) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
         }
     }
 }
@@ -1147,12 +1147,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveInboundEndpointPairCreated
 impl ::windows::runtime::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
 }
-impl ::std::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1167,12 +1167,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1187,10 +1187,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
-unsafe impl ::std::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
+unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
+unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
@@ -1198,7 +1198,7 @@ impl XboxLiveNetworkAccessKind {
     pub const Moderate: XboxLiveNetworkAccessKind = XboxLiveNetworkAccessKind(1i32);
     pub const Strict: XboxLiveNetworkAccessKind = XboxLiveNetworkAccessKind(2i32);
 }
-impl ::std::convert::From<i32> for XboxLiveNetworkAccessKind {
+impl ::core::convert::From<i32> for XboxLiveNetworkAccessKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1214,7 +1214,7 @@ impl ::windows::runtime::DefaultType for XboxLiveNetworkAccessKind {
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveQualityOfServiceMeasurement(pub ::windows::runtime::IInspectable);
 impl XboxLiveQualityOfServiceMeasurement {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1229,8 +1229,8 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn MeasureAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1238,8 +1238,8 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn GetMetricResultsForDevice<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1247,24 +1247,24 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), metric, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), metric, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetMetricResult<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0, metric: XboxLiveQualityOfServiceMetric) -> ::windows::runtime::Result<XboxLiveQualityOfServiceMetricResult> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), metric, &mut result__).from_abi::<XboxLiveQualityOfServiceMetricResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), metric, &mut result__).from_abi::<XboxLiveQualityOfServiceMetricResult>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn GetPrivatePayloadResult<'a, Param0: ::windows::runtime::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0) -> ::windows::runtime::Result<XboxLiveQualityOfServicePrivatePayloadResult> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), deviceaddress.into_param().abi(), &mut result__).from_abi::<XboxLiveQualityOfServicePrivatePayloadResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), deviceaddress.into_param().abi(), &mut result__).from_abi::<XboxLiveQualityOfServicePrivatePayloadResult>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1272,8 +1272,8 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn Metrics(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<XboxLiveQualityOfServiceMetric>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<XboxLiveQualityOfServiceMetric>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<XboxLiveQualityOfServiceMetric>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1281,55 +1281,55 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn DeviceAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<XboxLiveDeviceAddress>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<XboxLiveDeviceAddress>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<XboxLiveDeviceAddress>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn ShouldRequestPrivatePayloads(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SetShouldRequestPrivatePayloads(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn TimeoutInMilliseconds(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SetTimeoutInMilliseconds(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn NumberOfProbesToAttempt(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SetNumberOfProbesToAttempt(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn NumberOfResultsPending(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1337,8 +1337,8 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn MetricResults(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1346,69 +1346,69 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn PrivatePayloadResults(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn PublishPrivatePayloadBytes(payload: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), payload.len() as u32, ::std::mem::transmute(payload.as_ptr())).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), payload.len() as u32, ::core::mem::transmute(payload.as_ptr())).ok() })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn ClearPrivatePayload() -> ::windows::runtime::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn MaxSimultaneousProbeConnections() -> ::windows::runtime::Result<u32> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SetMaxSimultaneousProbeConnections(value: u32) -> ::windows::runtime::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn IsSystemOutboundBandwidthConstrained() -> ::windows::runtime::Result<bool> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SetIsSystemOutboundBandwidthConstrained(value: bool) -> ::windows::runtime::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn IsSystemInboundBandwidthConstrained() -> ::windows::runtime::Result<bool> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn SetIsSystemInboundBandwidthConstrained(value: bool) -> ::windows::runtime::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_XboxLive`, `Storage_Streams`*"]
     pub fn PublishedPrivatePayload() -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_XboxLive`, `Storage_Streams`*"]
     pub fn SetPublishedPrivatePayload<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(value: Param0) -> ::windows::runtime::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn MaxPrivatePayloadSize() -> ::windows::runtime::Result<u32> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
     pub fn IXboxLiveQualityOfServiceMeasurementStatics<R, F: FnOnce(&IXboxLiveQualityOfServiceMeasurementStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1426,12 +1426,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveQualityOfServiceMeasuremen
 impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
 }
-impl ::std::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveQualityOfServiceMeasurement) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
         value.0 .0.clone()
     }
@@ -1446,12 +1446,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveQualityOfServiceMeasurement) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
         value.0.clone()
     }
@@ -1466,10 +1466,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveQualityOfServiceMeasurement {}
-unsafe impl ::std::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
+unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
+unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
@@ -1486,7 +1486,7 @@ impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const RefusedDueToConfiguration: XboxLiveQualityOfServiceMeasurementStatus = XboxLiveQualityOfServiceMeasurementStatus(10i32);
     pub const UnexpectedInternalError: XboxLiveQualityOfServiceMeasurementStatus = XboxLiveQualityOfServiceMeasurementStatus(11i32);
 }
-impl ::std::convert::From<i32> for XboxLiveQualityOfServiceMeasurementStatus {
+impl ::core::convert::From<i32> for XboxLiveQualityOfServiceMeasurementStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1501,7 +1501,7 @@ impl ::windows::runtime::DefaultType for XboxLiveQualityOfServiceMeasurementStat
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
@@ -1515,7 +1515,7 @@ impl XboxLiveQualityOfServiceMetric {
     pub const MinInboundBitsPerSecond: XboxLiveQualityOfServiceMetric = XboxLiveQualityOfServiceMetric(7i32);
     pub const MaxInboundBitsPerSecond: XboxLiveQualityOfServiceMetric = XboxLiveQualityOfServiceMetric(8i32);
 }
-impl ::std::convert::From<i32> for XboxLiveQualityOfServiceMetric {
+impl ::core::convert::From<i32> for XboxLiveQualityOfServiceMetric {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1531,39 +1531,39 @@ impl ::windows::runtime::DefaultType for XboxLiveQualityOfServiceMetric {
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveQualityOfServiceMetricResult(pub ::windows::runtime::IInspectable);
 impl XboxLiveQualityOfServiceMetricResult {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<XboxLiveQualityOfServiceMeasurementStatus> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveQualityOfServiceMeasurementStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveQualityOfServiceMeasurementStatus>(result__)
+            let mut result__: XboxLiveQualityOfServiceMeasurementStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveQualityOfServiceMeasurementStatus>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn DeviceAddress(&self) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Metric(&self) -> ::windows::runtime::Result<XboxLiveQualityOfServiceMetric> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveQualityOfServiceMetric = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveQualityOfServiceMetric>(result__)
+            let mut result__: XboxLiveQualityOfServiceMetric = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveQualityOfServiceMetric>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -1577,12 +1577,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveQualityOfServiceMetricResu
 impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
 }
-impl ::std::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveQualityOfServiceMetricResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
         value.0 .0.clone()
     }
@@ -1597,12 +1597,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveQualityOfServiceMetricResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
         value.0.clone()
     }
@@ -1617,27 +1617,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveQualityOfServiceMetricResult {}
-unsafe impl ::std::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
+unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
+unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(pub ::windows::runtime::IInspectable);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<XboxLiveQualityOfServiceMeasurementStatus> {
         let this = self;
         unsafe {
-            let mut result__: XboxLiveQualityOfServiceMeasurementStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveQualityOfServiceMeasurementStatus>(result__)
+            let mut result__: XboxLiveQualityOfServiceMeasurementStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveQualityOfServiceMeasurementStatus>(result__)
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
     pub fn DeviceAddress(&self) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1645,8 +1645,8 @@ impl XboxLiveQualityOfServicePrivatePayloadResult {
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -1660,12 +1660,12 @@ unsafe impl ::windows::runtime::Interface for XboxLiveQualityOfServicePrivatePay
 impl ::windows::runtime::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";
 }
-impl ::std::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IUnknown {
     fn from(value: XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IUnknown {
     fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
         value.0 .0.clone()
     }
@@ -1680,12 +1680,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IInspectable {
     fn from(value: XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::runtime::IInspectable {
     fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
         value.0.clone()
     }
@@ -1700,13 +1700,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
-unsafe impl ::std::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
+unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
+unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct XboxLiveSecureSocketsContract(pub u8);
 #[doc = "*Required features: `Networking_XboxLive`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
@@ -1714,7 +1714,7 @@ impl XboxLiveSocketKind {
     pub const Datagram: XboxLiveSocketKind = XboxLiveSocketKind(1i32);
     pub const Stream: XboxLiveSocketKind = XboxLiveSocketKind(2i32);
 }
-impl ::std::convert::From<i32> for XboxLiveSocketKind {
+impl ::core::convert::From<i32> for XboxLiveSocketKind {
     fn from(value: i32) -> Self {
         Self(value)
     }

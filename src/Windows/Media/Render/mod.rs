@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_Render`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioRenderCategory(pub i32);
 impl AudioRenderCategory {
@@ -17,7 +17,7 @@ impl AudioRenderCategory {
     pub const Movie: AudioRenderCategory = AudioRenderCategory(10i32);
     pub const Media: AudioRenderCategory = AudioRenderCategory(11i32);
 }
-impl ::std::convert::From<i32> for AudioRenderCategory {
+impl ::core::convert::From<i32> for AudioRenderCategory {
     fn from(value: i32) -> Self {
         Self(value)
     }

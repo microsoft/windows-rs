@@ -9,7 +9,7 @@ pub struct Array<T: RuntimeType> {
 
 impl<T: RuntimeType> Default for Array<T> {
     fn default() -> Self {
-        Array { data: std::ptr::null_mut(), len: 0 }
+        Array { data: core::ptr::null_mut(), len: 0 }
     }
 }
 
@@ -21,8 +21,8 @@ impl<T: RuntimeType> Array<T> {
 
     /// Creates an array of the given length with default values.
     pub fn with_len(len: usize) -> Self {
-        assert!(len < std::u32::MAX as usize);
-        let bytes_amount = len.checked_mul(std::mem::size_of::<T>()).expect("Attempted to allocate too large an Array");
+        assert!(len < core::u32::MAX as usize);
+        let bytes_amount = len.checked_mul(core::mem::size_of::<T>()).expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with CoTaskMemAlloc.
         // SAFETY: the call to CoTaskMemAlloc is safe to perform
@@ -37,7 +37,7 @@ impl<T: RuntimeType> Array<T> {
         // bytes making the entire array zero initialized. We have assured
         // above that the data ptr is not null.
         unsafe {
-            std::ptr::write_bytes(data, 0, len);
+            core::ptr::write_bytes(data, 0, len);
         }
 
         let len = len as u32;
@@ -67,18 +67,18 @@ impl<T: RuntimeType> Array<T> {
             return;
         }
 
-        let mut data = std::ptr::null_mut();
+        let mut data = core::ptr::null_mut();
         let mut len = 0;
 
-        std::mem::swap(&mut data, &mut self.data);
-        std::mem::swap(&mut len, &mut self.len);
+        core::mem::swap(&mut data, &mut self.data);
+        core::mem::swap(&mut len, &mut self.len);
 
         // SAFETY: At this point, self has been reset to zero so any panics in T's destructor would
         // only leak data not leave the array in bad state.
         unsafe {
             // Call the destructors of all the elements of the old array
             // SAFETY: the slice cannot be used after the call to `drop_in_place`
-            std::ptr::drop_in_place(std::slice::from_raw_parts_mut(data, len as usize));
+            core::ptr::drop_in_place(core::slice::from_raw_parts_mut(data, len as usize));
             // Free the data memory where the elements were
             // SAFETY: we have unique access to the data pointer at this point
             // so freeing it is the right thing to do
@@ -99,12 +99,12 @@ impl<T: RuntimeType> Array<T> {
     /// Turn the array into a pointer to its data and its length
     pub fn into_abi(self) -> (*mut T::Abi, u32) {
         let abi = (self.data as *mut _, self.len);
-        std::mem::forget(self);
+        core::mem::forget(self);
         abi
     }
 }
 
-impl<T: RuntimeType> std::ops::Deref for Array<T> {
+impl<T: RuntimeType> core::ops::Deref for Array<T> {
     type Target = [T::DefaultType];
 
     fn deref(&self) -> &[T::DefaultType] {
@@ -113,18 +113,18 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
         }
 
         // SAFETY: data must not be null if the array is not empty
-        unsafe { std::slice::from_raw_parts(self.data, self.len as usize) }
+        unsafe { core::slice::from_raw_parts(self.data, self.len as usize) }
     }
 }
 
-impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
+impl<T: RuntimeType> core::ops::DerefMut for Array<T> {
     fn deref_mut(&mut self) -> &mut [T::DefaultType] {
         if self.is_empty() {
             return &mut [];
         }
 
         // SAFETY: data must not be null if the array is not empty
-        unsafe { std::slice::from_raw_parts_mut(self.data, self.len as usize) }
+        unsafe { core::slice::from_raw_parts_mut(self.data, self.len as usize) }
     }
 }
 
@@ -138,12 +138,12 @@ impl<T: RuntimeType> Drop for Array<T> {
 pub struct ArrayProxy<T: RuntimeType> {
     data: *mut *mut T::DefaultType,
     len: *mut u32,
-    temp: std::mem::ManuallyDrop<Array<T>>,
+    temp: core::mem::ManuallyDrop<Array<T>>,
 }
 
 impl<T: RuntimeType> ArrayProxy<T> {
     pub fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
-        Self { data, len, temp: std::mem::ManuallyDrop::new(Array::new()) }
+        Self { data, len, temp: core::mem::ManuallyDrop::new(Array::new()) }
     }
 
     pub fn as_array(&mut self) -> &mut Array<T> {

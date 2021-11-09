@@ -73,9 +73,9 @@ pub struct ISpeechSynthesizer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ssml: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ssml: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -179,21 +179,21 @@ pub struct IVoiceInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VoiceGender) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
     pub const Default: SpeechAppendedSilence = SpeechAppendedSilence(0i32);
     pub const Min: SpeechAppendedSilence = SpeechAppendedSilence(1i32);
 }
-impl ::std::convert::From<i32> for SpeechAppendedSilence {
+impl ::core::convert::From<i32> for SpeechAppendedSilence {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -208,14 +208,14 @@ impl ::windows::runtime::DefaultType for SpeechAppendedSilence {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
     pub const Default: SpeechPunctuationSilence = SpeechPunctuationSilence(0i32);
     pub const Min: SpeechPunctuationSilence = SpeechPunctuationSilence(1i32);
 }
-impl ::std::convert::From<i32> for SpeechPunctuationSilence {
+impl ::core::convert::From<i32> for SpeechPunctuationSilence {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -231,7 +231,7 @@ impl ::windows::runtime::DefaultType for SpeechPunctuationSilence {
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SpeechSynthesisStream(pub ::windows::runtime::IInspectable);
 impl SpeechSynthesisStream {
     #[cfg(feature = "Foundation_Collections")]
@@ -239,23 +239,23 @@ impl SpeechSynthesisStream {
     pub fn Markers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -263,8 +263,8 @@ impl SpeechSynthesisStream {
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -272,8 +272,8 @@ impl SpeechSynthesisStream {
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -281,8 +281,8 @@ impl SpeechSynthesisStream {
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -290,23 +290,23 @@ impl SpeechSynthesisStream {
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn SetSize(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -314,8 +314,8 @@ impl SpeechSynthesisStream {
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -323,23 +323,23 @@ impl SpeechSynthesisStream {
     pub fn Position(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn Seek(&self, position: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), position).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), position).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn CloneStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -347,8 +347,8 @@ impl SpeechSynthesisStream {
     pub fn CanRead(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -356,8 +356,8 @@ impl SpeechSynthesisStream {
     pub fn CanWrite(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -365,8 +365,8 @@ impl SpeechSynthesisStream {
     pub fn TimedMetadataTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
         let this = &::windows::runtime::Interface::cast::<super::Core::ITimedMetadataTrackProvider>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>(result__)
         }
     }
 }
@@ -380,12 +380,12 @@ unsafe impl ::windows::runtime::Interface for SpeechSynthesisStream {
 impl ::windows::runtime::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
 }
-impl ::std::convert::From<SpeechSynthesisStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SpeechSynthesisStream> for ::windows::runtime::IUnknown {
     fn from(value: SpeechSynthesisStream) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SpeechSynthesisStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SpeechSynthesisStream> for ::windows::runtime::IUnknown {
     fn from(value: &SpeechSynthesisStream) -> Self {
         value.0 .0.clone()
     }
@@ -400,12 +400,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SpeechSynthesisStream> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SpeechSynthesisStream> for ::windows::runtime::IInspectable {
     fn from(value: SpeechSynthesisStream) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SpeechSynthesisStream> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SpeechSynthesisStream> for ::windows::runtime::IInspectable {
     fn from(value: &SpeechSynthesisStream) -> Self {
         value.0.clone()
     }
@@ -421,14 +421,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -443,18 +443,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IContentTypeProvider {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IContentTypeProvider {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IContentTypeProvider {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IContentTypeProvider {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -469,18 +469,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::ICont
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IContentTypeProvider> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IContentTypeProvider> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IContentTypeProvider>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IContentTypeProvider>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IInputStream {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IInputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IInputStream {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IInputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -495,18 +495,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInpu
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IInputStream> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IOutputStream {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IOutputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IOutputStream {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IOutputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -521,18 +521,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutp
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IOutputStream> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStream {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStream {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -547,18 +547,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRand
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStream> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -573,18 +573,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRand
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Media_Core")]
-impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::Core::ITimedMetadataTrackProvider {
+impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::Core::ITimedMetadataTrackProvider {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Media_Core")]
-impl ::std::convert::TryFrom<&SpeechSynthesisStream> for super::Core::ITimedMetadataTrackProvider {
+impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::Core::ITimedMetadataTrackProvider {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesisStream) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -599,14 +599,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Core::ITimedMetadataTrackProvi
 #[cfg(feature = "Media_Core")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Core::ITimedMetadataTrackProvider> for &SpeechSynthesisStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Core::ITimedMetadataTrackProvider> {
-        ::std::convert::TryInto::<super::Core::ITimedMetadataTrackProvider>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::Core::ITimedMetadataTrackProvider>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for SpeechSynthesisStream {}
-unsafe impl ::std::marker::Sync for SpeechSynthesisStream {}
+unsafe impl ::core::marker::Send for SpeechSynthesisStream {}
+unsafe impl ::core::marker::Sync for SpeechSynthesisStream {}
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SpeechSynthesizer(pub ::windows::runtime::IInspectable);
 impl SpeechSynthesizer {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -621,8 +621,8 @@ impl SpeechSynthesizer {
     pub fn SynthesizeTextToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -630,58 +630,58 @@ impl SpeechSynthesizer {
     pub fn SynthesizeSsmlToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, ssml: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ssml.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ssml.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetVoice<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceInformation>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Voice(&self) -> ::windows::runtime::Result<VoiceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation_Collections`*"]
     pub fn AllVoices() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<VoiceInformation>> {
         Self::IInstalledVoicesStatic(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<VoiceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<VoiceInformation>>(result__)
         })
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn DefaultVoice() -> ::windows::runtime::Result<VoiceInformation> {
         Self::IInstalledVoicesStatic(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
         })
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<SpeechSynthesizerOptions> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizer2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechSynthesizerOptions>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpeechSynthesizerOptions>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn TrySetDefaultVoiceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceInformation>>(voice: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IInstalledVoicesStatic2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), voice.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), voice.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     pub fn IInstalledVoicesStatic<R, F: FnOnce(&IInstalledVoicesStatic) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -703,12 +703,12 @@ unsafe impl ::windows::runtime::Interface for SpeechSynthesizer {
 impl ::windows::runtime::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
 }
-impl ::std::convert::From<SpeechSynthesizer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SpeechSynthesizer> for ::windows::runtime::IUnknown {
     fn from(value: SpeechSynthesizer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SpeechSynthesizer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SpeechSynthesizer> for ::windows::runtime::IUnknown {
     fn from(value: &SpeechSynthesizer) -> Self {
         value.0 .0.clone()
     }
@@ -723,12 +723,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SpeechSynthesizer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SpeechSynthesizer> for ::windows::runtime::IInspectable {
     fn from(value: SpeechSynthesizer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SpeechSynthesizer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SpeechSynthesizer> for ::windows::runtime::IInspectable {
     fn from(value: &SpeechSynthesizer) -> Self {
         value.0.clone()
     }
@@ -744,14 +744,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<SpeechSynthesizer> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<SpeechSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechSynthesizer) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&SpeechSynthesizer> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&SpeechSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechSynthesizer) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -766,106 +766,106 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &SpeechSynthesizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for SpeechSynthesizer {}
-unsafe impl ::std::marker::Sync for SpeechSynthesizer {}
+unsafe impl ::core::marker::Send for SpeechSynthesizer {}
+unsafe impl ::core::marker::Sync for SpeechSynthesizer {}
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SpeechSynthesizerOptions(pub ::windows::runtime::IInspectable);
 impl SpeechSynthesizerOptions {
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn IncludeWordBoundaryMetadata(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetIncludeWordBoundaryMetadata(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn IncludeSentenceBoundaryMetadata(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetIncludeSentenceBoundaryMetadata(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn AudioVolume(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetAudioVolume(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SpeakingRate(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetSpeakingRate(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn AudioPitch(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetAudioPitch(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn AppendedSilence(&self) -> ::windows::runtime::Result<SpeechAppendedSilence> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
-            let mut result__: SpeechAppendedSilence = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechAppendedSilence>(result__)
+            let mut result__: SpeechAppendedSilence = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpeechAppendedSilence>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetAppendedSilence(&self, value: SpeechAppendedSilence) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn PunctuationSilence(&self) -> ::windows::runtime::Result<SpeechPunctuationSilence> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
-            let mut result__: SpeechPunctuationSilence = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechPunctuationSilence>(result__)
+            let mut result__: SpeechPunctuationSilence = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpeechPunctuationSilence>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetPunctuationSilence(&self, value: SpeechPunctuationSilence) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechSynthesizerOptions {
@@ -878,12 +878,12 @@ unsafe impl ::windows::runtime::Interface for SpeechSynthesizerOptions {
 impl ::windows::runtime::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
 }
-impl ::std::convert::From<SpeechSynthesizerOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SpeechSynthesizerOptions> for ::windows::runtime::IUnknown {
     fn from(value: SpeechSynthesizerOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SpeechSynthesizerOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SpeechSynthesizerOptions> for ::windows::runtime::IUnknown {
     fn from(value: &SpeechSynthesizerOptions) -> Self {
         value.0 .0.clone()
     }
@@ -898,12 +898,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SpeechSynthesizerOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SpeechSynthesizerOptions> for ::windows::runtime::IInspectable {
     fn from(value: SpeechSynthesizerOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SpeechSynthesizerOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SpeechSynthesizerOptions> for ::windows::runtime::IInspectable {
     fn from(value: &SpeechSynthesizerOptions) -> Self {
         value.0.clone()
     }
@@ -918,17 +918,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SpeechSynthesizerOptions {}
-unsafe impl ::std::marker::Sync for SpeechSynthesizerOptions {}
+unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
+unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
     pub const Male: VoiceGender = VoiceGender(0i32);
     pub const Female: VoiceGender = VoiceGender(1i32);
 }
-impl ::std::convert::From<i32> for VoiceGender {
+impl ::core::convert::From<i32> for VoiceGender {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -944,47 +944,47 @@ impl ::windows::runtime::DefaultType for VoiceGender {
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VoiceInformation(pub ::windows::runtime::IInspectable);
 impl VoiceInformation {
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Gender(&self) -> ::windows::runtime::Result<VoiceGender> {
         let this = self;
         unsafe {
-            let mut result__: VoiceGender = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceGender>(result__)
+            let mut result__: VoiceGender = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoiceGender>(result__)
         }
     }
 }
@@ -998,12 +998,12 @@ unsafe impl ::windows::runtime::Interface for VoiceInformation {
 impl ::windows::runtime::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";
 }
-impl ::std::convert::From<VoiceInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VoiceInformation> for ::windows::runtime::IUnknown {
     fn from(value: VoiceInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VoiceInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VoiceInformation> for ::windows::runtime::IUnknown {
     fn from(value: &VoiceInformation) -> Self {
         value.0 .0.clone()
     }
@@ -1018,12 +1018,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VoiceInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VoiceInformation> for ::windows::runtime::IInspectable {
     fn from(value: VoiceInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VoiceInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VoiceInformation> for ::windows::runtime::IInspectable {
     fn from(value: &VoiceInformation) -> Self {
         value.0.clone()
     }
@@ -1038,5 +1038,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VoiceInformation {}
-unsafe impl ::std::marker::Sync for VoiceInformation {}
+unsafe impl ::core::marker::Send for VoiceInformation {}
+unsafe impl ::core::marker::Sync for VoiceInformation {}

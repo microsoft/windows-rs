@@ -15,6 +15,7 @@ use test_win32::Windows::Win32::{
     },
 };
 
+use std::convert::TryInto;
 use windows::runtime::GUID;
 
 #[test]
@@ -61,21 +62,21 @@ fn dxgi_mode_desc() {
 #[cfg(target_pointer_width = "64")]
 #[test]
 fn size64() {
-    assert!(std::mem::size_of::<ACCESS_MODE>() == 4);
-    assert!(std::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
-    assert!(std::mem::size_of::<RECT>() == 16);
-    assert!(std::mem::size_of::<DXGI_MODE_DESC>() == 28);
-    assert_eq!(std::mem::size_of::<CHOOSECOLORW>(), 72);
+    assert!(core::mem::size_of::<ACCESS_MODE>() == 4);
+    assert!(core::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
+    assert!(core::mem::size_of::<RECT>() == 16);
+    assert!(core::mem::size_of::<DXGI_MODE_DESC>() == 28);
+    assert_eq!(core::mem::size_of::<CHOOSECOLORW>(), 72);
 }
 
 #[cfg(target_pointer_width = "32")]
 #[test]
 fn size32() {
-    assert!(std::mem::size_of::<ACCESS_MODE>() == 4);
-    assert!(std::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
-    assert!(std::mem::size_of::<RECT>() == 16);
-    assert!(std::mem::size_of::<DXGI_MODE_DESC>() == 28);
-    assert!(std::mem::size_of::<CHOOSECOLORW>() == 36);
+    assert!(core::mem::size_of::<ACCESS_MODE>() == 4);
+    assert!(core::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
+    assert!(core::mem::size_of::<RECT>() == 16);
+    assert!(core::mem::size_of::<DXGI_MODE_DESC>() == 28);
+    assert!(core::mem::size_of::<CHOOSECOLORW>() == 36);
 }
 
 #[test]
@@ -90,7 +91,7 @@ fn constant() {
 #[test]
 fn function() -> windows::runtime::Result<()> {
     unsafe {
-        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR(std::ptr::null_mut()));
+        let event = CreateEventW(core::ptr::null_mut(), true, false, PWSTR(core::ptr::null_mut()));
         assert!(event.0 != 0);
 
         SetEvent(event).ok()?;
@@ -114,7 +115,8 @@ fn bool_as_error() {
 
         let error: windows::runtime::Error = result.unwrap_err();
         assert_eq!(error.code(), windows::runtime::HRESULT(0x8007_0006));
-        assert_eq!(error.message(), "The handle is invalid.");
+        let message: String = error.message().try_into().unwrap();
+        assert_eq!(message.trim_end(), "The handle is invalid.");
     }
 }
 
@@ -123,29 +125,29 @@ fn com() -> windows::runtime::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
-        let copied = stream.Write(values.as_ptr() as _, (values.len() * std::mem::size_of::<i32>()) as u32)?;
+        let copied = stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32)?;
 
-        assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
+        assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
 
-        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, std::mem::size_of::<windows::runtime::GUID>() as u32)?;
+        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::runtime::GUID>() as u32)?;
 
-        assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
+        assert!(copied == core::mem::size_of::<windows::runtime::GUID>() as u32);
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
 
-        stream.Read(values.as_mut_ptr() as _, (values.len() * std::mem::size_of::<i32>()) as u32, &mut copied)?;
+        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied)?;
 
-        assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
+        assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
         let mut value: windows::runtime::GUID = windows::runtime::GUID::default();
         let mut copied = 0;
 
-        stream.Read(&mut value as *mut _ as _, std::mem::size_of::<windows::runtime::GUID>() as u32, &mut copied)?;
+        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::runtime::GUID>() as u32, &mut copied)?;
 
-        assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
+        assert!(copied == core::mem::size_of::<windows::runtime::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
 
@@ -185,10 +187,10 @@ fn onecore_imports() -> windows::runtime::Result<()> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, std::ptr::null_mut(), std::ptr::null_mut(), std::ptr::null_mut());
+        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
         assert!(!result.as_bool());
 
-        assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
+        assert!(D3DDisassemble11Trace(core::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
 
         Ok(())
     }
@@ -233,7 +235,7 @@ extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOO
             end = end.add(1);
         }
 
-        let s = String::from_utf8_lossy(std::slice::from_raw_parts(param1.0 as *const u8, len)).into_owned();
+        let s = String::from_utf8_lossy(core::slice::from_raw_parts(param1.0 as *const u8, len)).into_owned();
         assert!(s == "hello a");
         BOOL(789)
     }
@@ -256,7 +258,7 @@ extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BO
             end = end.add(1);
         }
 
-        let s = String::from_utf16_lossy(std::slice::from_raw_parts(param1.0, len));
+        let s = String::from_utf16_lossy(core::slice::from_raw_parts(param1.0, len));
         assert!(s == "hello w");
         BOOL(789)
     }
@@ -266,7 +268,7 @@ extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BO
 fn empty_struct() {
     let ldap = ldapsearch(123);
     assert!(ldap.0 == 123);
-    assert!(std::mem::size_of::<ldapsearch>() == 1);
+    assert!(core::mem::size_of::<ldapsearch>() == 1);
 
     assert!(UIAnimationManager == GUID::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
 }

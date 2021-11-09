@@ -1,5 +1,5 @@
 use crate::{Delimiter, ToTokens, TokenStream};
-use std::ops::BitOr;
+use core::ops::BitOr;
 
 pub struct HasIterator; // True
 pub struct ThereIsNoIteratorInRepetition; // False
@@ -42,8 +42,8 @@ pub mod ext {
     use super::RepInterp;
     use super::{HasIterator as HasIter, ThereIsNoIteratorInRepetition as DoesNotHaveIter};
     use crate::ToTokens;
+    use core::slice;
     use std::collections::btree_set::{self, BTreeSet};
-    use std::slice;
 
     /// Extension trait providing the `quote_into_iter` method on iterators.
     pub trait RepIteratorExt: Iterator + Sized {

@@ -1,6 +1,4 @@
 use super::*;
-use std::convert::TryFrom;
-use std::result::Result as StdResult;
 
 // TODO: move to HSTRING generated code?
 
@@ -14,7 +12,7 @@ impl HSTRING {
     ///
     /// This function does not allocate memory.
     pub fn new() -> Self {
-        Self(std::ptr::null_mut())
+        Self(core::ptr::null_mut())
     }
 
     /// Returns `true` if the string is empty.
@@ -39,7 +37,7 @@ impl HSTRING {
         }
 
         let header = self.0;
-        unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
+        unsafe { core::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
@@ -48,6 +46,7 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
+    #[cfg(feature = "std")]
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self.as_wide())
     }
@@ -70,7 +69,7 @@ impl HSTRING {
             }
         }
 
-        self.0 = std::ptr::null_mut();
+        self.0 = core::ptr::null_mut();
     }
 
     /// # Safety
@@ -87,18 +86,18 @@ impl HSTRING {
         for (index, wide) in iter.enumerate() {
             debug_assert!((index as u32) < len);
 
-            std::ptr::write((*ptr).data.add(index), wide);
+            core::ptr::write((*ptr).data.add(index), wide);
             (*ptr).len = index as u32 + 1;
         }
 
         // Write a 0 byte to the end of the buffer.
-        std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
+        core::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
         Self(ptr)
     }
 }
 
 unsafe impl Abi for HSTRING {
-    type Abi = std::mem::ManuallyDrop<Self>;
+    type Abi = core::mem::ManuallyDrop<Self>;
 }
 
 unsafe impl RuntimeType for HSTRING {
@@ -134,18 +133,18 @@ impl Drop for HSTRING {
 unsafe impl Send for HSTRING {}
 unsafe impl Sync for HSTRING {}
 
-impl std::fmt::Display for HSTRING {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        use std::fmt::Write;
-        for c in std::char::decode_utf16(self.as_wide().iter().cloned()) {
-            f.write_char(c.map_err(|_| std::fmt::Error)?)?
+impl core::fmt::Display for HSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        use ::core::fmt::Write;
+        for c in core::char::decode_utf16(self.as_wide().iter().cloned()) {
+            f.write_char(c.map_err(|_| core::fmt::Error)?)?
         }
         Ok(())
     }
 }
 
-impl std::fmt::Debug for HSTRING {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for HSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}", self)
     }
 }
@@ -156,12 +155,14 @@ impl From<&str> for HSTRING {
     }
 }
 
+#[cfg(feature = "std")]
 impl From<String> for HSTRING {
     fn from(value: String) -> Self {
         value.as_str().into()
     }
 }
 
+#[cfg(feature = "std")]
 impl From<&String> for HSTRING {
     fn from(value: &String) -> Self {
         value.as_str().into()
@@ -174,6 +175,7 @@ impl PartialEq for HSTRING {
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq<String> for HSTRING {
     fn eq(&self, other: &String) -> bool {
         self == other.as_str()
@@ -198,18 +200,20 @@ impl PartialEq<HSTRING> for &str {
     }
 }
 
-impl<'a> TryFrom<&'a HSTRING> for String {
+#[cfg(feature = "std")]
+impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
-    fn try_from(hstring: &HSTRING) -> StdResult<Self, Self::Error> {
+    fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
         String::from_utf16(hstring.as_wide())
     }
 }
 
-impl TryFrom<HSTRING> for String {
+#[cfg(feature = "std")]
+impl core::convert::TryFrom<HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
-    fn try_from(hstring: HSTRING) -> StdResult<Self, Self::Error> {
+    fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
         String::try_from(&hstring)
     }
 }
@@ -223,7 +227,7 @@ struct Header {
     _0: u32,
     _1: u32,
     data: *mut u16,
-    shared: std::mem::MaybeUninit<Shared>,
+    shared: core::mem::MaybeUninit<Shared>,
 }
 
 #[repr(C)]
@@ -236,11 +240,10 @@ impl Header {
     fn alloc(len: u32) -> *mut Header {
         debug_assert!(len != 0);
         // Allocate enough space for header and two bytes per character.
-        let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
+        let alloc_size = core::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = heap_alloc(alloc_size) as *mut Header;
-
-        assert!(!header.is_null(), "Could not successfully allocate for HSTRING");
+        // TODO: allow this failure to propagate
+        let header = heap_alloc(alloc_size).expect("Could not successfully allocate for HSTRING") as *mut Header;
 
         unsafe {
             (*header).flags = 0;
@@ -262,7 +265,7 @@ impl Header {
             // Otherwise, allocate a new string and copy the value into the new string.
             let copy = Header::alloc(self.len);
             unsafe {
-                std::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
+                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
             }
             copy
         }
@@ -272,6 +275,7 @@ impl Header {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::convert::TryFrom;
     type StringType = HSTRING;
 
     #[test]

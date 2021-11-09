@@ -3,23 +3,23 @@
 pub mod Pnp;
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceAccessChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl DeviceAccessChangedEventArgs {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DeviceAccessStatus> {
         let this = self;
         unsafe {
-            let mut result__: DeviceAccessStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceAccessStatus>(result__)
+            let mut result__: DeviceAccessStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceAccessStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IDeviceAccessChangedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -33,12 +33,12 @@ unsafe impl ::windows::runtime::Interface for DeviceAccessChangedEventArgs {
 impl ::windows::runtime::RuntimeName for DeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
 }
-impl ::std::convert::From<DeviceAccessChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceAccessChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DeviceAccessChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceAccessChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceAccessChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceAccessChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -53,12 +53,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceAccessChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceAccessChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: DeviceAccessChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceAccessChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceAccessChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceAccessChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -73,11 +73,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceAccessChangedEventArgs {}
-unsafe impl ::std::marker::Sync for DeviceAccessChangedEventArgs {}
+unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceAccessInformation(pub ::windows::runtime::IInspectable);
 impl DeviceAccessInformation {
     #[cfg(feature = "Foundation")]
@@ -85,43 +85,43 @@ impl DeviceAccessInformation {
     pub fn AccessChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveAccessChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CurrentStatus(&self) -> ::windows::runtime::Result<DeviceAccessStatus> {
         let this = self;
         unsafe {
-            let mut result__: DeviceAccessStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceAccessStatus>(result__)
+            let mut result__: DeviceAccessStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceAccessStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CreateFromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<DeviceAccessInformation> {
         Self::IDeviceAccessInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<DeviceAccessInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<DeviceAccessInformation>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CreateFromDeviceClassId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(deviceclassid: Param0) -> ::windows::runtime::Result<DeviceAccessInformation> {
         Self::IDeviceAccessInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceclassid.into_param().abi(), &mut result__).from_abi::<DeviceAccessInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceclassid.into_param().abi(), &mut result__).from_abi::<DeviceAccessInformation>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CreateFromDeviceClass(deviceclass: DeviceClass) -> ::windows::runtime::Result<DeviceAccessInformation> {
         Self::IDeviceAccessInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<DeviceAccessInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<DeviceAccessInformation>(result__)
         })
     }
     pub fn IDeviceAccessInformationStatics<R, F: FnOnce(&IDeviceAccessInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -139,12 +139,12 @@ unsafe impl ::windows::runtime::Interface for DeviceAccessInformation {
 impl ::windows::runtime::RuntimeName for DeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessInformation";
 }
-impl ::std::convert::From<DeviceAccessInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceAccessInformation> for ::windows::runtime::IUnknown {
     fn from(value: DeviceAccessInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceAccessInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceAccessInformation> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceAccessInformation) -> Self {
         value.0 .0.clone()
     }
@@ -159,12 +159,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceAccessInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceAccessInformation> for ::windows::runtime::IInspectable {
     fn from(value: DeviceAccessInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceAccessInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceAccessInformation> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceAccessInformation) -> Self {
         value.0.clone()
     }
@@ -179,10 +179,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceAccessInformation {}
-unsafe impl ::std::marker::Sync for DeviceAccessInformation {}
+unsafe impl ::core::marker::Send for DeviceAccessInformation {}
+unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
@@ -191,7 +191,7 @@ impl DeviceAccessStatus {
     pub const DeniedByUser: DeviceAccessStatus = DeviceAccessStatus(2i32);
     pub const DeniedBySystem: DeviceAccessStatus = DeviceAccessStatus(3i32);
 }
-impl ::std::convert::From<i32> for DeviceAccessStatus {
+impl ::core::convert::From<i32> for DeviceAccessStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -206,7 +206,7 @@ impl ::windows::runtime::DefaultType for DeviceAccessStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
@@ -218,7 +218,7 @@ impl DeviceClass {
     pub const ImageScanner: DeviceClass = DeviceClass(5i32);
     pub const Location: DeviceClass = DeviceClass(6i32);
 }
-impl ::std::convert::From<i32> for DeviceClass {
+impl ::core::convert::From<i32> for DeviceClass {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -234,15 +234,15 @@ impl ::windows::runtime::DefaultType for DeviceClass {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceConnectionChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 impl DeviceConnectionChangeTriggerDetails {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -256,12 +256,12 @@ unsafe impl ::windows::runtime::Interface for DeviceConnectionChangeTriggerDetai
 impl ::windows::runtime::RuntimeName for DeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails";
 }
-impl ::std::convert::From<DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: DeviceConnectionChangeTriggerDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceConnectionChangeTriggerDetails) -> Self {
         value.0 .0.clone()
     }
@@ -276,12 +276,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: DeviceConnectionChangeTriggerDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceConnectionChangeTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceConnectionChangeTriggerDetails) -> Self {
         value.0.clone()
     }
@@ -296,19 +296,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceConnectionChangeTriggerDetails {}
-unsafe impl ::std::marker::Sync for DeviceConnectionChangeTriggerDetails {}
+unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
+unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceDisconnectButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
 impl DeviceDisconnectButtonClickedEventArgs {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
         }
     }
 }
@@ -322,12 +322,12 @@ unsafe impl ::windows::runtime::Interface for DeviceDisconnectButtonClickedEvent
 impl ::windows::runtime::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs";
 }
-impl ::std::convert::From<DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DeviceDisconnectButtonClickedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceDisconnectButtonClickedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -342,12 +342,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: DeviceDisconnectButtonClickedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceDisconnectButtonClickedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceDisconnectButtonClickedEventArgs) -> Self {
         value.0.clone()
     }
@@ -362,51 +362,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
-unsafe impl ::std::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
+unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceInformation(pub ::windows::runtime::IInspectable);
 impl DeviceInformation {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn IsDefault(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn EnclosureLocation(&self) -> ::windows::runtime::Result<EnclosureLocation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EnclosureLocation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EnclosureLocation>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -414,22 +414,22 @@ impl DeviceInformation {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Update<'a, Param0: ::windows::runtime::IntoParam<'a, DeviceInformationUpdate>>(&self, updateinfo: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), updateinfo.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), updateinfo.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Storage_Streams`*"]
     pub fn GetThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -437,132 +437,132 @@ impl DeviceInformation {
     pub fn GetGlyphThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<DeviceInformationKind> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformation2>(self)?;
         unsafe {
-            let mut result__: DeviceInformationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationKind>(result__)
+            let mut result__: DeviceInformationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationKind>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Pairing(&self) -> ::windows::runtime::Result<DeviceInformationPairing> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationPairing>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationPairing>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn CreateFromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn CreateFromIdAsyncAdditionalProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(deviceid: Param0, additionalproperties: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), additionalproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), additionalproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncDeviceClass(deviceclass: DeviceClass) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncAqsFilter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(aqsfilter: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), aqsfilter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncAqsFilterAndAdditionalProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(aqsfilter: Param0, additionalproperties: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CreateWatcher() -> ::windows::runtime::Result<DeviceWatcher> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceWatcher>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CreateWatcherDeviceClass(deviceclass: DeviceClass) -> ::windows::runtime::Result<DeviceWatcher> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<DeviceWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<DeviceWatcher>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CreateWatcherAqsFilter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(aqsfilter: Param0) -> ::windows::runtime::Result<DeviceWatcher> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), aqsfilter.into_param().abi(), &mut result__).from_abi::<DeviceWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), &mut result__).from_abi::<DeviceWatcher>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation_Collections`*"]
     pub fn CreateWatcherAqsFilterAndAdditionalProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(aqsfilter: Param0, additionalproperties: Param1) -> ::windows::runtime::Result<DeviceWatcher> {
         Self::IDeviceInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), &mut result__).from_abi::<DeviceWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), &mut result__).from_abi::<DeviceWatcher>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn GetAqsFilterFromDeviceClass(deviceclass: DeviceClass) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IDeviceInformationStatics2(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceclass, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(deviceid: Param0, additionalproperties: Param1, kind: DeviceInformationKind) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         Self::IDeviceInformationStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), additionalproperties.into_param().abi(), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), additionalproperties.into_param().abi(), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(aqsfilter: Param0, additionalproperties: Param1, kind: DeviceInformationKind) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation_Collections`*"]
     pub fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(aqsfilter: Param0, additionalproperties: Param1, kind: DeviceInformationKind) -> ::windows::runtime::Result<DeviceWatcher> {
         Self::IDeviceInformationStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), kind, &mut result__).from_abi::<DeviceWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), additionalproperties.into_param().abi(), kind, &mut result__).from_abi::<DeviceWatcher>(result__)
         })
     }
     pub fn IDeviceInformationStatics<R, F: FnOnce(&IDeviceInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -584,12 +584,12 @@ unsafe impl ::windows::runtime::Interface for DeviceInformation {
 impl ::windows::runtime::RuntimeName for DeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformation";
 }
-impl ::std::convert::From<DeviceInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceInformation> for ::windows::runtime::IUnknown {
     fn from(value: DeviceInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceInformation> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceInformation) -> Self {
         value.0 .0.clone()
     }
@@ -604,12 +604,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceInformation> for ::windows::runtime::IInspectable {
     fn from(value: DeviceInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceInformation> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceInformation) -> Self {
         value.0.clone()
     }
@@ -624,12 +624,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceInformation {}
-unsafe impl ::std::marker::Sync for DeviceInformation {}
+unsafe impl ::core::marker::Send for DeviceInformation {}
+unsafe impl ::core::marker::Sync for DeviceInformation {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Devices_Enumeration`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceInformationCollection(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl DeviceInformationCollection {
@@ -638,8 +638,8 @@ impl DeviceInformationCollection {
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), index, &mut result__).from_abi::<DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<DeviceInformation>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -647,8 +647,8 @@ impl DeviceInformationCollection {
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -656,8 +656,8 @@ impl DeviceInformationCollection {
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, DeviceInformation>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -665,8 +665,8 @@ impl DeviceInformationCollection {
     pub fn GetMany(&self, startindex: u32, items: &mut [<DeviceInformation as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), startindex, items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -674,8 +674,8 @@ impl DeviceInformationCollection {
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<DeviceInformation>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<DeviceInformation>>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<DeviceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<DeviceInformation>>(result__)
         }
     }
 }
@@ -693,13 +693,13 @@ impl ::windows::runtime::RuntimeName for DeviceInformationCollection {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<DeviceInformationCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceInformationCollection> for ::windows::runtime::IUnknown {
     fn from(value: DeviceInformationCollection) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&DeviceInformationCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceInformationCollection> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceInformationCollection) -> Self {
         value.0 .0.clone()
     }
@@ -717,13 +717,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<DeviceInformationCollection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceInformationCollection> for ::windows::runtime::IInspectable {
     fn from(value: DeviceInformationCollection) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&DeviceInformationCollection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceInformationCollection> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceInformationCollection) -> Self {
         value.0.clone()
     }
@@ -741,38 +741,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<DeviceInformationCollection> for super::super::Foundation::Collections::IVectorView<DeviceInformation> {
+impl ::core::convert::From<DeviceInformationCollection> for super::super::Foundation::Collections::IVectorView<DeviceInformation> {
     fn from(value: DeviceInformationCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&DeviceInformationCollection> for super::super::Foundation::Collections::IVectorView<DeviceInformation> {
+impl ::core::convert::From<&DeviceInformationCollection> for super::super::Foundation::Collections::IVectorView<DeviceInformation> {
     fn from(value: &DeviceInformationCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> for DeviceInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> for &DeviceInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::TryFrom<DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
+impl ::core::convert::TryFrom<DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceInformationCollection) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::TryFrom<&DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
+impl ::core::convert::TryFrom<&DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DeviceInformationCollection) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -787,32 +787,32 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<DeviceInformation>> for &DeviceInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IIterable<DeviceInformation>> {
-        ::std::convert::TryInto::<super::super::Foundation::Collections::IIterable<DeviceInformation>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<DeviceInformation>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::std::marker::Send for DeviceInformationCollection {}
+unsafe impl ::core::marker::Send for DeviceInformationCollection {}
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::std::marker::Sync for DeviceInformationCollection {}
+unsafe impl ::core::marker::Sync for DeviceInformationCollection {}
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for DeviceInformationCollection {
+impl ::core::iter::IntoIterator for DeviceInformationCollection {
     type Item = DeviceInformation;
     type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        ::std::iter::IntoIterator::into_iter(&self)
+        ::core::iter::IntoIterator::into_iter(&self)
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for &DeviceInformationCollection {
+impl ::core::iter::IntoIterator for &DeviceInformationCollection {
     type Item = DeviceInformation;
     type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
+        super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceInformationCustomPairing(pub ::windows::runtime::IInspectable);
 impl DeviceInformationCustomPairing {
     #[cfg(feature = "Foundation")]
@@ -820,8 +820,8 @@ impl DeviceInformationCustomPairing {
     pub fn PairAsync(&self, pairingkindssupported: DevicePairingKinds) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pairingkindssupported, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pairingkindssupported, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -829,8 +829,8 @@ impl DeviceInformationCustomPairing {
     pub fn PairWithProtectionLevelAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), pairingkindssupported, minprotectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pairingkindssupported, minprotectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -838,8 +838,8 @@ impl DeviceInformationCustomPairing {
     pub fn PairWithProtectionLevelAndSettingsAsync<'a, Param2: ::windows::runtime::IntoParam<'a, IDevicePairingSettings>>(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), pairingkindssupported, minprotectionlevel, devicepairingsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pairingkindssupported, minprotectionlevel, devicepairingsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -847,15 +847,15 @@ impl DeviceInformationCustomPairing {
     pub fn PairingRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemovePairingRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceInformationCustomPairing {
@@ -868,12 +868,12 @@ unsafe impl ::windows::runtime::Interface for DeviceInformationCustomPairing {
 impl ::windows::runtime::RuntimeName for DeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCustomPairing";
 }
-impl ::std::convert::From<DeviceInformationCustomPairing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceInformationCustomPairing> for ::windows::runtime::IUnknown {
     fn from(value: DeviceInformationCustomPairing) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceInformationCustomPairing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceInformationCustomPairing> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceInformationCustomPairing) -> Self {
         value.0 .0.clone()
     }
@@ -888,12 +888,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceInformationCustomPairing> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceInformationCustomPairing> for ::windows::runtime::IInspectable {
     fn from(value: DeviceInformationCustomPairing) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceInformationCustomPairing> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceInformationCustomPairing> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceInformationCustomPairing) -> Self {
         value.0.clone()
     }
@@ -908,10 +908,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceInformationCustomPairing {}
-unsafe impl ::std::marker::Sync for DeviceInformationCustomPairing {}
+unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
+unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
@@ -925,7 +925,7 @@ impl DeviceInformationKind {
     pub const AssociationEndpointService: DeviceInformationKind = DeviceInformationKind(7i32);
     pub const DevicePanel: DeviceInformationKind = DeviceInformationKind(8i32);
 }
-impl ::std::convert::From<i32> for DeviceInformationKind {
+impl ::core::convert::From<i32> for DeviceInformationKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -941,23 +941,23 @@ impl ::windows::runtime::DefaultType for DeviceInformationKind {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceInformationPairing(pub ::windows::runtime::IInspectable);
 impl DeviceInformationPairing {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn IsPaired(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn CanPair(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -965,8 +965,8 @@ impl DeviceInformationPairing {
     pub fn PairAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -974,24 +974,24 @@ impl DeviceInformationPairing {
     pub fn PairWithProtectionLevelAsync(&self, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), minprotectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), minprotectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn ProtectionLevel(&self) -> ::windows::runtime::Result<DevicePairingProtectionLevel> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
-            let mut result__: DevicePairingProtectionLevel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingProtectionLevel>(result__)
+            let mut result__: DevicePairingProtectionLevel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Custom(&self) -> ::windows::runtime::Result<DeviceInformationCustomPairing> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationCustomPairing>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationCustomPairing>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -999,8 +999,8 @@ impl DeviceInformationPairing {
     pub fn PairWithProtectionLevelAndSettingsAsync<'a, Param1: ::windows::runtime::IntoParam<'a, IDevicePairingSettings>>(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), minprotectionlevel, devicepairingsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), minprotectionlevel, devicepairingsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1008,22 +1008,22 @@ impl DeviceInformationPairing {
     pub fn UnpairAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn TryRegisterForAllInboundPairingRequests(pairingkindssupported: DevicePairingKinds) -> ::windows::runtime::Result<bool> {
         Self::IDeviceInformationPairingStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pairingkindssupported, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pairingkindssupported, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel(pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::runtime::Result<bool> {
         Self::IDeviceInformationPairingStatics2(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pairingkindssupported, minprotectionlevel, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pairingkindssupported, minprotectionlevel, &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IDeviceInformationPairingStatics<R, F: FnOnce(&IDeviceInformationPairingStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1045,12 +1045,12 @@ unsafe impl ::windows::runtime::Interface for DeviceInformationPairing {
 impl ::windows::runtime::RuntimeName for DeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationPairing";
 }
-impl ::std::convert::From<DeviceInformationPairing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceInformationPairing> for ::windows::runtime::IUnknown {
     fn from(value: DeviceInformationPairing) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceInformationPairing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceInformationPairing> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceInformationPairing) -> Self {
         value.0 .0.clone()
     }
@@ -1065,12 +1065,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceInformationPairing> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceInformationPairing> for ::windows::runtime::IInspectable {
     fn from(value: DeviceInformationPairing) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceInformationPairing> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceInformationPairing> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceInformationPairing) -> Self {
         value.0.clone()
     }
@@ -1085,19 +1085,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceInformationPairing {}
-unsafe impl ::std::marker::Sync for DeviceInformationPairing {}
+unsafe impl ::core::marker::Send for DeviceInformationPairing {}
+unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceInformationUpdate(pub ::windows::runtime::IInspectable);
 impl DeviceInformationUpdate {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1105,16 +1105,16 @@ impl DeviceInformationUpdate {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<DeviceInformationKind> {
         let this = &::windows::runtime::Interface::cast::<IDeviceInformationUpdate2>(self)?;
         unsafe {
-            let mut result__: DeviceInformationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationKind>(result__)
+            let mut result__: DeviceInformationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationKind>(result__)
         }
     }
 }
@@ -1128,12 +1128,12 @@ unsafe impl ::windows::runtime::Interface for DeviceInformationUpdate {
 impl ::windows::runtime::RuntimeName for DeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationUpdate";
 }
-impl ::std::convert::From<DeviceInformationUpdate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceInformationUpdate> for ::windows::runtime::IUnknown {
     fn from(value: DeviceInformationUpdate) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceInformationUpdate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceInformationUpdate> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceInformationUpdate) -> Self {
         value.0 .0.clone()
     }
@@ -1148,12 +1148,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceInformationUpdate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceInformationUpdate> for ::windows::runtime::IInspectable {
     fn from(value: DeviceInformationUpdate) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceInformationUpdate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceInformationUpdate> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceInformationUpdate) -> Self {
         value.0.clone()
     }
@@ -1168,10 +1168,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceInformationUpdate {}
-unsafe impl ::std::marker::Sync for DeviceInformationUpdate {}
+unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
+unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
@@ -1182,7 +1182,7 @@ impl DevicePairingKinds {
     pub const ConfirmPinMatch: DevicePairingKinds = DevicePairingKinds(8u32);
     pub const ProvidePasswordCredential: DevicePairingKinds = DevicePairingKinds(16u32);
 }
-impl ::std::convert::From<u32> for DevicePairingKinds {
+impl ::core::convert::From<u32> for DevicePairingKinds {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1196,36 +1196,36 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePairingKinds {
 impl ::windows::runtime::DefaultType for DevicePairingKinds {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for DevicePairingKinds {
+impl ::core::ops::BitOr for DevicePairingKinds {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DevicePairingKinds {
+impl ::core::ops::BitAnd for DevicePairingKinds {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DevicePairingKinds {
+impl ::core::ops::BitOrAssign for DevicePairingKinds {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DevicePairingKinds {
+impl ::core::ops::BitAndAssign for DevicePairingKinds {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DevicePairingKinds {
+impl ::core::ops::Not for DevicePairingKinds {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
@@ -1234,7 +1234,7 @@ impl DevicePairingProtectionLevel {
     pub const Encryption: DevicePairingProtectionLevel = DevicePairingProtectionLevel(2i32);
     pub const EncryptionAndAuthentication: DevicePairingProtectionLevel = DevicePairingProtectionLevel(3i32);
 }
-impl ::std::convert::From<i32> for DevicePairingProtectionLevel {
+impl ::core::convert::From<i32> for DevicePairingProtectionLevel {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1250,57 +1250,57 @@ impl ::windows::runtime::DefaultType for DevicePairingProtectionLevel {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePairingRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl DevicePairingRequestedEventArgs {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn PairingKind(&self) -> ::windows::runtime::Result<DevicePairingKinds> {
         let this = self;
         unsafe {
-            let mut result__: DevicePairingKinds = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingKinds>(result__)
+            let mut result__: DevicePairingKinds = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingKinds>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Pin(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Accept(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn AcceptWithPin<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, pin: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), pin.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), pin.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Devices_Enumeration`, `Security_Credentials`*"]
     pub fn AcceptWithPasswordCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, passwordcredential: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDevicePairingRequestedEventArgs2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), passwordcredential.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), passwordcredential.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePairingRequestedEventArgs {
@@ -1313,12 +1313,12 @@ unsafe impl ::windows::runtime::Interface for DevicePairingRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for DevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs";
 }
-impl ::std::convert::From<DevicePairingRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DevicePairingRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DevicePairingRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DevicePairingRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DevicePairingRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePairingRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1333,12 +1333,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DevicePairingRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DevicePairingRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: DevicePairingRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DevicePairingRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DevicePairingRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &DevicePairingRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1353,27 +1353,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DevicePairingRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for DevicePairingRequestedEventArgs {}
+unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePairingResult(pub ::windows::runtime::IInspectable);
 impl DevicePairingResult {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DevicePairingResultStatus> {
         let this = self;
         unsafe {
-            let mut result__: DevicePairingResultStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingResultStatus>(result__)
+            let mut result__: DevicePairingResultStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingResultStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn ProtectionLevelUsed(&self) -> ::windows::runtime::Result<DevicePairingProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__: DevicePairingProtectionLevel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingProtectionLevel>(result__)
+            let mut result__: DevicePairingProtectionLevel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DevicePairingProtectionLevel>(result__)
         }
     }
 }
@@ -1387,12 +1387,12 @@ unsafe impl ::windows::runtime::Interface for DevicePairingResult {
 impl ::windows::runtime::RuntimeName for DevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingResult";
 }
-impl ::std::convert::From<DevicePairingResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DevicePairingResult> for ::windows::runtime::IUnknown {
     fn from(value: DevicePairingResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DevicePairingResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DevicePairingResult> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePairingResult) -> Self {
         value.0 .0.clone()
     }
@@ -1407,12 +1407,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DevicePairingResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DevicePairingResult> for ::windows::runtime::IInspectable {
     fn from(value: DevicePairingResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DevicePairingResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DevicePairingResult> for ::windows::runtime::IInspectable {
     fn from(value: &DevicePairingResult) -> Self {
         value.0.clone()
     }
@@ -1427,10 +1427,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DevicePairingResult {}
-unsafe impl ::std::marker::Sync for DevicePairingResult {}
+unsafe impl ::core::marker::Send for DevicePairingResult {}
+unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
@@ -1455,7 +1455,7 @@ impl DevicePairingResultStatus {
     pub const RemoteDeviceHasAssociation: DevicePairingResultStatus = DevicePairingResultStatus(18i32);
     pub const Failed: DevicePairingResultStatus = DevicePairingResultStatus(19i32);
 }
-impl ::std::convert::From<i32> for DevicePairingResultStatus {
+impl ::core::convert::From<i32> for DevicePairingResultStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1471,7 +1471,7 @@ impl ::windows::runtime::DefaultType for DevicePairingResultStatus {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePicker(pub ::windows::runtime::IInspectable);
 impl DevicePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1485,16 +1485,16 @@ impl DevicePicker {
     pub fn Filter(&self) -> ::windows::runtime::Result<DevicePickerFilter> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DevicePickerFilter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DevicePickerFilter>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Appearance(&self) -> ::windows::runtime::Result<DevicePickerAppearance> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DevicePickerAppearance>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DevicePickerAppearance>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1502,8 +1502,8 @@ impl DevicePicker {
     pub fn RequestedProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1511,65 +1511,65 @@ impl DevicePicker {
     pub fn DeviceSelected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveDeviceSelected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn DisconnectButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveDisconnectButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn DevicePickerDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DevicePicker, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveDevicePickerDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), selection.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), selection.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`, `UI_Popups`*"]
     pub fn ShowWithPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, placement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), selection.into_param().abi(), placement).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), selection.into_param().abi(), placement).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn PickSingleDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), selection.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), selection.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
@@ -1577,19 +1577,19 @@ impl DevicePicker {
     pub fn PickSingleDeviceAsyncWithPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, placement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), selection.into_param().abi(), placement, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), selection.into_param().abi(), placement, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Hide(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn SetDisplayStatus<'a, Param0: ::windows::runtime::IntoParam<'a, DeviceInformation>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, device: Param0, status: Param1, options: DevicePickerDisplayStatusOptions) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), device.into_param().abi(), status.into_param().abi(), options).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), device.into_param().abi(), status.into_param().abi(), options).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePicker {
@@ -1602,12 +1602,12 @@ unsafe impl ::windows::runtime::Interface for DevicePicker {
 impl ::windows::runtime::RuntimeName for DevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePicker";
 }
-impl ::std::convert::From<DevicePicker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DevicePicker> for ::windows::runtime::IUnknown {
     fn from(value: DevicePicker) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DevicePicker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DevicePicker> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePicker) -> Self {
         value.0 .0.clone()
     }
@@ -1622,12 +1622,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DevicePicker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DevicePicker> for ::windows::runtime::IInspectable {
     fn from(value: DevicePicker) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DevicePicker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DevicePicker> for ::windows::runtime::IInspectable {
     fn from(value: &DevicePicker) -> Self {
         value.0.clone()
     }
@@ -1642,115 +1642,115 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DevicePicker {}
-unsafe impl ::std::marker::Sync for DevicePicker {}
+unsafe impl ::core::marker::Send for DevicePicker {}
+unsafe impl ::core::marker::Sync for DevicePicker {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePickerAppearance(pub ::windows::runtime::IInspectable);
 impl DevicePickerAppearance {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn ForegroundColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SetForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn BackgroundColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SetBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn AccentColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SetAccentColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SelectedForegroundColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SetSelectedForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SelectedBackgroundColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SetSelectedBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SelectedAccentColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Enumeration`, `UI`*"]
     pub fn SetSelectedAccentColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePickerAppearance {
@@ -1763,12 +1763,12 @@ unsafe impl ::windows::runtime::Interface for DevicePickerAppearance {
 impl ::windows::runtime::RuntimeName for DevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerAppearance";
 }
-impl ::std::convert::From<DevicePickerAppearance> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DevicePickerAppearance> for ::windows::runtime::IUnknown {
     fn from(value: DevicePickerAppearance) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DevicePickerAppearance> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DevicePickerAppearance> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePickerAppearance) -> Self {
         value.0 .0.clone()
     }
@@ -1783,12 +1783,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DevicePickerAppearance> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DevicePickerAppearance> for ::windows::runtime::IInspectable {
     fn from(value: DevicePickerAppearance) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DevicePickerAppearance> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DevicePickerAppearance> for ::windows::runtime::IInspectable {
     fn from(value: &DevicePickerAppearance) -> Self {
         value.0.clone()
     }
@@ -1803,10 +1803,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DevicePickerAppearance {}
-unsafe impl ::std::marker::Sync for DevicePickerAppearance {}
+unsafe impl ::core::marker::Send for DevicePickerAppearance {}
+unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
@@ -1815,7 +1815,7 @@ impl DevicePickerDisplayStatusOptions {
     pub const ShowDisconnectButton: DevicePickerDisplayStatusOptions = DevicePickerDisplayStatusOptions(2u32);
     pub const ShowRetryButton: DevicePickerDisplayStatusOptions = DevicePickerDisplayStatusOptions(4u32);
 }
-impl ::std::convert::From<u32> for DevicePickerDisplayStatusOptions {
+impl ::core::convert::From<u32> for DevicePickerDisplayStatusOptions {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1829,29 +1829,29 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePickerDisplayStatusOptions
 impl ::windows::runtime::DefaultType for DevicePickerDisplayStatusOptions {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for DevicePickerDisplayStatusOptions {
+impl ::core::ops::BitOr for DevicePickerDisplayStatusOptions {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DevicePickerDisplayStatusOptions {
+impl ::core::ops::BitAnd for DevicePickerDisplayStatusOptions {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DevicePickerDisplayStatusOptions {
+impl ::core::ops::BitOrAssign for DevicePickerDisplayStatusOptions {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DevicePickerDisplayStatusOptions {
+impl ::core::ops::BitAndAssign for DevicePickerDisplayStatusOptions {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DevicePickerDisplayStatusOptions {
+impl ::core::ops::Not for DevicePickerDisplayStatusOptions {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1859,7 +1859,7 @@ impl ::std::ops::Not for DevicePickerDisplayStatusOptions {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePickerFilter(pub ::windows::runtime::IInspectable);
 impl DevicePickerFilter {
     #[cfg(feature = "Foundation_Collections")]
@@ -1867,8 +1867,8 @@ impl DevicePickerFilter {
     pub fn SupportedDeviceClasses(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<DeviceClass>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<DeviceClass>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<DeviceClass>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1876,8 +1876,8 @@ impl DevicePickerFilter {
     pub fn SupportedDeviceSelectors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
 }
@@ -1891,12 +1891,12 @@ unsafe impl ::windows::runtime::Interface for DevicePickerFilter {
 impl ::windows::runtime::RuntimeName for DevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerFilter";
 }
-impl ::std::convert::From<DevicePickerFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DevicePickerFilter> for ::windows::runtime::IUnknown {
     fn from(value: DevicePickerFilter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DevicePickerFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DevicePickerFilter> for ::windows::runtime::IUnknown {
     fn from(value: &DevicePickerFilter) -> Self {
         value.0 .0.clone()
     }
@@ -1911,12 +1911,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DevicePickerFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DevicePickerFilter> for ::windows::runtime::IInspectable {
     fn from(value: DevicePickerFilter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DevicePickerFilter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DevicePickerFilter> for ::windows::runtime::IInspectable {
     fn from(value: &DevicePickerFilter) -> Self {
         value.0.clone()
     }
@@ -1931,19 +1931,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DevicePickerFilter {}
-unsafe impl ::std::marker::Sync for DevicePickerFilter {}
+unsafe impl ::core::marker::Send for DevicePickerFilter {}
+unsafe impl ::core::marker::Sync for DevicePickerFilter {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceSelectedEventArgs(pub ::windows::runtime::IInspectable);
 impl DeviceSelectedEventArgs {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn SelectedDevice(&self) -> ::windows::runtime::Result<DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
         }
     }
 }
@@ -1957,12 +1957,12 @@ unsafe impl ::windows::runtime::Interface for DeviceSelectedEventArgs {
 impl ::windows::runtime::RuntimeName for DeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceSelectedEventArgs";
 }
-impl ::std::convert::From<DeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DeviceSelectedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceSelectedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1977,12 +1977,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: DeviceSelectedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceSelectedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1997,12 +1997,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceSelectedEventArgs {}
-unsafe impl ::std::marker::Sync for DeviceSelectedEventArgs {}
+unsafe impl ::core::marker::Send for DeviceSelectedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
 #[cfg(feature = "Storage_Streams")]
 #[doc = "*Required features: `Devices_Enumeration`, `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceThumbnail(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl DeviceThumbnail {
@@ -2010,15 +2010,15 @@ impl DeviceThumbnail {
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Enumeration`, `Storage_Streams`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2026,8 +2026,8 @@ impl DeviceThumbnail {
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2035,8 +2035,8 @@ impl DeviceThumbnail {
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2044,8 +2044,8 @@ impl DeviceThumbnail {
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2053,23 +2053,23 @@ impl DeviceThumbnail {
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Enumeration`, `Storage_Streams`*"]
     pub fn SetSize(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Enumeration`, `Storage_Streams`*"]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2077,8 +2077,8 @@ impl DeviceThumbnail {
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2086,23 +2086,23 @@ impl DeviceThumbnail {
     pub fn Position(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Enumeration`, `Storage_Streams`*"]
     pub fn Seek(&self, position: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), position).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), position).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Enumeration`, `Storage_Streams`*"]
     pub fn CloneStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2110,8 +2110,8 @@ impl DeviceThumbnail {
     pub fn CanRead(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2119,8 +2119,8 @@ impl DeviceThumbnail {
     pub fn CanWrite(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -2138,13 +2138,13 @@ impl ::windows::runtime::RuntimeName for DeviceThumbnail {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceThumbnail";
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<DeviceThumbnail> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceThumbnail> for ::windows::runtime::IUnknown {
     fn from(value: DeviceThumbnail) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&DeviceThumbnail> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceThumbnail> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceThumbnail) -> Self {
         value.0 .0.clone()
     }
@@ -2162,13 +2162,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<DeviceThumbnail> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceThumbnail> for ::windows::runtime::IInspectable {
     fn from(value: DeviceThumbnail) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&DeviceThumbnail> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceThumbnail> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceThumbnail) -> Self {
         value.0.clone()
     }
@@ -2186,38 +2186,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
+impl ::core::convert::From<DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
     fn from(value: DeviceThumbnail) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
+impl ::core::convert::From<&DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
     fn from(value: &DeviceThumbnail) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl ::std::convert::TryFrom<DeviceThumbnail> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceThumbnail) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl ::std::convert::TryFrom<&DeviceThumbnail> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2232,18 +2232,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IContentTypeProvider {
+impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IContentTypeProvider {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceThumbnail) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IContentTypeProvider {
+impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IContentTypeProvider {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2258,18 +2258,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::ICont
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IContentTypeProvider> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IContentTypeProvider> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IContentTypeProvider>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IContentTypeProvider>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IInputStream {
+impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IInputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceThumbnail) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IInputStream {
+impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IInputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2284,18 +2284,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInpu
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IInputStream> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IOutputStream {
+impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IOutputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceThumbnail) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IOutputStream {
+impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IOutputStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2310,18 +2310,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutp
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IOutputStream> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStream {
+impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DeviceThumbnail) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStream {
+impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStream {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2336,24 +2336,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRand
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStream> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-unsafe impl ::std::marker::Send for DeviceThumbnail {}
+unsafe impl ::core::marker::Send for DeviceThumbnail {}
 #[cfg(feature = "Storage_Streams")]
-unsafe impl ::std::marker::Sync for DeviceThumbnail {}
+unsafe impl ::core::marker::Sync for DeviceThumbnail {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceUnpairingResult(pub ::windows::runtime::IInspectable);
 impl DeviceUnpairingResult {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DeviceUnpairingResultStatus> {
         let this = self;
         unsafe {
-            let mut result__: DeviceUnpairingResultStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceUnpairingResultStatus>(result__)
+            let mut result__: DeviceUnpairingResultStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceUnpairingResultStatus>(result__)
         }
     }
 }
@@ -2367,12 +2367,12 @@ unsafe impl ::windows::runtime::Interface for DeviceUnpairingResult {
 impl ::windows::runtime::RuntimeName for DeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceUnpairingResult";
 }
-impl ::std::convert::From<DeviceUnpairingResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceUnpairingResult> for ::windows::runtime::IUnknown {
     fn from(value: DeviceUnpairingResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceUnpairingResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceUnpairingResult> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceUnpairingResult) -> Self {
         value.0 .0.clone()
     }
@@ -2387,12 +2387,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceUnpairingResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceUnpairingResult> for ::windows::runtime::IInspectable {
     fn from(value: DeviceUnpairingResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceUnpairingResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceUnpairingResult> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceUnpairingResult) -> Self {
         value.0.clone()
     }
@@ -2407,10 +2407,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceUnpairingResult {}
-unsafe impl ::std::marker::Sync for DeviceUnpairingResult {}
+unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
+unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
@@ -2420,7 +2420,7 @@ impl DeviceUnpairingResultStatus {
     pub const AccessDenied: DeviceUnpairingResultStatus = DeviceUnpairingResultStatus(3i32);
     pub const Failed: DeviceUnpairingResultStatus = DeviceUnpairingResultStatus(4i32);
 }
-impl ::std::convert::From<i32> for DeviceUnpairingResultStatus {
+impl ::core::convert::From<i32> for DeviceUnpairingResultStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2436,7 +2436,7 @@ impl ::windows::runtime::DefaultType for DeviceUnpairingResultStatus {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceWatcher(pub ::windows::runtime::IInspectable);
 impl DeviceWatcher {
     #[cfg(feature = "Foundation")]
@@ -2444,101 +2444,101 @@ impl DeviceWatcher {
     pub fn Added<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn Updated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn Removed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DeviceWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__: DeviceWatcherStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceWatcherStatus>(result__)
+            let mut result__: DeviceWatcherStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceWatcherStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Enumeration`, `ApplicationModel_Background`, `Foundation_Collections`*"]
     pub fn GetBackgroundTrigger<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind>>>(&self, requestedeventkinds: Param0) -> ::windows::runtime::Result<super::super::ApplicationModel::Background::DeviceWatcherTrigger> {
         let this = &::windows::runtime::Interface::cast::<IDeviceWatcher2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), requestedeventkinds.into_param().abi(), &mut result__).from_abi::<super::super::ApplicationModel::Background::DeviceWatcherTrigger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), requestedeventkinds.into_param().abi(), &mut result__).from_abi::<super::super::ApplicationModel::Background::DeviceWatcherTrigger>(result__)
         }
     }
 }
@@ -2552,12 +2552,12 @@ unsafe impl ::windows::runtime::Interface for DeviceWatcher {
 impl ::windows::runtime::RuntimeName for DeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcher";
 }
-impl ::std::convert::From<DeviceWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceWatcher> for ::windows::runtime::IUnknown {
     fn from(value: DeviceWatcher) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceWatcher) -> Self {
         value.0 .0.clone()
     }
@@ -2572,12 +2572,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceWatcher> for ::windows::runtime::IInspectable {
     fn from(value: DeviceWatcher) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceWatcher> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceWatcher) -> Self {
         value.0.clone()
     }
@@ -2592,35 +2592,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceWatcher {}
-unsafe impl ::std::marker::Sync for DeviceWatcher {}
+unsafe impl ::core::marker::Send for DeviceWatcher {}
+unsafe impl ::core::marker::Sync for DeviceWatcher {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceWatcherEvent(pub ::windows::runtime::IInspectable);
 impl DeviceWatcherEvent {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<DeviceWatcherEventKind> {
         let this = self;
         unsafe {
-            let mut result__: DeviceWatcherEventKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceWatcherEventKind>(result__)
+            let mut result__: DeviceWatcherEventKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceWatcherEventKind>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn DeviceInformationUpdate(&self) -> ::windows::runtime::Result<DeviceInformationUpdate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationUpdate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeviceInformationUpdate>(result__)
         }
     }
 }
@@ -2634,12 +2634,12 @@ unsafe impl ::windows::runtime::Interface for DeviceWatcherEvent {
 impl ::windows::runtime::RuntimeName for DeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherEvent";
 }
-impl ::std::convert::From<DeviceWatcherEvent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceWatcherEvent> for ::windows::runtime::IUnknown {
     fn from(value: DeviceWatcherEvent) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceWatcherEvent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceWatcherEvent> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceWatcherEvent) -> Self {
         value.0 .0.clone()
     }
@@ -2654,12 +2654,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceWatcherEvent> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceWatcherEvent> for ::windows::runtime::IInspectable {
     fn from(value: DeviceWatcherEvent) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceWatcherEvent> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceWatcherEvent> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceWatcherEvent) -> Self {
         value.0.clone()
     }
@@ -2674,10 +2674,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceWatcherEvent {}
-unsafe impl ::std::marker::Sync for DeviceWatcherEvent {}
+unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
+unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
@@ -2685,7 +2685,7 @@ impl DeviceWatcherEventKind {
     pub const Update: DeviceWatcherEventKind = DeviceWatcherEventKind(1i32);
     pub const Remove: DeviceWatcherEventKind = DeviceWatcherEventKind(2i32);
 }
-impl ::std::convert::From<i32> for DeviceWatcherEventKind {
+impl ::core::convert::From<i32> for DeviceWatcherEventKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2700,7 +2700,7 @@ impl ::windows::runtime::DefaultType for DeviceWatcherEventKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
@@ -2711,7 +2711,7 @@ impl DeviceWatcherStatus {
     pub const Stopped: DeviceWatcherStatus = DeviceWatcherStatus(4i32);
     pub const Aborted: DeviceWatcherStatus = DeviceWatcherStatus(5i32);
 }
-impl ::std::convert::From<i32> for DeviceWatcherStatus {
+impl ::core::convert::From<i32> for DeviceWatcherStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2727,7 +2727,7 @@ impl ::windows::runtime::DefaultType for DeviceWatcherStatus {
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceWatcherTriggerDetails(pub ::windows::runtime::IInspectable);
 impl DeviceWatcherTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
@@ -2735,8 +2735,8 @@ impl DeviceWatcherTriggerDetails {
     pub fn DeviceWatcherEvents(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>>(result__)
         }
     }
 }
@@ -2750,12 +2750,12 @@ unsafe impl ::windows::runtime::Interface for DeviceWatcherTriggerDetails {
 impl ::windows::runtime::RuntimeName for DeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails";
 }
-impl ::std::convert::From<DeviceWatcherTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DeviceWatcherTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: DeviceWatcherTriggerDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DeviceWatcherTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DeviceWatcherTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &DeviceWatcherTriggerDetails) -> Self {
         value.0 .0.clone()
     }
@@ -2770,12 +2770,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DeviceWatcherTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DeviceWatcherTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: DeviceWatcherTriggerDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DeviceWatcherTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DeviceWatcherTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: &DeviceWatcherTriggerDetails) -> Self {
         value.0.clone()
     }
@@ -2790,43 +2790,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DeviceWatcherTriggerDetails {}
-unsafe impl ::std::marker::Sync for DeviceWatcherTriggerDetails {}
+unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
+unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnclosureLocation(pub ::windows::runtime::IInspectable);
 impl EnclosureLocation {
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn InDock(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn InLid(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn Panel(&self) -> ::windows::runtime::Result<Panel> {
         let this = self;
         unsafe {
-            let mut result__: Panel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Panel>(result__)
+            let mut result__: Panel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Panel>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Enumeration`*"]
     pub fn RotationAngleInDegreesClockwise(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IEnclosureLocation2>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -2840,12 +2840,12 @@ unsafe impl ::windows::runtime::Interface for EnclosureLocation {
 impl ::windows::runtime::RuntimeName for EnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.EnclosureLocation";
 }
-impl ::std::convert::From<EnclosureLocation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EnclosureLocation> for ::windows::runtime::IUnknown {
     fn from(value: EnclosureLocation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&EnclosureLocation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EnclosureLocation> for ::windows::runtime::IUnknown {
     fn from(value: &EnclosureLocation) -> Self {
         value.0 .0.clone()
     }
@@ -2860,12 +2860,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<EnclosureLocation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EnclosureLocation> for ::windows::runtime::IInspectable {
     fn from(value: EnclosureLocation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&EnclosureLocation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EnclosureLocation> for ::windows::runtime::IInspectable {
     fn from(value: &EnclosureLocation) -> Self {
         value.0.clone()
     }
@@ -2880,8 +2880,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for EnclosureLocation {}
-unsafe impl ::std::marker::Sync for EnclosureLocation {}
+unsafe impl ::core::marker::Send for EnclosureLocation {}
+unsafe impl ::core::marker::Sync for EnclosureLocation {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs(pub ::windows::runtime::IInspectable);
@@ -2916,7 +2916,7 @@ pub struct IDeviceAccessChangedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2956,7 +2956,7 @@ pub struct IDeviceAccessInformationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclassid: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclass: DeviceClass, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -2976,7 +2976,7 @@ pub struct IDeviceConnectionChangeTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3012,8 +3012,8 @@ pub struct IDeviceInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -3169,22 +3169,22 @@ pub struct IDeviceInformationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclass: DeviceClass, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclass: DeviceClass, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
@@ -3203,12 +3203,12 @@ pub struct IDeviceInformationStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclass: DeviceClass, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclass: DeviceClass, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, additionalproperties: ::windows::runtime::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
@@ -3227,7 +3227,7 @@ pub struct IDeviceInformationUpdate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
@@ -3267,9 +3267,9 @@ pub struct IDevicePairingRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DevicePairingKinds) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -3312,7 +3312,7 @@ pub struct IDevicePairingResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DevicePairingProtectionLevel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Enumeration`*"]
 pub struct IDevicePairingSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingSettings {
@@ -3323,12 +3323,12 @@ impl IDevicePairingSettings {}
 unsafe impl ::windows::runtime::RuntimeType for IDevicePairingSettings {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{482cb27c-83bb-420e-be51-6602b222de54}");
 }
-impl ::std::convert::From<IDevicePairingSettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDevicePairingSettings> for ::windows::runtime::IUnknown {
     fn from(value: IDevicePairingSettings) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IDevicePairingSettings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDevicePairingSettings> for ::windows::runtime::IUnknown {
     fn from(value: &IDevicePairingSettings) -> Self {
         value.0 .0.clone()
     }
@@ -3343,12 +3343,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IDevicePairingSettings> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IDevicePairingSettings> for ::windows::runtime::IInspectable {
     fn from(value: IDevicePairingSettings) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDevicePairingSettings> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IDevicePairingSettings> for ::windows::runtime::IInspectable {
     fn from(value: &IDevicePairingSettings) -> Self {
         value.0.clone()
     }
@@ -3414,7 +3414,7 @@ pub struct IDevicePicker_abi(
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, device: ::windows::runtime::RawPtr, status: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: DevicePickerDisplayStatusOptions) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, device: ::windows::runtime::RawPtr, status: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: DevicePickerDisplayStatusOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3432,8 +3432,8 @@ pub struct IDevicePickerAppearance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "UI")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::UI::Color) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI"))] usize,
     #[cfg(feature = "UI")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::UI::Color) -> ::windows::runtime::HRESULT,
@@ -3653,7 +3653,7 @@ pub struct IEnclosureLocation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Devices_Enumeration`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Panel(pub i32);
 impl Panel {
@@ -3665,7 +3665,7 @@ impl Panel {
     pub const Left: Panel = Panel(5i32);
     pub const Right: Panel = Panel(6i32);
 }
-impl ::std::convert::From<i32> for Panel {
+impl ::core::convert::From<i32> for Panel {
     fn from(value: i32) -> Self {
         Self(value)
     }

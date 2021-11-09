@@ -3,13 +3,13 @@
 pub mod Core;
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ActivatedDeferral(pub ::windows::runtime::IInspectable);
 impl ActivatedDeferral {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivatedDeferral {
@@ -22,12 +22,12 @@ unsafe impl ::windows::runtime::Interface for ActivatedDeferral {
 impl ::windows::runtime::RuntimeName for ActivatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedDeferral";
 }
-impl ::std::convert::From<ActivatedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ActivatedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: ActivatedDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ActivatedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ActivatedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &ActivatedDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -42,12 +42,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ActivatedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ActivatedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: ActivatedDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ActivatedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ActivatedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &ActivatedDeferral) -> Self {
         value.0.clone()
     }
@@ -65,23 +65,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ActivatedEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = ActivatedEventHandler_box::<F> {
             vtable: &ActivatedEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs>>(&self, sender: Param0, eventargs: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -104,20 +104,20 @@ pub struct ActivatedEventHandler_abi(
 );
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
-struct ActivatedEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct ActivatedEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const ActivatedEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> ActivatedEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> ActivatedEventHandler_box<F> {
     const VTABLE: ActivatedEventHandler_abi = ActivatedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<ActivatedEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -149,15 +149,15 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ActivatedOperation(pub ::windows::runtime::IInspectable);
 impl ActivatedOperation {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<ActivatedDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedDeferral>(result__)
         }
     }
 }
@@ -171,12 +171,12 @@ unsafe impl ::windows::runtime::Interface for ActivatedOperation {
 impl ::windows::runtime::RuntimeName for ActivatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedOperation";
 }
-impl ::std::convert::From<ActivatedOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ActivatedOperation> for ::windows::runtime::IUnknown {
     fn from(value: ActivatedOperation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ActivatedOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ActivatedOperation> for ::windows::runtime::IUnknown {
     fn from(value: &ActivatedOperation) -> Self {
         value.0 .0.clone()
     }
@@ -191,12 +191,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ActivatedOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ActivatedOperation> for ::windows::runtime::IInspectable {
     fn from(value: ActivatedOperation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ActivatedOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ActivatedOperation> for ::windows::runtime::IInspectable {
     fn from(value: &ActivatedOperation) -> Self {
         value.0.clone()
     }
@@ -214,7 +214,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BackgroundActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventArgs {
@@ -223,8 +223,8 @@ impl BackgroundActivatedEventArgs {
     pub fn TaskInstance(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(result__)
         }
     }
 }
@@ -242,13 +242,13 @@ impl ::windows::runtime::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.BackgroundActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<BackgroundActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BackgroundActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&BackgroundActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BackgroundActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -266,13 +266,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<BackgroundActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BackgroundActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&BackgroundActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BackgroundActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -290,53 +290,53 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<BackgroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs {
+impl ::core::convert::From<BackgroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs {
     fn from(value: BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&BackgroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs {
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs {
     fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> for BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> for &BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Send for BackgroundActivatedEventArgs {}
+unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Sync for BackgroundActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BackgroundActivatedEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = BackgroundActivatedEventHandler_box::<F> {
             vtable: &BackgroundActivatedEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>>(&self, sender: Param0, eventargs: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), eventargs.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -359,20 +359,20 @@ pub struct BackgroundActivatedEventHandler_abi(
 );
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
-struct BackgroundActivatedEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct BackgroundActivatedEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const BackgroundActivatedEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> BackgroundActivatedEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> BackgroundActivatedEventHandler_box<F> {
     const VTABLE: BackgroundActivatedEventHandler_abi = BackgroundActivatedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<BackgroundActivatedEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -405,7 +405,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnteredBackgroundEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventArgs {
@@ -414,8 +414,8 @@ impl EnteredBackgroundEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -433,13 +433,13 @@ impl ::windows::runtime::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.EnteredBackgroundEventArgs";
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<EnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: EnteredBackgroundEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&EnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EnteredBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &EnteredBackgroundEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -457,13 +457,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<EnteredBackgroundEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EnteredBackgroundEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: EnteredBackgroundEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&EnteredBackgroundEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EnteredBackgroundEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &EnteredBackgroundEventArgs) -> Self {
         value.0.clone()
     }
@@ -481,53 +481,53 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<EnteredBackgroundEventArgs> for super::super::ApplicationModel::IEnteredBackgroundEventArgs {
+impl ::core::convert::From<EnteredBackgroundEventArgs> for super::super::ApplicationModel::IEnteredBackgroundEventArgs {
     fn from(value: EnteredBackgroundEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&EnteredBackgroundEventArgs> for super::super::ApplicationModel::IEnteredBackgroundEventArgs {
+impl ::core::convert::From<&EnteredBackgroundEventArgs> for super::super::ApplicationModel::IEnteredBackgroundEventArgs {
     fn from(value: &EnteredBackgroundEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> for EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> for &EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
-unsafe impl ::std::marker::Send for EnteredBackgroundEventArgs {}
+unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
-unsafe impl ::std::marker::Sync for EnteredBackgroundEventArgs {}
+unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnteredBackgroundEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = EnteredBackgroundEventHandler_box::<F> {
             vtable: &EnteredBackgroundEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -550,20 +550,20 @@ pub struct EnteredBackgroundEventHandler_abi(
 );
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-struct EnteredBackgroundEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct EnteredBackgroundEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const EnteredBackgroundEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> EnteredBackgroundEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> EnteredBackgroundEventHandler_box<F> {
     const VTABLE: EnteredBackgroundEventHandler_abi = EnteredBackgroundEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<EnteredBackgroundEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -595,134 +595,134 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HtmlPrintDocumentSource(pub ::windows::runtime::IInspectable);
 impl HtmlPrintDocumentSource {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<PrintContent> {
         let this = self;
         unsafe {
-            let mut result__: PrintContent = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintContent>(result__)
+            let mut result__: PrintContent = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintContent>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetContent(&self, value: PrintContent) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn LeftMargin(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetLeftMargin(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn TopMargin(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetTopMargin(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn RightMargin(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetRightMargin(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn BottomMargin(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetBottomMargin(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn EnableHeaderFooter(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetEnableHeaderFooter(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ShrinkToFit(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetShrinkToFit(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn PercentScale(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetPercentScale(&self, scalepercent: f32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), scalepercent).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), scalepercent).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn PageRange(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn TrySetPageRange<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, strpagerange: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), strpagerange.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), strpagerange.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for HtmlPrintDocumentSource {
@@ -735,12 +735,12 @@ unsafe impl ::windows::runtime::Interface for HtmlPrintDocumentSource {
 impl ::windows::runtime::RuntimeName for HtmlPrintDocumentSource {
     const NAME: &'static str = "Windows.UI.WebUI.HtmlPrintDocumentSource";
 }
-impl ::std::convert::From<HtmlPrintDocumentSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HtmlPrintDocumentSource> for ::windows::runtime::IUnknown {
     fn from(value: HtmlPrintDocumentSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HtmlPrintDocumentSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HtmlPrintDocumentSource> for ::windows::runtime::IUnknown {
     fn from(value: &HtmlPrintDocumentSource) -> Self {
         value.0 .0.clone()
     }
@@ -755,12 +755,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HtmlPrintDocumentSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HtmlPrintDocumentSource> for ::windows::runtime::IInspectable {
     fn from(value: HtmlPrintDocumentSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HtmlPrintDocumentSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HtmlPrintDocumentSource> for ::windows::runtime::IInspectable {
     fn from(value: &HtmlPrintDocumentSource) -> Self {
         value.0.clone()
     }
@@ -776,14 +776,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<HtmlPrintDocumentSource> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<HtmlPrintDocumentSource> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: HtmlPrintDocumentSource) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&HtmlPrintDocumentSource> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&HtmlPrintDocumentSource> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &HtmlPrintDocumentSource) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -798,18 +798,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &HtmlPrintDocumentSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Graphics_Printing")]
-impl ::std::convert::TryFrom<HtmlPrintDocumentSource> for super::super::Graphics::Printing::IPrintDocumentSource {
+impl ::core::convert::TryFrom<HtmlPrintDocumentSource> for super::super::Graphics::Printing::IPrintDocumentSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: HtmlPrintDocumentSource) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Graphics_Printing")]
-impl ::std::convert::TryFrom<&HtmlPrintDocumentSource> for super::super::Graphics::Printing::IPrintDocumentSource {
+impl ::core::convert::TryFrom<&HtmlPrintDocumentSource> for super::super::Graphics::Printing::IPrintDocumentSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &HtmlPrintDocumentSource) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -824,11 +824,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Printing::IPr
 #[cfg(feature = "Graphics_Printing")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Printing::IPrintDocumentSource> for &HtmlPrintDocumentSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Printing::IPrintDocumentSource> {
-        ::std::convert::TryInto::<super::super::Graphics::Printing::IPrintDocumentSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Graphics::Printing::IPrintDocumentSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for HtmlPrintDocumentSource {}
-unsafe impl ::std::marker::Sync for HtmlPrintDocumentSource {}
+unsafe impl ::core::marker::Send for HtmlPrintDocumentSource {}
+unsafe impl ::core::marker::Sync for HtmlPrintDocumentSource {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IActivatedDeferral(pub ::windows::runtime::IInspectable);
@@ -848,7 +848,7 @@ pub struct IActivatedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_WebUI`*"]
 pub struct IActivatedEventArgsDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedEventArgsDeferral {
@@ -860,20 +860,20 @@ impl IActivatedEventArgsDeferral {
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IActivatedEventArgsDeferral {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b}");
 }
-impl ::std::convert::From<IActivatedEventArgsDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IActivatedEventArgsDeferral> for ::windows::runtime::IUnknown {
     fn from(value: IActivatedEventArgsDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IActivatedEventArgsDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IActivatedEventArgsDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &IActivatedEventArgsDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -888,12 +888,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IActivatedEventArgsDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IActivatedEventArgsDeferral> for ::windows::runtime::IInspectable {
     fn from(value: IActivatedEventArgsDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IActivatedEventArgsDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IActivatedEventArgsDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &IActivatedEventArgsDeferral) -> Self {
         value.0.clone()
     }
@@ -969,8 +969,8 @@ pub struct IHtmlPrintDocumentSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scalepercent: f32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strpagerange: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strpagerange: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1070,9 +1070,9 @@ pub struct IWebUIActivationStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, launcharguments: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, launcharguments: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))] usize,
-    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, launcharguments: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, launcharguments: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
@@ -1101,7 +1101,7 @@ pub struct IWebUIActivationStatics4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_WebUI`*"]
 pub struct IWebUIBackgroundTaskInstance(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIBackgroundTaskInstance {
@@ -1113,25 +1113,25 @@ impl IWebUIBackgroundTaskInstance {
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetSucceeded(&self, succeeded: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), succeeded).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), succeeded).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebUIBackgroundTaskInstance {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{23f12c25-e2f7-4741-bc9c-394595de24dc}");
 }
-impl ::std::convert::From<IWebUIBackgroundTaskInstance> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebUIBackgroundTaskInstance> for ::windows::runtime::IUnknown {
     fn from(value: IWebUIBackgroundTaskInstance) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::runtime::IUnknown {
     fn from(value: &IWebUIBackgroundTaskInstance) -> Self {
         value.0 .0.clone()
     }
@@ -1146,12 +1146,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebUIBackgroundTaskInstance> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebUIBackgroundTaskInstance> for ::windows::runtime::IInspectable {
     fn from(value: IWebUIBackgroundTaskInstance) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::runtime::IInspectable {
     fn from(value: &IWebUIBackgroundTaskInstance) -> Self {
         value.0.clone()
     }
@@ -1215,7 +1215,7 @@ pub struct IWebUINavigatedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_WebUI`*"]
 pub struct IWebUINavigatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedEventArgs {
@@ -1227,20 +1227,20 @@ impl IWebUINavigatedEventArgs {
     pub fn NavigatedOperation(&self) -> ::windows::runtime::Result<WebUINavigatedOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebUINavigatedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a75841b8-2499-4030-a69d-15d2d9cfe524}");
 }
-impl ::std::convert::From<IWebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: IWebUINavigatedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &IWebUINavigatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1255,12 +1255,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: IWebUINavigatedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &IWebUINavigatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1356,7 +1356,7 @@ pub struct IWebUIViewStatics_abi(
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LeavingBackgroundEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventArgs {
@@ -1365,8 +1365,8 @@ impl LeavingBackgroundEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1384,13 +1384,13 @@ impl ::windows::runtime::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.LeavingBackgroundEventArgs";
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<LeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: LeavingBackgroundEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&LeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LeavingBackgroundEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &LeavingBackgroundEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1408,13 +1408,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<LeavingBackgroundEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LeavingBackgroundEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: LeavingBackgroundEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&LeavingBackgroundEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LeavingBackgroundEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &LeavingBackgroundEventArgs) -> Self {
         value.0.clone()
     }
@@ -1432,53 +1432,53 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<LeavingBackgroundEventArgs> for super::super::ApplicationModel::ILeavingBackgroundEventArgs {
+impl ::core::convert::From<LeavingBackgroundEventArgs> for super::super::ApplicationModel::ILeavingBackgroundEventArgs {
     fn from(value: LeavingBackgroundEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&LeavingBackgroundEventArgs> for super::super::ApplicationModel::ILeavingBackgroundEventArgs {
+impl ::core::convert::From<&LeavingBackgroundEventArgs> for super::super::ApplicationModel::ILeavingBackgroundEventArgs {
     fn from(value: &LeavingBackgroundEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> for LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> for &LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
-unsafe impl ::std::marker::Send for LeavingBackgroundEventArgs {}
+unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
-unsafe impl ::std::marker::Sync for LeavingBackgroundEventArgs {}
+unsafe impl ::core::marker::Sync for LeavingBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LeavingBackgroundEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = LeavingBackgroundEventHandler_box::<F> {
             vtable: &LeavingBackgroundEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1501,20 +1501,20 @@ pub struct LeavingBackgroundEventHandler_abi(
 );
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-struct LeavingBackgroundEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct LeavingBackgroundEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const LeavingBackgroundEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> LeavingBackgroundEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static> LeavingBackgroundEventHandler_box<F> {
     const VTABLE: LeavingBackgroundEventHandler_abi = LeavingBackgroundEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<LeavingBackgroundEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -1546,21 +1546,21 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NavigatedEventHandler(::windows::runtime::IUnknown);
 impl NavigatedEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = NavigatedEventHandler_box::<F> {
             vtable: &NavigatedEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for NavigatedEventHandler {
@@ -1579,19 +1579,19 @@ pub struct NavigatedEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct NavigatedEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct NavigatedEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const NavigatedEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> NavigatedEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static> NavigatedEventHandler_box<F> {
     const VTABLE: NavigatedEventHandler_abi = NavigatedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<NavigatedEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -1623,15 +1623,15 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NewWebUIViewCreatedEventArgs(pub ::windows::runtime::IInspectable);
 impl NewWebUIViewCreatedEventArgs {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn WebUIView(&self) -> ::windows::runtime::Result<WebUIView> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebUIView>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUIView>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1639,16 +1639,16 @@ impl NewWebUIViewCreatedEventArgs {
     pub fn ActivatedEventArgs(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn HasPendingNavigate(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1656,8 +1656,8 @@ impl NewWebUIViewCreatedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1671,12 +1671,12 @@ unsafe impl ::windows::runtime::Interface for NewWebUIViewCreatedEventArgs {
 impl ::windows::runtime::RuntimeName for NewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
 }
-impl ::std::convert::From<NewWebUIViewCreatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NewWebUIViewCreatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: NewWebUIViewCreatedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NewWebUIViewCreatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NewWebUIViewCreatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &NewWebUIViewCreatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1691,12 +1691,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NewWebUIViewCreatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NewWebUIViewCreatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: NewWebUIViewCreatedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NewWebUIViewCreatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NewWebUIViewCreatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &NewWebUIViewCreatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1712,7 +1712,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
@@ -1721,7 +1721,7 @@ impl PrintContent {
     pub const CustomPageRange: PrintContent = PrintContent(2i32);
     pub const CurrentSelection: PrintContent = PrintContent(3i32);
 }
-impl ::std::convert::From<i32> for PrintContent {
+impl ::core::convert::From<i32> for PrintContent {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1737,21 +1737,21 @@ impl ::windows::runtime::DefaultType for PrintContent {
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ResumingEventHandler(::windows::runtime::IUnknown);
 impl ResumingEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = ResumingEventHandler_box::<F> {
             vtable: &ResumingEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ResumingEventHandler {
@@ -1770,19 +1770,19 @@ pub struct ResumingEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct ResumingEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static> {
+struct ResumingEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const ResumingEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static> ResumingEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static> ResumingEventHandler_box<F> {
     const VTABLE: ResumingEventHandler_abi = ResumingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<ResumingEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -1811,7 +1811,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::win
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingDeferral(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingDeferral {
@@ -1819,7 +1819,7 @@ impl SuspendingDeferral {
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1836,13 +1836,13 @@ impl ::windows::runtime::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingDeferral";
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SuspendingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: SuspendingDeferral) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SuspendingDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &SuspendingDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -1860,13 +1860,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SuspendingDeferral> for ::windows::runtime::IInspectable {
     fn from(value: SuspendingDeferral) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SuspendingDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &SuspendingDeferral) -> Self {
         value.0.clone()
     }
@@ -1884,33 +1884,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingDeferral> for super::super::ApplicationModel::ISuspendingDeferral {
+impl ::core::convert::From<SuspendingDeferral> for super::super::ApplicationModel::ISuspendingDeferral {
     fn from(value: SuspendingDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingDeferral> for super::super::ApplicationModel::ISuspendingDeferral {
+impl ::core::convert::From<&SuspendingDeferral> for super::super::ApplicationModel::ISuspendingDeferral {
     fn from(value: &SuspendingDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingDeferral> for SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingDeferral> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingDeferral> for &SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingDeferral> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventArgs {
@@ -1919,8 +1919,8 @@ impl SuspendingEventArgs {
     pub fn SuspendingOperation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::SuspendingOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingOperation>(result__)
         }
     }
 }
@@ -1938,13 +1938,13 @@ impl ::windows::runtime::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingEventArgs";
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SuspendingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SuspendingEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SuspendingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SuspendingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1962,13 +1962,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SuspendingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: SuspendingEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SuspendingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &SuspendingEventArgs) -> Self {
         value.0.clone()
     }
@@ -1986,49 +1986,49 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingEventArgs> for super::super::ApplicationModel::ISuspendingEventArgs {
+impl ::core::convert::From<SuspendingEventArgs> for super::super::ApplicationModel::ISuspendingEventArgs {
     fn from(value: SuspendingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingEventArgs> for super::super::ApplicationModel::ISuspendingEventArgs {
+impl ::core::convert::From<&SuspendingEventArgs> for super::super::ApplicationModel::ISuspendingEventArgs {
     fn from(value: &SuspendingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingEventArgs> for SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingEventArgs> for &SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = SuspendingEventHandler_box::<F> {
             vtable: &SuspendingEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -2051,20 +2051,20 @@ pub struct SuspendingEventHandler_abi(
 );
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-struct SuspendingEventHandler_box<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct SuspendingEventHandler_box<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const SuspendingEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static> SuspendingEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static> SuspendingEventHandler_box<F> {
     const VTABLE: SuspendingEventHandler_abi = SuspendingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<SuspendingEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -2097,7 +2097,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 #[cfg(feature = "ApplicationModel")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingOperation(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingOperation {
@@ -2106,8 +2106,8 @@ impl SuspendingOperation {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::SuspendingDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::SuspendingDeferral>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
@@ -2115,8 +2115,8 @@ impl SuspendingOperation {
     pub fn Deadline(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -2134,13 +2134,13 @@ impl ::windows::runtime::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.UI.WebUI.SuspendingOperation";
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SuspendingOperation> for ::windows::runtime::IUnknown {
     fn from(value: SuspendingOperation) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SuspendingOperation> for ::windows::runtime::IUnknown {
     fn from(value: &SuspendingOperation) -> Self {
         value.0 .0.clone()
     }
@@ -2158,13 +2158,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SuspendingOperation> for ::windows::runtime::IInspectable {
     fn from(value: SuspendingOperation) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SuspendingOperation> for ::windows::runtime::IInspectable {
     fn from(value: &SuspendingOperation) -> Self {
         value.0.clone()
     }
@@ -2182,27 +2182,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<SuspendingOperation> for super::super::ApplicationModel::ISuspendingOperation {
+impl ::core::convert::From<SuspendingOperation> for super::super::ApplicationModel::ISuspendingOperation {
     fn from(value: SuspendingOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::std::convert::From<&SuspendingOperation> for super::super::ApplicationModel::ISuspendingOperation {
+impl ::core::convert::From<&SuspendingOperation> for super::super::ApplicationModel::ISuspendingOperation {
     fn from(value: &SuspendingOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingOperation> for SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingOperation> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingOperation> for &SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingOperation> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
@@ -2212,125 +2212,125 @@ impl WebUIApplication {
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Activated<'a, Param0: ::windows::runtime::IntoParam<'a, ActivatedEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveActivated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`, `Foundation`*"]
     pub fn Suspending<'a, Param0: ::windows::runtime::IntoParam<'a, SuspendingEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveSuspending<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn Resuming<'a, Param0: ::windows::runtime::IntoParam<'a, ResumingEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveResuming<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn Navigated<'a, Param0: ::windows::runtime::IntoParam<'a, NavigatedEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveNavigated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`, `Foundation`*"]
     pub fn LeavingBackground<'a, Param0: ::windows::runtime::IntoParam<'a, LeavingBackgroundEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics2(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveLeavingBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`, `Foundation`*"]
     pub fn EnteredBackground<'a, Param0: ::windows::runtime::IntoParam<'a, EnteredBackgroundEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics2(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveEnteredBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn EnablePrelaunch(value: bool) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() })
+        Self::IWebUIActivationStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Core`, `Foundation`*"]
     pub fn RequestRestartAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(launcharguments: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
         Self::IWebUIActivationStatics3(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
         })
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Core`, `Foundation`, `System`*"]
     pub fn RequestRestartForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, launcharguments: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
         Self::IWebUIActivationStatics3(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), user.into_param().abi(), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), launcharguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn NewWebUIViewCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics4(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveNewWebUIViewCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`, `Foundation`*"]
     pub fn BackgroundActivated<'a, Param0: ::windows::runtime::IntoParam<'a, BackgroundActivatedEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics4(|this| unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveBackgroundActivated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IWebUIActivationStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     pub fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<WebUIApplication, IWebUIActivationStatics> = ::windows::runtime::FactoryCache::new();
@@ -2355,7 +2355,7 @@ impl ::windows::runtime::RuntimeName for WebUIApplication {
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -2364,8 +2364,8 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn AddAppointmentOperation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2373,8 +2373,8 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2382,8 +2382,8 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2391,8 +2391,8 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2400,16 +2400,16 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -2417,8 +2417,8 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -2436,13 +2436,13 @@ impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderAddAppointment
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2460,13 +2460,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2484,38 +2484,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs {
+impl ::core::convert::From<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs {
+impl ::core::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2530,18 +2530,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2556,18 +2556,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2582,18 +2582,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2608,13 +2608,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -2623,8 +2623,8 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn RemoveAppointmentOperation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2632,8 +2632,8 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2641,8 +2641,8 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2650,8 +2650,8 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2659,16 +2659,16 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -2676,8 +2676,8 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -2695,13 +2695,13 @@ impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderRemoveAppointm
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2719,13 +2719,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2743,38 +2743,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+impl ::core::convert::From<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+impl ::core::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2789,18 +2789,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2815,18 +2815,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2841,18 +2841,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2867,13 +2867,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -2882,8 +2882,8 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn ReplaceAppointmentOperation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2891,8 +2891,8 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2900,8 +2900,8 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2909,8 +2909,8 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2918,16 +2918,16 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -2935,8 +2935,8 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -2954,13 +2954,13 @@ impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderReplaceAppoint
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2978,13 +2978,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -3002,38 +3002,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+impl ::core::convert::From<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+impl ::core::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3048,18 +3048,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3074,18 +3074,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3100,18 +3100,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3126,13 +3126,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -3141,8 +3141,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn InstanceStartDate(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3150,8 +3150,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn LocalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3159,8 +3159,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn RoamingId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3168,8 +3168,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3177,8 +3177,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3186,8 +3186,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3195,16 +3195,16 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -3212,8 +3212,8 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -3231,13 +3231,13 @@ impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderShowAppointmen
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -3255,13 +3255,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -3279,38 +3279,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+impl ::core::convert::From<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+impl ::core::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3325,18 +3325,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3351,18 +3351,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3377,18 +3377,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3403,13 +3403,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -3418,8 +3418,8 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn TimeToShow(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
@@ -3427,8 +3427,8 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3436,8 +3436,8 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3445,8 +3445,8 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3454,8 +3454,8 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3463,16 +3463,16 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -3480,8 +3480,8 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -3499,13 +3499,13 @@ impl ::windows::runtime::RuntimeName for WebUIAppointmentsProviderShowTimeFrameA
     const NAME: &'static str = "Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -3523,13 +3523,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -3547,38 +3547,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs {
+impl ::core::convert::From<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs {
+impl ::core::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3593,18 +3593,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3619,18 +3619,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3645,18 +3645,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3671,7 +3671,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
@@ -3680,8 +3680,8 @@ impl WebUIBackgroundTaskInstance {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Current() -> ::windows::runtime::Result<IWebUIBackgroundTaskInstance> {
         Self::IWebUIBackgroundTaskInstanceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IWebUIBackgroundTaskInstance>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IWebUIBackgroundTaskInstance>(result__)
         })
     }
     pub fn IWebUIBackgroundTaskInstanceStatics<R, F: FnOnce(&IWebUIBackgroundTaskInstanceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -3694,29 +3694,29 @@ impl ::windows::runtime::RuntimeName for WebUIBackgroundTaskInstance {
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(pub ::windows::runtime::IInspectable);
 impl WebUIBackgroundTaskInstanceRuntimeClass {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetSucceeded(&self, succeeded: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), succeeded).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), succeeded).ok() }
     }
     #[cfg(feature = "ApplicationModel_Background")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Background`*"]
     pub fn InstanceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Background")]
@@ -3724,8 +3724,8 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     pub fn Task(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Background::BackgroundTaskRegistration> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskRegistration>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskRegistration>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Background")]
@@ -3733,23 +3733,23 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     pub fn Progress(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Background")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Background`*"]
     pub fn SetProgress(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "ApplicationModel_Background")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Background`*"]
     pub fn TriggerDetails(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation"))]
@@ -3757,23 +3757,23 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     pub fn Canceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::BackgroundTaskCanceledEventHandler>>(&self, cancelhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), cancelhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cancelhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Background`, `Foundation`*"]
     pub fn RemoveCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Background")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Background`*"]
     pub fn SuspendedCount(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Background")]
@@ -3781,8 +3781,8 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Background::BackgroundTaskDeferral> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::BackgroundTaskDeferral>(result__)
         }
     }
 }
@@ -3796,12 +3796,12 @@ unsafe impl ::windows::runtime::Interface for WebUIBackgroundTaskInstanceRuntime
 impl ::windows::runtime::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass";
 }
-impl ::std::convert::From<WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IUnknown {
     fn from(value: WebUIBackgroundTaskInstanceRuntimeClass) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIBackgroundTaskInstanceRuntimeClass) -> Self {
         value.0 .0.clone()
     }
@@ -3816,12 +3816,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IInspectable {
     fn from(value: WebUIBackgroundTaskInstanceRuntimeClass) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIBackgroundTaskInstanceRuntimeClass) -> Self {
         value.0.clone()
     }
@@ -3836,35 +3836,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<WebUIBackgroundTaskInstanceRuntimeClass> for IWebUIBackgroundTaskInstance {
+impl ::core::convert::From<WebUIBackgroundTaskInstanceRuntimeClass> for IWebUIBackgroundTaskInstance {
     fn from(value: WebUIBackgroundTaskInstanceRuntimeClass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for IWebUIBackgroundTaskInstance {
+impl ::core::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for IWebUIBackgroundTaskInstance {
     fn from(value: &WebUIBackgroundTaskInstanceRuntimeClass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUIBackgroundTaskInstance> for WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUIBackgroundTaskInstance> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUIBackgroundTaskInstance> for &WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUIBackgroundTaskInstance> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::TryFrom<WebUIBackgroundTaskInstanceRuntimeClass> for super::super::ApplicationModel::Background::IBackgroundTaskInstance {
+impl ::core::convert::TryFrom<WebUIBackgroundTaskInstanceRuntimeClass> for super::super::ApplicationModel::Background::IBackgroundTaskInstance {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIBackgroundTaskInstanceRuntimeClass) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for super::super::ApplicationModel::Background::IBackgroundTaskInstance {
+impl ::core::convert::TryFrom<&WebUIBackgroundTaskInstanceRuntimeClass> for super::super::ApplicationModel::Background::IBackgroundTaskInstance {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIBackgroundTaskInstanceRuntimeClass) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3879,13 +3879,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Backg
 #[cfg(feature = "ApplicationModel_Background")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::IBackgroundTaskInstance> for &WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIBarcodeScannerPreviewActivatedEventArgs {
@@ -3894,8 +3894,8 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3903,8 +3903,8 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3912,16 +3912,16 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -3929,8 +3929,8 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3938,8 +3938,8 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     pub fn ConnectionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -3957,13 +3957,13 @@ impl ::windows::runtime::RuntimeName for WebUIBarcodeScannerPreviewActivatedEven
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIBarcodeScannerPreviewActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -3981,13 +3981,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIBarcodeScannerPreviewActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -4005,14 +4005,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4027,18 +4027,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4053,18 +4053,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4079,41 +4079,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs {
+impl ::core::convert::From<WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs {
     fn from(value: WebUIBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs {
+impl ::core::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs {
     fn from(value: &WebUIBarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> for WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+unsafe impl ::core::marker::Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICachedFileUpdaterActivatedEventArgs {
@@ -4122,8 +4122,8 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
     pub fn CachedFileUpdaterUI(&self) -> ::windows::runtime::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4131,8 +4131,8 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4140,8 +4140,8 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4149,16 +4149,16 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -4166,8 +4166,8 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -4185,13 +4185,13 @@ impl ::windows::runtime::RuntimeName for WebUICachedFileUpdaterActivatedEventArg
     const NAME: &'static str = "Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUICachedFileUpdaterActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -4209,13 +4209,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUICachedFileUpdaterActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -4233,38 +4233,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs {
+impl ::core::convert::From<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs {
     fn from(value: WebUICachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs {
+impl ::core::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs {
     fn from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> for WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> for &WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4279,18 +4279,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4305,18 +4305,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUICachedFileUpdaterActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICachedFileUpdaterActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4331,13 +4331,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUICameraSettingsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICameraSettingsActivatedEventArgs {
@@ -4346,8 +4346,8 @@ impl WebUICameraSettingsActivatedEventArgs {
     pub fn VideoDeviceController(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4355,8 +4355,8 @@ impl WebUICameraSettingsActivatedEventArgs {
     pub fn VideoDeviceExtension(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4364,8 +4364,8 @@ impl WebUICameraSettingsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4373,8 +4373,8 @@ impl WebUICameraSettingsActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4382,16 +4382,16 @@ impl WebUICameraSettingsActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -4409,13 +4409,13 @@ impl ::windows::runtime::RuntimeName for WebUICameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUICameraSettingsActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUICameraSettingsActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -4433,13 +4433,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUICameraSettingsActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUICameraSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUICameraSettingsActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -4457,38 +4457,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs {
+impl ::core::convert::From<WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs {
     fn from(value: WebUICameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs {
+impl ::core::convert::From<&WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs {
     fn from(value: &WebUICameraSettingsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> for WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> for &WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICameraSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICameraSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4503,18 +4503,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICameraSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUICameraSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICameraSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUICameraSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICameraSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4529,13 +4529,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUICommandLineActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICommandLineActivatedEventArgs {
@@ -4544,8 +4544,8 @@ impl WebUICommandLineActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4553,8 +4553,8 @@ impl WebUICommandLineActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4562,16 +4562,16 @@ impl WebUICommandLineActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -4579,8 +4579,8 @@ impl WebUICommandLineActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4588,8 +4588,8 @@ impl WebUICommandLineActivatedEventArgs {
     pub fn Operation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::CommandLineActivationOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::CommandLineActivationOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::CommandLineActivationOperation>(result__)
         }
     }
 }
@@ -4607,13 +4607,13 @@ impl ::windows::runtime::RuntimeName for WebUICommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICommandLineActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICommandLineActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUICommandLineActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUICommandLineActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICommandLineActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUICommandLineActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUICommandLineActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -4631,13 +4631,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICommandLineActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUICommandLineActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUICommandLineActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICommandLineActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUICommandLineActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUICommandLineActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -4655,14 +4655,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICommandLineActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4677,18 +4677,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICommandLineActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUICommandLineActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICommandLineActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4703,18 +4703,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUICommandLineActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUICommandLineActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4729,41 +4729,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs {
+impl ::core::convert::From<WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs {
     fn from(value: WebUICommandLineActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs {
+impl ::core::convert::From<&WebUICommandLineActivatedEventArgs> for super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs {
     fn from(value: &WebUICommandLineActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> for WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> for &WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Send for WebUICommandLineActivatedEventArgs {}
+unsafe impl ::core::marker::Send for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Sync for WebUICommandLineActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactCallActivatedEventArgs {
@@ -4772,8 +4772,8 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4781,8 +4781,8 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn ServiceUserId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -4790,8 +4790,8 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn Contact(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4799,8 +4799,8 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4808,8 +4808,8 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4817,8 +4817,8 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4826,16 +4826,16 @@ impl WebUIContactCallActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -4853,13 +4853,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactCallActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactCallActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -4877,13 +4877,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactCallActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactCallActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -4901,38 +4901,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs {
+impl ::core::convert::From<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs {
     fn from(value: WebUIContactCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs {
     fn from(value: &WebUIContactCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> for WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> for &WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4947,18 +4947,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4973,18 +4973,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for &WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4999,13 +4999,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactMapActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMapActivatedEventArgs {
@@ -5014,8 +5014,8 @@ impl WebUIContactMapActivatedEventArgs {
     pub fn Address(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::ContactAddress> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactAddress>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -5023,8 +5023,8 @@ impl WebUIContactMapActivatedEventArgs {
     pub fn Contact(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5032,8 +5032,8 @@ impl WebUIContactMapActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5041,8 +5041,8 @@ impl WebUIContactMapActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5050,8 +5050,8 @@ impl WebUIContactMapActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5059,16 +5059,16 @@ impl WebUIContactMapActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -5086,13 +5086,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactMapActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactMapActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactMapActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactMapActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactMapActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactMapActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactMapActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5110,13 +5110,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactMapActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactMapActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactMapActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactMapActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactMapActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactMapActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -5134,38 +5134,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs {
+impl ::core::convert::From<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs {
     fn from(value: WebUIContactMapActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs {
     fn from(value: &WebUIContactMapActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> for WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> for &WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactMapActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5180,18 +5180,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactMapActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5206,18 +5206,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for &WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactMapActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactMapActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactMapActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactMapActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactMapActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5232,13 +5232,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactMessageActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMessageActivatedEventArgs {
@@ -5247,8 +5247,8 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5256,8 +5256,8 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn ServiceUserId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -5265,8 +5265,8 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn Contact(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5274,8 +5274,8 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5283,8 +5283,8 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5292,8 +5292,8 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5301,16 +5301,16 @@ impl WebUIContactMessageActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -5328,13 +5328,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactMessageActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactMessageActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5352,13 +5352,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactMessageActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactMessageActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactMessageActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -5376,38 +5376,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs {
+impl ::core::convert::From<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs {
     fn from(value: WebUIContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs {
     fn from(value: &WebUIContactMessageActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> for WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> for &WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactMessageActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5422,18 +5422,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactMessageActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5448,18 +5448,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for &WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactMessageActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactMessageActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactMessageActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactMessageActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5474,13 +5474,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactPanelActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPanelActivatedEventArgs {
@@ -5489,8 +5489,8 @@ impl WebUIContactPanelActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5498,8 +5498,8 @@ impl WebUIContactPanelActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5507,16 +5507,16 @@ impl WebUIContactPanelActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -5524,8 +5524,8 @@ impl WebUIContactPanelActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -5533,8 +5533,8 @@ impl WebUIContactPanelActivatedEventArgs {
     pub fn ContactPanel(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::ContactPanel> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactPanel>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::ContactPanel>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -5542,8 +5542,8 @@ impl WebUIContactPanelActivatedEventArgs {
     pub fn Contact(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
 }
@@ -5561,13 +5561,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactPanelActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactPanelActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5585,13 +5585,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactPanelActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactPanelActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactPanelActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -5609,14 +5609,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPanelActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5631,18 +5631,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPanelActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5657,18 +5657,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPanelActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPanelActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5683,41 +5683,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs {
+impl ::core::convert::From<WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs {
     fn from(value: WebUIContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactPanelActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs {
     fn from(value: &WebUIContactPanelActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> for WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> for &WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Send for WebUIContactPanelActivatedEventArgs {}
+unsafe impl ::core::marker::Send for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Sync for WebUIContactPanelActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactPickerActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPickerActivatedEventArgs {
@@ -5726,8 +5726,8 @@ impl WebUIContactPickerActivatedEventArgs {
     pub fn ContactPickerUI(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5735,8 +5735,8 @@ impl WebUIContactPickerActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5744,8 +5744,8 @@ impl WebUIContactPickerActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5753,16 +5753,16 @@ impl WebUIContactPickerActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -5780,13 +5780,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactPickerActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactPickerActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5804,13 +5804,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactPickerActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactPickerActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -5828,38 +5828,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs {
+impl ::core::convert::From<WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs {
     fn from(value: WebUIContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs {
     fn from(value: &WebUIContactPickerActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> for WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> for &WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5874,18 +5874,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5900,13 +5900,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactPostActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPostActivatedEventArgs {
@@ -5915,8 +5915,8 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5924,8 +5924,8 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn ServiceUserId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -5933,8 +5933,8 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn Contact(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5942,8 +5942,8 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5951,8 +5951,8 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5960,8 +5960,8 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5969,16 +5969,16 @@ impl WebUIContactPostActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -5996,13 +5996,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPostActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPostActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactPostActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactPostActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPostActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactPostActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactPostActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6020,13 +6020,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPostActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactPostActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactPostActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPostActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactPostActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactPostActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6044,38 +6044,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs {
+impl ::core::convert::From<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs {
     fn from(value: WebUIContactPostActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs {
     fn from(value: &WebUIContactPostActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> for WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> for &WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPostActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6090,18 +6090,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPostActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6116,18 +6116,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for &WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactPostActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactPostActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactPostActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactPostActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactPostActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6142,13 +6142,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIContactVideoCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactVideoCallActivatedEventArgs {
@@ -6157,8 +6157,8 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6166,8 +6166,8 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn ServiceUserId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
@@ -6175,8 +6175,8 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn Contact(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Contacts::Contact>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6184,8 +6184,8 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6193,8 +6193,8 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6202,8 +6202,8 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6211,16 +6211,16 @@ impl WebUIContactVideoCallActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -6238,13 +6238,13 @@ impl ::windows::runtime::RuntimeName for WebUIContactVideoCallActivatedEventArgs
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIContactVideoCallActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIContactVideoCallActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6262,13 +6262,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIContactVideoCallActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIContactVideoCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIContactVideoCallActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6286,38 +6286,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs {
+impl ::core::convert::From<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs {
     fn from(value: WebUIContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs {
+impl ::core::convert::From<&WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs {
     fn from(value: &WebUIContactVideoCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> for WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> for &WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactVideoCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6332,18 +6332,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactVideoCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IContactActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6358,18 +6358,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for &WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIContactVideoCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIContactVideoCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIContactVideoCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIContactVideoCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6384,13 +6384,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIDeviceActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDeviceActivatedEventArgs {
@@ -6399,8 +6399,8 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn DeviceInformationId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6408,8 +6408,8 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6417,8 +6417,8 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6426,8 +6426,8 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6435,8 +6435,8 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6444,16 +6444,16 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -6461,8 +6461,8 @@ impl WebUIDeviceActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -6480,13 +6480,13 @@ impl ::windows::runtime::RuntimeName for WebUIDeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIDeviceActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDeviceActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIDeviceActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIDeviceActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDeviceActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIDeviceActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIDeviceActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6504,13 +6504,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDeviceActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIDeviceActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIDeviceActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDeviceActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIDeviceActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIDeviceActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6528,38 +6528,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs {
+impl ::core::convert::From<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs {
     fn from(value: WebUIDeviceActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs {
+impl ::core::convert::From<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs {
     fn from(value: &WebUIDeviceActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> for WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> for &WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6574,18 +6574,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6600,18 +6600,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDeviceActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIDeviceActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6626,18 +6626,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIDeviceActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDeviceActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6652,13 +6652,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIDevicePairingActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDevicePairingActivatedEventArgs {
@@ -6667,8 +6667,8 @@ impl WebUIDevicePairingActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6676,8 +6676,8 @@ impl WebUIDevicePairingActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6685,16 +6685,16 @@ impl WebUIDevicePairingActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Enumeration"))]
@@ -6702,8 +6702,8 @@ impl WebUIDevicePairingActivatedEventArgs {
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -6711,8 +6711,8 @@ impl WebUIDevicePairingActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -6730,13 +6730,13 @@ impl ::windows::runtime::RuntimeName for WebUIDevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIDevicePairingActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIDevicePairingActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6754,13 +6754,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIDevicePairingActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIDevicePairingActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIDevicePairingActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6778,14 +6778,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDevicePairingActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6800,18 +6800,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDevicePairingActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6826,42 +6826,42 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs {
+impl ::core::convert::From<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs {
     fn from(value: WebUIDevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs {
+impl ::core::convert::From<&WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs {
     fn from(value: &WebUIDevicePairingActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> for WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> for &WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDevicePairingActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIDevicePairingActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDevicePairingActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6876,13 +6876,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIDialReceiverActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDialReceiverActivatedEventArgs {
@@ -6891,8 +6891,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn AppName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6900,8 +6900,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6909,8 +6909,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6918,8 +6918,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6927,8 +6927,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6936,8 +6936,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn Arguments(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -6945,16 +6945,16 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn TileId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -6962,8 +6962,8 @@ impl WebUIDialReceiverActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -6981,13 +6981,13 @@ impl ::windows::runtime::RuntimeName for WebUIDialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIDialReceiverActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIDialReceiverActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7005,13 +7005,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIDialReceiverActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIDialReceiverActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIDialReceiverActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -7029,38 +7029,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs {
+impl ::core::convert::From<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs {
     fn from(value: WebUIDialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs {
+impl ::core::convert::From<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs {
     fn from(value: &WebUIDialReceiverActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> for WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7075,18 +7075,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7101,18 +7101,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7127,18 +7127,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7153,18 +7153,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIDialReceiverActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIDialReceiverActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7179,13 +7179,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIFileActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileActivatedEventArgs {
@@ -7194,8 +7194,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn Files(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7203,8 +7203,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn Verb(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7212,8 +7212,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7221,8 +7221,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7230,8 +7230,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7239,8 +7239,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Search"))]
@@ -7248,16 +7248,16 @@ impl WebUIFileActivatedEventArgs {
     pub fn NeighboringFilesQuery(&self) -> ::windows::runtime::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -7265,8 +7265,8 @@ impl WebUIFileActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -7284,13 +7284,13 @@ impl ::windows::runtime::RuntimeName for WebUIFileActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIFileActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIFileActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIFileActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIFileActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7308,13 +7308,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIFileActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIFileActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIFileActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIFileActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -7332,38 +7332,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgs {
+impl ::core::convert::From<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgs {
     fn from(value: WebUIFileActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgs {
+impl ::core::convert::From<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgs {
     fn from(value: &WebUIFileActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> for WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7378,18 +7378,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7404,18 +7404,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles {
+impl ::core::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7430,18 +7430,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIFileActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7456,18 +7456,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIFileActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7482,13 +7482,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerActivatedEventArgs {
@@ -7497,8 +7497,8 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     pub fn FileOpenPickerUI(&self) -> ::windows::runtime::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7506,8 +7506,8 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7515,8 +7515,8 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7524,8 +7524,8 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7533,16 +7533,16 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     pub fn CallerPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -7550,8 +7550,8 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -7569,13 +7569,13 @@ impl ::windows::runtime::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIFileOpenPickerActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIFileOpenPickerActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7593,13 +7593,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIFileOpenPickerActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIFileOpenPickerActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -7617,38 +7617,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs {
+impl ::core::convert::From<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs {
     fn from(value: WebUIFileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs {
+impl ::core::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs {
     fn from(value: &WebUIFileOpenPickerActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> for WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> for &WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7663,18 +7663,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2 {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2 {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7689,18 +7689,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2> for &WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7715,18 +7715,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7741,13 +7741,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerContinuationEventArgs {
@@ -7757,8 +7757,8 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn Files(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7766,8 +7766,8 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7775,8 +7775,8 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -7784,8 +7784,8 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -7793,16 +7793,16 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -7810,8 +7810,8 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -7829,13 +7829,13 @@ impl ::windows::runtime::RuntimeName for WebUIFileOpenPickerContinuationEventArg
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIFileOpenPickerContinuationEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIFileOpenPickerContinuationEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7853,13 +7853,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIFileOpenPickerContinuationEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIFileOpenPickerContinuationEventArgs) -> Self {
         value.0.clone()
     }
@@ -7877,38 +7877,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs {
+impl ::core::convert::From<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs {
     fn from(value: WebUIFileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs {
+impl ::core::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs {
     fn from(value: &WebUIFileOpenPickerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> for WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> for &WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7923,18 +7923,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7949,18 +7949,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for &WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7975,18 +7975,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIFileOpenPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileOpenPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8001,13 +8001,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIFileSavePickerActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerActivatedEventArgs {
@@ -8016,8 +8016,8 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn FileSavePickerUI(&self) -> ::windows::runtime::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8025,8 +8025,8 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8034,8 +8034,8 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8043,8 +8043,8 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8052,8 +8052,8 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn CallerPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8061,16 +8061,16 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn EnterpriseId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -8078,8 +8078,8 @@ impl WebUIFileSavePickerActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -8097,13 +8097,13 @@ impl ::windows::runtime::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIFileSavePickerActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIFileSavePickerActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -8121,13 +8121,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIFileSavePickerActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIFileSavePickerActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIFileSavePickerActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -8145,38 +8145,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs {
+impl ::core::convert::From<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs {
     fn from(value: WebUIFileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs {
+impl ::core::convert::From<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs {
     fn from(value: &WebUIFileSavePickerActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> for WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> for &WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8191,18 +8191,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2 {
+impl ::core::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2 {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8217,18 +8217,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2> for &WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8243,18 +8243,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8269,13 +8269,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIFileSavePickerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerContinuationEventArgs {
@@ -8285,8 +8285,8 @@ impl WebUIFileSavePickerContinuationEventArgs {
     pub fn File(&self) -> ::windows::runtime::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8294,8 +8294,8 @@ impl WebUIFileSavePickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8303,8 +8303,8 @@ impl WebUIFileSavePickerContinuationEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8312,8 +8312,8 @@ impl WebUIFileSavePickerContinuationEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -8321,16 +8321,16 @@ impl WebUIFileSavePickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -8338,8 +8338,8 @@ impl WebUIFileSavePickerContinuationEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -8357,13 +8357,13 @@ impl ::windows::runtime::RuntimeName for WebUIFileSavePickerContinuationEventArg
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIFileSavePickerContinuationEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIFileSavePickerContinuationEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -8381,13 +8381,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIFileSavePickerContinuationEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIFileSavePickerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIFileSavePickerContinuationEventArgs) -> Self {
         value.0.clone()
     }
@@ -8405,38 +8405,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs {
+impl ::core::convert::From<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs {
     fn from(value: WebUIFileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs {
+impl ::core::convert::From<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs {
     fn from(value: &WebUIFileSavePickerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> for WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> for &WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8451,18 +8451,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8477,18 +8477,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for &WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8503,18 +8503,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIFileSavePickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFileSavePickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8529,13 +8529,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIFolderPickerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFolderPickerContinuationEventArgs {
@@ -8545,8 +8545,8 @@ impl WebUIFolderPickerContinuationEventArgs {
     pub fn Folder(&self) -> ::windows::runtime::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8554,8 +8554,8 @@ impl WebUIFolderPickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8563,8 +8563,8 @@ impl WebUIFolderPickerContinuationEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8572,8 +8572,8 @@ impl WebUIFolderPickerContinuationEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -8581,16 +8581,16 @@ impl WebUIFolderPickerContinuationEventArgs {
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -8598,8 +8598,8 @@ impl WebUIFolderPickerContinuationEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -8617,13 +8617,13 @@ impl ::windows::runtime::RuntimeName for WebUIFolderPickerContinuationEventArgs 
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIFolderPickerContinuationEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIFolderPickerContinuationEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -8641,13 +8641,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIFolderPickerContinuationEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIFolderPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIFolderPickerContinuationEventArgs) -> Self {
         value.0.clone()
     }
@@ -8665,38 +8665,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs {
+impl ::core::convert::From<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs {
     fn from(value: WebUIFolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs {
+impl ::core::convert::From<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs {
     fn from(value: &WebUIFolderPickerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> for WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> for &WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8711,18 +8711,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8737,18 +8737,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for &WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8763,18 +8763,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIFolderPickerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIFolderPickerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8789,13 +8789,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUILaunchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILaunchActivatedEventArgs {
@@ -8804,8 +8804,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn Arguments(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8813,8 +8813,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn TileId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8822,8 +8822,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8831,8 +8831,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8840,8 +8840,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8849,8 +8849,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8858,16 +8858,16 @@ impl WebUILaunchActivatedEventArgs {
     pub fn PrelaunchActivated(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -8875,8 +8875,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -8884,8 +8884,8 @@ impl WebUILaunchActivatedEventArgs {
     pub fn TileActivatedInfo(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::TileActivatedInfo> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::TileActivatedInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::TileActivatedInfo>(result__)
         }
     }
 }
@@ -8903,13 +8903,13 @@ impl ::windows::runtime::RuntimeName for WebUILaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILaunchActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUILaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUILaunchActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUILaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUILaunchActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -8927,13 +8927,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUILaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUILaunchActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUILaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUILaunchActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -8951,38 +8951,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
+impl ::core::convert::From<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
     fn from(value: WebUILaunchActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
+impl ::core::convert::From<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
     fn from(value: &WebUILaunchActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8997,18 +8997,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9023,18 +9023,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9049,18 +9049,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9075,18 +9075,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9101,18 +9101,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2 {
+impl ::core::convert::TryFrom<WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2 {
+impl ::core::convert::TryFrom<&WebUILaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9127,13 +9127,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUILockScreenActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenActivatedEventArgs {
@@ -9142,8 +9142,8 @@ impl WebUILockScreenActivatedEventArgs {
     pub fn Info(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9151,8 +9151,8 @@ impl WebUILockScreenActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9160,8 +9160,8 @@ impl WebUILockScreenActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9169,8 +9169,8 @@ impl WebUILockScreenActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9178,16 +9178,16 @@ impl WebUILockScreenActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -9195,8 +9195,8 @@ impl WebUILockScreenActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -9214,13 +9214,13 @@ impl ::windows::runtime::RuntimeName for WebUILockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUILockScreenActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUILockScreenActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUILockScreenActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUILockScreenActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -9238,13 +9238,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUILockScreenActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUILockScreenActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUILockScreenActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUILockScreenActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -9262,38 +9262,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs {
+impl ::core::convert::From<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs {
     fn from(value: WebUILockScreenActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs {
+impl ::core::convert::From<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs {
     fn from(value: &WebUILockScreenActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> for WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> for &WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9308,18 +9308,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9334,18 +9334,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUILockScreenActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9360,18 +9360,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUILockScreenActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9386,13 +9386,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUILockScreenCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenCallActivatedEventArgs {
@@ -9401,8 +9401,8 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn CallUI(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Calls::LockScreenCallUI> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Calls::LockScreenCallUI>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Calls::LockScreenCallUI>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9410,8 +9410,8 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9419,8 +9419,8 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9428,8 +9428,8 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9437,8 +9437,8 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9446,8 +9446,8 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn Arguments(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9455,16 +9455,16 @@ impl WebUILockScreenCallActivatedEventArgs {
     pub fn TileId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -9482,13 +9482,13 @@ impl ::windows::runtime::RuntimeName for WebUILockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUILockScreenCallActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUILockScreenCallActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -9506,13 +9506,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUILockScreenCallActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUILockScreenCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUILockScreenCallActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -9530,38 +9530,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs {
+impl ::core::convert::From<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs {
     fn from(value: WebUILockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs {
+impl ::core::convert::From<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs {
     fn from(value: &WebUILockScreenCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> for WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> for &WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9576,18 +9576,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9602,18 +9602,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9628,18 +9628,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for &WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUILockScreenCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUILockScreenCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9654,13 +9654,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUILockScreenComponentActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenComponentActivatedEventArgs {
@@ -9669,8 +9669,8 @@ impl WebUILockScreenComponentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = self;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9678,8 +9678,8 @@ impl WebUILockScreenComponentActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = self;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -9687,16 +9687,16 @@ impl WebUILockScreenComponentActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -9714,13 +9714,13 @@ impl ::windows::runtime::RuntimeName for WebUILockScreenComponentActivatedEventA
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUILockScreenComponentActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUILockScreenComponentActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -9738,13 +9738,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUILockScreenComponentActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUILockScreenComponentActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUILockScreenComponentActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -9762,38 +9762,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUILockScreenComponentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::From<WebUILockScreenComponentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     fn from(value: WebUILockScreenComponentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUILockScreenComponentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::From<&WebUILockScreenComponentActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     fn from(value: &WebUILockScreenComponentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUILockScreenComponentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUILockScreenComponentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUILockScreenComponentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUILockScreenComponentActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUILockScreenComponentActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9808,18 +9808,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUINavigatedDeferral(pub ::windows::runtime::IInspectable);
 impl WebUINavigatedDeferral {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for WebUINavigatedDeferral {
@@ -9832,12 +9832,12 @@ unsafe impl ::windows::runtime::Interface for WebUINavigatedDeferral {
 impl ::windows::runtime::RuntimeName for WebUINavigatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedDeferral";
 }
-impl ::std::convert::From<WebUINavigatedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUINavigatedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: WebUINavigatedDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebUINavigatedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUINavigatedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &WebUINavigatedDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -9852,12 +9852,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebUINavigatedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUINavigatedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: WebUINavigatedDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebUINavigatedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUINavigatedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &WebUINavigatedDeferral) -> Self {
         value.0.clone()
     }
@@ -9874,15 +9874,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUINavigatedEventArgs(pub ::windows::runtime::IInspectable);
 impl WebUINavigatedEventArgs {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn NavigatedOperation(&self) -> ::windows::runtime::Result<WebUINavigatedOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedOperation>(result__)
         }
     }
 }
@@ -9896,12 +9896,12 @@ unsafe impl ::windows::runtime::Interface for WebUINavigatedEventArgs {
 impl ::windows::runtime::RuntimeName for WebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedEventArgs";
 }
-impl ::std::convert::From<WebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUINavigatedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUINavigatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -9916,12 +9916,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUINavigatedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUINavigatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -9936,37 +9936,37 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<WebUINavigatedEventArgs> for IWebUINavigatedEventArgs {
+impl ::core::convert::From<WebUINavigatedEventArgs> for IWebUINavigatedEventArgs {
     fn from(value: WebUINavigatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&WebUINavigatedEventArgs> for IWebUINavigatedEventArgs {
+impl ::core::convert::From<&WebUINavigatedEventArgs> for IWebUINavigatedEventArgs {
     fn from(value: &WebUINavigatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs> for WebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUINavigatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs> for &WebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUINavigatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUINavigatedOperation(pub ::windows::runtime::IInspectable);
 impl WebUINavigatedOperation {
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<WebUINavigatedDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebUINavigatedDeferral>(result__)
         }
     }
 }
@@ -9980,12 +9980,12 @@ unsafe impl ::windows::runtime::Interface for WebUINavigatedOperation {
 impl ::windows::runtime::RuntimeName for WebUINavigatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedOperation";
 }
-impl ::std::convert::From<WebUINavigatedOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUINavigatedOperation> for ::windows::runtime::IUnknown {
     fn from(value: WebUINavigatedOperation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebUINavigatedOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUINavigatedOperation> for ::windows::runtime::IUnknown {
     fn from(value: &WebUINavigatedOperation) -> Self {
         value.0 .0.clone()
     }
@@ -10000,12 +10000,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebUINavigatedOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUINavigatedOperation> for ::windows::runtime::IInspectable {
     fn from(value: WebUINavigatedOperation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebUINavigatedOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUINavigatedOperation> for ::windows::runtime::IInspectable {
     fn from(value: &WebUINavigatedOperation) -> Self {
         value.0.clone()
     }
@@ -10023,7 +10023,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIPhoneCallActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPhoneCallActivatedEventArgs {
@@ -10032,8 +10032,8 @@ impl WebUIPhoneCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10041,8 +10041,8 @@ impl WebUIPhoneCallActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10050,16 +10050,16 @@ impl WebUIPhoneCallActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -10067,8 +10067,8 @@ impl WebUIPhoneCallActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10076,8 +10076,8 @@ impl WebUIPhoneCallActivatedEventArgs {
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
 }
@@ -10095,13 +10095,13 @@ impl ::windows::runtime::RuntimeName for WebUIPhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIPhoneCallActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIPhoneCallActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -10119,13 +10119,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIPhoneCallActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIPhoneCallActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIPhoneCallActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -10143,14 +10143,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPhoneCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10165,18 +10165,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPhoneCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10191,18 +10191,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPhoneCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPhoneCallActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10217,41 +10217,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs {
+impl ::core::convert::From<WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs {
     fn from(value: WebUIPhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs {
+impl ::core::convert::From<&WebUIPhoneCallActivatedEventArgs> for super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs {
     fn from(value: &WebUIPhoneCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> for WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> for &WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Send for WebUIPhoneCallActivatedEventArgs {}
+unsafe impl ::core::marker::Send for WebUIPhoneCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Sync for WebUIPhoneCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUIPhoneCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrint3DWorkflowActivatedEventArgs {
@@ -10260,8 +10260,8 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
     pub fn Workflow(&self) -> ::windows::runtime::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10269,8 +10269,8 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10278,8 +10278,8 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10287,16 +10287,16 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -10314,13 +10314,13 @@ impl ::windows::runtime::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs 
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIPrint3DWorkflowActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -10338,13 +10338,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIPrint3DWorkflowActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -10362,38 +10362,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs {
+impl ::core::convert::From<WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs {
     fn from(value: WebUIPrint3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs {
+impl ::core::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs {
     fn from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> for WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> for &WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10408,18 +10408,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPrint3DWorkflowActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10434,13 +10434,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintTaskSettingsActivatedEventArgs {
@@ -10449,8 +10449,8 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
     pub fn Configuration(&self) -> ::windows::runtime::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10458,8 +10458,8 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10467,8 +10467,8 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10476,16 +10476,16 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -10503,13 +10503,13 @@ impl ::windows::runtime::RuntimeName for WebUIPrintTaskSettingsActivatedEventArg
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIPrintTaskSettingsActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -10527,13 +10527,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIPrintTaskSettingsActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -10551,38 +10551,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs {
+impl ::core::convert::From<WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs {
     fn from(value: WebUIPrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs {
+impl ::core::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs {
     fn from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> for WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> for &WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10597,18 +10597,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPrintTaskSettingsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10623,13 +10623,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
@@ -10638,8 +10638,8 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = self;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10647,8 +10647,8 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = self;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10656,16 +10656,16 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -10683,13 +10683,13 @@ impl ::windows::runtime::RuntimeName for WebUIPrintWorkflowForegroundTaskActivat
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -10707,13 +10707,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -10731,38 +10731,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::From<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     fn from(value: WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     fn from(value: &WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIPrintWorkflowForegroundTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10777,13 +10777,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIProtocolActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolActivatedEventArgs {
@@ -10792,8 +10792,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10801,8 +10801,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10810,8 +10810,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10819,8 +10819,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10828,8 +10828,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -10837,8 +10837,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn CallerPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -10846,16 +10846,16 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -10863,8 +10863,8 @@ impl WebUIProtocolActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -10882,13 +10882,13 @@ impl ::windows::runtime::RuntimeName for WebUIProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIProtocolActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIProtocolActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIProtocolActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIProtocolActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIProtocolActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIProtocolActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIProtocolActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -10906,13 +10906,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIProtocolActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIProtocolActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIProtocolActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIProtocolActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIProtocolActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIProtocolActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -10930,38 +10930,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
+impl ::core::convert::From<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
     fn from(value: WebUIProtocolActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
+impl ::core::convert::From<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
     fn from(value: &WebUIProtocolActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> for WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10976,18 +10976,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11002,18 +11002,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+impl ::core::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11028,18 +11028,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIProtocolActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11054,18 +11054,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIProtocolActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11080,13 +11080,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolForResultsActivatedEventArgs {
@@ -11095,8 +11095,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn ProtocolForResultsOperation(&self) -> ::windows::runtime::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11104,8 +11104,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11113,8 +11113,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11122,8 +11122,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11131,8 +11131,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
@@ -11140,8 +11140,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11149,8 +11149,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn CallerPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -11158,16 +11158,16 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -11175,8 +11175,8 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -11194,13 +11194,13 @@ impl ::windows::runtime::RuntimeName for WebUIProtocolForResultsActivatedEventAr
     const NAME: &'static str = "Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIProtocolForResultsActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIProtocolForResultsActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -11218,13 +11218,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIProtocolForResultsActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIProtocolForResultsActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -11242,38 +11242,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs {
+impl ::core::convert::From<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs {
     fn from(value: WebUIProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs {
+impl ::core::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs {
     fn from(value: &WebUIProtocolForResultsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> for WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11288,18 +11288,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11314,18 +11314,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11340,18 +11340,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11366,18 +11366,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11392,18 +11392,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIProtocolForResultsActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIProtocolForResultsActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11418,13 +11418,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIRestrictedLaunchActivatedEventArgs {
@@ -11433,8 +11433,8 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
     pub fn SharedContext(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11442,8 +11442,8 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11451,8 +11451,8 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11460,16 +11460,16 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -11477,8 +11477,8 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -11496,13 +11496,13 @@ impl ::windows::runtime::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs
     const NAME: &'static str = "Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIRestrictedLaunchActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -11520,13 +11520,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIRestrictedLaunchActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -11544,38 +11544,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs {
+impl ::core::convert::From<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs {
     fn from(value: WebUIRestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs {
+impl ::core::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs {
     fn from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> for WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> for &WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11590,18 +11590,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11616,18 +11616,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIRestrictedLaunchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIRestrictedLaunchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11642,13 +11642,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUISearchActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUISearchActivatedEventArgs {
@@ -11657,8 +11657,8 @@ impl WebUISearchActivatedEventArgs {
     pub fn QueryText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11666,8 +11666,8 @@ impl WebUISearchActivatedEventArgs {
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11675,8 +11675,8 @@ impl WebUISearchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11684,8 +11684,8 @@ impl WebUISearchActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11693,8 +11693,8 @@ impl WebUISearchActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11702,8 +11702,8 @@ impl WebUISearchActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Search"))]
@@ -11711,16 +11711,16 @@ impl WebUISearchActivatedEventArgs {
     pub fn LinguisticDetails(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -11738,13 +11738,13 @@ impl ::windows::runtime::RuntimeName for WebUISearchActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUISearchActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUISearchActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUISearchActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUISearchActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUISearchActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUISearchActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUISearchActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -11762,13 +11762,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUISearchActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUISearchActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUISearchActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUISearchActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUISearchActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUISearchActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -11786,38 +11786,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgs {
+impl ::core::convert::From<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgs {
     fn from(value: WebUISearchActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgs {
+impl ::core::convert::From<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgs {
     fn from(value: &WebUISearchActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> for WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> for &WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11832,18 +11832,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11858,18 +11858,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for &WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails {
+impl ::core::convert::TryFrom<WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11884,18 +11884,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails> for &WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUISearchActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUISearchActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUISearchActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUISearchActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUISearchActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -11910,13 +11910,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIShareTargetActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIShareTargetActivatedEventArgs {
@@ -11925,8 +11925,8 @@ impl WebUIShareTargetActivatedEventArgs {
     pub fn ShareOperation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11934,8 +11934,8 @@ impl WebUIShareTargetActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11943,8 +11943,8 @@ impl WebUIShareTargetActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11952,16 +11952,16 @@ impl WebUIShareTargetActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -11969,8 +11969,8 @@ impl WebUIShareTargetActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -11988,13 +11988,13 @@ impl ::windows::runtime::RuntimeName for WebUIShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIShareTargetActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIShareTargetActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -12012,13 +12012,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIShareTargetActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIShareTargetActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIShareTargetActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -12036,38 +12036,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs {
+impl ::core::convert::From<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs {
     fn from(value: WebUIShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs {
+impl ::core::convert::From<&WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs {
     fn from(value: &WebUIShareTargetActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> for WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> for &WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIShareTargetActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12082,18 +12082,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIShareTargetActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12108,18 +12108,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIShareTargetActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIShareTargetActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIShareTargetActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12134,13 +12134,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIStartupTaskActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIStartupTaskActivatedEventArgs {
@@ -12149,8 +12149,8 @@ impl WebUIStartupTaskActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12158,8 +12158,8 @@ impl WebUIStartupTaskActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12167,16 +12167,16 @@ impl WebUIStartupTaskActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -12184,8 +12184,8 @@ impl WebUIStartupTaskActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12193,8 +12193,8 @@ impl WebUIStartupTaskActivatedEventArgs {
     pub fn TaskId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -12212,13 +12212,13 @@ impl ::windows::runtime::RuntimeName for WebUIStartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIStartupTaskActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIStartupTaskActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -12236,13 +12236,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIStartupTaskActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIStartupTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIStartupTaskActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -12260,14 +12260,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIStartupTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12282,18 +12282,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIStartupTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12308,18 +12308,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIStartupTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIStartupTaskActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12334,41 +12334,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs {
+impl ::core::convert::From<WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs {
     fn from(value: WebUIStartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs {
+impl ::core::convert::From<&WebUIStartupTaskActivatedEventArgs> for super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs {
     fn from(value: &WebUIStartupTaskActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> for WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> for &WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Send for WebUIStartupTaskActivatedEventArgs {}
+unsafe impl ::core::marker::Send for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl ::std::marker::Sync for WebUIStartupTaskActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIToastNotificationActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIToastNotificationActivatedEventArgs {
@@ -12377,8 +12377,8 @@ impl WebUIToastNotificationActivatedEventArgs {
     pub fn Argument(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -12386,8 +12386,8 @@ impl WebUIToastNotificationActivatedEventArgs {
     pub fn UserInput(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12395,8 +12395,8 @@ impl WebUIToastNotificationActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12404,8 +12404,8 @@ impl WebUIToastNotificationActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12413,16 +12413,16 @@ impl WebUIToastNotificationActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -12430,8 +12430,8 @@ impl WebUIToastNotificationActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -12449,13 +12449,13 @@ impl ::windows::runtime::RuntimeName for WebUIToastNotificationActivatedEventArg
     const NAME: &'static str = "Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIToastNotificationActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIToastNotificationActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -12473,13 +12473,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIToastNotificationActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIToastNotificationActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIToastNotificationActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -12497,38 +12497,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs {
+impl ::core::convert::From<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs {
     fn from(value: WebUIToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs {
+impl ::core::convert::From<&WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs {
     fn from(value: &WebUIToastNotificationActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> for WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> for &WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIToastNotificationActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12543,18 +12543,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIToastNotificationActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12569,18 +12569,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIToastNotificationActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIToastNotificationActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIToastNotificationActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12595,13 +12595,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIUserDataAccountProviderActivatedEventArgs {
@@ -12610,8 +12610,8 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12619,8 +12619,8 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -12628,16 +12628,16 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_UserDataAccounts_Provider"))]
@@ -12645,8 +12645,8 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
     pub fn Operation(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
         }
     }
 }
@@ -12664,13 +12664,13 @@ impl ::windows::runtime::RuntimeName for WebUIUserDataAccountProviderActivatedEv
     const NAME: &'static str = "Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIUserDataAccountProviderActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -12688,13 +12688,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIUserDataAccountProviderActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -12712,14 +12712,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12734,18 +12734,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12760,36 +12760,36 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs {
+impl ::core::convert::From<WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs {
     fn from(value: WebUIUserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs {
+impl ::core::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs {
     fn from(value: &WebUIUserDataAccountProviderActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> for WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> for &WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIView(pub ::windows::runtime::IInspectable);
 impl WebUIView {
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -12797,23 +12797,23 @@ impl WebUIView {
     pub fn Source(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn DocumentTitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
@@ -12821,8 +12821,8 @@ impl WebUIView {
     pub fn CanGoBack(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
@@ -12830,23 +12830,23 @@ impl WebUIView {
     pub fn CanGoForward(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn SetDefaultBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn DefaultBackgroundColor(&self) -> ::windows::runtime::Result<super::Color> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
+            let mut result__: super::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
@@ -12854,8 +12854,8 @@ impl WebUIView {
     pub fn ContainsFullScreenElement(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
@@ -12863,8 +12863,8 @@ impl WebUIView {
     pub fn Settings(&self) -> ::windows::runtime::Result<super::super::Web::UI::WebViewControlSettings> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Web::UI::WebViewControlSettings>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Web::UI::WebViewControlSettings>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
@@ -12872,65 +12872,65 @@ impl WebUIView {
     pub fn DeferredPermissionRequests(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn GoForward(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn GoBack(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn Refresh(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn Navigate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn NavigateToString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), text.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), text.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web`, `Web_UI`*"]
     pub fn NavigateToLocalStreamUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Web::IUriToStreamResolver>>(&self, source: Param0, streamresolver: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), source.into_param().abi(), streamresolver.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), source.into_param().abi(), streamresolver.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Web_Http", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Web_Http`, `Web_UI`*"]
     pub fn NavigateWithHttpRequestMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Web::Http::HttpRequestMessage>>(&self, requestmessage: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), requestmessage.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), requestmessage.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Foundation_Collections`, `Web_UI`*"]
     pub fn InvokeScriptAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, scriptname: Param0, arguments: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), scriptname.into_param().abi(), arguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), scriptname.into_param().abi(), arguments.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_UI"))]
@@ -12938,8 +12938,8 @@ impl WebUIView {
     pub fn CapturePreviewToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, stream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Web_UI"))]
@@ -12947,8 +12947,8 @@ impl WebUIView {
     pub fn CaptureSelectedContentToDataPackageAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
@@ -12956,277 +12956,277 @@ impl WebUIView {
     pub fn BuildLocalStreamUri<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contentidentifier: Param0, relativepath: Param1) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), contentidentifier.into_param().abi(), relativepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), contentidentifier.into_param().abi(), relativepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
-    pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut ::std::option::Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> ::windows::runtime::Result<()> {
+    pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut ::core::option::Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), id, result as *mut _ as _).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), id, result as *mut _ as _).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn NavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveNavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn ContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn DOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveDOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn NavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn FrameNavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveFrameNavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn FrameContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveFrameContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn FrameDOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveFrameDOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn FrameNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveFrameNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn ScriptNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlScriptNotifyEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).45)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveScriptNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).46)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn LongRunningScriptDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).47)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveLongRunningScriptDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).48)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn UnsafeContentWarningDisplaying<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).49)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveUnsafeContentWarningDisplaying<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).50)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn UnviewableContentIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).51)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveUnviewableContentIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).52)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn PermissionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlPermissionRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).53)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemovePermissionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).54)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn UnsupportedUriSchemeIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).55)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveUnsupportedUriSchemeIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).56)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn NewWindowRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNewWindowRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).57)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).57)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveNewWindowRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).58)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).58)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn ContainsFullScreenElementChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).59)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).59)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveContainsFullScreenElementChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).60)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).60)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn WebResourceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlWebResourceRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).61)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).61)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`, `Web_UI`*"]
     pub fn RemoveWebResourceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).62)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).62)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ApplicationViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -13234,64 +13234,64 @@ impl WebUIView {
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<WebUIView, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Activated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn RemoveActivated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn IgnoreApplicationContentUriRulesNavigationRestrictions(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Web_UI")]
     #[doc = "*Required features: `UI_WebUI`, `Web_UI`*"]
     pub fn AddInitializeScript<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, script: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Web::UI::IWebViewControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), script.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), script.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn CreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<WebUIView>> {
         Self::IWebUIViewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WebUI`, `Foundation`*"]
     pub fn CreateWithUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<WebUIView>> {
         Self::IWebUIViewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
         })
     }
     pub fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -13309,12 +13309,12 @@ unsafe impl ::windows::runtime::Interface for WebUIView {
 impl ::windows::runtime::RuntimeName for WebUIView {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIView";
 }
-impl ::std::convert::From<WebUIView> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIView> for ::windows::runtime::IUnknown {
     fn from(value: WebUIView) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebUIView> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIView> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIView) -> Self {
         value.0 .0.clone()
     }
@@ -13329,12 +13329,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebUIView> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIView> for ::windows::runtime::IInspectable {
     fn from(value: WebUIView) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebUIView> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIView> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIView) -> Self {
         value.0.clone()
     }
@@ -13350,14 +13350,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Web_UI")]
-impl ::std::convert::TryFrom<WebUIView> for super::super::Web::UI::IWebViewControl {
+impl ::core::convert::TryFrom<WebUIView> for super::super::Web::UI::IWebViewControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIView) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Web_UI")]
-impl ::std::convert::TryFrom<&WebUIView> for super::super::Web::UI::IWebViewControl {
+impl ::core::convert::TryFrom<&WebUIView> for super::super::Web::UI::IWebViewControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIView) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13372,18 +13372,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Web::UI::IWebViewContro
 #[cfg(feature = "Web_UI")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Web::UI::IWebViewControl> for &WebUIView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Web::UI::IWebViewControl> {
-        ::std::convert::TryInto::<super::super::Web::UI::IWebViewControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Web::UI::IWebViewControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Web_UI")]
-impl ::std::convert::TryFrom<WebUIView> for super::super::Web::UI::IWebViewControl2 {
+impl ::core::convert::TryFrom<WebUIView> for super::super::Web::UI::IWebViewControl2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIView) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Web_UI")]
-impl ::std::convert::TryFrom<&WebUIView> for super::super::Web::UI::IWebViewControl2 {
+impl ::core::convert::TryFrom<&WebUIView> for super::super::Web::UI::IWebViewControl2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIView) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13398,13 +13398,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Web::UI::IWebViewContro
 #[cfg(feature = "Web_UI")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Web::UI::IWebViewControl2> for &WebUIView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Web::UI::IWebViewControl2> {
-        ::std::convert::TryInto::<super::super::Web::UI::IWebViewControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Web::UI::IWebViewControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIVoiceCommandActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIVoiceCommandActivatedEventArgs {
@@ -13413,8 +13413,8 @@ impl WebUIVoiceCommandActivatedEventArgs {
     pub fn Result(&self) -> ::windows::runtime::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13422,8 +13422,8 @@ impl WebUIVoiceCommandActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13431,8 +13431,8 @@ impl WebUIVoiceCommandActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13440,16 +13440,16 @@ impl WebUIVoiceCommandActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -13457,8 +13457,8 @@ impl WebUIVoiceCommandActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -13476,13 +13476,13 @@ impl ::windows::runtime::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIVoiceCommandActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIVoiceCommandActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -13500,13 +13500,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIVoiceCommandActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIVoiceCommandActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIVoiceCommandActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -13524,38 +13524,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs {
+impl ::core::convert::From<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs {
     fn from(value: WebUIVoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs {
+impl ::core::convert::From<&WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs {
     fn from(value: &WebUIVoiceCommandActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> for WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> for &WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIVoiceCommandActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13570,18 +13570,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIVoiceCommandActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13596,18 +13596,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIVoiceCommandActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIVoiceCommandActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13622,13 +13622,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIWalletActionActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWalletActionActivatedEventArgs {
@@ -13637,8 +13637,8 @@ impl WebUIWalletActionActivatedEventArgs {
     pub fn ItemId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Wallet"))]
@@ -13646,8 +13646,8 @@ impl WebUIWalletActionActivatedEventArgs {
     pub fn ActionKind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Wallet::WalletActionKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Wallet::WalletActionKind>(result__)
+            let mut result__: super::super::ApplicationModel::Wallet::WalletActionKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Wallet::WalletActionKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13655,8 +13655,8 @@ impl WebUIWalletActionActivatedEventArgs {
     pub fn ActionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13664,8 +13664,8 @@ impl WebUIWalletActionActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13673,8 +13673,8 @@ impl WebUIWalletActionActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13682,16 +13682,16 @@ impl WebUIWalletActionActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -13709,13 +13709,13 @@ impl ::windows::runtime::RuntimeName for WebUIWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIWalletActionActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIWalletActionActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -13733,13 +13733,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIWalletActionActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIWalletActionActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIWalletActionActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -13757,38 +13757,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs {
+impl ::core::convert::From<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs {
     fn from(value: WebUIWalletActionActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs {
+impl ::core::convert::From<&WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs {
     fn from(value: &WebUIWalletActionActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> for WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> for &WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWalletActionActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13803,18 +13803,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWalletActionActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -13829,13 +13829,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAccountProviderActivatedEventArgs {
@@ -13844,8 +13844,8 @@ impl WebUIWebAccountProviderActivatedEventArgs {
     pub fn Operation(&self) -> ::windows::runtime::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13853,8 +13853,8 @@ impl WebUIWebAccountProviderActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13862,8 +13862,8 @@ impl WebUIWebAccountProviderActivatedEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -13871,16 +13871,16 @@ impl WebUIWebAccountProviderActivatedEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
@@ -13888,8 +13888,8 @@ impl WebUIWebAccountProviderActivatedEventArgs {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
 }
@@ -13907,13 +13907,13 @@ impl ::windows::runtime::RuntimeName for WebUIWebAccountProviderActivatedEventAr
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIWebAccountProviderActivatedEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIWebAccountProviderActivatedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -13931,13 +13931,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIWebAccountProviderActivatedEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIWebAccountProviderActivatedEventArgs) -> Self {
         value.0.clone()
     }
@@ -13955,38 +13955,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs {
+impl ::core::convert::From<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs {
     fn from(value: WebUIWebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs {
+impl ::core::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs {
     fn from(value: &WebUIWebAccountProviderActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> for WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> for &WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWebAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -14001,18 +14001,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWebAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -14027,18 +14027,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWebAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
+impl ::core::convert::TryFrom<&WebUIWebAccountProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWebAccountProviderActivatedEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -14053,13 +14053,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAuthenticationBrokerContinuationEventArgs {
@@ -14068,8 +14068,8 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     pub fn WebAuthenticationResult(&self) -> ::windows::runtime::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -14077,8 +14077,8 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ActivationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -14086,8 +14086,8 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     pub fn PreviousExecutionState(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
+            let mut result__: super::super::ApplicationModel::Activation::ApplicationExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -14095,8 +14095,8 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     pub fn SplashScreen(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
@@ -14104,16 +14104,16 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn ActivatedOperation(&self) -> ::windows::runtime::Result<ActivatedOperation> {
         let this = &::windows::runtime::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivatedOperation>(result__)
         }
     }
 }
@@ -14131,13 +14131,13 @@ impl ::windows::runtime::RuntimeName for WebUIWebAuthenticationBrokerContinuatio
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebUIWebAuthenticationBrokerContinuationEventArgs) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -14155,13 +14155,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebUIWebAuthenticationBrokerContinuationEventArgs) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> Self {
         value.0.clone()
     }
@@ -14179,38 +14179,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs {
+impl ::core::convert::From<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs {
     fn from(value: WebUIWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs {
+impl ::core::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs {
     fn from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> for WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -14225,18 +14225,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -14251,18 +14251,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activ
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> {
-        ::std::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<WebUIWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::std::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgsDeferral {
+impl ::core::convert::TryFrom<&WebUIWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WebUIWebAuthenticationBrokerContinuationEventArgs) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -14277,6 +14277,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for WebU
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgsDeferral> {
-        ::std::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }

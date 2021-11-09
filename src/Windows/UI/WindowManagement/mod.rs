@@ -3,15 +3,15 @@
 pub mod Preview;
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindow(pub ::windows::runtime::IInspectable);
 impl AppWindow {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::UIContentRoot> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UIContentRoot>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIContentRoot>(result__)
         }
     }
     #[cfg(feature = "System")]
@@ -19,82 +19,82 @@ impl AppWindow {
     pub fn DispatcherQueue(&self) -> ::windows::runtime::Result<super::super::System::DispatcherQueue> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Frame(&self) -> ::windows::runtime::Result<AppWindowFrame> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowFrame>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowFrame>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn IsVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn PersistedStateId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetPersistedStateId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Presenter(&self) -> ::windows::runtime::Result<AppWindowPresenter> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresenter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresenter>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn TitleBar(&self) -> ::windows::runtime::Result<AppWindowTitleBar> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowTitleBar>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowTitleBar>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn UIContext(&self) -> ::windows::runtime::Result<super::UIContext> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UIContext>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIContext>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn WindowingEnvironment(&self) -> ::windows::runtime::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -102,16 +102,16 @@ impl AppWindow {
     pub fn CloseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn GetPlacement(&self) -> ::windows::runtime::Result<AppWindowPlacement> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPlacement>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPlacement>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -119,56 +119,56 @@ impl AppWindow {
     pub fn GetDisplayRegions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn RequestMoveToDisplayRegion<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayRegion>>(&self, displayregion: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), displayregion.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), displayregion.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn RequestMoveAdjacentToCurrentView(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn RequestMoveAdjacentToWindow<'a, Param0: ::windows::runtime::IntoParam<'a, AppWindow>>(&self, anchorwindow: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), anchorwindow.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), anchorwindow.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RequestMoveRelativeToWindowContent<'a, Param0: ::windows::runtime::IntoParam<'a, AppWindow>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, anchorwindow: Param0, contentoffset: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), anchorwindow.into_param().abi(), contentoffset.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), anchorwindow.into_param().abi(), contentoffset.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RequestMoveRelativeToCurrentViewContent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, contentoffset: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), contentoffset.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), contentoffset.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RequestMoveRelativeToDisplayRegion<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayRegion>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, displayregion: Param0, displayregionoffset: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), displayregion.into_param().abi(), displayregionoffset.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), displayregion.into_param().abi(), displayregionoffset.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RequestSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Size>>(&self, framesize: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), framesize.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), framesize.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn TryShowAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -176,61 +176,61 @@ impl AppWindow {
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn CloseRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RemoveCloseRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn TryCreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AppWindow>> {
         Self::IAppWindowStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AppWindow>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AppWindow>>(result__)
         })
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn ClearAllPersistedState() -> ::windows::runtime::Result<()> {
-        Self::IAppWindowStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() })
+        Self::IAppWindowStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn ClearPersistedState<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(key: Param0) -> ::windows::runtime::Result<()> {
-        Self::IAppWindowStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() })
+        Self::IAppWindowStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi()).ok() })
     }
     pub fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<AppWindow, IAppWindowStatics> = ::windows::runtime::FactoryCache::new();
@@ -247,12 +247,12 @@ unsafe impl ::windows::runtime::Interface for AppWindow {
 impl ::windows::runtime::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
 }
-impl ::std::convert::From<AppWindow> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindow> for ::windows::runtime::IUnknown {
     fn from(value: AppWindow) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindow> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindow> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindow) -> Self {
         value.0 .0.clone()
     }
@@ -267,12 +267,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindow> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindow> for ::windows::runtime::IInspectable {
     fn from(value: AppWindow) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindow> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindow> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindow) -> Self {
         value.0.clone()
     }
@@ -287,75 +287,75 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindow {}
-unsafe impl ::std::marker::Sync for AppWindow {}
+unsafe impl ::core::marker::Send for AppWindow {}
+unsafe impl ::core::marker::Sync for AppWindow {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppWindowChangedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidAvailableWindowPresentationsChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidDisplayRegionsChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidFrameChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidSizeChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidTitleBarChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidVisibilityChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidWindowingEnvironmentChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DidWindowPresentationChange(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -369,12 +369,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowChangedEventArgs {
 impl ::windows::runtime::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
 }
-impl ::std::convert::From<AppWindowChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -389,12 +389,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -409,33 +409,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowChangedEventArgs {}
-unsafe impl ::std::marker::Sync for AppWindowChangedEventArgs {}
+unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowCloseRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppWindowCloseRequestedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -449,12 +449,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowCloseRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
 }
-impl ::std::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowCloseRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -469,12 +469,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowCloseRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -489,19 +489,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowCloseRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for AppWindowCloseRequestedEventArgs {}
+unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppWindowClosedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<AppWindowClosedReason> {
         let this = self;
         unsafe {
-            let mut result__: AppWindowClosedReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowClosedReason>(result__)
+            let mut result__: AppWindowClosedReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowClosedReason>(result__)
         }
     }
 }
@@ -515,12 +515,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowClosedEventArgs {
 impl ::windows::runtime::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
 }
-impl ::std::convert::From<AppWindowClosedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowClosedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowClosedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowClosedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -535,12 +535,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowClosedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowClosedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowClosedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowClosedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowClosedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowClosedEventArgs) -> Self {
         value.0.clone()
     }
@@ -555,10 +555,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowClosedEventArgs {}
-unsafe impl ::std::marker::Sync for AppWindowClosedEventArgs {}
+unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
+unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
@@ -566,7 +566,7 @@ impl AppWindowClosedReason {
     pub const AppInitiated: AppWindowClosedReason = AppWindowClosedReason(1i32);
     pub const UserInitiated: AppWindowClosedReason = AppWindowClosedReason(2i32);
 }
-impl ::std::convert::From<i32> for AppWindowClosedReason {
+impl ::core::convert::From<i32> for AppWindowClosedReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -582,7 +582,7 @@ impl ::windows::runtime::DefaultType for AppWindowClosedReason {
 }
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowFrame(pub ::windows::runtime::IInspectable);
 impl AppWindowFrame {
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
@@ -590,22 +590,22 @@ impl AppWindowFrame {
     pub fn DragRegionVisuals(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn GetFrameStyle(&self) -> ::windows::runtime::Result<AppWindowFrameStyle> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
-            let mut result__: AppWindowFrameStyle = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowFrameStyle>(result__)
+            let mut result__: AppWindowFrameStyle = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowFrameStyle>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowFrameStyle>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), framestyle).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), framestyle).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for AppWindowFrame {
@@ -618,12 +618,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowFrame {
 impl ::windows::runtime::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
 }
-impl ::std::convert::From<AppWindowFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowFrame> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowFrame) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowFrame> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowFrame) -> Self {
         value.0 .0.clone()
     }
@@ -638,12 +638,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowFrame> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowFrame) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowFrame> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowFrame) -> Self {
         value.0.clone()
     }
@@ -658,17 +658,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowFrame {}
-unsafe impl ::std::marker::Sync for AppWindowFrame {}
+unsafe impl ::core::marker::Send for AppWindowFrame {}
+unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
     pub const Default: AppWindowFrameStyle = AppWindowFrameStyle(0i32);
     pub const NoFrame: AppWindowFrameStyle = AppWindowFrameStyle(1i32);
 }
-impl ::std::convert::From<i32> for AppWindowFrameStyle {
+impl ::core::convert::From<i32> for AppWindowFrameStyle {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -684,15 +684,15 @@ impl ::windows::runtime::DefaultType for AppWindowFrameStyle {
 }
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowPlacement(pub ::windows::runtime::IInspectable);
 impl AppWindowPlacement {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DisplayRegion(&self) -> ::windows::runtime::Result<DisplayRegion> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayRegion>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayRegion>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -700,8 +700,8 @@ impl AppWindowPlacement {
     pub fn Offset(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -709,8 +709,8 @@ impl AppWindowPlacement {
     pub fn Size(&self) -> ::windows::runtime::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
+            let mut result__: super::super::Foundation::Size = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
 }
@@ -724,12 +724,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowPlacement {
 impl ::windows::runtime::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
 }
-impl ::std::convert::From<AppWindowPlacement> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowPlacement> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowPlacement) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowPlacement> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowPlacement> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowPlacement) -> Self {
         value.0 .0.clone()
     }
@@ -744,12 +744,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowPlacement> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowPlacement> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowPlacement) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowPlacement> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowPlacement> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowPlacement) -> Self {
         value.0.clone()
     }
@@ -764,19 +764,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowPlacement {}
-unsafe impl ::std::marker::Sync for AppWindowPlacement {}
+unsafe impl ::core::marker::Send for AppWindowPlacement {}
+unsafe impl ::core::marker::Sync for AppWindowPlacement {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl AppWindowPresentationConfiguration {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AppWindowPresentationKind> {
         let this = self;
         unsafe {
-            let mut result__: AppWindowPresentationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
+            let mut result__: AppWindowPresentationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
         }
     }
 }
@@ -790,12 +790,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowPresentationConfiguration
 impl ::windows::runtime::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
 }
-impl ::std::convert::From<AppWindowPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowPresentationConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowPresentationConfiguration) -> Self {
         value.0 .0.clone()
     }
@@ -810,12 +810,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowPresentationConfiguration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowPresentationConfiguration) -> Self {
         value.0.clone()
     }
@@ -830,10 +830,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowPresentationConfiguration {}
-unsafe impl ::std::marker::Sync for AppWindowPresentationConfiguration {}
+unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
@@ -841,7 +841,7 @@ impl AppWindowPresentationKind {
     pub const CompactOverlay: AppWindowPresentationKind = AppWindowPresentationKind(1i32);
     pub const FullScreen: AppWindowPresentationKind = AppWindowPresentationKind(2i32);
 }
-impl ::std::convert::From<i32> for AppWindowPresentationKind {
+impl ::core::convert::From<i32> for AppWindowPresentationKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -857,39 +857,39 @@ impl ::windows::runtime::DefaultType for AppWindowPresentationKind {
 }
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowPresenter(pub ::windows::runtime::IInspectable);
 impl AppWindowPresenter {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn GetConfiguration(&self) -> ::windows::runtime::Result<AppWindowPresentationConfiguration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationConfiguration>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), presentationkind, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), presentationkind, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn RequestPresentation<'a, Param0: ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration>>(&self, configuration: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), configuration.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), configuration.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), presentationkind, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), presentationkind, &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -903,12 +903,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowPresenter {
 impl ::windows::runtime::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
 }
-impl ::std::convert::From<AppWindowPresenter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowPresenter> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowPresenter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowPresenter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowPresenter> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowPresenter) -> Self {
         value.0 .0.clone()
     }
@@ -923,12 +923,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowPresenter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowPresenter> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowPresenter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowPresenter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowPresenter> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowPresenter) -> Self {
         value.0.clone()
     }
@@ -943,11 +943,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowPresenter {}
-unsafe impl ::std::marker::Sync for AppWindowPresenter {}
+unsafe impl ::core::marker::Send for AppWindowPresenter {}
+unsafe impl ::core::marker::Sync for AppWindowPresenter {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowTitleBar(pub ::windows::runtime::IInspectable);
 impl AppWindowTitleBar {
     #[cfg(feature = "Foundation")]
@@ -955,200 +955,200 @@ impl AppWindowTitleBar {
     pub fn BackgroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonBackgroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonForegroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonHoverBackgroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonHoverBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonHoverForegroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonHoverForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonInactiveBackgroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonInactiveBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonInactiveForegroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonInactiveForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonPressedBackgroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonPressedBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ButtonPressedForegroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetButtonPressedForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn ExtendsContentIntoTitleBar(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetExtendsContentIntoTitleBar(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn ForegroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn InactiveBackgroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetInactiveBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn InactiveForegroundColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn SetInactiveForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn IsVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1156,22 +1156,22 @@ impl AppWindowTitleBar {
     pub fn GetTitleBarOcclusions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn GetPreferredVisibility(&self) -> ::windows::runtime::Result<AppWindowTitleBarVisibility> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe {
-            let mut result__: AppWindowTitleBarVisibility = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowTitleBarVisibility>(result__)
+            let mut result__: AppWindowTitleBarVisibility = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowTitleBarVisibility>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), visibilitymode).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), visibilitymode).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for AppWindowTitleBar {
@@ -1184,12 +1184,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowTitleBar {
 impl ::windows::runtime::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
 }
-impl ::std::convert::From<AppWindowTitleBar> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowTitleBar> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowTitleBar) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowTitleBar> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowTitleBar> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowTitleBar) -> Self {
         value.0 .0.clone()
     }
@@ -1204,12 +1204,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowTitleBar> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowTitleBar> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowTitleBar) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowTitleBar> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowTitleBar> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowTitleBar) -> Self {
         value.0.clone()
     }
@@ -1224,11 +1224,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowTitleBar {}
-unsafe impl ::std::marker::Sync for AppWindowTitleBar {}
+unsafe impl ::core::marker::Send for AppWindowTitleBar {}
+unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppWindowTitleBarOcclusion(pub ::windows::runtime::IInspectable);
 impl AppWindowTitleBarOcclusion {
     #[cfg(feature = "Foundation")]
@@ -1236,8 +1236,8 @@ impl AppWindowTitleBarOcclusion {
     pub fn OccludingRect(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
 }
@@ -1251,12 +1251,12 @@ unsafe impl ::windows::runtime::Interface for AppWindowTitleBarOcclusion {
 impl ::windows::runtime::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
 }
-impl ::std::convert::From<AppWindowTitleBarOcclusion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppWindowTitleBarOcclusion> for ::windows::runtime::IUnknown {
     fn from(value: AppWindowTitleBarOcclusion) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppWindowTitleBarOcclusion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppWindowTitleBarOcclusion> for ::windows::runtime::IUnknown {
     fn from(value: &AppWindowTitleBarOcclusion) -> Self {
         value.0 .0.clone()
     }
@@ -1271,12 +1271,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppWindowTitleBarOcclusion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppWindowTitleBarOcclusion> for ::windows::runtime::IInspectable {
     fn from(value: AppWindowTitleBarOcclusion) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppWindowTitleBarOcclusion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppWindowTitleBarOcclusion> for ::windows::runtime::IInspectable {
     fn from(value: &AppWindowTitleBarOcclusion) -> Self {
         value.0.clone()
     }
@@ -1291,17 +1291,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppWindowTitleBarOcclusion {}
-unsafe impl ::std::marker::Sync for AppWindowTitleBarOcclusion {}
+unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
+unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
     pub const Default: AppWindowTitleBarVisibility = AppWindowTitleBarVisibility(0i32);
     pub const AlwaysHidden: AppWindowTitleBarVisibility = AppWindowTitleBarVisibility(1i32);
 }
-impl ::std::convert::From<i32> for AppWindowTitleBarVisibility {
+impl ::core::convert::From<i32> for AppWindowTitleBarVisibility {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1317,7 +1317,7 @@ impl ::windows::runtime::DefaultType for AppWindowTitleBarVisibility {
 }
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CompactOverlayPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl CompactOverlayPresentationConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1331,8 +1331,8 @@ impl CompactOverlayPresentationConfiguration {
     pub fn Kind(&self) -> ::windows::runtime::Result<AppWindowPresentationKind> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
-            let mut result__: AppWindowPresentationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
+            let mut result__: AppWindowPresentationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
         }
     }
 }
@@ -1346,12 +1346,12 @@ unsafe impl ::windows::runtime::Interface for CompactOverlayPresentationConfigur
 impl ::windows::runtime::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
 }
-impl ::std::convert::From<CompactOverlayPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CompactOverlayPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: CompactOverlayPresentationConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
         value.0 .0.clone()
     }
@@ -1366,12 +1366,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CompactOverlayPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CompactOverlayPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: CompactOverlayPresentationConfiguration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
         value.0.clone()
     }
@@ -1386,31 +1386,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
+impl ::core::convert::From<CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: CompactOverlayPresentationConfiguration) -> Self {
-        ::std::convert::Into::<AppWindowPresentationConfiguration>::into(&value)
+        ::core::convert::Into::<AppWindowPresentationConfiguration>::into(&value)
     }
 }
-impl ::std::convert::From<&CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
+impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> for CompactOverlayPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+        ::windows::runtime::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> for &CompactOverlayPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AppWindowPresentationConfiguration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(::core::clone::Clone::clone(self)))
     }
 }
-unsafe impl ::std::marker::Send for CompactOverlayPresentationConfiguration {}
-unsafe impl ::std::marker::Sync for CompactOverlayPresentationConfiguration {}
+unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DefaultPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl DefaultPresentationConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1424,8 +1424,8 @@ impl DefaultPresentationConfiguration {
     pub fn Kind(&self) -> ::windows::runtime::Result<AppWindowPresentationKind> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
-            let mut result__: AppWindowPresentationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
+            let mut result__: AppWindowPresentationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
         }
     }
 }
@@ -1439,12 +1439,12 @@ unsafe impl ::windows::runtime::Interface for DefaultPresentationConfiguration {
 impl ::windows::runtime::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
 }
-impl ::std::convert::From<DefaultPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DefaultPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: DefaultPresentationConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DefaultPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &DefaultPresentationConfiguration) -> Self {
         value.0 .0.clone()
     }
@@ -1459,12 +1459,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DefaultPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DefaultPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: DefaultPresentationConfiguration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DefaultPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: &DefaultPresentationConfiguration) -> Self {
         value.0.clone()
     }
@@ -1479,47 +1479,47 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
+impl ::core::convert::From<DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: DefaultPresentationConfiguration) -> Self {
-        ::std::convert::Into::<AppWindowPresentationConfiguration>::into(&value)
+        ::core::convert::Into::<AppWindowPresentationConfiguration>::into(&value)
     }
 }
-impl ::std::convert::From<&DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
+impl ::core::convert::From<&DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: &DefaultPresentationConfiguration) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> for DefaultPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+        ::windows::runtime::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> for &DefaultPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AppWindowPresentationConfiguration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(::core::clone::Clone::clone(self)))
     }
 }
-unsafe impl ::std::marker::Send for DefaultPresentationConfiguration {}
-unsafe impl ::std::marker::Sync for DefaultPresentationConfiguration {}
+unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for DefaultPresentationConfiguration {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DisplayRegion(pub ::windows::runtime::IInspectable);
 impl DisplayRegion {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn DisplayMonitorDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn IsVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1527,8 +1527,8 @@ impl DisplayRegion {
     pub fn WorkAreaOffset(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
+            let mut result__: super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1536,16 +1536,16 @@ impl DisplayRegion {
     pub fn WorkAreaSize(&self) -> ::windows::runtime::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
+            let mut result__: super::super::Foundation::Size = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn WindowingEnvironment(&self) -> ::windows::runtime::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1553,15 +1553,15 @@ impl DisplayRegion {
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayRegion {
@@ -1574,12 +1574,12 @@ unsafe impl ::windows::runtime::Interface for DisplayRegion {
 impl ::windows::runtime::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
 }
-impl ::std::convert::From<DisplayRegion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DisplayRegion> for ::windows::runtime::IUnknown {
     fn from(value: DisplayRegion) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DisplayRegion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DisplayRegion> for ::windows::runtime::IUnknown {
     fn from(value: &DisplayRegion) -> Self {
         value.0 .0.clone()
     }
@@ -1594,12 +1594,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DisplayRegion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DisplayRegion> for ::windows::runtime::IInspectable {
     fn from(value: DisplayRegion) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DisplayRegion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DisplayRegion> for ::windows::runtime::IInspectable {
     fn from(value: &DisplayRegion) -> Self {
         value.0.clone()
     }
@@ -1614,11 +1614,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DisplayRegion {}
-unsafe impl ::std::marker::Sync for DisplayRegion {}
+unsafe impl ::core::marker::Send for DisplayRegion {}
+unsafe impl ::core::marker::Sync for DisplayRegion {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FullScreenPresentationConfiguration(pub ::windows::runtime::IInspectable);
 impl FullScreenPresentationConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1632,21 +1632,21 @@ impl FullScreenPresentationConfiguration {
     pub fn IsExclusive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn SetIsExclusive(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AppWindowPresentationKind> {
         let this = &::windows::runtime::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
-            let mut result__: AppWindowPresentationKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
+            let mut result__: AppWindowPresentationKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
         }
     }
 }
@@ -1660,12 +1660,12 @@ unsafe impl ::windows::runtime::Interface for FullScreenPresentationConfiguratio
 impl ::windows::runtime::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
 }
-impl ::std::convert::From<FullScreenPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FullScreenPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: FullScreenPresentationConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FullScreenPresentationConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &FullScreenPresentationConfiguration) -> Self {
         value.0 .0.clone()
     }
@@ -1680,12 +1680,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FullScreenPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FullScreenPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: FullScreenPresentationConfiguration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FullScreenPresentationConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: &FullScreenPresentationConfiguration) -> Self {
         value.0.clone()
     }
@@ -1700,28 +1700,28 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
+impl ::core::convert::From<FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: FullScreenPresentationConfiguration) -> Self {
-        ::std::convert::Into::<AppWindowPresentationConfiguration>::into(&value)
+        ::core::convert::Into::<AppWindowPresentationConfiguration>::into(&value)
     }
 }
-impl ::std::convert::From<&FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
+impl ::core::convert::From<&FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: &FullScreenPresentationConfiguration) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> for FullScreenPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+        ::windows::runtime::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> for &FullScreenPresentationConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AppWindowPresentationConfiguration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(::core::clone::Clone::clone(self)))
     }
 }
-unsafe impl ::std::marker::Send for FullScreenPresentationConfiguration {}
-unsafe impl ::std::marker::Sync for FullScreenPresentationConfiguration {}
+unsafe impl ::core::marker::Send for FullScreenPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for FullScreenPresentationConfiguration {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IAppWindow(pub ::windows::runtime::IInspectable);
@@ -1743,11 +1743,11 @@ pub struct IAppWindow_abi(
     #[cfg(not(feature = "System"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1981,7 +1981,7 @@ pub struct IAppWindowStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2141,7 +2141,7 @@ pub struct IDisplayRegion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -2297,8 +2297,8 @@ impl WindowServices {
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation_Collections`*"]
     pub fn FindAllTopLevelWindowIds() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
         Self::IWindowServicesStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::WindowId>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::WindowId>>(result__)
         })
     }
     pub fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -2311,23 +2311,23 @@ impl ::windows::runtime::RuntimeName for WindowServices {
 }
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WindowingEnvironment(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironment {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<WindowingEnvironmentKind> {
         let this = self;
         unsafe {
-            let mut result__: WindowingEnvironmentKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironmentKind>(result__)
+            let mut result__: WindowingEnvironmentKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironmentKind>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2335,8 +2335,8 @@ impl WindowingEnvironment {
     pub fn GetDisplayRegions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2344,30 +2344,30 @@ impl WindowingEnvironment {
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation_Collections`*"]
     pub fn FindAll() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_WindowManagement`, `Foundation_Collections`*"]
     pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
         })
     }
     pub fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -2385,12 +2385,12 @@ unsafe impl ::windows::runtime::Interface for WindowingEnvironment {
 impl ::windows::runtime::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
 }
-impl ::std::convert::From<WindowingEnvironment> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WindowingEnvironment> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironment) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WindowingEnvironment> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WindowingEnvironment> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironment) -> Self {
         value.0 .0.clone()
     }
@@ -2405,12 +2405,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WindowingEnvironment> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WindowingEnvironment> for ::windows::runtime::IInspectable {
     fn from(value: WindowingEnvironment) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WindowingEnvironment> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WindowingEnvironment> for ::windows::runtime::IInspectable {
     fn from(value: &WindowingEnvironment) -> Self {
         value.0.clone()
     }
@@ -2425,19 +2425,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WindowingEnvironment {}
-unsafe impl ::std::marker::Sync for WindowingEnvironment {}
+unsafe impl ::core::marker::Send for WindowingEnvironment {}
+unsafe impl ::core::marker::Sync for WindowingEnvironment {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WindowingEnvironmentAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironmentAddedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn WindowingEnvironment(&self) -> ::windows::runtime::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
         }
     }
 }
@@ -2451,12 +2451,12 @@ unsafe impl ::windows::runtime::Interface for WindowingEnvironmentAddedEventArgs
 impl ::windows::runtime::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
 }
-impl ::std::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironmentAddedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2471,12 +2471,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WindowingEnvironmentAddedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2491,11 +2491,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WindowingEnvironmentAddedEventArgs {}
-unsafe impl ::std::marker::Sync for WindowingEnvironmentAddedEventArgs {}
+unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WindowingEnvironmentChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for WindowingEnvironmentChangedEventArgs {
@@ -2508,12 +2508,12 @@ unsafe impl ::windows::runtime::Interface for WindowingEnvironmentChangedEventAr
 impl ::windows::runtime::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
 }
-impl ::std::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironmentChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2528,12 +2528,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WindowingEnvironmentChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2548,10 +2548,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WindowingEnvironmentChangedEventArgs {}
-unsafe impl ::std::marker::Sync for WindowingEnvironmentChangedEventArgs {}
+unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[doc = "*Required features: `UI_WindowManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
@@ -2559,7 +2559,7 @@ impl WindowingEnvironmentKind {
     pub const Overlapped: WindowingEnvironmentKind = WindowingEnvironmentKind(1i32);
     pub const Tiled: WindowingEnvironmentKind = WindowingEnvironmentKind(2i32);
 }
-impl ::std::convert::From<i32> for WindowingEnvironmentKind {
+impl ::core::convert::From<i32> for WindowingEnvironmentKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2575,15 +2575,15 @@ impl ::windows::runtime::DefaultType for WindowingEnvironmentKind {
 }
 #[doc = "*Required features: `UI_WindowManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WindowingEnvironmentRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl WindowingEnvironmentRemovedEventArgs {
     #[doc = "*Required features: `UI_WindowManagement`*"]
     pub fn WindowingEnvironment(&self) -> ::windows::runtime::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
         }
     }
 }
@@ -2597,12 +2597,12 @@ unsafe impl ::windows::runtime::Interface for WindowingEnvironmentRemovedEventAr
 impl ::windows::runtime::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
 }
-impl ::std::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WindowingEnvironmentRemovedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2617,12 +2617,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WindowingEnvironmentRemovedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2637,5 +2637,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WindowingEnvironmentRemovedEventArgs {}
-unsafe impl ::std::marker::Sync for WindowingEnvironmentRemovedEventArgs {}
+unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}

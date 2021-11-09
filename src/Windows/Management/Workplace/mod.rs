@@ -62,36 +62,36 @@ impl MdmPolicy {
     #[doc = "*Required features: `Management_Workplace`*"]
     pub fn IsBrowserAllowed() -> ::windows::runtime::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Management_Workplace`*"]
     pub fn IsCameraAllowed() -> ::windows::runtime::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Management_Workplace`*"]
     pub fn IsMicrosoftAccountAllowed() -> ::windows::runtime::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Management_Workplace`*"]
     pub fn IsStoreAllowed() -> ::windows::runtime::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Management_Workplace`*"]
     pub fn GetMessagingSyncPolicy() -> ::windows::runtime::Result<MessagingSyncPolicy> {
         Self::IMdmPolicyStatics2(|this| unsafe {
-            let mut result__: MessagingSyncPolicy = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MessagingSyncPolicy>(result__)
+            let mut result__: MessagingSyncPolicy = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessagingSyncPolicy>(result__)
         })
     }
     pub fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -107,7 +107,7 @@ impl ::windows::runtime::RuntimeName for MdmPolicy {
     const NAME: &'static str = "Windows.Management.Workplace.MdmPolicy";
 }
 #[doc = "*Required features: `Management_Workplace`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
@@ -115,7 +115,7 @@ impl MessagingSyncPolicy {
     pub const Allowed: MessagingSyncPolicy = MessagingSyncPolicy(1i32);
     pub const Required: MessagingSyncPolicy = MessagingSyncPolicy(2i32);
 }
-impl ::std::convert::From<i32> for MessagingSyncPolicy {
+impl ::core::convert::From<i32> for MessagingSyncPolicy {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -135,8 +135,8 @@ impl WorkplaceSettings {
     #[doc = "*Required features: `Management_Workplace`*"]
     pub fn IsMicrosoftAccountOptional() -> ::windows::runtime::Result<bool> {
         Self::IWorkplaceSettingsStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -148,5 +148,5 @@ impl ::windows::runtime::RuntimeName for WorkplaceSettings {
     const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WorkplaceSettingsContract(pub u8);

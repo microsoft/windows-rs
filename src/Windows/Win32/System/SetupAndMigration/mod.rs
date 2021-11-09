@@ -9,24 +9,24 @@ pub unsafe fn OOBEComplete(isoobecomplete: *mut super::super::Foundation::BOOL) 
         extern "system" {
             fn OOBEComplete(isoobecomplete: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OOBEComplete(::std::mem::transmute(isoobecomplete)))
+        ::core::mem::transmute(OOBEComplete(::core::mem::transmute(isoobecomplete)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SetupAndMigration`*"]
-pub type OOBE_COMPLETED_CALLBACK = unsafe extern "system" fn(callbackcontext: *const ::std::ffi::c_void);
+pub type OOBE_COMPLETED_CALLBACK = unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SetupAndMigration`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::std::option::Option<OOBE_COMPLETED_CALLBACK>, callbackcontext: *const ::std::ffi::c_void, waithandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::core::option::Option<OOBE_COMPLETED_CALLBACK>, callbackcontext: *const ::core::ffi::c_void, waithandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::windows::runtime::RawPtr, callbackcontext: *const ::std::ffi::c_void, waithandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::windows::runtime::RawPtr, callbackcontext: *const ::core::ffi::c_void, waithandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterWaitUntilOOBECompleted(::std::mem::transmute(oobecompletedcallback), ::std::mem::transmute(callbackcontext), ::std::mem::transmute(waithandle)))
+        ::core::mem::transmute(RegisterWaitUntilOOBECompleted(::core::mem::transmute(oobecompletedcallback), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(waithandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -34,14 +34,14 @@ pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: ::std::optio
 #[doc = "*Required features: `Win32_System_SetupAndMigration`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnregisterWaitUntilOOBECompleted(::std::mem::transmute(waithandle)))
+        ::core::mem::transmute(UnregisterWaitUntilOOBECompleted(::core::mem::transmute(waithandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

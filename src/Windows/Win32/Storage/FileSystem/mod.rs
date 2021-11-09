@@ -2,14 +2,14 @@
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pcbcontainer: *const u64, pwszcontainerpath: Param2, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AddLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pcbcontainer: *const u64, pwszcontainerpath: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddLogContainer(hlog: super::super::Foundation::HANDLE, pcbcontainer: *const u64, pwszcontainerpath: super::super::Foundation::PWSTR, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn AddLogContainer(hlog: super::super::Foundation::HANDLE, pcbcontainer: *const u64, pwszcontainerpath: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddLogContainer(hlog.into_param().abi(), ::std::mem::transmute(pcbcontainer), pwszcontainerpath.into_param().abi(), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(AddLogContainer(hlog.into_param().abi(), ::core::mem::transmute(pcbcontainer), pwszcontainerpath.into_param().abi(), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17,14 +17,14 @@ pub unsafe fn AddLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddLogContainerSet(hlog: super::super::Foundation::HANDLE, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn AddLogContainerSet(hlog: super::super::Foundation::HANDLE, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddLogContainerSet(hlog.into_param().abi(), ::std::mem::transmute(ccontainer), ::std::mem::transmute(pcbcontainer), ::std::mem::transmute(rgwszcontainerpath), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(AddLogContainerSet(hlog.into_param().abi(), ::core::mem::transmute(ccontainer), ::core::mem::transmute(pcbcontainer), ::core::mem::transmute(rgwszcontainerpath), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -39,7 +39,7 @@ pub unsafe fn AddUsersToEncryptedFile<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn AddUsersToEncryptedFile(lpfilename: super::super::Foundation::PWSTR, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32;
         }
-        ::std::mem::transmute(AddUsersToEncryptedFile(lpfilename.into_param().abi(), ::std::mem::transmute(pencryptioncertificates)))
+        ::core::mem::transmute(AddUsersToEncryptedFile(lpfilename.into_param().abi(), ::core::mem::transmute(pencryptioncertificates)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -47,14 +47,14 @@ pub unsafe fn AddUsersToEncryptedFile<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::std::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AdvanceLogBase(pvmarshal: *mut ::std::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AdvanceLogBase(::std::mem::transmute(pvmarshal), ::std::mem::transmute(plsnbase), ::std::mem::transmute(fflags), ::std::mem::transmute(poverlapped)))
+        ::core::mem::transmute(AdvanceLogBase(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnbase), ::core::mem::transmute(fflags), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -62,14 +62,14 @@ pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::std::ffi::c_void, plsnbase: *mut 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AlignReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AlignReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL;
+            fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AlignReservedLog(::std::mem::transmute(pvmarshal), ::std::mem::transmute(creservedrecords), ::std::mem::transmute(rgcbreservation), ::std::mem::transmute(pcbalignreservation)))
+        ::core::mem::transmute(AlignReservedLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(creservedrecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(pcbalignreservation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -77,14 +77,14 @@ pub unsafe fn AlignReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedreco
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllocReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AllocReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
+            fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AllocReservedLog(::std::mem::transmute(pvmarshal), ::std::mem::transmute(creservedrecords), ::std::mem::transmute(pcbadjustment)))
+        ::core::mem::transmute(AllocReservedLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(creservedrecords), ::core::mem::transmute(pcbadjustment)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -99,7 +99,7 @@ pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
         extern "system" {
             fn AreFileApisANSI() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AreFileApisANSI())
+        ::core::mem::transmute(AreFileApisANSI())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -114,12 +114,12 @@ pub unsafe fn AreShortNamesEnabled<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn AreShortNamesEnabled(handle: super::super::Foundation::HANDLE, enabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AreShortNamesEnabled(handle.into_param().abi(), ::std::mem::transmute(enabled)))
+        ::core::mem::transmute(AreShortNamesEnabled(handle.into_param().abi(), ::core::mem::transmute(enabled)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -138,14 +138,14 @@ pub struct BY_HANDLE_FILE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl BY_HANDLE_FILE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for BY_HANDLE_FILE_INFORMATION {
+impl ::core::default::Default for BY_HANDLE_FILE_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for BY_HANDLE_FILE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BY_HANDLE_FILE_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BY_HANDLE_FILE_INFORMATION")
             .field("dwFileAttributes", &self.dwFileAttributes)
             .field("ftCreationTime", &self.ftCreationTime)
@@ -161,13 +161,13 @@ impl ::std::fmt::Debug for BY_HANDLE_FILE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for BY_HANDLE_FILE_INFORMATION {
+impl ::core::cmp::PartialEq for BY_HANDLE_FILE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.dwVolumeSerialNumber == other.dwVolumeSerialNumber && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow && self.nNumberOfLinks == other.nNumberOfLinks && self.nFileIndexHigh == other.nFileIndexHigh && self.nFileIndexLow == other.nFileIndexLow
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for BY_HANDLE_FILE_INFORMATION {}
+impl ::core::cmp::Eq for BY_HANDLE_FILE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BY_HANDLE_FILE_INFORMATION {
     type Abi = Self;
@@ -175,14 +175,14 @@ unsafe impl ::windows::runtime::Abi for BY_HANDLE_FILE_INFORMATION {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BackupRead(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn BackupRead(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BackupRead(hfile.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nnumberofbytestoread), ::std::mem::transmute(lpnumberofbytesread), babort.into_param().abi(), bprocesssecurity.into_param().abi(), ::std::mem::transmute(lpcontext)))
+        ::core::mem::transmute(BackupRead(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpnumberofbytesread), babort.into_param().abi(), bprocesssecurity.into_param().abi(), ::core::mem::transmute(lpcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -190,14 +190,14 @@ pub unsafe fn BackupRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BackupSeek(hfile: super::super::Foundation::HANDLE, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn BackupSeek(hfile: super::super::Foundation::HANDLE, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BackupSeek(hfile.into_param().abi(), ::std::mem::transmute(dwlowbytestoseek), ::std::mem::transmute(dwhighbytestoseek), ::std::mem::transmute(lpdwlowbyteseeked), ::std::mem::transmute(lpdwhighbyteseeked), ::std::mem::transmute(lpcontext)))
+        ::core::mem::transmute(BackupSeek(hfile.into_param().abi(), ::core::mem::transmute(dwlowbytestoseek), ::core::mem::transmute(dwhighbytestoseek), ::core::mem::transmute(lpdwlowbyteseeked), ::core::mem::transmute(lpdwhighbyteseeked), ::core::mem::transmute(lpcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -205,14 +205,14 @@ pub unsafe fn BackupSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BackupWrite(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn BackupWrite(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BackupWrite(hfile.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nnumberofbytestowrite), ::std::mem::transmute(lpnumberofbyteswritten), babort.into_param().abi(), bprocesssecurity.into_param().abi(), ::std::mem::transmute(lpcontext)))
+        ::core::mem::transmute(BackupWrite(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpnumberofbyteswritten), babort.into_param().abi(), bprocesssecurity.into_param().abi(), ::core::mem::transmute(lpcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -227,7 +227,7 @@ pub unsafe fn BuildIoRingCancelRequest<'a, Param1: ::windows::runtime::IntoParam
         extern "system" {
             fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows::runtime::HRESULT;
         }
-        BuildIoRingCancelRequest(::std::mem::transmute(ioring), file.into_param().abi(), ::std::mem::transmute(optocancel), ::std::mem::transmute(userdata)).ok()
+        BuildIoRingCancelRequest(::core::mem::transmute(ioring), file.into_param().abi(), ::core::mem::transmute(optocancel), ::core::mem::transmute(userdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -242,7 +242,7 @@ pub unsafe fn BuildIoRingReadFile<'a, Param1: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::runtime::HRESULT;
         }
-        BuildIoRingReadFile(::std::mem::transmute(ioring), fileref.into_param().abi(), dataref.into_param().abi(), ::std::mem::transmute(numberofbytestoread), ::std::mem::transmute(fileoffset), ::std::mem::transmute(userdata), ::std::mem::transmute(flags)).ok()
+        BuildIoRingReadFile(::core::mem::transmute(ioring), fileref.into_param().abi(), dataref.into_param().abi(), ::core::mem::transmute(numberofbytestoread), ::core::mem::transmute(fileoffset), ::core::mem::transmute(userdata), ::core::mem::transmute(flags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -256,7 +256,7 @@ pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, b
         extern "system" {
             fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::runtime::HRESULT;
         }
-        BuildIoRingRegisterBuffers(::std::mem::transmute(ioring), ::std::mem::transmute(count), ::std::mem::transmute(buffers), ::std::mem::transmute(userdata)).ok()
+        BuildIoRingRegisterBuffers(::core::mem::transmute(ioring), ::core::mem::transmute(count), ::core::mem::transmute(buffers), ::core::mem::transmute(userdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -271,7 +271,7 @@ pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u3
         extern "system" {
             fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::runtime::HRESULT;
         }
-        BuildIoRingRegisterFileHandles(::std::mem::transmute(ioring), ::std::mem::transmute(count), ::std::mem::transmute(handles), ::std::mem::transmute(userdata)).ok()
+        BuildIoRingRegisterFileHandles(::core::mem::transmute(ioring), ::core::mem::transmute(count), ::core::mem::transmute(handles), ::core::mem::transmute(userdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -287,24 +287,24 @@ pub type CACHE_KEY_COMPARE = unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mu
 pub type CACHE_KEY_HASH = unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type CACHE_READ_CALLBACK = unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type CACHE_READ_CALLBACK = unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub type CLAIMMEDIALABEL = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub type CLAIMMEDIALABELEX = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::runtime::GUID) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub type CLFS_BLOCK_ALLOCATION = unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
+pub type CLFS_BLOCK_ALLOCATION = unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub type CLFS_BLOCK_DEALLOCATION = unsafe extern "system" fn(pvbuffer: *mut ::std::ffi::c_void, pvusercontext: *mut ::std::ffi::c_void);
+pub type CLFS_BLOCK_DEALLOCATION = unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLFS_CONTEXT_MODE(pub i32);
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
 pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
 pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
 pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
-impl ::std::convert::From<i32> for CLFS_CONTEXT_MODE {
+impl ::core::convert::From<i32> for CLFS_CONTEXT_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -313,14 +313,14 @@ unsafe impl ::windows::runtime::Abi for CLFS_CONTEXT_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLFS_FLAG(pub u32);
 pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
 pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
 pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
 pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
-impl ::std::convert::From<u32> for CLFS_FLAG {
+impl ::core::convert::From<u32> for CLFS_FLAG {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -328,29 +328,29 @@ impl ::std::convert::From<u32> for CLFS_FLAG {
 unsafe impl ::windows::runtime::Abi for CLFS_FLAG {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CLFS_FLAG {
+impl ::core::ops::BitOr for CLFS_FLAG {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CLFS_FLAG {
+impl ::core::ops::BitAnd for CLFS_FLAG {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CLFS_FLAG {
+impl ::core::ops::BitOrAssign for CLFS_FLAG {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CLFS_FLAG {
+impl ::core::ops::BitAndAssign for CLFS_FLAG {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CLFS_FLAG {
+impl ::core::ops::Not for CLFS_FLAG {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -375,12 +375,12 @@ pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLFS_IOSTATS_CLASS(pub i32);
 pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
 pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
-impl ::std::convert::From<i32> for CLFS_IOSTATS_CLASS {
+impl ::core::convert::From<i32> for CLFS_IOSTATS_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -389,12 +389,12 @@ unsafe impl ::windows::runtime::Abi for CLFS_IOSTATS_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
 pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
 pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
-impl ::std::convert::From<i32> for CLFS_LOG_ARCHIVE_MODE {
+impl ::core::convert::From<i32> for CLFS_LOG_ARCHIVE_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -402,7 +402,7 @@ impl ::std::convert::From<i32> for CLFS_LOG_ARCHIVE_MODE {
 unsafe impl ::windows::runtime::Abi for CLFS_LOG_ARCHIVE_MODE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_LOG_NAME_INFORMATION {
@@ -410,22 +410,22 @@ pub struct CLFS_LOG_NAME_INFORMATION {
     pub Name: [u16; 1],
 }
 impl CLFS_LOG_NAME_INFORMATION {}
-impl ::std::default::Default for CLFS_LOG_NAME_INFORMATION {
+impl ::core::default::Default for CLFS_LOG_NAME_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_LOG_NAME_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_LOG_NAME_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLFS_LOG_NAME_INFORMATION").field("NameLengthInBytes", &self.NameLengthInBytes).field("Name", &self.Name).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_LOG_NAME_INFORMATION {
+impl ::core::cmp::PartialEq for CLFS_LOG_NAME_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.NameLengthInBytes == other.NameLengthInBytes && self.Name == other.Name
     }
 }
-impl ::std::cmp::Eq for CLFS_LOG_NAME_INFORMATION {}
+impl ::core::cmp::Eq for CLFS_LOG_NAME_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for CLFS_LOG_NAME_INFORMATION {
     type Abi = Self;
 }
@@ -437,7 +437,7 @@ pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_NOTIFICATION {
@@ -446,34 +446,34 @@ pub struct CLFS_MGMT_NOTIFICATION {
     pub LogIsPinned: u16,
 }
 impl CLFS_MGMT_NOTIFICATION {}
-impl ::std::default::Default for CLFS_MGMT_NOTIFICATION {
+impl ::core::default::Default for CLFS_MGMT_NOTIFICATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_NOTIFICATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_NOTIFICATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLFS_MGMT_NOTIFICATION").field("Notification", &self.Notification).field("Lsn", &self.Lsn).field("LogIsPinned", &self.LogIsPinned).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_NOTIFICATION {
+impl ::core::cmp::PartialEq for CLFS_MGMT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.Notification == other.Notification && self.Lsn == other.Lsn && self.LogIsPinned == other.LogIsPinned
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_NOTIFICATION {}
+impl ::core::cmp::Eq for CLFS_MGMT_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_NOTIFICATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
 pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
 pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
 pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
 pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
-impl ::std::convert::From<i32> for CLFS_MGMT_NOTIFICATION_TYPE {
+impl ::core::convert::From<i32> for CLFS_MGMT_NOTIFICATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -481,7 +481,7 @@ impl ::std::convert::From<i32> for CLFS_MGMT_NOTIFICATION_TYPE {
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_NOTIFICATION_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY {
@@ -492,21 +492,21 @@ pub struct CLFS_MGMT_POLICY {
     pub PolicyParameters: CLFS_MGMT_POLICY_0,
 }
 impl CLFS_MGMT_POLICY {}
-impl ::std::default::Default for CLFS_MGMT_POLICY {
+impl ::core::default::Default for CLFS_MGMT_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub union CLFS_MGMT_POLICY_0 {
@@ -522,73 +522,73 @@ pub union CLFS_MGMT_POLICY_0 {
     pub NewContainerExtension: CLFS_MGMT_POLICY_0_6,
 }
 impl CLFS_MGMT_POLICY_0 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Enabled: u32,
 }
 impl CLFS_MGMT_POLICY_0_0 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_0 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_AutoGrow_e__Struct").field("Enabled", &self.Enabled).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_0 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Enabled == other.Enabled
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_0 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_0 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Percentage: u32,
 }
 impl CLFS_MGMT_POLICY_0_1 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_1 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_AutoShrink_e__Struct").field("Percentage", &self.Percentage).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_1 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Percentage == other.Percentage
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_1 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_1 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_2 {
@@ -596,26 +596,26 @@ pub struct CLFS_MGMT_POLICY_0_2 {
     pub RelativeGrowthPercentage: u32,
 }
 impl CLFS_MGMT_POLICY_0_2 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_2 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_GrowthRate_e__Struct").field("AbsoluteGrowthInContainers", &self.AbsoluteGrowthInContainers).field("RelativeGrowthPercentage", &self.RelativeGrowthPercentage).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_2 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.AbsoluteGrowthInContainers == other.AbsoluteGrowthInContainers && self.RelativeGrowthPercentage == other.RelativeGrowthPercentage
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_2 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_2 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_3 {
@@ -623,78 +623,78 @@ pub struct CLFS_MGMT_POLICY_0_3 {
     pub MinimumAvailableContainers: u32,
 }
 impl CLFS_MGMT_POLICY_0_3 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_3 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_LogTail_e__Struct").field("MinimumAvailablePercentage", &self.MinimumAvailablePercentage).field("MinimumAvailableContainers", &self.MinimumAvailableContainers).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_3 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.MinimumAvailablePercentage == other.MinimumAvailablePercentage && self.MinimumAvailableContainers == other.MinimumAvailableContainers
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_3 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_3 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub Containers: u32,
 }
 impl CLFS_MGMT_POLICY_0_4 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_4 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MaximumSize_e__Struct").field("Containers", &self.Containers).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_4 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.Containers == other.Containers
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_4 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_4 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Containers: u32,
 }
 impl CLFS_MGMT_POLICY_0_5 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_5 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_5 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MinimumSize_e__Struct").field("Containers", &self.Containers).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_5 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.Containers == other.Containers
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_5 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_5 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_5 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_6 {
@@ -702,26 +702,26 @@ pub struct CLFS_MGMT_POLICY_0_6 {
     pub ExtensionString: [u16; 1],
 }
 impl CLFS_MGMT_POLICY_0_6 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_6 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_6 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NewContainerExtension_e__Struct").field("ExtensionLengthInBytes", &self.ExtensionLengthInBytes).field("ExtensionString", &self.ExtensionString).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_6 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.ExtensionLengthInBytes == other.ExtensionLengthInBytes && self.ExtensionString == other.ExtensionString
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_6 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_6 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_6 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_7 {
@@ -729,79 +729,79 @@ pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixString: [u16; 1],
 }
 impl CLFS_MGMT_POLICY_0_7 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_7 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_7 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_7 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_7 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NewContainerPrefix_e__Struct").field("PrefixLengthInBytes", &self.PrefixLengthInBytes).field("PrefixString", &self.PrefixString).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_7 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.PrefixLengthInBytes == other.PrefixLengthInBytes && self.PrefixString == other.PrefixString
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_7 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_7 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_7 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub SizeInBytes: u32,
 }
 impl CLFS_MGMT_POLICY_0_8 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_8 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_8 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_8 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_8 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NewContainerSize_e__Struct").field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_8 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_8 {
     fn eq(&self, other: &Self) -> bool {
         self.SizeInBytes == other.SizeInBytes
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_8 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_8 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_8 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub NextContainerSuffix: u64,
 }
 impl CLFS_MGMT_POLICY_0_9 {}
-impl ::std::default::Default for CLFS_MGMT_POLICY_0_9 {
+impl ::core::default::Default for CLFS_MGMT_POLICY_0_9 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_MGMT_POLICY_0_9 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_9 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NewContainerSuffix_e__Struct").field("NextContainerSuffix", &self.NextContainerSuffix).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_MGMT_POLICY_0_9 {
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_9 {
     fn eq(&self, other: &Self) -> bool {
         self.NextContainerSuffix == other.NextContainerSuffix
     }
 }
-impl ::std::cmp::Eq for CLFS_MGMT_POLICY_0_9 {}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_9 {}
 unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_0_9 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
 pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
@@ -815,7 +815,7 @@ pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_PO
 pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
 pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
 pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
-impl ::std::convert::From<i32> for CLFS_MGMT_POLICY_TYPE {
+impl ::core::convert::From<i32> for CLFS_MGMT_POLICY_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -825,7 +825,7 @@ unsafe impl ::windows::runtime::Abi for CLFS_MGMT_POLICY_TYPE {
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_NODE_ID {
@@ -833,26 +833,26 @@ pub struct CLFS_NODE_ID {
     pub cbNode: u32,
 }
 impl CLFS_NODE_ID {}
-impl ::std::default::Default for CLFS_NODE_ID {
+impl ::core::default::Default for CLFS_NODE_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_NODE_ID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_NODE_ID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLFS_NODE_ID").field("cType", &self.cType).field("cbNode", &self.cbNode).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_NODE_ID {
+impl ::core::cmp::PartialEq for CLFS_NODE_ID {
     fn eq(&self, other: &Self) -> bool {
         self.cType == other.cType && self.cbNode == other.cbNode
     }
 }
-impl ::std::cmp::Eq for CLFS_NODE_ID {}
+impl ::core::cmp::Eq for CLFS_NODE_ID {}
 unsafe impl ::windows::runtime::Abi for CLFS_NODE_ID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
@@ -861,22 +861,22 @@ pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub PhysicalLsn: CLS_LSN,
 }
 impl CLFS_PHYSICAL_LSN_INFORMATION {}
-impl ::std::default::Default for CLFS_PHYSICAL_LSN_INFORMATION {
+impl ::core::default::Default for CLFS_PHYSICAL_LSN_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_PHYSICAL_LSN_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_PHYSICAL_LSN_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLFS_PHYSICAL_LSN_INFORMATION").field("StreamIdentifier", &self.StreamIdentifier).field("VirtualLsn", &self.VirtualLsn).field("PhysicalLsn", &self.PhysicalLsn).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_PHYSICAL_LSN_INFORMATION {
+impl ::core::cmp::PartialEq for CLFS_PHYSICAL_LSN_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.StreamIdentifier == other.StreamIdentifier && self.VirtualLsn == other.VirtualLsn && self.PhysicalLsn == other.PhysicalLsn
     }
 }
-impl ::std::cmp::Eq for CLFS_PHYSICAL_LSN_INFORMATION {}
+impl ::core::cmp::Eq for CLFS_PHYSICAL_LSN_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for CLFS_PHYSICAL_LSN_INFORMATION {
     type Abi = Self;
 }
@@ -892,34 +892,34 @@ pub const CLFS_SCAN_FORWARD: u8 = 2u8;
 pub const CLFS_SCAN_INIT: u8 = 1u8;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
 impl CLFS_STREAM_ID_INFORMATION {}
-impl ::std::default::Default for CLFS_STREAM_ID_INFORMATION {
+impl ::core::default::Default for CLFS_STREAM_ID_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLFS_STREAM_ID_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLFS_STREAM_ID_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLFS_STREAM_ID_INFORMATION").field("StreamIdentifier", &self.StreamIdentifier).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLFS_STREAM_ID_INFORMATION {
+impl ::core::cmp::PartialEq for CLFS_STREAM_ID_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.StreamIdentifier == other.StreamIdentifier
     }
 }
-impl ::std::cmp::Eq for CLFS_STREAM_ID_INFORMATION {}
+impl ::core::cmp::Eq for CLFS_STREAM_ID_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for CLFS_STREAM_ID_INFORMATION {
     type Abi = Self;
 }
 pub const CLSID_DiskQuotaControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002481, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
@@ -928,26 +928,26 @@ pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub infoContainer: CLS_CONTAINER_INFORMATION,
 }
 impl CLS_ARCHIVE_DESCRIPTOR {}
-impl ::std::default::Default for CLS_ARCHIVE_DESCRIPTOR {
+impl ::core::default::Default for CLS_ARCHIVE_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_ARCHIVE_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_ARCHIVE_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_ARCHIVE_DESCRIPTOR").field("coffLow", &self.coffLow).field("coffHigh", &self.coffHigh).field("infoContainer", &self.infoContainer).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_ARCHIVE_DESCRIPTOR {
+impl ::core::cmp::PartialEq for CLS_ARCHIVE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.coffLow == other.coffLow && self.coffHigh == other.coffHigh && self.infoContainer == other.infoContainer
     }
 }
-impl ::std::cmp::Eq for CLS_ARCHIVE_DESCRIPTOR {}
+impl ::core::cmp::Eq for CLS_ARCHIVE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for CLS_ARCHIVE_DESCRIPTOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_CONTAINER_INFORMATION {
@@ -964,13 +964,13 @@ pub struct CLS_CONTAINER_INFORMATION {
     pub LogicalContainerId: u32,
 }
 impl CLS_CONTAINER_INFORMATION {}
-impl ::std::default::Default for CLS_CONTAINER_INFORMATION {
+impl ::core::default::Default for CLS_CONTAINER_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_CONTAINER_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_CONTAINER_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_CONTAINER_INFORMATION")
             .field("FileAttributes", &self.FileAttributes)
             .field("CreationTime", &self.CreationTime)
@@ -986,7 +986,7 @@ impl ::std::fmt::Debug for CLS_CONTAINER_INFORMATION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
+impl ::core::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.FileAttributes == other.FileAttributes
             && self.CreationTime == other.CreationTime
@@ -1001,19 +1001,19 @@ impl ::std::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
             && self.LogicalContainerId == other.LogicalContainerId
     }
 }
-impl ::std::cmp::Eq for CLS_CONTAINER_INFORMATION {}
+impl ::core::cmp::Eq for CLS_CONTAINER_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for CLS_CONTAINER_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLS_CONTEXT_MODE(pub i32);
 pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
 pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
 pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
 pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
-impl ::std::convert::From<i32> for CLS_CONTEXT_MODE {
+impl ::core::convert::From<i32> for CLS_CONTEXT_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1021,7 +1021,7 @@ impl ::std::convert::From<i32> for CLS_CONTEXT_MODE {
 unsafe impl ::windows::runtime::Abi for CLS_CONTEXT_MODE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_INFORMATION {
@@ -1044,13 +1044,13 @@ pub struct CLS_INFORMATION {
     pub Identity: ::windows::runtime::GUID,
 }
 impl CLS_INFORMATION {}
-impl ::std::default::Default for CLS_INFORMATION {
+impl ::core::default::Default for CLS_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_INFORMATION")
             .field("TotalAvailable", &self.TotalAvailable)
             .field("CurrentAvailable", &self.CurrentAvailable)
@@ -1072,7 +1072,7 @@ impl ::std::fmt::Debug for CLS_INFORMATION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_INFORMATION {
+impl ::core::cmp::PartialEq for CLS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.TotalAvailable == other.TotalAvailable
             && self.CurrentAvailable == other.CurrentAvailable
@@ -1093,17 +1093,17 @@ impl ::std::cmp::PartialEq for CLS_INFORMATION {
             && self.Identity == other.Identity
     }
 }
-impl ::std::cmp::Eq for CLS_INFORMATION {}
+impl ::core::cmp::Eq for CLS_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for CLS_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLS_IOSTATS_CLASS(pub i32);
 pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
 pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
-impl ::std::convert::From<i32> for CLS_IOSTATS_CLASS {
+impl ::core::convert::From<i32> for CLS_IOSTATS_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1111,7 +1111,7 @@ impl ::std::convert::From<i32> for CLS_IOSTATS_CLASS {
 unsafe impl ::windows::runtime::Abi for CLS_IOSTATS_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_IO_STATISTICS {
@@ -1122,26 +1122,26 @@ pub struct CLS_IO_STATISTICS {
     pub cbMetaFlush: u64,
 }
 impl CLS_IO_STATISTICS {}
-impl ::std::default::Default for CLS_IO_STATISTICS {
+impl ::core::default::Default for CLS_IO_STATISTICS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_IO_STATISTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_IO_STATISTICS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_IO_STATISTICS").field("hdrIoStats", &self.hdrIoStats).field("cFlush", &self.cFlush).field("cbFlush", &self.cbFlush).field("cMetaFlush", &self.cMetaFlush).field("cbMetaFlush", &self.cbMetaFlush).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_IO_STATISTICS {
+impl ::core::cmp::PartialEq for CLS_IO_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
         self.hdrIoStats == other.hdrIoStats && self.cFlush == other.cFlush && self.cbFlush == other.cbFlush && self.cMetaFlush == other.cMetaFlush && self.cbMetaFlush == other.cbMetaFlush
     }
 }
-impl ::std::cmp::Eq for CLS_IO_STATISTICS {}
+impl ::core::cmp::Eq for CLS_IO_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for CLS_IO_STATISTICS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_IO_STATISTICS_HEADER {
@@ -1152,27 +1152,27 @@ pub struct CLS_IO_STATISTICS_HEADER {
     pub coffData: u32,
 }
 impl CLS_IO_STATISTICS_HEADER {}
-impl ::std::default::Default for CLS_IO_STATISTICS_HEADER {
+impl ::core::default::Default for CLS_IO_STATISTICS_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_IO_STATISTICS_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_IO_STATISTICS_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_IO_STATISTICS_HEADER").field("ubMajorVersion", &self.ubMajorVersion).field("ubMinorVersion", &self.ubMinorVersion).field("eStatsClass", &self.eStatsClass).field("cbLength", &self.cbLength).field("coffData", &self.coffData).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_IO_STATISTICS_HEADER {
+impl ::core::cmp::PartialEq for CLS_IO_STATISTICS_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.ubMajorVersion == other.ubMajorVersion && self.ubMinorVersion == other.ubMinorVersion && self.eStatsClass == other.eStatsClass && self.cbLength == other.cbLength && self.coffData == other.coffData
     }
 }
-impl ::std::cmp::Eq for CLS_IO_STATISTICS_HEADER {}
+impl ::core::cmp::Eq for CLS_IO_STATISTICS_HEADER {}
 unsafe impl ::windows::runtime::Abi for CLS_IO_STATISTICS_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
 pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
@@ -1181,7 +1181,7 @@ pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_IN
 pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
 pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
 pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
-impl ::std::convert::From<i32> for CLS_LOG_INFORMATION_CLASS {
+impl ::core::convert::From<i32> for CLS_LOG_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1189,33 +1189,33 @@ impl ::std::convert::From<i32> for CLS_LOG_INFORMATION_CLASS {
 unsafe impl ::windows::runtime::Abi for CLS_LOG_INFORMATION_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
 impl CLS_LSN {}
-impl ::std::default::Default for CLS_LSN {
+impl ::core::default::Default for CLS_LSN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_LSN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_LSN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_LSN").field("Internal", &self.Internal).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_LSN {
+impl ::core::cmp::PartialEq for CLS_LSN {
     fn eq(&self, other: &Self) -> bool {
         self.Internal == other.Internal
     }
 }
-impl ::std::cmp::Eq for CLS_LSN {}
+impl ::core::cmp::Eq for CLS_LSN {}
 unsafe impl ::windows::runtime::Abi for CLS_LSN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -1231,14 +1231,14 @@ pub struct CLS_SCAN_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl CLS_SCAN_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLS_SCAN_CONTEXT {
+impl ::core::default::Default for CLS_SCAN_CONTEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CLS_SCAN_CONTEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_SCAN_CONTEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_SCAN_CONTEXT")
             .field("cidNode", &self.cidNode)
             .field("hLog", &self.hLog)
@@ -1251,71 +1251,71 @@ impl ::std::fmt::Debug for CLS_SCAN_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLS_SCAN_CONTEXT {
+impl ::core::cmp::PartialEq for CLS_SCAN_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.cidNode == other.cidNode && self.hLog == other.hLog && self.cIndex == other.cIndex && self.cContainers == other.cContainers && self.cContainersReturned == other.cContainersReturned && self.eScanMode == other.eScanMode && self.pinfoContainer == other.pinfoContainer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLS_SCAN_CONTEXT {}
+impl ::core::cmp::Eq for CLS_SCAN_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLS_SCAN_CONTEXT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CLS_WRITE_ENTRY {
-    pub Buffer: *mut ::std::ffi::c_void,
+    pub Buffer: *mut ::core::ffi::c_void,
     pub ByteLength: u32,
 }
 impl CLS_WRITE_ENTRY {}
-impl ::std::default::Default for CLS_WRITE_ENTRY {
+impl ::core::default::Default for CLS_WRITE_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLS_WRITE_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLS_WRITE_ENTRY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLS_WRITE_ENTRY").field("Buffer", &self.Buffer).field("ByteLength", &self.ByteLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLS_WRITE_ENTRY {
+impl ::core::cmp::PartialEq for CLS_WRITE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.Buffer == other.Buffer && self.ByteLength == other.ByteLength
     }
 }
-impl ::std::cmp::Eq for CLS_WRITE_ENTRY {}
+impl ::core::cmp::Eq for CLS_WRITE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for CLS_WRITE_ENTRY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
 impl CONNECTION_INFO_0 {}
-impl ::std::default::Default for CONNECTION_INFO_0 {
+impl ::core::default::Default for CONNECTION_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CONNECTION_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CONNECTION_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CONNECTION_INFO_0").field("coni0_id", &self.coni0_id).finish()
     }
 }
-impl ::std::cmp::PartialEq for CONNECTION_INFO_0 {
+impl ::core::cmp::PartialEq for CONNECTION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.coni0_id == other.coni0_id
     }
 }
-impl ::std::cmp::Eq for CONNECTION_INFO_0 {}
+impl ::core::cmp::Eq for CONNECTION_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CONNECTION_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -1331,14 +1331,14 @@ pub struct CONNECTION_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl CONNECTION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONNECTION_INFO_1 {
+impl ::core::default::Default for CONNECTION_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CONNECTION_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CONNECTION_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CONNECTION_INFO_1")
             .field("coni1_id", &self.coni1_id)
             .field("coni1_type", &self.coni1_type)
@@ -1351,19 +1351,19 @@ impl ::std::fmt::Debug for CONNECTION_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONNECTION_INFO_1 {
+impl ::core::cmp::PartialEq for CONNECTION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.coni1_id == other.coni1_id && self.coni1_type == other.coni1_type && self.coni1_num_opens == other.coni1_num_opens && self.coni1_num_users == other.coni1_num_users && self.coni1_time == other.coni1_time && self.coni1_username == other.coni1_username && self.coni1_netname == other.coni1_netname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONNECTION_INFO_1 {}
+impl ::core::cmp::Eq for CONNECTION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONNECTION_INFO_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
@@ -1374,7 +1374,7 @@ pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_CO
 pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
 pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
 pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
-impl ::std::convert::From<i32> for COPYFILE2_COPY_PHASE {
+impl ::core::convert::From<i32> for COPYFILE2_COPY_PHASE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1382,7 +1382,7 @@ impl ::std::convert::From<i32> for COPYFILE2_COPY_PHASE {
 unsafe impl ::windows::runtime::Abi for COPYFILE2_COPY_PHASE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -1390,36 +1390,36 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: ::std::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
-    pub pvCallbackContext: *mut ::std::ffi::c_void,
+    pub pProgressRoutine: ::core::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
+    pub pvCallbackContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_EXTENDED_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_EXTENDED_PARAMETERS {
+impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("COPYFILE2_EXTENDED_PARAMETERS").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pvCallbackContext", &self.pvCallbackContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS {
+impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwCopyFlags == other.dwCopyFlags && self.pfCancel == other.pfCancel && self.pProgressRoutine.map(|f| f as usize) == other.pProgressRoutine.map(|f| f as usize) && self.pvCallbackContext == other.pvCallbackContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS {}
+impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_EXTENDED_PARAMETERS {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -1431,24 +1431,24 @@ pub struct COPYFILE2_MESSAGE {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE {
+impl ::core::default::Default for COPYFILE2_MESSAGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union COPYFILE2_MESSAGE_0 {
@@ -1462,24 +1462,24 @@ pub union COPYFILE2_MESSAGE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_0 {
@@ -1497,14 +1497,14 @@ pub struct COPYFILE2_MESSAGE_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0_0 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_ChunkFinished_e__Struct")
             .field("dwStreamNumber", &self.dwStreamNumber)
             .field("dwFlags", &self.dwFlags)
@@ -1520,18 +1520,18 @@ impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_0 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwStreamNumber == other.dwStreamNumber && self.dwFlags == other.dwFlags && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliChunkNumber == other.uliChunkNumber && self.uliChunkSize == other.uliChunkSize && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_0 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_1 {
@@ -1547,14 +1547,14 @@ pub struct COPYFILE2_MESSAGE_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0_1 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_ChunkStarted_e__Struct")
             .field("dwStreamNumber", &self.dwStreamNumber)
             .field("dwReserved", &self.dwReserved)
@@ -1568,18 +1568,18 @@ impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_1 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwStreamNumber == other.dwStreamNumber && self.dwReserved == other.dwReserved && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliChunkNumber == other.uliChunkNumber && self.uliChunkSize == other.uliChunkSize && self.uliStreamSize == other.uliStreamSize && self.uliTotalFileSize == other.uliTotalFileSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_1 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_2 {
@@ -1596,14 +1596,14 @@ pub struct COPYFILE2_MESSAGE_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0_2 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Error_e__Struct")
             .field("CopyPhase", &self.CopyPhase)
             .field("dwStreamNumber", &self.dwStreamNumber)
@@ -1618,18 +1618,18 @@ impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.CopyPhase == other.CopyPhase && self.dwStreamNumber == other.dwStreamNumber && self.hrFailure == other.hrFailure && self.dwReserved == other.dwReserved && self.uliChunkNumber == other.uliChunkNumber && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_2 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_3 {
@@ -1638,30 +1638,30 @@ pub struct COPYFILE2_MESSAGE_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0_3 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_PollContinue_e__Struct").field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_3 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_4 {
@@ -1677,14 +1677,14 @@ pub struct COPYFILE2_MESSAGE_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0_4 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_StreamFinished_e__Struct")
             .field("dwStreamNumber", &self.dwStreamNumber)
             .field("dwReserved", &self.dwReserved)
@@ -1698,18 +1698,18 @@ impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_4 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.dwStreamNumber == other.dwStreamNumber && self.dwReserved == other.dwReserved && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_4 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_5 {
@@ -1723,14 +1723,14 @@ pub struct COPYFILE2_MESSAGE_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COPYFILE2_MESSAGE_0_5 {
+impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_5 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_StreamStarted_e__Struct")
             .field("dwStreamNumber", &self.dwStreamNumber)
             .field("dwReserved", &self.dwReserved)
@@ -1742,19 +1742,19 @@ impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_5 {
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.dwStreamNumber == other.dwStreamNumber && self.dwReserved == other.dwReserved && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliStreamSize == other.uliStreamSize && self.uliTotalFileSize == other.uliTotalFileSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_5 {}
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_5 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
 pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
@@ -1762,7 +1762,7 @@ pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAG
 pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
 pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
 pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
-impl ::std::convert::From<i32> for COPYFILE2_MESSAGE_ACTION {
+impl ::core::convert::From<i32> for COPYFILE2_MESSAGE_ACTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1771,7 +1771,7 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
 pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
@@ -1782,7 +1782,7 @@ pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2
 pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
 pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
 pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
-impl ::std::convert::From<i32> for COPYFILE2_MESSAGE_TYPE {
+impl ::core::convert::From<i32> for COPYFILE2_MESSAGE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1790,7 +1790,7 @@ impl ::std::convert::From<i32> for COPYFILE2_MESSAGE_TYPE {
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1805,14 +1805,14 @@ pub struct CREATEFILE2_EXTENDED_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl CREATEFILE2_EXTENDED_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
+impl ::core::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for CREATEFILE2_EXTENDED_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CREATEFILE2_EXTENDED_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CREATEFILE2_EXTENDED_PARAMETERS")
             .field("dwSize", &self.dwSize)
             .field("dwFileAttributes", &self.dwFileAttributes)
@@ -1824,25 +1824,25 @@ impl ::std::fmt::Debug for CREATEFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for CREATEFILE2_EXTENDED_PARAMETERS {
+impl ::core::cmp::PartialEq for CREATEFILE2_EXTENDED_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.dwFileAttributes == other.dwFileAttributes && self.dwFileFlags == other.dwFileFlags && self.dwSecurityQosFlags == other.dwSecurityQosFlags && self.lpSecurityAttributes == other.lpSecurityAttributes && self.hTemplateFile == other.hTemplateFile
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for CREATEFILE2_EXTENDED_PARAMETERS {}
+impl ::core::cmp::Eq for CREATEFILE2_EXTENDED_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_TAPE_PARTITION_METHOD(pub i32);
 pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0i32);
 pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2i32);
 pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1i32);
-impl ::std::convert::From<i32> for CREATE_TAPE_PARTITION_METHOD {
+impl ::core::convert::From<i32> for CREATE_TAPE_PARTITION_METHOD {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1882,7 +1882,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3A<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn CheckNameLegalDOS8Dot3A(lpname: super::super::Foundation::PSTR, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CheckNameLegalDOS8Dot3A(lpname.into_param().abi(), ::std::mem::transmute(lpoemname), ::std::mem::transmute(oemnamesize), ::std::mem::transmute(pbnamecontainsspaces), ::std::mem::transmute(pbnamelegal)))
+        ::core::mem::transmute(CheckNameLegalDOS8Dot3A(lpname.into_param().abi(), ::core::mem::transmute(lpoemname), ::core::mem::transmute(oemnamesize), ::core::mem::transmute(pbnamecontainsspaces), ::core::mem::transmute(pbnamelegal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1897,7 +1897,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3W<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn CheckNameLegalDOS8Dot3W(lpname: super::super::Foundation::PWSTR, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CheckNameLegalDOS8Dot3W(lpname.into_param().abi(), ::std::mem::transmute(lpoemname), ::std::mem::transmute(oemnamesize), ::std::mem::transmute(pbnamecontainsspaces), ::std::mem::transmute(pbnamelegal)))
+        ::core::mem::transmute(CheckNameLegalDOS8Dot3W(lpname.into_param().abi(), ::core::mem::transmute(lpoemname), ::core::mem::transmute(oemnamesize), ::core::mem::transmute(pbnamecontainsspaces), ::core::mem::transmute(pbnamelegal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1932,21 +1932,21 @@ pub unsafe fn CloseAndResetLogFile<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn CloseAndResetLogFile(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CloseAndResetLogFile(hlog.into_param().abi()))
+        ::core::mem::transmute(CloseAndResetLogFile(hlog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void) {
+pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void);
+            fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void);
         }
-        ::std::mem::transmute(CloseEncryptedFileRaw(::std::mem::transmute(pvcontext)))
+        ::core::mem::transmute(CloseEncryptedFileRaw(::core::mem::transmute(pvcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1960,7 +1960,7 @@ pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::Resul
         extern "system" {
             fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::HRESULT;
         }
-        CloseIoRing(::std::mem::transmute(ioring)).ok()
+        CloseIoRing(::core::mem::transmute(ioring)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1987,7 +1987,7 @@ pub unsafe fn CommitComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CommitComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommitComplete(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(CommitComplete(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2002,7 +2002,7 @@ pub unsafe fn CommitEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn CommitEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommitEnlistment(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(CommitEnlistment(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2017,7 +2017,7 @@ pub unsafe fn CommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn CommitTransaction(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommitTransaction(transactionhandle.into_param().abi()))
+        ::core::mem::transmute(CommitTransaction(transactionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2032,7 +2032,7 @@ pub unsafe fn CommitTransactionAsync<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn CommitTransactionAsync(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommitTransactionAsync(transactionhandle.into_param().abi()))
+        ::core::mem::transmute(CommitTransactionAsync(transactionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2047,7 +2047,7 @@ pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILE
         extern "system" {
             fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILETIME, lpfiletime2: *const super::super::Foundation::FILETIME) -> i32;
         }
-        ::std::mem::transmute(CompareFileTime(::std::mem::transmute(lpfiletime1), ::std::mem::transmute(lpfiletime2)))
+        ::core::mem::transmute(CompareFileTime(::core::mem::transmute(lpfiletime1), ::core::mem::transmute(lpfiletime2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2060,9 +2060,9 @@ pub unsafe fn CopyFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFile2(pwszexistingfilename: super::super::Foundation::PWSTR, pwsznewfilename: super::super::Foundation::PWSTR, pextendedparameters: *const ::std::mem::ManuallyDrop<COPYFILE2_EXTENDED_PARAMETERS>) -> ::windows::runtime::HRESULT;
+            fn CopyFile2(pwszexistingfilename: super::super::Foundation::PWSTR, pwsznewfilename: super::super::Foundation::PWSTR, pextendedparameters: *const ::core::mem::ManuallyDrop<COPYFILE2_EXTENDED_PARAMETERS>) -> ::windows::runtime::HRESULT;
         }
-        CopyFile2(pwszexistingfilename.into_param().abi(), pwsznewfilename.into_param().abi(), ::std::mem::transmute(pextendedparameters)).ok()
+        CopyFile2(pwszexistingfilename.into_param().abi(), pwsznewfilename.into_param().abi(), ::core::mem::transmute(pextendedparameters)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2077,7 +2077,7 @@ pub unsafe fn CopyFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CopyFileA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, bfailifexists: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), bfailifexists.into_param().abi()))
+        ::core::mem::transmute(CopyFileA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), bfailifexists.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2085,14 +2085,14 @@ pub unsafe fn CopyFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::std::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
+            fn CopyFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileExA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(pbcancel), ::std::mem::transmute(dwcopyflags)))
+        ::core::mem::transmute(CopyFileExA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2100,14 +2100,14 @@ pub unsafe fn CopyFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopyFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::std::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CopyFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
+            fn CopyFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileExW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(pbcancel), ::std::mem::transmute(dwcopyflags)))
+        ::core::mem::transmute(CopyFileExW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2122,7 +2122,7 @@ pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn CopyFileFromAppW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, bfailifexists: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileFromAppW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), bfailifexists.into_param().abi()))
+        ::core::mem::transmute(CopyFileFromAppW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), bfailifexists.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2133,8 +2133,8 @@ pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     lpexistingfilename: Param0,
     lpnewfilename: Param1,
-    lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>,
-    lpdata: *const ::std::ffi::c_void,
+    lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>,
+    lpdata: *const ::core::ffi::c_void,
     pbcancel: *const i32,
     dwcopyflags: u32,
     htransaction: Param6,
@@ -2143,9 +2143,9 @@ pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn CopyFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(pbcancel), ::std::mem::transmute(dwcopyflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(CopyFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2156,8 +2156,8 @@ pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     lpexistingfilename: Param0,
     lpnewfilename: Param1,
-    lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>,
-    lpdata: *const ::std::ffi::c_void,
+    lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>,
+    lpdata: *const ::core::ffi::c_void,
     pbcancel: *const i32,
     dwcopyflags: u32,
     htransaction: Param6,
@@ -2166,9 +2166,9 @@ pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CopyFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn CopyFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(pbcancel), ::std::mem::transmute(dwcopyflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(CopyFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), ::core::mem::transmute(dwcopyflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2183,7 +2183,7 @@ pub unsafe fn CopyFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn CopyFileW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, bfailifexists: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopyFileW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), bfailifexists.into_param().abi()))
+        ::core::mem::transmute(CopyFileW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), bfailifexists.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2197,7 +2197,7 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
         extern "system" {
             fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32;
         }
-        ::std::mem::transmute(CopyLZFile(::std::mem::transmute(hfsource), ::std::mem::transmute(hfdest)))
+        ::core::mem::transmute(CopyLZFile(::core::mem::transmute(hfsource), ::core::mem::transmute(hfdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2212,7 +2212,7 @@ pub unsafe fn CreateDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn CreateDirectoryA(lppathname: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryA(lppathname.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateDirectoryA(lppathname.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2227,7 +2227,7 @@ pub unsafe fn CreateDirectoryExA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn CreateDirectoryExA(lptemplatedirectory: super::super::Foundation::PSTR, lpnewdirectory: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryExA(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateDirectoryExA(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2242,7 +2242,7 @@ pub unsafe fn CreateDirectoryExW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn CreateDirectoryExW(lptemplatedirectory: super::super::Foundation::PWSTR, lpnewdirectory: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryExW(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateDirectoryExW(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2257,7 +2257,7 @@ pub unsafe fn CreateDirectoryFromAppW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn CreateDirectoryFromAppW(lppathname: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryFromAppW(lppathname.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateDirectoryFromAppW(lppathname.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2272,7 +2272,7 @@ pub unsafe fn CreateDirectoryTransactedA<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn CreateDirectoryTransactedA(lptemplatedirectory: super::super::Foundation::PSTR, lpnewdirectory: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryTransactedA(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::std::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
+        ::core::mem::transmute(CreateDirectoryTransactedA(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2287,7 +2287,7 @@ pub unsafe fn CreateDirectoryTransactedW<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn CreateDirectoryTransactedW(lptemplatedirectory: super::super::Foundation::PWSTR, lpnewdirectory: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryTransactedW(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::std::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
+        ::core::mem::transmute(CreateDirectoryTransactedW(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2302,7 +2302,7 @@ pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn CreateDirectoryW(lppathname: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateDirectoryW(lppathname.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateDirectoryW(lppathname.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2310,14 +2310,14 @@ pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: Param1, transactionhandle: Param2, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: Param1, transactionhandle: Param2, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateEnlistment(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: super::super::Foundation::HANDLE, transactionhandle: super::super::Foundation::HANDLE, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE;
+            fn CreateEnlistment(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: super::super::Foundation::HANDLE, transactionhandle: super::super::Foundation::HANDLE, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateEnlistment(::std::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.into_param().abi(), transactionhandle.into_param().abi(), ::std::mem::transmute(notificationmask), ::std::mem::transmute(createoptions), ::std::mem::transmute(enlistmentkey)))
+        ::core::mem::transmute(CreateEnlistment(::core::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.into_param().abi(), transactionhandle.into_param().abi(), ::core::mem::transmute(notificationmask), ::core::mem::transmute(createoptions), ::core::mem::transmute(enlistmentkey)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2332,7 +2332,7 @@ pub unsafe fn CreateFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CreateFile2(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFile2(lpfilename.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(dwcreationdisposition), ::std::mem::transmute(pcreateexparams)))
+        ::core::mem::transmute(CreateFile2(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(pcreateexparams)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2347,7 +2347,7 @@ pub unsafe fn CreateFile2FromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn CreateFile2FromAppW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFile2FromAppW(lpfilename.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(dwcreationdisposition), ::std::mem::transmute(pcreateexparams)))
+        ::core::mem::transmute(CreateFile2FromAppW(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(pcreateexparams)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2370,7 +2370,7 @@ pub unsafe fn CreateFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CreateFileA(lpfilename: super::super::Foundation::PSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFileA(lpfilename.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(lpsecurityattributes), ::std::mem::transmute(dwcreationdisposition), ::std::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi()))
+        ::core::mem::transmute(CreateFileA(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2385,7 +2385,7 @@ pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn CreateFileFromAppW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFileFromAppW(lpfilename.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(lpsecurityattributes), ::std::mem::transmute(dwcreationdisposition), ::std::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi()))
+        ::core::mem::transmute(CreateFileFromAppW(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2403,7 +2403,7 @@ pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a
     htemplatefile: Param6,
     htransaction: Param7,
     pusminiversion: *const TXFS_MINIVERSION,
-    lpextendedparameter: *mut ::std::ffi::c_void,
+    lpextendedparameter: *mut ::core::ffi::c_void,
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -2419,20 +2419,20 @@ pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a
                 htemplatefile: super::super::Foundation::HANDLE,
                 htransaction: super::super::Foundation::HANDLE,
                 pusminiversion: *const TXFS_MINIVERSION,
-                lpextendedparameter: *mut ::std::ffi::c_void,
+                lpextendedparameter: *mut ::core::ffi::c_void,
             ) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFileTransactedA(
+        ::core::mem::transmute(CreateFileTransactedA(
             lpfilename.into_param().abi(),
-            ::std::mem::transmute(dwdesiredaccess),
-            ::std::mem::transmute(dwsharemode),
-            ::std::mem::transmute(lpsecurityattributes),
-            ::std::mem::transmute(dwcreationdisposition),
-            ::std::mem::transmute(dwflagsandattributes),
+            ::core::mem::transmute(dwdesiredaccess),
+            ::core::mem::transmute(dwsharemode),
+            ::core::mem::transmute(lpsecurityattributes),
+            ::core::mem::transmute(dwcreationdisposition),
+            ::core::mem::transmute(dwflagsandattributes),
             htemplatefile.into_param().abi(),
             htransaction.into_param().abi(),
-            ::std::mem::transmute(pusminiversion),
-            ::std::mem::transmute(lpextendedparameter),
+            ::core::mem::transmute(pusminiversion),
+            ::core::mem::transmute(lpextendedparameter),
         ))
     }
     #[cfg(not(windows))]
@@ -2451,7 +2451,7 @@ pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a
     htemplatefile: Param6,
     htransaction: Param7,
     pusminiversion: *const TXFS_MINIVERSION,
-    lpextendedparameter: *mut ::std::ffi::c_void,
+    lpextendedparameter: *mut ::core::ffi::c_void,
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -2467,20 +2467,20 @@ pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a
                 htemplatefile: super::super::Foundation::HANDLE,
                 htransaction: super::super::Foundation::HANDLE,
                 pusminiversion: *const TXFS_MINIVERSION,
-                lpextendedparameter: *mut ::std::ffi::c_void,
+                lpextendedparameter: *mut ::core::ffi::c_void,
             ) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFileTransactedW(
+        ::core::mem::transmute(CreateFileTransactedW(
             lpfilename.into_param().abi(),
-            ::std::mem::transmute(dwdesiredaccess),
-            ::std::mem::transmute(dwsharemode),
-            ::std::mem::transmute(lpsecurityattributes),
-            ::std::mem::transmute(dwcreationdisposition),
-            ::std::mem::transmute(dwflagsandattributes),
+            ::core::mem::transmute(dwdesiredaccess),
+            ::core::mem::transmute(dwsharemode),
+            ::core::mem::transmute(lpsecurityattributes),
+            ::core::mem::transmute(dwcreationdisposition),
+            ::core::mem::transmute(dwflagsandattributes),
             htemplatefile.into_param().abi(),
             htransaction.into_param().abi(),
-            ::std::mem::transmute(pusminiversion),
-            ::std::mem::transmute(lpextendedparameter),
+            ::core::mem::transmute(pusminiversion),
+            ::core::mem::transmute(lpextendedparameter),
         ))
     }
     #[cfg(not(windows))]
@@ -2504,7 +2504,7 @@ pub unsafe fn CreateFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn CreateFileW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateFileW(lpfilename.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(lpsecurityattributes), ::std::mem::transmute(dwcreationdisposition), ::std::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi()))
+        ::core::mem::transmute(CreateFileW(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2519,7 +2519,7 @@ pub unsafe fn CreateHardLinkA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn CreateHardLinkA(lpfilename: super::super::Foundation::PSTR, lpexistingfilename: super::super::Foundation::PSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateHardLinkA(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateHardLinkA(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2534,7 +2534,7 @@ pub unsafe fn CreateHardLinkTransactedA<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn CreateHardLinkTransactedA(lpfilename: super::super::Foundation::PSTR, lpexistingfilename: super::super::Foundation::PSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateHardLinkTransactedA(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::std::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
+        ::core::mem::transmute(CreateHardLinkTransactedA(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2549,7 +2549,7 @@ pub unsafe fn CreateHardLinkTransactedW<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn CreateHardLinkTransactedW(lpfilename: super::super::Foundation::PWSTR, lpexistingfilename: super::super::Foundation::PWSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateHardLinkTransactedW(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::std::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
+        ::core::mem::transmute(CreateHardLinkTransactedW(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2564,7 +2564,7 @@ pub unsafe fn CreateHardLinkW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn CreateHardLinkW(lpfilename: super::super::Foundation::PWSTR, lpexistingfilename: super::super::Foundation::PWSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateHardLinkW(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(CreateHardLinkW(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2578,8 +2578,8 @@ pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_
         extern "system" {
             fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut *mut HIORING__) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut HIORING__ as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        CreateIoRing(::std::mem::transmute(ioringversion), flags.into_param().abi(), ::std::mem::transmute(submissionqueuesize), ::std::mem::transmute(completionqueuesize), &mut result__).from_abi::<*mut HIORING__>(result__)
+        let mut result__: <*mut HIORING__ as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        CreateIoRing(::core::mem::transmute(ioringversion), flags.into_param().abi(), ::core::mem::transmute(submissionqueuesize), ::core::mem::transmute(completionqueuesize), &mut result__).from_abi::<*mut HIORING__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2594,7 +2594,7 @@ pub unsafe fn CreateLogContainerScanContext<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn CreateLogContainerScanContext(hlog: super::super::Foundation::HANDLE, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateLogContainerScanContext(hlog.into_param().abi(), ::std::mem::transmute(cfromcontainer), ::std::mem::transmute(ccontainers), ::std::mem::transmute(escanmode), ::std::mem::transmute(pcxscan), ::std::mem::transmute(poverlapped)))
+        ::core::mem::transmute(CreateLogContainerScanContext(hlog.into_param().abi(), ::core::mem::transmute(cfromcontainer), ::core::mem::transmute(ccontainers), ::core::mem::transmute(escanmode), ::core::mem::transmute(pcxscan), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2609,7 +2609,7 @@ pub unsafe fn CreateLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn CreateLogFile(pszlogfilename: super::super::Foundation::PWSTR, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateLogFile(pszlogfilename.into_param().abi(), ::std::mem::transmute(fdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(psalogfile), ::std::mem::transmute(fcreatedisposition), ::std::mem::transmute(fflagsandattributes)))
+        ::core::mem::transmute(CreateLogFile(pszlogfilename.into_param().abi(), ::core::mem::transmute(fdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(psalogfile), ::core::mem::transmute(fcreatedisposition), ::core::mem::transmute(fflagsandattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2617,22 +2617,22 @@ pub unsafe fn CreateLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pfnallocbuffer: ::std::option::Option<CLFS_BLOCK_ALLOCATION>, pfnfreebuffer: ::std::option::Option<CLFS_BLOCK_DEALLOCATION>, pvblockalloccontext: *mut ::std::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pfnallocbuffer: ::core::option::Option<CLFS_BLOCK_ALLOCATION>, pfnfreebuffer: ::core::option::Option<CLFS_BLOCK_DEALLOCATION>, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: ::windows::runtime::RawPtr, pfnfreebuffer: ::windows::runtime::RawPtr, pvblockalloccontext: *mut ::std::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: ::windows::runtime::RawPtr, pfnfreebuffer: ::windows::runtime::RawPtr, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateLogMarshallingArea(
+        ::core::mem::transmute(CreateLogMarshallingArea(
             hlog.into_param().abi(),
-            ::std::mem::transmute(pfnallocbuffer),
-            ::std::mem::transmute(pfnfreebuffer),
-            ::std::mem::transmute(pvblockalloccontext),
-            ::std::mem::transmute(cbmarshallingbuffer),
-            ::std::mem::transmute(cmaxwritebuffers),
-            ::std::mem::transmute(cmaxreadbuffers),
-            ::std::mem::transmute(ppvmarshal),
+            ::core::mem::transmute(pfnallocbuffer),
+            ::core::mem::transmute(pfnfreebuffer),
+            ::core::mem::transmute(pvblockalloccontext),
+            ::core::mem::transmute(cbmarshallingbuffer),
+            ::core::mem::transmute(cmaxwritebuffers),
+            ::core::mem::transmute(cmaxreadbuffers),
+            ::core::mem::transmute(ppvmarshal),
         ))
     }
     #[cfg(not(windows))]
@@ -2648,7 +2648,7 @@ pub unsafe fn CreateResourceManager<'a, Param3: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CreateResourceManager(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::runtime::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateResourceManager(::std::mem::transmute(lpresourcemanagerattributes), ::std::mem::transmute(resourcemanagerid), ::std::mem::transmute(createoptions), tmhandle.into_param().abi(), description.into_param().abi()))
+        ::core::mem::transmute(CreateResourceManager(::core::mem::transmute(lpresourcemanagerattributes), ::core::mem::transmute(resourcemanagerid), ::core::mem::transmute(createoptions), tmhandle.into_param().abi(), description.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2663,7 +2663,7 @@ pub unsafe fn CreateSymbolicLinkA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn CreateSymbolicLinkA(lpsymlinkfilename: super::super::Foundation::PSTR, lptargetfilename: super::super::Foundation::PSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(CreateSymbolicLinkA(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CreateSymbolicLinkA(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2678,7 +2678,7 @@ pub unsafe fn CreateSymbolicLinkTransactedA<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn CreateSymbolicLinkTransactedA(lpsymlinkfilename: super::super::Foundation::PSTR, lptargetfilename: super::super::Foundation::PSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(CreateSymbolicLinkTransactedA(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::std::mem::transmute(dwflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(CreateSymbolicLinkTransactedA(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2693,7 +2693,7 @@ pub unsafe fn CreateSymbolicLinkTransactedW<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn CreateSymbolicLinkTransactedW(lpsymlinkfilename: super::super::Foundation::PWSTR, lptargetfilename: super::super::Foundation::PWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(CreateSymbolicLinkTransactedW(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::std::mem::transmute(dwflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(CreateSymbolicLinkTransactedW(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2708,7 +2708,7 @@ pub unsafe fn CreateSymbolicLinkW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn CreateSymbolicLinkW(lpsymlinkfilename: super::super::Foundation::PWSTR, lptargetfilename: super::super::Foundation::PWSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(CreateSymbolicLinkW(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(CreateSymbolicLinkW(lpsymlinkfilename.into_param().abi(), lptargetfilename.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2723,7 +2723,7 @@ pub unsafe fn CreateTapePartition<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn CreateTapePartition(hdevice: super::super::Foundation::HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32;
         }
-        ::std::mem::transmute(CreateTapePartition(hdevice.into_param().abi(), ::std::mem::transmute(dwpartitionmethod), ::std::mem::transmute(dwcount), ::std::mem::transmute(dwsize)))
+        ::core::mem::transmute(CreateTapePartition(hdevice.into_param().abi(), ::core::mem::transmute(dwpartitionmethod), ::core::mem::transmute(dwcount), ::core::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2738,7 +2738,7 @@ pub unsafe fn CreateTransaction<'a, Param6: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn CreateTransaction(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::runtime::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateTransaction(::std::mem::transmute(lptransactionattributes), ::std::mem::transmute(uow), ::std::mem::transmute(createoptions), ::std::mem::transmute(isolationlevel), ::std::mem::transmute(isolationflags), ::std::mem::transmute(timeout), description.into_param().abi()))
+        ::core::mem::transmute(CreateTransaction(::core::mem::transmute(lptransactionattributes), ::core::mem::transmute(uow), ::core::mem::transmute(createoptions), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2753,13 +2753,13 @@ pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::runtime::IntoParam
         extern "system" {
             fn CreateTransactionManager(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: super::super::Foundation::PWSTR, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateTransactionManager(::std::mem::transmute(lptransactionattributes), logfilename.into_param().abi(), ::std::mem::transmute(createoptions), ::std::mem::transmute(commitstrength)))
+        ::core::mem::transmute(CreateTransactionManager(::core::mem::transmute(lptransactionattributes), logfilename.into_param().abi(), ::core::mem::transmute(createoptions), ::core::mem::transmute(commitstrength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
 pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
@@ -2767,7 +2767,7 @@ pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLA
 pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
 pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
 pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
-impl ::std::convert::From<u32> for DEFINE_DOS_DEVICE_FLAGS {
+impl ::core::convert::From<u32> for DEFINE_DOS_DEVICE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2775,29 +2775,29 @@ impl ::std::convert::From<u32> for DEFINE_DOS_DEVICE_FLAGS {
 unsafe impl ::windows::runtime::Abi for DEFINE_DOS_DEVICE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
+impl ::core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
+impl ::core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
+impl ::core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
+impl ::core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
+impl ::core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -2822,13 +2822,13 @@ pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
 pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
 pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
 pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
-impl ::std::convert::From<u32> for DISKQUOTA_USERNAME_RESOLVE {
+impl ::core::convert::From<u32> for DISKQUOTA_USERNAME_RESOLVE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2836,29 +2836,29 @@ impl ::std::convert::From<u32> for DISKQUOTA_USERNAME_RESOLVE {
 unsafe impl ::windows::runtime::Abi for DISKQUOTA_USERNAME_RESOLVE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DISKQUOTA_USERNAME_RESOLVE {
+impl ::core::ops::BitOr for DISKQUOTA_USERNAME_RESOLVE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DISKQUOTA_USERNAME_RESOLVE {
+impl ::core::ops::BitAnd for DISKQUOTA_USERNAME_RESOLVE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DISKQUOTA_USERNAME_RESOLVE {
+impl ::core::ops::BitOrAssign for DISKQUOTA_USERNAME_RESOLVE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DISKQUOTA_USERNAME_RESOLVE {
+impl ::core::ops::BitAndAssign for DISKQUOTA_USERNAME_RESOLVE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DISKQUOTA_USERNAME_RESOLVE {
+impl ::core::ops::Not for DISKQUOTA_USERNAME_RESOLVE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -2876,7 +2876,7 @@ pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
 pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct DISKQUOTA_USER_INFORMATION {
@@ -2885,26 +2885,26 @@ pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaLimit: i64,
 }
 impl DISKQUOTA_USER_INFORMATION {}
-impl ::std::default::Default for DISKQUOTA_USER_INFORMATION {
+impl ::core::default::Default for DISKQUOTA_USER_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DISKQUOTA_USER_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DISKQUOTA_USER_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DISKQUOTA_USER_INFORMATION").field("QuotaUsed", &self.QuotaUsed).field("QuotaThreshold", &self.QuotaThreshold).field("QuotaLimit", &self.QuotaLimit).finish()
     }
 }
-impl ::std::cmp::PartialEq for DISKQUOTA_USER_INFORMATION {
+impl ::core::cmp::PartialEq for DISKQUOTA_USER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.QuotaUsed == other.QuotaUsed && self.QuotaThreshold == other.QuotaThreshold && self.QuotaLimit == other.QuotaLimit
     }
 }
-impl ::std::cmp::Eq for DISKQUOTA_USER_INFORMATION {}
+impl ::core::cmp::Eq for DISKQUOTA_USER_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for DISKQUOTA_USER_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct DISK_SPACE_INFORMATION {
@@ -2923,13 +2923,13 @@ pub struct DISK_SPACE_INFORMATION {
     pub BytesPerSector: u32,
 }
 impl DISK_SPACE_INFORMATION {}
-impl ::std::default::Default for DISK_SPACE_INFORMATION {
+impl ::core::default::Default for DISK_SPACE_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DISK_SPACE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DISK_SPACE_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DISK_SPACE_INFORMATION")
             .field("ActualTotalAllocationUnits", &self.ActualTotalAllocationUnits)
             .field("ActualAvailableAllocationUnits", &self.ActualAvailableAllocationUnits)
@@ -2947,7 +2947,7 @@ impl ::std::fmt::Debug for DISK_SPACE_INFORMATION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DISK_SPACE_INFORMATION {
+impl ::core::cmp::PartialEq for DISK_SPACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.ActualTotalAllocationUnits == other.ActualTotalAllocationUnits
             && self.ActualAvailableAllocationUnits == other.ActualAvailableAllocationUnits
@@ -2964,7 +2964,7 @@ impl ::std::cmp::PartialEq for DISK_SPACE_INFORMATION {
             && self.BytesPerSector == other.BytesPerSector
     }
 }
-impl ::std::cmp::Eq for DISK_SPACE_INFORMATION {}
+impl ::core::cmp::Eq for DISK_SPACE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for DISK_SPACE_INFORMATION {
     type Abi = Self;
 }
@@ -2978,7 +2978,7 @@ pub unsafe fn DecryptFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn DecryptFileA(lpfilename: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DecryptFileA(lpfilename.into_param().abi(), ::std::mem::transmute(dwreserved)))
+        ::core::mem::transmute(DecryptFileA(lpfilename.into_param().abi(), ::core::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2993,7 +2993,7 @@ pub unsafe fn DecryptFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn DecryptFileW(lpfilename: super::super::Foundation::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DecryptFileW(lpfilename.into_param().abi(), ::std::mem::transmute(dwreserved)))
+        ::core::mem::transmute(DecryptFileW(lpfilename.into_param().abi(), ::core::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3008,7 +3008,7 @@ pub unsafe fn DefineDosDeviceA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn DefineDosDeviceA(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: super::super::Foundation::PSTR, lptargetpath: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DefineDosDeviceA(::std::mem::transmute(dwflags), lpdevicename.into_param().abi(), lptargetpath.into_param().abi()))
+        ::core::mem::transmute(DefineDosDeviceA(::core::mem::transmute(dwflags), lpdevicename.into_param().abi(), lptargetpath.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3023,7 +3023,7 @@ pub unsafe fn DefineDosDeviceW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn DefineDosDeviceW(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: super::super::Foundation::PWSTR, lptargetpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DefineDosDeviceW(::std::mem::transmute(dwflags), lpdevicename.into_param().abi(), lptargetpath.into_param().abi()))
+        ::core::mem::transmute(DefineDosDeviceW(::core::mem::transmute(dwflags), lpdevicename.into_param().abi(), lptargetpath.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3038,7 +3038,7 @@ pub unsafe fn DeleteFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn DeleteFileA(lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteFileA(lpfilename.into_param().abi()))
+        ::core::mem::transmute(DeleteFileA(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3053,7 +3053,7 @@ pub unsafe fn DeleteFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn DeleteFileFromAppW(lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteFileFromAppW(lpfilename.into_param().abi()))
+        ::core::mem::transmute(DeleteFileFromAppW(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3068,7 +3068,7 @@ pub unsafe fn DeleteFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn DeleteFileTransactedA(lpfilename: super::super::Foundation::PSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteFileTransactedA(lpfilename.into_param().abi(), htransaction.into_param().abi()))
+        ::core::mem::transmute(DeleteFileTransactedA(lpfilename.into_param().abi(), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3083,7 +3083,7 @@ pub unsafe fn DeleteFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn DeleteFileTransactedW(lpfilename: super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteFileTransactedW(lpfilename.into_param().abi(), htransaction.into_param().abi()))
+        ::core::mem::transmute(DeleteFileTransactedW(lpfilename.into_param().abi(), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3098,7 +3098,7 @@ pub unsafe fn DeleteFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn DeleteFileW(lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteFileW(lpfilename.into_param().abi()))
+        ::core::mem::transmute(DeleteFileW(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3113,7 +3113,7 @@ pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn DeleteLogByHandle(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteLogByHandle(hlog.into_param().abi()))
+        ::core::mem::transmute(DeleteLogByHandle(hlog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3121,14 +3121,14 @@ pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteLogFile(pszlogfilename: super::super::Foundation::PWSTR, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn DeleteLogFile(pszlogfilename: super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteLogFile(pszlogfilename.into_param().abi(), ::std::mem::transmute(pvreserved)))
+        ::core::mem::transmute(DeleteLogFile(pszlogfilename.into_param().abi(), ::core::mem::transmute(pvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3136,14 +3136,14 @@ pub unsafe fn DeleteLogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteLogMarshallingArea(pvmarshal: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteLogMarshallingArea(::std::mem::transmute(pvmarshal)))
+        ::core::mem::transmute(DeleteLogMarshallingArea(::core::mem::transmute(pvmarshal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3158,7 +3158,7 @@ pub unsafe fn DeleteVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn DeleteVolumeMountPointA(lpszvolumemountpoint: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteVolumeMountPointA(lpszvolumemountpoint.into_param().abi()))
+        ::core::mem::transmute(DeleteVolumeMountPointA(lpszvolumemountpoint.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3173,7 +3173,7 @@ pub unsafe fn DeleteVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn DeleteVolumeMountPointW(lpszvolumemountpoint: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteVolumeMountPointW(lpszvolumemountpoint.into_param().abi()))
+        ::core::mem::transmute(DeleteVolumeMountPointW(lpszvolumemountpoint.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3188,7 +3188,7 @@ pub unsafe fn DeregisterManageableLogClient<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn DeregisterManageableLogClient(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeregisterManageableLogClient(hlog.into_param().abi()))
+        ::core::mem::transmute(DeregisterManageableLogClient(hlog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3203,12 +3203,12 @@ pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn DuplicateEncryptionInfoFile(srcfilename: super::super::Foundation::PWSTR, dstfilename: super::super::Foundation::PWSTR, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32;
         }
-        ::std::mem::transmute(DuplicateEncryptionInfoFile(srcfilename.into_param().abi(), dstfilename.into_param().abi(), ::std::mem::transmute(dwcreationdistribution), ::std::mem::transmute(dwattributes), ::std::mem::transmute(lpsecurityattributes)))
+        ::core::mem::transmute(DuplicateEncryptionInfoFile(srcfilename.into_param().abi(), dstfilename.into_param().abi(), ::core::mem::transmute(dwcreationdistribution), ::core::mem::transmute(dwattributes), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_CERTIFICATE_BLOB {
@@ -3217,48 +3217,48 @@ pub struct EFS_CERTIFICATE_BLOB {
     pub pbData: *mut u8,
 }
 impl EFS_CERTIFICATE_BLOB {}
-impl ::std::default::Default for EFS_CERTIFICATE_BLOB {
+impl ::core::default::Default for EFS_CERTIFICATE_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_CERTIFICATE_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_CERTIFICATE_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_CERTIFICATE_BLOB").field("dwCertEncodingType", &self.dwCertEncodingType).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_CERTIFICATE_BLOB {
+impl ::core::cmp::PartialEq for EFS_CERTIFICATE_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.dwCertEncodingType == other.dwCertEncodingType && self.cbData == other.cbData && self.pbData == other.pbData
     }
 }
-impl ::std::cmp::Eq for EFS_CERTIFICATE_BLOB {}
+impl ::core::cmp::Eq for EFS_CERTIFICATE_BLOB {}
 unsafe impl ::windows::runtime::Abi for EFS_CERTIFICATE_BLOB {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
 impl EFS_COMPATIBILITY_INFO {}
-impl ::std::default::Default for EFS_COMPATIBILITY_INFO {
+impl ::core::default::Default for EFS_COMPATIBILITY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_COMPATIBILITY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_COMPATIBILITY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_COMPATIBILITY_INFO").field("EfsVersion", &self.EfsVersion).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_COMPATIBILITY_INFO {
+impl ::core::cmp::PartialEq for EFS_COMPATIBILITY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.EfsVersion == other.EfsVersion
     }
 }
-impl ::std::cmp::Eq for EFS_COMPATIBILITY_INFO {}
+impl ::core::cmp::Eq for EFS_COMPATIBILITY_INFO {}
 unsafe impl ::windows::runtime::Abi for EFS_COMPATIBILITY_INFO {
     type Abi = Self;
 }
@@ -3266,7 +3266,7 @@ unsafe impl ::windows::runtime::Abi for EFS_COMPATIBILITY_INFO {
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_DECRYPTION_STATUS_INFO {
@@ -3275,28 +3275,28 @@ pub struct EFS_DECRYPTION_STATUS_INFO {
     pub cbHash: u32,
 }
 impl EFS_DECRYPTION_STATUS_INFO {}
-impl ::std::default::Default for EFS_DECRYPTION_STATUS_INFO {
+impl ::core::default::Default for EFS_DECRYPTION_STATUS_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_DECRYPTION_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_DECRYPTION_STATUS_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_DECRYPTION_STATUS_INFO").field("dwDecryptionError", &self.dwDecryptionError).field("dwHashOffset", &self.dwHashOffset).field("cbHash", &self.cbHash).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_DECRYPTION_STATUS_INFO {
+impl ::core::cmp::PartialEq for EFS_DECRYPTION_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwDecryptionError == other.dwDecryptionError && self.dwHashOffset == other.dwHashOffset && self.cbHash == other.cbHash
     }
 }
-impl ::std::cmp::Eq for EFS_DECRYPTION_STATUS_INFO {}
+impl ::core::cmp::Eq for EFS_DECRYPTION_STATUS_INFO {}
 unsafe impl ::windows::runtime::Abi for EFS_DECRYPTION_STATUS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -3307,30 +3307,30 @@ pub struct EFS_ENCRYPTION_STATUS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl EFS_ENCRYPTION_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for EFS_ENCRYPTION_STATUS_INFO {
+impl ::core::default::Default for EFS_ENCRYPTION_STATUS_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for EFS_ENCRYPTION_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_ENCRYPTION_STATUS_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_ENCRYPTION_STATUS_INFO").field("bHasCurrentKey", &self.bHasCurrentKey).field("dwEncryptionError", &self.dwEncryptionError).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for EFS_ENCRYPTION_STATUS_INFO {
+impl ::core::cmp::PartialEq for EFS_ENCRYPTION_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.bHasCurrentKey == other.bHasCurrentKey && self.dwEncryptionError == other.dwEncryptionError
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for EFS_ENCRYPTION_STATUS_INFO {}
+impl ::core::cmp::Eq for EFS_ENCRYPTION_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EFS_ENCRYPTION_STATUS_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_HASH_BLOB {
@@ -3338,26 +3338,26 @@ pub struct EFS_HASH_BLOB {
     pub pbData: *mut u8,
 }
 impl EFS_HASH_BLOB {}
-impl ::std::default::Default for EFS_HASH_BLOB {
+impl ::core::default::Default for EFS_HASH_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_HASH_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_HASH_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_HASH_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_HASH_BLOB {
+impl ::core::cmp::PartialEq for EFS_HASH_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData && self.pbData == other.pbData
     }
 }
-impl ::std::cmp::Eq for EFS_HASH_BLOB {}
+impl ::core::cmp::Eq for EFS_HASH_BLOB {}
 unsafe impl ::windows::runtime::Abi for EFS_HASH_BLOB {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_KEY_INFO {
@@ -3367,22 +3367,22 @@ pub struct EFS_KEY_INFO {
     pub KeyLength: u32,
 }
 impl EFS_KEY_INFO {}
-impl ::std::default::Default for EFS_KEY_INFO {
+impl ::core::default::Default for EFS_KEY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_KEY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_KEY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_KEY_INFO").field("dwVersion", &self.dwVersion).field("Entropy", &self.Entropy).field("Algorithm", &self.Algorithm).field("KeyLength", &self.KeyLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_KEY_INFO {
+impl ::core::cmp::PartialEq for EFS_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwVersion == other.dwVersion && self.Entropy == other.Entropy && self.Algorithm == other.Algorithm && self.KeyLength == other.KeyLength
     }
 }
-impl ::std::cmp::Eq for EFS_KEY_INFO {}
+impl ::core::cmp::Eq for EFS_KEY_INFO {}
 unsafe impl ::windows::runtime::Abi for EFS_KEY_INFO {
     type Abi = Self;
 }
@@ -3398,7 +3398,7 @@ pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
 pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_PIN_BLOB {
@@ -3407,26 +3407,26 @@ pub struct EFS_PIN_BLOB {
     pub pbData: *mut u8,
 }
 impl EFS_PIN_BLOB {}
-impl ::std::default::Default for EFS_PIN_BLOB {
+impl ::core::default::Default for EFS_PIN_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_PIN_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_PIN_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_PIN_BLOB").field("cbPadding", &self.cbPadding).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_PIN_BLOB {
+impl ::core::cmp::PartialEq for EFS_PIN_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.cbPadding == other.cbPadding && self.cbData == other.cbData && self.pbData == other.pbData
     }
 }
-impl ::std::cmp::Eq for EFS_PIN_BLOB {}
+impl ::core::cmp::Eq for EFS_PIN_BLOB {}
 unsafe impl ::windows::runtime::Abi for EFS_PIN_BLOB {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_RPC_BLOB {
@@ -3434,28 +3434,28 @@ pub struct EFS_RPC_BLOB {
     pub pbData: *mut u8,
 }
 impl EFS_RPC_BLOB {}
-impl ::std::default::Default for EFS_RPC_BLOB {
+impl ::core::default::Default for EFS_RPC_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_RPC_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_RPC_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_RPC_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_RPC_BLOB {
+impl ::core::cmp::PartialEq for EFS_RPC_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData && self.pbData == other.pbData
     }
 }
-impl ::std::cmp::Eq for EFS_RPC_BLOB {}
+impl ::core::cmp::Eq for EFS_RPC_BLOB {}
 unsafe impl ::windows::runtime::Abi for EFS_RPC_BLOB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct EFS_VERSION_INFO {
@@ -3463,26 +3463,26 @@ pub struct EFS_VERSION_INFO {
     pub SubVersion: u32,
 }
 impl EFS_VERSION_INFO {}
-impl ::std::default::Default for EFS_VERSION_INFO {
+impl ::core::default::Default for EFS_VERSION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for EFS_VERSION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EFS_VERSION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EFS_VERSION_INFO").field("EfsVersion", &self.EfsVersion).field("SubVersion", &self.SubVersion).finish()
     }
 }
-impl ::std::cmp::PartialEq for EFS_VERSION_INFO {
+impl ::core::cmp::PartialEq for EFS_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.EfsVersion == other.EfsVersion && self.SubVersion == other.SubVersion
     }
 }
-impl ::std::cmp::Eq for EFS_VERSION_INFO {}
+impl ::core::cmp::Eq for EFS_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for EFS_VERSION_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3495,30 +3495,30 @@ pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ENCRYPTED_FILE_METADATA_SIGNATURE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
+impl ::core::default::Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTED_FILE_METADATA_SIGNATURE").field("dwEfsAccessType", &self.dwEfsAccessType).field("pCertificatesAdded", &self.pCertificatesAdded).field("pEncryptionCertificate", &self.pEncryptionCertificate).field("pEfsStreamSignature", &self.pEfsStreamSignature).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for ENCRYPTED_FILE_METADATA_SIGNATURE {
+impl ::core::cmp::PartialEq for ENCRYPTED_FILE_METADATA_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
         self.dwEfsAccessType == other.dwEfsAccessType && self.pCertificatesAdded == other.pCertificatesAdded && self.pEncryptionCertificate == other.pEncryptionCertificate && self.pEfsStreamSignature == other.pEfsStreamSignature
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for ENCRYPTED_FILE_METADATA_SIGNATURE {}
+impl ::core::cmp::Eq for ENCRYPTED_FILE_METADATA_SIGNATURE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for ENCRYPTED_FILE_METADATA_SIGNATURE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Security`*"]
@@ -3530,30 +3530,30 @@ pub struct ENCRYPTION_CERTIFICATE {
 #[cfg(feature = "Win32_Security")]
 impl ENCRYPTION_CERTIFICATE {}
 #[cfg(feature = "Win32_Security")]
-impl ::std::default::Default for ENCRYPTION_CERTIFICATE {
+impl ::core::default::Default for ENCRYPTION_CERTIFICATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::std::fmt::Debug for ENCRYPTION_CERTIFICATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTION_CERTIFICATE").field("cbTotalLength", &self.cbTotalLength).field("pUserSid", &self.pUserSid).field("pCertBlob", &self.pCertBlob).finish()
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::std::cmp::PartialEq for ENCRYPTION_CERTIFICATE {
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE {
     fn eq(&self, other: &Self) -> bool {
         self.cbTotalLength == other.cbTotalLength && self.pUserSid == other.pUserSid && self.pCertBlob == other.pCertBlob
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::std::cmp::Eq for ENCRYPTION_CERTIFICATE {}
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE {}
 #[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3566,30 +3566,30 @@ pub struct ENCRYPTION_CERTIFICATE_HASH {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ENCRYPTION_CERTIFICATE_HASH {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for ENCRYPTION_CERTIFICATE_HASH {
+impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTION_CERTIFICATE_HASH").field("cbTotalLength", &self.cbTotalLength).field("pUserSid", &self.pUserSid).field("pHash", &self.pHash).field("lpDisplayInformation", &self.lpDisplayInformation).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH {
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH {
     fn eq(&self, other: &Self) -> bool {
         self.cbTotalLength == other.cbTotalLength && self.pUserSid == other.pUserSid && self.pHash == other.pHash && self.lpDisplayInformation == other.lpDisplayInformation
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH {}
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE_HASH {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3600,30 +3600,30 @@ pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ENCRYPTION_CERTIFICATE_HASH_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
+impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTION_CERTIFICATE_HASH_LIST").field("nCert_Hash", &self.nCert_Hash).field("pUsers", &self.pUsers).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH_LIST {
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.nCert_Hash == other.nCert_Hash && self.pUsers == other.pUsers
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH_LIST {}
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE_HASH_LIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Security`*"]
@@ -3634,30 +3634,30 @@ pub struct ENCRYPTION_CERTIFICATE_LIST {
 #[cfg(feature = "Win32_Security")]
 impl ENCRYPTION_CERTIFICATE_LIST {}
 #[cfg(feature = "Win32_Security")]
-impl ::std::default::Default for ENCRYPTION_CERTIFICATE_LIST {
+impl ::core::default::Default for ENCRYPTION_CERTIFICATE_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::std::fmt::Debug for ENCRYPTION_CERTIFICATE_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTION_CERTIFICATE_LIST").field("nUsers", &self.nUsers).field("pUsers", &self.pUsers).finish()
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::std::cmp::PartialEq for ENCRYPTION_CERTIFICATE_LIST {
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.nUsers == other.nUsers && self.pUsers == other.pUsers
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::std::cmp::Eq for ENCRYPTION_CERTIFICATE_LIST {}
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_LIST {}
 #[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::runtime::Abi for ENCRYPTION_CERTIFICATE_LIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3669,30 +3669,30 @@ pub struct ENCRYPTION_PROTECTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ENCRYPTION_PROTECTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for ENCRYPTION_PROTECTOR {
+impl ::core::default::Default for ENCRYPTION_PROTECTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for ENCRYPTION_PROTECTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTION_PROTECTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTION_PROTECTOR").field("cbTotalLength", &self.cbTotalLength).field("pUserSid", &self.pUserSid).field("lpProtectorDescriptor", &self.lpProtectorDescriptor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for ENCRYPTION_PROTECTOR {
+impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.cbTotalLength == other.cbTotalLength && self.pUserSid == other.pUserSid && self.lpProtectorDescriptor == other.lpProtectorDescriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for ENCRYPTION_PROTECTOR {}
+impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for ENCRYPTION_PROTECTOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3703,25 +3703,25 @@ pub struct ENCRYPTION_PROTECTOR_LIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ENCRYPTION_PROTECTOR_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for ENCRYPTION_PROTECTOR_LIST {
+impl ::core::default::Default for ENCRYPTION_PROTECTOR_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for ENCRYPTION_PROTECTOR_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENCRYPTION_PROTECTOR_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENCRYPTION_PROTECTOR_LIST").field("nProtectors", &self.nProtectors).field("pProtectors", &self.pProtectors).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for ENCRYPTION_PROTECTOR_LIST {
+impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.nProtectors == other.nProtectors && self.pProtectors == other.pProtectors
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for ENCRYPTION_PROTECTOR_LIST {}
+impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for ENCRYPTION_PROTECTOR_LIST {
     type Abi = Self;
@@ -3731,12 +3731,12 @@ pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ERASE_TAPE_TYPE(pub i32);
 pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1i32);
 pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0i32);
-impl ::std::convert::From<i32> for ERASE_TAPE_TYPE {
+impl ::core::convert::From<i32> for ERASE_TAPE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3754,7 +3754,7 @@ pub unsafe fn EncryptFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn EncryptFileA(lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EncryptFileA(lpfilename.into_param().abi()))
+        ::core::mem::transmute(EncryptFileA(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3769,7 +3769,7 @@ pub unsafe fn EncryptFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn EncryptFileW(lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EncryptFileW(lpfilename.into_param().abi()))
+        ::core::mem::transmute(EncryptFileW(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3784,7 +3784,7 @@ pub unsafe fn EncryptionDisable<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn EncryptionDisable(dirpath: super::super::Foundation::PWSTR, disable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EncryptionDisable(dirpath.into_param().abi(), disable.into_param().abi()))
+        ::core::mem::transmute(EncryptionDisable(dirpath.into_param().abi(), disable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3799,18 +3799,18 @@ pub unsafe fn EraseTape<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn EraseTape(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(EraseTape(hdevice.into_param().abi(), ::std::mem::transmute(dwerasetype), bimmediate.into_param().abi()))
+        ::core::mem::transmute(EraseTape(hdevice.into_param().abi(), ::core::mem::transmute(dwerasetype), bimmediate.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FCACHE_CREATE_CALLBACK = unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::std::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE;
+pub type FCACHE_CREATE_CALLBACK = unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FCACHE_RICHCREATE_CALLBACK = unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::std::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
-#[derive(:: std :: clone :: Clone)]
+pub type FCACHE_RICHCREATE_CALLBACK = unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -3820,7 +3820,7 @@ pub struct FH_OVERLAPPED {
     pub Offset: u32,
     pub OffsetHigh: u32,
     pub hEvent: super::super::Foundation::HANDLE,
-    pub pfnCompletion: ::std::option::Option<PFN_IO_COMPLETION>,
+    pub pfnCompletion: ::core::option::Option<PFN_IO_COMPLETION>,
     pub Reserved1: usize,
     pub Reserved2: usize,
     pub Reserved3: usize,
@@ -3829,14 +3829,14 @@ pub struct FH_OVERLAPPED {
 #[cfg(feature = "Win32_Foundation")]
 impl FH_OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FH_OVERLAPPED {
+impl ::core::default::Default for FH_OVERLAPPED {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FH_OVERLAPPED {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FH_OVERLAPPED {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FH_OVERLAPPED")
             .field("Internal", &self.Internal)
             .field("InternalHigh", &self.InternalHigh)
@@ -3851,19 +3851,19 @@ impl ::std::fmt::Debug for FH_OVERLAPPED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FH_OVERLAPPED {
+impl ::core::cmp::PartialEq for FH_OVERLAPPED {
     fn eq(&self, other: &Self) -> bool {
         self.Internal == other.Internal && self.InternalHigh == other.InternalHigh && self.Offset == other.Offset && self.OffsetHigh == other.OffsetHigh && self.hEvent == other.hEvent && self.pfnCompletion.map(|f| f as usize) == other.pfnCompletion.map(|f| f as usize) && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FH_OVERLAPPED {}
+impl ::core::cmp::Eq for FH_OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FH_OVERLAPPED {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_ACCESS_FLAGS(pub u32);
 pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1u32);
@@ -3892,7 +3892,7 @@ pub const FILE_ALL_ACCESS: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2032127u32);
 pub const FILE_GENERIC_READ: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179785u32);
 pub const FILE_GENERIC_WRITE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179926u32);
 pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179808u32);
-impl ::std::convert::From<u32> for FILE_ACCESS_FLAGS {
+impl ::core::convert::From<u32> for FILE_ACCESS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3900,36 +3900,36 @@ impl ::std::convert::From<u32> for FILE_ACCESS_FLAGS {
 unsafe impl ::windows::runtime::Abi for FILE_ACCESS_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_ACCESS_FLAGS {
+impl ::core::ops::BitOr for FILE_ACCESS_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_ACCESS_FLAGS {
+impl ::core::ops::BitAnd for FILE_ACCESS_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_ACCESS_FLAGS {
+impl ::core::ops::BitOrAssign for FILE_ACCESS_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_ACCESS_FLAGS {
+impl ::core::ops::BitAndAssign for FILE_ACCESS_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_ACCESS_FLAGS {
+impl ::core::ops::Not for FILE_ACCESS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_ACTION(pub u32);
 pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
@@ -3937,7 +3937,7 @@ pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
 pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
 pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
 pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
-impl ::std::convert::From<u32> for FILE_ACTION {
+impl ::core::convert::From<u32> for FILE_ACTION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3945,87 +3945,87 @@ impl ::std::convert::From<u32> for FILE_ACTION {
 unsafe impl ::windows::runtime::Abi for FILE_ACTION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_ACTION {
+impl ::core::ops::BitOr for FILE_ACTION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_ACTION {
+impl ::core::ops::BitAnd for FILE_ACTION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_ACTION {
+impl ::core::ops::BitOrAssign for FILE_ACTION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_ACTION {
+impl ::core::ops::BitAndAssign for FILE_ACTION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_ACTION {
+impl ::core::ops::Not for FILE_ACTION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
 impl FILE_ALIGNMENT_INFO {}
-impl ::std::default::Default for FILE_ALIGNMENT_INFO {
+impl ::core::default::Default for FILE_ALIGNMENT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ALIGNMENT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ALIGNMENT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ALIGNMENT_INFO").field("AlignmentRequirement", &self.AlignmentRequirement).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ALIGNMENT_INFO {
+impl ::core::cmp::PartialEq for FILE_ALIGNMENT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.AlignmentRequirement == other.AlignmentRequirement
     }
 }
-impl ::std::cmp::Eq for FILE_ALIGNMENT_INFO {}
+impl ::core::cmp::Eq for FILE_ALIGNMENT_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ALIGNMENT_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
 impl FILE_ALLOCATION_INFO {}
-impl ::std::default::Default for FILE_ALLOCATION_INFO {
+impl ::core::default::Default for FILE_ALLOCATION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ALLOCATION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ALLOCATION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ALLOCATION_INFO").field("AllocationSize", &self.AllocationSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ALLOCATION_INFO {
+impl ::core::cmp::PartialEq for FILE_ALLOCATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.AllocationSize == other.AllocationSize
     }
 }
-impl ::std::cmp::Eq for FILE_ALLOCATION_INFO {}
+impl ::core::cmp::Eq for FILE_ALLOCATION_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ALLOCATION_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
@@ -4033,26 +4033,26 @@ pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub ReparseTag: u32,
 }
 impl FILE_ATTRIBUTE_TAG_INFO {}
-impl ::std::default::Default for FILE_ATTRIBUTE_TAG_INFO {
+impl ::core::default::Default for FILE_ATTRIBUTE_TAG_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ATTRIBUTE_TAG_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ATTRIBUTE_TAG_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ATTRIBUTE_TAG_INFO").field("FileAttributes", &self.FileAttributes).field("ReparseTag", &self.ReparseTag).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ATTRIBUTE_TAG_INFO {
+impl ::core::cmp::PartialEq for FILE_ATTRIBUTE_TAG_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.FileAttributes == other.FileAttributes && self.ReparseTag == other.ReparseTag
     }
 }
-impl ::std::cmp::Eq for FILE_ATTRIBUTE_TAG_INFO {}
+impl ::core::cmp::Eq for FILE_ATTRIBUTE_TAG_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ATTRIBUTE_TAG_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_BASIC_INFO {
@@ -4063,26 +4063,26 @@ pub struct FILE_BASIC_INFO {
     pub FileAttributes: u32,
 }
 impl FILE_BASIC_INFO {}
-impl ::std::default::Default for FILE_BASIC_INFO {
+impl ::core::default::Default for FILE_BASIC_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_BASIC_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_BASIC_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_BASIC_INFO").field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_BASIC_INFO {
+impl ::core::cmp::PartialEq for FILE_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.FileAttributes == other.FileAttributes
     }
 }
-impl ::std::cmp::Eq for FILE_BASIC_INFO {}
+impl ::core::cmp::Eq for FILE_BASIC_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_BASIC_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_COMPRESSION_INFO {
@@ -4094,13 +4094,13 @@ pub struct FILE_COMPRESSION_INFO {
     pub Reserved: [u8; 3],
 }
 impl FILE_COMPRESSION_INFO {}
-impl ::std::default::Default for FILE_COMPRESSION_INFO {
+impl ::core::default::Default for FILE_COMPRESSION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_COMPRESSION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_COMPRESSION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_COMPRESSION_INFO")
             .field("CompressedFileSize", &self.CompressedFileSize)
             .field("CompressionFormat", &self.CompressionFormat)
@@ -4111,17 +4111,17 @@ impl ::std::fmt::Debug for FILE_COMPRESSION_INFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_COMPRESSION_INFO {
+impl ::core::cmp::PartialEq for FILE_COMPRESSION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.CompressedFileSize == other.CompressedFileSize && self.CompressionFormat == other.CompressionFormat && self.CompressionUnitShift == other.CompressionUnitShift && self.ChunkShift == other.ChunkShift && self.ClusterShift == other.ClusterShift && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for FILE_COMPRESSION_INFO {}
+impl ::core::cmp::Eq for FILE_COMPRESSION_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_COMPRESSION_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_CREATION_DISPOSITION(pub u32);
 pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
@@ -4129,7 +4129,7 @@ pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2
 pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
 pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
 pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
-impl ::std::convert::From<u32> for FILE_CREATION_DISPOSITION {
+impl ::core::convert::From<u32> for FILE_CREATION_DISPOSITION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4137,43 +4137,43 @@ impl ::std::convert::From<u32> for FILE_CREATION_DISPOSITION {
 unsafe impl ::windows::runtime::Abi for FILE_CREATION_DISPOSITION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_CREATION_DISPOSITION {
+impl ::core::ops::BitOr for FILE_CREATION_DISPOSITION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_CREATION_DISPOSITION {
+impl ::core::ops::BitAnd for FILE_CREATION_DISPOSITION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_CREATION_DISPOSITION {
+impl ::core::ops::BitOrAssign for FILE_CREATION_DISPOSITION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_CREATION_DISPOSITION {
+impl ::core::ops::BitAndAssign for FILE_CREATION_DISPOSITION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_CREATION_DISPOSITION {
+impl ::core::ops::Not for FILE_CREATION_DISPOSITION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_DEVICE_TYPE(pub u32);
 pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
 pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
 pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
 pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
-impl ::std::convert::From<u32> for FILE_DEVICE_TYPE {
+impl ::core::convert::From<u32> for FILE_DEVICE_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4181,35 +4181,35 @@ impl ::std::convert::From<u32> for FILE_DEVICE_TYPE {
 unsafe impl ::windows::runtime::Abi for FILE_DEVICE_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_DEVICE_TYPE {
+impl ::core::ops::BitOr for FILE_DEVICE_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_DEVICE_TYPE {
+impl ::core::ops::BitAnd for FILE_DEVICE_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_DEVICE_TYPE {
+impl ::core::ops::BitOrAssign for FILE_DEVICE_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_DEVICE_TYPE {
+impl ::core::ops::BitAndAssign for FILE_DEVICE_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_DEVICE_TYPE {
+impl ::core::ops::Not for FILE_DEVICE_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -4219,56 +4219,56 @@ pub struct FILE_DISPOSITION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_DISPOSITION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_DISPOSITION_INFO {
+impl ::core::default::Default for FILE_DISPOSITION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_DISPOSITION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_DISPOSITION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_DISPOSITION_INFO").field("DeleteFileA", &self.DeleteFileA).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_DISPOSITION_INFO {
+impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.DeleteFileA == other.DeleteFileA
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_DISPOSITION_INFO {}
+impl ::core::cmp::Eq for FILE_DISPOSITION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_DISPOSITION_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
 impl FILE_END_OF_FILE_INFO {}
-impl ::std::default::Default for FILE_END_OF_FILE_INFO {
+impl ::core::default::Default for FILE_END_OF_FILE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_END_OF_FILE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_END_OF_FILE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_END_OF_FILE_INFO").field("EndOfFile", &self.EndOfFile).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_END_OF_FILE_INFO {
+impl ::core::cmp::PartialEq for FILE_END_OF_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.EndOfFile == other.EndOfFile
     }
 }
-impl ::std::cmp::Eq for FILE_END_OF_FILE_INFO {}
+impl ::core::cmp::Eq for FILE_END_OF_FILE_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_END_OF_FILE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_EXTENT {
@@ -4276,27 +4276,27 @@ pub struct FILE_EXTENT {
     pub ExtentLength: u64,
 }
 impl FILE_EXTENT {}
-impl ::std::default::Default for FILE_EXTENT {
+impl ::core::default::Default for FILE_EXTENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_EXTENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_EXTENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_EXTENT").field("VolumeOffset", &self.VolumeOffset).field("ExtentLength", &self.ExtentLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_EXTENT {
+impl ::core::cmp::PartialEq for FILE_EXTENT {
     fn eq(&self, other: &Self) -> bool {
         self.VolumeOffset == other.VolumeOffset && self.ExtentLength == other.ExtentLength
     }
 }
-impl ::std::cmp::Eq for FILE_EXTENT {}
+impl ::core::cmp::Eq for FILE_EXTENT {}
 unsafe impl ::windows::runtime::Abi for FILE_EXTENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
 pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
@@ -4344,7 +4344,7 @@ pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_
 pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
 pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
 pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
-impl ::std::convert::From<u32> for FILE_FLAGS_AND_ATTRIBUTES {
+impl ::core::convert::From<u32> for FILE_FLAGS_AND_ATTRIBUTES {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4352,35 +4352,35 @@ impl ::std::convert::From<u32> for FILE_FLAGS_AND_ATTRIBUTES {
 unsafe impl ::windows::runtime::Abi for FILE_FLAGS_AND_ATTRIBUTES {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
+impl ::core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
+impl ::core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
+impl ::core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
+impl ::core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
+impl ::core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_FULL_DIR_INFO {
@@ -4398,13 +4398,13 @@ pub struct FILE_FULL_DIR_INFO {
     pub FileName: [u16; 1],
 }
 impl FILE_FULL_DIR_INFO {}
-impl ::std::default::Default for FILE_FULL_DIR_INFO {
+impl ::core::default::Default for FILE_FULL_DIR_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_FULL_DIR_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_FULL_DIR_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_FULL_DIR_INFO")
             .field("NextEntryOffset", &self.NextEntryOffset)
             .field("FileIndex", &self.FileIndex)
@@ -4421,7 +4421,7 @@ impl ::std::fmt::Debug for FILE_FULL_DIR_INFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_FULL_DIR_INFO {
+impl ::core::cmp::PartialEq for FILE_FULL_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.NextEntryOffset == other.NextEntryOffset
             && self.FileIndex == other.FileIndex
@@ -4437,37 +4437,37 @@ impl ::std::cmp::PartialEq for FILE_FULL_DIR_INFO {
             && self.FileName == other.FileName
     }
 }
-impl ::std::cmp::Eq for FILE_FULL_DIR_INFO {}
+impl ::core::cmp::Eq for FILE_FULL_DIR_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_FULL_DIR_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
 impl FILE_ID_128 {}
-impl ::std::default::Default for FILE_ID_128 {
+impl ::core::default::Default for FILE_ID_128 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ID_128 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ID_128 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ID_128").field("Identifier", &self.Identifier).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ID_128 {
+impl ::core::cmp::PartialEq for FILE_ID_128 {
     fn eq(&self, other: &Self) -> bool {
         self.Identifier == other.Identifier
     }
 }
-impl ::std::cmp::Eq for FILE_ID_128 {}
+impl ::core::cmp::Eq for FILE_ID_128 {}
 unsafe impl ::windows::runtime::Abi for FILE_ID_128 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ID_BOTH_DIR_INFO {
@@ -4488,13 +4488,13 @@ pub struct FILE_ID_BOTH_DIR_INFO {
     pub FileName: [u16; 1],
 }
 impl FILE_ID_BOTH_DIR_INFO {}
-impl ::std::default::Default for FILE_ID_BOTH_DIR_INFO {
+impl ::core::default::Default for FILE_ID_BOTH_DIR_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ID_BOTH_DIR_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ID_BOTH_DIR_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ID_BOTH_DIR_INFO")
             .field("NextEntryOffset", &self.NextEntryOffset)
             .field("FileIndex", &self.FileIndex)
@@ -4514,7 +4514,7 @@ impl ::std::fmt::Debug for FILE_ID_BOTH_DIR_INFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
+impl ::core::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.NextEntryOffset == other.NextEntryOffset
             && self.FileIndex == other.FileIndex
@@ -4533,11 +4533,11 @@ impl ::std::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
             && self.FileName == other.FileName
     }
 }
-impl ::std::cmp::Eq for FILE_ID_BOTH_DIR_INFO {}
+impl ::core::cmp::Eq for FILE_ID_BOTH_DIR_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ID_BOTH_DIR_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ID_DESCRIPTOR {
@@ -4546,21 +4546,21 @@ pub struct FILE_ID_DESCRIPTOR {
     pub Anonymous: FILE_ID_DESCRIPTOR_0,
 }
 impl FILE_ID_DESCRIPTOR {}
-impl ::std::default::Default for FILE_ID_DESCRIPTOR {
+impl ::core::default::Default for FILE_ID_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FILE_ID_DESCRIPTOR {
+impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FILE_ID_DESCRIPTOR {}
+impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for FILE_ID_DESCRIPTOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub union FILE_ID_DESCRIPTOR_0 {
@@ -4569,21 +4569,21 @@ pub union FILE_ID_DESCRIPTOR_0 {
     pub ExtendedFileId: FILE_ID_128,
 }
 impl FILE_ID_DESCRIPTOR_0 {}
-impl ::std::default::Default for FILE_ID_DESCRIPTOR_0 {
+impl ::core::default::Default for FILE_ID_DESCRIPTOR_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FILE_ID_DESCRIPTOR_0 {
+impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FILE_ID_DESCRIPTOR_0 {}
+impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR_0 {}
 unsafe impl ::windows::runtime::Abi for FILE_ID_DESCRIPTOR_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ID_EXTD_DIR_INFO {
@@ -4603,13 +4603,13 @@ pub struct FILE_ID_EXTD_DIR_INFO {
     pub FileName: [u16; 1],
 }
 impl FILE_ID_EXTD_DIR_INFO {}
-impl ::std::default::Default for FILE_ID_EXTD_DIR_INFO {
+impl ::core::default::Default for FILE_ID_EXTD_DIR_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ID_EXTD_DIR_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ID_EXTD_DIR_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ID_EXTD_DIR_INFO")
             .field("NextEntryOffset", &self.NextEntryOffset)
             .field("FileIndex", &self.FileIndex)
@@ -4628,7 +4628,7 @@ impl ::std::fmt::Debug for FILE_ID_EXTD_DIR_INFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
+impl ::core::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.NextEntryOffset == other.NextEntryOffset
             && self.FileIndex == other.FileIndex
@@ -4646,11 +4646,11 @@ impl ::std::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
             && self.FileName == other.FileName
     }
 }
-impl ::std::cmp::Eq for FILE_ID_EXTD_DIR_INFO {}
+impl ::core::cmp::Eq for FILE_ID_EXTD_DIR_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ID_EXTD_DIR_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_ID_INFO {
@@ -4658,34 +4658,34 @@ pub struct FILE_ID_INFO {
     pub FileId: FILE_ID_128,
 }
 impl FILE_ID_INFO {}
-impl ::std::default::Default for FILE_ID_INFO {
+impl ::core::default::Default for FILE_ID_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_ID_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_ID_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_ID_INFO").field("VolumeSerialNumber", &self.VolumeSerialNumber).field("FileId", &self.FileId).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_ID_INFO {
+impl ::core::cmp::PartialEq for FILE_ID_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.VolumeSerialNumber == other.VolumeSerialNumber && self.FileId == other.FileId
     }
 }
-impl ::std::cmp::Eq for FILE_ID_INFO {}
+impl ::core::cmp::Eq for FILE_ID_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ID_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_ID_TYPE(pub i32);
 pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
 pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
 pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
 pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
-impl ::std::convert::From<i32> for FILE_ID_TYPE {
+impl ::core::convert::From<i32> for FILE_ID_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4693,33 +4693,33 @@ impl ::std::convert::From<i32> for FILE_ID_TYPE {
 unsafe impl ::windows::runtime::Abi for FILE_ID_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
 impl FILE_INFO_2 {}
-impl ::std::default::Default for FILE_INFO_2 {
+impl ::core::default::Default for FILE_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_INFO_2").field("fi2_id", &self.fi2_id).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_INFO_2 {
+impl ::core::cmp::PartialEq for FILE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.fi2_id == other.fi2_id
     }
 }
-impl ::std::cmp::Eq for FILE_INFO_2 {}
+impl ::core::cmp::Eq for FILE_INFO_2 {}
 unsafe impl ::windows::runtime::Abi for FILE_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -4733,31 +4733,31 @@ pub struct FILE_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_INFO_3 {
+impl ::core::default::Default for FILE_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_INFO_3").field("fi3_id", &self.fi3_id).field("fi3_permissions", &self.fi3_permissions).field("fi3_num_locks", &self.fi3_num_locks).field("fi3_pathname", &self.fi3_pathname).field("fi3_username", &self.fi3_username).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_INFO_3 {
+impl ::core::cmp::PartialEq for FILE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.fi3_id == other.fi3_id && self.fi3_permissions == other.fi3_permissions && self.fi3_num_locks == other.fi3_num_locks && self.fi3_pathname == other.fi3_pathname && self.fi3_username == other.fi3_username
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_INFO_3 {}
+impl ::core::cmp::Eq for FILE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
 pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
@@ -4786,7 +4786,7 @@ pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLAS
 pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
 pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
 pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
-impl ::std::convert::From<i32> for FILE_INFO_BY_HANDLE_CLASS {
+impl ::core::convert::From<i32> for FILE_INFO_BY_HANDLE_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4795,13 +4795,13 @@ unsafe impl ::windows::runtime::Abi for FILE_INFO_BY_HANDLE_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
 pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
 pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
 pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
-impl ::std::convert::From<u32> for FILE_INFO_FLAGS_PERMISSIONS {
+impl ::core::convert::From<u32> for FILE_INFO_FLAGS_PERMISSIONS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4809,67 +4809,67 @@ impl ::std::convert::From<u32> for FILE_INFO_FLAGS_PERMISSIONS {
 unsafe impl ::windows::runtime::Abi for FILE_INFO_FLAGS_PERMISSIONS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
+impl ::core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
+impl ::core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
+impl ::core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
+impl ::core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
+impl ::core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
 impl FILE_IO_PRIORITY_HINT_INFO {}
-impl ::std::default::Default for FILE_IO_PRIORITY_HINT_INFO {
+impl ::core::default::Default for FILE_IO_PRIORITY_HINT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_IO_PRIORITY_HINT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_IO_PRIORITY_HINT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_IO_PRIORITY_HINT_INFO").field("PriorityHint", &self.PriorityHint).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_IO_PRIORITY_HINT_INFO {
+impl ::core::cmp::PartialEq for FILE_IO_PRIORITY_HINT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.PriorityHint == other.PriorityHint
     }
 }
-impl ::std::cmp::Eq for FILE_IO_PRIORITY_HINT_INFO {}
+impl ::core::cmp::Eq for FILE_IO_PRIORITY_HINT_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_IO_PRIORITY_HINT_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_NAME(pub u32);
 pub const FILE_NAME_NORMALIZED: FILE_NAME = FILE_NAME(0u32);
 pub const FILE_NAME_OPENED: FILE_NAME = FILE_NAME(8u32);
-impl ::std::convert::From<u32> for FILE_NAME {
+impl ::core::convert::From<u32> for FILE_NAME {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4877,35 +4877,35 @@ impl ::std::convert::From<u32> for FILE_NAME {
 unsafe impl ::windows::runtime::Abi for FILE_NAME {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_NAME {
+impl ::core::ops::BitOr for FILE_NAME {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_NAME {
+impl ::core::ops::BitAnd for FILE_NAME {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_NAME {
+impl ::core::ops::BitOrAssign for FILE_NAME {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_NAME {
+impl ::core::ops::BitAndAssign for FILE_NAME {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_NAME {
+impl ::core::ops::Not for FILE_NAME {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_NAME_INFO {
@@ -4913,27 +4913,27 @@ pub struct FILE_NAME_INFO {
     pub FileName: [u16; 1],
 }
 impl FILE_NAME_INFO {}
-impl ::std::default::Default for FILE_NAME_INFO {
+impl ::core::default::Default for FILE_NAME_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_NAME_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_NAME_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_NAME_INFO").field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_NAME_INFO {
+impl ::core::cmp::PartialEq for FILE_NAME_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
     }
 }
-impl ::std::cmp::Eq for FILE_NAME_INFO {}
+impl ::core::cmp::Eq for FILE_NAME_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_NAME_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_NOTIFY_CHANGE(pub u32);
 pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
@@ -4944,7 +4944,7 @@ pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE
 pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
 pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
 pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
-impl ::std::convert::From<u32> for FILE_NOTIFY_CHANGE {
+impl ::core::convert::From<u32> for FILE_NOTIFY_CHANGE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4952,35 +4952,35 @@ impl ::std::convert::From<u32> for FILE_NOTIFY_CHANGE {
 unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_CHANGE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_NOTIFY_CHANGE {
+impl ::core::ops::BitOr for FILE_NOTIFY_CHANGE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_NOTIFY_CHANGE {
+impl ::core::ops::BitAnd for FILE_NOTIFY_CHANGE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
+impl ::core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
+impl ::core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_NOTIFY_CHANGE {
+impl ::core::ops::Not for FILE_NOTIFY_CHANGE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
@@ -5000,13 +5000,13 @@ pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub FileName: [u16; 1],
 }
 impl FILE_NOTIFY_EXTENDED_INFORMATION {}
-impl ::std::default::Default for FILE_NOTIFY_EXTENDED_INFORMATION {
+impl ::core::default::Default for FILE_NOTIFY_EXTENDED_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_NOTIFY_EXTENDED_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_NOTIFY_EXTENDED_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_NOTIFY_EXTENDED_INFORMATION")
             .field("NextEntryOffset", &self.NextEntryOffset)
             .field("Action", &self.Action)
@@ -5025,7 +5025,7 @@ impl ::std::fmt::Debug for FILE_NOTIFY_EXTENDED_INFORMATION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
+impl ::core::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.NextEntryOffset == other.NextEntryOffset
             && self.Action == other.Action
@@ -5043,11 +5043,11 @@ impl ::std::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
             && self.FileName == other.FileName
     }
 }
-impl ::std::cmp::Eq for FILE_NOTIFY_EXTENDED_INFORMATION {}
+impl ::core::cmp::Eq for FILE_NOTIFY_EXTENDED_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_EXTENDED_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_NOTIFY_INFORMATION {
@@ -5057,22 +5057,22 @@ pub struct FILE_NOTIFY_INFORMATION {
     pub FileName: [u16; 1],
 }
 impl FILE_NOTIFY_INFORMATION {}
-impl ::std::default::Default for FILE_NOTIFY_INFORMATION {
+impl ::core::default::Default for FILE_NOTIFY_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_NOTIFY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_NOTIFY_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_NOTIFY_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Action", &self.Action).field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_NOTIFY_INFORMATION {
+impl ::core::cmp::PartialEq for FILE_NOTIFY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.NextEntryOffset == other.NextEntryOffset && self.Action == other.Action && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
     }
 }
-impl ::std::cmp::Eq for FILE_NOTIFY_INFORMATION {}
+impl ::core::cmp::Eq for FILE_NOTIFY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_INFORMATION {
     type Abi = Self;
 }
@@ -5084,7 +5084,7 @@ pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
@@ -5100,47 +5100,47 @@ pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
 }
 impl FILE_REMOTE_PROTOCOL_INFO {}
-impl ::std::default::Default for FILE_REMOTE_PROTOCOL_INFO {
+impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO {
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO {}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
 impl FILE_REMOTE_PROTOCOL_INFO_0 {}
-impl ::std::default::Default for FILE_REMOTE_PROTOCOL_INFO_0 {
+impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_GenericReserved_e__Struct").field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_0 {
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_0 {}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub union FILE_REMOTE_PROTOCOL_INFO_1 {
@@ -5148,21 +5148,21 @@ pub union FILE_REMOTE_PROTOCOL_INFO_1 {
     pub Reserved: [u32; 16],
 }
 impl FILE_REMOTE_PROTOCOL_INFO_1 {}
-impl ::std::default::Default for FILE_REMOTE_PROTOCOL_INFO_1 {
+impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1 {
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1 {}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
@@ -5170,52 +5170,52 @@ pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
 }
 impl FILE_REMOTE_PROTOCOL_INFO_1_0 {}
-impl ::std::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Smb2_e__Struct").field("Server", &self.Server).field("Share", &self.Share).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Server == other.Server && self.Share == other.Share
     }
 }
-impl ::std::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
 unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
 impl FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
-impl ::std::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Server_e__Struct").field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities
     }
 }
-impl ::std::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
 unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
@@ -5223,26 +5223,26 @@ pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub CachingFlags: u32,
 }
 impl FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
-impl ::std::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Share_e__Struct").field("Capabilities", &self.Capabilities).field("CachingFlags", &self.CachingFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities && self.CachingFlags == other.CachingFlags
     }
 }
-impl ::std::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
 unsafe impl ::windows::runtime::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -5255,24 +5255,24 @@ pub struct FILE_RENAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_RENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_RENAME_INFO {
+impl ::core::default::Default for FILE_RENAME_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_RENAME_INFO {
+impl ::core::cmp::PartialEq for FILE_RENAME_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_RENAME_INFO {}
+impl ::core::cmp::Eq for FILE_RENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_RENAME_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union FILE_RENAME_INFO_0 {
@@ -5282,54 +5282,54 @@ pub union FILE_RENAME_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_RENAME_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_RENAME_INFO_0 {
+impl ::core::default::Default for FILE_RENAME_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_RENAME_INFO_0 {
+impl ::core::cmp::PartialEq for FILE_RENAME_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_RENAME_INFO_0 {}
+impl ::core::cmp::Eq for FILE_RENAME_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_RENAME_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub union FILE_SEGMENT_ELEMENT {
-    pub Buffer: *mut ::std::ffi::c_void,
+    pub Buffer: *mut ::core::ffi::c_void,
     pub Alignment: u64,
 }
 impl FILE_SEGMENT_ELEMENT {}
-impl ::std::default::Default for FILE_SEGMENT_ELEMENT {
+impl ::core::default::Default for FILE_SEGMENT_ELEMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FILE_SEGMENT_ELEMENT {
+impl ::core::cmp::PartialEq for FILE_SEGMENT_ELEMENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FILE_SEGMENT_ELEMENT {}
+impl ::core::cmp::Eq for FILE_SEGMENT_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for FILE_SEGMENT_ELEMENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_SHARE_MODE(pub u32);
 pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
 pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
 pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
 pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
-impl ::std::convert::From<u32> for FILE_SHARE_MODE {
+impl ::core::convert::From<u32> for FILE_SHARE_MODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -5337,35 +5337,35 @@ impl ::std::convert::From<u32> for FILE_SHARE_MODE {
 unsafe impl ::windows::runtime::Abi for FILE_SHARE_MODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FILE_SHARE_MODE {
+impl ::core::ops::BitOr for FILE_SHARE_MODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FILE_SHARE_MODE {
+impl ::core::ops::BitAnd for FILE_SHARE_MODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FILE_SHARE_MODE {
+impl ::core::ops::BitOrAssign for FILE_SHARE_MODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FILE_SHARE_MODE {
+impl ::core::ops::BitAndAssign for FILE_SHARE_MODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FILE_SHARE_MODE {
+impl ::core::ops::Not for FILE_SHARE_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -5379,30 +5379,30 @@ pub struct FILE_STANDARD_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl FILE_STANDARD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_STANDARD_INFO {
+impl ::core::default::Default for FILE_STANDARD_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_STANDARD_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_STANDARD_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_STANDARD_INFO").field("AllocationSize", &self.AllocationSize).field("EndOfFile", &self.EndOfFile).field("NumberOfLinks", &self.NumberOfLinks).field("DeletePending", &self.DeletePending).field("Directory", &self.Directory).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_STANDARD_INFO {
+impl ::core::cmp::PartialEq for FILE_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.AllocationSize == other.AllocationSize && self.EndOfFile == other.EndOfFile && self.NumberOfLinks == other.NumberOfLinks && self.DeletePending == other.DeletePending && self.Directory == other.Directory
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_STANDARD_INFO {}
+impl ::core::cmp::Eq for FILE_STANDARD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_STANDARD_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_STORAGE_INFO {
@@ -5415,13 +5415,13 @@ pub struct FILE_STORAGE_INFO {
     pub ByteOffsetForPartitionAlignment: u32,
 }
 impl FILE_STORAGE_INFO {}
-impl ::std::default::Default for FILE_STORAGE_INFO {
+impl ::core::default::Default for FILE_STORAGE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_STORAGE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_STORAGE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_STORAGE_INFO")
             .field("LogicalBytesPerSector", &self.LogicalBytesPerSector)
             .field("PhysicalBytesPerSectorForAtomicity", &self.PhysicalBytesPerSectorForAtomicity)
@@ -5433,7 +5433,7 @@ impl ::std::fmt::Debug for FILE_STORAGE_INFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_STORAGE_INFO {
+impl ::core::cmp::PartialEq for FILE_STORAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.LogicalBytesPerSector == other.LogicalBytesPerSector
             && self.PhysicalBytesPerSectorForAtomicity == other.PhysicalBytesPerSectorForAtomicity
@@ -5444,11 +5444,11 @@ impl ::std::cmp::PartialEq for FILE_STORAGE_INFO {
             && self.ByteOffsetForPartitionAlignment == other.ByteOffsetForPartitionAlignment
     }
 }
-impl ::std::cmp::Eq for FILE_STORAGE_INFO {}
+impl ::core::cmp::Eq for FILE_STORAGE_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_STORAGE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct FILE_STREAM_INFO {
@@ -5459,33 +5459,33 @@ pub struct FILE_STREAM_INFO {
     pub StreamName: [u16; 1],
 }
 impl FILE_STREAM_INFO {}
-impl ::std::default::Default for FILE_STREAM_INFO {
+impl ::core::default::Default for FILE_STREAM_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILE_STREAM_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILE_STREAM_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILE_STREAM_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("StreamNameLength", &self.StreamNameLength).field("StreamSize", &self.StreamSize).field("StreamAllocationSize", &self.StreamAllocationSize).field("StreamName", &self.StreamName).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILE_STREAM_INFO {
+impl ::core::cmp::PartialEq for FILE_STREAM_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.NextEntryOffset == other.NextEntryOffset && self.StreamNameLength == other.StreamNameLength && self.StreamSize == other.StreamSize && self.StreamAllocationSize == other.StreamAllocationSize && self.StreamName == other.StreamName
     }
 }
-impl ::std::cmp::Eq for FILE_STREAM_INFO {}
+impl ::core::cmp::Eq for FILE_STREAM_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_STREAM_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FINDEX_INFO_LEVELS(pub i32);
 pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
 pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
 pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
-impl ::std::convert::From<i32> for FINDEX_INFO_LEVELS {
+impl ::core::convert::From<i32> for FINDEX_INFO_LEVELS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5494,14 +5494,14 @@ unsafe impl ::windows::runtime::Abi for FINDEX_INFO_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FINDEX_SEARCH_OPS(pub i32);
 pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
 pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
 pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
 pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
-impl ::std::convert::From<i32> for FINDEX_SEARCH_OPS {
+impl ::core::convert::From<i32> for FINDEX_SEARCH_OPS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5510,13 +5510,13 @@ unsafe impl ::windows::runtime::Abi for FINDEX_SEARCH_OPS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FIND_FIRST_EX_FLAGS(pub u32);
 pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
 pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
 pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
-impl ::std::convert::From<u32> for FIND_FIRST_EX_FLAGS {
+impl ::core::convert::From<u32> for FIND_FIRST_EX_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -5524,35 +5524,35 @@ impl ::std::convert::From<u32> for FIND_FIRST_EX_FLAGS {
 unsafe impl ::windows::runtime::Abi for FIND_FIRST_EX_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FIND_FIRST_EX_FLAGS {
+impl ::core::ops::BitOr for FIND_FIRST_EX_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FIND_FIRST_EX_FLAGS {
+impl ::core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
+impl ::core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
+impl ::core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FIND_FIRST_EX_FLAGS {
+impl ::core::ops::Not for FIND_FIRST_EX_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -5566,25 +5566,25 @@ pub struct FIO_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl FIO_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FIO_CONTEXT {
+impl ::core::default::Default for FIO_CONTEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FIO_CONTEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FIO_CONTEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FIO_CONTEXT").field("m_dwTempHack", &self.m_dwTempHack).field("m_dwSignature", &self.m_dwSignature).field("m_hFile", &self.m_hFile).field("m_dwLinesOffset", &self.m_dwLinesOffset).field("m_dwHeaderLength", &self.m_dwHeaderLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FIO_CONTEXT {
+impl ::core::cmp::PartialEq for FIO_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.m_dwTempHack == other.m_dwTempHack && self.m_dwSignature == other.m_dwSignature && self.m_hFile == other.m_hFile && self.m_dwLinesOffset == other.m_dwLinesOffset && self.m_dwHeaderLength == other.m_dwHeaderLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FIO_CONTEXT {}
+impl ::core::cmp::Eq for FIO_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FIO_CONTEXT {
     type Abi = Self;
@@ -5599,7 +5599,7 @@ pub unsafe fn FileEncryptionStatusA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FileEncryptionStatusA(lpfilename: super::super::Foundation::PSTR, lpstatus: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FileEncryptionStatusA(lpfilename.into_param().abi(), ::std::mem::transmute(lpstatus)))
+        ::core::mem::transmute(FileEncryptionStatusA(lpfilename.into_param().abi(), ::core::mem::transmute(lpstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5614,7 +5614,7 @@ pub unsafe fn FileEncryptionStatusW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FileEncryptionStatusW(lpfilename: super::super::Foundation::PWSTR, lpstatus: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FileEncryptionStatusW(lpfilename.into_param().abi(), ::std::mem::transmute(lpstatus)))
+        ::core::mem::transmute(FileEncryptionStatusW(lpfilename.into_param().abi(), ::core::mem::transmute(lpstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5629,17 +5629,17 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
         extern "system" {
             fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FileTimeToLocalFileTime(::std::mem::transmute(lpfiletime), ::std::mem::transmute(lplocalfiletime)))
+        ::core::mem::transmute(FileTimeToLocalFileTime(::core::mem::transmute(lpfiletime), ::core::mem::transmute(lplocalfiletime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FindChangeNotificationHandle(pub isize);
-impl ::std::default::Default for FindChangeNotificationHandle {
+impl ::core::default::Default for FindChangeNotificationHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FindChangeNotificationHandle {}
@@ -5656,7 +5656,7 @@ pub unsafe fn FindClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHa
         extern "system" {
             fn FindClose(hfindfile: FindFileHandle) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindClose(hfindfile.into_param().abi()))
+        ::core::mem::transmute(FindClose(hfindfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5671,29 +5671,29 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FindCloseChangeNotification(hchangehandle: FindChangeNotificationHandle) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindCloseChangeNotification(hchangehandle.into_param().abi()))
+        ::core::mem::transmute(FindCloseChangeNotification(hchangehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FindFileHandle(pub isize);
-impl ::std::default::Default for FindFileHandle {
+impl ::core::default::Default for FindFileHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FindFileHandle {}
 unsafe impl ::windows::runtime::Abi for FindFileHandle {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FindFileNameHandle(pub isize);
-impl ::std::default::Default for FindFileNameHandle {
+impl ::core::default::Default for FindFileNameHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FindFileNameHandle {}
@@ -5710,7 +5710,7 @@ pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FindFirstChangeNotificationA(lppathname: super::super::Foundation::PSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
         }
-        ::std::mem::transmute(FindFirstChangeNotificationA(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), ::std::mem::transmute(dwnotifyfilter)))
+        ::core::mem::transmute(FindFirstChangeNotificationA(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), ::core::mem::transmute(dwnotifyfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5725,7 +5725,7 @@ pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FindFirstChangeNotificationW(lppathname: super::super::Foundation::PWSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
         }
-        ::std::mem::transmute(FindFirstChangeNotificationW(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), ::std::mem::transmute(dwnotifyfilter)))
+        ::core::mem::transmute(FindFirstChangeNotificationW(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), ::core::mem::transmute(dwnotifyfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5740,7 +5740,7 @@ pub unsafe fn FindFirstFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn FindFirstFileA(lpfilename: super::super::Foundation::PSTR, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle;
         }
-        ::std::mem::transmute(FindFirstFileA(lpfilename.into_param().abi(), ::std::mem::transmute(lpfindfiledata)))
+        ::core::mem::transmute(FindFirstFileA(lpfilename.into_param().abi(), ::core::mem::transmute(lpfindfiledata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5748,14 +5748,14 @@ pub unsafe fn FindFirstFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
+pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstFileExA(lpfilename: super::super::Foundation::PSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
+            fn FindFirstFileExA(lpfilename: super::super::Foundation::PSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
         }
-        ::std::mem::transmute(FindFirstFileExA(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(fsearchop), ::std::mem::transmute(lpsearchfilter), ::std::mem::transmute(dwadditionalflags)))
+        ::core::mem::transmute(FindFirstFileExA(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5763,14 +5763,14 @@ pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstFileExFromAppW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE;
+            fn FindFirstFileExFromAppW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(FindFirstFileExFromAppW(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(fsearchop), ::std::mem::transmute(lpsearchfilter), ::std::mem::transmute(dwadditionalflags)))
+        ::core::mem::transmute(FindFirstFileExFromAppW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5778,14 +5778,14 @@ pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
+pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstFileExW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
+            fn FindFirstFileExW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
         }
-        ::std::mem::transmute(FindFirstFileExW(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(fsearchop), ::std::mem::transmute(lpsearchfilter), ::std::mem::transmute(dwadditionalflags)))
+        ::core::mem::transmute(FindFirstFileExW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5800,7 +5800,7 @@ pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FindFirstFileNameTransactedW(lpfilename: super::super::Foundation::PWSTR, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> FindFileNameHandle;
         }
-        ::std::mem::transmute(FindFirstFileNameTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(stringlength), ::std::mem::transmute(linkname), htransaction.into_param().abi()))
+        ::core::mem::transmute(FindFirstFileNameTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5815,7 +5815,7 @@ pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn FindFirstFileNameW(lpfilename: super::super::Foundation::PWSTR, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> FindFileNameHandle;
         }
-        ::std::mem::transmute(FindFirstFileNameW(lpfilename.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(stringlength), ::std::mem::transmute(linkname)))
+        ::core::mem::transmute(FindFirstFileNameW(lpfilename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5823,14 +5823,14 @@ pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
+pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstFileTransactedA(lpfilename: super::super::Foundation::PSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
+            fn FindFirstFileTransactedA(lpfilename: super::super::Foundation::PSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
         }
-        ::std::mem::transmute(FindFirstFileTransactedA(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(fsearchop), ::std::mem::transmute(lpsearchfilter), ::std::mem::transmute(dwadditionalflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(FindFirstFileTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5838,14 +5838,14 @@ pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
+pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstFileTransactedW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::std::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::std::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
+            fn FindFirstFileTransactedW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
         }
-        ::std::mem::transmute(FindFirstFileTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(fsearchop), ::std::mem::transmute(lpsearchfilter), ::std::mem::transmute(dwadditionalflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(FindFirstFileTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5860,7 +5860,7 @@ pub unsafe fn FindFirstFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn FindFirstFileW(lpfilename: super::super::Foundation::PWSTR, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle;
         }
-        ::std::mem::transmute(FindFirstFileW(lpfilename.into_param().abi(), ::std::mem::transmute(lpfindfiledata)))
+        ::core::mem::transmute(FindFirstFileW(lpfilename.into_param().abi(), ::core::mem::transmute(lpfindfiledata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5868,14 +5868,14 @@ pub unsafe fn FindFirstFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::std::ffi::c_void, dwflags: u32, htransaction: Param4) -> FindStreamHandle {
+pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: Param4) -> FindStreamHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstStreamTransactedW(lpfilename: super::super::Foundation::PWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::std::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindStreamHandle;
+            fn FindFirstStreamTransactedW(lpfilename: super::super::Foundation::PWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindStreamHandle;
         }
-        ::std::mem::transmute(FindFirstStreamTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(infolevel), ::std::mem::transmute(lpfindstreamdata), ::std::mem::transmute(dwflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(FindFirstStreamTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5883,14 +5883,14 @@ pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::std::ffi::c_void, dwflags: u32) -> FindStreamHandle {
+pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstStreamW(lpfilename: super::super::Foundation::PWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::std::ffi::c_void, dwflags: u32) -> FindStreamHandle;
+            fn FindFirstStreamW(lpfilename: super::super::Foundation::PWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle;
         }
-        ::std::mem::transmute(FindFirstStreamW(lpfilename.into_param().abi(), ::std::mem::transmute(infolevel), ::std::mem::transmute(lpfindstreamdata), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(FindFirstStreamW(lpfilename.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5905,7 +5905,7 @@ pub unsafe fn FindFirstVolumeA(lpszvolumename: super::super::Foundation::PSTR, c
         extern "system" {
             fn FindFirstVolumeA(lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeHandle;
         }
-        ::std::mem::transmute(FindFirstVolumeA(::std::mem::transmute(lpszvolumename), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindFirstVolumeA(::core::mem::transmute(lpszvolumename), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5920,7 +5920,7 @@ pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FindFirstVolumeMountPointA(lpszrootpathname: super::super::Foundation::PSTR, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle;
         }
-        ::std::mem::transmute(FindFirstVolumeMountPointA(lpszrootpathname.into_param().abi(), ::std::mem::transmute(lpszvolumemountpoint), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindFirstVolumeMountPointA(lpszrootpathname.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5935,7 +5935,7 @@ pub unsafe fn FindFirstVolumeMountPointW<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FindFirstVolumeMountPointW(lpszrootpathname: super::super::Foundation::PWSTR, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle;
         }
-        ::std::mem::transmute(FindFirstVolumeMountPointW(lpszrootpathname.into_param().abi(), ::std::mem::transmute(lpszvolumemountpoint), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindFirstVolumeMountPointW(lpszrootpathname.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5950,7 +5950,7 @@ pub unsafe fn FindFirstVolumeW(lpszvolumename: super::super::Foundation::PWSTR, 
         extern "system" {
             fn FindFirstVolumeW(lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeHandle;
         }
-        ::std::mem::transmute(FindFirstVolumeW(::std::mem::transmute(lpszvolumename), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindFirstVolumeW(::core::mem::transmute(lpszvolumename), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5965,7 +5965,7 @@ pub unsafe fn FindNextChangeNotification<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FindNextChangeNotification(hchangehandle: FindChangeNotificationHandle) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextChangeNotification(hchangehandle.into_param().abi()))
+        ::core::mem::transmute(FindNextChangeNotification(hchangehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5980,7 +5980,7 @@ pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFi
         extern "system" {
             fn FindNextFileA(hfindfile: FindFileHandle, lpfindfiledata: *mut WIN32_FIND_DATAA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextFileA(hfindfile.into_param().abi(), ::std::mem::transmute(lpfindfiledata)))
+        ::core::mem::transmute(FindNextFileA(hfindfile.into_param().abi(), ::core::mem::transmute(lpfindfiledata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5995,7 +5995,7 @@ pub unsafe fn FindNextFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, Fi
         extern "system" {
             fn FindNextFileNameW(hfindstream: FindFileNameHandle, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextFileNameW(hfindstream.into_param().abi(), ::std::mem::transmute(stringlength), ::std::mem::transmute(linkname)))
+        ::core::mem::transmute(FindNextFileNameW(hfindstream.into_param().abi(), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6010,7 +6010,7 @@ pub unsafe fn FindNextFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn FindNextFileW(hfindfile: super::super::Foundation::HANDLE, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextFileW(hfindfile.into_param().abi(), ::std::mem::transmute(lpfindfiledata)))
+        ::core::mem::transmute(FindNextFileW(hfindfile.into_param().abi(), ::core::mem::transmute(lpfindfiledata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6018,14 +6018,14 @@ pub unsafe fn FindNextFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, FindStreamHandle>>(hfindstream: Param0, lpfindstreamdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, FindStreamHandle>>(hfindstream: Param0, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextStreamW(hfindstream: FindStreamHandle, lpfindstreamdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn FindNextStreamW(hfindstream: FindStreamHandle, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextStreamW(hfindstream.into_param().abi(), ::std::mem::transmute(lpfindstreamdata)))
+        ::core::mem::transmute(FindNextStreamW(hfindstream.into_param().abi(), ::core::mem::transmute(lpfindstreamdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6040,7 +6040,7 @@ pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::runtime::IntoParam<'a, Find
         extern "system" {
             fn FindNextVolumeA(hfindvolume: FindVolumeHandle, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextVolumeA(hfindvolume.into_param().abi(), ::std::mem::transmute(lpszvolumename), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindNextVolumeA(hfindvolume.into_param().abi(), ::core::mem::transmute(lpszvolumename), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6055,7 +6055,7 @@ pub unsafe fn FindNextVolumeMountPointA<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn FindNextVolumeMountPointA(hfindvolumemountpoint: FindVolumeMointPointHandle, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextVolumeMountPointA(hfindvolumemountpoint.into_param().abi(), ::std::mem::transmute(lpszvolumemountpoint), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindNextVolumeMountPointA(hfindvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6070,7 +6070,7 @@ pub unsafe fn FindNextVolumeMountPointW<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn FindNextVolumeMountPointW(hfindvolumemountpoint: FindVolumeMointPointHandle, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextVolumeMountPointW(hfindvolumemountpoint.into_param().abi(), ::std::mem::transmute(lpszvolumemountpoint), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindNextVolumeMountPointW(hfindvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6085,17 +6085,17 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::runtime::IntoParam<'a, Find
         extern "system" {
             fn FindNextVolumeW(hfindvolume: FindVolumeHandle, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextVolumeW(hfindvolume.into_param().abi(), ::std::mem::transmute(lpszvolumename), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(FindNextVolumeW(hfindvolume.into_param().abi(), ::core::mem::transmute(lpszvolumename), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FindStreamHandle(pub isize);
-impl ::std::default::Default for FindStreamHandle {
+impl ::core::default::Default for FindStreamHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FindStreamHandle {}
@@ -6112,29 +6112,29 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::runtime::IntoParam<'a, Find
         extern "system" {
             fn FindVolumeClose(hfindvolume: FindVolumeHandle) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindVolumeClose(hfindvolume.into_param().abi()))
+        ::core::mem::transmute(FindVolumeClose(hfindvolume.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FindVolumeHandle(pub isize);
-impl ::std::default::Default for FindVolumeHandle {
+impl ::core::default::Default for FindVolumeHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FindVolumeHandle {}
 unsafe impl ::windows::runtime::Abi for FindVolumeHandle {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FindVolumeMointPointHandle(pub isize);
-impl ::std::default::Default for FindVolumeMointPointHandle {
+impl ::core::default::Default for FindVolumeMointPointHandle {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for FindVolumeMointPointHandle {}
@@ -6151,7 +6151,7 @@ pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn FindVolumeMountPointClose(hfindvolumemountpoint: FindVolumeMointPointHandle) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindVolumeMountPointClose(hfindvolumemountpoint.into_param().abi()))
+        ::core::mem::transmute(FindVolumeMountPointClose(hfindvolumemountpoint.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6166,7 +6166,7 @@ pub unsafe fn FlushFileBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn FlushFileBuffers(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FlushFileBuffers(hfile.into_param().abi()))
+        ::core::mem::transmute(FlushFileBuffers(hfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6174,14 +6174,14 @@ pub unsafe fn FlushFileBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::std::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FlushLogBuffers(pvmarshal: *mut ::std::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FlushLogBuffers(::std::mem::transmute(pvmarshal), ::std::mem::transmute(poverlapped)))
+        ::core::mem::transmute(FlushLogBuffers(::core::mem::transmute(pvmarshal), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6189,14 +6189,14 @@ pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::std::ffi::c_void, poverlapped: *
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::std::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FlushLogToLsn(pvmarshalcontext: *mut ::std::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FlushLogToLsn(::std::mem::transmute(pvmarshalcontext), ::std::mem::transmute(plsnflush), ::std::mem::transmute(plsnlastflushed), ::std::mem::transmute(poverlapped)))
+        ::core::mem::transmute(FlushLogToLsn(::core::mem::transmute(pvmarshalcontext), ::core::mem::transmute(plsnflush), ::core::mem::transmute(plsnlastflushed), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6210,7 +6210,7 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
         extern "system" {
             fn FreeEncryptedFileMetadata(pbmetadata: *const u8);
         }
-        ::std::mem::transmute(FreeEncryptedFileMetadata(::std::mem::transmute(pbmetadata)))
+        ::core::mem::transmute(FreeEncryptedFileMetadata(::core::mem::transmute(pbmetadata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6225,7 +6225,7 @@ pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIF
         extern "system" {
             fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
         }
-        ::std::mem::transmute(FreeEncryptionCertificateHashList(::std::mem::transmute(pusers)))
+        ::core::mem::transmute(FreeEncryptionCertificateHashList(::core::mem::transmute(pusers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6233,25 +6233,25 @@ pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIF
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FreeReservedLog(pvmarshal: *mut ::std::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
+            fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FreeReservedLog(::std::mem::transmute(pvmarshal), ::std::mem::transmute(creservedrecords), ::std::mem::transmute(pcbadjustment)))
+        ::core::mem::transmute(FreeReservedLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(creservedrecords), ::core::mem::transmute(pcbadjustment)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_FILEEX_INFO_LEVELS(pub i32);
 pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
 pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
-impl ::std::convert::From<i32> for GET_FILEEX_INFO_LEVELS {
+impl ::core::convert::From<i32> for GET_FILEEX_INFO_LEVELS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6260,13 +6260,13 @@ unsafe impl ::windows::runtime::Abi for GET_FILEEX_INFO_LEVELS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
 pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
 pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
 pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
-impl ::std::convert::From<u32> for GET_FILE_VERSION_INFO_FLAGS {
+impl ::core::convert::From<u32> for GET_FILE_VERSION_INFO_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6274,41 +6274,41 @@ impl ::std::convert::From<u32> for GET_FILE_VERSION_INFO_FLAGS {
 unsafe impl ::windows::runtime::Abi for GET_FILE_VERSION_INFO_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
+impl ::core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
+impl ::core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
+impl ::core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
+impl ::core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
+impl ::core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
 pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
 pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
-impl ::std::convert::From<u32> for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+impl ::core::convert::From<u32> for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6316,29 +6316,29 @@ impl ::std::convert::From<u32> for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
 unsafe impl ::windows::runtime::Abi for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+impl ::core::ops::BitOr for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+impl ::core::ops::BitAnd for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+impl ::core::ops::BitOrAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+impl ::core::ops::BitAndAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+impl ::core::ops::Not for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -6354,7 +6354,7 @@ pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetBinaryTypeA(lpapplicationname: super::super::Foundation::PSTR, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetBinaryTypeA(lpapplicationname.into_param().abi(), ::std::mem::transmute(lpbinarytype)))
+        ::core::mem::transmute(GetBinaryTypeA(lpapplicationname.into_param().abi(), ::core::mem::transmute(lpbinarytype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6369,7 +6369,7 @@ pub unsafe fn GetBinaryTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn GetBinaryTypeW(lpapplicationname: super::super::Foundation::PWSTR, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetBinaryTypeW(lpapplicationname.into_param().abi(), ::std::mem::transmute(lpbinarytype)))
+        ::core::mem::transmute(GetBinaryTypeW(lpapplicationname.into_param().abi(), ::core::mem::transmute(lpbinarytype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6384,7 +6384,7 @@ pub unsafe fn GetCompressedFileSizeA<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn GetCompressedFileSizeA(lpfilename: super::super::Foundation::PSTR, lpfilesizehigh: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetCompressedFileSizeA(lpfilename.into_param().abi(), ::std::mem::transmute(lpfilesizehigh)))
+        ::core::mem::transmute(GetCompressedFileSizeA(lpfilename.into_param().abi(), ::core::mem::transmute(lpfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6399,7 +6399,7 @@ pub unsafe fn GetCompressedFileSizeTransactedA<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn GetCompressedFileSizeTransactedA(lpfilename: super::super::Foundation::PSTR, lpfilesizehigh: *mut u32, htransaction: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetCompressedFileSizeTransactedA(lpfilename.into_param().abi(), ::std::mem::transmute(lpfilesizehigh), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetCompressedFileSizeTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(lpfilesizehigh), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6414,7 +6414,7 @@ pub unsafe fn GetCompressedFileSizeTransactedW<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn GetCompressedFileSizeTransactedW(lpfilename: super::super::Foundation::PWSTR, lpfilesizehigh: *mut u32, htransaction: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetCompressedFileSizeTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(lpfilesizehigh), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetCompressedFileSizeTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(lpfilesizehigh), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6429,7 +6429,7 @@ pub unsafe fn GetCompressedFileSizeW<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn GetCompressedFileSizeW(lpfilename: super::super::Foundation::PWSTR, lpfilesizehigh: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetCompressedFileSizeW(lpfilename.into_param().abi(), ::std::mem::transmute(lpfilesizehigh)))
+        ::core::mem::transmute(GetCompressedFileSizeW(lpfilename.into_param().abi(), ::core::mem::transmute(lpfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6444,7 +6444,7 @@ pub unsafe fn GetCurrentClockTransactionManager<'a, Param0: ::windows::runtime::
         extern "system" {
             fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCurrentClockTransactionManager(transactionmanagerhandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(GetCurrentClockTransactionManager(transactionmanagerhandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6459,7 +6459,7 @@ pub unsafe fn GetDiskFreeSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetDiskFreeSpaceA(lprootpathname: super::super::Foundation::PSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDiskFreeSpaceA(lprootpathname.into_param().abi(), ::std::mem::transmute(lpsectorspercluster), ::std::mem::transmute(lpbytespersector), ::std::mem::transmute(lpnumberoffreeclusters), ::std::mem::transmute(lptotalnumberofclusters)))
+        ::core::mem::transmute(GetDiskFreeSpaceA(lprootpathname.into_param().abi(), ::core::mem::transmute(lpsectorspercluster), ::core::mem::transmute(lpbytespersector), ::core::mem::transmute(lpnumberoffreeclusters), ::core::mem::transmute(lptotalnumberofclusters)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6474,7 +6474,7 @@ pub unsafe fn GetDiskFreeSpaceExA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn GetDiskFreeSpaceExA(lpdirectoryname: super::super::Foundation::PSTR, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDiskFreeSpaceExA(lpdirectoryname.into_param().abi(), ::std::mem::transmute(lpfreebytesavailabletocaller), ::std::mem::transmute(lptotalnumberofbytes), ::std::mem::transmute(lptotalnumberoffreebytes)))
+        ::core::mem::transmute(GetDiskFreeSpaceExA(lpdirectoryname.into_param().abi(), ::core::mem::transmute(lpfreebytesavailabletocaller), ::core::mem::transmute(lptotalnumberofbytes), ::core::mem::transmute(lptotalnumberoffreebytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6489,7 +6489,7 @@ pub unsafe fn GetDiskFreeSpaceExW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn GetDiskFreeSpaceExW(lpdirectoryname: super::super::Foundation::PWSTR, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDiskFreeSpaceExW(lpdirectoryname.into_param().abi(), ::std::mem::transmute(lpfreebytesavailabletocaller), ::std::mem::transmute(lptotalnumberofbytes), ::std::mem::transmute(lptotalnumberoffreebytes)))
+        ::core::mem::transmute(GetDiskFreeSpaceExW(lpdirectoryname.into_param().abi(), ::core::mem::transmute(lpfreebytesavailabletocaller), ::core::mem::transmute(lptotalnumberofbytes), ::core::mem::transmute(lptotalnumberoffreebytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6504,7 +6504,7 @@ pub unsafe fn GetDiskFreeSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetDiskFreeSpaceW(lprootpathname: super::super::Foundation::PWSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDiskFreeSpaceW(lprootpathname.into_param().abi(), ::std::mem::transmute(lpsectorspercluster), ::std::mem::transmute(lpbytespersector), ::std::mem::transmute(lpnumberoffreeclusters), ::std::mem::transmute(lptotalnumberofclusters)))
+        ::core::mem::transmute(GetDiskFreeSpaceW(lprootpathname.into_param().abi(), ::core::mem::transmute(lpsectorspercluster), ::core::mem::transmute(lpbytespersector), ::core::mem::transmute(lpnumberoffreeclusters), ::core::mem::transmute(lptotalnumberofclusters)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6519,7 +6519,7 @@ pub unsafe fn GetDiskSpaceInformationA<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetDiskSpaceInformationA(rootpath: super::super::Foundation::PSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <DISK_SPACE_INFORMATION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <DISK_SPACE_INFORMATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         GetDiskSpaceInformationA(rootpath.into_param().abi(), &mut result__).from_abi::<DISK_SPACE_INFORMATION>(result__)
     }
     #[cfg(not(windows))]
@@ -6535,7 +6535,7 @@ pub unsafe fn GetDiskSpaceInformationW<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetDiskSpaceInformationW(rootpath: super::super::Foundation::PWSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <DISK_SPACE_INFORMATION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <DISK_SPACE_INFORMATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         GetDiskSpaceInformationW(rootpath.into_param().abi(), &mut result__).from_abi::<DISK_SPACE_INFORMATION>(result__)
     }
     #[cfg(not(windows))]
@@ -6551,7 +6551,7 @@ pub unsafe fn GetDriveTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetDriveTypeA(lprootpathname: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetDriveTypeA(lprootpathname.into_param().abi()))
+        ::core::mem::transmute(GetDriveTypeA(lprootpathname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6566,7 +6566,7 @@ pub unsafe fn GetDriveTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetDriveTypeW(lprootpathname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetDriveTypeW(lprootpathname.into_param().abi()))
+        ::core::mem::transmute(GetDriveTypeW(lprootpathname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6581,7 +6581,7 @@ pub unsafe fn GetEncryptedFileMetadata<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn GetEncryptedFileMetadata(lpfilename: super::super::Foundation::PWSTR, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(GetEncryptedFileMetadata(lpfilename.into_param().abi(), ::std::mem::transmute(pcbmetadata), ::std::mem::transmute(ppbmetadata)))
+        ::core::mem::transmute(GetEncryptedFileMetadata(lpfilename.into_param().abi(), ::core::mem::transmute(pcbmetadata), ::core::mem::transmute(ppbmetadata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6596,7 +6596,7 @@ pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetEnlistmentId(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetEnlistmentId(enlistmenthandle.into_param().abi(), ::std::mem::transmute(enlistmentid)))
+        ::core::mem::transmute(GetEnlistmentId(enlistmenthandle.into_param().abi(), ::core::mem::transmute(enlistmentid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6604,14 +6604,14 @@ pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::std::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::std::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL;
+            fn GetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetEnlistmentRecoveryInformation(enlistmenthandle.into_param().abi(), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferused)))
+        ::core::mem::transmute(GetEnlistmentRecoveryInformation(enlistmenthandle.into_param().abi(), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6626,7 +6626,7 @@ pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetExpandedNameA(lpszsource: super::super::Foundation::PSTR, lpszbuffer: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(GetExpandedNameA(lpszsource.into_param().abi(), ::std::mem::transmute(lpszbuffer)))
+        ::core::mem::transmute(GetExpandedNameA(lpszsource.into_param().abi(), ::core::mem::transmute(lpszbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6641,7 +6641,7 @@ pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetExpandedNameW(lpszsource: super::super::Foundation::PWSTR, lpszbuffer: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(GetExpandedNameW(lpszsource.into_param().abi(), ::std::mem::transmute(lpszbuffer)))
+        ::core::mem::transmute(GetExpandedNameW(lpszsource.into_param().abi(), ::core::mem::transmute(lpszbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6656,7 +6656,7 @@ pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetFileAttributesA(lpfilename: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetFileAttributesA(lpfilename.into_param().abi()))
+        ::core::mem::transmute(GetFileAttributesA(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6664,14 +6664,14 @@ pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileAttributesExA(lpfilename: super::super::Foundation::PSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileAttributesExA(lpfilename: super::super::Foundation::PSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileAttributesExA(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfileinformation)))
+        ::core::mem::transmute(GetFileAttributesExA(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6679,14 +6679,14 @@ pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileAttributesExFromAppW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileAttributesExFromAppW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileAttributesExFromAppW(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfileinformation)))
+        ::core::mem::transmute(GetFileAttributesExFromAppW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6694,14 +6694,14 @@ pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileAttributesExW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileAttributesExW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileAttributesExW(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfileinformation)))
+        ::core::mem::transmute(GetFileAttributesExW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6709,14 +6709,14 @@ pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileAttributesTransactedA(lpfilename: super::super::Foundation::PSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn GetFileAttributesTransactedA(lpfilename: super::super::Foundation::PSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileAttributesTransactedA(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfileinformation), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetFileAttributesTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6724,14 +6724,14 @@ pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileAttributesTransactedW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::std::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn GetFileAttributesTransactedW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileAttributesTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(finfolevelid), ::std::mem::transmute(lpfileinformation), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetFileAttributesTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6746,7 +6746,7 @@ pub unsafe fn GetFileAttributesW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetFileAttributesW(lpfilename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetFileAttributesW(lpfilename.into_param().abi()))
+        ::core::mem::transmute(GetFileAttributesW(lpfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6761,7 +6761,7 @@ pub unsafe fn GetFileBandwidthReservation<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn GetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut i32, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileBandwidthReservation(hfile.into_param().abi(), ::std::mem::transmute(lpperiodmilliseconds), ::std::mem::transmute(lpbytesperperiod), ::std::mem::transmute(pdiscardable), ::std::mem::transmute(lptransfersize), ::std::mem::transmute(lpnumoutstandingrequests)))
+        ::core::mem::transmute(GetFileBandwidthReservation(hfile.into_param().abi(), ::core::mem::transmute(lpperiodmilliseconds), ::core::mem::transmute(lpbytesperperiod), ::core::mem::transmute(pdiscardable), ::core::mem::transmute(lptransfersize), ::core::mem::transmute(lpnumoutstandingrequests)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6776,7 +6776,7 @@ pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileInformationByHandle(hfile.into_param().abi(), ::std::mem::transmute(lpfileinformation)))
+        ::core::mem::transmute(GetFileInformationByHandle(hfile.into_param().abi(), ::core::mem::transmute(lpfileinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6784,14 +6784,14 @@ pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::std::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileInformationByHandleEx(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::std::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
+            fn GetFileInformationByHandleEx(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileInformationByHandleEx(hfile.into_param().abi(), ::std::mem::transmute(fileinformationclass), ::std::mem::transmute(lpfileinformation), ::std::mem::transmute(dwbuffersize)))
+        ::core::mem::transmute(GetFileInformationByHandleEx(hfile.into_param().abi(), ::core::mem::transmute(fileinformationclass), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6806,7 +6806,7 @@ pub unsafe fn GetFileSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetFileSize(hfile: super::super::Foundation::HANDLE, lpfilesizehigh: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetFileSize(hfile.into_param().abi(), ::std::mem::transmute(lpfilesizehigh)))
+        ::core::mem::transmute(GetFileSize(hfile.into_param().abi(), ::core::mem::transmute(lpfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6821,7 +6821,7 @@ pub unsafe fn GetFileSizeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetFileSizeEx(hfile: super::super::Foundation::HANDLE, lpfilesize: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileSizeEx(hfile.into_param().abi(), ::std::mem::transmute(lpfilesize)))
+        ::core::mem::transmute(GetFileSizeEx(hfile.into_param().abi(), ::core::mem::transmute(lpfilesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6836,7 +6836,7 @@ pub unsafe fn GetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetFileTime(hfile: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lplastaccesstime: *mut super::super::Foundation::FILETIME, lplastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileTime(hfile.into_param().abi(), ::std::mem::transmute(lpcreationtime), ::std::mem::transmute(lplastaccesstime), ::std::mem::transmute(lplastwritetime)))
+        ::core::mem::transmute(GetFileTime(hfile.into_param().abi(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lplastaccesstime), ::core::mem::transmute(lplastwritetime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6851,7 +6851,7 @@ pub unsafe fn GetFileType<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetFileType(hfile: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetFileType(hfile.into_param().abi()))
+        ::core::mem::transmute(GetFileType(hfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6859,14 +6859,14 @@ pub unsafe fn GetFileType<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileVersionInfoA(lptstrfilename: super::super::Foundation::PSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileVersionInfoA(lptstrfilename: super::super::Foundation::PSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileVersionInfoA(lptstrfilename.into_param().abi(), ::std::mem::transmute(dwhandle), ::std::mem::transmute(dwlen), ::std::mem::transmute(lpdata)))
+        ::core::mem::transmute(GetFileVersionInfoA(lptstrfilename.into_param().abi(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6874,14 +6874,14 @@ pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileVersionInfoExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileVersionInfoExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileVersionInfoExA(::std::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::std::mem::transmute(dwhandle), ::std::mem::transmute(dwlen), ::std::mem::transmute(lpdata)))
+        ::core::mem::transmute(GetFileVersionInfoExA(::core::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6889,14 +6889,14 @@ pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileVersionInfoExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileVersionInfoExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileVersionInfoExW(::std::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::std::mem::transmute(dwhandle), ::std::mem::transmute(dwlen), ::std::mem::transmute(lpdata)))
+        ::core::mem::transmute(GetFileVersionInfoExW(::core::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6911,7 +6911,7 @@ pub unsafe fn GetFileVersionInfoSizeA<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn GetFileVersionInfoSizeA(lptstrfilename: super::super::Foundation::PSTR, lpdwhandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetFileVersionInfoSizeA(lptstrfilename.into_param().abi(), ::std::mem::transmute(lpdwhandle)))
+        ::core::mem::transmute(GetFileVersionInfoSizeA(lptstrfilename.into_param().abi(), ::core::mem::transmute(lpdwhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6926,7 +6926,7 @@ pub unsafe fn GetFileVersionInfoSizeExA<'a, Param1: ::windows::runtime::IntoPara
         extern "system" {
             fn GetFileVersionInfoSizeExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PSTR, lpdwhandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetFileVersionInfoSizeExA(::std::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::std::mem::transmute(lpdwhandle)))
+        ::core::mem::transmute(GetFileVersionInfoSizeExA(::core::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::core::mem::transmute(lpdwhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6941,7 +6941,7 @@ pub unsafe fn GetFileVersionInfoSizeExW<'a, Param1: ::windows::runtime::IntoPara
         extern "system" {
             fn GetFileVersionInfoSizeExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PWSTR, lpdwhandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetFileVersionInfoSizeExW(::std::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::std::mem::transmute(lpdwhandle)))
+        ::core::mem::transmute(GetFileVersionInfoSizeExW(::core::mem::transmute(dwflags), lpwstrfilename.into_param().abi(), ::core::mem::transmute(lpdwhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6956,7 +6956,7 @@ pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn GetFileVersionInfoSizeW(lptstrfilename: super::super::Foundation::PWSTR, lpdwhandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetFileVersionInfoSizeW(lptstrfilename.into_param().abi(), ::std::mem::transmute(lpdwhandle)))
+        ::core::mem::transmute(GetFileVersionInfoSizeW(lptstrfilename.into_param().abi(), ::core::mem::transmute(lpdwhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6964,14 +6964,14 @@ pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileVersionInfoW(lptstrfilename: super::super::Foundation::PWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn GetFileVersionInfoW(lptstrfilename: super::super::Foundation::PWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileVersionInfoW(lptstrfilename.into_param().abi(), ::std::mem::transmute(dwhandle), ::std::mem::transmute(dwlen), ::std::mem::transmute(lpdata)))
+        ::core::mem::transmute(GetFileVersionInfoW(lptstrfilename.into_param().abi(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6986,7 +6986,7 @@ pub unsafe fn GetFinalPathNameByHandleA<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn GetFinalPathNameByHandleA(hfile: super::super::Foundation::HANDLE, lpszfilepath: super::super::Foundation::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
         }
-        ::std::mem::transmute(GetFinalPathNameByHandleA(hfile.into_param().abi(), ::std::mem::transmute(lpszfilepath), ::std::mem::transmute(cchfilepath), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(GetFinalPathNameByHandleA(hfile.into_param().abi(), ::core::mem::transmute(lpszfilepath), ::core::mem::transmute(cchfilepath), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7001,7 +7001,7 @@ pub unsafe fn GetFinalPathNameByHandleW<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn GetFinalPathNameByHandleW(hfile: super::super::Foundation::HANDLE, lpszfilepath: super::super::Foundation::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
         }
-        ::std::mem::transmute(GetFinalPathNameByHandleW(hfile.into_param().abi(), ::std::mem::transmute(lpszfilepath), ::std::mem::transmute(cchfilepath), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(GetFinalPathNameByHandleW(hfile.into_param().abi(), ::core::mem::transmute(lpszfilepath), ::core::mem::transmute(cchfilepath), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7016,7 +7016,7 @@ pub unsafe fn GetFullPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetFullPathNameA(lpfilename: super::super::Foundation::PSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetFullPathNameA(lpfilename.into_param().abi(), ::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpfilepart)))
+        ::core::mem::transmute(GetFullPathNameA(lpfilename.into_param().abi(), ::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpfilepart)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7031,7 +7031,7 @@ pub unsafe fn GetFullPathNameTransactedA<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetFullPathNameTransactedA(lpfilename: super::super::Foundation::PSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR, htransaction: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetFullPathNameTransactedA(lpfilename.into_param().abi(), ::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpfilepart), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetFullPathNameTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpfilepart), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7046,7 +7046,7 @@ pub unsafe fn GetFullPathNameTransactedW<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetFullPathNameTransactedW(lpfilename: super::super::Foundation::PWSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetFullPathNameTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpfilepart), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetFullPathNameTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpfilepart), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7061,7 +7061,7 @@ pub unsafe fn GetFullPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetFullPathNameW(lpfilename: super::super::Foundation::PWSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetFullPathNameW(lpfilename.into_param().abi(), ::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpfilepart)))
+        ::core::mem::transmute(GetFullPathNameW(lpfilename.into_param().abi(), ::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpfilepart)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7075,8 +7075,8 @@ pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Res
         extern "system" {
             fn GetIoRingInfo(ioring: *const HIORING__, info: *mut IORING_INFO) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IORING_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        GetIoRingInfo(::std::mem::transmute(ioring), &mut result__).from_abi::<IORING_INFO>(result__)
+        let mut result__: <IORING_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        GetIoRingInfo(::core::mem::transmute(ioring), &mut result__).from_abi::<IORING_INFO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7091,7 +7091,7 @@ pub unsafe fn GetLogContainerName<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn GetLogContainerName(hlog: super::super::Foundation::HANDLE, cidlogicalcontainer: u32, pwstrcontainername: super::super::Foundation::PWSTR, clencontainername: u32, pcactuallencontainername: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLogContainerName(hlog.into_param().abi(), ::std::mem::transmute(cidlogicalcontainer), pwstrcontainername.into_param().abi(), ::std::mem::transmute(clencontainername), ::std::mem::transmute(pcactuallencontainername)))
+        ::core::mem::transmute(GetLogContainerName(hlog.into_param().abi(), ::core::mem::transmute(cidlogicalcontainer), pwstrcontainername.into_param().abi(), ::core::mem::transmute(clencontainername), ::core::mem::transmute(pcactuallencontainername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7106,7 +7106,7 @@ pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetLogFileInformation(hlog: super::super::Foundation::HANDLE, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLogFileInformation(hlog.into_param().abi(), ::std::mem::transmute(pinfobuffer), ::std::mem::transmute(cbbuffer)))
+        ::core::mem::transmute(GetLogFileInformation(hlog.into_param().abi(), ::core::mem::transmute(pinfobuffer), ::core::mem::transmute(cbbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7114,14 +7114,14 @@ pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pvstatsbuffer: *mut ::std::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetLogIoStatistics(hlog: super::super::Foundation::HANDLE, pvstatsbuffer: *mut ::std::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL;
+            fn GetLogIoStatistics(hlog: super::super::Foundation::HANDLE, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLogIoStatistics(hlog.into_param().abi(), ::std::mem::transmute(pvstatsbuffer), ::std::mem::transmute(cbstatsbuffer), ::std::mem::transmute(estatsclass), ::std::mem::transmute(pcbstatswritten)))
+        ::core::mem::transmute(GetLogIoStatistics(hlog.into_param().abi(), ::core::mem::transmute(pvstatsbuffer), ::core::mem::transmute(cbstatsbuffer), ::core::mem::transmute(estatsclass), ::core::mem::transmute(pcbstatswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7129,14 +7129,14 @@ pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::std::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetLogReservationInfo(pvmarshal: *const ::std::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL;
+            fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLogReservationInfo(::std::mem::transmute(pvmarshal), ::std::mem::transmute(pcbrecordnumber), ::std::mem::transmute(pcbuserreservation), ::std::mem::transmute(pcbcommitreservation)))
+        ::core::mem::transmute(GetLogReservationInfo(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pcbrecordnumber), ::core::mem::transmute(pcbuserreservation), ::core::mem::transmute(pcbcommitreservation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7151,7 +7151,7 @@ pub unsafe fn GetLogicalDriveStringsA(nbufferlength: u32, lpbuffer: super::super
         extern "system" {
             fn GetLogicalDriveStringsA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetLogicalDriveStringsA(::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(GetLogicalDriveStringsA(::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7166,7 +7166,7 @@ pub unsafe fn GetLogicalDriveStringsW(nbufferlength: u32, lpbuffer: super::super
         extern "system" {
             fn GetLogicalDriveStringsW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetLogicalDriveStringsW(::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(GetLogicalDriveStringsW(::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7180,7 +7180,7 @@ pub unsafe fn GetLogicalDrives() -> u32 {
         extern "system" {
             fn GetLogicalDrives() -> u32;
         }
-        ::std::mem::transmute(GetLogicalDrives())
+        ::core::mem::transmute(GetLogicalDrives())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7195,7 +7195,7 @@ pub unsafe fn GetLongPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetLongPathNameA(lpszshortpath: super::super::Foundation::PSTR, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32;
         }
-        ::std::mem::transmute(GetLongPathNameA(lpszshortpath.into_param().abi(), ::std::mem::transmute(lpszlongpath), ::std::mem::transmute(cchbuffer)))
+        ::core::mem::transmute(GetLongPathNameA(lpszshortpath.into_param().abi(), ::core::mem::transmute(lpszlongpath), ::core::mem::transmute(cchbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7210,7 +7210,7 @@ pub unsafe fn GetLongPathNameTransactedA<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetLongPathNameTransactedA(lpszshortpath: super::super::Foundation::PSTR, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32, htransaction: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetLongPathNameTransactedA(lpszshortpath.into_param().abi(), ::std::mem::transmute(lpszlongpath), ::std::mem::transmute(cchbuffer), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetLongPathNameTransactedA(lpszshortpath.into_param().abi(), ::core::mem::transmute(lpszlongpath), ::core::mem::transmute(cchbuffer), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7225,7 +7225,7 @@ pub unsafe fn GetLongPathNameTransactedW<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetLongPathNameTransactedW(lpszshortpath: super::super::Foundation::PWSTR, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32, htransaction: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetLongPathNameTransactedW(lpszshortpath.into_param().abi(), ::std::mem::transmute(lpszlongpath), ::std::mem::transmute(cchbuffer), htransaction.into_param().abi()))
+        ::core::mem::transmute(GetLongPathNameTransactedW(lpszshortpath.into_param().abi(), ::core::mem::transmute(lpszlongpath), ::core::mem::transmute(cchbuffer), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7240,7 +7240,7 @@ pub unsafe fn GetLongPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetLongPathNameW(lpszshortpath: super::super::Foundation::PWSTR, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32;
         }
-        ::std::mem::transmute(GetLongPathNameW(lpszshortpath.into_param().abi(), ::std::mem::transmute(lpszlongpath), ::std::mem::transmute(cchbuffer)))
+        ::core::mem::transmute(GetLongPathNameW(lpszshortpath.into_param().abi(), ::core::mem::transmute(lpszlongpath), ::core::mem::transmute(cchbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7248,14 +7248,14 @@ pub unsafe fn GetLongPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::std::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::std::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL;
+            fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetNextLogArchiveExtent(::std::mem::transmute(pvarchivecontext), ::std::mem::transmute(rgadextent), ::std::mem::transmute(cdescriptors), ::std::mem::transmute(pcdescriptorsreturned)))
+        ::core::mem::transmute(GetNextLogArchiveExtent(::core::mem::transmute(pvarchivecontext), ::core::mem::transmute(rgadextent), ::core::mem::transmute(cdescriptors), ::core::mem::transmute(pcdescriptorsreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7270,7 +7270,7 @@ pub unsafe fn GetNotificationResourceManager<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn GetNotificationResourceManager(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetNotificationResourceManager(resourcemanagerhandle.into_param().abi(), ::std::mem::transmute(transactionnotification), ::std::mem::transmute(notificationlength), ::std::mem::transmute(dwmilliseconds), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(GetNotificationResourceManager(resourcemanagerhandle.into_param().abi(), ::core::mem::transmute(transactionnotification), ::core::mem::transmute(notificationlength), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7285,7 +7285,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<'a, Param0: ::windows::runtime
         extern "system" {
             fn GetNotificationResourceManagerAsync(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetNotificationResourceManagerAsync(resourcemanagerhandle.into_param().abi(), ::std::mem::transmute(transactionnotification), ::std::mem::transmute(transactionnotificationlength), ::std::mem::transmute(returnlength), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(GetNotificationResourceManagerAsync(resourcemanagerhandle.into_param().abi(), ::core::mem::transmute(transactionnotification), ::core::mem::transmute(transactionnotificationlength), ::core::mem::transmute(returnlength), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7300,7 +7300,7 @@ pub unsafe fn GetShortPathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetShortPathNameA(lpszlongpath: super::super::Foundation::PSTR, lpszshortpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32;
         }
-        ::std::mem::transmute(GetShortPathNameA(lpszlongpath.into_param().abi(), ::std::mem::transmute(lpszshortpath), ::std::mem::transmute(cchbuffer)))
+        ::core::mem::transmute(GetShortPathNameA(lpszlongpath.into_param().abi(), ::core::mem::transmute(lpszshortpath), ::core::mem::transmute(cchbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7315,7 +7315,7 @@ pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetShortPathNameW(lpszlongpath: super::super::Foundation::PWSTR, lpszshortpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32;
         }
-        ::std::mem::transmute(GetShortPathNameW(lpszlongpath.into_param().abi(), ::std::mem::transmute(lpszshortpath), ::std::mem::transmute(cchbuffer)))
+        ::core::mem::transmute(GetShortPathNameW(lpszlongpath.into_param().abi(), ::core::mem::transmute(lpszshortpath), ::core::mem::transmute(cchbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7323,14 +7323,14 @@ pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn GetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::std::ffi::c_void) -> u32;
+            fn GetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(GetTapeParameters(hdevice.into_param().abi(), ::std::mem::transmute(dwoperation), ::std::mem::transmute(lpdwsize), ::std::mem::transmute(lptapeinformation)))
+        ::core::mem::transmute(GetTapeParameters(hdevice.into_param().abi(), ::core::mem::transmute(dwoperation), ::core::mem::transmute(lpdwsize), ::core::mem::transmute(lptapeinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7345,7 +7345,7 @@ pub unsafe fn GetTapePosition<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetTapePosition(hdevice.into_param().abi(), ::std::mem::transmute(dwpositiontype), ::std::mem::transmute(lpdwpartition), ::std::mem::transmute(lpdwoffsetlow), ::std::mem::transmute(lpdwoffsethigh)))
+        ::core::mem::transmute(GetTapePosition(hdevice.into_param().abi(), ::core::mem::transmute(dwpositiontype), ::core::mem::transmute(lpdwpartition), ::core::mem::transmute(lpdwoffsetlow), ::core::mem::transmute(lpdwoffsethigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7360,7 +7360,7 @@ pub unsafe fn GetTapeStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetTapeStatus(hdevice: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(GetTapeStatus(hdevice.into_param().abi()))
+        ::core::mem::transmute(GetTapeStatus(hdevice.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7375,7 +7375,7 @@ pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetTempFileNameA(lppathname: super::super::Foundation::PSTR, lpprefixstring: super::super::Foundation::PSTR, uunique: u32, lptempfilename: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetTempFileNameA(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::std::mem::transmute(uunique), ::std::mem::transmute(lptempfilename)))
+        ::core::mem::transmute(GetTempFileNameA(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::core::mem::transmute(uunique), ::core::mem::transmute(lptempfilename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7390,7 +7390,7 @@ pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetTempFileNameW(lppathname: super::super::Foundation::PWSTR, lpprefixstring: super::super::Foundation::PWSTR, uunique: u32, lptempfilename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetTempFileNameW(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::std::mem::transmute(uunique), ::std::mem::transmute(lptempfilename)))
+        ::core::mem::transmute(GetTempFileNameW(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::core::mem::transmute(uunique), ::core::mem::transmute(lptempfilename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7405,7 +7405,7 @@ pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation:
         extern "system" {
             fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetTempPath2A(::std::mem::transmute(bufferlength), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(GetTempPath2A(::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7420,7 +7420,7 @@ pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation:
         extern "system" {
             fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetTempPath2W(::std::mem::transmute(bufferlength), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(GetTempPath2W(::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7435,7 +7435,7 @@ pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundatio
         extern "system" {
             fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetTempPathA(::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(GetTempPathA(::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7450,7 +7450,7 @@ pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundatio
         extern "system" {
             fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetTempPathW(::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(GetTempPathW(::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7465,7 +7465,7 @@ pub unsafe fn GetTransactionId<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetTransactionId(transactionhandle: super::super::Foundation::HANDLE, transactionid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTransactionId(transactionhandle.into_param().abi(), ::std::mem::transmute(transactionid)))
+        ::core::mem::transmute(GetTransactionId(transactionhandle.into_param().abi(), ::core::mem::transmute(transactionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7480,7 +7480,7 @@ pub unsafe fn GetTransactionInformation<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn GetTransactionInformation(transactionhandle: super::super::Foundation::HANDLE, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTransactionInformation(transactionhandle.into_param().abi(), ::std::mem::transmute(outcome), ::std::mem::transmute(isolationlevel), ::std::mem::transmute(isolationflags), ::std::mem::transmute(timeout), ::std::mem::transmute(bufferlength), ::std::mem::transmute(description)))
+        ::core::mem::transmute(GetTransactionInformation(transactionhandle.into_param().abi(), ::core::mem::transmute(outcome), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), ::core::mem::transmute(bufferlength), ::core::mem::transmute(description)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7495,7 +7495,7 @@ pub unsafe fn GetTransactionManagerId<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTransactionManagerId(transactionmanagerhandle.into_param().abi(), ::std::mem::transmute(transactionmanagerid)))
+        ::core::mem::transmute(GetTransactionManagerId(transactionmanagerhandle.into_param().abi(), ::core::mem::transmute(transactionmanagerid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7510,15 +7510,15 @@ pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetVolumeInformationA(lprootpathname: super::super::Foundation::PSTR, lpvolumenamebuffer: super::super::Foundation::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumeInformationA(
+        ::core::mem::transmute(GetVolumeInformationA(
             lprootpathname.into_param().abi(),
-            ::std::mem::transmute(lpvolumenamebuffer),
-            ::std::mem::transmute(nvolumenamesize),
-            ::std::mem::transmute(lpvolumeserialnumber),
-            ::std::mem::transmute(lpmaximumcomponentlength),
-            ::std::mem::transmute(lpfilesystemflags),
-            ::std::mem::transmute(lpfilesystemnamebuffer),
-            ::std::mem::transmute(nfilesystemnamesize),
+            ::core::mem::transmute(lpvolumenamebuffer),
+            ::core::mem::transmute(nvolumenamesize),
+            ::core::mem::transmute(lpvolumeserialnumber),
+            ::core::mem::transmute(lpmaximumcomponentlength),
+            ::core::mem::transmute(lpfilesystemflags),
+            ::core::mem::transmute(lpfilesystemnamebuffer),
+            ::core::mem::transmute(nfilesystemnamesize),
         ))
     }
     #[cfg(not(windows))]
@@ -7534,15 +7534,15 @@ pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn GetVolumeInformationByHandleW(hfile: super::super::Foundation::HANDLE, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumeInformationByHandleW(
+        ::core::mem::transmute(GetVolumeInformationByHandleW(
             hfile.into_param().abi(),
-            ::std::mem::transmute(lpvolumenamebuffer),
-            ::std::mem::transmute(nvolumenamesize),
-            ::std::mem::transmute(lpvolumeserialnumber),
-            ::std::mem::transmute(lpmaximumcomponentlength),
-            ::std::mem::transmute(lpfilesystemflags),
-            ::std::mem::transmute(lpfilesystemnamebuffer),
-            ::std::mem::transmute(nfilesystemnamesize),
+            ::core::mem::transmute(lpvolumenamebuffer),
+            ::core::mem::transmute(nvolumenamesize),
+            ::core::mem::transmute(lpvolumeserialnumber),
+            ::core::mem::transmute(lpmaximumcomponentlength),
+            ::core::mem::transmute(lpfilesystemflags),
+            ::core::mem::transmute(lpfilesystemnamebuffer),
+            ::core::mem::transmute(nfilesystemnamesize),
         ))
     }
     #[cfg(not(windows))]
@@ -7558,15 +7558,15 @@ pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetVolumeInformationW(lprootpathname: super::super::Foundation::PWSTR, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumeInformationW(
+        ::core::mem::transmute(GetVolumeInformationW(
             lprootpathname.into_param().abi(),
-            ::std::mem::transmute(lpvolumenamebuffer),
-            ::std::mem::transmute(nvolumenamesize),
-            ::std::mem::transmute(lpvolumeserialnumber),
-            ::std::mem::transmute(lpmaximumcomponentlength),
-            ::std::mem::transmute(lpfilesystemflags),
-            ::std::mem::transmute(lpfilesystemnamebuffer),
-            ::std::mem::transmute(nfilesystemnamesize),
+            ::core::mem::transmute(lpvolumenamebuffer),
+            ::core::mem::transmute(nvolumenamesize),
+            ::core::mem::transmute(lpvolumeserialnumber),
+            ::core::mem::transmute(lpmaximumcomponentlength),
+            ::core::mem::transmute(lpfilesystemflags),
+            ::core::mem::transmute(lpfilesystemnamebuffer),
+            ::core::mem::transmute(nfilesystemnamesize),
         ))
     }
     #[cfg(not(windows))]
@@ -7582,7 +7582,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, Param0: ::windows::runtime::
         extern "system" {
             fn GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint: super::super::Foundation::PSTR, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint.into_param().abi(), ::std::mem::transmute(lpszvolumename), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumename), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7597,7 +7597,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, Param0: ::windows::runtime::
         extern "system" {
             fn GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.into_param().abi(), ::std::mem::transmute(lpszvolumename), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumename), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7612,7 +7612,7 @@ pub unsafe fn GetVolumePathNameA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetVolumePathNameA(lpszfilename: super::super::Foundation::PSTR, lpszvolumepathname: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumePathNameA(lpszfilename.into_param().abi(), ::std::mem::transmute(lpszvolumepathname), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(GetVolumePathNameA(lpszfilename.into_param().abi(), ::core::mem::transmute(lpszvolumepathname), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7627,7 +7627,7 @@ pub unsafe fn GetVolumePathNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetVolumePathNameW(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumePathNameW(lpszfilename.into_param().abi(), ::std::mem::transmute(lpszvolumepathname), ::std::mem::transmute(cchbufferlength)))
+        ::core::mem::transmute(GetVolumePathNameW(lpszfilename.into_param().abi(), ::core::mem::transmute(lpszvolumepathname), ::core::mem::transmute(cchbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7642,7 +7642,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn GetVolumePathNamesForVolumeNameA(lpszvolumename: super::super::Foundation::PSTR, lpszvolumepathnames: super::super::Foundation::PSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumePathNamesForVolumeNameA(lpszvolumename.into_param().abi(), ::std::mem::transmute(lpszvolumepathnames), ::std::mem::transmute(cchbufferlength), ::std::mem::transmute(lpcchreturnlength)))
+        ::core::mem::transmute(GetVolumePathNamesForVolumeNameA(lpszvolumename.into_param().abi(), ::core::mem::transmute(lpszvolumepathnames), ::core::mem::transmute(cchbufferlength), ::core::mem::transmute(lpcchreturnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7657,34 +7657,34 @@ pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn GetVolumePathNamesForVolumeNameW(lpszvolumename: super::super::Foundation::PWSTR, lpszvolumepathnames: super::super::Foundation::PWSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetVolumePathNamesForVolumeNameW(lpszvolumename.into_param().abi(), ::std::mem::transmute(lpszvolumepathnames), ::std::mem::transmute(cchbufferlength), ::std::mem::transmute(lpcchreturnlength)))
+        ::core::mem::transmute(GetVolumePathNamesForVolumeNameW(lpszvolumename.into_param().abi(), ::core::mem::transmute(lpszvolumepathnames), ::core::mem::transmute(cchbufferlength), ::core::mem::transmute(lpcchreturnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct HIORING__ {
     pub unused: i32,
 }
 impl HIORING__ {}
-impl ::std::default::Default for HIORING__ {
+impl ::core::default::Default for HIORING__ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HIORING__ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HIORING__ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HIORING__").field("unused", &self.unused).finish()
     }
 }
-impl ::std::cmp::PartialEq for HIORING__ {
+impl ::core::cmp::PartialEq for HIORING__ {
     fn eq(&self, other: &Self) -> bool {
         self.unused == other.unused
     }
 }
-impl ::std::cmp::Eq for HIORING__ {}
+impl ::core::cmp::Eq for HIORING__ {}
 unsafe impl ::windows::runtime::Abi for HIORING__ {
     type Abi = Self;
 }
@@ -7698,136 +7698,136 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn HandleLogFull(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HandleLogFull(hlog.into_param().abi()))
+        ::core::mem::transmute(HandleLogFull(hlog.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDiskQuotaControl(pub ::windows::runtime::IUnknown);
 impl IDiskQuotaControl {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_System_Com`*"]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumConnectionPoints> {
-        let mut result__: <super::super::System::Com::IEnumConnectionPoints as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
+        let mut result__: <super::super::System::Com::IEnumConnectionPoints as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_System_Com`*"]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::System::Com::IConnectionPoint> {
-        let mut result__: <super::super::System::Com::IConnectionPoint as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), &mut result__).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
+        let mut result__: <super::super::System::Com::IConnectionPoint as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), &mut result__).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, breadwrite: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszpath.into_param().abi(), breadwrite.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), breadwrite.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwstate)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstate)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwstate)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstate)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwflags)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(llthreshold)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pllthreshold)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn GetDefaultQuotaThresholdText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), psztext.into_param().abi(), ::std::mem::transmute(cchtext)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lllimit)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(plllimit)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn GetDefaultQuotaLimitText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), psztext.into_param().abi(), ::std::mem::transmute(cchtext)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn AddUserSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pusersid.into_param().abi(), ::std::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn AddUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pszlogonname.into_param().abi(), ::std::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn DeleteUser<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), puser.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn FindUserSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pusersid.into_param().abi(), ::std::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn FindUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0) -> ::windows::runtime::Result<IDiskQuotaUser> {
-        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), pszlogonname.into_param().abi(), &mut result__).from_abi::<IDiskQuotaUser>(result__)
+        let mut result__: <IDiskQuotaUser as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), &mut result__).from_abi::<IDiskQuotaUser>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
-    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::std::option::Option<IEnumDiskQuotaUsers>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(rgpusersids), ::std::mem::transmute(cpsids), ::std::mem::transmute(fnameresolution), ::std::mem::transmute(ppenum)).ok()
+    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(ppenum)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn CreateUserBatch(&self) -> ::windows::runtime::Result<IDiskQuotaUserBatch> {
-        let mut result__: <IDiskQuotaUserBatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDiskQuotaUserBatch>(result__)
+        let mut result__: <IDiskQuotaUserBatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDiskQuotaUserBatch>(result__)
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn InvalidateSidNameCache(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GiveUserNameResolutionPriority<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), puser.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn ShutdownNameResolution(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002482, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
-impl ::std::convert::From<IDiskQuotaControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaControl> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDiskQuotaControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaControl> for ::windows::runtime::IUnknown {
     fn from(value: &IDiskQuotaControl) -> Self {
         value.0.clone()
     }
@@ -7843,27 +7843,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
+impl ::core::convert::From<IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
     fn from(value: IDiskQuotaControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<&IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
+impl ::core::convert::From<&IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
     fn from(value: &IDiskQuotaControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for IDiskQuotaControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IConnectionPointContainer> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for &IDiskQuotaControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IConnectionPointContainer> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7908,24 +7908,24 @@ pub struct IDiskQuotaControl_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDiskQuotaEvents(pub ::windows::runtime::IUnknown);
 impl IDiskQuotaEvents {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn OnUserNameChanged<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), puser.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002489, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
-impl ::std::convert::From<IDiskQuotaEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaEvents> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaEvents) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDiskQuotaEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaEvents> for ::windows::runtime::IUnknown {
     fn from(value: &IDiskQuotaEvents) -> Self {
         value.0.clone()
     }
@@ -7950,86 +7950,86 @@ pub struct IDiskQuotaEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDiskQuotaUser(pub ::windows::runtime::IUnknown);
 impl IDiskQuotaUser {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pulid)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn GetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszaccountcontainer: Param0, cchaccountcontainer: u32, pszlogonname: Param2, cchlogonname: u32, pszdisplayname: Param4, cchdisplayname: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszaccountcontainer.into_param().abi(), ::std::mem::transmute(cchaccountcontainer), pszlogonname.into_param().abi(), ::std::mem::transmute(cchlogonname), pszdisplayname.into_param().abi(), ::std::mem::transmute(cchdisplayname)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszaccountcontainer.into_param().abi(), ::core::mem::transmute(cchaccountcontainer), pszlogonname.into_param().abi(), ::core::mem::transmute(cchlogonname), pszdisplayname.into_param().abi(), ::core::mem::transmute(cchdisplayname)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwlength)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlength)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbsidbuffer), ::std::mem::transmute(cbsidbuffer)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsidbuffer), ::core::mem::transmute(cbsidbuffer)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pllthreshold)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn GetQuotaThresholdText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), psztext.into_param().abi(), ::std::mem::transmute(cchtext)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(plllimit)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn GetQuotaLimitText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), psztext.into_param().abi(), ::std::mem::transmute(cchtext)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pllused)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn GetQuotaUsedText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), psztext.into_param().abi(), ::std::mem::transmute(cchtext)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::std::ffi::c_void, cbquotainfo: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbquotainfo), ::std::mem::transmute(cbquotainfo)).ok()
+    pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbquotainfo), ::core::mem::transmute(cbquotainfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn SetQuotaThreshold<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, llthreshold: i64, fwritethrough: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(llthreshold), fwritethrough.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold), fwritethrough.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lllimit: i64, fwritethrough: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lllimit), fwritethrough.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit), fwritethrough.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn Invalidate(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwstatus)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstatus)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaUser {
     type Vtable = IDiskQuotaUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002484, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
-impl ::std::convert::From<IDiskQuotaUser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaUser> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaUser) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDiskQuotaUser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaUser> for ::windows::runtime::IUnknown {
     fn from(value: &IDiskQuotaUser) -> Self {
         value.0.clone()
     }
@@ -8064,7 +8064,7 @@ pub struct IDiskQuotaUser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pllused: *mut i64) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbquotainfo: *mut ::std::ffi::c_void, cbquotainfo: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
@@ -8074,36 +8074,36 @@ pub struct IDiskQuotaUser_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDiskQuotaUserBatch(pub ::windows::runtime::IUnknown);
 impl IDiskQuotaUserBatch {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), puser.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), puser.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn RemoveAll(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn FlushToDisk(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002486, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
-impl ::std::convert::From<IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
     fn from(value: IDiskQuotaUserBatch) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDiskQuotaUserBatch> for ::windows::runtime::IUnknown {
     fn from(value: &IDiskQuotaUserBatch) -> Self {
         value.0.clone()
     }
@@ -8131,37 +8131,37 @@ pub struct IDiskQuotaUserBatch_abi(
 );
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumDiskQuotaUsers(pub ::windows::runtime::IUnknown);
 impl IEnumDiskQuotaUsers {
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::std::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cusers), ::std::mem::transmute(rgusers), ::std::mem::transmute(pcusersfetched)).ok()
+    pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers), ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn Skip(&self, cusers: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cusers)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumDiskQuotaUsers> {
-        let mut result__: <IEnumDiskQuotaUsers as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDiskQuotaUsers>(result__)
+        let mut result__: <IEnumDiskQuotaUsers as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDiskQuotaUsers>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2039002487, 60553, 4559, [156, 0, 0, 170, 0, 161, 79, 86]);
 }
-impl ::std::convert::From<IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
     fn from(value: IEnumDiskQuotaUsers) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumDiskQuotaUsers> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumDiskQuotaUsers) -> Self {
         value.0.clone()
     }
@@ -8249,34 +8249,34 @@ pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_BUFFER_INFO {
-    pub Address: *mut ::std::ffi::c_void,
+    pub Address: *mut ::core::ffi::c_void,
     pub Length: u32,
 }
 impl IORING_BUFFER_INFO {}
-impl ::std::default::Default for IORING_BUFFER_INFO {
+impl ::core::default::Default for IORING_BUFFER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IORING_BUFFER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IORING_BUFFER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IORING_BUFFER_INFO").field("Address", &self.Address).field("Length", &self.Length).finish()
     }
 }
-impl ::std::cmp::PartialEq for IORING_BUFFER_INFO {
+impl ::core::cmp::PartialEq for IORING_BUFFER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Address == other.Address && self.Length == other.Length
     }
 }
-impl ::std::cmp::Eq for IORING_BUFFER_INFO {}
+impl ::core::cmp::Eq for IORING_BUFFER_INFO {}
 unsafe impl ::windows::runtime::Abi for IORING_BUFFER_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_BUFFER_REF {
@@ -8284,43 +8284,43 @@ pub struct IORING_BUFFER_REF {
     pub Buffer: IORING_BUFFER_REF_0,
 }
 impl IORING_BUFFER_REF {}
-impl ::std::default::Default for IORING_BUFFER_REF {
+impl ::core::default::Default for IORING_BUFFER_REF {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IORING_BUFFER_REF {
+impl ::core::cmp::PartialEq for IORING_BUFFER_REF {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IORING_BUFFER_REF {}
+impl ::core::cmp::Eq for IORING_BUFFER_REF {}
 unsafe impl ::windows::runtime::Abi for IORING_BUFFER_REF {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub union IORING_BUFFER_REF_0 {
-    pub Address: *mut ::std::ffi::c_void,
+    pub Address: *mut ::core::ffi::c_void,
     pub IndexAndOffset: IORING_REGISTERED_BUFFER,
 }
 impl IORING_BUFFER_REF_0 {}
-impl ::std::default::Default for IORING_BUFFER_REF_0 {
+impl ::core::default::Default for IORING_BUFFER_REF_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IORING_BUFFER_REF_0 {
+impl ::core::cmp::PartialEq for IORING_BUFFER_REF_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IORING_BUFFER_REF_0 {}
+impl ::core::cmp::Eq for IORING_BUFFER_REF_0 {}
 unsafe impl ::windows::runtime::Abi for IORING_BUFFER_REF_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_CAPABILITIES {
@@ -8330,26 +8330,26 @@ pub struct IORING_CAPABILITIES {
     pub FeatureFlags: IORING_FEATURE_FLAGS,
 }
 impl IORING_CAPABILITIES {}
-impl ::std::default::Default for IORING_CAPABILITIES {
+impl ::core::default::Default for IORING_CAPABILITIES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IORING_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IORING_CAPABILITIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IORING_CAPABILITIES").field("MaxVersion", &self.MaxVersion).field("MaxSubmissionQueueSize", &self.MaxSubmissionQueueSize).field("MaxCompletionQueueSize", &self.MaxCompletionQueueSize).field("FeatureFlags", &self.FeatureFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IORING_CAPABILITIES {
+impl ::core::cmp::PartialEq for IORING_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
         self.MaxVersion == other.MaxVersion && self.MaxSubmissionQueueSize == other.MaxSubmissionQueueSize && self.MaxCompletionQueueSize == other.MaxCompletionQueueSize && self.FeatureFlags == other.FeatureFlags
     }
 }
-impl ::std::cmp::Eq for IORING_CAPABILITIES {}
+impl ::core::cmp::Eq for IORING_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for IORING_CAPABILITIES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_CQE {
@@ -8358,31 +8358,31 @@ pub struct IORING_CQE {
     pub Information: usize,
 }
 impl IORING_CQE {}
-impl ::std::default::Default for IORING_CQE {
+impl ::core::default::Default for IORING_CQE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IORING_CQE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IORING_CQE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IORING_CQE").field("UserData", &self.UserData).field("ResultCode", &self.ResultCode).field("Information", &self.Information).finish()
     }
 }
-impl ::std::cmp::PartialEq for IORING_CQE {
+impl ::core::cmp::PartialEq for IORING_CQE {
     fn eq(&self, other: &Self) -> bool {
         self.UserData == other.UserData && self.ResultCode == other.ResultCode && self.Information == other.Information
     }
 }
-impl ::std::cmp::Eq for IORING_CQE {}
+impl ::core::cmp::Eq for IORING_CQE {}
 unsafe impl ::windows::runtime::Abi for IORING_CQE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
 pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
-impl ::std::convert::From<i32> for IORING_CREATE_ADVISORY_FLAGS {
+impl ::core::convert::From<i32> for IORING_CREATE_ADVISORY_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8390,7 +8390,7 @@ impl ::std::convert::From<i32> for IORING_CREATE_ADVISORY_FLAGS {
 unsafe impl ::windows::runtime::Abi for IORING_CREATE_ADVISORY_FLAGS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_CREATE_FLAGS {
@@ -8398,31 +8398,31 @@ pub struct IORING_CREATE_FLAGS {
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
 }
 impl IORING_CREATE_FLAGS {}
-impl ::std::default::Default for IORING_CREATE_FLAGS {
+impl ::core::default::Default for IORING_CREATE_FLAGS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IORING_CREATE_FLAGS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IORING_CREATE_FLAGS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IORING_CREATE_FLAGS").field("Required", &self.Required).field("Advisory", &self.Advisory).finish()
     }
 }
-impl ::std::cmp::PartialEq for IORING_CREATE_FLAGS {
+impl ::core::cmp::PartialEq for IORING_CREATE_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self.Required == other.Required && self.Advisory == other.Advisory
     }
 }
-impl ::std::cmp::Eq for IORING_CREATE_FLAGS {}
+impl ::core::cmp::Eq for IORING_CREATE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for IORING_CREATE_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
 pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
-impl ::std::convert::From<i32> for IORING_CREATE_REQUIRED_FLAGS {
+impl ::core::convert::From<i32> for IORING_CREATE_REQUIRED_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8431,13 +8431,13 @@ unsafe impl ::windows::runtime::Abi for IORING_CREATE_REQUIRED_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_FEATURE_FLAGS(pub i32);
 pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
 pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
 pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
-impl ::std::convert::From<i32> for IORING_FEATURE_FLAGS {
+impl ::core::convert::From<i32> for IORING_FEATURE_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8445,7 +8445,7 @@ impl ::std::convert::From<i32> for IORING_FEATURE_FLAGS {
 unsafe impl ::windows::runtime::Abi for IORING_FEATURE_FLAGS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -8456,24 +8456,24 @@ pub struct IORING_HANDLE_REF {
 #[cfg(feature = "Win32_Foundation")]
 impl IORING_HANDLE_REF {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IORING_HANDLE_REF {
+impl ::core::default::Default for IORING_HANDLE_REF {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IORING_HANDLE_REF {
+impl ::core::cmp::PartialEq for IORING_HANDLE_REF {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IORING_HANDLE_REF {}
+impl ::core::cmp::Eq for IORING_HANDLE_REF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IORING_HANDLE_REF {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IORING_HANDLE_REF_0 {
@@ -8483,24 +8483,24 @@ pub union IORING_HANDLE_REF_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IORING_HANDLE_REF_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IORING_HANDLE_REF_0 {
+impl ::core::default::Default for IORING_HANDLE_REF_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IORING_HANDLE_REF_0 {
+impl ::core::cmp::PartialEq for IORING_HANDLE_REF_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IORING_HANDLE_REF_0 {}
+impl ::core::cmp::Eq for IORING_HANDLE_REF_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IORING_HANDLE_REF_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_INFO {
@@ -8510,27 +8510,27 @@ pub struct IORING_INFO {
     pub CompletionQueueSize: u32,
 }
 impl IORING_INFO {}
-impl ::std::default::Default for IORING_INFO {
+impl ::core::default::Default for IORING_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IORING_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IORING_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IORING_INFO").field("IoRingVersion", &self.IoRingVersion).field("Flags", &self.Flags).field("SubmissionQueueSize", &self.SubmissionQueueSize).field("CompletionQueueSize", &self.CompletionQueueSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for IORING_INFO {
+impl ::core::cmp::PartialEq for IORING_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.IoRingVersion == other.IoRingVersion && self.Flags == other.Flags && self.SubmissionQueueSize == other.SubmissionQueueSize && self.CompletionQueueSize == other.CompletionQueueSize
     }
 }
-impl ::std::cmp::Eq for IORING_INFO {}
+impl ::core::cmp::Eq for IORING_INFO {}
 unsafe impl ::windows::runtime::Abi for IORING_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_OP_CODE(pub i32);
 pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
@@ -8538,7 +8538,7 @@ pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
 pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
 pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
 pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
-impl ::std::convert::From<i32> for IORING_OP_CODE {
+impl ::core::convert::From<i32> for IORING_OP_CODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8547,12 +8547,12 @@ unsafe impl ::windows::runtime::Abi for IORING_OP_CODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_REF_KIND(pub i32);
 pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
 pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
-impl ::std::convert::From<i32> for IORING_REF_KIND {
+impl ::core::convert::From<i32> for IORING_REF_KIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8560,7 +8560,7 @@ impl ::std::convert::From<i32> for IORING_REF_KIND {
 unsafe impl ::windows::runtime::Abi for IORING_REF_KIND {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct IORING_REGISTERED_BUFFER {
@@ -8568,31 +8568,31 @@ pub struct IORING_REGISTERED_BUFFER {
     pub Offset: u32,
 }
 impl IORING_REGISTERED_BUFFER {}
-impl ::std::default::Default for IORING_REGISTERED_BUFFER {
+impl ::core::default::Default for IORING_REGISTERED_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IORING_REGISTERED_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IORING_REGISTERED_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IORING_REGISTERED_BUFFER").field("BufferIndex", &self.BufferIndex).field("Offset", &self.Offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for IORING_REGISTERED_BUFFER {
+impl ::core::cmp::PartialEq for IORING_REGISTERED_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.BufferIndex == other.BufferIndex && self.Offset == other.Offset
     }
 }
-impl ::std::cmp::Eq for IORING_REGISTERED_BUFFER {}
+impl ::core::cmp::Eq for IORING_REGISTERED_BUFFER {}
 unsafe impl ::windows::runtime::Abi for IORING_REGISTERED_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_SQE_FLAGS(pub i32);
 pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
-impl ::std::convert::From<i32> for IORING_SQE_FLAGS {
+impl ::core::convert::From<i32> for IORING_SQE_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8601,12 +8601,12 @@ unsafe impl ::windows::runtime::Abi for IORING_SQE_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IORING_VERSION(pub i32);
 pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
 pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
-impl ::std::convert::From<i32> for IORING_VERSION {
+impl ::core::convert::From<i32> for IORING_VERSION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8624,7 +8624,7 @@ pub unsafe fn InstallLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn InstallLogPolicy(hlog: super::super::Foundation::HANDLE, ppolicy: *mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InstallLogPolicy(hlog.into_param().abi(), ::std::mem::transmute(ppolicy)))
+        ::core::mem::transmute(InstallLogPolicy(hlog.into_param().abi(), ::core::mem::transmute(ppolicy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8639,12 +8639,12 @@ pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) 
         extern "system" {
             fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsIoRingOpSupported(::std::mem::transmute(ioring), ::std::mem::transmute(op)))
+        ::core::mem::transmute(IsIoRingOpSupported(::core::mem::transmute(ioring), ::core::mem::transmute(op)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct KCRM_MARSHAL_HEADER {
@@ -8654,26 +8654,26 @@ pub struct KCRM_MARSHAL_HEADER {
     pub Unused: u32,
 }
 impl KCRM_MARSHAL_HEADER {}
-impl ::std::default::Default for KCRM_MARSHAL_HEADER {
+impl ::core::default::Default for KCRM_MARSHAL_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KCRM_MARSHAL_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KCRM_MARSHAL_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KCRM_MARSHAL_HEADER").field("VersionMajor", &self.VersionMajor).field("VersionMinor", &self.VersionMinor).field("NumProtocols", &self.NumProtocols).field("Unused", &self.Unused).finish()
     }
 }
-impl ::std::cmp::PartialEq for KCRM_MARSHAL_HEADER {
+impl ::core::cmp::PartialEq for KCRM_MARSHAL_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.VersionMajor == other.VersionMajor && self.VersionMinor == other.VersionMinor && self.NumProtocols == other.NumProtocols && self.Unused == other.Unused
     }
 }
-impl ::std::cmp::Eq for KCRM_MARSHAL_HEADER {}
+impl ::core::cmp::Eq for KCRM_MARSHAL_HEADER {}
 unsafe impl ::windows::runtime::Abi for KCRM_MARSHAL_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct KCRM_PROTOCOL_BLOB {
@@ -8684,26 +8684,26 @@ pub struct KCRM_PROTOCOL_BLOB {
     pub Unused2: u32,
 }
 impl KCRM_PROTOCOL_BLOB {}
-impl ::std::default::Default for KCRM_PROTOCOL_BLOB {
+impl ::core::default::Default for KCRM_PROTOCOL_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KCRM_PROTOCOL_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KCRM_PROTOCOL_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KCRM_PROTOCOL_BLOB").field("ProtocolId", &self.ProtocolId).field("StaticInfoLength", &self.StaticInfoLength).field("TransactionIdInfoLength", &self.TransactionIdInfoLength).field("Unused1", &self.Unused1).field("Unused2", &self.Unused2).finish()
     }
 }
-impl ::std::cmp::PartialEq for KCRM_PROTOCOL_BLOB {
+impl ::core::cmp::PartialEq for KCRM_PROTOCOL_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.ProtocolId == other.ProtocolId && self.StaticInfoLength == other.StaticInfoLength && self.TransactionIdInfoLength == other.TransactionIdInfoLength && self.Unused1 == other.Unused1 && self.Unused2 == other.Unused2
     }
 }
-impl ::std::cmp::Eq for KCRM_PROTOCOL_BLOB {}
+impl ::core::cmp::Eq for KCRM_PROTOCOL_BLOB {}
 unsafe impl ::windows::runtime::Abi for KCRM_PROTOCOL_BLOB {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct KCRM_TRANSACTION_BLOB {
@@ -8715,22 +8715,22 @@ pub struct KCRM_TRANSACTION_BLOB {
     pub Description: [u16; 64],
 }
 impl KCRM_TRANSACTION_BLOB {}
-impl ::std::default::Default for KCRM_TRANSACTION_BLOB {
+impl ::core::default::Default for KCRM_TRANSACTION_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KCRM_TRANSACTION_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KCRM_TRANSACTION_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KCRM_TRANSACTION_BLOB").field("UOW", &self.UOW).field("TmIdentity", &self.TmIdentity).field("IsolationLevel", &self.IsolationLevel).field("IsolationFlags", &self.IsolationFlags).field("Timeout", &self.Timeout).field("Description", &self.Description).finish()
     }
 }
-impl ::std::cmp::PartialEq for KCRM_TRANSACTION_BLOB {
+impl ::core::cmp::PartialEq for KCRM_TRANSACTION_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.UOW == other.UOW && self.TmIdentity == other.TmIdentity && self.IsolationLevel == other.IsolationLevel && self.IsolationFlags == other.IsolationFlags && self.Timeout == other.Timeout && self.Description == other.Description
     }
 }
-impl ::std::cmp::Eq for KCRM_TRANSACTION_BLOB {}
+impl ::core::cmp::Eq for KCRM_TRANSACTION_BLOB {}
 unsafe impl ::windows::runtime::Abi for KCRM_TRANSACTION_BLOB {
     type Abi = Self;
 }
@@ -8739,12 +8739,12 @@ pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOCK_FILE_FLAGS(pub u32);
 pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
 pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
-impl ::std::convert::From<u32> for LOCK_FILE_FLAGS {
+impl ::core::convert::From<u32> for LOCK_FILE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -8752,69 +8752,69 @@ impl ::std::convert::From<u32> for LOCK_FILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for LOCK_FILE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for LOCK_FILE_FLAGS {
+impl ::core::ops::BitOr for LOCK_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for LOCK_FILE_FLAGS {
+impl ::core::ops::BitAnd for LOCK_FILE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for LOCK_FILE_FLAGS {
+impl ::core::ops::BitOrAssign for LOCK_FILE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for LOCK_FILE_FLAGS {
+impl ::core::ops::BitAndAssign for LOCK_FILE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for LOCK_FILE_FLAGS {
+impl ::core::ops::Not for LOCK_FILE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct LOG_MANAGEMENT_CALLBACKS {
-    pub CallbackContext: *mut ::std::ffi::c_void,
-    pub AdvanceTailCallback: ::std::option::Option<PLOG_TAIL_ADVANCE_CALLBACK>,
-    pub LogFullHandlerCallback: ::std::option::Option<PLOG_FULL_HANDLER_CALLBACK>,
-    pub LogUnpinnedCallback: ::std::option::Option<PLOG_UNPINNED_CALLBACK>,
+    pub CallbackContext: *mut ::core::ffi::c_void,
+    pub AdvanceTailCallback: ::core::option::Option<PLOG_TAIL_ADVANCE_CALLBACK>,
+    pub LogFullHandlerCallback: ::core::option::Option<PLOG_FULL_HANDLER_CALLBACK>,
+    pub LogUnpinnedCallback: ::core::option::Option<PLOG_UNPINNED_CALLBACK>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl LOG_MANAGEMENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOG_MANAGEMENT_CALLBACKS {
+impl ::core::default::Default for LOG_MANAGEMENT_CALLBACKS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOG_MANAGEMENT_CALLBACKS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOG_MANAGEMENT_CALLBACKS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOG_MANAGEMENT_CALLBACKS").field("CallbackContext", &self.CallbackContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOG_MANAGEMENT_CALLBACKS {
+impl ::core::cmp::PartialEq for LOG_MANAGEMENT_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.CallbackContext == other.CallbackContext && self.AdvanceTailCallback.map(|f| f as usize) == other.AdvanceTailCallback.map(|f| f as usize) && self.LogFullHandlerCallback.map(|f| f as usize) == other.LogFullHandlerCallback.map(|f| f as usize) && self.LogUnpinnedCallback.map(|f| f as usize) == other.LogUnpinnedCallback.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOG_MANAGEMENT_CALLBACKS {}
+impl ::core::cmp::Eq for LOG_MANAGEMENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOG_MANAGEMENT_CALLBACKS {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
@@ -8822,14 +8822,14 @@ pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPROGRESS_ROUTINE = unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::std::ffi::c_void) -> u32;
+pub type LPPROGRESS_ROUTINE = unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
 pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
 pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
-impl ::std::convert::From<u32> for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+impl ::core::convert::From<u32> for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -8837,29 +8837,29 @@ impl ::std::convert::From<u32> for LPPROGRESS_ROUTINE_CALLBACK_REASON {
 unsafe impl ::windows::runtime::Abi for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+impl ::core::ops::BitOr for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+impl ::core::ops::BitAnd for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+impl ::core::ops::BitOrAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+impl ::core::ops::BitAndAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+impl ::core::ops::Not for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -8874,7 +8874,7 @@ pub unsafe fn LZClose(hfile: i32) {
         extern "system" {
             fn LZClose(hfile: i32);
         }
-        ::std::mem::transmute(LZClose(::std::mem::transmute(hfile)))
+        ::core::mem::transmute(LZClose(::core::mem::transmute(hfile)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8888,7 +8888,7 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
         extern "system" {
             fn LZCopy(hfsource: i32, hfdest: i32) -> i32;
         }
-        ::std::mem::transmute(LZCopy(::std::mem::transmute(hfsource), ::std::mem::transmute(hfdest)))
+        ::core::mem::transmute(LZCopy(::core::mem::transmute(hfsource), ::core::mem::transmute(hfdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8902,7 +8902,7 @@ pub unsafe fn LZDone() {
         extern "system" {
             fn LZDone();
         }
-        ::std::mem::transmute(LZDone())
+        ::core::mem::transmute(LZDone())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8932,13 +8932,13 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
         extern "system" {
             fn LZInit(hfsource: i32) -> i32;
         }
-        ::std::mem::transmute(LZInit(::std::mem::transmute(hfsource)))
+        ::core::mem::transmute(LZInit(::core::mem::transmute(hfsource)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LZOPENFILE_STYLE(pub u32);
 pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u32);
@@ -8957,7 +8957,7 @@ pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u32);
 pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u32);
 pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
 pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u32);
-impl ::std::convert::From<u32> for LZOPENFILE_STYLE {
+impl ::core::convert::From<u32> for LZOPENFILE_STYLE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -8965,29 +8965,29 @@ impl ::std::convert::From<u32> for LZOPENFILE_STYLE {
 unsafe impl ::windows::runtime::Abi for LZOPENFILE_STYLE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for LZOPENFILE_STYLE {
+impl ::core::ops::BitOr for LZOPENFILE_STYLE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for LZOPENFILE_STYLE {
+impl ::core::ops::BitAnd for LZOPENFILE_STYLE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for LZOPENFILE_STYLE {
+impl ::core::ops::BitOrAssign for LZOPENFILE_STYLE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for LZOPENFILE_STYLE {
+impl ::core::ops::BitAndAssign for LZOPENFILE_STYLE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for LZOPENFILE_STYLE {
+impl ::core::ops::Not for LZOPENFILE_STYLE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -9003,7 +9003,7 @@ pub unsafe fn LZOpenFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LZOpenFileA(lpfilename: super::super::Foundation::PSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
         }
-        ::std::mem::transmute(LZOpenFileA(lpfilename.into_param().abi(), ::std::mem::transmute(lpreopenbuf), ::std::mem::transmute(wstyle)))
+        ::core::mem::transmute(LZOpenFileA(lpfilename.into_param().abi(), ::core::mem::transmute(lpreopenbuf), ::core::mem::transmute(wstyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9018,7 +9018,7 @@ pub unsafe fn LZOpenFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LZOpenFileW(lpfilename: super::super::Foundation::PWSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
         }
-        ::std::mem::transmute(LZOpenFileW(lpfilename.into_param().abi(), ::std::mem::transmute(lpreopenbuf), ::std::mem::transmute(wstyle)))
+        ::core::mem::transmute(LZOpenFileW(lpfilename.into_param().abi(), ::core::mem::transmute(lpreopenbuf), ::core::mem::transmute(wstyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9033,7 +9033,7 @@ pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbrea
         extern "system" {
             fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbread: i32) -> i32;
         }
-        ::std::mem::transmute(LZRead(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbread)))
+        ::core::mem::transmute(LZRead(::core::mem::transmute(hfile), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9047,7 +9047,7 @@ pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
         extern "system" {
             fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
         }
-        ::std::mem::transmute(LZSeek(::std::mem::transmute(hfile), ::std::mem::transmute(loffset), ::std::mem::transmute(iorigin)))
+        ::core::mem::transmute(LZSeek(::core::mem::transmute(hfile), ::core::mem::transmute(loffset), ::core::mem::transmute(iorigin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9061,7 +9061,7 @@ pub unsafe fn LZStart() -> i32 {
         extern "system" {
             fn LZStart() -> i32;
         }
-        ::std::mem::transmute(LZStart())
+        ::core::mem::transmute(LZStart())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9076,7 +9076,7 @@ pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foun
         extern "system" {
             fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foundation::FILETIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LocalFileTimeToFileTime(::std::mem::transmute(lplocalfiletime), ::std::mem::transmute(lpfiletime)))
+        ::core::mem::transmute(LocalFileTimeToFileTime(::core::mem::transmute(lplocalfiletime), ::core::mem::transmute(lpfiletime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9091,7 +9091,7 @@ pub unsafe fn LockFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn LockFile(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LockFile(hfile.into_param().abi(), ::std::mem::transmute(dwfileoffsetlow), ::std::mem::transmute(dwfileoffsethigh), ::std::mem::transmute(nnumberofbytestolocklow), ::std::mem::transmute(nnumberofbytestolockhigh)))
+        ::core::mem::transmute(LockFile(hfile.into_param().abi(), ::core::mem::transmute(dwfileoffsetlow), ::core::mem::transmute(dwfileoffsethigh), ::core::mem::transmute(nnumberofbytestolocklow), ::core::mem::transmute(nnumberofbytestolockhigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9106,7 +9106,7 @@ pub unsafe fn LockFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn LockFileEx(hfile: super::super::Foundation::HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LockFileEx(hfile.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwreserved), ::std::mem::transmute(nnumberofbytestolocklow), ::std::mem::transmute(nnumberofbytestolockhigh), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(LockFileEx(hfile.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(nnumberofbytestolocklow), ::core::mem::transmute(nnumberofbytestolockhigh), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9121,7 +9121,7 @@ pub unsafe fn LogTailAdvanceFailure<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn LogTailAdvanceFailure(hlog: super::super::Foundation::HANDLE, dwreason: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LogTailAdvanceFailure(hlog.into_param().abi(), ::std::mem::transmute(dwreason)))
+        ::core::mem::transmute(LogTailAdvanceFailure(hlog.into_param().abi(), ::core::mem::transmute(dwreason)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9135,7 +9135,7 @@ pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
         extern "system" {
             fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32;
         }
-        ::std::mem::transmute(LsnBlockOffset(::std::mem::transmute(plsn)))
+        ::core::mem::transmute(LsnBlockOffset(::core::mem::transmute(plsn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9149,7 +9149,7 @@ pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
         extern "system" {
             fn LsnContainer(plsn: *const CLS_LSN) -> u32;
         }
-        ::std::mem::transmute(LsnContainer(::std::mem::transmute(plsn)))
+        ::core::mem::transmute(LsnContainer(::core::mem::transmute(plsn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9163,7 +9163,7 @@ pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_L
         extern "system" {
             fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN;
         }
-        ::std::mem::transmute(LsnCreate(::std::mem::transmute(cidcontainer), ::std::mem::transmute(offblock), ::std::mem::transmute(crecord)))
+        ::core::mem::transmute(LsnCreate(::core::mem::transmute(cidcontainer), ::core::mem::transmute(offblock), ::core::mem::transmute(crecord)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9178,7 +9178,7 @@ pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::s
         extern "system" {
             fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(LsnEqual(::std::mem::transmute(plsn1), ::std::mem::transmute(plsn2)))
+        ::core::mem::transmute(LsnEqual(::core::mem::transmute(plsn1), ::core::mem::transmute(plsn2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9193,7 +9193,7 @@ pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super:
         extern "system" {
             fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(LsnGreater(::std::mem::transmute(plsn1), ::std::mem::transmute(plsn2)))
+        ::core::mem::transmute(LsnGreater(::core::mem::transmute(plsn1), ::core::mem::transmute(plsn2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9207,7 +9207,7 @@ pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
         extern "system" {
             fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN;
         }
-        ::std::mem::transmute(LsnIncrement(::std::mem::transmute(plsn)))
+        ::core::mem::transmute(LsnIncrement(::core::mem::transmute(plsn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9222,7 +9222,7 @@ pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOL
         extern "system" {
             fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(LsnInvalid(::std::mem::transmute(plsn)))
+        ::core::mem::transmute(LsnInvalid(::core::mem::transmute(plsn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9237,7 +9237,7 @@ pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::su
         extern "system" {
             fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(LsnLess(::std::mem::transmute(plsn1), ::std::mem::transmute(plsn2)))
+        ::core::mem::transmute(LsnLess(::core::mem::transmute(plsn1), ::core::mem::transmute(plsn2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9252,7 +9252,7 @@ pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN
         extern "system" {
             fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(LsnNull(::std::mem::transmute(plsn)))
+        ::core::mem::transmute(LsnNull(::core::mem::transmute(plsn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9266,7 +9266,7 @@ pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
         extern "system" {
             fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32;
         }
-        ::std::mem::transmute(LsnRecordSequence(::std::mem::transmute(plsn)))
+        ::core::mem::transmute(LsnRecordSequence(::core::mem::transmute(plsn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9280,7 +9280,7 @@ pub const MAX_SID_SIZE: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MOVE_FILE_FLAGS(pub u32);
 pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
@@ -9289,7 +9289,7 @@ pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
 pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
 pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
 pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
-impl ::std::convert::From<u32> for MOVE_FILE_FLAGS {
+impl ::core::convert::From<u32> for MOVE_FILE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -9297,35 +9297,35 @@ impl ::std::convert::From<u32> for MOVE_FILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for MOVE_FILE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MOVE_FILE_FLAGS {
+impl ::core::ops::BitOr for MOVE_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MOVE_FILE_FLAGS {
+impl ::core::ops::BitAnd for MOVE_FILE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MOVE_FILE_FLAGS {
+impl ::core::ops::BitOrAssign for MOVE_FILE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MOVE_FILE_FLAGS {
+impl ::core::ops::BitAndAssign for MOVE_FILE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MOVE_FILE_FLAGS {
+impl ::core::ops::Not for MOVE_FILE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct MediaLabelInfo {
@@ -9335,22 +9335,22 @@ pub struct MediaLabelInfo {
     pub LabelAppDescr: [u16; 256],
 }
 impl MediaLabelInfo {}
-impl ::std::default::Default for MediaLabelInfo {
+impl ::core::default::Default for MediaLabelInfo {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MediaLabelInfo {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MediaLabelInfo {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MediaLabelInfo").field("LabelType", &self.LabelType).field("LabelIDSize", &self.LabelIDSize).field("LabelID", &self.LabelID).field("LabelAppDescr", &self.LabelAppDescr).finish()
     }
 }
-impl ::std::cmp::PartialEq for MediaLabelInfo {
+impl ::core::cmp::PartialEq for MediaLabelInfo {
     fn eq(&self, other: &Self) -> bool {
         self.LabelType == other.LabelType && self.LabelIDSize == other.LabelIDSize && self.LabelID == other.LabelID && self.LabelAppDescr == other.LabelAppDescr
     }
 }
-impl ::std::cmp::Eq for MediaLabelInfo {}
+impl ::core::cmp::Eq for MediaLabelInfo {}
 unsafe impl ::windows::runtime::Abi for MediaLabelInfo {
     type Abi = Self;
 }
@@ -9364,7 +9364,7 @@ pub unsafe fn MoveFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn MoveFileA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi()))
+        ::core::mem::transmute(MoveFileA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9379,7 +9379,7 @@ pub unsafe fn MoveFileExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn MoveFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileExA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(MoveFileExA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9394,7 +9394,7 @@ pub unsafe fn MoveFileExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn MoveFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileExW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(MoveFileExW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9409,7 +9409,7 @@ pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn MoveFileFromAppW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileFromAppW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi()))
+        ::core::mem::transmute(MoveFileFromAppW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9417,14 +9417,14 @@ pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn MoveFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(dwflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(MoveFileTransactedA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9432,14 +9432,14 @@ pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+            fn MoveFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(dwflags), htransaction.into_param().abi()))
+        ::core::mem::transmute(MoveFileTransactedW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9454,7 +9454,7 @@ pub unsafe fn MoveFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn MoveFileW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi()))
+        ::core::mem::transmute(MoveFileW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9462,14 +9462,14 @@ pub unsafe fn MoveFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileWithProgressA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
+            fn MoveFileWithProgressA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9477,41 +9477,41 @@ pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::std::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: ::core::option::Option<LPPROGRESS_ROUTINE>, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MoveFileWithProgressW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::std::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
+            fn MoveFileWithProgressW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: ::windows::runtime::RawPtr, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::std::mem::transmute(lpprogressroutine), ::std::mem::transmute(lpdata), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into_param().abi(), lpnewfilename.into_param().abi(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
 impl NAME_CACHE_CONTEXT {}
-impl ::std::default::Default for NAME_CACHE_CONTEXT {
+impl ::core::default::Default for NAME_CACHE_CONTEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NAME_CACHE_CONTEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NAME_CACHE_CONTEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NAME_CACHE_CONTEXT").field("m_dwSignature", &self.m_dwSignature).finish()
     }
 }
-impl ::std::cmp::PartialEq for NAME_CACHE_CONTEXT {
+impl ::core::cmp::PartialEq for NAME_CACHE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.m_dwSignature == other.m_dwSignature
     }
 }
-impl ::std::cmp::Eq for NAME_CACHE_CONTEXT {}
+impl ::core::cmp::Eq for NAME_CACHE_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for NAME_CACHE_CONTEXT {
     type Abi = Self;
 }
@@ -9521,37 +9521,37 @@ pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
-    pub lpReserved: *mut ::std::ffi::c_void,
+    pub lpReserved: *mut ::core::ffi::c_void,
     pub AllocatedFrom: ::windows::runtime::GUID,
 }
 impl NTMS_ALLOCATION_INFORMATION {}
-impl ::std::default::Default for NTMS_ALLOCATION_INFORMATION {
+impl ::core::default::Default for NTMS_ALLOCATION_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_ALLOCATION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_ALLOCATION_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_ALLOCATION_INFORMATION").field("dwSize", &self.dwSize).field("lpReserved", &self.lpReserved).field("AllocatedFrom", &self.AllocatedFrom).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_ALLOCATION_INFORMATION {
+impl ::core::cmp::PartialEq for NTMS_ALLOCATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.lpReserved == other.lpReserved && self.AllocatedFrom == other.AllocatedFrom
     }
 }
-impl ::std::cmp::Eq for NTMS_ALLOCATION_INFORMATION {}
+impl ::core::cmp::Eq for NTMS_ALLOCATION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_ALLOCATION_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -9567,14 +9567,14 @@ pub struct NTMS_ASYNC_IO {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_ASYNC_IO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_ASYNC_IO {
+impl ::core::default::Default for NTMS_ASYNC_IO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_ASYNC_IO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_ASYNC_IO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_ASYNC_IO")
             .field("OperationId", &self.OperationId)
             .field("EventId", &self.EventId)
@@ -9587,20 +9587,20 @@ impl ::std::fmt::Debug for NTMS_ASYNC_IO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_ASYNC_IO {
+impl ::core::cmp::PartialEq for NTMS_ASYNC_IO {
     fn eq(&self, other: &Self) -> bool {
         self.OperationId == other.OperationId && self.EventId == other.EventId && self.dwOperationType == other.dwOperationType && self.dwResult == other.dwResult && self.dwAsyncState == other.dwAsyncState && self.hEvent == other.hEvent && self.bOnStateChange == other.bOnStateChange
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_ASYNC_IO {}
+impl ::core::cmp::Eq for NTMS_ASYNC_IO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_ASYNC_IO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -9619,14 +9619,14 @@ pub struct NTMS_CHANGERINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_CHANGERINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_CHANGERINFORMATIONA {
+impl ::core::default::Default for NTMS_CHANGERINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_CHANGERINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_CHANGERINFORMATIONA")
             .field("Number", &self.Number)
             .field("ChangerType", &self.ChangerType)
@@ -9642,18 +9642,18 @@ impl ::std::fmt::Debug for NTMS_CHANGERINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number && self.ChangerType == other.ChangerType && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.szDeviceName == other.szDeviceName && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.Library == other.Library
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_CHANGERINFORMATIONW {
@@ -9669,13 +9669,13 @@ pub struct NTMS_CHANGERINFORMATIONW {
     pub Library: ::windows::runtime::GUID,
 }
 impl NTMS_CHANGERINFORMATIONW {}
-impl ::std::default::Default for NTMS_CHANGERINFORMATIONW {
+impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_CHANGERINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_CHANGERINFORMATIONW")
             .field("Number", &self.Number)
             .field("ChangerType", &self.ChangerType)
@@ -9690,16 +9690,16 @@ impl ::std::fmt::Debug for NTMS_CHANGERINFORMATIONW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number && self.ChangerType == other.ChangerType && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.szDeviceName == other.szDeviceName && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.Library == other.Library
     }
 }
-impl ::std::cmp::Eq for NTMS_CHANGERINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -9711,30 +9711,30 @@ pub struct NTMS_CHANGERTYPEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_CHANGERTYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
+impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_CHANGERTYPEINFORMATIONA").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("DeviceType", &self.DeviceType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.DeviceType == other.DeviceType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_CHANGERTYPEINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
@@ -9743,26 +9743,26 @@ pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub DeviceType: u32,
 }
 impl NTMS_CHANGERTYPEINFORMATIONW {}
-impl ::std::default::Default for NTMS_CHANGERTYPEINFORMATIONW {
+impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_CHANGERTYPEINFORMATIONW").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("DeviceType", &self.DeviceType).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.DeviceType == other.DeviceType
     }
 }
-impl ::std::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_CHANGERTYPEINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_COMPUTERINFORMATION {
@@ -9773,13 +9773,13 @@ pub struct NTMS_COMPUTERINFORMATION {
     pub dwMediaPoolPolicy: u32,
 }
 impl NTMS_COMPUTERINFORMATION {}
-impl ::std::default::Default for NTMS_COMPUTERINFORMATION {
+impl ::core::default::Default for NTMS_COMPUTERINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_COMPUTERINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_COMPUTERINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_COMPUTERINFORMATION")
             .field("dwLibRequestPurgeTime", &self.dwLibRequestPurgeTime)
             .field("dwOpRequestPurgeTime", &self.dwOpRequestPurgeTime)
@@ -9789,12 +9789,12 @@ impl ::std::fmt::Debug for NTMS_COMPUTERINFORMATION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.dwLibRequestPurgeTime == other.dwLibRequestPurgeTime && self.dwOpRequestPurgeTime == other.dwOpRequestPurgeTime && self.dwLibRequestFlags == other.dwLibRequestFlags && self.dwOpRequestFlags == other.dwOpRequestFlags && self.dwMediaPoolPolicy == other.dwMediaPoolPolicy
     }
 }
-impl ::std::cmp::Eq for NTMS_COMPUTERINFORMATION {}
+impl ::core::cmp::Eq for NTMS_COMPUTERINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_COMPUTERINFORMATION {
     type Abi = Self;
 }
@@ -9804,7 +9804,7 @@ pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
 pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -9829,14 +9829,14 @@ pub struct NTMS_DRIVEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_DRIVEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_DRIVEINFORMATIONA {
+impl ::core::default::Default for NTMS_DRIVEINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_DRIVEINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_DRIVEINFORMATIONA")
             .field("Number", &self.Number)
             .field("State", &self.State)
@@ -9858,7 +9858,7 @@ impl ::std::fmt::Debug for NTMS_DRIVEINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number
             && self.State == other.State
@@ -9879,12 +9879,12 @@ impl ::std::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_DRIVEINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -9909,14 +9909,14 @@ pub struct NTMS_DRIVEINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_DRIVEINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_DRIVEINFORMATIONW {
+impl ::core::default::Default for NTMS_DRIVEINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_DRIVEINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_DRIVEINFORMATIONW")
             .field("Number", &self.Number)
             .field("State", &self.State)
@@ -9938,7 +9938,7 @@ impl ::std::fmt::Debug for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number
             && self.State == other.State
@@ -9959,12 +9959,12 @@ impl ::std::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_DRIVEINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -9977,30 +9977,30 @@ pub struct NTMS_DRIVETYPEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_DRIVETYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_DRIVETYPEINFORMATIONA {
+impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_DRIVETYPEINFORMATIONA").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("NumberOfHeads", &self.NumberOfHeads).field("DeviceType", &self.DeviceType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.NumberOfHeads == other.NumberOfHeads && self.DeviceType == other.DeviceType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_DRIVETYPEINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
@@ -10010,26 +10010,26 @@ pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub DeviceType: FILE_DEVICE_TYPE,
 }
 impl NTMS_DRIVETYPEINFORMATIONW {}
-impl ::std::default::Default for NTMS_DRIVETYPEINFORMATIONW {
+impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_DRIVETYPEINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_DRIVETYPEINFORMATIONW").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("NumberOfHeads", &self.NumberOfHeads).field("DeviceType", &self.DeviceType).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.NumberOfHeads == other.NumberOfHeads && self.DeviceType == other.DeviceType
     }
 }
-impl ::std::cmp::Eq for NTMS_DRIVETYPEINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_DRIVETYPEINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_FILESYSTEM_INFO {
@@ -10038,26 +10038,26 @@ pub struct NTMS_FILESYSTEM_INFO {
     pub SerialNumber: u32,
 }
 impl NTMS_FILESYSTEM_INFO {}
-impl ::std::default::Default for NTMS_FILESYSTEM_INFO {
+impl ::core::default::Default for NTMS_FILESYSTEM_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_FILESYSTEM_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_FILESYSTEM_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_FILESYSTEM_INFO").field("FileSystemType", &self.FileSystemType).field("VolumeName", &self.VolumeName).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_FILESYSTEM_INFO {
+impl ::core::cmp::PartialEq for NTMS_FILESYSTEM_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.FileSystemType == other.FileSystemType && self.VolumeName == other.VolumeName && self.SerialNumber == other.SerialNumber
     }
 }
-impl ::std::cmp::Eq for NTMS_FILESYSTEM_INFO {}
+impl ::core::cmp::Eq for NTMS_FILESYSTEM_INFO {}
 unsafe impl ::windows::runtime::Abi for NTMS_FILESYSTEM_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10087,14 +10087,14 @@ pub struct NTMS_I1_LIBRARYINFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_LIBRARYINFORMATION {
+impl ::core::default::Default for NTMS_I1_LIBRARYINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_LIBRARYINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_LIBRARYINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_LIBRARYINFORMATION")
             .field("LibraryType", &self.LibraryType)
             .field("CleanerSlot", &self.CleanerSlot)
@@ -10121,7 +10121,7 @@ impl ::std::fmt::Debug for NTMS_I1_LIBRARYINFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.LibraryType == other.LibraryType
             && self.CleanerSlot == other.CleanerSlot
@@ -10147,12 +10147,12 @@ impl ::std::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_LIBRARYINFORMATION {}
+impl ::core::cmp::Eq for NTMS_I1_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBRARYINFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10174,14 +10174,14 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_LIBREQUESTINFORMATIONA {
+impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_LIBREQUESTINFORMATIONA")
             .field("OperationCode", &self.OperationCode)
             .field("OperationOption", &self.OperationOption)
@@ -10200,7 +10200,7 @@ impl ::std::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.OperationCode == other.OperationCode
             && self.OperationOption == other.OperationOption
@@ -10218,12 +10218,12 @@ impl ::std::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10245,14 +10245,14 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_LIBREQUESTINFORMATIONW {
+impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_LIBREQUESTINFORMATIONW")
             .field("OperationCode", &self.OperationCode)
             .field("OperationOption", &self.OperationOption)
@@ -10271,7 +10271,7 @@ impl ::std::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.OperationCode == other.OperationCode
             && self.OperationOption == other.OperationOption
@@ -10289,14 +10289,14 @@ impl ::std::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10315,24 +10315,24 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_OBJECTINFORMATIONA {
+impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
@@ -10355,24 +10355,24 @@ pub union NTMS_I1_OBJECTINFORMATIONA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
+impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA_0 {
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA_0 {}
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10391,24 +10391,24 @@ pub struct NTMS_I1_OBJECTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_OBJECTINFORMATIONW {
+impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
@@ -10431,24 +10431,24 @@ pub union NTMS_I1_OBJECTINFORMATIONW_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_OBJECTINFORMATIONW_0 {
+impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW_0 {
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW_0 {}
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10468,14 +10468,14 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
+impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONA")
             .field("Request", &self.Request)
             .field("Submitted", &self.Submitted)
@@ -10492,18 +10492,18 @@ impl ::std::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10523,14 +10523,14 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
+impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONW")
             .field("Request", &self.Request)
             .field("Submitted", &self.Submitted)
@@ -10547,18 +10547,18 @@ impl ::std::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10577,14 +10577,14 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
+impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONA")
             .field("PhysicalMedia", &self.PhysicalMedia)
             .field("LogicalMedia", &self.LogicalMedia)
@@ -10600,18 +10600,18 @@ impl ::std::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
@@ -10627,13 +10627,13 @@ pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub dwAllocateCount: u32,
 }
 impl NTMS_I1_PARTITIONINFORMATIONW {}
-impl ::std::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
+impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONW")
             .field("PhysicalMedia", &self.PhysicalMedia)
             .field("LogicalMedia", &self.LogicalMedia)
@@ -10648,16 +10648,16 @@ impl ::std::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount
     }
 }
-impl ::std::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10677,14 +10677,14 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_I1_PMIDINFORMATIONA {
+impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_PMIDINFORMATIONA")
             .field("CurrentLibrary", &self.CurrentLibrary)
             .field("MediaPool", &self.MediaPool)
@@ -10701,18 +10701,18 @@ impl ::std::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_PMIDINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_I1_PMIDINFORMATIONW {
@@ -10729,13 +10729,13 @@ pub struct NTMS_I1_PMIDINFORMATIONW {
     pub dwNumberOfPartitions: u32,
 }
 impl NTMS_I1_PMIDINFORMATIONW {}
-impl ::std::default::Default for NTMS_I1_PMIDINFORMATIONW {
+impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_I1_PMIDINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_I1_PMIDINFORMATIONW")
             .field("CurrentLibrary", &self.CurrentLibrary)
             .field("MediaPool", &self.MediaPool)
@@ -10751,16 +10751,16 @@ impl ::std::fmt::Debug for NTMS_I1_PMIDINFORMATIONW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions
     }
 }
-impl ::std::cmp::Eq for NTMS_I1_PMIDINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_I1_PMIDINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_IEDOORINFORMATION {
@@ -10770,26 +10770,26 @@ pub struct NTMS_IEDOORINFORMATION {
     pub Library: ::windows::runtime::GUID,
 }
 impl NTMS_IEDOORINFORMATION {}
-impl ::std::default::Default for NTMS_IEDOORINFORMATION {
+impl ::core::default::Default for NTMS_IEDOORINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_IEDOORINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_IEDOORINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_IEDOORINFORMATION").field("Number", &self.Number).field("State", &self.State).field("MaxOpenSecs", &self.MaxOpenSecs).field("Library", &self.Library).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_IEDOORINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_IEDOORINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number && self.State == other.State && self.MaxOpenSecs == other.MaxOpenSecs && self.Library == other.Library
     }
 }
-impl ::std::cmp::Eq for NTMS_IEDOORINFORMATION {}
+impl ::core::cmp::Eq for NTMS_IEDOORINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_IEDOORINFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_IEPORTINFORMATION {
@@ -10800,26 +10800,26 @@ pub struct NTMS_IEPORTINFORMATION {
     pub Library: ::windows::runtime::GUID,
 }
 impl NTMS_IEPORTINFORMATION {}
-impl ::std::default::Default for NTMS_IEPORTINFORMATION {
+impl ::core::default::Default for NTMS_IEPORTINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_IEPORTINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_IEPORTINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_IEPORTINFORMATION").field("Number", &self.Number).field("Content", &self.Content).field("Position", &self.Position).field("MaxExtendSecs", &self.MaxExtendSecs).field("Library", &self.Library).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_IEPORTINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_IEPORTINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number && self.Content == other.Content && self.Position == other.Position && self.MaxExtendSecs == other.MaxExtendSecs && self.Library == other.Library
     }
 }
-impl ::std::cmp::Eq for NTMS_IEPORTINFORMATION {}
+impl ::core::cmp::Eq for NTMS_IEPORTINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_IEPORTINFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10851,14 +10851,14 @@ pub struct NTMS_LIBRARYINFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_LIBRARYINFORMATION {
+impl ::core::default::Default for NTMS_LIBRARYINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_LIBRARYINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_LIBRARYINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_LIBRARYINFORMATION")
             .field("LibraryType", &self.LibraryType)
             .field("CleanerSlot", &self.CleanerSlot)
@@ -10887,7 +10887,7 @@ impl ::std::fmt::Debug for NTMS_LIBRARYINFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.LibraryType == other.LibraryType
             && self.CleanerSlot == other.CleanerSlot
@@ -10915,12 +10915,12 @@ impl ::std::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_LIBRARYINFORMATION {}
+impl ::core::cmp::Eq for NTMS_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_LIBRARYINFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -10945,14 +10945,14 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_LIBREQUESTINFORMATIONA {
+impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_LIBREQUESTINFORMATIONA")
             .field("OperationCode", &self.OperationCode)
             .field("OperationOption", &self.OperationOption)
@@ -10974,7 +10974,7 @@ impl ::std::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.OperationCode == other.OperationCode
             && self.OperationOption == other.OperationOption
@@ -10995,12 +10995,12 @@ impl ::std::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_LIBREQUESTINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_LIBREQUESTINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11025,14 +11025,14 @@ pub struct NTMS_LIBREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_LIBREQUESTINFORMATIONW {
+impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_LIBREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_LIBREQUESTINFORMATIONW")
             .field("OperationCode", &self.OperationCode)
             .field("OperationOption", &self.OperationOption)
@@ -11054,7 +11054,7 @@ impl ::std::fmt::Debug for NTMS_LIBREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.OperationCode == other.OperationCode
             && self.OperationOption == other.OperationOption
@@ -11075,12 +11075,12 @@ impl ::std::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_LIBREQUESTINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_LIBREQUESTINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_LMIDINFORMATION {
@@ -11088,22 +11088,22 @@ pub struct NTMS_LMIDINFORMATION {
     pub dwNumberOfPartitions: u32,
 }
 impl NTMS_LMIDINFORMATION {}
-impl ::std::default::Default for NTMS_LMIDINFORMATION {
+impl ::core::default::Default for NTMS_LMIDINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_LMIDINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_LMIDINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_LMIDINFORMATION").field("MediaPool", &self.MediaPool).field("dwNumberOfPartitions", &self.dwNumberOfPartitions).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_LMIDINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_LMIDINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.MediaPool == other.MediaPool && self.dwNumberOfPartitions == other.dwNumberOfPartitions
     }
 }
-impl ::std::cmp::Eq for NTMS_LMIDINFORMATION {}
+impl ::core::cmp::Eq for NTMS_LMIDINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_LMIDINFORMATION {
     type Abi = Self;
 }
@@ -11111,7 +11111,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_LMIDINFORMATION {
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_MEDIAPOOLINFORMATION {
@@ -11126,13 +11126,13 @@ pub struct NTMS_MEDIAPOOLINFORMATION {
     pub dwNumberOfMediaPools: u32,
 }
 impl NTMS_MEDIAPOOLINFORMATION {}
-impl ::std::default::Default for NTMS_MEDIAPOOLINFORMATION {
+impl ::core::default::Default for NTMS_MEDIAPOOLINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_MEDIAPOOLINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_MEDIAPOOLINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_MEDIAPOOLINFORMATION")
             .field("PoolType", &self.PoolType)
             .field("MediaType", &self.MediaType)
@@ -11146,16 +11146,16 @@ impl ::std::fmt::Debug for NTMS_MEDIAPOOLINFORMATION {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_MEDIAPOOLINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_MEDIAPOOLINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.PoolType == other.PoolType && self.MediaType == other.MediaType && self.Parent == other.Parent && self.AllocationPolicy == other.AllocationPolicy && self.DeallocationPolicy == other.DeallocationPolicy && self.dwMaxAllocates == other.dwMaxAllocates && self.dwNumberOfPhysicalMedia == other.dwNumberOfPhysicalMedia && self.dwNumberOfLogicalMedia == other.dwNumberOfLogicalMedia && self.dwNumberOfMediaPools == other.dwNumberOfMediaPools
     }
 }
-impl ::std::cmp::Eq for NTMS_MEDIAPOOLINFORMATION {}
+impl ::core::cmp::Eq for NTMS_MEDIAPOOLINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_MEDIAPOOLINFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_MEDIATYPEINFORMATION {
@@ -11165,55 +11165,55 @@ pub struct NTMS_MEDIATYPEINFORMATION {
     pub DeviceType: FILE_DEVICE_TYPE,
 }
 impl NTMS_MEDIATYPEINFORMATION {}
-impl ::std::default::Default for NTMS_MEDIATYPEINFORMATION {
+impl ::core::default::Default for NTMS_MEDIATYPEINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_MEDIATYPEINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_MEDIATYPEINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_MEDIATYPEINFORMATION").field("MediaType", &self.MediaType).field("NumberOfSides", &self.NumberOfSides).field("ReadWriteCharacteristics", &self.ReadWriteCharacteristics).field("DeviceType", &self.DeviceType).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_MEDIATYPEINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_MEDIATYPEINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.MediaType == other.MediaType && self.NumberOfSides == other.NumberOfSides && self.ReadWriteCharacteristics == other.ReadWriteCharacteristics && self.DeviceType == other.DeviceType
     }
 }
-impl ::std::cmp::Eq for NTMS_MEDIATYPEINFORMATION {}
+impl ::core::cmp::Eq for NTMS_MEDIATYPEINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_MEDIATYPEINFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
-    pub lpReserved: *mut ::std::ffi::c_void,
+    pub lpReserved: *mut ::core::ffi::c_void,
 }
 impl NTMS_MOUNT_INFORMATION {}
-impl ::std::default::Default for NTMS_MOUNT_INFORMATION {
+impl ::core::default::Default for NTMS_MOUNT_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_MOUNT_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_MOUNT_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_MOUNT_INFORMATION").field("dwSize", &self.dwSize).field("lpReserved", &self.lpReserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_MOUNT_INFORMATION {
+impl ::core::cmp::PartialEq for NTMS_MOUNT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.lpReserved == other.lpReserved
     }
 }
-impl ::std::cmp::Eq for NTMS_MOUNT_INFORMATION {}
+impl ::core::cmp::Eq for NTMS_MOUNT_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_MOUNT_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_NOTIFICATIONINFORMATION {
@@ -11221,26 +11221,26 @@ pub struct NTMS_NOTIFICATIONINFORMATION {
     pub ObjectId: ::windows::runtime::GUID,
 }
 impl NTMS_NOTIFICATIONINFORMATION {}
-impl ::std::default::Default for NTMS_NOTIFICATIONINFORMATION {
+impl ::core::default::Default for NTMS_NOTIFICATIONINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_NOTIFICATIONINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_NOTIFICATIONINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_NOTIFICATIONINFORMATION").field("dwOperation", &self.dwOperation).field("ObjectId", &self.ObjectId).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_NOTIFICATIONINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_NOTIFICATIONINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.dwOperation == other.dwOperation && self.ObjectId == other.ObjectId
     }
 }
-impl ::std::cmp::Eq for NTMS_NOTIFICATIONINFORMATION {}
+impl ::core::cmp::Eq for NTMS_NOTIFICATIONINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_NOTIFICATIONINFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11259,24 +11259,24 @@ pub struct NTMS_OBJECTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_OBJECTINFORMATIONA {
+impl ::core::default::Default for NTMS_OBJECTINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_OBJECTINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_OBJECTINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONA_0 {
@@ -11300,24 +11300,24 @@ pub union NTMS_OBJECTINFORMATIONA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_OBJECTINFORMATIONA_0 {
+impl ::core::default::Default for NTMS_OBJECTINFORMATIONA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_OBJECTINFORMATIONA_0 {
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_OBJECTINFORMATIONA_0 {}
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11336,24 +11336,24 @@ pub struct NTMS_OBJECTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_OBJECTINFORMATIONW {
+impl ::core::default::Default for NTMS_OBJECTINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_OBJECTINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_OBJECTINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONW_0 {
@@ -11377,19 +11377,19 @@ pub union NTMS_OBJECTINFORMATIONW_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_OBJECTINFORMATIONW_0 {
+impl ::core::default::Default for NTMS_OBJECTINFORMATIONW_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_OBJECTINFORMATIONW_0 {
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_OBJECTINFORMATIONW_0 {}
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONW_0 {
     type Abi = Self;
@@ -11403,12 +11403,12 @@ pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NTMS_OMID_TYPE(pub u32);
 pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
 pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
-impl ::std::convert::From<u32> for NTMS_OMID_TYPE {
+impl ::core::convert::From<u32> for NTMS_OMID_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11416,35 +11416,35 @@ impl ::std::convert::From<u32> for NTMS_OMID_TYPE {
 unsafe impl ::windows::runtime::Abi for NTMS_OMID_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NTMS_OMID_TYPE {
+impl ::core::ops::BitOr for NTMS_OMID_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NTMS_OMID_TYPE {
+impl ::core::ops::BitAnd for NTMS_OMID_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NTMS_OMID_TYPE {
+impl ::core::ops::BitOrAssign for NTMS_OMID_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NTMS_OMID_TYPE {
+impl ::core::ops::BitAndAssign for NTMS_OMID_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NTMS_OMID_TYPE {
+impl ::core::ops::Not for NTMS_OMID_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11464,14 +11464,14 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_OPREQUESTINFORMATIONA {
+impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_OPREQUESTINFORMATIONA")
             .field("Request", &self.Request)
             .field("Submitted", &self.Submitted)
@@ -11488,18 +11488,18 @@ impl ::std::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_OPREQUESTINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11519,14 +11519,14 @@ pub struct NTMS_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_OPREQUESTINFORMATIONW {
+impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_OPREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_OPREQUESTINFORMATIONW")
             .field("Request", &self.Request)
             .field("Submitted", &self.Submitted)
@@ -11543,18 +11543,18 @@ impl ::std::fmt::Debug for NTMS_OPREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_OPREQUESTINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11574,14 +11574,14 @@ pub struct NTMS_PARTITIONINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_PARTITIONINFORMATIONA {
+impl ::core::default::Default for NTMS_PARTITIONINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_PARTITIONINFORMATIONA")
             .field("PhysicalMedia", &self.PhysicalMedia)
             .field("LogicalMedia", &self.LogicalMedia)
@@ -11598,18 +11598,18 @@ impl ::std::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount && self.Capacity == other.Capacity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_PARTITIONINFORMATIONW {
@@ -11626,13 +11626,13 @@ pub struct NTMS_PARTITIONINFORMATIONW {
     pub Capacity: i64,
 }
 impl NTMS_PARTITIONINFORMATIONW {}
-impl ::std::default::Default for NTMS_PARTITIONINFORMATIONW {
+impl ::core::default::Default for NTMS_PARTITIONINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_PARTITIONINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_PARTITIONINFORMATIONW")
             .field("PhysicalMedia", &self.PhysicalMedia)
             .field("LogicalMedia", &self.LogicalMedia)
@@ -11648,16 +11648,16 @@ impl ::std::fmt::Debug for NTMS_PARTITIONINFORMATIONW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_PARTITIONINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount && self.Capacity == other.Capacity
     }
 }
-impl ::std::cmp::Eq for NTMS_PARTITIONINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -11680,14 +11680,14 @@ pub struct NTMS_PMIDINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl NTMS_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NTMS_PMIDINFORMATIONA {
+impl ::core::default::Default for NTMS_PMIDINFORMATIONA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NTMS_PMIDINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_PMIDINFORMATIONA")
             .field("CurrentLibrary", &self.CurrentLibrary)
             .field("MediaPool", &self.MediaPool)
@@ -11707,7 +11707,7 @@ impl ::std::fmt::Debug for NTMS_PMIDINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
+impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary
             && self.MediaPool == other.MediaPool
@@ -11726,12 +11726,12 @@ impl ::std::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NTMS_PMIDINFORMATIONA {}
+impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_PMIDINFORMATIONA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_PMIDINFORMATIONW {
@@ -11751,13 +11751,13 @@ pub struct NTMS_PMIDINFORMATIONW {
     pub MountedPartition: ::windows::runtime::GUID,
 }
 impl NTMS_PMIDINFORMATIONW {}
-impl ::std::default::Default for NTMS_PMIDINFORMATIONW {
+impl ::core::default::Default for NTMS_PMIDINFORMATIONW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_PMIDINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_PMIDINFORMATIONW")
             .field("CurrentLibrary", &self.CurrentLibrary)
             .field("MediaPool", &self.MediaPool)
@@ -11776,7 +11776,7 @@ impl ::std::fmt::Debug for NTMS_PMIDINFORMATIONW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
+impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary
             && self.MediaPool == other.MediaPool
@@ -11794,7 +11794,7 @@ impl ::std::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
             && self.MountedPartition == other.MountedPartition
     }
 }
-impl ::std::cmp::Eq for NTMS_PMIDINFORMATIONW {}
+impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for NTMS_PMIDINFORMATIONW {
     type Abi = Self;
 }
@@ -11808,7 +11808,7 @@ pub const NTMS_REVISION_LENGTH: u32 = 32u32;
 pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct NTMS_STORAGESLOTINFORMATION {
@@ -11817,22 +11817,22 @@ pub struct NTMS_STORAGESLOTINFORMATION {
     pub Library: ::windows::runtime::GUID,
 }
 impl NTMS_STORAGESLOTINFORMATION {}
-impl ::std::default::Default for NTMS_STORAGESLOTINFORMATION {
+impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NTMS_STORAGESLOTINFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NTMS_STORAGESLOTINFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NTMS_STORAGESLOTINFORMATION").field("Number", &self.Number).field("State", &self.State).field("Library", &self.Library).finish()
     }
 }
-impl ::std::cmp::PartialEq for NTMS_STORAGESLOTINFORMATION {
+impl ::core::cmp::PartialEq for NTMS_STORAGESLOTINFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number && self.State == other.State && self.Library == other.Library
     }
 }
-impl ::std::cmp::Eq for NTMS_STORAGESLOTINFORMATION {}
+impl ::core::cmp::Eq for NTMS_STORAGESLOTINFORMATION {}
 unsafe impl ::windows::runtime::Abi for NTMS_STORAGESLOTINFORMATION {
     type Abi = Self;
 }
@@ -11850,7 +11850,7 @@ pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetConnectionEnum(servername: super::super::Foundation::PWSTR, qualifier: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetConnectionEnum(servername.into_param().abi(), qualifier.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetConnectionEnum(servername.into_param().abi(), qualifier.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11865,7 +11865,7 @@ pub unsafe fn NetFileClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetFileClose(servername: super::super::Foundation::PWSTR, fileid: u32) -> u32;
         }
-        ::std::mem::transmute(NetFileClose(servername.into_param().abi(), ::std::mem::transmute(fileid)))
+        ::core::mem::transmute(NetFileClose(servername.into_param().abi(), ::core::mem::transmute(fileid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11880,16 +11880,16 @@ pub unsafe fn NetFileEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn NetFileEnum(servername: super::super::Foundation::PWSTR, basepath: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
         }
-        ::std::mem::transmute(NetFileEnum(
+        ::core::mem::transmute(NetFileEnum(
             servername.into_param().abi(),
             basepath.into_param().abi(),
             username.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(bufptr),
-            ::std::mem::transmute(prefmaxlen),
-            ::std::mem::transmute(entriesread),
-            ::std::mem::transmute(totalentries),
-            ::std::mem::transmute(resume_handle),
+            ::core::mem::transmute(level),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxlen),
+            ::core::mem::transmute(entriesread),
+            ::core::mem::transmute(totalentries),
+            ::core::mem::transmute(resume_handle),
         ))
     }
     #[cfg(not(windows))]
@@ -11905,7 +11905,7 @@ pub unsafe fn NetFileGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetFileGetInfo(servername: super::super::Foundation::PWSTR, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetFileGetInfo(servername.into_param().abi(), ::std::mem::transmute(fileid), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetFileGetInfo(servername.into_param().abi(), ::core::mem::transmute(fileid), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11920,7 +11920,7 @@ pub unsafe fn NetServerAliasAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetServerAliasAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetServerAliasAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf)))
+        ::core::mem::transmute(NetServerAliasAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11935,7 +11935,7 @@ pub unsafe fn NetServerAliasDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetServerAliasDel(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetServerAliasDel(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf)))
+        ::core::mem::transmute(NetServerAliasDel(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11950,7 +11950,7 @@ pub unsafe fn NetServerAliasEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn NetServerAliasEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetServerAliasEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetServerAliasEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11965,7 +11965,7 @@ pub unsafe fn NetSessionDel<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetSessionDel(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetSessionDel(servername.into_param().abi(), uncclientname.into_param().abi(), username.into_param().abi()))
+        ::core::mem::transmute(NetSessionDel(servername.into_param().abi(), uncclientname.into_param().abi(), username.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11980,16 +11980,16 @@ pub unsafe fn NetSessionEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetSessionEnum(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetSessionEnum(
+        ::core::mem::transmute(NetSessionEnum(
             servername.into_param().abi(),
             uncclientname.into_param().abi(),
             username.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(bufptr),
-            ::std::mem::transmute(prefmaxlen),
-            ::std::mem::transmute(entriesread),
-            ::std::mem::transmute(totalentries),
-            ::std::mem::transmute(resume_handle),
+            ::core::mem::transmute(level),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxlen),
+            ::core::mem::transmute(entriesread),
+            ::core::mem::transmute(totalentries),
+            ::core::mem::transmute(resume_handle),
         ))
     }
     #[cfg(not(windows))]
@@ -12005,7 +12005,7 @@ pub unsafe fn NetSessionGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetSessionGetInfo(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetSessionGetInfo(servername.into_param().abi(), uncclientname.into_param().abi(), username.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetSessionGetInfo(servername.into_param().abi(), uncclientname.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12020,7 +12020,7 @@ pub unsafe fn NetShareAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn NetShareAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetShareAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetShareAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12035,7 +12035,7 @@ pub unsafe fn NetShareCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetShareCheck(servername: super::super::Foundation::PWSTR, device: super::super::Foundation::PWSTR, r#type: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetShareCheck(servername.into_param().abi(), device.into_param().abi(), ::std::mem::transmute(r#type)))
+        ::core::mem::transmute(NetShareCheck(servername.into_param().abi(), device.into_param().abi(), ::core::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12050,7 +12050,7 @@ pub unsafe fn NetShareDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn NetShareDel(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(NetShareDel(servername.into_param().abi(), netname.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetShareDel(servername.into_param().abi(), netname.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12065,7 +12065,7 @@ pub unsafe fn NetShareDelEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetShareDelEx(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetShareDelEx(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf)))
+        ::core::mem::transmute(NetShareDelEx(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12080,7 +12080,7 @@ pub unsafe fn NetShareDelSticky<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetShareDelSticky(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(NetShareDelSticky(servername.into_param().abi(), netname.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetShareDelSticky(servername.into_param().abi(), netname.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12095,7 +12095,7 @@ pub unsafe fn NetShareEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetShareEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetShareEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetShareEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12110,7 +12110,7 @@ pub unsafe fn NetShareEnumSticky<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn NetShareEnumSticky(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetShareEnumSticky(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetShareEnumSticky(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12125,7 +12125,7 @@ pub unsafe fn NetShareGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetShareGetInfo(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetShareGetInfo(servername.into_param().abi(), netname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetShareGetInfo(servername.into_param().abi(), netname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12140,7 +12140,7 @@ pub unsafe fn NetShareSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetShareSetInfo(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetShareSetInfo(servername.into_param().abi(), netname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetShareSetInfo(servername.into_param().abi(), netname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12154,19 +12154,19 @@ pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level:
         extern "system" {
             fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetStatisticsGet(::std::mem::transmute(servername), ::std::mem::transmute(service), ::std::mem::transmute(level), ::std::mem::transmute(options), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(NetStatisticsGet(::core::mem::transmute(servername), ::core::mem::transmute(service), ::core::mem::transmute(level), ::core::mem::transmute(options), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsAccessMask(pub i32);
 pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
 pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
 pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
-impl ::std::convert::From<i32> for NtmsAccessMask {
+impl ::core::convert::From<i32> for NtmsAccessMask {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12175,13 +12175,13 @@ unsafe impl ::windows::runtime::Abi for NtmsAccessMask {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsAllocateOptions(pub i32);
 pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
 pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
 pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
-impl ::std::convert::From<i32> for NtmsAllocateOptions {
+impl ::core::convert::From<i32> for NtmsAllocateOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12190,11 +12190,11 @@ unsafe impl ::windows::runtime::Abi for NtmsAllocateOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsAllocationPolicy(pub i32);
 pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
-impl ::std::convert::From<i32> for NtmsAllocationPolicy {
+impl ::core::convert::From<i32> for NtmsAllocationPolicy {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12203,11 +12203,11 @@ unsafe impl ::windows::runtime::Abi for NtmsAllocationPolicy {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsAsyncOperations(pub i32);
 pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
-impl ::std::convert::From<i32> for NtmsAsyncOperations {
+impl ::core::convert::From<i32> for NtmsAsyncOperations {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12216,7 +12216,7 @@ unsafe impl ::windows::runtime::Abi for NtmsAsyncOperations {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsAsyncStatus(pub i32);
 pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
@@ -12224,7 +12224,7 @@ pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32)
 pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
 pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
 pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
-impl ::std::convert::From<i32> for NtmsAsyncStatus {
+impl ::core::convert::From<i32> for NtmsAsyncStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12233,12 +12233,12 @@ unsafe impl ::windows::runtime::Abi for NtmsAsyncStatus {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsBarCodeState(pub i32);
 pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
 pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
-impl ::std::convert::From<i32> for NtmsBarCodeState {
+impl ::core::convert::From<i32> for NtmsBarCodeState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12247,11 +12247,11 @@ unsafe impl ::windows::runtime::Abi for NtmsBarCodeState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsCreateNtmsMediaOptions(pub i32);
 pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
-impl ::std::convert::From<i32> for NtmsCreateNtmsMediaOptions {
+impl ::core::convert::From<i32> for NtmsCreateNtmsMediaOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12260,13 +12260,13 @@ unsafe impl ::windows::runtime::Abi for NtmsCreateNtmsMediaOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsCreateOptions(pub i32);
 pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
 pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
 pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
-impl ::std::convert::From<i32> for NtmsCreateOptions {
+impl ::core::convert::From<i32> for NtmsCreateOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12275,11 +12275,11 @@ unsafe impl ::windows::runtime::Abi for NtmsCreateOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsDeallocationPolicy(pub i32);
 pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
-impl ::std::convert::From<i32> for NtmsDeallocationPolicy {
+impl ::core::convert::From<i32> for NtmsDeallocationPolicy {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12288,12 +12288,12 @@ unsafe impl ::windows::runtime::Abi for NtmsDeallocationPolicy {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsDismountOptions(pub i32);
 pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
 pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
-impl ::std::convert::From<i32> for NtmsDismountOptions {
+impl ::core::convert::From<i32> for NtmsDismountOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12302,13 +12302,13 @@ unsafe impl ::windows::runtime::Abi for NtmsDismountOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsDoorState(pub i32);
 pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
 pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
 pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
-impl ::std::convert::From<i32> for NtmsDoorState {
+impl ::core::convert::From<i32> for NtmsDoorState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12317,7 +12317,7 @@ unsafe impl ::windows::runtime::Abi for NtmsDoorState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsDriveState(pub i32);
 pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
@@ -12326,7 +12326,7 @@ pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
 pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
 pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
 pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
-impl ::std::convert::From<i32> for NtmsDriveState {
+impl ::core::convert::From<i32> for NtmsDriveState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12335,11 +12335,11 @@ unsafe impl ::windows::runtime::Abi for NtmsDriveState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsDriveType(pub i32);
 pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
-impl ::std::convert::From<i32> for NtmsDriveType {
+impl ::core::convert::From<i32> for NtmsDriveType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12348,7 +12348,7 @@ unsafe impl ::windows::runtime::Abi for NtmsDriveType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsEjectOperation(pub i32);
 pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
@@ -12357,7 +12357,7 @@ pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
 pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
 pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
 pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
-impl ::std::convert::From<i32> for NtmsEjectOperation {
+impl ::core::convert::From<i32> for NtmsEjectOperation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12366,12 +12366,12 @@ unsafe impl ::windows::runtime::Abi for NtmsEjectOperation {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsEnumerateOption(pub i32);
 pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
 pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
-impl ::std::convert::From<i32> for NtmsEnumerateOption {
+impl ::core::convert::From<i32> for NtmsEnumerateOption {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12380,14 +12380,14 @@ unsafe impl ::windows::runtime::Abi for NtmsEnumerateOption {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsInjectOperation(pub i32);
 pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
 pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
 pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
 pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
-impl ::std::convert::From<i32> for NtmsInjectOperation {
+impl ::core::convert::From<i32> for NtmsInjectOperation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12396,7 +12396,7 @@ unsafe impl ::windows::runtime::Abi for NtmsInjectOperation {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsInventoryMethod(pub i32);
 pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
@@ -12406,7 +12406,7 @@ pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32
 pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
 pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
 pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
-impl ::std::convert::From<i32> for NtmsInventoryMethod {
+impl ::core::convert::From<i32> for NtmsInventoryMethod {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12415,12 +12415,12 @@ unsafe impl ::windows::runtime::Abi for NtmsInventoryMethod {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsLibRequestFlags(pub i32);
 pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
 pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
-impl ::std::convert::From<i32> for NtmsLibRequestFlags {
+impl ::core::convert::From<i32> for NtmsLibRequestFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12429,7 +12429,7 @@ unsafe impl ::windows::runtime::Abi for NtmsLibRequestFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsLibraryFlags(pub i32);
 pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
@@ -12437,7 +12437,7 @@ pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2
 pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
 pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
 pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
-impl ::std::convert::From<i32> for NtmsLibraryFlags {
+impl ::core::convert::From<i32> for NtmsLibraryFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12446,14 +12446,14 @@ unsafe impl ::windows::runtime::Abi for NtmsLibraryFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsLibraryType(pub i32);
 pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
 pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
 pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
 pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
-impl ::std::convert::From<i32> for NtmsLibraryType {
+impl ::core::convert::From<i32> for NtmsLibraryType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12462,7 +12462,7 @@ unsafe impl ::windows::runtime::Abi for NtmsLibraryType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsLmOperation(pub i32);
 pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
@@ -12490,7 +12490,7 @@ pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
 pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
 pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
 pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
-impl ::std::convert::From<i32> for NtmsLmOperation {
+impl ::core::convert::From<i32> for NtmsLmOperation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12499,7 +12499,7 @@ unsafe impl ::windows::runtime::Abi for NtmsLmOperation {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsLmState(pub i32);
 pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
@@ -12512,7 +12512,7 @@ pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
 pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
 pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
 pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
-impl ::std::convert::From<i32> for NtmsLmState {
+impl ::core::convert::From<i32> for NtmsLmState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12521,12 +12521,12 @@ unsafe impl ::windows::runtime::Abi for NtmsLmState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsMediaPoolPolicy(pub i32);
 pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
 pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
-impl ::std::convert::From<i32> for NtmsMediaPoolPolicy {
+impl ::core::convert::From<i32> for NtmsMediaPoolPolicy {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12535,7 +12535,7 @@ unsafe impl ::windows::runtime::Abi for NtmsMediaPoolPolicy {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsMediaState(pub i32);
 pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
@@ -12545,7 +12545,7 @@ pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
 pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
 pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
 pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
-impl ::std::convert::From<i32> for NtmsMediaState {
+impl ::core::convert::From<i32> for NtmsMediaState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12554,7 +12554,7 @@ unsafe impl ::windows::runtime::Abi for NtmsMediaState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsMountOptions(pub i32);
 pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
@@ -12565,7 +12565,7 @@ pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
 pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
 pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
 pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
-impl ::std::convert::From<i32> for NtmsMountOptions {
+impl ::core::convert::From<i32> for NtmsMountOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12574,7 +12574,7 @@ unsafe impl ::windows::runtime::Abi for NtmsMountOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsMountPriority(pub i32);
 pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
@@ -12583,7 +12583,7 @@ pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
 pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
 pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
 pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
-impl ::std::convert::From<i32> for NtmsMountPriority {
+impl ::core::convert::From<i32> for NtmsMountPriority {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12592,7 +12592,7 @@ unsafe impl ::windows::runtime::Abi for NtmsMountPriority {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsNotificationOperations(pub i32);
 pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
@@ -12600,7 +12600,7 @@ pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperatio
 pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
 pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
 pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
-impl ::std::convert::From<i32> for NtmsNotificationOperations {
+impl ::core::convert::From<i32> for NtmsNotificationOperations {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12609,7 +12609,7 @@ unsafe impl ::windows::runtime::Abi for NtmsNotificationOperations {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsObjectsTypes(pub i32);
 pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
@@ -12632,7 +12632,7 @@ pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
 pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
 pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
 pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
-impl ::std::convert::From<i32> for NtmsObjectsTypes {
+impl ::core::convert::From<i32> for NtmsObjectsTypes {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12641,14 +12641,14 @@ unsafe impl ::windows::runtime::Abi for NtmsObjectsTypes {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsOpRequestFlags(pub i32);
 pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
 pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
 pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
 pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
-impl ::std::convert::From<i32> for NtmsOpRequestFlags {
+impl ::core::convert::From<i32> for NtmsOpRequestFlags {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12657,14 +12657,14 @@ unsafe impl ::windows::runtime::Abi for NtmsOpRequestFlags {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsOperationalState(pub i32);
 pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
 pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
 pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
 pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
-impl ::std::convert::From<i32> for NtmsOperationalState {
+impl ::core::convert::From<i32> for NtmsOperationalState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12673,7 +12673,7 @@ unsafe impl ::windows::runtime::Abi for NtmsOperationalState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsOpreqCommand(pub i32);
 pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
@@ -12682,7 +12682,7 @@ pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
 pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
 pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
 pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
-impl ::std::convert::From<i32> for NtmsOpreqCommand {
+impl ::core::convert::From<i32> for NtmsOpreqCommand {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12691,7 +12691,7 @@ unsafe impl ::windows::runtime::Abi for NtmsOpreqCommand {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsOpreqState(pub i32);
 pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
@@ -12700,7 +12700,7 @@ pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
 pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
 pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
 pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
-impl ::std::convert::From<i32> for NtmsOpreqState {
+impl ::core::convert::From<i32> for NtmsOpreqState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12709,7 +12709,7 @@ unsafe impl ::windows::runtime::Abi for NtmsOpreqState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsPartitionState(pub i32);
 pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
@@ -12722,7 +12722,7 @@ pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32)
 pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
 pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
 pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
-impl ::std::convert::From<i32> for NtmsPartitionState {
+impl ::core::convert::From<i32> for NtmsPartitionState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12731,7 +12731,7 @@ unsafe impl ::windows::runtime::Abi for NtmsPartitionState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsPoolType(pub i32);
 pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
@@ -12739,7 +12739,7 @@ pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
 pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
 pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
 pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
-impl ::std::convert::From<i32> for NtmsPoolType {
+impl ::core::convert::From<i32> for NtmsPoolType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12748,13 +12748,13 @@ unsafe impl ::windows::runtime::Abi for NtmsPoolType {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsPortContent(pub i32);
 pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
 pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
 pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
-impl ::std::convert::From<i32> for NtmsPortContent {
+impl ::core::convert::From<i32> for NtmsPortContent {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12763,13 +12763,13 @@ unsafe impl ::windows::runtime::Abi for NtmsPortContent {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsPortPosition(pub i32);
 pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
 pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
 pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
-impl ::std::convert::From<i32> for NtmsPortPosition {
+impl ::core::convert::From<i32> for NtmsPortPosition {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12778,14 +12778,14 @@ unsafe impl ::windows::runtime::Abi for NtmsPortPosition {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsReadWriteCharacteristics(pub i32);
 pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
 pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
 pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
 pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
-impl ::std::convert::From<i32> for NtmsReadWriteCharacteristics {
+impl ::core::convert::From<i32> for NtmsReadWriteCharacteristics {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12794,11 +12794,11 @@ unsafe impl ::windows::runtime::Abi for NtmsReadWriteCharacteristics {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsSessionOptions(pub i32);
 pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
-impl ::std::convert::From<i32> for NtmsSessionOptions {
+impl ::core::convert::From<i32> for NtmsSessionOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12807,7 +12807,7 @@ unsafe impl ::windows::runtime::Abi for NtmsSessionOptions {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsSlotState(pub i32);
 pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
@@ -12815,7 +12815,7 @@ pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
 pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
 pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
 pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
-impl ::std::convert::From<i32> for NtmsSlotState {
+impl ::core::convert::From<i32> for NtmsSlotState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12824,14 +12824,14 @@ unsafe impl ::windows::runtime::Abi for NtmsSlotState {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsUIOperations(pub i32);
 pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
 pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
 pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
 pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
-impl ::std::convert::From<i32> for NtmsUIOperations {
+impl ::core::convert::From<i32> for NtmsUIOperations {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12840,7 +12840,7 @@ unsafe impl ::windows::runtime::Abi for NtmsUIOperations {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NtmsUITypes(pub i32);
 pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
@@ -12848,7 +12848,7 @@ pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
 pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
 pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
 pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
-impl ::std::convert::From<i32> for NtmsUITypes {
+impl ::core::convert::From<i32> for NtmsUITypes {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12856,7 +12856,7 @@ impl ::std::convert::From<i32> for NtmsUITypes {
 unsafe impl ::windows::runtime::Abi for NtmsUITypes {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -12871,25 +12871,25 @@ pub struct OFSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl OFSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for OFSTRUCT {
+impl ::core::default::Default for OFSTRUCT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for OFSTRUCT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OFSTRUCT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OFSTRUCT").field("cBytes", &self.cBytes).field("fFixedDisk", &self.fFixedDisk).field("nErrCode", &self.nErrCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("szPathName", &self.szPathName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for OFSTRUCT {
+impl ::core::cmp::PartialEq for OFSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.cBytes == other.cBytes && self.fFixedDisk == other.fFixedDisk && self.nErrCode == other.nErrCode && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.szPathName == other.szPathName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for OFSTRUCT {}
+impl ::core::cmp::Eq for OFSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFSTRUCT {
     type Abi = Self;
@@ -12897,14 +12897,14 @@ unsafe impl ::windows::runtime::Abi for OFSTRUCT {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenEncryptedFileRawA(lpfilename: super::super::Foundation::PSTR, ulflags: u32, pvcontext: *mut *mut ::std::ffi::c_void) -> u32;
+            fn OpenEncryptedFileRawA(lpfilename: super::super::Foundation::PSTR, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(OpenEncryptedFileRawA(lpfilename.into_param().abi(), ::std::mem::transmute(ulflags), ::std::mem::transmute(pvcontext)))
+        ::core::mem::transmute(OpenEncryptedFileRawA(lpfilename.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pvcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12912,14 +12912,14 @@ pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenEncryptedFileRawW(lpfilename: super::super::Foundation::PWSTR, ulflags: u32, pvcontext: *mut *mut ::std::ffi::c_void) -> u32;
+            fn OpenEncryptedFileRawW(lpfilename: super::super::Foundation::PWSTR, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(OpenEncryptedFileRawW(lpfilename.into_param().abi(), ::std::mem::transmute(ulflags), ::std::mem::transmute(pvcontext)))
+        ::core::mem::transmute(OpenEncryptedFileRawW(lpfilename.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pvcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12934,7 +12934,7 @@ pub unsafe fn OpenEnlistment<'a, Param1: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenEnlistment(::std::mem::transmute(dwdesiredaccess), resourcemanagerhandle.into_param().abi(), ::std::mem::transmute(enlistmentid)))
+        ::core::mem::transmute(OpenEnlistment(::core::mem::transmute(dwdesiredaccess), resourcemanagerhandle.into_param().abi(), ::core::mem::transmute(enlistmentid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12949,7 +12949,7 @@ pub unsafe fn OpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn OpenFile(lpfilename: super::super::Foundation::PSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32;
         }
-        ::std::mem::transmute(OpenFile(lpfilename.into_param().abi(), ::std::mem::transmute(lpreopenbuff), ::std::mem::transmute(ustyle)))
+        ::core::mem::transmute(OpenFile(lpfilename.into_param().abi(), ::core::mem::transmute(lpreopenbuff), ::core::mem::transmute(ustyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12964,7 +12964,7 @@ pub unsafe fn OpenFileById<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn OpenFileById(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenFileById(hvolumehint.into_param().abi(), ::std::mem::transmute(lpfileid), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(lpsecurityattributes), ::std::mem::transmute(dwflagsandattributes)))
+        ::core::mem::transmute(OpenFileById(hvolumehint.into_param().abi(), ::core::mem::transmute(lpfileid), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwflagsandattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12979,7 +12979,7 @@ pub unsafe fn OpenResourceManager<'a, Param1: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn OpenResourceManager(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenResourceManager(::std::mem::transmute(dwdesiredaccess), tmhandle.into_param().abi(), ::std::mem::transmute(resourcemanagerid)))
+        ::core::mem::transmute(OpenResourceManager(::core::mem::transmute(dwdesiredaccess), tmhandle.into_param().abi(), ::core::mem::transmute(resourcemanagerid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12994,7 +12994,7 @@ pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::window
         extern "system" {
             fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::runtime::GUID) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenTransaction(::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(transactionid)))
+        ::core::mem::transmute(OpenTransaction(::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(transactionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13009,7 +13009,7 @@ pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn OpenTransactionManager(logfilename: super::super::Foundation::PWSTR, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenTransactionManager(logfilename.into_param().abi(), ::std::mem::transmute(desiredaccess), ::std::mem::transmute(openoptions)))
+        ::core::mem::transmute(OpenTransactionManager(logfilename.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13024,7 +13024,7 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows:
         extern "system" {
             fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::runtime::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenTransactionManagerById(::std::mem::transmute(transactionmanagerid), ::std::mem::transmute(desiredaccess), ::std::mem::transmute(openoptions)))
+        ::core::mem::transmute(OpenTransactionManagerById(::core::mem::transmute(transactionmanagerid), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(openoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13054,28 +13054,28 @@ pub const PARTITION_SPACES_GUID: ::windows::runtime::GUID = ::windows::runtime::
 pub const PARTITION_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240784680, 63519, 4562, [186, 75, 0, 160, 201, 62, 201, 59]);
 pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464029011, 58339, 17969, [165, 197, 38, 210, 36, 56, 115, 170]);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub type PCLFS_COMPLETION_ROUTINE = unsafe extern "system" fn(pvoverlapped: *mut ::std::ffi::c_void, ulreserved: u32);
+pub type PCLFS_COMPLETION_ROUTINE = unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32);
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PCOPYFILE2_PROGRESS_ROUTINE = unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const ::std::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION;
+pub type PCOPYFILE2_PROGRESS_ROUTINE = unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const ::core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub type PFE_EXPORT_FUNC = unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const ::std::ffi::c_void, ullength: u32) -> u32;
+pub type PFE_EXPORT_FUNC = unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: u32) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub type PFE_IMPORT_FUNC = unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const ::std::ffi::c_void, ullength: *mut u32) -> u32;
+pub type PFE_IMPORT_FUNC = unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: *mut u32) -> u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_IO_COMPLETION = unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut ::std::mem::ManuallyDrop<FH_OVERLAPPED>, cb: u32, dwcompletionstatus: u32);
+pub type PFN_IO_COMPLETION = unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut ::core::mem::ManuallyDrop<FH_OVERLAPPED>, cb: u32, dwcompletionstatus: u32);
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOG_FULL_HANDLER_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::std::ffi::c_void);
+pub type PLOG_FULL_HANDLER_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOG_TAIL_ADVANCE_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::std::ffi::c_void);
+pub type PLOG_TAIL_ADVANCE_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLOG_UNPINNED_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::std::ffi::c_void);
+pub type PLOG_UNPINNED_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PREPARE_TAPE_OPERATION(pub i32);
 pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5i32);
@@ -13084,7 +13084,7 @@ pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3i32);
 pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2i32);
 pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1i32);
 pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4i32);
-impl ::std::convert::From<i32> for PREPARE_TAPE_OPERATION {
+impl ::core::convert::From<i32> for PREPARE_TAPE_OPERATION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13093,14 +13093,14 @@ unsafe impl ::windows::runtime::Abi for PREPARE_TAPE_OPERATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRIORITY_HINT(pub i32);
 pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
 pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
 pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
 pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
-impl ::std::convert::From<i32> for PRIORITY_HINT {
+impl ::core::convert::From<i32> for PRIORITY_HINT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13117,8 +13117,8 @@ pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::runtim
         extern "system" {
             fn PopIoRingCompletion(ioring: *const HIORING__, cqe: *mut IORING_CQE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IORING_CQE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        PopIoRingCompletion(::std::mem::transmute(ioring), &mut result__).from_abi::<IORING_CQE>(result__)
+        let mut result__: <IORING_CQE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        PopIoRingCompletion(::core::mem::transmute(ioring), &mut result__).from_abi::<IORING_CQE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13133,7 +13133,7 @@ pub unsafe fn PrePrepareComplete<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn PrePrepareComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrePrepareComplete(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(PrePrepareComplete(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13148,7 +13148,7 @@ pub unsafe fn PrePrepareEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn PrePrepareEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrePrepareEnlistment(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(PrePrepareEnlistment(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13163,7 +13163,7 @@ pub unsafe fn PrepareComplete<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn PrepareComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrepareComplete(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(PrepareComplete(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13178,7 +13178,7 @@ pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn PrepareEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrepareEnlistment(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(PrepareEnlistment(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13198,27 +13198,27 @@ pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::runtime::IntoParam<'a, su
     plsnbase: *mut CLS_LSN,
     plsnlast: *mut CLS_LSN,
     plsncurrentarchivetail: *mut CLS_LSN,
-    ppvarchivecontext: *mut *mut ::std::ffi::c_void,
+    ppvarchivecontext: *mut *mut ::core::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrepareLogArchive(hlog: super::super::Foundation::HANDLE, pszbaselogfilename: super::super::Foundation::PWSTR, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn PrepareLogArchive(hlog: super::super::Foundation::HANDLE, pszbaselogfilename: super::super::Foundation::PWSTR, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrepareLogArchive(
+        ::core::mem::transmute(PrepareLogArchive(
             hlog.into_param().abi(),
             pszbaselogfilename.into_param().abi(),
-            ::std::mem::transmute(clen),
-            ::std::mem::transmute(plsnlow),
-            ::std::mem::transmute(plsnhigh),
-            ::std::mem::transmute(pcactuallength),
-            ::std::mem::transmute(poffbaselogfiledata),
-            ::std::mem::transmute(pcbbaselogfilelength),
-            ::std::mem::transmute(plsnbase),
-            ::std::mem::transmute(plsnlast),
-            ::std::mem::transmute(plsncurrentarchivetail),
-            ::std::mem::transmute(ppvarchivecontext),
+            ::core::mem::transmute(clen),
+            ::core::mem::transmute(plsnlow),
+            ::core::mem::transmute(plsnhigh),
+            ::core::mem::transmute(pcactuallength),
+            ::core::mem::transmute(poffbaselogfiledata),
+            ::core::mem::transmute(pcbbaselogfilelength),
+            ::core::mem::transmute(plsnbase),
+            ::core::mem::transmute(plsnlast),
+            ::core::mem::transmute(plsncurrentarchivetail),
+            ::core::mem::transmute(ppvarchivecontext),
         ))
     }
     #[cfg(not(windows))]
@@ -13234,7 +13234,7 @@ pub unsafe fn PrepareTape<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn PrepareTape(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(PrepareTape(hdevice.into_param().abi(), ::std::mem::transmute(dwoperation), bimmediate.into_param().abi()))
+        ::core::mem::transmute(PrepareTape(hdevice.into_param().abi(), ::core::mem::transmute(dwoperation), bimmediate.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13249,7 +13249,7 @@ pub unsafe fn QueryDosDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn QueryDosDeviceA(lpdevicename: super::super::Foundation::PSTR, lptargetpath: super::super::Foundation::PSTR, ucchmax: u32) -> u32;
         }
-        ::std::mem::transmute(QueryDosDeviceA(lpdevicename.into_param().abi(), ::std::mem::transmute(lptargetpath), ::std::mem::transmute(ucchmax)))
+        ::core::mem::transmute(QueryDosDeviceA(lpdevicename.into_param().abi(), ::core::mem::transmute(lptargetpath), ::core::mem::transmute(ucchmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13264,7 +13264,7 @@ pub unsafe fn QueryDosDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn QueryDosDeviceW(lpdevicename: super::super::Foundation::PWSTR, lptargetpath: super::super::Foundation::PWSTR, ucchmax: u32) -> u32;
         }
-        ::std::mem::transmute(QueryDosDeviceW(lpdevicename.into_param().abi(), ::std::mem::transmute(lptargetpath), ::std::mem::transmute(ucchmax)))
+        ::core::mem::transmute(QueryDosDeviceW(lpdevicename.into_param().abi(), ::core::mem::transmute(lptargetpath), ::core::mem::transmute(ucchmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13278,7 +13278,7 @@ pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAP
         extern "system" {
             fn QueryIoRingCapabilities(capabilities: *mut IORING_CAPABILITIES) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IORING_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <IORING_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         QueryIoRingCapabilities(&mut result__).from_abi::<IORING_CAPABILITIES>(result__)
     }
     #[cfg(not(windows))]
@@ -13294,7 +13294,7 @@ pub unsafe fn QueryLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn QueryLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QueryLogPolicy(hlog.into_param().abi(), ::std::mem::transmute(epolicytype), ::std::mem::transmute(ppolicybuffer), ::std::mem::transmute(pcbpolicybuffer)))
+        ::core::mem::transmute(QueryLogPolicy(hlog.into_param().abi(), ::core::mem::transmute(epolicytype), ::core::mem::transmute(ppolicybuffer), ::core::mem::transmute(pcbpolicybuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13309,7 +13309,7 @@ pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, Param0: ::windows::runtime:
         extern "system" {
             fn QueryRecoveryAgentsOnEncryptedFile(lpfilename: super::super::Foundation::PWSTR, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         }
-        ::std::mem::transmute(QueryRecoveryAgentsOnEncryptedFile(lpfilename.into_param().abi(), ::std::mem::transmute(precoveryagents)))
+        ::core::mem::transmute(QueryRecoveryAgentsOnEncryptedFile(lpfilename.into_param().abi(), ::core::mem::transmute(precoveryagents)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13324,18 +13324,18 @@ pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn QueryUsersOnEncryptedFile(lpfilename: super::super::Foundation::PWSTR, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         }
-        ::std::mem::transmute(QueryUsersOnEncryptedFile(lpfilename.into_param().abi(), ::std::mem::transmute(pusers)))
+        ::core::mem::transmute(QueryUsersOnEncryptedFile(lpfilename.into_param().abi(), ::core::mem::transmute(pusers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
 pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
-impl ::std::convert::From<i32> for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
+impl ::core::convert::From<i32> for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13343,7 +13343,7 @@ impl ::std::convert::From<i32> for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
 unsafe impl ::windows::runtime::Abi for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct REPARSE_GUID_DATA_BUFFER {
@@ -13354,59 +13354,59 @@ pub struct REPARSE_GUID_DATA_BUFFER {
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
 impl REPARSE_GUID_DATA_BUFFER {}
-impl ::std::default::Default for REPARSE_GUID_DATA_BUFFER {
+impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPARSE_GUID_DATA_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPARSE_GUID_DATA_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPARSE_GUID_DATA_BUFFER").field("ReparseTag", &self.ReparseTag).field("ReparseDataLength", &self.ReparseDataLength).field("Reserved", &self.Reserved).field("ReparseGuid", &self.ReparseGuid).field("GenericReparseBuffer", &self.GenericReparseBuffer).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER {
+impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.ReparseTag == other.ReparseTag && self.ReparseDataLength == other.ReparseDataLength && self.Reserved == other.Reserved && self.ReparseGuid == other.ReparseGuid && self.GenericReparseBuffer == other.GenericReparseBuffer
     }
 }
-impl ::std::cmp::Eq for REPARSE_GUID_DATA_BUFFER {}
+impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER {}
 unsafe impl ::windows::runtime::Abi for REPARSE_GUID_DATA_BUFFER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
 impl REPARSE_GUID_DATA_BUFFER_0 {}
-impl ::std::default::Default for REPARSE_GUID_DATA_BUFFER_0 {
+impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPARSE_GUID_DATA_BUFFER_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPARSE_GUID_DATA_BUFFER_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_GenericReparseBuffer_e__Struct").field("DataBuffer", &self.DataBuffer).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER_0 {
+impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.DataBuffer == other.DataBuffer
     }
 }
-impl ::std::cmp::Eq for REPARSE_GUID_DATA_BUFFER_0 {}
+impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER_0 {}
 unsafe impl ::windows::runtime::Abi for REPARSE_GUID_DATA_BUFFER_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REPLACE_FILE_FLAGS(pub u32);
 pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
 pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
 pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
-impl ::std::convert::From<u32> for REPLACE_FILE_FLAGS {
+impl ::core::convert::From<u32> for REPLACE_FILE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13414,29 +13414,29 @@ impl ::std::convert::From<u32> for REPLACE_FILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for REPLACE_FILE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for REPLACE_FILE_FLAGS {
+impl ::core::ops::BitOr for REPLACE_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for REPLACE_FILE_FLAGS {
+impl ::core::ops::BitAnd for REPLACE_FILE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for REPLACE_FILE_FLAGS {
+impl ::core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for REPLACE_FILE_FLAGS {
+impl ::core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for REPLACE_FILE_FLAGS {
+impl ::core::ops::Not for REPLACE_FILE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -13458,7 +13458,7 @@ pub unsafe fn ReOpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(ReOpenFile(horiginalfile.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(dwflagsandattributes)))
+        ::core::mem::transmute(ReOpenFile(horiginalfile.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwflagsandattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13468,31 +13468,31 @@ pub unsafe fn ReOpenFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[inline]
 pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hdirectory: Param0,
-    lpbuffer: *mut ::std::ffi::c_void,
+    lpbuffer: *mut ::core::ffi::c_void,
     nbufferlength: u32,
     bwatchsubtree: Param3,
     dwnotifyfilter: FILE_NOTIFY_CHANGE,
     lpbytesreturned: *mut u32,
     lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: ::std::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>,
+    lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>,
     readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::std::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
+            fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadDirectoryChangesExW(
+        ::core::mem::transmute(ReadDirectoryChangesExW(
             hdirectory.into_param().abi(),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(nbufferlength),
+            ::core::mem::transmute(lpbuffer),
+            ::core::mem::transmute(nbufferlength),
             bwatchsubtree.into_param().abi(),
-            ::std::mem::transmute(dwnotifyfilter),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpoverlapped),
-            ::std::mem::transmute(lpcompletionroutine),
-            ::std::mem::transmute(readdirectorynotifyinformationclass),
+            ::core::mem::transmute(dwnotifyfilter),
+            ::core::mem::transmute(lpbytesreturned),
+            ::core::mem::transmute(lpoverlapped),
+            ::core::mem::transmute(lpcompletionroutine),
+            ::core::mem::transmute(readdirectorynotifyinformationclass),
         ))
     }
     #[cfg(not(windows))]
@@ -13503,29 +13503,29 @@ pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::runtime::IntoParam<
 #[inline]
 pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hdirectory: Param0,
-    lpbuffer: *mut ::std::ffi::c_void,
+    lpbuffer: *mut ::core::ffi::c_void,
     nbufferlength: u32,
     bwatchsubtree: Param3,
     dwnotifyfilter: FILE_NOTIFY_CHANGE,
     lpbytesreturned: *mut u32,
     lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: ::std::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>,
+    lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::std::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadDirectoryChangesW(
+        ::core::mem::transmute(ReadDirectoryChangesW(
             hdirectory.into_param().abi(),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(nbufferlength),
+            ::core::mem::transmute(lpbuffer),
+            ::core::mem::transmute(nbufferlength),
             bwatchsubtree.into_param().abi(),
-            ::std::mem::transmute(dwnotifyfilter),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpoverlapped),
-            ::std::mem::transmute(lpcompletionroutine),
+            ::core::mem::transmute(dwnotifyfilter),
+            ::core::mem::transmute(lpbytesreturned),
+            ::core::mem::transmute(lpoverlapped),
+            ::core::mem::transmute(lpcompletionroutine),
         ))
     }
     #[cfg(not(windows))]
@@ -13533,14 +13533,14 @@ pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: ::std::option::Option<PFE_EXPORT_FUNC>, pvcallbackcontext: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: ::core::option::Option<PFE_EXPORT_FUNC>, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadEncryptedFileRaw(pfexportcallback: ::windows::runtime::RawPtr, pvcallbackcontext: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void) -> u32;
+            fn ReadEncryptedFileRaw(pfexportcallback: ::windows::runtime::RawPtr, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(ReadEncryptedFileRaw(::std::mem::transmute(pfexportcallback), ::std::mem::transmute(pvcallbackcontext), ::std::mem::transmute(pvcontext)))
+        ::core::mem::transmute(ReadEncryptedFileRaw(::core::mem::transmute(pfexportcallback), ::core::mem::transmute(pvcallbackcontext), ::core::mem::transmute(pvcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13548,14 +13548,14 @@ pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: ::std::option::Option<PFE_E
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::std::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::std::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReadFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadFile(hfile.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nnumberofbytestoread), ::std::mem::transmute(lpnumberofbytesread), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(ReadFile(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpnumberofbytesread), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13563,14 +13563,14 @@ pub unsafe fn ReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::std::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::std::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn ReadFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadFileEx(hfile.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nnumberofbytestoread), ::std::mem::transmute(lpoverlapped), ::std::mem::transmute(lpcompletionroutine)))
+        ::core::mem::transmute(ReadFileEx(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13585,7 +13585,7 @@ pub unsafe fn ReadFileScatter<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn ReadFileScatter(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadFileScatter(hfile.into_param().abi(), ::std::mem::transmute(asegmentarray), ::std::mem::transmute(nnumberofbytestoread), ::std::mem::transmute(lpreserved), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(ReadFileScatter(hfile.into_param().abi(), ::core::mem::transmute(asegmentarray), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13593,14 +13593,14 @@ pub unsafe fn ReadFileScatter<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::std::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::std::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL;
+            fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadLogArchiveMetadata(::std::mem::transmute(pvarchivecontext), ::std::mem::transmute(cboffset), ::std::mem::transmute(cbbytestoread), ::std::mem::transmute(pbreadbuffer), ::std::mem::transmute(pcbbytesread)))
+        ::core::mem::transmute(ReadLogArchiveMetadata(::core::mem::transmute(pvarchivecontext), ::core::mem::transmute(cboffset), ::core::mem::transmute(cbbytestoread), ::core::mem::transmute(pbreadbuffer), ::core::mem::transmute(pcbbytesread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13615,7 +13615,7 @@ pub unsafe fn ReadLogNotification<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn ReadLogNotification(hlog: super::super::Foundation::HANDLE, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadLogNotification(hlog.into_param().abi(), ::std::mem::transmute(pnotification), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(ReadLogNotification(hlog.into_param().abi(), ::core::mem::transmute(pnotification), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13623,24 +13623,24 @@ pub unsafe fn ReadLogNotification<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadLogRecord(pvmarshal: *mut ::std::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::std::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::std::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadLogRecord(pvmarshal: *mut ::std::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::std::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::std::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadLogRecord(
-            ::std::mem::transmute(pvmarshal),
-            ::std::mem::transmute(plsnfirst),
-            ::std::mem::transmute(econtextmode),
-            ::std::mem::transmute(ppvreadbuffer),
-            ::std::mem::transmute(pcbreadbuffer),
-            ::std::mem::transmute(perecordtype),
-            ::std::mem::transmute(plsnundonext),
-            ::std::mem::transmute(plsnprevious),
-            ::std::mem::transmute(ppvreadcontext),
-            ::std::mem::transmute(poverlapped),
+        ::core::mem::transmute(ReadLogRecord(
+            ::core::mem::transmute(pvmarshal),
+            ::core::mem::transmute(plsnfirst),
+            ::core::mem::transmute(econtextmode),
+            ::core::mem::transmute(ppvreadbuffer),
+            ::core::mem::transmute(pcbreadbuffer),
+            ::core::mem::transmute(perecordtype),
+            ::core::mem::transmute(plsnundonext),
+            ::core::mem::transmute(plsnprevious),
+            ::core::mem::transmute(ppvreadcontext),
+            ::core::mem::transmute(poverlapped),
         ))
     }
     #[cfg(not(windows))]
@@ -13649,14 +13649,14 @@ pub unsafe fn ReadLogRecord(pvmarshal: *mut ::std::ffi::c_void, plsnfirst: *mut 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::std::ffi::c_void, ppvrestartbuffer: *mut *mut ::std::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::std::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadLogRestartArea(pvmarshal: *mut ::std::ffi::c_void, ppvrestartbuffer: *mut *mut ::std::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::std::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadLogRestartArea(::std::mem::transmute(pvmarshal), ::std::mem::transmute(ppvrestartbuffer), ::std::mem::transmute(pcbrestartbuffer), ::std::mem::transmute(plsn), ::std::mem::transmute(ppvcontext), ::std::mem::transmute(poverlapped)))
+        ::core::mem::transmute(ReadLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(ppvrestartbuffer), ::core::mem::transmute(pcbrestartbuffer), ::core::mem::transmute(plsn), ::core::mem::transmute(ppvcontext), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13664,23 +13664,23 @@ pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::std::ffi::c_void, ppvrestartb
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::std::ffi::c_void, ppvbuffer: *mut *mut ::std::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadNextLogRecord(pvreadcontext: *mut ::std::ffi::c_void, ppvbuffer: *mut *mut ::std::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadNextLogRecord(
-            ::std::mem::transmute(pvreadcontext),
-            ::std::mem::transmute(ppvbuffer),
-            ::std::mem::transmute(pcbbuffer),
-            ::std::mem::transmute(perecordtype),
-            ::std::mem::transmute(plsnuser),
-            ::std::mem::transmute(plsnundonext),
-            ::std::mem::transmute(plsnprevious),
-            ::std::mem::transmute(plsnrecord),
-            ::std::mem::transmute(poverlapped),
+        ::core::mem::transmute(ReadNextLogRecord(
+            ::core::mem::transmute(pvreadcontext),
+            ::core::mem::transmute(ppvbuffer),
+            ::core::mem::transmute(pcbbuffer),
+            ::core::mem::transmute(perecordtype),
+            ::core::mem::transmute(plsnuser),
+            ::core::mem::transmute(plsnundonext),
+            ::core::mem::transmute(plsnprevious),
+            ::core::mem::transmute(plsnrecord),
+            ::core::mem::transmute(poverlapped),
         ))
     }
     #[cfg(not(windows))]
@@ -13696,7 +13696,7 @@ pub unsafe fn ReadOnlyEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn ReadOnlyEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadOnlyEnlistment(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(ReadOnlyEnlistment(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13704,14 +13704,14 @@ pub unsafe fn ReadOnlyEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::std::ffi::c_void, ppvrestartbuffer: *mut *mut ::std::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::std::ffi::c_void, ppvrestartbuffer: *mut *mut ::std::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadPreviousLogRestartArea(::std::mem::transmute(pvreadcontext), ::std::mem::transmute(ppvrestartbuffer), ::std::mem::transmute(pcbrestartbuffer), ::std::mem::transmute(plsnrestart), ::std::mem::transmute(poverlapped)))
+        ::core::mem::transmute(ReadPreviousLogRestartArea(::core::mem::transmute(pvreadcontext), ::core::mem::transmute(ppvrestartbuffer), ::core::mem::transmute(pcbrestartbuffer), ::core::mem::transmute(plsnrestart), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13719,14 +13719,14 @@ pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::std::ffi::c_void,
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentkey: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RecoverEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentkey: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn RecoverEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RecoverEnlistment(enlistmenthandle.into_param().abi(), ::std::mem::transmute(enlistmentkey)))
+        ::core::mem::transmute(RecoverEnlistment(enlistmenthandle.into_param().abi(), ::core::mem::transmute(enlistmentkey)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13741,7 +13741,7 @@ pub unsafe fn RecoverResourceManager<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn RecoverResourceManager(resourcemanagerhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RecoverResourceManager(resourcemanagerhandle.into_param().abi()))
+        ::core::mem::transmute(RecoverResourceManager(resourcemanagerhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13756,7 +13756,7 @@ pub unsafe fn RecoverTransactionManager<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn RecoverTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RecoverTransactionManager(transactionmanagerhandle.into_param().abi()))
+        ::core::mem::transmute(RecoverTransactionManager(transactionmanagerhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13771,7 +13771,7 @@ pub unsafe fn RegisterForLogWriteNotification<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn RegisterForLogWriteNotification(hlog: super::super::Foundation::HANDLE, cbthreshold: u32, fenable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterForLogWriteNotification(hlog.into_param().abi(), ::std::mem::transmute(cbthreshold), fenable.into_param().abi()))
+        ::core::mem::transmute(RegisterForLogWriteNotification(hlog.into_param().abi(), ::core::mem::transmute(cbthreshold), fenable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13784,9 +13784,9 @@ pub unsafe fn RegisterManageableLogClient<'a, Param0: ::windows::runtime::IntoPa
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterManageableLogClient(hlog: super::super::Foundation::HANDLE, pcallbacks: *mut ::std::mem::ManuallyDrop<LOG_MANAGEMENT_CALLBACKS>) -> super::super::Foundation::BOOL;
+            fn RegisterManageableLogClient(hlog: super::super::Foundation::HANDLE, pcallbacks: *mut ::core::mem::ManuallyDrop<LOG_MANAGEMENT_CALLBACKS>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterManageableLogClient(hlog.into_param().abi(), ::std::mem::transmute(pcallbacks)))
+        ::core::mem::transmute(RegisterManageableLogClient(hlog.into_param().abi(), ::core::mem::transmute(pcallbacks)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13801,7 +13801,7 @@ pub unsafe fn RemoveDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn RemoveDirectoryA(lppathname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveDirectoryA(lppathname.into_param().abi()))
+        ::core::mem::transmute(RemoveDirectoryA(lppathname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13816,7 +13816,7 @@ pub unsafe fn RemoveDirectoryFromAppW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn RemoveDirectoryFromAppW(lppathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveDirectoryFromAppW(lppathname.into_param().abi()))
+        ::core::mem::transmute(RemoveDirectoryFromAppW(lppathname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13831,7 +13831,7 @@ pub unsafe fn RemoveDirectoryTransactedA<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn RemoveDirectoryTransactedA(lppathname: super::super::Foundation::PSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveDirectoryTransactedA(lppathname.into_param().abi(), htransaction.into_param().abi()))
+        ::core::mem::transmute(RemoveDirectoryTransactedA(lppathname.into_param().abi(), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13846,7 +13846,7 @@ pub unsafe fn RemoveDirectoryTransactedW<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn RemoveDirectoryTransactedW(lppathname: super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveDirectoryTransactedW(lppathname.into_param().abi(), htransaction.into_param().abi()))
+        ::core::mem::transmute(RemoveDirectoryTransactedW(lppathname.into_param().abi(), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13861,7 +13861,7 @@ pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn RemoveDirectoryW(lppathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveDirectoryW(lppathname.into_param().abi()))
+        ::core::mem::transmute(RemoveDirectoryW(lppathname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13869,14 +13869,14 @@ pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, pwszcontainerpath: Param1, fforce: Param2, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, pwszcontainerpath: Param1, fforce: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveLogContainer(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn RemoveLogContainer(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveLogContainer(hlog.into_param().abi(), pwszcontainerpath.into_param().abi(), fforce.into_param().abi(), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(RemoveLogContainer(hlog.into_param().abi(), pwszcontainerpath.into_param().abi(), fforce.into_param().abi(), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13884,14 +13884,14 @@ pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: Param3, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: Param3, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveLogContainerSet(hlog: super::super::Foundation::HANDLE, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn RemoveLogContainerSet(hlog: super::super::Foundation::HANDLE, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveLogContainerSet(hlog.into_param().abi(), ::std::mem::transmute(ccontainer), ::std::mem::transmute(rgwszcontainerpath), fforce.into_param().abi(), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(RemoveLogContainerSet(hlog.into_param().abi(), ::core::mem::transmute(ccontainer), ::core::mem::transmute(rgwszcontainerpath), fforce.into_param().abi(), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13906,7 +13906,7 @@ pub unsafe fn RemoveLogPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn RemoveLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RemoveLogPolicy(hlog.into_param().abi(), ::std::mem::transmute(epolicytype)))
+        ::core::mem::transmute(RemoveLogPolicy(hlog.into_param().abi(), ::core::mem::transmute(epolicytype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13921,7 +13921,7 @@ pub unsafe fn RemoveUsersFromEncryptedFile<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn RemoveUsersFromEncryptedFile(lpfilename: super::super::Foundation::PWSTR, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         }
-        ::std::mem::transmute(RemoveUsersFromEncryptedFile(lpfilename.into_param().abi(), ::std::mem::transmute(phashes)))
+        ::core::mem::transmute(RemoveUsersFromEncryptedFile(lpfilename.into_param().abi(), ::core::mem::transmute(phashes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13936,7 +13936,7 @@ pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn RenameTransactionManager(logfilename: super::super::Foundation::PWSTR, existingtransactionmanagerguid: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RenameTransactionManager(logfilename.into_param().abi(), ::std::mem::transmute(existingtransactionmanagerguid)))
+        ::core::mem::transmute(RenameTransactionManager(logfilename.into_param().abi(), ::core::mem::transmute(existingtransactionmanagerguid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13944,14 +13944,14 @@ pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReplaceFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceFileA(lpreplacedfilename: super::super::Foundation::PSTR, lpreplacementfilename: super::super::Foundation::PSTR, lpbackupfilename: super::super::Foundation::PSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn ReplaceFileA(lpreplacedfilename: super::super::Foundation::PSTR, lpreplacementfilename: super::super::Foundation::PSTR, lpbackupfilename: super::super::Foundation::PSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReplaceFileA(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), ::std::mem::transmute(dwreplaceflags), ::std::mem::transmute(lpexclude), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(ReplaceFileA(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13959,14 +13959,14 @@ pub unsafe fn ReplaceFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: u32, lpexclude: *mut ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceFileFromAppW(lpreplacedfilename: super::super::Foundation::PWSTR, lpreplacementfilename: super::super::Foundation::PWSTR, lpbackupfilename: super::super::Foundation::PWSTR, dwreplaceflags: u32, lpexclude: *mut ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn ReplaceFileFromAppW(lpreplacedfilename: super::super::Foundation::PWSTR, lpreplacementfilename: super::super::Foundation::PWSTR, lpbackupfilename: super::super::Foundation::PWSTR, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReplaceFileFromAppW(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), ::std::mem::transmute(dwreplaceflags), ::std::mem::transmute(lpexclude), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(ReplaceFileFromAppW(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13974,14 +13974,14 @@ pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReplaceFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceFileW(lpreplacedfilename: super::super::Foundation::PWSTR, lpreplacementfilename: super::super::Foundation::PWSTR, lpbackupfilename: super::super::Foundation::PWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::std::ffi::c_void, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn ReplaceFileW(lpreplacedfilename: super::super::Foundation::PWSTR, lpreplacementfilename: super::super::Foundation::PWSTR, lpbackupfilename: super::super::Foundation::PWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReplaceFileW(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), ::std::mem::transmute(dwreplaceflags), ::std::mem::transmute(lpexclude), ::std::mem::transmute(lpreserved)))
+        ::core::mem::transmute(ReplaceFileW(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13989,24 +13989,24 @@ pub unsafe fn ReplaceFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::std::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReserveAndAppendLog(pvmarshal: *mut ::std::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReserveAndAppendLog(
-            ::std::mem::transmute(pvmarshal),
-            ::std::mem::transmute(rgwriteentries),
-            ::std::mem::transmute(cwriteentries),
-            ::std::mem::transmute(plsnundonext),
-            ::std::mem::transmute(plsnprevious),
-            ::std::mem::transmute(creserverecords),
-            ::std::mem::transmute(rgcbreservation),
-            ::std::mem::transmute(fflags),
-            ::std::mem::transmute(plsn),
-            ::std::mem::transmute(poverlapped),
+        ::core::mem::transmute(ReserveAndAppendLog(
+            ::core::mem::transmute(pvmarshal),
+            ::core::mem::transmute(rgwriteentries),
+            ::core::mem::transmute(cwriteentries),
+            ::core::mem::transmute(plsnundonext),
+            ::core::mem::transmute(plsnprevious),
+            ::core::mem::transmute(creserverecords),
+            ::core::mem::transmute(rgcbreservation),
+            ::core::mem::transmute(fflags),
+            ::core::mem::transmute(plsn),
+            ::core::mem::transmute(poverlapped),
         ))
     }
     #[cfg(not(windows))]
@@ -14015,25 +14015,25 @@ pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::std::ffi::c_void, rgwriteent
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::std::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReserveAndAppendLogAligned(pvmarshal: *mut ::std::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReserveAndAppendLogAligned(
-            ::std::mem::transmute(pvmarshal),
-            ::std::mem::transmute(rgwriteentries),
-            ::std::mem::transmute(cwriteentries),
-            ::std::mem::transmute(cbentryalignment),
-            ::std::mem::transmute(plsnundonext),
-            ::std::mem::transmute(plsnprevious),
-            ::std::mem::transmute(creserverecords),
-            ::std::mem::transmute(rgcbreservation),
-            ::std::mem::transmute(fflags),
-            ::std::mem::transmute(plsn),
-            ::std::mem::transmute(poverlapped),
+        ::core::mem::transmute(ReserveAndAppendLogAligned(
+            ::core::mem::transmute(pvmarshal),
+            ::core::mem::transmute(rgwriteentries),
+            ::core::mem::transmute(cwriteentries),
+            ::core::mem::transmute(cbentryalignment),
+            ::core::mem::transmute(plsnundonext),
+            ::core::mem::transmute(plsnprevious),
+            ::core::mem::transmute(creserverecords),
+            ::core::mem::transmute(rgcbreservation),
+            ::core::mem::transmute(fflags),
+            ::core::mem::transmute(plsn),
+            ::core::mem::transmute(poverlapped),
         ))
     }
     #[cfg(not(windows))]
@@ -14049,7 +14049,7 @@ pub unsafe fn RollbackComplete<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn RollbackComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RollbackComplete(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(RollbackComplete(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14064,7 +14064,7 @@ pub unsafe fn RollbackEnlistment<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn RollbackEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RollbackEnlistment(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(RollbackEnlistment(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14079,7 +14079,7 @@ pub unsafe fn RollbackTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn RollbackTransaction(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RollbackTransaction(transactionhandle.into_param().abi()))
+        ::core::mem::transmute(RollbackTransaction(transactionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14094,7 +14094,7 @@ pub unsafe fn RollbackTransactionAsync<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn RollbackTransactionAsync(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RollbackTransactionAsync(transactionhandle.into_param().abi()))
+        ::core::mem::transmute(RollbackTransactionAsync(transactionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14109,12 +14109,12 @@ pub unsafe fn RollforwardTransactionManager<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn RollforwardTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RollforwardTransactionManager(transactionmanagerhandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(RollforwardTransactionManager(transactionmanagerhandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14127,30 +14127,30 @@ pub struct SERVER_ALIAS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_ALIAS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_ALIAS_INFO_0 {
+impl ::core::default::Default for SERVER_ALIAS_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_ALIAS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_ALIAS_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_ALIAS_INFO_0").field("srvai0_alias", &self.srvai0_alias).field("srvai0_target", &self.srvai0_target).field("srvai0_default", &self.srvai0_default).field("srvai0_reserved", &self.srvai0_reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_ALIAS_INFO_0 {
+impl ::core::cmp::PartialEq for SERVER_ALIAS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.srvai0_alias == other.srvai0_alias && self.srvai0_target == other.srvai0_target && self.srvai0_default == other.srvai0_default && self.srvai0_reserved == other.srvai0_reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_ALIAS_INFO_0 {}
+impl ::core::cmp::Eq for SERVER_ALIAS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_ALIAS_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14171,14 +14171,14 @@ pub struct SERVER_CERTIFICATE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_CERTIFICATE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_CERTIFICATE_INFO_0 {
+impl ::core::default::Default for SERVER_CERTIFICATE_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_CERTIFICATE_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_CERTIFICATE_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_CERTIFICATE_INFO_0")
             .field("srvci0_name", &self.srvci0_name)
             .field("srvci0_subject", &self.srvci0_subject)
@@ -14196,7 +14196,7 @@ impl ::std::fmt::Debug for SERVER_CERTIFICATE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
+impl ::core::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.srvci0_name == other.srvci0_name
             && self.srvci0_subject == other.srvci0_subject
@@ -14213,17 +14213,17 @@ impl ::std::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_CERTIFICATE_INFO_0 {}
+impl ::core::cmp::Eq for SERVER_CERTIFICATE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_CERTIFICATE_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVER_CERTIFICATE_TYPE(pub i32);
 pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
-impl ::std::convert::From<i32> for SERVER_CERTIFICATE_TYPE {
+impl ::core::convert::From<i32> for SERVER_CERTIFICATE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -14235,7 +14235,7 @@ unsafe impl ::windows::runtime::Abi for SERVER_CERTIFICATE_TYPE {
 pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14245,30 +14245,30 @@ pub struct SESSION_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SESSION_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SESSION_INFO_0 {
+impl ::core::default::Default for SESSION_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SESSION_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_INFO_0").field("sesi0_cname", &self.sesi0_cname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SESSION_INFO_0 {
+impl ::core::cmp::PartialEq for SESSION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.sesi0_cname == other.sesi0_cname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SESSION_INFO_0 {}
+impl ::core::cmp::Eq for SESSION_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SESSION_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14283,14 +14283,14 @@ pub struct SESSION_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl SESSION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SESSION_INFO_1 {
+impl ::core::default::Default for SESSION_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SESSION_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_INFO_1")
             .field("sesi1_cname", &self.sesi1_cname)
             .field("sesi1_username", &self.sesi1_username)
@@ -14302,18 +14302,18 @@ impl ::std::fmt::Debug for SESSION_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SESSION_INFO_1 {
+impl ::core::cmp::PartialEq for SESSION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.sesi1_cname == other.sesi1_cname && self.sesi1_username == other.sesi1_username && self.sesi1_num_opens == other.sesi1_num_opens && self.sesi1_time == other.sesi1_time && self.sesi1_idle_time == other.sesi1_idle_time && self.sesi1_user_flags == other.sesi1_user_flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SESSION_INFO_1 {}
+impl ::core::cmp::Eq for SESSION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SESSION_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14326,30 +14326,30 @@ pub struct SESSION_INFO_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl SESSION_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SESSION_INFO_10 {
+impl ::core::default::Default for SESSION_INFO_10 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SESSION_INFO_10 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_INFO_10 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_INFO_10").field("sesi10_cname", &self.sesi10_cname).field("sesi10_username", &self.sesi10_username).field("sesi10_time", &self.sesi10_time).field("sesi10_idle_time", &self.sesi10_idle_time).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SESSION_INFO_10 {
+impl ::core::cmp::PartialEq for SESSION_INFO_10 {
     fn eq(&self, other: &Self) -> bool {
         self.sesi10_cname == other.sesi10_cname && self.sesi10_username == other.sesi10_username && self.sesi10_time == other.sesi10_time && self.sesi10_idle_time == other.sesi10_idle_time
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SESSION_INFO_10 {}
+impl ::core::cmp::Eq for SESSION_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SESSION_INFO_10 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14365,14 +14365,14 @@ pub struct SESSION_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SESSION_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SESSION_INFO_2 {
+impl ::core::default::Default for SESSION_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SESSION_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_INFO_2")
             .field("sesi2_cname", &self.sesi2_cname)
             .field("sesi2_username", &self.sesi2_username)
@@ -14385,18 +14385,18 @@ impl ::std::fmt::Debug for SESSION_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SESSION_INFO_2 {
+impl ::core::cmp::PartialEq for SESSION_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.sesi2_cname == other.sesi2_cname && self.sesi2_username == other.sesi2_username && self.sesi2_num_opens == other.sesi2_num_opens && self.sesi2_time == other.sesi2_time && self.sesi2_idle_time == other.sesi2_idle_time && self.sesi2_user_flags == other.sesi2_user_flags && self.sesi2_cltype_name == other.sesi2_cltype_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SESSION_INFO_2 {}
+impl ::core::cmp::Eq for SESSION_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SESSION_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14413,14 +14413,14 @@ pub struct SESSION_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl SESSION_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SESSION_INFO_502 {
+impl ::core::default::Default for SESSION_INFO_502 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SESSION_INFO_502 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_INFO_502 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_INFO_502")
             .field("sesi502_cname", &self.sesi502_cname)
             .field("sesi502_username", &self.sesi502_username)
@@ -14434,24 +14434,24 @@ impl ::std::fmt::Debug for SESSION_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SESSION_INFO_502 {
+impl ::core::cmp::PartialEq for SESSION_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
         self.sesi502_cname == other.sesi502_cname && self.sesi502_username == other.sesi502_username && self.sesi502_num_opens == other.sesi502_num_opens && self.sesi502_time == other.sesi502_time && self.sesi502_idle_time == other.sesi502_idle_time && self.sesi502_user_flags == other.sesi502_user_flags && self.sesi502_cltype_name == other.sesi502_cltype_name && self.sesi502_transport == other.sesi502_transport
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SESSION_INFO_502 {}
+impl ::core::cmp::Eq for SESSION_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SESSION_INFO_502 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SESSION_INFO_USER_FLAGS(pub u32);
 pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
 pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
-impl ::std::convert::From<u32> for SESSION_INFO_USER_FLAGS {
+impl ::core::convert::From<u32> for SESSION_INFO_USER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -14459,42 +14459,42 @@ impl ::std::convert::From<u32> for SESSION_INFO_USER_FLAGS {
 unsafe impl ::windows::runtime::Abi for SESSION_INFO_USER_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SESSION_INFO_USER_FLAGS {
+impl ::core::ops::BitOr for SESSION_INFO_USER_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SESSION_INFO_USER_FLAGS {
+impl ::core::ops::BitAnd for SESSION_INFO_USER_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SESSION_INFO_USER_FLAGS {
+impl ::core::ops::BitOrAssign for SESSION_INFO_USER_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SESSION_INFO_USER_FLAGS {
+impl ::core::ops::BitAndAssign for SESSION_INFO_USER_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SESSION_INFO_USER_FLAGS {
+impl ::core::ops::Not for SESSION_INFO_USER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
 pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
 pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
 pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
-impl ::std::convert::From<u32> for SET_FILE_POINTER_MOVE_METHOD {
+impl ::core::convert::From<u32> for SET_FILE_POINTER_MOVE_METHOD {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -14502,29 +14502,29 @@ impl ::std::convert::From<u32> for SET_FILE_POINTER_MOVE_METHOD {
 unsafe impl ::windows::runtime::Abi for SET_FILE_POINTER_MOVE_METHOD {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SET_FILE_POINTER_MOVE_METHOD {
+impl ::core::ops::BitOr for SET_FILE_POINTER_MOVE_METHOD {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SET_FILE_POINTER_MOVE_METHOD {
+impl ::core::ops::BitAnd for SET_FILE_POINTER_MOVE_METHOD {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SET_FILE_POINTER_MOVE_METHOD {
+impl ::core::ops::BitOrAssign for SET_FILE_POINTER_MOVE_METHOD {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SET_FILE_POINTER_MOVE_METHOD {
+impl ::core::ops::BitAndAssign for SET_FILE_POINTER_MOVE_METHOD {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SET_FILE_POINTER_MOVE_METHOD {
+impl ::core::ops::Not for SET_FILE_POINTER_MOVE_METHOD {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -14534,7 +14534,7 @@ impl ::std::ops::Not for SET_FILE_POINTER_MOVE_METHOD {
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14544,30 +14544,30 @@ pub struct SHARE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SHARE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SHARE_INFO_0 {
+impl ::core::default::Default for SHARE_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SHARE_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_0").field("shi0_netname", &self.shi0_netname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SHARE_INFO_0 {
+impl ::core::cmp::PartialEq for SHARE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.shi0_netname == other.shi0_netname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SHARE_INFO_0 {}
+impl ::core::cmp::Eq for SHARE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14579,30 +14579,30 @@ pub struct SHARE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl SHARE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SHARE_INFO_1 {
+impl ::core::default::Default for SHARE_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SHARE_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_1").field("shi1_netname", &self.shi1_netname).field("shi1_type", &self.shi1_type).field("shi1_remark", &self.shi1_remark).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SHARE_INFO_1 {
+impl ::core::cmp::PartialEq for SHARE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.shi1_netname == other.shi1_netname && self.shi1_type == other.shi1_type && self.shi1_remark == other.shi1_remark
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SHARE_INFO_1 {}
+impl ::core::cmp::Eq for SHARE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14612,82 +14612,82 @@ pub struct SHARE_INFO_1004 {
 #[cfg(feature = "Win32_Foundation")]
 impl SHARE_INFO_1004 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SHARE_INFO_1004 {
+impl ::core::default::Default for SHARE_INFO_1004 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SHARE_INFO_1004 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_1004 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_1004").field("shi1004_remark", &self.shi1004_remark).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SHARE_INFO_1004 {
+impl ::core::cmp::PartialEq for SHARE_INFO_1004 {
     fn eq(&self, other: &Self) -> bool {
         self.shi1004_remark == other.shi1004_remark
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SHARE_INFO_1004 {}
+impl ::core::cmp::Eq for SHARE_INFO_1004 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_1004 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
 impl SHARE_INFO_1005 {}
-impl ::std::default::Default for SHARE_INFO_1005 {
+impl ::core::default::Default for SHARE_INFO_1005 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SHARE_INFO_1005 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_1005 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_1005").field("shi1005_flags", &self.shi1005_flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for SHARE_INFO_1005 {
+impl ::core::cmp::PartialEq for SHARE_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
         self.shi1005_flags == other.shi1005_flags
     }
 }
-impl ::std::cmp::Eq for SHARE_INFO_1005 {}
+impl ::core::cmp::Eq for SHARE_INFO_1005 {}
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_1005 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
 impl SHARE_INFO_1006 {}
-impl ::std::default::Default for SHARE_INFO_1006 {
+impl ::core::default::Default for SHARE_INFO_1006 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SHARE_INFO_1006 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_1006 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_1006").field("shi1006_max_uses", &self.shi1006_max_uses).finish()
     }
 }
-impl ::std::cmp::PartialEq for SHARE_INFO_1006 {
+impl ::core::cmp::PartialEq for SHARE_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
         self.shi1006_max_uses == other.shi1006_max_uses
     }
 }
-impl ::std::cmp::Eq for SHARE_INFO_1006 {}
+impl ::core::cmp::Eq for SHARE_INFO_1006 {}
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_1006 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -14698,56 +14698,56 @@ pub struct SHARE_INFO_1501 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl SHARE_INFO_1501 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for SHARE_INFO_1501 {
+impl ::core::default::Default for SHARE_INFO_1501 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for SHARE_INFO_1501 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_1501 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_1501").field("shi1501_reserved", &self.shi1501_reserved).field("shi1501_security_descriptor", &self.shi1501_security_descriptor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for SHARE_INFO_1501 {
+impl ::core::cmp::PartialEq for SHARE_INFO_1501 {
     fn eq(&self, other: &Self) -> bool {
         self.shi1501_reserved == other.shi1501_reserved && self.shi1501_security_descriptor == other.shi1501_security_descriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for SHARE_INFO_1501 {}
+impl ::core::cmp::Eq for SHARE_INFO_1501 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_1501 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: ::windows::runtime::GUID,
 }
 impl SHARE_INFO_1503 {}
-impl ::std::default::Default for SHARE_INFO_1503 {
+impl ::core::default::Default for SHARE_INFO_1503 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SHARE_INFO_1503 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_1503 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_1503").field("shi1503_sharefilter", &self.shi1503_sharefilter).finish()
     }
 }
-impl ::std::cmp::PartialEq for SHARE_INFO_1503 {
+impl ::core::cmp::PartialEq for SHARE_INFO_1503 {
     fn eq(&self, other: &Self) -> bool {
         self.shi1503_sharefilter == other.shi1503_sharefilter
     }
 }
-impl ::std::cmp::Eq for SHARE_INFO_1503 {}
+impl ::core::cmp::Eq for SHARE_INFO_1503 {}
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_1503 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14764,14 +14764,14 @@ pub struct SHARE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SHARE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SHARE_INFO_2 {
+impl ::core::default::Default for SHARE_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SHARE_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_2")
             .field("shi2_netname", &self.shi2_netname)
             .field("shi2_type", &self.shi2_type)
@@ -14785,18 +14785,18 @@ impl ::std::fmt::Debug for SHARE_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SHARE_INFO_2 {
+impl ::core::cmp::PartialEq for SHARE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.shi2_netname == other.shi2_netname && self.shi2_type == other.shi2_type && self.shi2_remark == other.shi2_remark && self.shi2_permissions == other.shi2_permissions && self.shi2_max_uses == other.shi2_max_uses && self.shi2_current_uses == other.shi2_current_uses && self.shi2_path == other.shi2_path && self.shi2_passwd == other.shi2_passwd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SHARE_INFO_2 {}
+impl ::core::cmp::Eq for SHARE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -14809,30 +14809,30 @@ pub struct SHARE_INFO_501 {
 #[cfg(feature = "Win32_Foundation")]
 impl SHARE_INFO_501 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SHARE_INFO_501 {
+impl ::core::default::Default for SHARE_INFO_501 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SHARE_INFO_501 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_501 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_501").field("shi501_netname", &self.shi501_netname).field("shi501_type", &self.shi501_type).field("shi501_remark", &self.shi501_remark).field("shi501_flags", &self.shi501_flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SHARE_INFO_501 {
+impl ::core::cmp::PartialEq for SHARE_INFO_501 {
     fn eq(&self, other: &Self) -> bool {
         self.shi501_netname == other.shi501_netname && self.shi501_type == other.shi501_type && self.shi501_remark == other.shi501_remark && self.shi501_flags == other.shi501_flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SHARE_INFO_501 {}
+impl ::core::cmp::Eq for SHARE_INFO_501 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_501 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -14851,14 +14851,14 @@ pub struct SHARE_INFO_502 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl SHARE_INFO_502 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for SHARE_INFO_502 {
+impl ::core::default::Default for SHARE_INFO_502 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for SHARE_INFO_502 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_502 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_502")
             .field("shi502_netname", &self.shi502_netname)
             .field("shi502_type", &self.shi502_type)
@@ -14874,7 +14874,7 @@ impl ::std::fmt::Debug for SHARE_INFO_502 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for SHARE_INFO_502 {
+impl ::core::cmp::PartialEq for SHARE_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
         self.shi502_netname == other.shi502_netname
             && self.shi502_type == other.shi502_type
@@ -14889,12 +14889,12 @@ impl ::std::cmp::PartialEq for SHARE_INFO_502 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for SHARE_INFO_502 {}
+impl ::core::cmp::Eq for SHARE_INFO_502 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_502 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
@@ -14914,14 +14914,14 @@ pub struct SHARE_INFO_503 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl SHARE_INFO_503 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for SHARE_INFO_503 {
+impl ::core::default::Default for SHARE_INFO_503 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for SHARE_INFO_503 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SHARE_INFO_503 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SHARE_INFO_503")
             .field("shi503_netname", &self.shi503_netname)
             .field("shi503_type", &self.shi503_type)
@@ -14938,7 +14938,7 @@ impl ::std::fmt::Debug for SHARE_INFO_503 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for SHARE_INFO_503 {
+impl ::core::cmp::PartialEq for SHARE_INFO_503 {
     fn eq(&self, other: &Self) -> bool {
         self.shi503_netname == other.shi503_netname
             && self.shi503_type == other.shi503_type
@@ -14954,13 +14954,13 @@ impl ::std::cmp::PartialEq for SHARE_INFO_503 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for SHARE_INFO_503 {}
+impl ::core::cmp::Eq for SHARE_INFO_503 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_503 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHARE_INFO_PERMISSIONS(pub u32);
 pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
@@ -14971,7 +14971,7 @@ pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
 pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
-impl ::std::convert::From<u32> for SHARE_INFO_PERMISSIONS {
+impl ::core::convert::From<u32> for SHARE_INFO_PERMISSIONS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -14979,29 +14979,29 @@ impl ::std::convert::From<u32> for SHARE_INFO_PERMISSIONS {
 unsafe impl ::windows::runtime::Abi for SHARE_INFO_PERMISSIONS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SHARE_INFO_PERMISSIONS {
+impl ::core::ops::BitOr for SHARE_INFO_PERMISSIONS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SHARE_INFO_PERMISSIONS {
+impl ::core::ops::BitAnd for SHARE_INFO_PERMISSIONS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SHARE_INFO_PERMISSIONS {
+impl ::core::ops::BitOrAssign for SHARE_INFO_PERMISSIONS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SHARE_INFO_PERMISSIONS {
+impl ::core::ops::BitAndAssign for SHARE_INFO_PERMISSIONS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SHARE_INFO_PERMISSIONS {
+impl ::core::ops::Not for SHARE_INFO_PERMISSIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -15022,7 +15022,7 @@ pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHARE_TYPE(pub u32);
 pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
@@ -15032,7 +15032,7 @@ pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
 pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
 pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
 pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
-impl ::std::convert::From<u32> for SHARE_TYPE {
+impl ::core::convert::From<u32> for SHARE_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -15040,29 +15040,29 @@ impl ::std::convert::From<u32> for SHARE_TYPE {
 unsafe impl ::windows::runtime::Abi for SHARE_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SHARE_TYPE {
+impl ::core::ops::BitOr for SHARE_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SHARE_TYPE {
+impl ::core::ops::BitAnd for SHARE_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SHARE_TYPE {
+impl ::core::ops::BitOrAssign for SHARE_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SHARE_TYPE {
+impl ::core::ops::BitAndAssign for SHARE_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SHARE_TYPE {
+impl ::core::ops::Not for SHARE_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -15108,7 +15108,7 @@ pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const STATSOPT_CLR: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct STAT_SERVER_0 {
@@ -15131,13 +15131,13 @@ pub struct STAT_SERVER_0 {
     pub sts0_bigbufneed: u32,
 }
 impl STAT_SERVER_0 {}
-impl ::std::default::Default for STAT_SERVER_0 {
+impl ::core::default::Default for STAT_SERVER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for STAT_SERVER_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for STAT_SERVER_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("STAT_SERVER_0")
             .field("sts0_start", &self.sts0_start)
             .field("sts0_fopens", &self.sts0_fopens)
@@ -15159,7 +15159,7 @@ impl ::std::fmt::Debug for STAT_SERVER_0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for STAT_SERVER_0 {
+impl ::core::cmp::PartialEq for STAT_SERVER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.sts0_start == other.sts0_start
             && self.sts0_fopens == other.sts0_fopens
@@ -15180,11 +15180,11 @@ impl ::std::cmp::PartialEq for STAT_SERVER_0 {
             && self.sts0_bigbufneed == other.sts0_bigbufneed
     }
 }
-impl ::std::cmp::Eq for STAT_SERVER_0 {}
+impl ::core::cmp::Eq for STAT_SERVER_0 {}
 unsafe impl ::windows::runtime::Abi for STAT_SERVER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct STAT_WORKSTATION_0 {
@@ -15230,13 +15230,13 @@ pub struct STAT_WORKSTATION_0 {
     pub CurrentCommands: u32,
 }
 impl STAT_WORKSTATION_0 {}
-impl ::std::default::Default for STAT_WORKSTATION_0 {
+impl ::core::default::Default for STAT_WORKSTATION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for STAT_WORKSTATION_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for STAT_WORKSTATION_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("STAT_WORKSTATION_0")
             .field("StatisticsStartTime", &self.StatisticsStartTime)
             .field("BytesReceived", &self.BytesReceived)
@@ -15281,7 +15281,7 @@ impl ::std::fmt::Debug for STAT_WORKSTATION_0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for STAT_WORKSTATION_0 {
+impl ::core::cmp::PartialEq for STAT_WORKSTATION_0 {
     fn eq(&self, other: &Self) -> bool {
         self.StatisticsStartTime == other.StatisticsStartTime
             && self.BytesReceived == other.BytesReceived
@@ -15325,12 +15325,12 @@ impl ::std::cmp::PartialEq for STAT_WORKSTATION_0 {
             && self.CurrentCommands == other.CurrentCommands
     }
 }
-impl ::std::cmp::Eq for STAT_WORKSTATION_0 {}
+impl ::core::cmp::Eq for STAT_WORKSTATION_0 {}
 unsafe impl ::windows::runtime::Abi for STAT_WORKSTATION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_BUS_TYPE(pub i32);
 pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
@@ -15355,7 +15355,7 @@ pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
 pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
 pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
 pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
-impl ::std::convert::From<i32> for STORAGE_BUS_TYPE {
+impl ::core::convert::From<i32> for STORAGE_BUS_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15364,12 +15364,12 @@ unsafe impl ::windows::runtime::Abi for STORAGE_BUS_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STREAM_INFO_LEVELS(pub i32);
 pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
 pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
-impl ::std::convert::From<i32> for STREAM_INFO_LEVELS {
+impl ::core::convert::From<i32> for STREAM_INFO_LEVELS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15390,12 +15390,12 @@ pub const STYPE_RESERVED5: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYMBOLIC_LINK_FLAGS(pub u32);
 pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
 pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
-impl ::std::convert::From<u32> for SYMBOLIC_LINK_FLAGS {
+impl ::core::convert::From<u32> for SYMBOLIC_LINK_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -15403,29 +15403,29 @@ impl ::std::convert::From<u32> for SYMBOLIC_LINK_FLAGS {
 unsafe impl ::windows::runtime::Abi for SYMBOLIC_LINK_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYMBOLIC_LINK_FLAGS {
+impl ::core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
+impl ::core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
+impl ::core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
+impl ::core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYMBOLIC_LINK_FLAGS {
+impl ::core::ops::Not for SYMBOLIC_LINK_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -15434,14 +15434,14 @@ impl ::std::ops::Not for SYMBOLIC_LINK_FLAGS {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ScanLogContainers(::std::mem::transmute(pcxscan), ::std::mem::transmute(escanmode), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(ScanLogContainers(::core::mem::transmute(pcxscan), ::core::mem::transmute(escanmode), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15456,7 +15456,7 @@ pub unsafe fn SearchPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn SearchPathA(lppath: super::super::Foundation::PSTR, lpfilename: super::super::Foundation::PSTR, lpextension: super::super::Foundation::PSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(SearchPathA(lppath.into_param().abi(), lpfilename.into_param().abi(), lpextension.into_param().abi(), ::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpfilepart)))
+        ::core::mem::transmute(SearchPathA(lppath.into_param().abi(), lpfilename.into_param().abi(), lpextension.into_param().abi(), ::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpfilepart)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15471,7 +15471,7 @@ pub unsafe fn SearchPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn SearchPathW(lppath: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR, lpextension: super::super::Foundation::PWSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(SearchPathW(lppath.into_param().abi(), lpfilename.into_param().abi(), lpextension.into_param().abi(), ::std::mem::transmute(nbufferlength), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpfilepart)))
+        ::core::mem::transmute(SearchPathW(lppath.into_param().abi(), lpfilename.into_param().abi(), lpextension.into_param().abi(), ::core::mem::transmute(nbufferlength), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpfilepart)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15486,7 +15486,7 @@ pub unsafe fn SetEncryptedFileMetadata<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn SetEncryptedFileMetadata(lpfilename: super::super::Foundation::PWSTR, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
         }
-        ::std::mem::transmute(SetEncryptedFileMetadata(lpfilename.into_param().abi(), ::std::mem::transmute(pboldmetadata), ::std::mem::transmute(pbnewmetadata), ::std::mem::transmute(pownerhash), ::std::mem::transmute(dwoperation), ::std::mem::transmute(pcertificatesadded)))
+        ::core::mem::transmute(SetEncryptedFileMetadata(lpfilename.into_param().abi(), ::core::mem::transmute(pboldmetadata), ::core::mem::transmute(pbnewmetadata), ::core::mem::transmute(pownerhash), ::core::mem::transmute(dwoperation), ::core::mem::transmute(pcertificatesadded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15501,7 +15501,7 @@ pub unsafe fn SetEndOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SetEndOfFile(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetEndOfFile(hfile.into_param().abi()))
+        ::core::mem::transmute(SetEndOfFile(hfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15516,7 +15516,7 @@ pub unsafe fn SetEndOfLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn SetEndOfLog(hlog: super::super::Foundation::HANDLE, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetEndOfLog(hlog.into_param().abi(), ::std::mem::transmute(plsnend), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(SetEndOfLog(hlog.into_param().abi(), ::core::mem::transmute(plsnend), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15524,14 +15524,14 @@ pub unsafe fn SetEndOfLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetEnlistmentRecoveryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetEnlistmentRecoveryInformation(enlistmenthandle.into_param().abi(), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(SetEnlistmentRecoveryInformation(enlistmenthandle.into_param().abi(), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15545,7 +15545,7 @@ pub unsafe fn SetFileApisToANSI() {
         extern "system" {
             fn SetFileApisToANSI();
         }
-        ::std::mem::transmute(SetFileApisToANSI())
+        ::core::mem::transmute(SetFileApisToANSI())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15559,7 +15559,7 @@ pub unsafe fn SetFileApisToOEM() {
         extern "system" {
             fn SetFileApisToOEM();
         }
-        ::std::mem::transmute(SetFileApisToOEM())
+        ::core::mem::transmute(SetFileApisToOEM())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15574,7 +15574,7 @@ pub unsafe fn SetFileAttributesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SetFileAttributesA(lpfilename: super::super::Foundation::PSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileAttributesA(lpfilename.into_param().abi(), ::std::mem::transmute(dwfileattributes)))
+        ::core::mem::transmute(SetFileAttributesA(lpfilename.into_param().abi(), ::core::mem::transmute(dwfileattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15589,7 +15589,7 @@ pub unsafe fn SetFileAttributesFromAppW<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn SetFileAttributesFromAppW(lpfilename: super::super::Foundation::PWSTR, dwfileattributes: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileAttributesFromAppW(lpfilename.into_param().abi(), ::std::mem::transmute(dwfileattributes)))
+        ::core::mem::transmute(SetFileAttributesFromAppW(lpfilename.into_param().abi(), ::core::mem::transmute(dwfileattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15604,7 +15604,7 @@ pub unsafe fn SetFileAttributesTransactedA<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn SetFileAttributesTransactedA(lpfilename: super::super::Foundation::PSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileAttributesTransactedA(lpfilename.into_param().abi(), ::std::mem::transmute(dwfileattributes), htransaction.into_param().abi()))
+        ::core::mem::transmute(SetFileAttributesTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(dwfileattributes), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15619,7 +15619,7 @@ pub unsafe fn SetFileAttributesTransactedW<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn SetFileAttributesTransactedW(lpfilename: super::super::Foundation::PWSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileAttributesTransactedW(lpfilename.into_param().abi(), ::std::mem::transmute(dwfileattributes), htransaction.into_param().abi()))
+        ::core::mem::transmute(SetFileAttributesTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(dwfileattributes), htransaction.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15634,7 +15634,7 @@ pub unsafe fn SetFileAttributesW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn SetFileAttributesW(lpfilename: super::super::Foundation::PWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileAttributesW(lpfilename.into_param().abi(), ::std::mem::transmute(dwfileattributes)))
+        ::core::mem::transmute(SetFileAttributesW(lpfilename.into_param().abi(), ::core::mem::transmute(dwfileattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15649,7 +15649,7 @@ pub unsafe fn SetFileBandwidthReservation<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn SetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: super::super::Foundation::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileBandwidthReservation(hfile.into_param().abi(), ::std::mem::transmute(nperiodmilliseconds), ::std::mem::transmute(nbytesperperiod), bdiscardable.into_param().abi(), ::std::mem::transmute(lptransfersize), ::std::mem::transmute(lpnumoutstandingrequests)))
+        ::core::mem::transmute(SetFileBandwidthReservation(hfile.into_param().abi(), ::core::mem::transmute(nperiodmilliseconds), ::core::mem::transmute(nbytesperperiod), bdiscardable.into_param().abi(), ::core::mem::transmute(lptransfersize), ::core::mem::transmute(lpnumoutstandingrequests)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15664,7 +15664,7 @@ pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::runtime:
         extern "system" {
             fn SetFileCompletionNotificationModes(filehandle: super::super::Foundation::HANDLE, flags: u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileCompletionNotificationModes(filehandle.into_param().abi(), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(SetFileCompletionNotificationModes(filehandle.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15672,14 +15672,14 @@ pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::runtime:
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::std::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::std::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
+            fn SetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileInformationByHandle(hfile.into_param().abi(), ::std::mem::transmute(fileinformationclass), ::std::mem::transmute(lpfileinformation), ::std::mem::transmute(dwbuffersize)))
+        ::core::mem::transmute(SetFileInformationByHandle(hfile.into_param().abi(), ::core::mem::transmute(fileinformationclass), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15694,7 +15694,7 @@ pub unsafe fn SetFileIoOverlappedRange<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn SetFileIoOverlappedRange(filehandle: super::super::Foundation::HANDLE, overlappedrangestart: *const u8, length: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileIoOverlappedRange(filehandle.into_param().abi(), ::std::mem::transmute(overlappedrangestart), ::std::mem::transmute(length)))
+        ::core::mem::transmute(SetFileIoOverlappedRange(filehandle.into_param().abi(), ::core::mem::transmute(overlappedrangestart), ::core::mem::transmute(length)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15709,7 +15709,7 @@ pub unsafe fn SetFilePointer<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn SetFilePointer(hfile: super::super::Foundation::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32;
         }
-        ::std::mem::transmute(SetFilePointer(hfile.into_param().abi(), ::std::mem::transmute(ldistancetomove), ::std::mem::transmute(lpdistancetomovehigh), ::std::mem::transmute(dwmovemethod)))
+        ::core::mem::transmute(SetFilePointer(hfile.into_param().abi(), ::core::mem::transmute(ldistancetomove), ::core::mem::transmute(lpdistancetomovehigh), ::core::mem::transmute(dwmovemethod)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15724,7 +15724,7 @@ pub unsafe fn SetFilePointerEx<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetFilePointerEx(hfile: super::super::Foundation::HANDLE, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFilePointerEx(hfile.into_param().abi(), ::std::mem::transmute(lidistancetomove), ::std::mem::transmute(lpnewfilepointer), ::std::mem::transmute(dwmovemethod)))
+        ::core::mem::transmute(SetFilePointerEx(hfile.into_param().abi(), ::core::mem::transmute(lidistancetomove), ::core::mem::transmute(lpnewfilepointer), ::core::mem::transmute(dwmovemethod)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15739,7 +15739,7 @@ pub unsafe fn SetFileShortNameA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn SetFileShortNameA(hfile: super::super::Foundation::HANDLE, lpshortname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileShortNameA(hfile.into_param().abi(), lpshortname.into_param().abi()))
+        ::core::mem::transmute(SetFileShortNameA(hfile.into_param().abi(), lpshortname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15754,7 +15754,7 @@ pub unsafe fn SetFileShortNameW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn SetFileShortNameW(hfile: super::super::Foundation::HANDLE, lpshortname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileShortNameW(hfile.into_param().abi(), lpshortname.into_param().abi()))
+        ::core::mem::transmute(SetFileShortNameW(hfile.into_param().abi(), lpshortname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15769,7 +15769,7 @@ pub unsafe fn SetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn SetFileTime(hfile: super::super::Foundation::HANDLE, lpcreationtime: *const super::super::Foundation::FILETIME, lplastaccesstime: *const super::super::Foundation::FILETIME, lplastwritetime: *const super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileTime(hfile.into_param().abi(), ::std::mem::transmute(lpcreationtime), ::std::mem::transmute(lplastaccesstime), ::std::mem::transmute(lplastwritetime)))
+        ::core::mem::transmute(SetFileTime(hfile.into_param().abi(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lplastaccesstime), ::core::mem::transmute(lplastwritetime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15784,7 +15784,7 @@ pub unsafe fn SetFileValidData<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetFileValidData(hfile: super::super::Foundation::HANDLE, validdatalength: i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileValidData(hfile.into_param().abi(), ::std::mem::transmute(validdatalength)))
+        ::core::mem::transmute(SetFileValidData(hfile.into_param().abi(), ::core::mem::transmute(validdatalength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15799,7 +15799,7 @@ pub unsafe fn SetIoRingCompletionEvent<'a, Param1: ::windows::runtime::IntoParam
         extern "system" {
             fn SetIoRingCompletionEvent(ioring: *const HIORING__, hevent: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
-        SetIoRingCompletionEvent(::std::mem::transmute(ioring), hevent.into_param().abi()).ok()
+        SetIoRingCompletionEvent(::core::mem::transmute(ioring), hevent.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15814,7 +15814,7 @@ pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn SetLogArchiveMode(hlog: super::super::Foundation::HANDLE, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetLogArchiveMode(hlog.into_param().abi(), ::std::mem::transmute(emode)))
+        ::core::mem::transmute(SetLogArchiveMode(hlog.into_param().abi(), ::core::mem::transmute(emode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15822,14 +15822,14 @@ pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetLogArchiveTail(hlog: super::super::Foundation::HANDLE, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SetLogArchiveTail(hlog: super::super::Foundation::HANDLE, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetLogArchiveTail(hlog.into_param().abi(), ::std::mem::transmute(plsnarchivetail), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(SetLogArchiveTail(hlog.into_param().abi(), ::core::mem::transmute(plsnarchivetail), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15844,7 +15844,7 @@ pub unsafe fn SetLogFileSizeWithPolicy<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn SetLogFileSizeWithPolicy(hlog: super::super::Foundation::HANDLE, pdesiredsize: *mut u64, presultingsize: *mut u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetLogFileSizeWithPolicy(hlog.into_param().abi(), ::std::mem::transmute(pdesiredsize), ::std::mem::transmute(presultingsize)))
+        ::core::mem::transmute(SetLogFileSizeWithPolicy(hlog.into_param().abi(), ::core::mem::transmute(pdesiredsize), ::core::mem::transmute(presultingsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15859,7 +15859,7 @@ pub unsafe fn SetResourceManagerCompletionPort<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn SetResourceManagerCompletionPort(resourcemanagerhandle: super::super::Foundation::HANDLE, iocompletionporthandle: super::super::Foundation::HANDLE, completionkey: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetResourceManagerCompletionPort(resourcemanagerhandle.into_param().abi(), iocompletionporthandle.into_param().abi(), ::std::mem::transmute(completionkey)))
+        ::core::mem::transmute(SetResourceManagerCompletionPort(resourcemanagerhandle.into_param().abi(), iocompletionporthandle.into_param().abi(), ::core::mem::transmute(completionkey)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15874,7 +15874,7 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
         extern "system" {
             fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSearchPathMode(::std::mem::transmute(flags)))
+        ::core::mem::transmute(SetSearchPathMode(::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15882,14 +15882,14 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn SetTapeParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::std::ffi::c_void) -> u32;
+            fn SetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(SetTapeParameters(hdevice.into_param().abi(), ::std::mem::transmute(dwoperation), ::std::mem::transmute(lptapeinformation)))
+        ::core::mem::transmute(SetTapeParameters(hdevice.into_param().abi(), ::core::mem::transmute(dwoperation), ::core::mem::transmute(lptapeinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15904,7 +15904,7 @@ pub unsafe fn SetTapePosition<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(SetTapePosition(hdevice.into_param().abi(), ::std::mem::transmute(dwpositionmethod), ::std::mem::transmute(dwpartition), ::std::mem::transmute(dwoffsetlow), ::std::mem::transmute(dwoffsethigh), bimmediate.into_param().abi()))
+        ::core::mem::transmute(SetTapePosition(hdevice.into_param().abi(), ::core::mem::transmute(dwpositionmethod), ::core::mem::transmute(dwpartition), ::core::mem::transmute(dwoffsetlow), ::core::mem::transmute(dwoffsethigh), bimmediate.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15919,7 +15919,7 @@ pub unsafe fn SetTransactionInformation<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn SetTransactionInformation(transactionhandle: super::super::Foundation::HANDLE, isolationlevel: u32, isolationflags: u32, timeout: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetTransactionInformation(transactionhandle.into_param().abi(), ::std::mem::transmute(isolationlevel), ::std::mem::transmute(isolationflags), ::std::mem::transmute(timeout), description.into_param().abi()))
+        ::core::mem::transmute(SetTransactionInformation(transactionhandle.into_param().abi(), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15934,7 +15934,7 @@ pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: *const ENCRYPTION
         extern "system" {
             fn SetUserFileEncryptionKey(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE) -> u32;
         }
-        ::std::mem::transmute(SetUserFileEncryptionKey(::std::mem::transmute(pencryptioncertificate)))
+        ::core::mem::transmute(SetUserFileEncryptionKey(::core::mem::transmute(pencryptioncertificate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15942,14 +15942,14 @@ pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: *const ENCRYPTION
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Security`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> u32;
+            fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(SetUserFileEncryptionKeyEx(::std::mem::transmute(pencryptioncertificate), ::std::mem::transmute(dwcapabilities), ::std::mem::transmute(dwflags), ::std::mem::transmute(pvreserved)))
+        ::core::mem::transmute(SetUserFileEncryptionKeyEx(::core::mem::transmute(pencryptioncertificate), ::core::mem::transmute(dwcapabilities), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15964,7 +15964,7 @@ pub unsafe fn SetVolumeLabelA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetVolumeLabelA(lprootpathname: super::super::Foundation::PSTR, lpvolumename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetVolumeLabelA(lprootpathname.into_param().abi(), lpvolumename.into_param().abi()))
+        ::core::mem::transmute(SetVolumeLabelA(lprootpathname.into_param().abi(), lpvolumename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15979,7 +15979,7 @@ pub unsafe fn SetVolumeLabelW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetVolumeLabelW(lprootpathname: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetVolumeLabelW(lprootpathname.into_param().abi(), lpvolumename.into_param().abi()))
+        ::core::mem::transmute(SetVolumeLabelW(lprootpathname.into_param().abi(), lpvolumename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15994,7 +15994,7 @@ pub unsafe fn SetVolumeMountPointA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn SetVolumeMountPointA(lpszvolumemountpoint: super::super::Foundation::PSTR, lpszvolumename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetVolumeMountPointA(lpszvolumemountpoint.into_param().abi(), lpszvolumename.into_param().abi()))
+        ::core::mem::transmute(SetVolumeMountPointA(lpszvolumemountpoint.into_param().abi(), lpszvolumename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16009,7 +16009,7 @@ pub unsafe fn SetVolumeMountPointW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn SetVolumeMountPointW(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetVolumeMountPointW(lpszvolumemountpoint.into_param().abi(), lpszvolumename.into_param().abi()))
+        ::core::mem::transmute(SetVolumeMountPointW(lpszvolumemountpoint.into_param().abi(), lpszvolumename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16024,7 +16024,7 @@ pub unsafe fn SinglePhaseReject<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn SinglePhaseReject(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SinglePhaseReject(enlistmenthandle.into_param().abi(), ::std::mem::transmute(tmvirtualclock)))
+        ::core::mem::transmute(SinglePhaseReject(enlistmenthandle.into_param().abi(), ::core::mem::transmute(tmvirtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16038,21 +16038,21 @@ pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, millis
         extern "system" {
             fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32, submittedentries: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SubmitIoRing(::std::mem::transmute(ioring), ::std::mem::transmute(waitoperations), ::std::mem::transmute(milliseconds), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SubmitIoRing(::core::mem::transmute(ioring), ::core::mem::transmute(waitoperations), ::core::mem::transmute(milliseconds), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPEMARK_TYPE(pub i32);
 pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1i32);
 pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3i32);
 pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0i32);
 pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2i32);
-impl ::std::convert::From<i32> for TAPEMARK_TYPE {
+impl ::core::convert::From<i32> for TAPEMARK_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16061,12 +16061,12 @@ unsafe impl ::windows::runtime::Abi for TAPEMARK_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_INFORMATION_TYPE(pub u32);
 pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
 pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
-impl ::std::convert::From<u32> for TAPE_INFORMATION_TYPE {
+impl ::core::convert::From<u32> for TAPE_INFORMATION_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -16074,36 +16074,36 @@ impl ::std::convert::From<u32> for TAPE_INFORMATION_TYPE {
 unsafe impl ::windows::runtime::Abi for TAPE_INFORMATION_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TAPE_INFORMATION_TYPE {
+impl ::core::ops::BitOr for TAPE_INFORMATION_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TAPE_INFORMATION_TYPE {
+impl ::core::ops::BitAnd for TAPE_INFORMATION_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TAPE_INFORMATION_TYPE {
+impl ::core::ops::BitOrAssign for TAPE_INFORMATION_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TAPE_INFORMATION_TYPE {
+impl ::core::ops::BitAndAssign for TAPE_INFORMATION_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TAPE_INFORMATION_TYPE {
+impl ::core::ops::Not for TAPE_INFORMATION_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_POSITION_METHOD(pub i32);
 pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1i32);
@@ -16115,7 +16115,7 @@ pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHO
 pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7i32);
 pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9i32);
 pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8i32);
-impl ::std::convert::From<i32> for TAPE_POSITION_METHOD {
+impl ::core::convert::From<i32> for TAPE_POSITION_METHOD {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16124,12 +16124,12 @@ unsafe impl ::windows::runtime::Abi for TAPE_POSITION_METHOD {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_POSITION_TYPE(pub i32);
 pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0i32);
 pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1i32);
-impl ::std::convert::From<i32> for TAPE_POSITION_TYPE {
+impl ::core::convert::From<i32> for TAPE_POSITION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16157,36 +16157,36 @@ pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION {
-    pub TransactionKey: *mut ::std::ffi::c_void,
+    pub TransactionKey: *mut ::core::ffi::c_void,
     pub TransactionNotification: u32,
     pub TmVirtualClock: i64,
     pub ArgumentLength: u32,
 }
 impl TRANSACTION_NOTIFICATION {}
-impl ::std::default::Default for TRANSACTION_NOTIFICATION {
+impl ::core::default::Default for TRANSACTION_NOTIFICATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TRANSACTION_NOTIFICATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSACTION_NOTIFICATION").field("TransactionKey", &self.TransactionKey).field("TransactionNotification", &self.TransactionNotification).field("TmVirtualClock", &self.TmVirtualClock).field("ArgumentLength", &self.ArgumentLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for TRANSACTION_NOTIFICATION {
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.TransactionKey == other.TransactionKey && self.TransactionNotification == other.TransactionNotification && self.TmVirtualClock == other.TmVirtualClock && self.ArgumentLength == other.ArgumentLength
     }
 }
-impl ::std::cmp::Eq for TRANSACTION_NOTIFICATION {}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
@@ -16194,26 +16194,26 @@ pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub UOW: ::windows::runtime::GUID,
 }
 impl TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
-impl ::std::default::Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+impl ::core::default::Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT").field("MarshalCookie", &self.MarshalCookie).field("UOW", &self.UOW).finish()
     }
 }
-impl ::std::cmp::PartialEq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
         self.MarshalCookie == other.MarshalCookie && self.UOW == other.UOW
     }
 }
-impl ::std::cmp::Eq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
 unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
@@ -16223,26 +16223,26 @@ pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub BufferLength: u32,
 }
 impl TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
-impl ::std::default::Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+impl ::core::default::Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT").field("PropagationCookie", &self.PropagationCookie).field("UOW", &self.UOW).field("TmIdentity", &self.TmIdentity).field("BufferLength", &self.BufferLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
         self.PropagationCookie == other.PropagationCookie && self.UOW == other.UOW && self.TmIdentity == other.TmIdentity && self.BufferLength == other.BufferLength
     }
 }
-impl ::std::cmp::Eq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
 unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
@@ -16250,52 +16250,52 @@ pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub UOW: ::windows::runtime::GUID,
 }
 impl TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
-impl ::std::default::Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+impl ::core::default::Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT").field("EnlistmentId", &self.EnlistmentId).field("UOW", &self.UOW).finish()
     }
 }
-impl ::std::cmp::PartialEq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
         self.EnlistmentId == other.EnlistmentId && self.UOW == other.UOW
     }
 }
-impl ::std::cmp::Eq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
 unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
 impl TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
-impl ::std::default::Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+impl ::core::default::Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT").field("SavepointId", &self.SavepointId).finish()
     }
 }
-impl ::std::cmp::PartialEq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
         self.SavepointId == other.SavepointId
     }
 }
-impl ::std::cmp::Eq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
 unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
@@ -16303,22 +16303,22 @@ pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub Flags: u32,
 }
 impl TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
-impl ::std::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT").field("TmIdentity", &self.TmIdentity).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
         self.TmIdentity == other.TmIdentity && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
 unsafe impl ::windows::runtime::Abi for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     type Abi = Self;
 }
@@ -16379,13 +16379,13 @@ pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTION_OUTCOME(pub i32);
 pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
 pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
 pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
-impl ::std::convert::From<i32> for TRANSACTION_OUTCOME {
+impl ::core::convert::From<i32> for TRANSACTION_OUTCOME {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16394,13 +16394,13 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_OUTCOME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXFS_MINIVERSION(pub u32);
 pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
 pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
 pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
-impl ::std::convert::From<u32> for TXFS_MINIVERSION {
+impl ::core::convert::From<u32> for TXFS_MINIVERSION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -16408,56 +16408,56 @@ impl ::std::convert::From<u32> for TXFS_MINIVERSION {
 unsafe impl ::windows::runtime::Abi for TXFS_MINIVERSION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TXFS_MINIVERSION {
+impl ::core::ops::BitOr for TXFS_MINIVERSION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TXFS_MINIVERSION {
+impl ::core::ops::BitAnd for TXFS_MINIVERSION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TXFS_MINIVERSION {
+impl ::core::ops::BitOrAssign for TXFS_MINIVERSION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TXFS_MINIVERSION {
+impl ::core::ops::BitAndAssign for TXFS_MINIVERSION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TXFS_MINIVERSION {
+impl ::core::ops::Not for TXFS_MINIVERSION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
 impl TXF_ID {}
-impl ::std::default::Default for TXF_ID {
+impl ::core::default::Default for TXF_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TXF_ID {
+impl ::core::cmp::PartialEq for TXF_ID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TXF_ID {}
+impl ::core::cmp::Eq for TXF_ID {}
 unsafe impl ::windows::runtime::Abi for TXF_ID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TXF_ID_0 {
@@ -16465,21 +16465,21 @@ pub struct TXF_ID_0 {
     pub HighPart: i64,
 }
 impl TXF_ID_0 {}
-impl ::std::default::Default for TXF_ID_0 {
+impl ::core::default::Default for TXF_ID_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TXF_ID_0 {
+impl ::core::cmp::PartialEq for TXF_ID_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TXF_ID_0 {}
+impl ::core::cmp::Eq for TXF_ID_0 {}
 unsafe impl ::windows::runtime::Abi for TXF_ID_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
@@ -16492,21 +16492,21 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub FileNameByteOffsetInStructure: u32,
 }
 impl TXF_LOG_RECORD_AFFECTED_FILE {}
-impl ::std::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
+impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TXF_LOG_RECORD_AFFECTED_FILE {
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_AFFECTED_FILE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TXF_LOG_RECORD_AFFECTED_FILE {}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_AFFECTED_FILE {}
 unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_AFFECTED_FILE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TXF_LOG_RECORD_BASE {
@@ -16515,22 +16515,22 @@ pub struct TXF_LOG_RECORD_BASE {
     pub RecordLength: u32,
 }
 impl TXF_LOG_RECORD_BASE {}
-impl ::std::default::Default for TXF_LOG_RECORD_BASE {
+impl ::core::default::Default for TXF_LOG_RECORD_BASE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TXF_LOG_RECORD_BASE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TXF_LOG_RECORD_BASE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TXF_LOG_RECORD_BASE").field("Version", &self.Version).field("RecordType", &self.RecordType).field("RecordLength", &self.RecordLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for TXF_LOG_RECORD_BASE {
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_BASE {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.RecordType == other.RecordType && self.RecordLength == other.RecordLength
     }
 }
-impl ::std::cmp::Eq for TXF_LOG_RECORD_BASE {}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_BASE {}
 unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_BASE {
     type Abi = Self;
 }
@@ -16542,7 +16542,7 @@ pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TXF_LOG_RECORD_TRUNCATE {
@@ -16557,28 +16557,28 @@ pub struct TXF_LOG_RECORD_TRUNCATE {
     pub FileNameByteOffsetInStructure: u32,
 }
 impl TXF_LOG_RECORD_TRUNCATE {}
-impl ::std::default::Default for TXF_LOG_RECORD_TRUNCATE {
+impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TXF_LOG_RECORD_TRUNCATE {
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_TRUNCATE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TXF_LOG_RECORD_TRUNCATE {}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_TRUNCATE {}
 unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_TRUNCATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXF_LOG_RECORD_TYPE(pub u16);
 pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
 pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
 pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
-impl ::std::convert::From<u16> for TXF_LOG_RECORD_TYPE {
+impl ::core::convert::From<u16> for TXF_LOG_RECORD_TYPE {
     fn from(value: u16) -> Self {
         Self(value)
     }
@@ -16586,7 +16586,7 @@ impl ::std::convert::From<u16> for TXF_LOG_RECORD_TYPE {
 unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct TXF_LOG_RECORD_WRITE {
@@ -16603,31 +16603,31 @@ pub struct TXF_LOG_RECORD_WRITE {
     pub FileNameByteOffsetInStructure: u32,
 }
 impl TXF_LOG_RECORD_WRITE {}
-impl ::std::default::Default for TXF_LOG_RECORD_WRITE {
+impl ::core::default::Default for TXF_LOG_RECORD_WRITE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TXF_LOG_RECORD_WRITE {
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_WRITE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TXF_LOG_RECORD_WRITE {}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_WRITE {}
 unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_WRITE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TerminateLogArchive(pvarchivecontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TerminateLogArchive(::std::mem::transmute(pvarchivecontext)))
+        ::core::mem::transmute(TerminateLogArchive(::core::mem::transmute(pvarchivecontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16635,14 +16635,14 @@ pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::std::ffi::c_void) -> 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TerminateReadLog(pvcursorcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TerminateReadLog(::std::mem::transmute(pvcursorcontext)))
+        ::core::mem::transmute(TerminateReadLog(::core::mem::transmute(pvcursorcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16650,14 +16650,14 @@ pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::std::ffi::c_void) -> supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn TruncateLog(pvmarshal: *const ::std::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TruncateLog(pvmarshal: *const ::std::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TruncateLog(::std::mem::transmute(pvmarshal), ::std::mem::transmute(plsnend), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(TruncateLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnend), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16671,7 +16671,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
         extern "system" {
             fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16);
         }
-        ::std::mem::transmute(TxfGetThreadMiniVersionForCreate(::std::mem::transmute(miniversion)))
+        ::core::mem::transmute(TxfGetThreadMiniVersionForCreate(::core::mem::transmute(miniversion)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16679,14 +16679,14 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, CLS_LSN>, Param2: ::windows::runtime::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, CLS_LSN>, Param2: ::windows::runtime::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfLogCreateFileReadContext(logpath: super::super::Foundation::PWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn TxfLogCreateFileReadContext(logpath: super::super::Foundation::PWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfLogCreateFileReadContext(logpath.into_param().abi(), beginninglsn.into_param().abi(), endinglsn.into_param().abi(), ::std::mem::transmute(txffileid), ::std::mem::transmute(txflogcontext)))
+        ::core::mem::transmute(TxfLogCreateFileReadContext(logpath.into_param().abi(), beginninglsn.into_param().abi(), endinglsn.into_param().abi(), ::core::mem::transmute(txffileid), ::core::mem::transmute(txflogcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16694,14 +16694,14 @@ pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, CLS_LSN>, Param2: ::windows::runtime::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, CLS_LSN>, Param2: ::windows::runtime::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfLogCreateRangeReadContext(logpath: super::super::Foundation::PWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn TxfLogCreateRangeReadContext(logpath: super::super::Foundation::PWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfLogCreateRangeReadContext(logpath.into_param().abi(), beginninglsn.into_param().abi(), endinglsn.into_param().abi(), ::std::mem::transmute(beginningvirtualclock), ::std::mem::transmute(endingvirtualclock), ::std::mem::transmute(recordtypemask), ::std::mem::transmute(txflogcontext)))
+        ::core::mem::transmute(TxfLogCreateRangeReadContext(logpath.into_param().abi(), beginninglsn.into_param().abi(), endinglsn.into_param().abi(), ::core::mem::transmute(beginningvirtualclock), ::core::mem::transmute(endingvirtualclock), ::core::mem::transmute(recordtypemask), ::core::mem::transmute(txflogcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16709,14 +16709,14 @@ pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfLogDestroyReadContext(txflogcontext: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfLogDestroyReadContext(::std::mem::transmute(txflogcontext)))
+        ::core::mem::transmute(TxfLogDestroyReadContext(::core::mem::transmute(txflogcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16724,14 +16724,14 @@ pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::std::ffi::c_void)
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::std::ffi::c_void, bufferlength: u32, buffer: *mut ::std::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, bufferlength: u32, buffer: *mut ::core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfLogReadRecords(txflogcontext: *const ::std::ffi::c_void, bufferlength: u32, buffer: *mut ::std::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL;
+            fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, bufferlength: u32, buffer: *mut ::core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfLogReadRecords(::std::mem::transmute(txflogcontext), ::std::mem::transmute(bufferlength), ::std::mem::transmute(buffer), ::std::mem::transmute(bytesused), ::std::mem::transmute(recordcount)))
+        ::core::mem::transmute(TxfLogReadRecords(::core::mem::transmute(txflogcontext), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(bytesused), ::core::mem::transmute(recordcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16739,14 +16739,14 @@ pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::std::ffi::c_void, buffer
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::std::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: super::super::Foundation::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: super::super::Foundation::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfLogRecordGetFileName(recordbuffer: *const ::std::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: super::super::Foundation::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL;
+            fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: super::super::Foundation::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfLogRecordGetFileName(::std::mem::transmute(recordbuffer), ::std::mem::transmute(recordbufferlengthinbytes), ::std::mem::transmute(namebuffer), ::std::mem::transmute(namebufferlengthinbytes), ::std::mem::transmute(txfid)))
+        ::core::mem::transmute(TxfLogRecordGetFileName(::core::mem::transmute(recordbuffer), ::core::mem::transmute(recordbufferlengthinbytes), ::core::mem::transmute(namebuffer), ::core::mem::transmute(namebufferlengthinbytes), ::core::mem::transmute(txfid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16754,14 +16754,14 @@ pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::std::ffi::c_void, r
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::std::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TxfLogRecordGetGenericType(recordbuffer: *const ::std::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL;
+            fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfLogRecordGetGenericType(::std::mem::transmute(recordbuffer), ::std::mem::transmute(recordbufferlengthinbytes), ::std::mem::transmute(generictype), ::std::mem::transmute(virtualclock)))
+        ::core::mem::transmute(TxfLogRecordGetGenericType(::core::mem::transmute(recordbuffer), ::core::mem::transmute(recordbufferlengthinbytes), ::core::mem::transmute(generictype), ::core::mem::transmute(virtualclock)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16776,7 +16776,7 @@ pub unsafe fn TxfReadMetadataInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn TxfReadMetadataInfo(filehandle: super::super::Foundation::HANDLE, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TxfReadMetadataInfo(filehandle.into_param().abi(), ::std::mem::transmute(txffileid), ::std::mem::transmute(lastlsn), ::std::mem::transmute(transactionstate), ::std::mem::transmute(lockingtransaction)))
+        ::core::mem::transmute(TxfReadMetadataInfo(filehandle.into_param().abi(), ::core::mem::transmute(txffileid), ::core::mem::transmute(lastlsn), ::core::mem::transmute(transactionstate), ::core::mem::transmute(lockingtransaction)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16790,7 +16790,7 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
         extern "system" {
             fn TxfSetThreadMiniVersionForCreate(miniversion: u16);
         }
-        ::std::mem::transmute(TxfSetThreadMiniVersionForCreate(::std::mem::transmute(miniversion)))
+        ::core::mem::transmute(TxfSetThreadMiniVersionForCreate(::core::mem::transmute(miniversion)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16805,7 +16805,7 @@ pub unsafe fn UnlockFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn UnlockFile(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnlockFile(hfile.into_param().abi(), ::std::mem::transmute(dwfileoffsetlow), ::std::mem::transmute(dwfileoffsethigh), ::std::mem::transmute(nnumberofbytestounlocklow), ::std::mem::transmute(nnumberofbytestounlockhigh)))
+        ::core::mem::transmute(UnlockFile(hfile.into_param().abi(), ::core::mem::transmute(dwfileoffsetlow), ::core::mem::transmute(dwfileoffsethigh), ::core::mem::transmute(nnumberofbytestounlocklow), ::core::mem::transmute(nnumberofbytestounlockhigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16820,17 +16820,17 @@ pub unsafe fn UnlockFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn UnlockFileEx(hfile: super::super::Foundation::HANDLE, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnlockFileEx(hfile.into_param().abi(), ::std::mem::transmute(dwreserved), ::std::mem::transmute(nnumberofbytestounlocklow), ::std::mem::transmute(nnumberofbytestounlockhigh), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(UnlockFileEx(hfile.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(nnumberofbytestounlocklow), ::core::mem::transmute(nnumberofbytestounlockhigh), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VER_FIND_FILE_FLAGS(pub u32);
 pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
-impl ::std::convert::From<u32> for VER_FIND_FILE_FLAGS {
+impl ::core::convert::From<u32> for VER_FIND_FILE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -16838,42 +16838,42 @@ impl ::std::convert::From<u32> for VER_FIND_FILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for VER_FIND_FILE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for VER_FIND_FILE_FLAGS {
+impl ::core::ops::BitOr for VER_FIND_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VER_FIND_FILE_FLAGS {
+impl ::core::ops::BitAnd for VER_FIND_FILE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VER_FIND_FILE_FLAGS {
+impl ::core::ops::BitOrAssign for VER_FIND_FILE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VER_FIND_FILE_FLAGS {
+impl ::core::ops::BitAndAssign for VER_FIND_FILE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VER_FIND_FILE_FLAGS {
+impl ::core::ops::Not for VER_FIND_FILE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VER_FIND_FILE_STATUS(pub u32);
 pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
 pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
 pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
-impl ::std::convert::From<u32> for VER_FIND_FILE_STATUS {
+impl ::core::convert::From<u32> for VER_FIND_FILE_STATUS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -16881,41 +16881,41 @@ impl ::std::convert::From<u32> for VER_FIND_FILE_STATUS {
 unsafe impl ::windows::runtime::Abi for VER_FIND_FILE_STATUS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for VER_FIND_FILE_STATUS {
+impl ::core::ops::BitOr for VER_FIND_FILE_STATUS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VER_FIND_FILE_STATUS {
+impl ::core::ops::BitAnd for VER_FIND_FILE_STATUS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VER_FIND_FILE_STATUS {
+impl ::core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VER_FIND_FILE_STATUS {
+impl ::core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VER_FIND_FILE_STATUS {
+impl ::core::ops::Not for VER_FIND_FILE_STATUS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VER_INSTALL_FILE_FLAGS(pub u32);
 pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
 pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
-impl ::std::convert::From<u32> for VER_INSTALL_FILE_FLAGS {
+impl ::core::convert::From<u32> for VER_INSTALL_FILE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -16923,36 +16923,36 @@ impl ::std::convert::From<u32> for VER_INSTALL_FILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for VER_INSTALL_FILE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for VER_INSTALL_FILE_FLAGS {
+impl ::core::ops::BitOr for VER_INSTALL_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VER_INSTALL_FILE_FLAGS {
+impl ::core::ops::BitAnd for VER_INSTALL_FILE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VER_INSTALL_FILE_FLAGS {
+impl ::core::ops::BitOrAssign for VER_INSTALL_FILE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VER_INSTALL_FILE_FLAGS {
+impl ::core::ops::BitAndAssign for VER_INSTALL_FILE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VER_INSTALL_FILE_FLAGS {
+impl ::core::ops::Not for VER_INSTALL_FILE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VER_INSTALL_FILE_STATUS(pub u32);
 pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
@@ -16976,7 +16976,7 @@ pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1
 pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
 pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
 pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
-impl ::std::convert::From<u32> for VER_INSTALL_FILE_STATUS {
+impl ::core::convert::From<u32> for VER_INSTALL_FILE_STATUS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -16984,35 +16984,35 @@ impl ::std::convert::From<u32> for VER_INSTALL_FILE_STATUS {
 unsafe impl ::windows::runtime::Abi for VER_INSTALL_FILE_STATUS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for VER_INSTALL_FILE_STATUS {
+impl ::core::ops::BitOr for VER_INSTALL_FILE_STATUS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VER_INSTALL_FILE_STATUS {
+impl ::core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
+impl ::core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
+impl ::core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VER_INSTALL_FILE_STATUS {
+impl ::core::ops::Not for VER_INSTALL_FILE_STATUS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -17031,14 +17031,14 @@ pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl VOLUME_ALLOCATE_BC_STREAM_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_ALLOCATE_BC_STREAM_INPUT")
             .field("Version", &self.Version)
             .field("RequestsPerPeriod", &self.RequestsPerPeriod)
@@ -17054,18 +17054,18 @@ impl ::std::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.RequestsPerPeriod == other.RequestsPerPeriod && self.Period == other.Period && self.RetryFailures == other.RetryFailures && self.Discardable == other.Discardable && self.Reserved1 == other.Reserved1 && self.LowestByteOffset == other.LowestByteOffset && self.HighestByteOffset == other.HighestByteOffset && self.AccessType == other.AccessType && self.AccessMode == other.AccessMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
+impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
@@ -17073,26 +17073,26 @@ pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub NumOutStandingRequests: u32,
 }
 impl VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
-impl ::std::default::Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_ALLOCATE_BC_STREAM_OUTPUT").field("RequestSize", &self.RequestSize).field("NumOutStandingRequests", &self.NumOutStandingRequests).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
         self.RequestSize == other.RequestSize && self.NumOutStandingRequests == other.NumOutStandingRequests
     }
 }
-impl ::std::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
+impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
@@ -17101,52 +17101,52 @@ pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub StartingClusterNumber: i64,
 }
 impl VOLUME_ALLOCATION_HINT_INPUT {}
-impl ::std::default::Default for VOLUME_ALLOCATION_HINT_INPUT {
+impl ::core::default::Default for VOLUME_ALLOCATION_HINT_INPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_ALLOCATION_HINT_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_ALLOCATION_HINT_INPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_ALLOCATION_HINT_INPUT").field("ClusterSize", &self.ClusterSize).field("NumberOfClusters", &self.NumberOfClusters).field("StartingClusterNumber", &self.StartingClusterNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_ALLOCATION_HINT_INPUT {
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.ClusterSize == other.ClusterSize && self.NumberOfClusters == other.NumberOfClusters && self.StartingClusterNumber == other.StartingClusterNumber
     }
 }
-impl ::std::cmp::Eq for VOLUME_ALLOCATION_HINT_INPUT {}
+impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_INPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATION_HINT_INPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
 impl VOLUME_ALLOCATION_HINT_OUTPUT {}
-impl ::std::default::Default for VOLUME_ALLOCATION_HINT_OUTPUT {
+impl ::core::default::Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_ALLOCATION_HINT_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_ALLOCATION_HINT_OUTPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_ALLOCATION_HINT_OUTPUT").field("Bitmap", &self.Bitmap).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_ALLOCATION_HINT_OUTPUT {
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
         self.Bitmap == other.Bitmap
     }
 }
-impl ::std::cmp::Eq for VOLUME_ALLOCATION_HINT_OUTPUT {}
+impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_CRITICAL_IO {
@@ -17155,26 +17155,26 @@ pub struct VOLUME_CRITICAL_IO {
     pub Extents: [FILE_EXTENT; 1],
 }
 impl VOLUME_CRITICAL_IO {}
-impl ::std::default::Default for VOLUME_CRITICAL_IO {
+impl ::core::default::Default for VOLUME_CRITICAL_IO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_CRITICAL_IO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_CRITICAL_IO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_CRITICAL_IO").field("AccessType", &self.AccessType).field("ExtentsCount", &self.ExtentsCount).field("Extents", &self.Extents).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_CRITICAL_IO {
+impl ::core::cmp::PartialEq for VOLUME_CRITICAL_IO {
     fn eq(&self, other: &Self) -> bool {
         self.AccessType == other.AccessType && self.ExtentsCount == other.ExtentsCount && self.Extents == other.Extents
     }
 }
-impl ::std::cmp::Eq for VOLUME_CRITICAL_IO {}
+impl ::core::cmp::Eq for VOLUME_CRITICAL_IO {}
 unsafe impl ::windows::runtime::Abi for VOLUME_CRITICAL_IO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_FAILOVER_SET {
@@ -17182,26 +17182,26 @@ pub struct VOLUME_FAILOVER_SET {
     pub DiskNumbers: [u32; 1],
 }
 impl VOLUME_FAILOVER_SET {}
-impl ::std::default::Default for VOLUME_FAILOVER_SET {
+impl ::core::default::Default for VOLUME_FAILOVER_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_FAILOVER_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_FAILOVER_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_FAILOVER_SET").field("NumberOfDisks", &self.NumberOfDisks).field("DiskNumbers", &self.DiskNumbers).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_FAILOVER_SET {
+impl ::core::cmp::PartialEq for VOLUME_FAILOVER_SET {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfDisks == other.NumberOfDisks && self.DiskNumbers == other.DiskNumbers
     }
 }
-impl ::std::cmp::Eq for VOLUME_FAILOVER_SET {}
+impl ::core::cmp::Eq for VOLUME_FAILOVER_SET {}
 unsafe impl ::windows::runtime::Abi for VOLUME_FAILOVER_SET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
@@ -17213,13 +17213,13 @@ pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub AccessMode: u32,
 }
 impl VOLUME_GET_BC_PROPERTIES_INPUT {}
-impl ::std::default::Default for VOLUME_GET_BC_PROPERTIES_INPUT {
+impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_INPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_GET_BC_PROPERTIES_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_INPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_INPUT")
             .field("Version", &self.Version)
             .field("Reserved1", &self.Reserved1)
@@ -17230,16 +17230,16 @@ impl ::std::fmt::Debug for VOLUME_GET_BC_PROPERTIES_INPUT {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
+impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Reserved1 == other.Reserved1 && self.LowestByteOffset == other.LowestByteOffset && self.HighestByteOffset == other.HighestByteOffset && self.AccessType == other.AccessType && self.AccessMode == other.AccessMode
     }
 }
-impl ::std::cmp::Eq for VOLUME_GET_BC_PROPERTIES_INPUT {}
+impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_INPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_GET_BC_PROPERTIES_INPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
@@ -17251,13 +17251,13 @@ pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub RequestSize: u64,
 }
 impl VOLUME_GET_BC_PROPERTIES_OUTPUT {}
-impl ::std::default::Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_OUTPUT")
             .field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod)
             .field("MinimumPeriod", &self.MinimumPeriod)
@@ -17268,42 +17268,42 @@ impl ::std::fmt::Debug for VOLUME_GET_BC_PROPERTIES_OUTPUT {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
         self.MaximumRequestsPerPeriod == other.MaximumRequestsPerPeriod && self.MinimumPeriod == other.MinimumPeriod && self.MaximumRequestSize == other.MaximumRequestSize && self.EstimatedTimePerRequest == other.EstimatedTimePerRequest && self.NumOutStandingRequests == other.NumOutStandingRequests && self.RequestSize == other.RequestSize
     }
 }
-impl ::std::cmp::Eq for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
+impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
 impl VOLUME_LOGICAL_OFFSET {}
-impl ::std::default::Default for VOLUME_LOGICAL_OFFSET {
+impl ::core::default::Default for VOLUME_LOGICAL_OFFSET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_LOGICAL_OFFSET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_LOGICAL_OFFSET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_LOGICAL_OFFSET").field("LogicalOffset", &self.LogicalOffset).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_LOGICAL_OFFSET {
+impl ::core::cmp::PartialEq for VOLUME_LOGICAL_OFFSET {
     fn eq(&self, other: &Self) -> bool {
         self.LogicalOffset == other.LogicalOffset
     }
 }
-impl ::std::cmp::Eq for VOLUME_LOGICAL_OFFSET {}
+impl ::core::cmp::Eq for VOLUME_LOGICAL_OFFSET {}
 unsafe impl ::windows::runtime::Abi for VOLUME_LOGICAL_OFFSET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_NUMBER {
@@ -17311,26 +17311,26 @@ pub struct VOLUME_NUMBER {
     pub VolumeManagerName: [u16; 8],
 }
 impl VOLUME_NUMBER {}
-impl ::std::default::Default for VOLUME_NUMBER {
+impl ::core::default::Default for VOLUME_NUMBER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_NUMBER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_NUMBER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_NUMBER").field("VolumeNumber", &self.VolumeNumber).field("VolumeManagerName", &self.VolumeManagerName).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_NUMBER {
+impl ::core::cmp::PartialEq for VOLUME_NUMBER {
     fn eq(&self, other: &Self) -> bool {
         self.VolumeNumber == other.VolumeNumber && self.VolumeManagerName == other.VolumeManagerName
     }
 }
-impl ::std::cmp::Eq for VOLUME_NUMBER {}
+impl ::core::cmp::Eq for VOLUME_NUMBER {}
 unsafe impl ::windows::runtime::Abi for VOLUME_NUMBER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_PHYSICAL_OFFSET {
@@ -17338,26 +17338,26 @@ pub struct VOLUME_PHYSICAL_OFFSET {
     pub Offset: i64,
 }
 impl VOLUME_PHYSICAL_OFFSET {}
-impl ::std::default::Default for VOLUME_PHYSICAL_OFFSET {
+impl ::core::default::Default for VOLUME_PHYSICAL_OFFSET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_PHYSICAL_OFFSET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_PHYSICAL_OFFSET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_PHYSICAL_OFFSET").field("DiskNumber", &self.DiskNumber).field("Offset", &self.Offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_PHYSICAL_OFFSET {
+impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSET {
     fn eq(&self, other: &Self) -> bool {
         self.DiskNumber == other.DiskNumber && self.Offset == other.Offset
     }
 }
-impl ::std::cmp::Eq for VOLUME_PHYSICAL_OFFSET {}
+impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSET {}
 unsafe impl ::windows::runtime::Abi for VOLUME_PHYSICAL_OFFSET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_PHYSICAL_OFFSETS {
@@ -17365,26 +17365,26 @@ pub struct VOLUME_PHYSICAL_OFFSETS {
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
 }
 impl VOLUME_PHYSICAL_OFFSETS {}
-impl ::std::default::Default for VOLUME_PHYSICAL_OFFSETS {
+impl ::core::default::Default for VOLUME_PHYSICAL_OFFSETS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_PHYSICAL_OFFSETS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_PHYSICAL_OFFSETS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_PHYSICAL_OFFSETS").field("NumberOfPhysicalOffsets", &self.NumberOfPhysicalOffsets).field("PhysicalOffset", &self.PhysicalOffset).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_PHYSICAL_OFFSETS {
+impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSETS {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfPhysicalOffsets == other.NumberOfPhysicalOffsets && self.PhysicalOffset == other.PhysicalOffset
     }
 }
-impl ::std::cmp::Eq for VOLUME_PHYSICAL_OFFSETS {}
+impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSETS {}
 unsafe impl ::windows::runtime::Abi for VOLUME_PHYSICAL_OFFSETS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_READ_PLEX_INPUT {
@@ -17393,26 +17393,26 @@ pub struct VOLUME_READ_PLEX_INPUT {
     pub PlexNumber: u32,
 }
 impl VOLUME_READ_PLEX_INPUT {}
-impl ::std::default::Default for VOLUME_READ_PLEX_INPUT {
+impl ::core::default::Default for VOLUME_READ_PLEX_INPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_READ_PLEX_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_READ_PLEX_INPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_READ_PLEX_INPUT").field("ByteOffset", &self.ByteOffset).field("Length", &self.Length).field("PlexNumber", &self.PlexNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_READ_PLEX_INPUT {
+impl ::core::cmp::PartialEq for VOLUME_READ_PLEX_INPUT {
     fn eq(&self, other: &Self) -> bool {
         self.ByteOffset == other.ByteOffset && self.Length == other.Length && self.PlexNumber == other.PlexNumber
     }
 }
-impl ::std::cmp::Eq for VOLUME_READ_PLEX_INPUT {}
+impl ::core::cmp::Eq for VOLUME_READ_PLEX_INPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_READ_PLEX_INPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -17426,52 +17426,52 @@ pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+impl ::core::default::Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_SET_GPT_ATTRIBUTES_INFORMATION").field("GptAttributes", &self.GptAttributes).field("RevertOnClose", &self.RevertOnClose).field("ApplyToAllConnectedVolumes", &self.ApplyToAllConnectedVolumes).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+impl ::core::cmp::PartialEq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.GptAttributes == other.GptAttributes && self.RevertOnClose == other.RevertOnClose && self.ApplyToAllConnectedVolumes == other.ApplyToAllConnectedVolumes && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
+impl ::core::cmp::Eq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
 impl VOLUME_SHRINK_INFO {}
-impl ::std::default::Default for VOLUME_SHRINK_INFO {
+impl ::core::default::Default for VOLUME_SHRINK_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VOLUME_SHRINK_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VOLUME_SHRINK_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VOLUME_SHRINK_INFO").field("VolumeSize", &self.VolumeSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for VOLUME_SHRINK_INFO {
+impl ::core::cmp::PartialEq for VOLUME_SHRINK_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.VolumeSize == other.VolumeSize
     }
 }
-impl ::std::cmp::Eq for VOLUME_SHRINK_INFO {}
+impl ::core::cmp::Eq for VOLUME_SHRINK_INFO {}
 unsafe impl ::windows::runtime::Abi for VOLUME_SHRINK_INFO {
     type Abi = Self;
 }
@@ -17481,7 +17481,7 @@ pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
 pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct VS_FIXEDFILEINFO {
@@ -17500,13 +17500,13 @@ pub struct VS_FIXEDFILEINFO {
     pub dwFileDateLS: u32,
 }
 impl VS_FIXEDFILEINFO {}
-impl ::std::default::Default for VS_FIXEDFILEINFO {
+impl ::core::default::Default for VS_FIXEDFILEINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VS_FIXEDFILEINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VS_FIXEDFILEINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VS_FIXEDFILEINFO")
             .field("dwSignature", &self.dwSignature)
             .field("dwStrucVersion", &self.dwStrucVersion)
@@ -17524,7 +17524,7 @@ impl ::std::fmt::Debug for VS_FIXEDFILEINFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for VS_FIXEDFILEINFO {
+impl ::core::cmp::PartialEq for VS_FIXEDFILEINFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSignature == other.dwSignature
             && self.dwStrucVersion == other.dwStrucVersion
@@ -17541,12 +17541,12 @@ impl ::std::cmp::PartialEq for VS_FIXEDFILEINFO {
             && self.dwFileDateLS == other.dwFileDateLS
     }
 }
-impl ::std::cmp::Eq for VS_FIXEDFILEINFO {}
+impl ::core::cmp::Eq for VS_FIXEDFILEINFO {}
 unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
 pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
@@ -17555,7 +17555,7 @@ pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLA
 pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
 pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
 pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
-impl ::std::convert::From<u32> for VS_FIXEDFILEINFO_FILE_FLAGS {
+impl ::core::convert::From<u32> for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -17563,36 +17563,36 @@ impl ::std::convert::From<u32> for VS_FIXEDFILEINFO_FILE_FLAGS {
 unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
+impl ::core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
+impl ::core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
+impl ::core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
+impl ::core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
+impl ::core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VS_FIXEDFILEINFO_FILE_OS(pub i32);
 pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0i32);
@@ -17611,7 +17611,7 @@ pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS
 pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074i32);
 pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611i32);
 pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148i32);
-impl ::std::convert::From<i32> for VS_FIXEDFILEINFO_FILE_OS {
+impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_OS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -17620,7 +17620,7 @@ unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_OS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
 pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
@@ -17639,7 +17639,7 @@ pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFI
 pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
 pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
 pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-impl ::std::convert::From<i32> for VS_FIXEDFILEINFO_FILE_SUBTYPE {
+impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_SUBTYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -17648,7 +17648,7 @@ unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_SUBTYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
 pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
@@ -17658,7 +17658,7 @@ pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32)
 pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
 pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
 pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
-impl ::std::convert::From<i32> for VS_FIXEDFILEINFO_FILE_TYPE {
+impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -17680,7 +17680,7 @@ pub unsafe fn ValidateLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn ValidateLog(pszlogfilename: super::super::Foundation::PWSTR, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ValidateLog(pszlogfilename.into_param().abi(), ::std::mem::transmute(psalogfile), ::std::mem::transmute(pinfobuffer), ::std::mem::transmute(pcbbuffer)))
+        ::core::mem::transmute(ValidateLog(pszlogfilename.into_param().abi(), ::core::mem::transmute(psalogfile), ::core::mem::transmute(pinfobuffer), ::core::mem::transmute(pcbbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17695,7 +17695,7 @@ pub unsafe fn VerFindFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VerFindFileA(uflags: VER_FIND_FILE_FLAGS, szfilename: super::super::Foundation::PSTR, szwindir: super::super::Foundation::PSTR, szappdir: super::super::Foundation::PSTR, szcurdir: super::super::Foundation::PSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
         }
-        ::std::mem::transmute(VerFindFileA(::std::mem::transmute(uflags), szfilename.into_param().abi(), szwindir.into_param().abi(), szappdir.into_param().abi(), ::std::mem::transmute(szcurdir), ::std::mem::transmute(pucurdirlen), ::std::mem::transmute(szdestdir), ::std::mem::transmute(pudestdirlen)))
+        ::core::mem::transmute(VerFindFileA(::core::mem::transmute(uflags), szfilename.into_param().abi(), szwindir.into_param().abi(), szappdir.into_param().abi(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17719,7 +17719,7 @@ pub unsafe fn VerFindFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VerFindFileW(uflags: VER_FIND_FILE_FLAGS, szfilename: super::super::Foundation::PWSTR, szwindir: super::super::Foundation::PWSTR, szappdir: super::super::Foundation::PWSTR, szcurdir: super::super::Foundation::PWSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
         }
-        ::std::mem::transmute(VerFindFileW(::std::mem::transmute(uflags), szfilename.into_param().abi(), szwindir.into_param().abi(), szappdir.into_param().abi(), ::std::mem::transmute(szcurdir), ::std::mem::transmute(pucurdirlen), ::std::mem::transmute(szdestdir), ::std::mem::transmute(pudestdirlen)))
+        ::core::mem::transmute(VerFindFileW(::core::mem::transmute(uflags), szfilename.into_param().abi(), szwindir.into_param().abi(), szappdir.into_param().abi(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17743,7 +17743,7 @@ pub unsafe fn VerInstallFileA<'a, Param1: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn VerInstallFileA(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: super::super::Foundation::PSTR, szdestfilename: super::super::Foundation::PSTR, szsrcdir: super::super::Foundation::PSTR, szdestdir: super::super::Foundation::PSTR, szcurdir: super::super::Foundation::PSTR, sztmpfile: super::super::Foundation::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
         }
-        ::std::mem::transmute(VerInstallFileA(::std::mem::transmute(uflags), szsrcfilename.into_param().abi(), szdestfilename.into_param().abi(), szsrcdir.into_param().abi(), szdestdir.into_param().abi(), szcurdir.into_param().abi(), ::std::mem::transmute(sztmpfile), ::std::mem::transmute(putmpfilelen)))
+        ::core::mem::transmute(VerInstallFileA(::core::mem::transmute(uflags), szsrcfilename.into_param().abi(), szdestfilename.into_param().abi(), szsrcdir.into_param().abi(), szdestdir.into_param().abi(), szcurdir.into_param().abi(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17767,7 +17767,7 @@ pub unsafe fn VerInstallFileW<'a, Param1: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn VerInstallFileW(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: super::super::Foundation::PWSTR, szdestfilename: super::super::Foundation::PWSTR, szsrcdir: super::super::Foundation::PWSTR, szdestdir: super::super::Foundation::PWSTR, szcurdir: super::super::Foundation::PWSTR, sztmpfile: super::super::Foundation::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
         }
-        ::std::mem::transmute(VerInstallFileW(::std::mem::transmute(uflags), szsrcfilename.into_param().abi(), szdestfilename.into_param().abi(), szsrcdir.into_param().abi(), szdestdir.into_param().abi(), szcurdir.into_param().abi(), ::std::mem::transmute(sztmpfile), ::std::mem::transmute(putmpfilelen)))
+        ::core::mem::transmute(VerInstallFileW(::core::mem::transmute(uflags), szsrcfilename.into_param().abi(), szdestfilename.into_param().abi(), szsrcdir.into_param().abi(), szdestdir.into_param().abi(), szcurdir.into_param().abi(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17782,7 +17782,7 @@ pub unsafe fn VerLanguageNameA(wlang: u32, szlang: super::super::Foundation::PST
         extern "system" {
             fn VerLanguageNameA(wlang: u32, szlang: super::super::Foundation::PSTR, cchlang: u32) -> u32;
         }
-        ::std::mem::transmute(VerLanguageNameA(::std::mem::transmute(wlang), ::std::mem::transmute(szlang), ::std::mem::transmute(cchlang)))
+        ::core::mem::transmute(VerLanguageNameA(::core::mem::transmute(wlang), ::core::mem::transmute(szlang), ::core::mem::transmute(cchlang)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17797,7 +17797,7 @@ pub unsafe fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWS
         extern "system" {
             fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWSTR, cchlang: u32) -> u32;
         }
-        ::std::mem::transmute(VerLanguageNameW(::std::mem::transmute(wlang), ::std::mem::transmute(szlang), ::std::mem::transmute(cchlang)))
+        ::core::mem::transmute(VerLanguageNameW(::core::mem::transmute(wlang), ::core::mem::transmute(szlang), ::core::mem::transmute(cchlang)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17805,14 +17805,14 @@ pub unsafe fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWS
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerQueryValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pblock: *const ::std::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::std::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn VerQueryValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VerQueryValueA(pblock: *const ::std::ffi::c_void, lpsubblock: super::super::Foundation::PSTR, lplpbuffer: *mut *mut ::std::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL;
+            fn VerQueryValueA(pblock: *const ::core::ffi::c_void, lpsubblock: super::super::Foundation::PSTR, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(VerQueryValueA(::std::mem::transmute(pblock), lpsubblock.into_param().abi(), ::std::mem::transmute(lplpbuffer), ::std::mem::transmute(pulen)))
+        ::core::mem::transmute(VerQueryValueA(::core::mem::transmute(pblock), lpsubblock.into_param().abi(), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(pulen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17820,14 +17820,14 @@ pub unsafe fn VerQueryValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerQueryValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pblock: *const ::std::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::std::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn VerQueryValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VerQueryValueW(pblock: *const ::std::ffi::c_void, lpsubblock: super::super::Foundation::PWSTR, lplpbuffer: *mut *mut ::std::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL;
+            fn VerQueryValueW(pblock: *const ::core::ffi::c_void, lpsubblock: super::super::Foundation::PWSTR, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(VerQueryValueW(::std::mem::transmute(pblock), lpsubblock.into_param().abi(), ::std::mem::transmute(lplpbuffer), ::std::mem::transmute(pulen)))
+        ::core::mem::transmute(VerQueryValueW(::core::mem::transmute(pblock), lpsubblock.into_param().abi(), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(pulen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17840,7 +17840,7 @@ pub const WIM_BOOT_OS_WIM: u32 = 1u32;
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -17856,30 +17856,30 @@ pub struct WIM_ENTRY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl WIM_ENTRY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WIM_ENTRY_INFO {
+impl ::core::default::Default for WIM_ENTRY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WIM_ENTRY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIM_ENTRY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIM_ENTRY_INFO").field("WimEntryInfoSize", &self.WimEntryInfoSize).field("WimType", &self.WimType).field("DataSourceId", &self.DataSourceId).field("WimGuid", &self.WimGuid).field("WimPath", &self.WimPath).field("WimIndex", &self.WimIndex).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WIM_ENTRY_INFO {
+impl ::core::cmp::PartialEq for WIM_ENTRY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.WimEntryInfoSize == other.WimEntryInfoSize && self.WimType == other.WimType && self.DataSourceId == other.DataSourceId && self.WimGuid == other.WimGuid && self.WimPath == other.WimPath && self.WimIndex == other.WimIndex && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WIM_ENTRY_INFO {}
+impl ::core::cmp::Eq for WIM_ENTRY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIM_ENTRY_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct WIM_EXTERNAL_FILE_INFO {
@@ -17888,22 +17888,22 @@ pub struct WIM_EXTERNAL_FILE_INFO {
     pub Flags: u32,
 }
 impl WIM_EXTERNAL_FILE_INFO {}
-impl ::std::default::Default for WIM_EXTERNAL_FILE_INFO {
+impl ::core::default::Default for WIM_EXTERNAL_FILE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WIM_EXTERNAL_FILE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIM_EXTERNAL_FILE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIM_EXTERNAL_FILE_INFO").field("DataSourceId", &self.DataSourceId).field("ResourceHash", &self.ResourceHash).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for WIM_EXTERNAL_FILE_INFO {
+impl ::core::cmp::PartialEq for WIM_EXTERNAL_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.DataSourceId == other.DataSourceId && self.ResourceHash == other.ResourceHash && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for WIM_EXTERNAL_FILE_INFO {}
+impl ::core::cmp::Eq for WIM_EXTERNAL_FILE_INFO {}
 unsafe impl ::windows::runtime::Abi for WIM_EXTERNAL_FILE_INFO {
     type Abi = Self;
 }
@@ -17913,7 +17913,7 @@ pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -17928,14 +17928,14 @@ pub struct WIN32_FILE_ATTRIBUTE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl WIN32_FILE_ATTRIBUTE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WIN32_FILE_ATTRIBUTE_DATA {
+impl ::core::default::Default for WIN32_FILE_ATTRIBUTE_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WIN32_FILE_ATTRIBUTE_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIN32_FILE_ATTRIBUTE_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIN32_FILE_ATTRIBUTE_DATA")
             .field("dwFileAttributes", &self.dwFileAttributes)
             .field("ftCreationTime", &self.ftCreationTime)
@@ -17947,18 +17947,18 @@ impl ::std::fmt::Debug for WIN32_FILE_ATTRIBUTE_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WIN32_FILE_ATTRIBUTE_DATA {
+impl ::core::cmp::PartialEq for WIN32_FILE_ATTRIBUTE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WIN32_FILE_ATTRIBUTE_DATA {}
+impl ::core::cmp::Eq for WIN32_FILE_ATTRIBUTE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIN32_FILE_ATTRIBUTE_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -17977,14 +17977,14 @@ pub struct WIN32_FIND_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl WIN32_FIND_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WIN32_FIND_DATAA {
+impl ::core::default::Default for WIN32_FIND_DATAA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WIN32_FIND_DATAA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIN32_FIND_DATAA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIN32_FIND_DATAA")
             .field("dwFileAttributes", &self.dwFileAttributes)
             .field("ftCreationTime", &self.ftCreationTime)
@@ -18000,18 +18000,18 @@ impl ::std::fmt::Debug for WIN32_FIND_DATAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WIN32_FIND_DATAA {
+impl ::core::cmp::PartialEq for WIN32_FIND_DATAA {
     fn eq(&self, other: &Self) -> bool {
         self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow && self.dwReserved0 == other.dwReserved0 && self.dwReserved1 == other.dwReserved1 && self.cFileName == other.cFileName && self.cAlternateFileName == other.cAlternateFileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WIN32_FIND_DATAA {}
+impl ::core::cmp::Eq for WIN32_FIND_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIN32_FIND_DATAA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -18030,14 +18030,14 @@ pub struct WIN32_FIND_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl WIN32_FIND_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WIN32_FIND_DATAW {
+impl ::core::default::Default for WIN32_FIND_DATAW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WIN32_FIND_DATAW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIN32_FIND_DATAW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIN32_FIND_DATAW")
             .field("dwFileAttributes", &self.dwFileAttributes)
             .field("ftCreationTime", &self.ftCreationTime)
@@ -18053,18 +18053,18 @@ impl ::std::fmt::Debug for WIN32_FIND_DATAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WIN32_FIND_DATAW {
+impl ::core::cmp::PartialEq for WIN32_FIND_DATAW {
     fn eq(&self, other: &Self) -> bool {
         self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow && self.dwReserved0 == other.dwReserved0 && self.dwReserved1 == other.dwReserved1 && self.cFileName == other.cFileName && self.cAlternateFileName == other.cAlternateFileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WIN32_FIND_DATAW {}
+impl ::core::cmp::Eq for WIN32_FIND_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIN32_FIND_DATAW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct WIN32_FIND_STREAM_DATA {
@@ -18072,26 +18072,26 @@ pub struct WIN32_FIND_STREAM_DATA {
     pub cStreamName: [u16; 296],
 }
 impl WIN32_FIND_STREAM_DATA {}
-impl ::std::default::Default for WIN32_FIND_STREAM_DATA {
+impl ::core::default::Default for WIN32_FIND_STREAM_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WIN32_FIND_STREAM_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIN32_FIND_STREAM_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIN32_FIND_STREAM_DATA").field("StreamSize", &self.StreamSize).field("cStreamName", &self.cStreamName).finish()
     }
 }
-impl ::std::cmp::PartialEq for WIN32_FIND_STREAM_DATA {
+impl ::core::cmp::PartialEq for WIN32_FIND_STREAM_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.StreamSize == other.StreamSize && self.cStreamName == other.cStreamName
     }
 }
-impl ::std::cmp::Eq for WIN32_FIND_STREAM_DATA {}
+impl ::core::cmp::Eq for WIN32_FIND_STREAM_DATA {}
 unsafe impl ::windows::runtime::Abi for WIN32_FIND_STREAM_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct WIN32_STREAM_ID {
@@ -18102,29 +18102,29 @@ pub struct WIN32_STREAM_ID {
     pub cStreamName: [u16; 1],
 }
 impl WIN32_STREAM_ID {}
-impl ::std::default::Default for WIN32_STREAM_ID {
+impl ::core::default::Default for WIN32_STREAM_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WIN32_STREAM_ID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WIN32_STREAM_ID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WIN32_STREAM_ID").field("dwStreamId", &self.dwStreamId).field("dwStreamAttributes", &self.dwStreamAttributes).field("Size", &self.Size).field("dwStreamNameSize", &self.dwStreamNameSize).field("cStreamName", &self.cStreamName).finish()
     }
 }
-impl ::std::cmp::PartialEq for WIN32_STREAM_ID {
+impl ::core::cmp::PartialEq for WIN32_STREAM_ID {
     fn eq(&self, other: &Self) -> bool {
         self.dwStreamId == other.dwStreamId && self.dwStreamAttributes == other.dwStreamAttributes && self.Size == other.Size && self.dwStreamNameSize == other.dwStreamNameSize && self.cStreamName == other.cStreamName
     }
 }
-impl ::std::cmp::Eq for WIN32_STREAM_ID {}
+impl ::core::cmp::Eq for WIN32_STREAM_ID {}
 unsafe impl ::windows::runtime::Abi for WIN32_STREAM_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WIN_STREAM_ID(pub u32);
 pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
@@ -18137,7 +18137,7 @@ pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
 pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
 pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
 pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
-impl ::std::convert::From<u32> for WIN_STREAM_ID {
+impl ::core::convert::From<u32> for WIN_STREAM_ID {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -18145,61 +18145,61 @@ impl ::std::convert::From<u32> for WIN_STREAM_ID {
 unsafe impl ::windows::runtime::Abi for WIN_STREAM_ID {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WIN_STREAM_ID {
+impl ::core::ops::BitOr for WIN_STREAM_ID {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WIN_STREAM_ID {
+impl ::core::ops::BitAnd for WIN_STREAM_ID {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WIN_STREAM_ID {
+impl ::core::ops::BitOrAssign for WIN_STREAM_ID {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WIN_STREAM_ID {
+impl ::core::ops::BitAndAssign for WIN_STREAM_ID {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WIN_STREAM_ID {
+impl ::core::ops::Not for WIN_STREAM_ID {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
 impl WOF_FILE_COMPRESSION_INFO_V0 {}
-impl ::std::default::Default for WOF_FILE_COMPRESSION_INFO_V0 {
+impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WOF_FILE_COMPRESSION_INFO_V0").field("Algorithm", &self.Algorithm).finish()
     }
 }
-impl ::std::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V0 {
+impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V0 {
     fn eq(&self, other: &Self) -> bool {
         self.Algorithm == other.Algorithm
     }
 }
-impl ::std::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V0 {}
+impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V0 {}
 unsafe impl ::windows::runtime::Abi for WOF_FILE_COMPRESSION_INFO_V0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
@@ -18207,22 +18207,22 @@ pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Flags: u32,
 }
 impl WOF_FILE_COMPRESSION_INFO_V1 {}
-impl ::std::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
+impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WOF_FILE_COMPRESSION_INFO_V1").field("Algorithm", &self.Algorithm).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V1 {
+impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.Algorithm == other.Algorithm && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V1 {}
+impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V1 {}
 unsafe impl ::windows::runtime::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
     type Abi = Self;
 }
@@ -18233,35 +18233,35 @@ pub const WOF_PROVIDER_WIM: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofEnumEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, provider: u32, enumproc: ::std::option::Option<WofEnumEntryProc>, userdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofEnumEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, provider: u32, enumproc: ::core::option::Option<WofEnumEntryProc>, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofEnumEntries(volumename: super::super::Foundation::PWSTR, provider: u32, enumproc: ::windows::runtime::RawPtr, userdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WofEnumEntries(volumename: super::super::Foundation::PWSTR, provider: u32, enumproc: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WofEnumEntries(volumename.into_param().abi(), ::std::mem::transmute(provider), ::std::mem::transmute(enumproc), ::std::mem::transmute(userdata)).ok()
+        WofEnumEntries(volumename.into_param().abi(), ::core::mem::transmute(provider), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WofEnumEntryProc = unsafe extern "system" fn(entryinfo: *const ::std::ffi::c_void, userdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type WofEnumEntryProc = unsafe extern "system" fn(entryinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WofEnumFilesProc = unsafe extern "system" fn(filepath: super::super::Foundation::PWSTR, externalfileinfo: *const ::std::ffi::c_void, userdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type WofEnumFilesProc = unsafe extern "system" fn(filepath: super::super::Foundation::PWSTR, externalfileinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, algorithm: u32, enumproc: ::std::option::Option<WofEnumFilesProc>, userdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, algorithm: u32, enumproc: ::core::option::Option<WofEnumFilesProc>, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofFileEnumFiles(volumename: super::super::Foundation::PWSTR, algorithm: u32, enumproc: ::windows::runtime::RawPtr, userdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WofFileEnumFiles(volumename: super::super::Foundation::PWSTR, algorithm: u32, enumproc: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WofFileEnumFiles(volumename.into_param().abi(), ::std::mem::transmute(algorithm), ::std::mem::transmute(enumproc), ::std::mem::transmute(userdata)).ok()
+        WofFileEnumFiles(volumename.into_param().abi(), ::core::mem::transmute(algorithm), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18276,8 +18276,8 @@ pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32, wofversion: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WofGetDriverVersion(fileorvolumehandle.into_param().abi(), ::std::mem::transmute(provider), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WofGetDriverVersion(fileorvolumehandle.into_param().abi(), ::core::mem::transmute(provider), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18285,14 +18285,14 @@ pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::std::ffi::c_void, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofIsExternalFile(filepath: super::super::Foundation::PWSTR, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::std::ffi::c_void, bufferlength: *mut u32) -> ::windows::runtime::HRESULT;
+            fn WofIsExternalFile(filepath: super::super::Foundation::PWSTR, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        WofIsExternalFile(filepath.into_param().abi(), ::std::mem::transmute(isexternalfile), ::std::mem::transmute(provider), ::std::mem::transmute(externalfileinfo), ::std::mem::transmute(bufferlength)).ok()
+        WofIsExternalFile(filepath.into_param().abi(), ::core::mem::transmute(isexternalfile), ::core::mem::transmute(provider), ::core::mem::transmute(externalfileinfo), ::core::mem::transmute(bufferlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18300,14 +18300,14 @@ pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, provider: u32, externalfileinfo: *const ::std::ffi::c_void, length: u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const ::std::ffi::c_void, length: u32) -> ::windows::runtime::HRESULT;
+            fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::runtime::HRESULT;
         }
-        WofSetFileDataLocation(filehandle.into_param().abi(), ::std::mem::transmute(provider), ::std::mem::transmute(externalfileinfo), ::std::mem::transmute(length)).ok()
+        WofSetFileDataLocation(filehandle.into_param().abi(), ::core::mem::transmute(provider), ::core::mem::transmute(externalfileinfo), ::core::mem::transmute(length)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18322,7 +18322,7 @@ pub unsafe fn WofShouldCompressBinaries<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn WofShouldCompressBinaries(volume: super::super::Foundation::PWSTR, algorithm: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WofShouldCompressBinaries(volume.into_param().abi(), ::std::mem::transmute(algorithm)))
+        ::core::mem::transmute(WofShouldCompressBinaries(volume.into_param().abi(), ::core::mem::transmute(algorithm)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18337,8 +18337,8 @@ pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn WofWimAddEntry(volumename: super::super::Foundation::PWSTR, wimpath: super::super::Foundation::PWSTR, wimtype: u32, wimindex: u32, datasourceid: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WofWimAddEntry(volumename.into_param().abi(), wimpath.into_param().abi(), ::std::mem::transmute(wimtype), ::std::mem::transmute(wimindex), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WofWimAddEntry(volumename.into_param().abi(), wimpath.into_param().abi(), ::core::mem::transmute(wimtype), ::core::mem::transmute(wimindex), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18346,14 +18346,14 @@ pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, enumproc: ::std::option::Option<WofEnumFilesProc>, userdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, enumproc: ::core::option::Option<WofEnumFilesProc>, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WofWimEnumFiles(volumename: super::super::Foundation::PWSTR, datasourceid: i64, enumproc: ::windows::runtime::RawPtr, userdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WofWimEnumFiles(volumename: super::super::Foundation::PWSTR, datasourceid: i64, enumproc: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WofWimEnumFiles(volumename.into_param().abi(), ::std::mem::transmute(datasourceid), ::std::mem::transmute(enumproc), ::std::mem::transmute(userdata)).ok()
+        WofWimEnumFiles(volumename.into_param().abi(), ::core::mem::transmute(datasourceid), ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18368,7 +18368,7 @@ pub unsafe fn WofWimRemoveEntry<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn WofWimRemoveEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows::runtime::HRESULT;
         }
-        WofWimRemoveEntry(volumename.into_param().abi(), ::std::mem::transmute(datasourceid)).ok()
+        WofWimRemoveEntry(volumename.into_param().abi(), ::core::mem::transmute(datasourceid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18383,7 +18383,7 @@ pub unsafe fn WofWimSuspendEntry<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn WofWimSuspendEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows::runtime::HRESULT;
         }
-        WofWimSuspendEntry(volumename.into_param().abi(), ::std::mem::transmute(datasourceid)).ok()
+        WofWimSuspendEntry(volumename.into_param().abi(), ::core::mem::transmute(datasourceid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18398,7 +18398,7 @@ pub unsafe fn WofWimUpdateEntry<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn WofWimUpdateEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64, newwimpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        WofWimUpdateEntry(volumename.into_param().abi(), ::std::mem::transmute(datasourceid), newwimpath.into_param().abi()).ok()
+        WofWimUpdateEntry(volumename.into_param().abi(), ::core::mem::transmute(datasourceid), newwimpath.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18406,14 +18406,14 @@ pub unsafe fn WofWimUpdateEntry<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Wow64DisableWow64FsRedirection(::std::mem::transmute(oldvalue)))
+        ::core::mem::transmute(Wow64DisableWow64FsRedirection(::core::mem::transmute(oldvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18428,7 +18428,7 @@ pub unsafe fn Wow64EnableWow64FsRedirection<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(Wow64EnableWow64FsRedirection(wow64fsenableredirection.into_param().abi()))
+        ::core::mem::transmute(Wow64EnableWow64FsRedirection(wow64fsenableredirection.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18436,28 +18436,28 @@ pub unsafe fn Wow64EnableWow64FsRedirection<'a, Param0: ::windows::runtime::Into
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Wow64RevertWow64FsRedirection(olvalue: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Wow64RevertWow64FsRedirection(::std::mem::transmute(olvalue)))
+        ::core::mem::transmute(Wow64RevertWow64FsRedirection(::core::mem::transmute(olvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[inline]
-pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: ::std::option::Option<PFE_IMPORT_FUNC>, pvcallbackcontext: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: ::core::option::Option<PFE_IMPORT_FUNC>, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WriteEncryptedFileRaw(pfimportcallback: ::windows::runtime::RawPtr, pvcallbackcontext: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void) -> u32;
+            fn WriteEncryptedFileRaw(pfimportcallback: ::windows::runtime::RawPtr, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(WriteEncryptedFileRaw(::std::mem::transmute(pfimportcallback), ::std::mem::transmute(pvcallbackcontext), ::std::mem::transmute(pvcontext)))
+        ::core::mem::transmute(WriteEncryptedFileRaw(::core::mem::transmute(pfimportcallback), ::core::mem::transmute(pvcallbackcontext), ::core::mem::transmute(pvcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18465,14 +18465,14 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: ::std::option::Option<PFE_
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::std::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WriteFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WriteFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::std::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn WriteFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WriteFile(hfile.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nnumberofbytestowrite), ::std::mem::transmute(lpnumberofbyteswritten), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(WriteFile(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18480,14 +18480,14 @@ pub unsafe fn WriteFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::std::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
+pub unsafe fn WriteFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::std::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
+            fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WriteFileEx(hfile.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nnumberofbytestowrite), ::std::mem::transmute(lpoverlapped), ::std::mem::transmute(lpcompletionroutine)))
+        ::core::mem::transmute(WriteFileEx(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18502,7 +18502,7 @@ pub unsafe fn WriteFileGather<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn WriteFileGather(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WriteFileGather(hfile.into_param().abi(), ::std::mem::transmute(asegmentarray), ::std::mem::transmute(nnumberofbytestowrite), ::std::mem::transmute(lpreserved), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(WriteFileGather(hfile.into_param().abi(), ::core::mem::transmute(asegmentarray), ::core::mem::transmute(nnumberofbytestowrite), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18510,22 +18510,22 @@ pub unsafe fn WriteFileGather<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::std::ffi::c_void, pvrestartbuffer: *mut ::std::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WriteLogRestartArea(pvmarshal: *mut ::std::ffi::c_void, pvrestartbuffer: *mut ::std::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WriteLogRestartArea(
-            ::std::mem::transmute(pvmarshal),
-            ::std::mem::transmute(pvrestartbuffer),
-            ::std::mem::transmute(cbrestartbuffer),
-            ::std::mem::transmute(plsnbase),
-            ::std::mem::transmute(fflags),
-            ::std::mem::transmute(pcbwritten),
-            ::std::mem::transmute(plsnnext),
-            ::std::mem::transmute(poverlapped),
+        ::core::mem::transmute(WriteLogRestartArea(
+            ::core::mem::transmute(pvmarshal),
+            ::core::mem::transmute(pvrestartbuffer),
+            ::core::mem::transmute(cbrestartbuffer),
+            ::core::mem::transmute(plsnbase),
+            ::core::mem::transmute(fflags),
+            ::core::mem::transmute(pcbwritten),
+            ::core::mem::transmute(plsnnext),
+            ::core::mem::transmute(poverlapped),
         ))
     }
     #[cfg(not(windows))]
@@ -18541,7 +18541,7 @@ pub unsafe fn WriteTapemark<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn WriteTapemark(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(WriteTapemark(hdevice.into_param().abi(), ::std::mem::transmute(dwtapemarktype), ::std::mem::transmute(dwtapemarkcount), bimmediate.into_param().abi()))
+        ::core::mem::transmute(WriteTapemark(hdevice.into_param().abi(), ::core::mem::transmute(dwtapemarktype), ::core::mem::transmute(dwtapemarkcount), bimmediate.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

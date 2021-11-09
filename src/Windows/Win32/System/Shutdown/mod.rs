@@ -9,7 +9,7 @@ pub unsafe fn AbortSystemShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn AbortSystemShutdownA(lpmachinename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AbortSystemShutdownA(lpmachinename.into_param().abi()))
+        ::core::mem::transmute(AbortSystemShutdownA(lpmachinename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,7 +24,7 @@ pub unsafe fn AbortSystemShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn AbortSystemShutdownW(lpmachinename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AbortSystemShutdownW(lpmachinename.into_param().abi()))
+        ::core::mem::transmute(AbortSystemShutdownW(lpmachinename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -39,13 +39,13 @@ pub unsafe fn CheckForHiberboot<'a, Param1: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn CheckForHiberboot(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(CheckForHiberboot(::std::mem::transmute(phiberboot), bclearflag.into_param().abi()))
+        ::core::mem::transmute(CheckForHiberboot(::core::mem::transmute(phiberboot), bclearflag.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Shutdown`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXIT_WINDOWS_FLAGS(pub u32);
 pub const EWX_HYBRID_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(4194304u32);
@@ -54,7 +54,7 @@ pub const EWX_POWEROFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(8u32);
 pub const EWX_REBOOT: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(2u32);
 pub const EWX_RESTARTAPPS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(64u32);
 pub const EWX_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(1u32);
-impl ::std::convert::From<u32> for EXIT_WINDOWS_FLAGS {
+impl ::core::convert::From<u32> for EXIT_WINDOWS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -62,29 +62,29 @@ impl ::std::convert::From<u32> for EXIT_WINDOWS_FLAGS {
 unsafe impl ::windows::runtime::Abi for EXIT_WINDOWS_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for EXIT_WINDOWS_FLAGS {
+impl ::core::ops::BitOr for EXIT_WINDOWS_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for EXIT_WINDOWS_FLAGS {
+impl ::core::ops::BitAnd for EXIT_WINDOWS_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for EXIT_WINDOWS_FLAGS {
+impl ::core::ops::BitOrAssign for EXIT_WINDOWS_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for EXIT_WINDOWS_FLAGS {
+impl ::core::ops::BitAndAssign for EXIT_WINDOWS_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for EXIT_WINDOWS_FLAGS {
+impl ::core::ops::Not for EXIT_WINDOWS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -100,7 +100,7 @@ pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: u32) -> super:
         extern "system" {
             fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ExitWindowsEx(::std::mem::transmute(uflags), ::std::mem::transmute(dwreason)))
+        ::core::mem::transmute(ExitWindowsEx(::core::mem::transmute(uflags), ::core::mem::transmute(dwreason)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -115,7 +115,7 @@ pub unsafe fn InitiateShutdownA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn InitiateShutdownA(lpmachinename: super::super::Foundation::PSTR, lpmessage: super::super::Foundation::PSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
         }
-        ::std::mem::transmute(InitiateShutdownA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::std::mem::transmute(dwgraceperiod), ::std::mem::transmute(dwshutdownflags), ::std::mem::transmute(dwreason)))
+        ::core::mem::transmute(InitiateShutdownA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwgraceperiod), ::core::mem::transmute(dwshutdownflags), ::core::mem::transmute(dwreason)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -130,7 +130,7 @@ pub unsafe fn InitiateShutdownW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn InitiateShutdownW(lpmachinename: super::super::Foundation::PWSTR, lpmessage: super::super::Foundation::PWSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
         }
-        ::std::mem::transmute(InitiateShutdownW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::std::mem::transmute(dwgraceperiod), ::std::mem::transmute(dwshutdownflags), ::std::mem::transmute(dwreason)))
+        ::core::mem::transmute(InitiateShutdownW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwgraceperiod), ::core::mem::transmute(dwshutdownflags), ::core::mem::transmute(dwreason)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -145,7 +145,7 @@ pub unsafe fn InitiateSystemShutdownA<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn InitiateSystemShutdownA(lpmachinename: super::super::Foundation::PSTR, lpmessage: super::super::Foundation::PSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitiateSystemShutdownA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::std::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi()))
+        ::core::mem::transmute(InitiateSystemShutdownA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -167,7 +167,7 @@ pub unsafe fn InitiateSystemShutdownExA<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn InitiateSystemShutdownExA(lpmachinename: super::super::Foundation::PSTR, lpmessage: super::super::Foundation::PSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitiateSystemShutdownExA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::std::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi(), ::std::mem::transmute(dwreason)))
+        ::core::mem::transmute(InitiateSystemShutdownExA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi(), ::core::mem::transmute(dwreason)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -189,7 +189,7 @@ pub unsafe fn InitiateSystemShutdownExW<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn InitiateSystemShutdownExW(lpmachinename: super::super::Foundation::PWSTR, lpmessage: super::super::Foundation::PWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitiateSystemShutdownExW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::std::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi(), ::std::mem::transmute(dwreason)))
+        ::core::mem::transmute(InitiateSystemShutdownExW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi(), ::core::mem::transmute(dwreason)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -204,7 +204,7 @@ pub unsafe fn InitiateSystemShutdownW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn InitiateSystemShutdownW(lpmachinename: super::super::Foundation::PWSTR, lpmessage: super::super::Foundation::PWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitiateSystemShutdownW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::std::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi()))
+        ::core::mem::transmute(InitiateSystemShutdownW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -219,7 +219,7 @@ pub unsafe fn LockWorkStation() -> super::super::Foundation::BOOL {
         extern "system" {
             fn LockWorkStation() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LockWorkStation())
+        ::core::mem::transmute(LockWorkStation())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -243,7 +243,7 @@ pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_Shutdown`*"]
 pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Shutdown`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHUTDOWN_FLAGS(pub u32);
 pub const SHUTDOWN_FORCE_OTHERS: SHUTDOWN_FLAGS = SHUTDOWN_FLAGS(1u32);
@@ -263,7 +263,7 @@ pub const SHUTDOWN_ARSO: SHUTDOWN_FLAGS = SHUTDOWN_FLAGS(8192u32);
 pub const SHUTDOWN_CHECK_SAFE_FOR_SERVER: SHUTDOWN_FLAGS = SHUTDOWN_FLAGS(16384u32);
 pub const SHUTDOWN_VAIL_CONTAINER: SHUTDOWN_FLAGS = SHUTDOWN_FLAGS(32768u32);
 pub const SHUTDOWN_SYSTEM_INITIATED: SHUTDOWN_FLAGS = SHUTDOWN_FLAGS(65536u32);
-impl ::std::convert::From<u32> for SHUTDOWN_FLAGS {
+impl ::core::convert::From<u32> for SHUTDOWN_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -271,36 +271,36 @@ impl ::std::convert::From<u32> for SHUTDOWN_FLAGS {
 unsafe impl ::windows::runtime::Abi for SHUTDOWN_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SHUTDOWN_FLAGS {
+impl ::core::ops::BitOr for SHUTDOWN_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SHUTDOWN_FLAGS {
+impl ::core::ops::BitAnd for SHUTDOWN_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SHUTDOWN_FLAGS {
+impl ::core::ops::BitOrAssign for SHUTDOWN_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SHUTDOWN_FLAGS {
+impl ::core::ops::BitAndAssign for SHUTDOWN_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SHUTDOWN_FLAGS {
+impl ::core::ops::Not for SHUTDOWN_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_System_Shutdown`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHUTDOWN_REASON(pub u32);
 pub const SHTDN_REASON_NONE: SHUTDOWN_REASON = SHUTDOWN_REASON(0u32);
@@ -354,7 +354,7 @@ pub const SHTDN_REASON_MINOR_DC_DEMOTION: SHUTDOWN_REASON = SHUTDOWN_REASON(34u3
 pub const SHTDN_REASON_UNKNOWN: SHUTDOWN_REASON = SHUTDOWN_REASON(255u32);
 pub const SHTDN_REASON_LEGACY_API: SHUTDOWN_REASON = SHUTDOWN_REASON(2147942400u32);
 pub const SHTDN_REASON_VALID_BIT_MASK: SHUTDOWN_REASON = SHUTDOWN_REASON(3238002687u32);
-impl ::std::convert::From<u32> for SHUTDOWN_REASON {
+impl ::core::convert::From<u32> for SHUTDOWN_REASON {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -362,29 +362,29 @@ impl ::std::convert::From<u32> for SHUTDOWN_REASON {
 unsafe impl ::windows::runtime::Abi for SHUTDOWN_REASON {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SHUTDOWN_REASON {
+impl ::core::ops::BitOr for SHUTDOWN_REASON {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SHUTDOWN_REASON {
+impl ::core::ops::BitAnd for SHUTDOWN_REASON {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SHUTDOWN_REASON {
+impl ::core::ops::BitOrAssign for SHUTDOWN_REASON {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SHUTDOWN_REASON {
+impl ::core::ops::BitAndAssign for SHUTDOWN_REASON {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SHUTDOWN_REASON {
+impl ::core::ops::Not for SHUTDOWN_REASON {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -408,7 +408,7 @@ pub unsafe fn ShutdownBlockReasonCreate<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn ShutdownBlockReasonCreate(hwnd: super::super::Foundation::HWND, pwszreason: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShutdownBlockReasonCreate(hwnd.into_param().abi(), pwszreason.into_param().abi()))
+        ::core::mem::transmute(ShutdownBlockReasonCreate(hwnd.into_param().abi(), pwszreason.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -423,7 +423,7 @@ pub unsafe fn ShutdownBlockReasonDestroy<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShutdownBlockReasonDestroy(hwnd.into_param().abi()))
+        ::core::mem::transmute(ShutdownBlockReasonDestroy(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -438,7 +438,7 @@ pub unsafe fn ShutdownBlockReasonQuery<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: super::super::Foundation::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ShutdownBlockReasonQuery(hwnd.into_param().abi(), ::std::mem::transmute(pwszbuff), ::std::mem::transmute(pcchbuff)))
+        ::core::mem::transmute(ShutdownBlockReasonQuery(hwnd.into_param().abi(), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(pcchbuff)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

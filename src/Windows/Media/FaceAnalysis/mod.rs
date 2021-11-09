@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DetectedFace(pub ::windows::runtime::IInspectable);
 impl DetectedFace {
     #[cfg(feature = "Graphics_Imaging")]
@@ -9,8 +9,8 @@ impl DetectedFace {
     pub fn FaceBox(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapBounds> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Graphics::Imaging::BitmapBounds = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapBounds>(result__)
+            let mut result__: super::super::Graphics::Imaging::BitmapBounds = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapBounds>(result__)
         }
     }
 }
@@ -24,12 +24,12 @@ unsafe impl ::windows::runtime::Interface for DetectedFace {
 impl ::windows::runtime::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
-impl ::std::convert::From<DetectedFace> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DetectedFace> for ::windows::runtime::IUnknown {
     fn from(value: DetectedFace) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DetectedFace> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DetectedFace> for ::windows::runtime::IUnknown {
     fn from(value: &DetectedFace) -> Self {
         value.0 .0.clone()
     }
@@ -44,12 +44,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DetectedFace> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DetectedFace> for ::windows::runtime::IInspectable {
     fn from(value: DetectedFace) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DetectedFace> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DetectedFace> for ::windows::runtime::IInspectable {
     fn from(value: &DetectedFace) -> Self {
         value.0.clone()
     }
@@ -64,11 +64,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DetectedFace {}
-unsafe impl ::std::marker::Sync for DetectedFace {}
+unsafe impl ::core::marker::Send for DetectedFace {}
+unsafe impl ::core::marker::Sync for DetectedFace {}
 #[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FaceDetector(pub ::windows::runtime::IInspectable);
 impl FaceDetector {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
@@ -76,8 +76,8 @@ impl FaceDetector {
     pub fn DetectFacesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>(&self, image: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), image.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), image.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
@@ -85,8 +85,8 @@ impl FaceDetector {
     pub fn DetectFacesWithSearchAreaAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapBounds>>(&self, image: Param0, searcharea: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), image.into_param().abi(), searcharea.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), image.into_param().abi(), searcharea.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -94,60 +94,60 @@ impl FaceDetector {
     pub fn MinDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
+            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMinDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn MaxDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
+            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMaxDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`*"]
     pub fn CreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<FaceDetector>> {
         Self::IFaceDetectorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FaceDetector>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FaceDetector>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn GetSupportedBitmapPixelFormats() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceDetectorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>(result__)
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::runtime::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), bitmappixelformat, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), bitmappixelformat, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Media_FaceAnalysis`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IFaceDetectorStatics<R, F: FnOnce(&IFaceDetectorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -165,12 +165,12 @@ unsafe impl ::windows::runtime::Interface for FaceDetector {
 impl ::windows::runtime::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
-impl ::std::convert::From<FaceDetector> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FaceDetector> for ::windows::runtime::IUnknown {
     fn from(value: FaceDetector) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FaceDetector> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FaceDetector> for ::windows::runtime::IUnknown {
     fn from(value: &FaceDetector) -> Self {
         value.0 .0.clone()
     }
@@ -185,12 +185,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FaceDetector> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FaceDetector> for ::windows::runtime::IInspectable {
     fn from(value: FaceDetector) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FaceDetector> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FaceDetector> for ::windows::runtime::IInspectable {
     fn from(value: &FaceDetector) -> Self {
         value.0.clone()
     }
@@ -205,11 +205,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for FaceDetector {}
-unsafe impl ::std::marker::Sync for FaceDetector {}
+unsafe impl ::core::marker::Send for FaceDetector {}
+unsafe impl ::core::marker::Sync for FaceDetector {}
 #[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FaceTracker(pub ::windows::runtime::IInspectable);
 impl FaceTracker {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -217,8 +217,8 @@ impl FaceTracker {
     pub fn ProcessNextFrameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::VideoFrame>>(&self, videoframe: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), videoframe.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), videoframe.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -226,60 +226,60 @@ impl FaceTracker {
     pub fn MinDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
+            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMinDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn MaxDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
+            let mut result__: super::super::Graphics::Imaging::BitmapSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapSize>(result__)
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMaxDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`*"]
     pub fn CreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<FaceTracker>> {
         Self::IFaceTrackerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FaceTracker>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FaceTracker>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn GetSupportedBitmapPixelFormats() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceTrackerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>(result__)
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::runtime::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), bitmappixelformat, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), bitmappixelformat, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Media_FaceAnalysis`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IFaceTrackerStatics<R, F: FnOnce(&IFaceTrackerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -297,12 +297,12 @@ unsafe impl ::windows::runtime::Interface for FaceTracker {
 impl ::windows::runtime::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
-impl ::std::convert::From<FaceTracker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FaceTracker> for ::windows::runtime::IUnknown {
     fn from(value: FaceTracker) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FaceTracker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FaceTracker> for ::windows::runtime::IUnknown {
     fn from(value: &FaceTracker) -> Self {
         value.0 .0.clone()
     }
@@ -317,12 +317,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FaceTracker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FaceTracker> for ::windows::runtime::IInspectable {
     fn from(value: FaceTracker) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FaceTracker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FaceTracker> for ::windows::runtime::IInspectable {
     fn from(value: &FaceTracker) -> Self {
         value.0.clone()
     }
@@ -337,8 +337,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for FaceTracker {}
-unsafe impl ::std::marker::Sync for FaceTracker {}
+unsafe impl ::core::marker::Send for FaceTracker {}
+unsafe impl ::core::marker::Sync for FaceTracker {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IDetectedFace(pub ::windows::runtime::IInspectable);

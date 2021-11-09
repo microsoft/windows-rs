@@ -18,7 +18,7 @@ impl IActivationFactory {
 
             // Even though the factory will generally return the WinRT default interface, this isn't guaranteed
             // so a cast is required to convert the `IInspectable` into `I`, or the class type.
-            (self.vtable().6)(std::mem::transmute_copy(self), &mut object).and_some(object)?.cast()
+            (self.vtable().6)(core::mem::transmute_copy(self), &mut object).and_some(object)?.cast()
         }
     }
 }
@@ -40,8 +40,8 @@ unsafe impl Interface for IActivationFactory {
     const IID: GUID = GUID::from_values(0x0000_0035, 0x0000, 0x0000, [0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
 }
 
-impl std::fmt::Debug for IActivationFactory {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IActivationFactory {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{:?}", self.0)
     }
 }

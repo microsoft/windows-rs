@@ -56,7 +56,7 @@ impl TokenStream {
     /// Parse the token stream as something
     ///
     /// Mostly used with `proc_macro2::TokenStream` or `proc_macro::TokenStream`
-    pub fn parse<T: std::str::FromStr>(self) -> Result<T, T::Err> {
+    pub fn parse<T: core::str::FromStr>(self) -> Result<T, T::Err> {
         self.into_string().parse()
     }
 
@@ -86,7 +86,7 @@ impl Default for TokenStream {
     }
 }
 
-impl std::iter::FromIterator<TokenStream> for TokenStream {
+impl core::iter::FromIterator<TokenStream> for TokenStream {
     fn from_iter<I: IntoIterator<Item = TokenStream>>(iter: I) -> Self {
         iter.into_iter()
             .fold(None, |accum: Option<TokenStream>, n| {
@@ -150,7 +150,7 @@ impl Literal {
 
     pub fn byte_string(s: &[u8]) -> Self {
         Self {
-            inner: format!("b\"{}\"", std::str::from_utf8(s).expect("Could not turn bytes into byte literal")),
+            inner: format!("b\"{}\"", core::str::from_utf8(s).expect("Could not turn bytes into byte literal")),
         }
     }
 
@@ -159,8 +159,8 @@ impl Literal {
     }
 }
 
-impl std::fmt::Display for TokenStream {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Display for TokenStream {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}", self.as_str())
     }
 }

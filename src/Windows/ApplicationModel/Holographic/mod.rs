@@ -1,14 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Holographic`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicKeyboard(pub ::windows::runtime::IInspectable);
 impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `ApplicationModel_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn SetPlacementOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, coordinatesystem: Param0, topcenterposition: Param1, orientation: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), orientation.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), orientation.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `ApplicationModel_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
@@ -20,18 +20,18 @@ impl HolographicKeyboard {
         maxsize: Param3,
     ) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), orientation.into_param().abi(), maxsize.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), orientation.into_param().abi(), maxsize.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_Holographic`*"]
     pub fn ResetPlacementOverride(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `ApplicationModel_Holographic`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<HolographicKeyboard> {
         Self::IHolographicKeyboardStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HolographicKeyboard>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicKeyboard>(result__)
         })
     }
     pub fn IHolographicKeyboardStatics<R, F: FnOnce(&IHolographicKeyboardStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -49,12 +49,12 @@ unsafe impl ::windows::runtime::Interface for HolographicKeyboard {
 impl ::windows::runtime::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
-impl ::std::convert::From<HolographicKeyboard> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HolographicKeyboard> for ::windows::runtime::IUnknown {
     fn from(value: HolographicKeyboard) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HolographicKeyboard> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HolographicKeyboard> for ::windows::runtime::IUnknown {
     fn from(value: &HolographicKeyboard) -> Self {
         value.0 .0.clone()
     }
@@ -69,12 +69,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HolographicKeyboard> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HolographicKeyboard> for ::windows::runtime::IInspectable {
     fn from(value: HolographicKeyboard) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HolographicKeyboard> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HolographicKeyboard> for ::windows::runtime::IInspectable {
     fn from(value: &HolographicKeyboard) -> Self {
         value.0.clone()
     }
@@ -89,8 +89,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HolographicKeyboard {}
-unsafe impl ::std::marker::Sync for HolographicKeyboard {}
+unsafe impl ::core::marker::Send for HolographicKeyboard {}
+unsafe impl ::core::marker::Sync for HolographicKeyboard {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IHolographicKeyboard(pub ::windows::runtime::IInspectable);

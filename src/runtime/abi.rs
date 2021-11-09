@@ -6,7 +6,7 @@ pub unsafe trait Abi: Sized {
 
     /// # Safety
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(std::mem::transmute_copy(&abi))
+        Ok(core::mem::transmute_copy(&abi))
     }
 
     /// # Safety
@@ -25,12 +25,12 @@ unsafe impl<T: Interface> Abi for T {
     type Abi = RawPtr;
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        let abi: RawPtr = std::mem::transmute_copy(&abi);
+        let abi: RawPtr = core::mem::transmute_copy(&abi);
 
         if abi.is_null() {
             Err(Error::OK)
         } else {
-            Ok(std::mem::transmute_copy(&abi))
+            Ok(core::mem::transmute_copy(&abi))
         }
     }
 }

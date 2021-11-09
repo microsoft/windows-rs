@@ -15,7 +15,7 @@ pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const ASN_UNIVERSAL: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
@@ -26,24 +26,24 @@ pub struct AsnAny {
 #[cfg(feature = "Win32_Foundation")]
 impl AsnAny {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AsnAny {
+impl ::core::default::Default for AsnAny {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AsnAny {
+impl ::core::cmp::PartialEq for AsnAny {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AsnAny {}
+impl ::core::cmp::Eq for AsnAny {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AsnAny {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub union AsnAny_0 {
@@ -63,24 +63,24 @@ pub union AsnAny_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl AsnAny_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AsnAny_0 {
+impl ::core::default::Default for AsnAny_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AsnAny_0 {
+impl ::core::cmp::PartialEq for AsnAny_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AsnAny_0 {}
+impl ::core::cmp::Eq for AsnAny_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AsnAny_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub struct AsnObjectIdentifier {
@@ -88,21 +88,21 @@ pub struct AsnObjectIdentifier {
     pub ids: *mut u32,
 }
 impl AsnObjectIdentifier {}
-impl ::std::default::Default for AsnObjectIdentifier {
+impl ::core::default::Default for AsnObjectIdentifier {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for AsnObjectIdentifier {
+impl ::core::cmp::PartialEq for AsnObjectIdentifier {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for AsnObjectIdentifier {}
+impl ::core::cmp::Eq for AsnObjectIdentifier {}
 unsafe impl ::windows::runtime::Abi for AsnObjectIdentifier {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
@@ -114,19 +114,19 @@ pub struct AsnOctetString {
 #[cfg(feature = "Win32_Foundation")]
 impl AsnOctetString {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AsnOctetString {
+impl ::core::default::Default for AsnOctetString {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AsnOctetString {
+impl ::core::cmp::PartialEq for AsnOctetString {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AsnOctetString {}
+impl ::core::cmp::Eq for AsnOctetString {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AsnOctetString {
     type Abi = Self;
@@ -159,7 +159,7 @@ pub type PFNSNMPEXTENSIONINIT = unsafe extern "system" fn(dwuptimereference: u32
 pub type PFNSNMPEXTENSIONINITEX = unsafe extern "system" fn(pnextsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNSNMPEXTENSIONMONITOR = unsafe extern "system" fn(pagentmgmtdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PFNSNMPEXTENSIONMONITOR = unsafe extern "system" fn(pagentmgmtdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSNMPEXTENSIONQUERY = unsafe extern "system" fn(bpdutype: u8, pvarbindlist: *mut SnmpVarBindList, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL;
@@ -175,7 +175,7 @@ pub type PFNSNMPSTARTUPEX = unsafe extern "system" fn(param0: *mut u32, param1: 
 pub const SNMPAPI_ALLOC_ERROR: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type SNMPAPI_CALLBACK = unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut ::std::ffi::c_void) -> u32;
+pub type SNMPAPI_CALLBACK = unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut ::core::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMPAPI_CONTEXT_INVALID: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
@@ -267,13 +267,13 @@ pub const SNMP_ACCESS_READ_ONLY: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMP_ACCESS_READ_WRITE: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
 pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
 pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(1u32);
 pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(2u32);
-impl ::std::convert::From<u32> for SNMP_API_TRANSLATE_MODE {
+impl ::core::convert::From<u32> for SNMP_API_TRANSLATE_MODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -281,29 +281,29 @@ impl ::std::convert::From<u32> for SNMP_API_TRANSLATE_MODE {
 unsafe impl ::windows::runtime::Abi for SNMP_API_TRANSLATE_MODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_API_TRANSLATE_MODE {
+impl ::core::ops::BitOr for SNMP_API_TRANSLATE_MODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_API_TRANSLATE_MODE {
+impl ::core::ops::BitAnd for SNMP_API_TRANSLATE_MODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_API_TRANSLATE_MODE {
+impl ::core::ops::BitOrAssign for SNMP_API_TRANSLATE_MODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_API_TRANSLATE_MODE {
+impl ::core::ops::BitAndAssign for SNMP_API_TRANSLATE_MODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_API_TRANSLATE_MODE {
+impl ::core::ops::Not for SNMP_API_TRANSLATE_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -326,7 +326,7 @@ pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_ERROR(pub u32);
 pub const SNMP_ERROR_NOERROR: SNMP_ERROR = SNMP_ERROR(0u32);
@@ -348,7 +348,7 @@ pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = SNMP_ERROR(15u32);
 pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = SNMP_ERROR(16u32);
 pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = SNMP_ERROR(17u32);
 pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = SNMP_ERROR(18u32);
-impl ::std::convert::From<u32> for SNMP_ERROR {
+impl ::core::convert::From<u32> for SNMP_ERROR {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -356,36 +356,36 @@ impl ::std::convert::From<u32> for SNMP_ERROR {
 unsafe impl ::windows::runtime::Abi for SNMP_ERROR {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_ERROR {
+impl ::core::ops::BitOr for SNMP_ERROR {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_ERROR {
+impl ::core::ops::BitAnd for SNMP_ERROR {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_ERROR {
+impl ::core::ops::BitOrAssign for SNMP_ERROR {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_ERROR {
+impl ::core::ops::BitAndAssign for SNMP_ERROR {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_ERROR {
+impl ::core::ops::Not for SNMP_ERROR {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_ERROR_STATUS(pub u32);
 pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
@@ -407,7 +407,7 @@ pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(15u
 pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(16u32);
 pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(17u32);
 pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(18u32);
-impl ::std::convert::From<u32> for SNMP_ERROR_STATUS {
+impl ::core::convert::From<u32> for SNMP_ERROR_STATUS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -415,36 +415,36 @@ impl ::std::convert::From<u32> for SNMP_ERROR_STATUS {
 unsafe impl ::windows::runtime::Abi for SNMP_ERROR_STATUS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_ERROR_STATUS {
+impl ::core::ops::BitOr for SNMP_ERROR_STATUS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_ERROR_STATUS {
+impl ::core::ops::BitAnd for SNMP_ERROR_STATUS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_ERROR_STATUS {
+impl ::core::ops::BitOrAssign for SNMP_ERROR_STATUS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_ERROR_STATUS {
+impl ::core::ops::BitAndAssign for SNMP_ERROR_STATUS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_ERROR_STATUS {
+impl ::core::ops::Not for SNMP_ERROR_STATUS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
 pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
@@ -453,7 +453,7 @@ pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_
 pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(163u32);
 pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(225u32);
 pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(226u32);
-impl ::std::convert::From<u32> for SNMP_EXTENSION_REQUEST_TYPE {
+impl ::core::convert::From<u32> for SNMP_EXTENSION_REQUEST_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -461,36 +461,36 @@ impl ::std::convert::From<u32> for SNMP_EXTENSION_REQUEST_TYPE {
 unsafe impl ::windows::runtime::Abi for SNMP_EXTENSION_REQUEST_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
+impl ::core::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_EXTENSION_REQUEST_TYPE {
+impl ::core::ops::BitAnd for SNMP_EXTENSION_REQUEST_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_EXTENSION_REQUEST_TYPE {
+impl ::core::ops::BitOrAssign for SNMP_EXTENSION_REQUEST_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_EXTENSION_REQUEST_TYPE {
+impl ::core::ops::BitAndAssign for SNMP_EXTENSION_REQUEST_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_EXTENSION_REQUEST_TYPE {
+impl ::core::ops::Not for SNMP_EXTENSION_REQUEST_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_GENERICTRAP(pub u32);
 pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
@@ -500,7 +500,7 @@ pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = SNMP_GENERICTRAP(3u32);
 pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = SNMP_GENERICTRAP(4u32);
 pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = SNMP_GENERICTRAP(5u32);
 pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = SNMP_GENERICTRAP(6u32);
-impl ::std::convert::From<u32> for SNMP_GENERICTRAP {
+impl ::core::convert::From<u32> for SNMP_GENERICTRAP {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -508,36 +508,36 @@ impl ::std::convert::From<u32> for SNMP_GENERICTRAP {
 unsafe impl ::windows::runtime::Abi for SNMP_GENERICTRAP {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_GENERICTRAP {
+impl ::core::ops::BitOr for SNMP_GENERICTRAP {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_GENERICTRAP {
+impl ::core::ops::BitAnd for SNMP_GENERICTRAP {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_GENERICTRAP {
+impl ::core::ops::BitOrAssign for SNMP_GENERICTRAP {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_GENERICTRAP {
+impl ::core::ops::BitAndAssign for SNMP_GENERICTRAP {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_GENERICTRAP {
+impl ::core::ops::Not for SNMP_GENERICTRAP {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_LOG(pub u32);
 pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0u32);
@@ -546,7 +546,7 @@ pub const SNMP_LOG_ERROR: SNMP_LOG = SNMP_LOG(2u32);
 pub const SNMP_LOG_WARNING: SNMP_LOG = SNMP_LOG(3u32);
 pub const SNMP_LOG_TRACE: SNMP_LOG = SNMP_LOG(4u32);
 pub const SNMP_LOG_VERBOSE: SNMP_LOG = SNMP_LOG(5u32);
-impl ::std::convert::From<u32> for SNMP_LOG {
+impl ::core::convert::From<u32> for SNMP_LOG {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -554,29 +554,29 @@ impl ::std::convert::From<u32> for SNMP_LOG {
 unsafe impl ::windows::runtime::Abi for SNMP_LOG {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_LOG {
+impl ::core::ops::BitOr for SNMP_LOG {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_LOG {
+impl ::core::ops::BitAnd for SNMP_LOG {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_LOG {
+impl ::core::ops::BitOrAssign for SNMP_LOG {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_LOG {
+impl ::core::ops::BitAndAssign for SNMP_LOG {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_LOG {
+impl ::core::ops::Not for SNMP_LOG {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -605,13 +605,13 @@ pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
 pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
 pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(2u32);
 pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(8u32);
-impl ::std::convert::From<u32> for SNMP_OUTPUT_LOG_TYPE {
+impl ::core::convert::From<u32> for SNMP_OUTPUT_LOG_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -619,29 +619,29 @@ impl ::std::convert::From<u32> for SNMP_OUTPUT_LOG_TYPE {
 unsafe impl ::windows::runtime::Abi for SNMP_OUTPUT_LOG_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
+impl ::core::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_OUTPUT_LOG_TYPE {
+impl ::core::ops::BitAnd for SNMP_OUTPUT_LOG_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_OUTPUT_LOG_TYPE {
+impl ::core::ops::BitOrAssign for SNMP_OUTPUT_LOG_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_OUTPUT_LOG_TYPE {
+impl ::core::ops::BitAndAssign for SNMP_OUTPUT_LOG_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_OUTPUT_LOG_TYPE {
+impl ::core::ops::Not for SNMP_OUTPUT_LOG_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -656,7 +656,7 @@ pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMP_PDUAPI_UNRECOGNIZED_PDU: u32 = 20u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_PDU_TYPE(pub u32);
 pub const SNMP_PDU_GET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(160u32);
@@ -665,7 +665,7 @@ pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = SNMP_PDU_TYPE(162u32);
 pub const SNMP_PDU_SET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(163u32);
 pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = SNMP_PDU_TYPE(165u32);
 pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = SNMP_PDU_TYPE(167u32);
-impl ::std::convert::From<u32> for SNMP_PDU_TYPE {
+impl ::core::convert::From<u32> for SNMP_PDU_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -673,41 +673,41 @@ impl ::std::convert::From<u32> for SNMP_PDU_TYPE {
 unsafe impl ::windows::runtime::Abi for SNMP_PDU_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_PDU_TYPE {
+impl ::core::ops::BitOr for SNMP_PDU_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_PDU_TYPE {
+impl ::core::ops::BitAnd for SNMP_PDU_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_PDU_TYPE {
+impl ::core::ops::BitOrAssign for SNMP_PDU_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_PDU_TYPE {
+impl ::core::ops::BitAndAssign for SNMP_PDU_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_PDU_TYPE {
+impl ::core::ops::Not for SNMP_PDU_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SNMP_STATUS(pub u32);
 pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);
 pub const SNMPAPI_OFF: SNMP_STATUS = SNMP_STATUS(0u32);
-impl ::std::convert::From<u32> for SNMP_STATUS {
+impl ::core::convert::From<u32> for SNMP_STATUS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -715,29 +715,29 @@ impl ::std::convert::From<u32> for SNMP_STATUS {
 unsafe impl ::windows::runtime::Abi for SNMP_STATUS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SNMP_STATUS {
+impl ::core::ops::BitOr for SNMP_STATUS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SNMP_STATUS {
+impl ::core::ops::BitAnd for SNMP_STATUS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SNMP_STATUS {
+impl ::core::ops::BitOrAssign for SNMP_STATUS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SNMP_STATUS {
+impl ::core::ops::BitAndAssign for SNMP_STATUS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SNMP_STATUS {
+impl ::core::ops::Not for SNMP_STATUS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -766,7 +766,7 @@ pub unsafe fn SnmpCancelMsg(session: isize, reqid: i32) -> u32 {
         extern "system" {
             fn SnmpCancelMsg(session: isize, reqid: i32) -> u32;
         }
-        ::std::mem::transmute(SnmpCancelMsg(::std::mem::transmute(session), ::std::mem::transmute(reqid)))
+        ::core::mem::transmute(SnmpCancelMsg(::core::mem::transmute(session), ::core::mem::transmute(reqid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -780,7 +780,7 @@ pub unsafe fn SnmpCleanup() -> u32 {
         extern "system" {
             fn SnmpCleanup() -> u32;
         }
-        ::std::mem::transmute(SnmpCleanup())
+        ::core::mem::transmute(SnmpCleanup())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -794,7 +794,7 @@ pub unsafe fn SnmpCleanupEx() -> u32 {
         extern "system" {
             fn SnmpCleanupEx() -> u32;
         }
-        ::std::mem::transmute(SnmpCleanupEx())
+        ::core::mem::transmute(SnmpCleanupEx())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -808,7 +808,7 @@ pub unsafe fn SnmpClose(session: isize) -> u32 {
         extern "system" {
             fn SnmpClose(session: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpClose(::std::mem::transmute(session)))
+        ::core::mem::transmute(SnmpClose(::core::mem::transmute(session)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -822,7 +822,7 @@ pub unsafe fn SnmpContextToStr(context: isize, string: *mut smiOCTETS) -> u32 {
         extern "system" {
             fn SnmpContextToStr(context: isize, string: *mut smiOCTETS) -> u32;
         }
-        ::std::mem::transmute(SnmpContextToStr(::std::mem::transmute(context), ::std::mem::transmute(string)))
+        ::core::mem::transmute(SnmpContextToStr(::core::mem::transmute(context), ::core::mem::transmute(string)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -836,7 +836,7 @@ pub unsafe fn SnmpCountVbl(vbl: isize) -> u32 {
         extern "system" {
             fn SnmpCountVbl(vbl: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpCountVbl(::std::mem::transmute(vbl)))
+        ::core::mem::transmute(SnmpCountVbl(::core::mem::transmute(vbl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -850,7 +850,7 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
         extern "system" {
             fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id: i32, error_status: i32, error_index: i32, varbindlist: isize) -> isize;
         }
-        ::std::mem::transmute(SnmpCreatePdu(::std::mem::transmute(session), ::std::mem::transmute(pdu_type), ::std::mem::transmute(request_id), ::std::mem::transmute(error_status), ::std::mem::transmute(error_index), ::std::mem::transmute(varbindlist)))
+        ::core::mem::transmute(SnmpCreatePdu(::core::mem::transmute(session), ::core::mem::transmute(pdu_type), ::core::mem::transmute(request_id), ::core::mem::transmute(error_status), ::core::mem::transmute(error_index), ::core::mem::transmute(varbindlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -858,14 +858,14 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpCreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, fcallback: ::std::option::Option<SNMPAPI_CALLBACK>, lpclientdata: *mut ::std::ffi::c_void) -> isize {
+pub unsafe fn SnmpCreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, fcallback: ::core::option::Option<SNMPAPI_CALLBACK>, lpclientdata: *mut ::core::ffi::c_void) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: ::windows::runtime::RawPtr, lpclientdata: *mut ::std::ffi::c_void) -> isize;
+            fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: ::windows::runtime::RawPtr, lpclientdata: *mut ::core::ffi::c_void) -> isize;
         }
-        ::std::mem::transmute(SnmpCreateSession(hwnd.into_param().abi(), ::std::mem::transmute(wmsg), ::std::mem::transmute(fcallback), ::std::mem::transmute(lpclientdata)))
+        ::core::mem::transmute(SnmpCreateSession(hwnd.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(fcallback), ::core::mem::transmute(lpclientdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -879,7 +879,7 @@ pub unsafe fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVA
         extern "system" {
             fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVALUE) -> isize;
         }
-        ::std::mem::transmute(SnmpCreateVbl(::std::mem::transmute(session), ::std::mem::transmute(name), ::std::mem::transmute(value)))
+        ::core::mem::transmute(SnmpCreateVbl(::core::mem::transmute(session), ::core::mem::transmute(name), ::core::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -893,7 +893,7 @@ pub unsafe fn SnmpDecodeMsg(session: isize, srcentity: *mut isize, dstentity: *m
         extern "system" {
             fn SnmpDecodeMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize, msgbufdesc: *mut smiOCTETS) -> u32;
         }
-        ::std::mem::transmute(SnmpDecodeMsg(::std::mem::transmute(session), ::std::mem::transmute(srcentity), ::std::mem::transmute(dstentity), ::std::mem::transmute(context), ::std::mem::transmute(pdu), ::std::mem::transmute(msgbufdesc)))
+        ::core::mem::transmute(SnmpDecodeMsg(::core::mem::transmute(session), ::core::mem::transmute(srcentity), ::core::mem::transmute(dstentity), ::core::mem::transmute(context), ::core::mem::transmute(pdu), ::core::mem::transmute(msgbufdesc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -907,7 +907,7 @@ pub unsafe fn SnmpDeleteVb(vbl: isize, index: u32) -> u32 {
         extern "system" {
             fn SnmpDeleteVb(vbl: isize, index: u32) -> u32;
         }
-        ::std::mem::transmute(SnmpDeleteVb(::std::mem::transmute(vbl), ::std::mem::transmute(index)))
+        ::core::mem::transmute(SnmpDeleteVb(::core::mem::transmute(vbl), ::core::mem::transmute(index)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -921,7 +921,7 @@ pub unsafe fn SnmpDuplicatePdu(session: isize, pdu: isize) -> isize {
         extern "system" {
             fn SnmpDuplicatePdu(session: isize, pdu: isize) -> isize;
         }
-        ::std::mem::transmute(SnmpDuplicatePdu(::std::mem::transmute(session), ::std::mem::transmute(pdu)))
+        ::core::mem::transmute(SnmpDuplicatePdu(::core::mem::transmute(session), ::core::mem::transmute(pdu)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -935,7 +935,7 @@ pub unsafe fn SnmpDuplicateVbl(session: isize, vbl: isize) -> isize {
         extern "system" {
             fn SnmpDuplicateVbl(session: isize, vbl: isize) -> isize;
         }
-        ::std::mem::transmute(SnmpDuplicateVbl(::std::mem::transmute(session), ::std::mem::transmute(vbl)))
+        ::core::mem::transmute(SnmpDuplicateVbl(::core::mem::transmute(session), ::core::mem::transmute(vbl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -949,7 +949,7 @@ pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, 
         extern "system" {
             fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, context: isize, pdu: isize, msgbufdesc: *mut smiOCTETS) -> u32;
         }
-        ::std::mem::transmute(SnmpEncodeMsg(::std::mem::transmute(session), ::std::mem::transmute(srcentity), ::std::mem::transmute(dstentity), ::std::mem::transmute(context), ::std::mem::transmute(pdu), ::std::mem::transmute(msgbufdesc)))
+        ::core::mem::transmute(SnmpEncodeMsg(::core::mem::transmute(session), ::core::mem::transmute(srcentity), ::core::mem::transmute(dstentity), ::core::mem::transmute(context), ::core::mem::transmute(pdu), ::core::mem::transmute(msgbufdesc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -964,7 +964,7 @@ pub unsafe fn SnmpEntityToStr(entity: isize, size: u32, string: super::super::Fo
         extern "system" {
             fn SnmpEntityToStr(entity: isize, size: u32, string: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(SnmpEntityToStr(::std::mem::transmute(entity), ::std::mem::transmute(size), ::std::mem::transmute(string)))
+        ::core::mem::transmute(SnmpEntityToStr(::core::mem::transmute(entity), ::core::mem::transmute(size), ::core::mem::transmute(string)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -978,7 +978,7 @@ pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
         extern "system" {
             fn SnmpFreeContext(context: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpFreeContext(::std::mem::transmute(context)))
+        ::core::mem::transmute(SnmpFreeContext(::core::mem::transmute(context)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -992,7 +992,7 @@ pub unsafe fn SnmpFreeDescriptor(syntax: u32, descriptor: *mut smiOCTETS) -> u32
         extern "system" {
             fn SnmpFreeDescriptor(syntax: u32, descriptor: *mut smiOCTETS) -> u32;
         }
-        ::std::mem::transmute(SnmpFreeDescriptor(::std::mem::transmute(syntax), ::std::mem::transmute(descriptor)))
+        ::core::mem::transmute(SnmpFreeDescriptor(::core::mem::transmute(syntax), ::core::mem::transmute(descriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1006,7 +1006,7 @@ pub unsafe fn SnmpFreeEntity(entity: isize) -> u32 {
         extern "system" {
             fn SnmpFreeEntity(entity: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpFreeEntity(::std::mem::transmute(entity)))
+        ::core::mem::transmute(SnmpFreeEntity(::core::mem::transmute(entity)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1020,7 +1020,7 @@ pub unsafe fn SnmpFreePdu(pdu: isize) -> u32 {
         extern "system" {
             fn SnmpFreePdu(pdu: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpFreePdu(::std::mem::transmute(pdu)))
+        ::core::mem::transmute(SnmpFreePdu(::core::mem::transmute(pdu)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1034,7 +1034,7 @@ pub unsafe fn SnmpFreeVbl(vbl: isize) -> u32 {
         extern "system" {
             fn SnmpFreeVbl(vbl: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpFreeVbl(::std::mem::transmute(vbl)))
+        ::core::mem::transmute(SnmpFreeVbl(::core::mem::transmute(vbl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1048,7 +1048,7 @@ pub unsafe fn SnmpGetLastError(session: isize) -> u32 {
         extern "system" {
             fn SnmpGetLastError(session: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpGetLastError(::std::mem::transmute(session)))
+        ::core::mem::transmute(SnmpGetLastError(::core::mem::transmute(session)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1062,7 +1062,7 @@ pub unsafe fn SnmpGetPduData(pdu: isize, pdu_type: *mut SNMP_PDU_TYPE, request_i
         extern "system" {
             fn SnmpGetPduData(pdu: isize, pdu_type: *mut SNMP_PDU_TYPE, request_id: *mut i32, error_status: *mut SNMP_ERROR, error_index: *mut i32, varbindlist: *mut isize) -> u32;
         }
-        ::std::mem::transmute(SnmpGetPduData(::std::mem::transmute(pdu), ::std::mem::transmute(pdu_type), ::std::mem::transmute(request_id), ::std::mem::transmute(error_status), ::std::mem::transmute(error_index), ::std::mem::transmute(varbindlist)))
+        ::core::mem::transmute(SnmpGetPduData(::core::mem::transmute(pdu), ::core::mem::transmute(pdu_type), ::core::mem::transmute(request_id), ::core::mem::transmute(error_status), ::core::mem::transmute(error_index), ::core::mem::transmute(varbindlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1076,7 +1076,7 @@ pub unsafe fn SnmpGetRetransmitMode(nretransmitmode: *mut SNMP_STATUS) -> u32 {
         extern "system" {
             fn SnmpGetRetransmitMode(nretransmitmode: *mut SNMP_STATUS) -> u32;
         }
-        ::std::mem::transmute(SnmpGetRetransmitMode(::std::mem::transmute(nretransmitmode)))
+        ::core::mem::transmute(SnmpGetRetransmitMode(::core::mem::transmute(nretransmitmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1090,7 +1090,7 @@ pub unsafe fn SnmpGetRetry(hentity: isize, npolicyretry: *mut u32, nactualretry:
         extern "system" {
             fn SnmpGetRetry(hentity: isize, npolicyretry: *mut u32, nactualretry: *mut u32) -> u32;
         }
-        ::std::mem::transmute(SnmpGetRetry(::std::mem::transmute(hentity), ::std::mem::transmute(npolicyretry), ::std::mem::transmute(nactualretry)))
+        ::core::mem::transmute(SnmpGetRetry(::core::mem::transmute(hentity), ::core::mem::transmute(npolicyretry), ::core::mem::transmute(nactualretry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1104,7 +1104,7 @@ pub unsafe fn SnmpGetTimeout(hentity: isize, npolicytimeout: *mut u32, nactualti
         extern "system" {
             fn SnmpGetTimeout(hentity: isize, npolicytimeout: *mut u32, nactualtimeout: *mut u32) -> u32;
         }
-        ::std::mem::transmute(SnmpGetTimeout(::std::mem::transmute(hentity), ::std::mem::transmute(npolicytimeout), ::std::mem::transmute(nactualtimeout)))
+        ::core::mem::transmute(SnmpGetTimeout(::core::mem::transmute(hentity), ::core::mem::transmute(npolicytimeout), ::core::mem::transmute(nactualtimeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1118,7 +1118,7 @@ pub unsafe fn SnmpGetTranslateMode(ntranslatemode: *mut SNMP_API_TRANSLATE_MODE)
         extern "system" {
             fn SnmpGetTranslateMode(ntranslatemode: *mut SNMP_API_TRANSLATE_MODE) -> u32;
         }
-        ::std::mem::transmute(SnmpGetTranslateMode(::std::mem::transmute(ntranslatemode)))
+        ::core::mem::transmute(SnmpGetTranslateMode(::core::mem::transmute(ntranslatemode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1132,7 +1132,7 @@ pub unsafe fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut s
         extern "system" {
             fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32;
         }
-        ::std::mem::transmute(SnmpGetVb(::std::mem::transmute(vbl), ::std::mem::transmute(index), ::std::mem::transmute(name), ::std::mem::transmute(value)))
+        ::core::mem::transmute(SnmpGetVb(::core::mem::transmute(vbl), ::core::mem::transmute(index), ::core::mem::transmute(name), ::core::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1147,7 +1147,7 @@ pub unsafe fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32 {
         extern "system" {
             fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32;
         }
-        ::std::mem::transmute(SnmpGetVendorInfo(::std::mem::transmute(vendorinfo)))
+        ::core::mem::transmute(SnmpGetVendorInfo(::core::mem::transmute(vendorinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1161,7 +1161,7 @@ pub unsafe fn SnmpListen(hentity: isize, lstatus: SNMP_STATUS) -> u32 {
         extern "system" {
             fn SnmpListen(hentity: isize, lstatus: SNMP_STATUS) -> u32;
         }
-        ::std::mem::transmute(SnmpListen(::std::mem::transmute(hentity), ::std::mem::transmute(lstatus)))
+        ::core::mem::transmute(SnmpListen(::core::mem::transmute(hentity), ::core::mem::transmute(lstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1175,7 +1175,7 @@ pub unsafe fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) ->
         extern "system" {
             fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) -> u32;
         }
-        ::std::mem::transmute(SnmpListenEx(::std::mem::transmute(hentity), ::std::mem::transmute(lstatus), ::std::mem::transmute(nuseentityaddr)))
+        ::core::mem::transmute(SnmpListenEx(::core::mem::transmute(hentity), ::core::mem::transmute(lstatus), ::core::mem::transmute(nuseentityaddr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1183,14 +1183,14 @@ pub unsafe fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) ->
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrClose(session: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SnmpMgrClose(session: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpMgrClose(session: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SnmpMgrClose(session: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrClose(::std::mem::transmute(session)))
+        ::core::mem::transmute(SnmpMgrClose(::core::mem::transmute(session)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1198,14 +1198,14 @@ pub unsafe fn SnmpMgrClose(session: *mut ::std::ffi::c_void) -> super::super::Fo
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrCtl(session: *mut ::std::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::std::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::std::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SnmpMgrCtl(session: *mut ::core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpMgrCtl(session: *mut ::std::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::std::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::std::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+            fn SnmpMgrCtl(session: *mut ::core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrCtl(::std::mem::transmute(session), ::std::mem::transmute(dwctlcode), ::std::mem::transmute(lpvinbuffer), ::std::mem::transmute(cbinbuffer), ::std::mem::transmute(lpvoutbuffer), ::std::mem::transmute(cboutbuffer), ::std::mem::transmute(lpcbbytesreturned)))
+        ::core::mem::transmute(SnmpMgrCtl(::core::mem::transmute(session), ::core::mem::transmute(dwctlcode), ::core::mem::transmute(lpvinbuffer), ::core::mem::transmute(cbinbuffer), ::core::mem::transmute(lpvoutbuffer), ::core::mem::transmute(cboutbuffer), ::core::mem::transmute(lpcbbytesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1220,7 +1220,7 @@ pub unsafe fn SnmpMgrGetTrap(enterprise: *mut AsnObjectIdentifier, ipaddress: *m
         extern "system" {
             fn SnmpMgrGetTrap(enterprise: *mut AsnObjectIdentifier, ipaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrGetTrap(::std::mem::transmute(enterprise), ::std::mem::transmute(ipaddress), ::std::mem::transmute(generictrap), ::std::mem::transmute(specifictrap), ::std::mem::transmute(timestamp), ::std::mem::transmute(variablebindings)))
+        ::core::mem::transmute(SnmpMgrGetTrap(::core::mem::transmute(enterprise), ::core::mem::transmute(ipaddress), ::core::mem::transmute(generictrap), ::core::mem::transmute(specifictrap), ::core::mem::transmute(timestamp), ::core::mem::transmute(variablebindings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1235,15 +1235,15 @@ pub unsafe fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddres
         extern "system" {
             fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddress: *mut AsnOctetString, sourceaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, community: *mut AsnOctetString, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrGetTrapEx(
-            ::std::mem::transmute(enterprise),
-            ::std::mem::transmute(agentaddress),
-            ::std::mem::transmute(sourceaddress),
-            ::std::mem::transmute(generictrap),
-            ::std::mem::transmute(specifictrap),
-            ::std::mem::transmute(community),
-            ::std::mem::transmute(timestamp),
-            ::std::mem::transmute(variablebindings),
+        ::core::mem::transmute(SnmpMgrGetTrapEx(
+            ::core::mem::transmute(enterprise),
+            ::core::mem::transmute(agentaddress),
+            ::core::mem::transmute(sourceaddress),
+            ::core::mem::transmute(generictrap),
+            ::core::mem::transmute(specifictrap),
+            ::core::mem::transmute(community),
+            ::core::mem::transmute(timestamp),
+            ::core::mem::transmute(variablebindings),
         ))
     }
     #[cfg(not(windows))]
@@ -1259,7 +1259,7 @@ pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut super:
         extern "system" {
             fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrOidToStr(::std::mem::transmute(oid), ::std::mem::transmute(string)))
+        ::core::mem::transmute(SnmpMgrOidToStr(::core::mem::transmute(oid), ::core::mem::transmute(string)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1267,14 +1267,14 @@ pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut super:
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpagentaddress: Param0, lpagentcommunity: Param1, ntimeout: i32, nretries: i32) -> *mut ::std::ffi::c_void {
+pub unsafe fn SnmpMgrOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpagentaddress: Param0, lpagentcommunity: Param1, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpMgrOpen(lpagentaddress: super::super::Foundation::PSTR, lpagentcommunity: super::super::Foundation::PSTR, ntimeout: i32, nretries: i32) -> *mut ::std::ffi::c_void;
+            fn SnmpMgrOpen(lpagentaddress: super::super::Foundation::PSTR, lpagentcommunity: super::super::Foundation::PSTR, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(SnmpMgrOpen(lpagentaddress.into_param().abi(), lpagentcommunity.into_param().abi(), ::std::mem::transmute(ntimeout), ::std::mem::transmute(nretries)))
+        ::core::mem::transmute(SnmpMgrOpen(lpagentaddress.into_param().abi(), lpagentcommunity.into_param().abi(), ::core::mem::transmute(ntimeout), ::core::mem::transmute(nretries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1282,14 +1282,14 @@ pub unsafe fn SnmpMgrOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrRequest(session: *mut ::std::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32 {
+pub unsafe fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpMgrRequest(session: *mut ::std::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32;
+            fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32;
         }
-        ::std::mem::transmute(SnmpMgrRequest(::std::mem::transmute(session), ::std::mem::transmute(requesttype), ::std::mem::transmute(variablebindings), ::std::mem::transmute(errorstatus), ::std::mem::transmute(errorindex)))
+        ::core::mem::transmute(SnmpMgrRequest(::core::mem::transmute(session), ::core::mem::transmute(requesttype), ::core::mem::transmute(variablebindings), ::core::mem::transmute(errorstatus), ::core::mem::transmute(errorindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1304,7 +1304,7 @@ pub unsafe fn SnmpMgrStrToOid<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SnmpMgrStrToOid(string: super::super::Foundation::PSTR, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrStrToOid(string.into_param().abi(), ::std::mem::transmute(oid)))
+        ::core::mem::transmute(SnmpMgrStrToOid(string.into_param().abi(), ::core::mem::transmute(oid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1319,7 +1319,7 @@ pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::
         extern "system" {
             fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SnmpMgrTrapListen(::std::mem::transmute(phtrapavailable)))
+        ::core::mem::transmute(SnmpMgrTrapListen(::core::mem::transmute(phtrapavailable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1333,7 +1333,7 @@ pub unsafe fn SnmpOidCompare(xoid: *mut smiOID, yoid: *mut smiOID, maxlen: u32, 
         extern "system" {
             fn SnmpOidCompare(xoid: *mut smiOID, yoid: *mut smiOID, maxlen: u32, result: *mut i32) -> u32;
         }
-        ::std::mem::transmute(SnmpOidCompare(::std::mem::transmute(xoid), ::std::mem::transmute(yoid), ::std::mem::transmute(maxlen), ::std::mem::transmute(result)))
+        ::core::mem::transmute(SnmpOidCompare(::core::mem::transmute(xoid), ::core::mem::transmute(yoid), ::core::mem::transmute(maxlen), ::core::mem::transmute(result)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1347,7 +1347,7 @@ pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
         extern "system" {
             fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32;
         }
-        ::std::mem::transmute(SnmpOidCopy(::std::mem::transmute(srcoid), ::std::mem::transmute(dstoid)))
+        ::core::mem::transmute(SnmpOidCopy(::core::mem::transmute(srcoid), ::core::mem::transmute(dstoid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1362,7 +1362,7 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: super::supe
         extern "system" {
             fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(SnmpOidToStr(::std::mem::transmute(srcoid), ::std::mem::transmute(size), ::std::mem::transmute(string)))
+        ::core::mem::transmute(SnmpOidToStr(::core::mem::transmute(srcoid), ::core::mem::transmute(size), ::core::mem::transmute(string)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1377,7 +1377,7 @@ pub unsafe fn SnmpOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn SnmpOpen(hwnd: super::super::Foundation::HWND, wmsg: u32) -> isize;
         }
-        ::std::mem::transmute(SnmpOpen(hwnd.into_param().abi(), ::std::mem::transmute(wmsg)))
+        ::core::mem::transmute(SnmpOpen(hwnd.into_param().abi(), ::core::mem::transmute(wmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1391,7 +1391,7 @@ pub unsafe fn SnmpRecvMsg(session: isize, srcentity: *mut isize, dstentity: *mut
         extern "system" {
             fn SnmpRecvMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize) -> u32;
         }
-        ::std::mem::transmute(SnmpRecvMsg(::std::mem::transmute(session), ::std::mem::transmute(srcentity), ::std::mem::transmute(dstentity), ::std::mem::transmute(context), ::std::mem::transmute(pdu)))
+        ::core::mem::transmute(SnmpRecvMsg(::core::mem::transmute(session), ::core::mem::transmute(srcentity), ::core::mem::transmute(dstentity), ::core::mem::transmute(context), ::core::mem::transmute(pdu)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1405,7 +1405,7 @@ pub unsafe fn SnmpRegister(session: isize, srcentity: isize, dstentity: isize, c
         extern "system" {
             fn SnmpRegister(session: isize, srcentity: isize, dstentity: isize, context: isize, notification: *mut smiOID, state: SNMP_STATUS) -> u32;
         }
-        ::std::mem::transmute(SnmpRegister(::std::mem::transmute(session), ::std::mem::transmute(srcentity), ::std::mem::transmute(dstentity), ::std::mem::transmute(context), ::std::mem::transmute(notification), ::std::mem::transmute(state)))
+        ::core::mem::transmute(SnmpRegister(::core::mem::transmute(session), ::core::mem::transmute(srcentity), ::core::mem::transmute(dstentity), ::core::mem::transmute(context), ::core::mem::transmute(notification), ::core::mem::transmute(state)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1419,7 +1419,7 @@ pub unsafe fn SnmpSendMsg(session: isize, srcentity: isize, dstentity: isize, co
         extern "system" {
             fn SnmpSendMsg(session: isize, srcentity: isize, dstentity: isize, context: isize, pdu: isize) -> u32;
         }
-        ::std::mem::transmute(SnmpSendMsg(::std::mem::transmute(session), ::std::mem::transmute(srcentity), ::std::mem::transmute(dstentity), ::std::mem::transmute(context), ::std::mem::transmute(pdu)))
+        ::core::mem::transmute(SnmpSendMsg(::core::mem::transmute(session), ::core::mem::transmute(srcentity), ::core::mem::transmute(dstentity), ::core::mem::transmute(context), ::core::mem::transmute(pdu)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1433,7 +1433,7 @@ pub unsafe fn SnmpSetPduData(pdu: isize, pdu_type: *const i32, request_id: *cons
         extern "system" {
             fn SnmpSetPduData(pdu: isize, pdu_type: *const i32, request_id: *const i32, non_repeaters: *const i32, max_repetitions: *const i32, varbindlist: *const isize) -> u32;
         }
-        ::std::mem::transmute(SnmpSetPduData(::std::mem::transmute(pdu), ::std::mem::transmute(pdu_type), ::std::mem::transmute(request_id), ::std::mem::transmute(non_repeaters), ::std::mem::transmute(max_repetitions), ::std::mem::transmute(varbindlist)))
+        ::core::mem::transmute(SnmpSetPduData(::core::mem::transmute(pdu), ::core::mem::transmute(pdu_type), ::core::mem::transmute(request_id), ::core::mem::transmute(non_repeaters), ::core::mem::transmute(max_repetitions), ::core::mem::transmute(varbindlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1447,7 +1447,7 @@ pub unsafe fn SnmpSetPort(hentity: isize, nport: u32) -> u32 {
         extern "system" {
             fn SnmpSetPort(hentity: isize, nport: u32) -> u32;
         }
-        ::std::mem::transmute(SnmpSetPort(::std::mem::transmute(hentity), ::std::mem::transmute(nport)))
+        ::core::mem::transmute(SnmpSetPort(::core::mem::transmute(hentity), ::core::mem::transmute(nport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1461,7 +1461,7 @@ pub unsafe fn SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS) -> u32 {
         extern "system" {
             fn SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS) -> u32;
         }
-        ::std::mem::transmute(SnmpSetRetransmitMode(::std::mem::transmute(nretransmitmode)))
+        ::core::mem::transmute(SnmpSetRetransmitMode(::core::mem::transmute(nretransmitmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1475,7 +1475,7 @@ pub unsafe fn SnmpSetRetry(hentity: isize, npolicyretry: u32) -> u32 {
         extern "system" {
             fn SnmpSetRetry(hentity: isize, npolicyretry: u32) -> u32;
         }
-        ::std::mem::transmute(SnmpSetRetry(::std::mem::transmute(hentity), ::std::mem::transmute(npolicyretry)))
+        ::core::mem::transmute(SnmpSetRetry(::core::mem::transmute(hentity), ::core::mem::transmute(npolicyretry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1489,7 +1489,7 @@ pub unsafe fn SnmpSetTimeout(hentity: isize, npolicytimeout: u32) -> u32 {
         extern "system" {
             fn SnmpSetTimeout(hentity: isize, npolicytimeout: u32) -> u32;
         }
-        ::std::mem::transmute(SnmpSetTimeout(::std::mem::transmute(hentity), ::std::mem::transmute(npolicytimeout)))
+        ::core::mem::transmute(SnmpSetTimeout(::core::mem::transmute(hentity), ::core::mem::transmute(npolicytimeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1503,7 +1503,7 @@ pub unsafe fn SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE) -> u
         extern "system" {
             fn SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE) -> u32;
         }
-        ::std::mem::transmute(SnmpSetTranslateMode(::std::mem::transmute(ntranslatemode)))
+        ::core::mem::transmute(SnmpSetTranslateMode(::core::mem::transmute(ntranslatemode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1517,7 +1517,7 @@ pub unsafe fn SnmpSetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut s
         extern "system" {
             fn SnmpSetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32;
         }
-        ::std::mem::transmute(SnmpSetVb(::std::mem::transmute(vbl), ::std::mem::transmute(index), ::std::mem::transmute(name), ::std::mem::transmute(value)))
+        ::core::mem::transmute(SnmpSetVb(::core::mem::transmute(vbl), ::core::mem::transmute(index), ::core::mem::transmute(name), ::core::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1531,7 +1531,7 @@ pub unsafe fn SnmpStartup(nmajorversion: *mut u32, nminorversion: *mut u32, nlev
         extern "system" {
             fn SnmpStartup(nmajorversion: *mut u32, nminorversion: *mut u32, nlevel: *mut u32, ntranslatemode: *mut SNMP_API_TRANSLATE_MODE, nretransmitmode: *mut SNMP_STATUS) -> u32;
         }
-        ::std::mem::transmute(SnmpStartup(::std::mem::transmute(nmajorversion), ::std::mem::transmute(nminorversion), ::std::mem::transmute(nlevel), ::std::mem::transmute(ntranslatemode), ::std::mem::transmute(nretransmitmode)))
+        ::core::mem::transmute(SnmpStartup(::core::mem::transmute(nmajorversion), ::core::mem::transmute(nminorversion), ::core::mem::transmute(nlevel), ::core::mem::transmute(ntranslatemode), ::core::mem::transmute(nretransmitmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1545,7 +1545,7 @@ pub unsafe fn SnmpStartupEx(nmajorversion: *mut u32, nminorversion: *mut u32, nl
         extern "system" {
             fn SnmpStartupEx(nmajorversion: *mut u32, nminorversion: *mut u32, nlevel: *mut u32, ntranslatemode: *mut SNMP_API_TRANSLATE_MODE, nretransmitmode: *mut SNMP_STATUS) -> u32;
         }
-        ::std::mem::transmute(SnmpStartupEx(::std::mem::transmute(nmajorversion), ::std::mem::transmute(nminorversion), ::std::mem::transmute(nlevel), ::std::mem::transmute(ntranslatemode), ::std::mem::transmute(nretransmitmode)))
+        ::core::mem::transmute(SnmpStartupEx(::core::mem::transmute(nmajorversion), ::core::mem::transmute(nminorversion), ::core::mem::transmute(nlevel), ::core::mem::transmute(ntranslatemode), ::core::mem::transmute(nretransmitmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1559,7 +1559,7 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
         extern "system" {
             fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize;
         }
-        ::std::mem::transmute(SnmpStrToContext(::std::mem::transmute(session), ::std::mem::transmute(string)))
+        ::core::mem::transmute(SnmpStrToContext(::core::mem::transmute(session), ::core::mem::transmute(string)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1574,7 +1574,7 @@ pub unsafe fn SnmpStrToEntity<'a, Param1: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SnmpStrToEntity(session: isize, string: super::super::Foundation::PSTR) -> isize;
         }
-        ::std::mem::transmute(SnmpStrToEntity(::std::mem::transmute(session), string.into_param().abi()))
+        ::core::mem::transmute(SnmpStrToEntity(::core::mem::transmute(session), string.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1589,7 +1589,7 @@ pub unsafe fn SnmpStrToOid<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SnmpStrToOid(string: super::super::Foundation::PSTR, dstoid: *mut smiOID) -> u32;
         }
-        ::std::mem::transmute(SnmpStrToOid(string.into_param().abi(), ::std::mem::transmute(dstoid)))
+        ::core::mem::transmute(SnmpStrToOid(string.into_param().abi(), ::core::mem::transmute(dstoid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1603,7 +1603,7 @@ pub unsafe fn SnmpSvcGetUptime() -> u32 {
         extern "system" {
             fn SnmpSvcGetUptime() -> u32;
         }
-        ::std::mem::transmute(SnmpSvcGetUptime())
+        ::core::mem::transmute(SnmpSvcGetUptime())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1617,7 +1617,7 @@ pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
         extern "system" {
             fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG);
         }
-        ::std::mem::transmute(SnmpSvcSetLogLevel(::std::mem::transmute(nloglevel)))
+        ::core::mem::transmute(SnmpSvcSetLogLevel(::core::mem::transmute(nloglevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1631,7 +1631,7 @@ pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
         extern "system" {
             fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE);
         }
-        ::std::mem::transmute(SnmpSvcSetLogType(::std::mem::transmute(nlogtype)))
+        ::core::mem::transmute(SnmpSvcSetLogType(::core::mem::transmute(nlogtype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1646,7 +1646,7 @@ pub unsafe fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i
         extern "system" {
             fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilAsnAnyCpy(::std::mem::transmute(panydst), ::std::mem::transmute(panysrc)))
+        ::core::mem::transmute(SnmpUtilAsnAnyCpy(::core::mem::transmute(panydst), ::core::mem::transmute(panysrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1661,7 +1661,7 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
         extern "system" {
             fn SnmpUtilAsnAnyFree(pany: *mut AsnAny);
         }
-        ::std::mem::transmute(SnmpUtilAsnAnyFree(::std::mem::transmute(pany)))
+        ::core::mem::transmute(SnmpUtilAsnAnyFree(::core::mem::transmute(pany)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1676,7 +1676,7 @@ pub unsafe fn SnmpUtilDbgPrint<'a, Param1: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SnmpUtilDbgPrint(nloglevel: SNMP_LOG, szformat: super::super::Foundation::PSTR);
         }
-        ::std::mem::transmute(SnmpUtilDbgPrint(::std::mem::transmute(nloglevel), szformat.into_param().abi()))
+        ::core::mem::transmute(SnmpUtilDbgPrint(::core::mem::transmute(nloglevel), szformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1691,49 +1691,49 @@ pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> super::super::Foun
         extern "system" {
             fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(SnmpUtilIdsToA(::std::mem::transmute(ids), ::std::mem::transmute(idlength)))
+        ::core::mem::transmute(SnmpUtilIdsToA(::core::mem::transmute(ids), ::core::mem::transmute(idlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 #[inline]
-pub unsafe fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::std::ffi::c_void {
+pub unsafe fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::std::ffi::c_void;
+            fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(SnmpUtilMemAlloc(::std::mem::transmute(nbytes)))
+        ::core::mem::transmute(SnmpUtilMemAlloc(::core::mem::transmute(nbytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 #[inline]
-pub unsafe fn SnmpUtilMemFree(pmem: *mut ::std::ffi::c_void) {
+pub unsafe fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpUtilMemFree(pmem: *mut ::std::ffi::c_void);
+            fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void);
         }
-        ::std::mem::transmute(SnmpUtilMemFree(::std::mem::transmute(pmem)))
+        ::core::mem::transmute(SnmpUtilMemFree(::core::mem::transmute(pmem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 #[inline]
-pub unsafe fn SnmpUtilMemReAlloc(pmem: *mut ::std::ffi::c_void, nbytes: u32) -> *mut ::std::ffi::c_void {
+pub unsafe fn SnmpUtilMemReAlloc(pmem: *mut ::core::ffi::c_void, nbytes: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SnmpUtilMemReAlloc(pmem: *mut ::std::ffi::c_void, nbytes: u32) -> *mut ::std::ffi::c_void;
+            fn SnmpUtilMemReAlloc(pmem: *mut ::core::ffi::c_void, nbytes: u32) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(SnmpUtilMemReAlloc(::std::mem::transmute(pmem), ::std::mem::transmute(nbytes)))
+        ::core::mem::transmute(SnmpUtilMemReAlloc(::core::mem::transmute(pmem), ::core::mem::transmute(nbytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1748,7 +1748,7 @@ pub unsafe fn SnmpUtilOctetsCmp(poctets1: *mut AsnOctetString, poctets2: *mut As
         extern "system" {
             fn SnmpUtilOctetsCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOctetsCmp(::std::mem::transmute(poctets1), ::std::mem::transmute(poctets2)))
+        ::core::mem::transmute(SnmpUtilOctetsCmp(::core::mem::transmute(poctets1), ::core::mem::transmute(poctets2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1763,7 +1763,7 @@ pub unsafe fn SnmpUtilOctetsCpy(poctetsdst: *mut AsnOctetString, poctetssrc: *mu
         extern "system" {
             fn SnmpUtilOctetsCpy(poctetsdst: *mut AsnOctetString, poctetssrc: *mut AsnOctetString) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOctetsCpy(::std::mem::transmute(poctetsdst), ::std::mem::transmute(poctetssrc)))
+        ::core::mem::transmute(SnmpUtilOctetsCpy(::core::mem::transmute(poctetsdst), ::core::mem::transmute(poctetssrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1778,7 +1778,7 @@ pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
         extern "system" {
             fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString);
         }
-        ::std::mem::transmute(SnmpUtilOctetsFree(::std::mem::transmute(poctets)))
+        ::core::mem::transmute(SnmpUtilOctetsFree(::core::mem::transmute(poctets)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1793,7 +1793,7 @@ pub unsafe fn SnmpUtilOctetsNCmp(poctets1: *mut AsnOctetString, poctets2: *mut A
         extern "system" {
             fn SnmpUtilOctetsNCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString, nchars: u32) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOctetsNCmp(::std::mem::transmute(poctets1), ::std::mem::transmute(poctets2), ::std::mem::transmute(nchars)))
+        ::core::mem::transmute(SnmpUtilOctetsNCmp(::core::mem::transmute(poctets1), ::core::mem::transmute(poctets2), ::core::mem::transmute(nchars)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1807,7 +1807,7 @@ pub unsafe fn SnmpUtilOidAppend(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut
         extern "system" {
             fn SnmpUtilOidAppend(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut AsnObjectIdentifier) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOidAppend(::std::mem::transmute(poiddst), ::std::mem::transmute(poidsrc)))
+        ::core::mem::transmute(SnmpUtilOidAppend(::core::mem::transmute(poiddst), ::core::mem::transmute(poidsrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1821,7 +1821,7 @@ pub unsafe fn SnmpUtilOidCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObj
         extern "system" {
             fn SnmpUtilOidCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOidCmp(::std::mem::transmute(poid1), ::std::mem::transmute(poid2)))
+        ::core::mem::transmute(SnmpUtilOidCmp(::core::mem::transmute(poid1), ::core::mem::transmute(poid2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1835,7 +1835,7 @@ pub unsafe fn SnmpUtilOidCpy(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut As
         extern "system" {
             fn SnmpUtilOidCpy(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut AsnObjectIdentifier) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOidCpy(::std::mem::transmute(poiddst), ::std::mem::transmute(poidsrc)))
+        ::core::mem::transmute(SnmpUtilOidCpy(::core::mem::transmute(poiddst), ::core::mem::transmute(poidsrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1849,7 +1849,7 @@ pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
         extern "system" {
             fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier);
         }
-        ::std::mem::transmute(SnmpUtilOidFree(::std::mem::transmute(poid)))
+        ::core::mem::transmute(SnmpUtilOidFree(::core::mem::transmute(poid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1863,7 +1863,7 @@ pub unsafe fn SnmpUtilOidNCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnOb
         extern "system" {
             fn SnmpUtilOidNCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier, nsubids: u32) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilOidNCmp(::std::mem::transmute(poid1), ::std::mem::transmute(poid2), ::std::mem::transmute(nsubids)))
+        ::core::mem::transmute(SnmpUtilOidNCmp(::core::mem::transmute(poid1), ::core::mem::transmute(poid2), ::core::mem::transmute(nsubids)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1878,7 +1878,7 @@ pub unsafe fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> super::super::Fou
         extern "system" {
             fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(SnmpUtilOidToA(::std::mem::transmute(oid)))
+        ::core::mem::transmute(SnmpUtilOidToA(::core::mem::transmute(oid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1893,7 +1893,7 @@ pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
         extern "system" {
             fn SnmpUtilPrintAsnAny(pany: *mut AsnAny);
         }
-        ::std::mem::transmute(SnmpUtilPrintAsnAny(::std::mem::transmute(pany)))
+        ::core::mem::transmute(SnmpUtilPrintAsnAny(::core::mem::transmute(pany)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1907,7 +1907,7 @@ pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
         extern "system" {
             fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier);
         }
-        ::std::mem::transmute(SnmpUtilPrintOid(::std::mem::transmute(oid)))
+        ::core::mem::transmute(SnmpUtilPrintOid(::core::mem::transmute(oid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1922,7 +1922,7 @@ pub unsafe fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarB
         extern "system" {
             fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarBind) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilVarBindCpy(::std::mem::transmute(pvbdst), ::std::mem::transmute(pvbsrc)))
+        ::core::mem::transmute(SnmpUtilVarBindCpy(::core::mem::transmute(pvbdst), ::core::mem::transmute(pvbsrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1937,7 +1937,7 @@ pub unsafe fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind) {
         extern "system" {
             fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind);
         }
-        ::std::mem::transmute(SnmpUtilVarBindFree(::std::mem::transmute(pvb)))
+        ::core::mem::transmute(SnmpUtilVarBindFree(::core::mem::transmute(pvb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1952,7 +1952,7 @@ pub unsafe fn SnmpUtilVarBindListCpy(pvbldst: *mut SnmpVarBindList, pvblsrc: *mu
         extern "system" {
             fn SnmpUtilVarBindListCpy(pvbldst: *mut SnmpVarBindList, pvblsrc: *mut SnmpVarBindList) -> i32;
         }
-        ::std::mem::transmute(SnmpUtilVarBindListCpy(::std::mem::transmute(pvbldst), ::std::mem::transmute(pvblsrc)))
+        ::core::mem::transmute(SnmpUtilVarBindListCpy(::core::mem::transmute(pvbldst), ::core::mem::transmute(pvblsrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1967,12 +1967,12 @@ pub unsafe fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList) {
         extern "system" {
             fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList);
         }
-        ::std::mem::transmute(SnmpUtilVarBindListFree(::std::mem::transmute(pvbl)))
+        ::core::mem::transmute(SnmpUtilVarBindListFree(::core::mem::transmute(pvbl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
@@ -1983,24 +1983,24 @@ pub struct SnmpVarBind {
 #[cfg(feature = "Win32_Foundation")]
 impl SnmpVarBind {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SnmpVarBind {
+impl ::core::default::Default for SnmpVarBind {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SnmpVarBind {
+impl ::core::cmp::PartialEq for SnmpVarBind {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SnmpVarBind {}
+impl ::core::cmp::Eq for SnmpVarBind {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SnmpVarBind {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
@@ -2011,24 +2011,24 @@ pub struct SnmpVarBindList {
 #[cfg(feature = "Win32_Foundation")]
 impl SnmpVarBindList {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SnmpVarBindList {
+impl ::core::default::Default for SnmpVarBindList {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SnmpVarBindList {
+impl ::core::cmp::PartialEq for SnmpVarBindList {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SnmpVarBindList {}
+impl ::core::cmp::Eq for SnmpVarBindList {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SnmpVarBindList {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub struct smiCNTR64 {
@@ -2036,26 +2036,26 @@ pub struct smiCNTR64 {
     pub lopart: u32,
 }
 impl smiCNTR64 {}
-impl ::std::default::Default for smiCNTR64 {
+impl ::core::default::Default for smiCNTR64 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for smiCNTR64 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for smiCNTR64 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
     }
 }
-impl ::std::cmp::PartialEq for smiCNTR64 {
+impl ::core::cmp::PartialEq for smiCNTR64 {
     fn eq(&self, other: &Self) -> bool {
         self.hipart == other.hipart && self.lopart == other.lopart
     }
 }
-impl ::std::cmp::Eq for smiCNTR64 {}
+impl ::core::cmp::Eq for smiCNTR64 {}
 unsafe impl ::windows::runtime::Abi for smiCNTR64 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub struct smiOCTETS {
@@ -2063,26 +2063,26 @@ pub struct smiOCTETS {
     pub ptr: *mut u8,
 }
 impl smiOCTETS {}
-impl ::std::default::Default for smiOCTETS {
+impl ::core::default::Default for smiOCTETS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for smiOCTETS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for smiOCTETS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
-impl ::std::cmp::PartialEq for smiOCTETS {
+impl ::core::cmp::PartialEq for smiOCTETS {
     fn eq(&self, other: &Self) -> bool {
         self.len == other.len && self.ptr == other.ptr
     }
 }
-impl ::std::cmp::Eq for smiOCTETS {}
+impl ::core::cmp::Eq for smiOCTETS {}
 unsafe impl ::windows::runtime::Abi for smiOCTETS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub struct smiOID {
@@ -2090,26 +2090,26 @@ pub struct smiOID {
     pub ptr: *mut u32,
 }
 impl smiOID {}
-impl ::std::default::Default for smiOID {
+impl ::core::default::Default for smiOID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for smiOID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for smiOID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
-impl ::std::cmp::PartialEq for smiOID {
+impl ::core::cmp::PartialEq for smiOID {
     fn eq(&self, other: &Self) -> bool {
         self.len == other.len && self.ptr == other.ptr
     }
 }
-impl ::std::cmp::Eq for smiOID {}
+impl ::core::cmp::Eq for smiOID {}
 unsafe impl ::windows::runtime::Abi for smiOID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub struct smiVALUE {
@@ -2117,21 +2117,21 @@ pub struct smiVALUE {
     pub value: smiVALUE_0,
 }
 impl smiVALUE {}
-impl ::std::default::Default for smiVALUE {
+impl ::core::default::Default for smiVALUE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for smiVALUE {
+impl ::core::cmp::PartialEq for smiVALUE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for smiVALUE {}
+impl ::core::cmp::Eq for smiVALUE {}
 unsafe impl ::windows::runtime::Abi for smiVALUE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub union smiVALUE_0 {
@@ -2143,21 +2143,21 @@ pub union smiVALUE_0 {
     pub empty: u8,
 }
 impl smiVALUE_0 {}
-impl ::std::default::Default for smiVALUE_0 {
+impl ::core::default::Default for smiVALUE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for smiVALUE_0 {
+impl ::core::cmp::PartialEq for smiVALUE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for smiVALUE_0 {}
+impl ::core::cmp::Eq for smiVALUE_0 {}
 unsafe impl ::windows::runtime::Abi for smiVALUE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
@@ -2171,25 +2171,25 @@ pub struct smiVENDORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl smiVENDORINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for smiVENDORINFO {
+impl ::core::default::Default for smiVENDORINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for smiVENDORINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for smiVENDORINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for smiVENDORINFO {
+impl ::core::cmp::PartialEq for smiVENDORINFO {
     fn eq(&self, other: &Self) -> bool {
         self.vendorName == other.vendorName && self.vendorContact == other.vendorContact && self.vendorVersionId == other.vendorVersionId && self.vendorVersionDate == other.vendorVersionDate && self.vendorEnterprise == other.vendorEnterprise
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for smiVENDORINFO {}
+impl ::core::cmp::Eq for smiVENDORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for smiVENDORINFO {
     type Abi = Self;

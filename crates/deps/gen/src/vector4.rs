@@ -123,121 +123,121 @@ pub fn gen_vector4() -> TokenStream {
             }
         }
 
-        impl ::std::ops::Add<Vector4> for Vector4 {
+        impl ::core::ops::Add<Vector4> for Vector4 {
             type Output = Vector4;
             fn add(self, rhs: Vector4) -> Vector4 {
                 self.impl_add(&rhs)
             }
         }
-        impl ::std::ops::Add<&Vector4> for Vector4 {
+        impl ::core::ops::Add<&Vector4> for Vector4 {
             type Output = Vector4;
             fn add(self, rhs: &Vector4) -> Vector4 {
                 self.impl_add(rhs)
             }
         }
-        impl ::std::ops::Add<Vector4> for &Vector4 {
+        impl ::core::ops::Add<Vector4> for &Vector4 {
             type Output = Vector4;
             fn add(self, rhs: Vector4) -> Vector4 {
                 self.impl_add(&rhs)
             }
         }
-        impl ::std::ops::Add<&Vector4> for &Vector4 {
+        impl ::core::ops::Add<&Vector4> for &Vector4 {
             type Output = Vector4;
             fn add(self, rhs: &Vector4) -> Vector4 {
                 self.impl_add(rhs)
             }
         }
-        impl ::std::ops::Sub<Vector4> for Vector4 {
+        impl ::core::ops::Sub<Vector4> for Vector4 {
             type Output = Vector4;
             fn sub(self, rhs: Vector4) -> Vector4 {
                 self.impl_sub(&rhs)
             }
         }
-        impl ::std::ops::Sub<&Vector4> for Vector4 {
+        impl ::core::ops::Sub<&Vector4> for Vector4 {
             type Output = Vector4;
             fn sub(self, rhs: &Vector4) -> Vector4 {
                 self.impl_sub(rhs)
             }
         }
-        impl ::std::ops::Sub<Vector4> for &Vector4 {
+        impl ::core::ops::Sub<Vector4> for &Vector4 {
             type Output = Vector4;
             fn sub(self, rhs: Vector4) -> Vector4 {
                 self.impl_sub(&rhs)
             }
         }
-        impl ::std::ops::Sub<&Vector4> for &Vector4 {
+        impl ::core::ops::Sub<&Vector4> for &Vector4 {
             type Output = Vector4;
             fn sub(self, rhs: &Vector4) -> Vector4 {
                 self.impl_sub(rhs)
             }
         }
-        impl ::std::ops::Div<Vector4> for Vector4 {
+        impl ::core::ops::Div<Vector4> for Vector4 {
             type Output = Vector4;
             fn div(self, rhs: Vector4) -> Vector4 {
                 self.impl_div(&rhs)
             }
         }
-        impl ::std::ops::Div<&Vector4> for Vector4 {
+        impl ::core::ops::Div<&Vector4> for Vector4 {
             type Output = Vector4;
             fn div(self, rhs: &Vector4) -> Vector4 {
                 self.impl_div(rhs)
             }
         }
-        impl ::std::ops::Div<Vector4> for &Vector4 {
+        impl ::core::ops::Div<Vector4> for &Vector4 {
             type Output = Vector4;
             fn div(self, rhs: Vector4) -> Vector4 {
                 self.impl_div(&rhs)
             }
         }
-        impl ::std::ops::Div<&Vector4> for &Vector4 {
+        impl ::core::ops::Div<&Vector4> for &Vector4 {
             type Output = Vector4;
             fn div(self, rhs: &Vector4) -> Vector4 {
                 self.impl_div(rhs)
             }
         }
-        impl ::std::ops::Div<f32> for Vector4 {
+        impl ::core::ops::Div<f32> for Vector4 {
             type Output = Vector4;
             fn div(self, rhs: f32) -> Vector4 {
                 self.impl_div_f32(rhs)
             }
         }
-        impl ::std::ops::Div<f32> for &Vector4 {
+        impl ::core::ops::Div<f32> for &Vector4 {
             type Output = Vector4;
             fn div(self, rhs: f32) -> Vector4 {
                 self.impl_div_f32(rhs)
             }
         }
-        impl ::std::ops::Mul<Vector4> for Vector4 {
+        impl ::core::ops::Mul<Vector4> for Vector4 {
             type Output = Vector4;
             fn mul(self, rhs: Vector4) -> Vector4 {
                 self.impl_mul(&rhs)
             }
         }
-        impl ::std::ops::Mul<&Vector4> for Vector4 {
+        impl ::core::ops::Mul<&Vector4> for Vector4 {
             type Output = Vector4;
             fn mul(self, rhs: &Vector4) -> Vector4 {
                 self.impl_mul(rhs)
             }
         }
-        impl ::std::ops::Mul<Vector4> for &Vector4 {
+        impl ::core::ops::Mul<Vector4> for &Vector4 {
             type Output = Vector4;
             fn mul(self, rhs: Vector4) -> Vector4 {
                 self.impl_mul(&rhs)
             }
         }
-        impl ::std::ops::Mul<&Vector4> for &Vector4 {
+        impl ::core::ops::Mul<&Vector4> for &Vector4 {
             type Output = Vector4;
             fn mul(self, rhs: &Vector4) -> Vector4 {
                 self.impl_mul(rhs)
             }
         }
-        impl ::std::ops::Mul<f32> for Vector4 {
+        impl ::core::ops::Mul<f32> for Vector4 {
             type Output = Vector4;
             fn mul(self, rhs: f32) -> Vector4 {
                 self.impl_mul_f32(rhs)
             }
         }
-        impl ::std::ops::Mul<f32> for &Vector4 {
+        impl ::core::ops::Mul<f32> for &Vector4 {
             type Output = Vector4;
             fn mul(self, rhs: f32) -> Vector4 {
                 self.impl_mul_f32(rhs)

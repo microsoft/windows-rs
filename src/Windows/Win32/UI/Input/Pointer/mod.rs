@@ -9,7 +9,7 @@ pub unsafe fn EnableMouseInPointer<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn EnableMouseInPointer(fenable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnableMouseInPointer(fenable.into_param().abi()))
+        ::core::mem::transmute(EnableMouseInPointer(fenable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,7 +24,7 @@ pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::s
         extern "system" {
             fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerCursorId(::std::mem::transmute(pointerid), ::std::mem::transmute(cursorid)))
+        ::core::mem::transmute(GetPointerCursorId(::core::mem::transmute(pointerid), ::core::mem::transmute(cursorid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -39,7 +39,7 @@ pub unsafe fn GetPointerDevice<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetPointerDevice(device: super::super::super::Foundation::HANDLE, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerDevice(device.into_param().abi(), ::std::mem::transmute(pointerdevice)))
+        ::core::mem::transmute(GetPointerDevice(device.into_param().abi(), ::core::mem::transmute(pointerdevice)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -54,7 +54,7 @@ pub unsafe fn GetPointerDeviceCursors<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn GetPointerDeviceCursors(device: super::super::super::Foundation::HANDLE, cursorcount: *mut u32, devicecursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerDeviceCursors(device.into_param().abi(), ::std::mem::transmute(cursorcount), ::std::mem::transmute(devicecursors)))
+        ::core::mem::transmute(GetPointerDeviceCursors(device.into_param().abi(), ::core::mem::transmute(cursorcount), ::core::mem::transmute(devicecursors)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -69,7 +69,7 @@ pub unsafe fn GetPointerDeviceProperties<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetPointerDeviceProperties(device: super::super::super::Foundation::HANDLE, propertycount: *mut u32, pointerproperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerDeviceProperties(device.into_param().abi(), ::std::mem::transmute(propertycount), ::std::mem::transmute(pointerproperties)))
+        ::core::mem::transmute(GetPointerDeviceProperties(device.into_param().abi(), ::core::mem::transmute(propertycount), ::core::mem::transmute(pointerproperties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -84,7 +84,7 @@ pub unsafe fn GetPointerDeviceRects<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetPointerDeviceRects(device: super::super::super::Foundation::HANDLE, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerDeviceRects(device.into_param().abi(), ::std::mem::transmute(pointerdevicerect), ::std::mem::transmute(displayrect)))
+        ::core::mem::transmute(GetPointerDeviceRects(device.into_param().abi(), ::core::mem::transmute(pointerdevicerect), ::core::mem::transmute(displayrect)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -99,7 +99,7 @@ pub unsafe fn GetPointerDevices(devicecount: *mut u32, pointerdevices: *mut supe
         extern "system" {
             fn GetPointerDevices(devicecount: *mut u32, pointerdevices: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerDevices(::std::mem::transmute(devicecount), ::std::mem::transmute(pointerdevices)))
+        ::core::mem::transmute(GetPointerDevices(::core::mem::transmute(devicecount), ::core::mem::transmute(pointerdevices)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -114,7 +114,7 @@ pub unsafe fn GetPointerFrameInfo(pointerid: u32, pointercount: *mut u32, pointe
         extern "system" {
             fn GetPointerFrameInfo(pointerid: u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerFrameInfo(::std::mem::transmute(pointerid), ::std::mem::transmute(pointercount), ::std::mem::transmute(pointerinfo)))
+        ::core::mem::transmute(GetPointerFrameInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -129,7 +129,7 @@ pub unsafe fn GetPointerFrameInfoHistory(pointerid: u32, entriescount: *mut u32,
         extern "system" {
             fn GetPointerFrameInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerFrameInfoHistory(::std::mem::transmute(pointerid), ::std::mem::transmute(entriescount), ::std::mem::transmute(pointercount), ::std::mem::transmute(pointerinfo)))
+        ::core::mem::transmute(GetPointerFrameInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -144,7 +144,7 @@ pub unsafe fn GetPointerFramePenInfo(pointerid: u32, pointercount: *mut u32, pen
         extern "system" {
             fn GetPointerFramePenInfo(pointerid: u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerFramePenInfo(::std::mem::transmute(pointerid), ::std::mem::transmute(pointercount), ::std::mem::transmute(peninfo)))
+        ::core::mem::transmute(GetPointerFramePenInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(peninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -159,7 +159,7 @@ pub unsafe fn GetPointerFramePenInfoHistory(pointerid: u32, entriescount: *mut u
         extern "system" {
             fn GetPointerFramePenInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerFramePenInfoHistory(::std::mem::transmute(pointerid), ::std::mem::transmute(entriescount), ::std::mem::transmute(pointercount), ::std::mem::transmute(peninfo)))
+        ::core::mem::transmute(GetPointerFramePenInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(peninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -174,7 +174,7 @@ pub unsafe fn GetPointerFrameTouchInfo(pointerid: u32, pointercount: *mut u32, t
         extern "system" {
             fn GetPointerFrameTouchInfo(pointerid: u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerFrameTouchInfo(::std::mem::transmute(pointerid), ::std::mem::transmute(pointercount), ::std::mem::transmute(touchinfo)))
+        ::core::mem::transmute(GetPointerFrameTouchInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(touchinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -189,7 +189,7 @@ pub unsafe fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut
         extern "system" {
             fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerFrameTouchInfoHistory(::std::mem::transmute(pointerid), ::std::mem::transmute(entriescount), ::std::mem::transmute(pointercount), ::std::mem::transmute(touchinfo)))
+        ::core::mem::transmute(GetPointerFrameTouchInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(touchinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -204,7 +204,7 @@ pub unsafe fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> 
         extern "system" {
             fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerInfo(::std::mem::transmute(pointerid), ::std::mem::transmute(pointerinfo)))
+        ::core::mem::transmute(GetPointerInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -219,7 +219,7 @@ pub unsafe fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, poin
         extern "system" {
             fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerInfoHistory(::std::mem::transmute(pointerid), ::std::mem::transmute(entriescount), ::std::mem::transmute(pointerinfo)))
+        ::core::mem::transmute(GetPointerInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -234,7 +234,7 @@ pub unsafe fn GetPointerInputTransform(pointerid: u32, historycount: u32, inputt
         extern "system" {
             fn GetPointerInputTransform(pointerid: u32, historycount: u32, inputtransform: *mut INPUT_TRANSFORM) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerInputTransform(::std::mem::transmute(pointerid), ::std::mem::transmute(historycount), ::std::mem::transmute(inputtransform)))
+        ::core::mem::transmute(GetPointerInputTransform(::core::mem::transmute(pointerid), ::core::mem::transmute(historycount), ::core::mem::transmute(inputtransform)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -249,7 +249,7 @@ pub unsafe fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) 
         extern "system" {
             fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerPenInfo(::std::mem::transmute(pointerid), ::std::mem::transmute(peninfo)))
+        ::core::mem::transmute(GetPointerPenInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(peninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -264,7 +264,7 @@ pub unsafe fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, p
         extern "system" {
             fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerPenInfoHistory(::std::mem::transmute(pointerid), ::std::mem::transmute(entriescount), ::std::mem::transmute(peninfo)))
+        ::core::mem::transmute(GetPointerPenInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(peninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -279,7 +279,7 @@ pub unsafe fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_
         extern "system" {
             fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerTouchInfo(::std::mem::transmute(pointerid), ::std::mem::transmute(touchinfo)))
+        ::core::mem::transmute(GetPointerTouchInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(touchinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -294,7 +294,7 @@ pub unsafe fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32,
         extern "system" {
             fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerTouchInfoHistory(::std::mem::transmute(pointerid), ::std::mem::transmute(entriescount), ::std::mem::transmute(touchinfo)))
+        ::core::mem::transmute(GetPointerTouchInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(touchinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -309,7 +309,7 @@ pub unsafe fn GetPointerType(pointerid: u32, pointertype: *mut super::super::Win
         extern "system" {
             fn GetPointerType(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPointerType(::std::mem::transmute(pointerid), ::std::mem::transmute(pointertype)))
+        ::core::mem::transmute(GetPointerType(::core::mem::transmute(pointerid), ::core::mem::transmute(pointertype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -324,7 +324,7 @@ pub unsafe fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, propert
         extern "system" {
             fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, propertiescount: u32, pproperties: *const super::super::Controls::POINTER_DEVICE_PROPERTY, pvalues: *mut i32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetRawPointerDeviceData(::std::mem::transmute(pointerid), ::std::mem::transmute(historycount), ::std::mem::transmute(propertiescount), ::std::mem::transmute(pproperties), ::std::mem::transmute(pvalues)))
+        ::core::mem::transmute(GetRawPointerDeviceData(::core::mem::transmute(pointerid), ::core::mem::transmute(historycount), ::core::mem::transmute(propertiescount), ::core::mem::transmute(pproperties), ::core::mem::transmute(pvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -338,12 +338,12 @@ pub unsafe fn GetUnpredictedMessagePos() -> u32 {
         extern "system" {
             fn GetUnpredictedMessagePos() -> u32;
         }
-        ::std::mem::transmute(GetUnpredictedMessagePos())
+        ::core::mem::transmute(GetUnpredictedMessagePos())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
 pub struct INPUT_INJECTION_VALUE {
@@ -353,47 +353,47 @@ pub struct INPUT_INJECTION_VALUE {
     pub index: u16,
 }
 impl INPUT_INJECTION_VALUE {}
-impl ::std::default::Default for INPUT_INJECTION_VALUE {
+impl ::core::default::Default for INPUT_INJECTION_VALUE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for INPUT_INJECTION_VALUE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
     }
 }
-impl ::std::cmp::PartialEq for INPUT_INJECTION_VALUE {
+impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
     fn eq(&self, other: &Self) -> bool {
         self.page == other.page && self.usage == other.usage && self.value == other.value && self.index == other.index
     }
 }
-impl ::std::cmp::Eq for INPUT_INJECTION_VALUE {}
+impl ::core::cmp::Eq for INPUT_INJECTION_VALUE {}
 unsafe impl ::windows::runtime::Abi for INPUT_INJECTION_VALUE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
 pub struct INPUT_TRANSFORM {
     pub Anonymous: INPUT_TRANSFORM_0,
 }
 impl INPUT_TRANSFORM {}
-impl ::std::default::Default for INPUT_TRANSFORM {
+impl ::core::default::Default for INPUT_TRANSFORM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for INPUT_TRANSFORM {
+impl ::core::cmp::PartialEq for INPUT_TRANSFORM {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for INPUT_TRANSFORM {}
+impl ::core::cmp::Eq for INPUT_TRANSFORM {}
 unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
 pub union INPUT_TRANSFORM_0 {
@@ -401,21 +401,21 @@ pub union INPUT_TRANSFORM_0 {
     pub m: [f32; 16],
 }
 impl INPUT_TRANSFORM_0 {}
-impl ::std::default::Default for INPUT_TRANSFORM_0 {
+impl ::core::default::Default for INPUT_TRANSFORM_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for INPUT_TRANSFORM_0 {
+impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for INPUT_TRANSFORM_0 {}
+impl ::core::cmp::Eq for INPUT_TRANSFORM_0 {}
 unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
 pub struct INPUT_TRANSFORM_0_0 {
@@ -437,13 +437,13 @@ pub struct INPUT_TRANSFORM_0_0 {
     pub _44: f32,
 }
 impl INPUT_TRANSFORM_0_0 {}
-impl ::std::default::Default for INPUT_TRANSFORM_0_0 {
+impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for INPUT_TRANSFORM_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
             .field("_11", &self._11)
             .field("_12", &self._12)
@@ -464,12 +464,12 @@ impl ::std::fmt::Debug for INPUT_TRANSFORM_0_0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
+impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
     }
 }
-impl ::std::cmp::Eq for INPUT_TRANSFORM_0_0 {}
+impl ::core::cmp::Eq for INPUT_TRANSFORM_0_0 {}
 unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0_0 {
     type Abi = Self;
 }
@@ -483,7 +483,7 @@ pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MOD
         extern "system" {
             fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitializeTouchInjection(::std::mem::transmute(maxcount), ::std::mem::transmute(dwmode)))
+        ::core::mem::transmute(InitializeTouchInjection(::core::mem::transmute(maxcount), ::core::mem::transmute(dwmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -498,7 +498,7 @@ pub unsafe fn InjectSyntheticPointerInput<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn InjectSyntheticPointerInput(device: super::super::Controls::HSYNTHETICPOINTERDEVICE, pointerinfo: *const super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InjectSyntheticPointerInput(device.into_param().abi(), ::std::mem::transmute(pointerinfo), ::std::mem::transmute(count)))
+        ::core::mem::transmute(InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo), ::core::mem::transmute(count)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -513,7 +513,7 @@ pub unsafe fn InjectTouchInput(count: u32, contacts: *const POINTER_TOUCH_INFO) 
         extern "system" {
             fn InjectTouchInput(count: u32, contacts: *const POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InjectTouchInput(::std::mem::transmute(count), ::std::mem::transmute(contacts)))
+        ::core::mem::transmute(InjectTouchInput(::core::mem::transmute(count), ::core::mem::transmute(contacts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -528,13 +528,13 @@ pub unsafe fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL
         extern "system" {
             fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsMouseInPointerEnabled())
+        ::core::mem::transmute(IsMouseInPointerEnabled())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POINTER_BUTTON_CHANGE_TYPE(pub i32);
 pub const POINTER_CHANGE_NONE: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(0i32);
@@ -548,7 +548,7 @@ pub const POINTER_CHANGE_FOURTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER
 pub const POINTER_CHANGE_FOURTHBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(8i32);
 pub const POINTER_CHANGE_FIFTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(9i32);
 pub const POINTER_CHANGE_FIFTHBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(10i32);
-impl ::std::convert::From<i32> for POINTER_BUTTON_CHANGE_TYPE {
+impl ::core::convert::From<i32> for POINTER_BUTTON_CHANGE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -557,7 +557,7 @@ unsafe impl ::windows::runtime::Abi for POINTER_BUTTON_CHANGE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POINTER_FLAGS(pub u32);
 pub const POINTER_FLAG_NONE: POINTER_FLAGS = POINTER_FLAGS(0u32);
@@ -579,7 +579,7 @@ pub const POINTER_FLAG_WHEEL: POINTER_FLAGS = POINTER_FLAGS(524288u32);
 pub const POINTER_FLAG_HWHEEL: POINTER_FLAGS = POINTER_FLAGS(1048576u32);
 pub const POINTER_FLAG_CAPTURECHANGED: POINTER_FLAGS = POINTER_FLAGS(2097152u32);
 pub const POINTER_FLAG_HASTRANSFORM: POINTER_FLAGS = POINTER_FLAGS(4194304u32);
-impl ::std::convert::From<u32> for POINTER_FLAGS {
+impl ::core::convert::From<u32> for POINTER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -587,35 +587,35 @@ impl ::std::convert::From<u32> for POINTER_FLAGS {
 unsafe impl ::windows::runtime::Abi for POINTER_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for POINTER_FLAGS {
+impl ::core::ops::BitOr for POINTER_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for POINTER_FLAGS {
+impl ::core::ops::BitAnd for POINTER_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for POINTER_FLAGS {
+impl ::core::ops::BitOrAssign for POINTER_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for POINTER_FLAGS {
+impl ::core::ops::BitAndAssign for POINTER_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for POINTER_FLAGS {
+impl ::core::ops::Not for POINTER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -640,14 +640,14 @@ pub struct POINTER_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl POINTER_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for POINTER_INFO {
+impl ::core::default::Default for POINTER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for POINTER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POINTER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POINTER_INFO")
             .field("pointerType", &self.pointerType)
             .field("pointerId", &self.pointerId)
@@ -669,7 +669,7 @@ impl ::std::fmt::Debug for POINTER_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for POINTER_INFO {
+impl ::core::cmp::PartialEq for POINTER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pointerType == other.pointerType
             && self.pointerId == other.pointerId
@@ -690,12 +690,12 @@ impl ::std::cmp::PartialEq for POINTER_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for POINTER_INFO {}
+impl ::core::cmp::Eq for POINTER_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for POINTER_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -711,30 +711,30 @@ pub struct POINTER_PEN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl POINTER_PEN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for POINTER_PEN_INFO {
+impl ::core::default::Default for POINTER_PEN_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for POINTER_PEN_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POINTER_PEN_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POINTER_PEN_INFO").field("pointerInfo", &self.pointerInfo).field("penFlags", &self.penFlags).field("penMask", &self.penMask).field("pressure", &self.pressure).field("rotation", &self.rotation).field("tiltX", &self.tiltX).field("tiltY", &self.tiltY).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for POINTER_PEN_INFO {
+impl ::core::cmp::PartialEq for POINTER_PEN_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pointerInfo == other.pointerInfo && self.penFlags == other.penFlags && self.penMask == other.penMask && self.pressure == other.pressure && self.rotation == other.rotation && self.tiltX == other.tiltX && self.tiltY == other.tiltY
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for POINTER_PEN_INFO {}
+impl ::core::cmp::Eq for POINTER_PEN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for POINTER_PEN_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -750,14 +750,14 @@ pub struct POINTER_TOUCH_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl POINTER_TOUCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for POINTER_TOUCH_INFO {
+impl ::core::default::Default for POINTER_TOUCH_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::fmt::Debug for POINTER_TOUCH_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POINTER_TOUCH_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POINTER_TOUCH_INFO")
             .field("pointerInfo", &self.pointerInfo)
             .field("touchFlags", &self.touchFlags)
@@ -770,13 +770,13 @@ impl ::std::fmt::Debug for POINTER_TOUCH_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for POINTER_TOUCH_INFO {
+impl ::core::cmp::PartialEq for POINTER_TOUCH_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pointerInfo == other.pointerInfo && self.touchFlags == other.touchFlags && self.touchMask == other.touchMask && self.rcContact == other.rcContact && self.rcContactRaw == other.rcContactRaw && self.orientation == other.orientation && self.pressure == other.pressure
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for POINTER_TOUCH_INFO {}
+impl ::core::cmp::Eq for POINTER_TOUCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for POINTER_TOUCH_INFO {
     type Abi = Self;
@@ -791,19 +791,19 @@ pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::F
         extern "system" {
             fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SkipPointerFrameMessages(::std::mem::transmute(pointerid)))
+        ::core::mem::transmute(SkipPointerFrameMessages(::core::mem::transmute(pointerid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOUCH_FEEDBACK_MODE(pub u32);
 pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32);
 pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(2u32);
 pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
-impl ::std::convert::From<u32> for TOUCH_FEEDBACK_MODE {
+impl ::core::convert::From<u32> for TOUCH_FEEDBACK_MODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -811,29 +811,29 @@ impl ::std::convert::From<u32> for TOUCH_FEEDBACK_MODE {
 unsafe impl ::windows::runtime::Abi for TOUCH_FEEDBACK_MODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TOUCH_FEEDBACK_MODE {
+impl ::core::ops::BitOr for TOUCH_FEEDBACK_MODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TOUCH_FEEDBACK_MODE {
+impl ::core::ops::BitAnd for TOUCH_FEEDBACK_MODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TOUCH_FEEDBACK_MODE {
+impl ::core::ops::BitOrAssign for TOUCH_FEEDBACK_MODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TOUCH_FEEDBACK_MODE {
+impl ::core::ops::BitAndAssign for TOUCH_FEEDBACK_MODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TOUCH_FEEDBACK_MODE {
+impl ::core::ops::Not for TOUCH_FEEDBACK_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

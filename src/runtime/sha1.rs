@@ -323,8 +323,8 @@ impl Digest {
     }
 }
 
-impl std::fmt::Display for Digest {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl core::fmt::Display for Digest {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         for i in self.data.iter() {
             write!(f, "{:08x}", i)?;
         }

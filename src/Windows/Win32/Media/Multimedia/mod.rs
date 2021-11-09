@@ -43,7 +43,7 @@ pub const ACMDM_STREAM_UNPREPARE: u32 = 24658u32;
 pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMDM_USER: u32 = 16384u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -68,24 +68,24 @@ pub struct ACMDRIVERDETAILSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ACMDRIVERDETAILSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::default::Default for ACMDRIVERDETAILSA {
+impl ::core::default::Default for ACMDRIVERDETAILSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::PartialEq for ACMDRIVERDETAILSA {
+impl ::core::cmp::PartialEq for ACMDRIVERDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::std::cmp::Eq for ACMDRIVERDETAILSA {}
+impl ::core::cmp::Eq for ACMDRIVERDETAILSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_UI_WindowsAndMessaging`*"]
@@ -110,19 +110,19 @@ pub struct ACMDRIVERDETAILSW {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ACMDRIVERDETAILSW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::std::default::Default for ACMDRIVERDETAILSW {
+impl ::core::default::Default for ACMDRIVERDETAILSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::std::cmp::PartialEq for ACMDRIVERDETAILSW {
+impl ::core::cmp::PartialEq for ACMDRIVERDETAILSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::std::cmp::Eq for ACMDRIVERDETAILSW {}
+impl ::core::cmp::Eq for ACMDRIVERDETAILSW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSW {
     type Abi = Self;
@@ -165,7 +165,7 @@ pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMERR_UNPREPARED: u32 = 514u32;
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::clone::Clone for ACMFILTERCHOOSEA {
+impl ::core::clone::Clone for ACMFILTERCHOOSEA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -189,27 +189,27 @@ pub struct ACMFILTERCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::std::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
+    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFILTERCHOOSEA {
+impl ::core::default::Default for ACMFILTERCHOOSEA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFILTERCHOOSEA {
+impl ::core::cmp::PartialEq for ACMFILTERCHOOSEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFILTERCHOOSEA {}
+impl ::core::cmp::Eq for ACMFILTERCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEA {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -218,7 +218,7 @@ pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::clone::Clone for ACMFILTERCHOOSEW {
+impl ::core::clone::Clone for ACMFILTERCHOOSEW {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -242,27 +242,27 @@ pub struct ACMFILTERCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::std::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
+    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFILTERCHOOSEW {
+impl ::core::default::Default for ACMFILTERCHOOSEW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFILTERCHOOSEW {
+impl ::core::cmp::PartialEq for ACMFILTERCHOOSEW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFILTERCHOOSEW {}
+impl ::core::cmp::Eq for ACMFILTERCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEW {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
@@ -276,7 +276,7 @@ pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -292,24 +292,24 @@ pub struct ACMFILTERDETAILSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFILTERDETAILSA {
+impl ::core::default::Default for ACMFILTERDETAILSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFILTERDETAILSA {
+impl ::core::cmp::PartialEq for ACMFILTERDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFILTERDETAILSA {}
+impl ::core::cmp::Eq for ACMFILTERDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ACMFILTERDETAILSW {
@@ -322,17 +322,17 @@ pub struct ACMFILTERDETAILSW {
     pub szFilter: [u16; 128],
 }
 impl ACMFILTERDETAILSW {}
-impl ::std::default::Default for ACMFILTERDETAILSW {
+impl ::core::default::Default for ACMFILTERDETAILSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ACMFILTERDETAILSW {
+impl ::core::cmp::PartialEq for ACMFILTERDETAILSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ACMFILTERDETAILSW {}
+impl ::core::cmp::Eq for ACMFILTERDETAILSW {}
 unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSW {
     type Abi = Self;
 }
@@ -344,7 +344,7 @@ pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd:
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -360,24 +360,24 @@ pub struct ACMFILTERTAGDETAILSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERTAGDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFILTERTAGDETAILSA {
+impl ::core::default::Default for ACMFILTERTAGDETAILSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFILTERTAGDETAILSA {
+impl ::core::cmp::PartialEq for ACMFILTERTAGDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFILTERTAGDETAILSA {}
+impl ::core::cmp::Eq for ACMFILTERTAGDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ACMFILTERTAGDETAILSW {
@@ -390,17 +390,17 @@ pub struct ACMFILTERTAGDETAILSW {
     pub szFilterTag: [u16; 48],
 }
 impl ACMFILTERTAGDETAILSW {}
-impl ::std::default::Default for ACMFILTERTAGDETAILSW {
+impl ::core::default::Default for ACMFILTERTAGDETAILSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ACMFILTERTAGDETAILSW {
+impl ::core::cmp::PartialEq for ACMFILTERTAGDETAILSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ACMFILTERTAGDETAILSW {}
+impl ::core::cmp::Eq for ACMFILTERTAGDETAILSW {}
 unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSW {
     type Abi = Self;
 }
@@ -413,7 +413,7 @@ pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pa
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::clone::Clone for ACMFORMATCHOOSEA {
+impl ::core::clone::Clone for ACMFORMATCHOOSEA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -437,27 +437,27 @@ pub struct ACMFORMATCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::std::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
+    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFORMATCHOOSEA {
+impl ::core::default::Default for ACMFORMATCHOOSEA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFORMATCHOOSEA {
+impl ::core::cmp::PartialEq for ACMFORMATCHOOSEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFORMATCHOOSEA {}
+impl ::core::cmp::Eq for ACMFORMATCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEA {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -466,7 +466,7 @@ pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::clone::Clone for ACMFORMATCHOOSEW {
+impl ::core::clone::Clone for ACMFORMATCHOOSEW {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -490,27 +490,27 @@ pub struct ACMFORMATCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::std::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
+    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFORMATCHOOSEW {
+impl ::core::default::Default for ACMFORMATCHOOSEW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFORMATCHOOSEW {
+impl ::core::cmp::PartialEq for ACMFORMATCHOOSEW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFORMATCHOOSEW {}
+impl ::core::cmp::Eq for ACMFORMATCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEW {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
@@ -524,7 +524,7 @@ pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -540,19 +540,19 @@ pub struct ACMFORMATDETAILSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFORMATDETAILSA {
+impl ::core::default::Default for ACMFORMATDETAILSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFORMATDETAILSA {
+impl ::core::cmp::PartialEq for ACMFORMATDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFORMATDETAILSA {}
+impl ::core::cmp::Eq for ACMFORMATDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATDETAILSA {
     type Abi = Self;
@@ -565,7 +565,7 @@ pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd:
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -581,24 +581,24 @@ pub struct ACMFORMATTAGDETAILSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATTAGDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACMFORMATTAGDETAILSA {
+impl ::core::default::Default for ACMFORMATTAGDETAILSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACMFORMATTAGDETAILSA {
+impl ::core::cmp::PartialEq for ACMFORMATTAGDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACMFORMATTAGDETAILSA {}
+impl ::core::cmp::Eq for ACMFORMATTAGDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ACMFORMATTAGDETAILSW {
@@ -611,17 +611,17 @@ pub struct ACMFORMATTAGDETAILSW {
     pub szFormatTag: [u16; 48],
 }
 impl ACMFORMATTAGDETAILSW {}
-impl ::std::default::Default for ACMFORMATTAGDETAILSW {
+impl ::core::default::Default for ACMFORMATTAGDETAILSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ACMFORMATTAGDETAILSW {
+impl ::core::cmp::PartialEq for ACMFORMATTAGDETAILSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ACMFORMATTAGDETAILSW {}
+impl ::core::cmp::Eq for ACMFORMATTAGDETAILSW {}
 unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSW {
     type Abi = Self;
 }
@@ -633,7 +633,7 @@ pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pa
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -654,24 +654,24 @@ pub struct ACMSTREAMHEADER {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ACMSTREAMHEADER {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for ACMSTREAMHEADER {
+impl ::core::default::Default for ACMSTREAMHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for ACMSTREAMHEADER {
+impl ::core::cmp::PartialEq for ACMSTREAMHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for ACMSTREAMHEADER {}
+impl ::core::cmp::Eq for ACMSTREAMHEADER {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -692,19 +692,19 @@ pub struct ACMSTREAMHEADER {
 #[cfg(any(target_arch = "x86",))]
 impl ACMSTREAMHEADER {}
 #[cfg(any(target_arch = "x86",))]
-impl ::std::default::Default for ACMSTREAMHEADER {
+impl ::core::default::Default for ACMSTREAMHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::PartialEq for ACMSTREAMHEADER {
+impl ::core::cmp::PartialEq for ACMSTREAMHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::Eq for ACMSTREAMHEADER {}
+impl ::core::cmp::Eq for ACMSTREAMHEADER {}
 #[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
     type Abi = Self;
@@ -877,7 +877,7 @@ pub const ACM_STREAMSIZEF_DESTINATION: i32 = 1i32;
 pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ADPCMCOEFSET {
@@ -885,21 +885,21 @@ pub struct ADPCMCOEFSET {
     pub iCoef2: i16,
 }
 impl ADPCMCOEFSET {}
-impl ::std::default::Default for ADPCMCOEFSET {
+impl ::core::default::Default for ADPCMCOEFSET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ADPCMCOEFSET {
+impl ::core::cmp::PartialEq for ADPCMCOEFSET {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ADPCMCOEFSET {}
+impl ::core::cmp::Eq for ADPCMCOEFSET {}
 unsafe impl ::windows::runtime::Abi for ADPCMCOEFSET {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ADPCMEWAVEFORMAT {
@@ -907,21 +907,21 @@ pub struct ADPCMEWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl ADPCMEWAVEFORMAT {}
-impl ::std::default::Default for ADPCMEWAVEFORMAT {
+impl ::core::default::Default for ADPCMEWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ADPCMEWAVEFORMAT {
+impl ::core::cmp::PartialEq for ADPCMEWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ADPCMEWAVEFORMAT {}
+impl ::core::cmp::Eq for ADPCMEWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for ADPCMEWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ADPCMWAVEFORMAT {
@@ -931,84 +931,84 @@ pub struct ADPCMWAVEFORMAT {
     pub aCoef: [ADPCMCOEFSET; 1],
 }
 impl ADPCMWAVEFORMAT {}
-impl ::std::default::Default for ADPCMWAVEFORMAT {
+impl ::core::default::Default for ADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct APTXWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl APTXWAVEFORMAT {}
-impl ::std::default::Default for APTXWAVEFORMAT {
+impl ::core::default::Default for APTXWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for APTXWAVEFORMAT {
+impl ::core::cmp::PartialEq for APTXWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for APTXWAVEFORMAT {}
+impl ::core::cmp::Eq for APTXWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for APTXWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl AUDIOFILE_AF10WAVEFORMAT {}
-impl ::std::default::Default for AUDIOFILE_AF10WAVEFORMAT {
+impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
+impl ::core::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
+impl ::core::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF10WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl AUDIOFILE_AF36WAVEFORMAT {}
-impl ::std::default::Default for AUDIOFILE_AF36WAVEFORMAT {
+impl ::core::default::Default for AUDIOFILE_AF36WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
+impl ::core::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
+impl ::core::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF36WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -1027,24 +1027,24 @@ pub struct AUXCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl AUXCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AUXCAPS2A {
+impl ::core::default::Default for AUXCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AUXCAPS2A {
+impl ::core::cmp::PartialEq for AUXCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AUXCAPS2A {}
+impl ::core::cmp::Eq for AUXCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUXCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct AUXCAPS2W {
@@ -1060,21 +1060,21 @@ pub struct AUXCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl AUXCAPS2W {}
-impl ::std::default::Default for AUXCAPS2W {
+impl ::core::default::Default for AUXCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for AUXCAPS2W {
+impl ::core::cmp::PartialEq for AUXCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for AUXCAPS2W {}
+impl ::core::cmp::Eq for AUXCAPS2W {}
 unsafe impl ::windows::runtime::Abi for AUXCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -1090,24 +1090,24 @@ pub struct AUXCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl AUXCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AUXCAPSA {
+impl ::core::default::Default for AUXCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AUXCAPSA {
+impl ::core::cmp::PartialEq for AUXCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AUXCAPSA {}
+impl ::core::cmp::Eq for AUXCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUXCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct AUXCAPSW {
@@ -1120,17 +1120,17 @@ pub struct AUXCAPSW {
     pub dwSupport: u32,
 }
 impl AUXCAPSW {}
-impl ::std::default::Default for AUXCAPSW {
+impl ::core::default::Default for AUXCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for AUXCAPSW {
+impl ::core::cmp::PartialEq for AUXCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for AUXCAPSW {}
+impl ::core::cmp::Eq for AUXCAPSW {}
 unsafe impl ::windows::runtime::Abi for AUXCAPSW {
     type Abi = Self;
 }
@@ -1164,7 +1164,7 @@ pub unsafe fn AVIBuildFilterA<'a, Param2: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn AVIBuildFilterA(lpszfilter: super::super::Foundation::PSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        AVIBuildFilterA(::std::mem::transmute(lpszfilter), ::std::mem::transmute(cbfilter), fsaving.into_param().abi()).ok()
+        AVIBuildFilterA(::core::mem::transmute(lpszfilter), ::core::mem::transmute(cbfilter), fsaving.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1179,7 +1179,7 @@ pub unsafe fn AVIBuildFilterW<'a, Param2: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn AVIBuildFilterW(lpszfilter: super::super::Foundation::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        AVIBuildFilterW(::std::mem::transmute(lpszfilter), ::std::mem::transmute(cbfilter), fsaving.into_param().abi()).ok()
+        AVIBuildFilterW(::core::mem::transmute(lpszfilter), ::core::mem::transmute(cbfilter), fsaving.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1192,7 +1192,7 @@ pub const AVICOMPRESSF_INTERLEAVE: u32 = 1u32;
 pub const AVICOMPRESSF_KEYFRAMES: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AVICOMPRESSF_VALID: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct AVICOMPRESSOPTIONS {
@@ -1202,20 +1202,20 @@ pub struct AVICOMPRESSOPTIONS {
     pub dwQuality: u32,
     pub dwBytesPerSecond: u32,
     pub dwFlags: u32,
-    pub lpFormat: *mut ::std::ffi::c_void,
+    pub lpFormat: *mut ::core::ffi::c_void,
     pub cbFormat: u32,
-    pub lpParms: *mut ::std::ffi::c_void,
+    pub lpParms: *mut ::core::ffi::c_void,
     pub cbParms: u32,
     pub dwInterleaveEvery: u32,
 }
 impl AVICOMPRESSOPTIONS {}
-impl ::std::default::Default for AVICOMPRESSOPTIONS {
+impl ::core::default::Default for AVICOMPRESSOPTIONS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AVICOMPRESSOPTIONS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AVICOMPRESSOPTIONS")
             .field("fccType", &self.fccType)
             .field("fccHandler", &self.fccHandler)
@@ -1231,12 +1231,12 @@ impl ::std::fmt::Debug for AVICOMPRESSOPTIONS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AVICOMPRESSOPTIONS {
+impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
     fn eq(&self, other: &Self) -> bool {
         self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwKeyFrameEvery == other.dwKeyFrameEvery && self.dwQuality == other.dwQuality && self.dwBytesPerSecond == other.dwBytesPerSecond && self.dwFlags == other.dwFlags && self.lpFormat == other.lpFormat && self.cbFormat == other.cbFormat && self.lpParms == other.lpParms && self.cbParms == other.cbParms && self.dwInterleaveEvery == other.dwInterleaveEvery
     }
 }
-impl ::std::cmp::Eq for AVICOMPRESSOPTIONS {}
+impl ::core::cmp::Eq for AVICOMPRESSOPTIONS {}
 unsafe impl ::windows::runtime::Abi for AVICOMPRESSOPTIONS {
     type Abi = Self;
 }
@@ -1270,7 +1270,7 @@ pub const AVIFILEHANDLER_CANACCEPTNONRGB: u32 = 4u32;
 pub const AVIFILEHANDLER_CANREAD: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AVIFILEHANDLER_CANWRITE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -1291,14 +1291,14 @@ pub struct AVIFILEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl AVIFILEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AVIFILEINFOA {
+impl ::core::default::Default for AVIFILEINFOA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for AVIFILEINFOA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AVIFILEINFOA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AVIFILEINFOA")
             .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
             .field("dwFlags", &self.dwFlags)
@@ -1316,18 +1316,18 @@ impl ::std::fmt::Debug for AVIFILEINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AVIFILEINFOA {
+impl ::core::cmp::PartialEq for AVIFILEINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AVIFILEINFOA {}
+impl ::core::cmp::Eq for AVIFILEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVIFILEINFOA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct AVIFILEINFOW {
@@ -1345,13 +1345,13 @@ pub struct AVIFILEINFOW {
     pub szFileType: [u16; 64],
 }
 impl AVIFILEINFOW {}
-impl ::std::default::Default for AVIFILEINFOW {
+impl ::core::default::Default for AVIFILEINFOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AVIFILEINFOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AVIFILEINFOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AVIFILEINFOW")
             .field("dwMaxBytesPerSec", &self.dwMaxBytesPerSec)
             .field("dwFlags", &self.dwFlags)
@@ -1368,12 +1368,12 @@ impl ::std::fmt::Debug for AVIFILEINFOW {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AVIFILEINFOW {
+impl ::core::cmp::PartialEq for AVIFILEINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
-impl ::std::cmp::Eq for AVIFILEINFOW {}
+impl ::core::cmp::Eq for AVIFILEINFOW {}
 unsafe impl ::windows::runtime::Abi for AVIFILEINFOW {
     type Abi = Self;
 }
@@ -1396,7 +1396,7 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFi
         extern "system" {
             fn AVIFileAddRef(pfile: ::windows::runtime::RawPtr) -> u32;
         }
-        ::std::mem::transmute(AVIFileAddRef(pfile.into_param().abi()))
+        ::core::mem::transmute(AVIFileAddRef(pfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1404,14 +1404,14 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFi
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::std::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIFileCreateStreamA(pfile: ::windows::runtime::RawPtr, ppavi: *mut ::windows::runtime::RawPtr, psi: *const AVISTREAMINFOA) -> ::windows::runtime::HRESULT;
         }
-        AVIFileCreateStreamA(pfile.into_param().abi(), ::std::mem::transmute(ppavi), ::std::mem::transmute(psi)).ok()
+        AVIFileCreateStreamA(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1419,14 +1419,14 @@ pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::std::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIFileCreateStreamW(pfile: ::windows::runtime::RawPtr, ppavi: *mut ::windows::runtime::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::runtime::HRESULT;
         }
-        AVIFileCreateStreamW(pfile.into_param().abi(), ::std::mem::transmute(ppavi), ::std::mem::transmute(psi)).ok()
+        AVIFileCreateStreamW(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1454,21 +1454,21 @@ pub unsafe fn AVIFileExit() {
         extern "system" {
             fn AVIFileExit();
         }
-        ::std::mem::transmute(AVIFileExit())
+        ::core::mem::transmute(AVIFileExit())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::std::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIFileGetStream(pfile: ::windows::runtime::RawPtr, ppavi: *mut ::windows::runtime::RawPtr, fcctype: u32, lparam: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileGetStream(pfile.into_param().abi(), ::std::mem::transmute(ppavi), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam)).ok()
+        AVIFileGetStream(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1483,7 +1483,7 @@ pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
         extern "system" {
             fn AVIFileInfoA(pfile: ::windows::runtime::RawPtr, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileInfoA(pfile.into_param().abi(), ::std::mem::transmute(pfi), ::std::mem::transmute(lsize)).ok()
+        AVIFileInfoA(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1497,7 +1497,7 @@ pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
         extern "system" {
             fn AVIFileInfoW(pfile: ::windows::runtime::RawPtr, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileInfoW(pfile.into_param().abi(), ::std::mem::transmute(pfi), ::std::mem::transmute(lsize)).ok()
+        AVIFileInfoW(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1511,7 +1511,7 @@ pub unsafe fn AVIFileInit() {
         extern "system" {
             fn AVIFileInit();
         }
-        ::std::mem::transmute(AVIFileInit())
+        ::core::mem::transmute(AVIFileInit())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1519,14 +1519,14 @@ pub unsafe fn AVIFileInit() {
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ppfile: *mut ::std::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIFileOpenA(ppfile: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIFileOpenA(::std::mem::transmute(ppfile), szfile.into_param().abi(), ::std::mem::transmute(umode), ::std::mem::transmute(lphandler)).ok()
+        AVIFileOpenA(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1534,28 +1534,28 @@ pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfile: *mut ::std::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIFileOpenW(ppfile: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIFileOpenW(::std::mem::transmute(ppfile), szfile.into_param().abi(), ::std::mem::transmute(umode), ::std::mem::transmute(lphandler)).ok()
+        AVIFileOpenW(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileReadData(pfile: ::windows::runtime::RawPtr, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::HRESULT;
+            fn AVIFileReadData(pfile: ::windows::runtime::RawPtr, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileReadData(pfile.into_param().abi(), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(lpcbdata)).ok()
+        AVIFileReadData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1569,21 +1569,21 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIF
         extern "system" {
             fn AVIFileRelease(pfile: ::windows::runtime::RawPtr) -> u32;
         }
-        ::std::mem::transmute(AVIFileRelease(pfile.into_param().abi()))
+        ::core::mem::transmute(AVIFileRelease(pfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileWriteData(pfile: ::windows::runtime::RawPtr, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::HRESULT;
+            fn AVIFileWriteData(pfile: ::windows::runtime::RawPtr, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileWriteData(pfile.into_param().abi(), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(cbdata)).ok()
+        AVIFileWriteData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1599,7 +1599,7 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
         extern "system" {
             fn AVIGetFromClipboard(lppf: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IAVIFile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <IAVIFile as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         AVIGetFromClipboard(&mut result__).from_abi::<IAVIFile>(result__)
     }
     #[cfg(not(windows))]
@@ -1611,28 +1611,28 @@ pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::std::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIMakeCompressedStream(ppscompressed: *mut ::windows::runtime::RawPtr, ppssource: ::windows::runtime::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIMakeCompressedStream(::std::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::std::mem::transmute(lpoptions), ::std::mem::transmute(pclsidhandler)).ok()
+        AVIMakeCompressedStream(::core::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::core::mem::transmute(lpoptions), ::core::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::std::option::Option<IAVIFile>, nstreams: i32, papstreams: *const ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, nstreams: i32, papstreams: *const ::core::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIMakeFileFromStreams(ppfile: *mut ::windows::runtime::RawPtr, nstreams: i32, papstreams: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        AVIMakeFileFromStreams(::std::mem::transmute(ppfile), ::std::mem::transmute(nstreams), ::std::mem::transmute(papstreams)).ok()
+        AVIMakeFileFromStreams(::core::mem::transmute(ppfile), ::core::mem::transmute(nstreams), ::core::mem::transmute(papstreams)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1647,8 +1647,8 @@ pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::runtime::IntoPar
         extern "system" {
             fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        AVIMakeStreamFromClipboard(::std::mem::transmute(cfformat), hglobal.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
+        let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        AVIMakeStreamFromClipboard(::core::mem::transmute(cfformat), hglobal.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1670,7 +1670,7 @@ pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AVISAVECALLBACK = unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -1697,14 +1697,14 @@ pub struct AVISTREAMINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl AVISTREAMINFOA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AVISTREAMINFOA {
+impl ::core::default::Default for AVISTREAMINFOA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for AVISTREAMINFOA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AVISTREAMINFOA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AVISTREAMINFOA")
             .field("fccType", &self.fccType)
             .field("fccHandler", &self.fccHandler)
@@ -1728,7 +1728,7 @@ impl ::std::fmt::Debug for AVISTREAMINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AVISTREAMINFOA {
+impl ::core::cmp::PartialEq for AVISTREAMINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.fccType == other.fccType
             && self.fccHandler == other.fccHandler
@@ -1751,12 +1751,12 @@ impl ::std::cmp::PartialEq for AVISTREAMINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AVISTREAMINFOA {}
+impl ::core::cmp::Eq for AVISTREAMINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVISTREAMINFOA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -1783,14 +1783,14 @@ pub struct AVISTREAMINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl AVISTREAMINFOW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AVISTREAMINFOW {
+impl ::core::default::Default for AVISTREAMINFOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for AVISTREAMINFOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AVISTREAMINFOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AVISTREAMINFOW")
             .field("fccType", &self.fccType)
             .field("fccHandler", &self.fccHandler)
@@ -1814,7 +1814,7 @@ impl ::std::fmt::Debug for AVISTREAMINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AVISTREAMINFOW {
+impl ::core::cmp::PartialEq for AVISTREAMINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.fccType == other.fccType
             && self.fccHandler == other.fccHandler
@@ -1837,7 +1837,7 @@ impl ::std::cmp::PartialEq for AVISTREAMINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AVISTREAMINFOW {}
+impl ::core::cmp::Eq for AVISTREAMINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVISTREAMINFOW {
     type Abi = Self;
@@ -1851,14 +1851,14 @@ pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, pfile: ::windows::runtime::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveA(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), pfile.into_param().abi(), ::std::mem::transmute(lpoptions)).ok()
+        AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1866,14 +1866,14 @@ pub unsafe fn AVISaveA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uiflags: u32, nstreams: i32, ppavi: *const ::std::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize {
+pub unsafe fn AVISaveOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uiflags: u32, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::windows::runtime::RawPtr, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
         }
-        ::std::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(nstreams), ::std::mem::transmute(ppavi), ::std::mem::transmute(plpoptions)))
+        ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1887,7 +1887,7 @@ pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOM
         extern "system" {
             fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveOptionsFree(::std::mem::transmute(nstreams), ::std::mem::transmute(plpoptions)).ok()
+        AVISaveOptionsFree(::core::mem::transmute(nstreams), ::core::mem::transmute(plpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1895,14 +1895,14 @@ pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOM
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::std::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveVA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, ppavi: *const ::windows::runtime::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveVA(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), ::std::mem::transmute(ppavi), ::std::mem::transmute(plpoptions)).ok()
+        AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1910,14 +1910,14 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::std::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveVW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, ppavi: *const ::windows::runtime::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveVW(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), ::std::mem::transmute(ppavi), ::std::mem::transmute(plpoptions)).ok()
+        AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1925,14 +1925,14 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, pfile: ::windows::runtime::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveW(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), pfile.into_param().abi(), ::std::mem::transmute(lpoptions)).ok()
+        AVISaveW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1946,7 +1946,7 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
         extern "system" {
             fn AVIStreamAddRef(pavi: ::windows::runtime::RawPtr) -> u32;
         }
-        ::std::mem::transmute(AVIStreamAddRef(pavi.into_param().abi()))
+        ::core::mem::transmute(AVIStreamAddRef(pavi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1960,21 +1960,21 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn AVIStreamBeginStreaming(pavi: ::windows::runtime::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamBeginStreaming(pavi.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lend), ::std::mem::transmute(lrate)).ok()
+        AVIStreamBeginStreaming(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamCreate(ppavi: *mut ::std::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIStreamCreate(ppavi: *mut ::windows::runtime::RawPtr, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamCreate(::std::mem::transmute(ppavi), ::std::mem::transmute(lparam1), ::std::mem::transmute(lparam2), ::std::mem::transmute(pclsidhandler)).ok()
+        AVIStreamCreate(::core::mem::transmute(ppavi), ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2), ::core::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2002,21 +2002,21 @@ pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn AVIStreamFindSample(pavi: ::windows::runtime::RawPtr, lpos: i32, lflags: i32) -> i32;
         }
-        ::std::mem::transmute(AVIStreamFindSample(pavi.into_param().abi(), ::std::mem::transmute(lpos), ::std::mem::transmute(lflags)))
+        ::core::mem::transmute(AVIStreamFindSample(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(pg: Param0, lpos: i32) -> *mut ::std::ffi::c_void {
+pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(pg: Param0, lpos: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrame(pg: ::windows::runtime::RawPtr, lpos: i32) -> *mut ::std::ffi::c_void;
+            fn AVIStreamGetFrame(pg: ::windows::runtime::RawPtr, lpos: i32) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(AVIStreamGetFrame(pg.into_param().abi(), ::std::mem::transmute(lpos)))
+        ::core::mem::transmute(AVIStreamGetFrame(pg.into_param().abi(), ::core::mem::transmute(lpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2038,14 +2038,14 @@ pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::std::option::Option<IGetFrame> {
+pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrameOpen(pavi: ::windows::runtime::RawPtr, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::std::option::Option<IGetFrame>;
+            fn AVIStreamGetFrameOpen(pavi: ::windows::runtime::RawPtr, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
         }
-        ::std::mem::transmute(AVIStreamGetFrameOpen(pavi.into_param().abi(), ::std::mem::transmute(lpbiwanted)))
+        ::core::mem::transmute(AVIStreamGetFrameOpen(pavi.into_param().abi(), ::core::mem::transmute(lpbiwanted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2060,7 +2060,7 @@ pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
         extern "system" {
             fn AVIStreamInfoA(pavi: ::windows::runtime::RawPtr, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamInfoA(pavi.into_param().abi(), ::std::mem::transmute(psi), ::std::mem::transmute(lsize)).ok()
+        AVIStreamInfoA(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2075,7 +2075,7 @@ pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
         extern "system" {
             fn AVIStreamInfoW(pavi: ::windows::runtime::RawPtr, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamInfoW(pavi.into_param().abi(), ::std::mem::transmute(psi), ::std::mem::transmute(lsize)).ok()
+        AVIStreamInfoW(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2089,7 +2089,7 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
         extern "system" {
             fn AVIStreamLength(pavi: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(AVIStreamLength(pavi.into_param().abi()))
+        ::core::mem::transmute(AVIStreamLength(pavi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2097,14 +2097,14 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ppavi: *mut ::std::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIStreamOpenFromFileA(ppavi: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamOpenFromFileA(::std::mem::transmute(ppavi), szfile.into_param().abi(), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam), ::std::mem::transmute(mode), ::std::mem::transmute(pclsidhandler)).ok()
+        AVIStreamOpenFromFileA(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2112,56 +2112,56 @@ pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppavi: *mut ::std::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIStreamOpenFromFileW(ppavi: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamOpenFromFileW(::std::mem::transmute(ppavi), szfile.into_param().abi(), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam), ::std::mem::transmute(mode), ::std::mem::transmute(pclsidhandler)).ok()
+        AVIStreamOpenFromFileW(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamRead(pavi: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::HRESULT;
+            fn AVIStreamRead(pavi: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamRead(pavi.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(plbytes), ::std::mem::transmute(plsamples)).ok()
+        AVIStreamRead(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamReadData(pavi: ::windows::runtime::RawPtr, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::HRESULT;
+            fn AVIStreamReadData(pavi: ::windows::runtime::RawPtr, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamReadData(pavi.into_param().abi(), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(lpcb)).ok()
+        AVIStreamReadData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamReadFormat(pavi: ::windows::runtime::RawPtr, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::HRESULT;
+            fn AVIStreamReadFormat(pavi: ::windows::runtime::RawPtr, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamReadFormat(pavi.into_param().abi(), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(lpcbformat)).ok()
+        AVIStreamReadFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2175,7 +2175,7 @@ pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
         extern "system" {
             fn AVIStreamRelease(pavi: ::windows::runtime::RawPtr) -> u32;
         }
-        ::std::mem::transmute(AVIStreamRelease(pavi.into_param().abi()))
+        ::core::mem::transmute(AVIStreamRelease(pavi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2189,21 +2189,21 @@ pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn AVIStreamSampleToTime(pavi: ::windows::runtime::RawPtr, lsample: i32) -> i32;
         }
-        ::std::mem::transmute(AVIStreamSampleToTime(pavi.into_param().abi(), ::std::mem::transmute(lsample)))
+        ::core::mem::transmute(AVIStreamSampleToTime(pavi.into_param().abi(), ::core::mem::transmute(lsample)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamSetFormat(pavi: ::windows::runtime::RawPtr, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::HRESULT;
+            fn AVIStreamSetFormat(pavi: ::windows::runtime::RawPtr, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamSetFormat(pavi.into_param().abi(), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(cbformat)).ok()
+        AVIStreamSetFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2217,7 +2217,7 @@ pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
         extern "system" {
             fn AVIStreamStart(pavi: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(AVIStreamStart(pavi.into_param().abi()))
+        ::core::mem::transmute(AVIStreamStart(pavi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2231,35 +2231,35 @@ pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn AVIStreamTimeToSample(pavi: ::windows::runtime::RawPtr, ltime: i32) -> i32;
         }
-        ::std::mem::transmute(AVIStreamTimeToSample(pavi.into_param().abi(), ::std::mem::transmute(ltime)))
+        ::core::mem::transmute(AVIStreamTimeToSample(pavi.into_param().abi(), ::core::mem::transmute(ltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamWrite(pavi: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::HRESULT;
+            fn AVIStreamWrite(pavi: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamWrite(pavi.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(dwflags), ::std::mem::transmute(plsampwritten), ::std::mem::transmute(plbyteswritten)).ok()
+        AVIStreamWrite(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamWriteData(pavi: ::windows::runtime::RawPtr, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::HRESULT;
+            fn AVIStreamWriteData(pavi: ::windows::runtime::RawPtr, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamWriteData(pavi.into_param().abi(), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(cb)).ok()
+        AVIStreamWriteData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2273,7 +2273,7 @@ pub const BI_1632: u32 = 842217009u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPCONTROLCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -2293,14 +2293,14 @@ pub struct CAPDRIVERCAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl CAPDRIVERCAPS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CAPDRIVERCAPS {
+impl ::core::default::Default for CAPDRIVERCAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CAPDRIVERCAPS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CAPDRIVERCAPS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CAPDRIVERCAPS")
             .field("wDeviceIndex", &self.wDeviceIndex)
             .field("fHasOverlay", &self.fHasOverlay)
@@ -2317,7 +2317,7 @@ impl ::std::fmt::Debug for CAPDRIVERCAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CAPDRIVERCAPS {
+impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
     fn eq(&self, other: &Self) -> bool {
         self.wDeviceIndex == other.wDeviceIndex
             && self.fHasOverlay == other.fHasOverlay
@@ -2333,7 +2333,7 @@ impl ::std::cmp::PartialEq for CAPDRIVERCAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CAPDRIVERCAPS {}
+impl ::core::cmp::Eq for CAPDRIVERCAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CAPDRIVERCAPS {
     type Abi = Self;
@@ -2344,35 +2344,35 @@ pub type CAPERRORCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Found
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: u32,
-    pub lpData: *mut ::std::ffi::c_void,
+    pub lpData: *mut ::core::ffi::c_void,
     pub cbData: i32,
 }
 impl CAPINFOCHUNK {}
-impl ::std::default::Default for CAPINFOCHUNK {
+impl ::core::default::Default for CAPINFOCHUNK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CAPINFOCHUNK {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CAPINFOCHUNK {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CAPINFOCHUNK").field("fccInfoID", &self.fccInfoID).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
     }
 }
-impl ::std::cmp::PartialEq for CAPINFOCHUNK {
+impl ::core::cmp::PartialEq for CAPINFOCHUNK {
     fn eq(&self, other: &Self) -> bool {
         self.fccInfoID == other.fccInfoID && self.lpData == other.lpData && self.cbData == other.cbData
     }
 }
-impl ::std::cmp::Eq for CAPINFOCHUNK {}
+impl ::core::cmp::Eq for CAPINFOCHUNK {}
 unsafe impl ::windows::runtime::Abi for CAPINFOCHUNK {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -2399,14 +2399,14 @@ pub struct CAPSTATUS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl CAPSTATUS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for CAPSTATUS {
+impl ::core::default::Default for CAPSTATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for CAPSTATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CAPSTATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CAPSTATUS")
             .field("uiImageWidth", &self.uiImageWidth)
             .field("uiImageHeight", &self.uiImageHeight)
@@ -2430,7 +2430,7 @@ impl ::std::fmt::Debug for CAPSTATUS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for CAPSTATUS {
+impl ::core::cmp::PartialEq for CAPSTATUS {
     fn eq(&self, other: &Self) -> bool {
         self.uiImageWidth == other.uiImageWidth
             && self.uiImageHeight == other.uiImageHeight
@@ -2453,7 +2453,7 @@ impl ::std::cmp::PartialEq for CAPSTATUS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for CAPSTATUS {}
+impl ::core::cmp::Eq for CAPSTATUS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CAPSTATUS {
     type Abi = Self;
@@ -2464,7 +2464,7 @@ pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foun
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -2497,14 +2497,14 @@ pub struct CAPTUREPARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl CAPTUREPARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CAPTUREPARMS {
+impl ::core::default::Default for CAPTUREPARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CAPTUREPARMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CAPTUREPARMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CAPTUREPARMS")
             .field("dwRequestMicroSecPerFrame", &self.dwRequestMicroSecPerFrame)
             .field("fMakeUserHitOKToCapture", &self.fMakeUserHitOKToCapture)
@@ -2534,7 +2534,7 @@ impl ::std::fmt::Debug for CAPTUREPARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CAPTUREPARMS {
+impl ::core::cmp::PartialEq for CAPTUREPARMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwRequestMicroSecPerFrame == other.dwRequestMicroSecPerFrame
             && self.fMakeUserHitOKToCapture == other.fMakeUserHitOKToCapture
@@ -2563,7 +2563,7 @@ impl ::std::cmp::PartialEq for CAPTUREPARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CAPTUREPARMS {}
+impl ::core::cmp::Eq for CAPTUREPARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CAPTUREPARMS {
     type Abi = Self;
@@ -2577,7 +2577,7 @@ pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundat
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPYIELDCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CHANNEL_CAPS {
@@ -2592,13 +2592,13 @@ pub struct CHANNEL_CAPS {
     pub dwDstRectHeightMod: u32,
 }
 impl CHANNEL_CAPS {}
-impl ::std::default::Default for CHANNEL_CAPS {
+impl ::core::default::Default for CHANNEL_CAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CHANNEL_CAPS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CHANNEL_CAPS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CHANNEL_CAPS")
             .field("dwFlags", &self.dwFlags)
             .field("dwSrcRectXMod", &self.dwSrcRectXMod)
@@ -2612,18 +2612,18 @@ impl ::std::fmt::Debug for CHANNEL_CAPS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for CHANNEL_CAPS {
+impl ::core::cmp::PartialEq for CHANNEL_CAPS {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.dwSrcRectXMod == other.dwSrcRectXMod && self.dwSrcRectYMod == other.dwSrcRectYMod && self.dwSrcRectWidthMod == other.dwSrcRectWidthMod && self.dwSrcRectHeightMod == other.dwSrcRectHeightMod && self.dwDstRectXMod == other.dwDstRectXMod && self.dwDstRectYMod == other.dwDstRectYMod && self.dwDstRectWidthMod == other.dwDstRectWidthMod && self.dwDstRectHeightMod == other.dwDstRectHeightMod
     }
 }
-impl ::std::cmp::Eq for CHANNEL_CAPS {}
+impl ::core::cmp::Eq for CHANNEL_CAPS {}
 unsafe impl ::windows::runtime::Abi for CHANNEL_CAPS {
     type Abi = Self;
 }
 pub const CLSID_AVIFile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131072, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 pub const CLSID_AVISimpleUnMarshal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131081, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
@@ -2635,27 +2635,27 @@ pub struct COMPVARS {
     pub fccHandler: u32,
     pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFO,
     pub lpbiOut: *mut super::super::Graphics::Gdi::BITMAPINFO,
-    pub lpBitsOut: *mut ::std::ffi::c_void,
-    pub lpBitsPrev: *mut ::std::ffi::c_void,
+    pub lpBitsOut: *mut ::core::ffi::c_void,
+    pub lpBitsPrev: *mut ::core::ffi::c_void,
     pub lFrame: i32,
     pub lKey: i32,
     pub lDataRate: i32,
     pub lQ: i32,
     pub lKeyCount: i32,
-    pub lpState: *mut ::std::ffi::c_void,
+    pub lpState: *mut ::core::ffi::c_void,
     pub cbState: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl COMPVARS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for COMPVARS {
+impl ::core::default::Default for COMPVARS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for COMPVARS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COMPVARS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("COMPVARS")
             .field("cbSize", &self.cbSize)
             .field("dwFlags", &self.dwFlags)
@@ -2677,7 +2677,7 @@ impl ::std::fmt::Debug for COMPVARS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for COMPVARS {
+impl ::core::cmp::PartialEq for COMPVARS {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
             && self.dwFlags == other.dwFlags
@@ -2698,12 +2698,12 @@ impl ::std::cmp::PartialEq for COMPVARS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for COMPVARS {}
+impl ::core::cmp::Eq for COMPVARS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for COMPVARS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CONTRESCR10WAVEFORMAT {
@@ -2711,21 +2711,21 @@ pub struct CONTRESCR10WAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl CONTRESCR10WAVEFORMAT {}
-impl ::std::default::Default for CONTRESCR10WAVEFORMAT {
+impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
+impl ::core::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CONTRESCR10WAVEFORMAT {}
+impl ::core::cmp::Eq for CONTRESCR10WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CONTRESCR10WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CONTRESVQLPCWAVEFORMAT {
@@ -2733,17 +2733,17 @@ pub struct CONTRESVQLPCWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl CONTRESVQLPCWAVEFORMAT {}
-impl ::std::default::Default for CONTRESVQLPCWAVEFORMAT {
+impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
+impl ::core::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
+impl ::core::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CONTRESVQLPCWAVEFORMAT {
     type Abi = Self;
 }
@@ -2751,7 +2751,7 @@ unsafe impl ::windows::runtime::Abi for CONTRESVQLPCWAVEFORMAT {
 pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CREATIVEADPCMWAVEFORMAT {
@@ -2759,21 +2759,21 @@ pub struct CREATIVEADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 impl CREATIVEADPCMWAVEFORMAT {}
-impl ::std::default::Default for CREATIVEADPCMWAVEFORMAT {
+impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CREATIVEADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
@@ -2781,21 +2781,21 @@ pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wRevision: u16,
 }
 impl CREATIVEFASTSPEECH10WAVEFORMAT {}
-impl ::std::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
+impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
+impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
+impl ::core::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
@@ -2803,40 +2803,40 @@ pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wRevision: u16,
 }
 impl CREATIVEFASTSPEECH8WAVEFORMAT {}
-impl ::std::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
+impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
+impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
+impl ::core::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl CSIMAADPCMWAVEFORMAT {}
-impl ::std::default::Default for CSIMAADPCMWAVEFORMAT {
+impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CSIMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -2850,21 +2850,21 @@ pub unsafe fn CloseDriver<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>, 
         extern "system" {
             fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(CloseDriver(hdriver.into_param().abi(), lparam1.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(CloseDriver(hdriver.into_param().abi(), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(ppseditable: *mut ::std::option::Option<IAVIStream>, pssource: Param1) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(ppseditable: *mut ::core::option::Option<IAVIStream>, pssource: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateEditableStream(ppseditable: *mut ::windows::runtime::RawPtr, pssource: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        CreateEditableStream(::std::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
+        CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2917,28 +2917,28 @@ pub const DDF_SAME_HDC: u32 = 4u32;
 pub const DDF_SAME_SIZE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DDF_UPDATE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: WAVEFORMATEX,
 }
 impl DIALOGICOKIADPCMWAVEFORMAT {}
-impl ::std::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
+impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIALOGICOKIADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DIGIADPCMWAVEFORMAT {
@@ -2946,42 +2946,42 @@ pub struct DIGIADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl DIGIADPCMWAVEFORMAT {}
-impl ::std::default::Default for DIGIADPCMWAVEFORMAT {
+impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DIGIADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for DIGIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGIADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl DIGIFIXWAVEFORMAT {}
-impl ::std::default::Default for DIGIFIXWAVEFORMAT {
+impl ::core::default::Default for DIGIFIXWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DIGIFIXWAVEFORMAT {
+impl ::core::cmp::PartialEq for DIGIFIXWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DIGIFIXWAVEFORMAT {}
+impl ::core::cmp::Eq for DIGIFIXWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGIFIXWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DIGIREALWAVEFORMAT {
@@ -2989,38 +2989,38 @@ pub struct DIGIREALWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl DIGIREALWAVEFORMAT {}
-impl ::std::default::Default for DIGIREALWAVEFORMAT {
+impl ::core::default::Default for DIGIREALWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DIGIREALWAVEFORMAT {
+impl ::core::cmp::PartialEq for DIGIREALWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DIGIREALWAVEFORMAT {}
+impl ::core::cmp::Eq for DIGIREALWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGIREALWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl DIGISTDWAVEFORMAT {}
-impl ::std::default::Default for DIGISTDWAVEFORMAT {
+impl ::core::default::Default for DIGISTDWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DIGISTDWAVEFORMAT {
+impl ::core::cmp::PartialEq for DIGISTDWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DIGISTDWAVEFORMAT {}
+impl ::core::cmp::Eq for DIGISTDWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGISTDWAVEFORMAT {
     type Abi = Self;
 }
@@ -3028,7 +3028,7 @@ unsafe impl ::windows::runtime::Abi for DIGISTDWAVEFORMAT {
 pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DOLBYAC2WAVEFORMAT {
@@ -3036,21 +3036,21 @@ pub struct DOLBYAC2WAVEFORMAT {
     pub nAuxBitsCode: u16,
 }
 impl DOLBYAC2WAVEFORMAT {}
-impl ::std::default::Default for DOLBYAC2WAVEFORMAT {
+impl ::core::default::Default for DOLBYAC2WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
+impl ::core::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DOLBYAC2WAVEFORMAT {}
+impl ::core::cmp::Eq for DOLBYAC2WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DOLBYAC2WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DRAWDIBTIME {
@@ -3063,13 +3063,13 @@ pub struct DRAWDIBTIME {
     pub timeSetDIBits: i32,
 }
 impl DRAWDIBTIME {}
-impl ::std::default::Default for DRAWDIBTIME {
+impl ::core::default::Default for DRAWDIBTIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DRAWDIBTIME {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DRAWDIBTIME {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DRAWDIBTIME")
             .field("timeCount", &self.timeCount)
             .field("timeDraw", &self.timeDraw)
@@ -3081,12 +3081,12 @@ impl ::std::fmt::Debug for DRAWDIBTIME {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for DRAWDIBTIME {
+impl ::core::cmp::PartialEq for DRAWDIBTIME {
     fn eq(&self, other: &Self) -> bool {
         self.timeCount == other.timeCount && self.timeDraw == other.timeDraw && self.timeDecompress == other.timeDecompress && self.timeDither == other.timeDither && self.timeStretch == other.timeStretch && self.timeBlt == other.timeBlt && self.timeSetDIBits == other.timeSetDIBits
     }
 }
-impl ::std::cmp::Eq for DRAWDIBTIME {}
+impl ::core::cmp::Eq for DRAWDIBTIME {}
 unsafe impl ::windows::runtime::Abi for DRAWDIBTIME {
     type Abi = Self;
 }
@@ -3095,7 +3095,7 @@ pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, par
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DRMWAVEFORMAT {
@@ -3105,17 +3105,17 @@ pub struct DRMWAVEFORMAT {
     pub wfxSecure: WAVEFORMATEX,
 }
 impl DRMWAVEFORMAT {}
-impl ::std::default::Default for DRMWAVEFORMAT {
+impl ::core::default::Default for DRMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DRMWAVEFORMAT {
+impl ::core::cmp::PartialEq for DRMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DRMWAVEFORMAT {}
+impl ::core::cmp::Eq for DRMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DRMWAVEFORMAT {
     type Abi = Self;
 }
@@ -3125,7 +3125,7 @@ pub const DRVCNF_CANCEL: u32 = 0u32;
 pub const DRVCNF_OK: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVCNF_RESTART: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -3137,24 +3137,24 @@ pub struct DRVCONFIGINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl DRVCONFIGINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DRVCONFIGINFO {
+impl ::core::default::Default for DRVCONFIGINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DRVCONFIGINFO {
+impl ::core::cmp::PartialEq for DRVCONFIGINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DRVCONFIGINFO {}
+impl ::core::cmp::Eq for DRVCONFIGINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRVCONFIGINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -3167,19 +3167,19 @@ pub struct DRVCONFIGINFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl DRVCONFIGINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DRVCONFIGINFOEX {
+impl ::core::default::Default for DRVCONFIGINFOEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DRVCONFIGINFOEX {
+impl ::core::cmp::PartialEq for DRVCONFIGINFOEX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DRVCONFIGINFOEX {}
+impl ::core::cmp::Eq for DRVCONFIGINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRVCONFIGINFOEX {
     type Abi = Self;
@@ -3202,7 +3202,7 @@ pub const DRVM_IOCTL: u32 = 256u32;
 pub const DRVM_IOCTL_CMD_SYSTEM: i32 = -2147483648i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_IOCTL_CMD_USER: i32 = 0i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DRVM_IOCTL_DATA {
@@ -3210,17 +3210,17 @@ pub struct DRVM_IOCTL_DATA {
     pub dwCmd: u32,
 }
 impl DRVM_IOCTL_DATA {}
-impl ::std::default::Default for DRVM_IOCTL_DATA {
+impl ::core::default::Default for DRVM_IOCTL_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DRVM_IOCTL_DATA {
+impl ::core::cmp::PartialEq for DRVM_IOCTL_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DRVM_IOCTL_DATA {}
+impl ::core::cmp::Eq for DRVM_IOCTL_DATA {}
 unsafe impl ::windows::runtime::Abi for DRVM_IOCTL_DATA {
     type Abi = Self;
 }
@@ -3306,7 +3306,7 @@ pub const DRV_RESERVED: u32 = 2048u32;
 pub const DRV_RESTART: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRV_USER: u32 = 16384u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct DVIADPCMWAVEFORMAT {
@@ -3314,17 +3314,17 @@ pub struct DVIADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl DVIADPCMWAVEFORMAT {}
-impl ::std::default::Default for DVIADPCMWAVEFORMAT {
+impl ::core::default::Default for DVIADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DVIADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for DVIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DVIADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for DVIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DVIADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -3426,7 +3426,7 @@ pub unsafe fn DefDriverProc<'a, Param1: ::windows::runtime::IntoParam<'a, HDRVR>
         extern "system" {
             fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefDriverProc(::std::mem::transmute(dwdriveridentifier), hdrvr.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(DefDriverProc(::core::mem::transmute(dwdriveridentifier), hdrvr.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3441,7 +3441,7 @@ pub unsafe fn DrawDibBegin<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn DrawDibBegin(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibBegin(::std::mem::transmute(hdd), hdc.into_param().abi(), ::std::mem::transmute(dxdst), ::std::mem::transmute(dydst), ::std::mem::transmute(lpbi), ::std::mem::transmute(dxsrc), ::std::mem::transmute(dysrc), ::std::mem::transmute(wflags)))
+        ::core::mem::transmute(DrawDibBegin(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3456,7 +3456,7 @@ pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *co
         extern "system" {
             fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibChangePalette(::std::mem::transmute(hdd), ::std::mem::transmute(istart), ::std::mem::transmute(ilen), ::std::mem::transmute(lppe)))
+        ::core::mem::transmute(DrawDibChangePalette(::core::mem::transmute(hdd), ::core::mem::transmute(istart), ::core::mem::transmute(ilen), ::core::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3471,7 +3471,7 @@ pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
         extern "system" {
             fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibClose(::std::mem::transmute(hdd)))
+        ::core::mem::transmute(DrawDibClose(::core::mem::transmute(hdd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3479,27 +3479,27 @@ pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibDraw<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DrawDibDraw<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
+            fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibDraw(
-            ::std::mem::transmute(hdd),
+        ::core::mem::transmute(DrawDibDraw(
+            ::core::mem::transmute(hdd),
             hdc.into_param().abi(),
-            ::std::mem::transmute(xdst),
-            ::std::mem::transmute(ydst),
-            ::std::mem::transmute(dxdst),
-            ::std::mem::transmute(dydst),
-            ::std::mem::transmute(lpbi),
-            ::std::mem::transmute(lpbits),
-            ::std::mem::transmute(xsrc),
-            ::std::mem::transmute(ysrc),
-            ::std::mem::transmute(dxsrc),
-            ::std::mem::transmute(dysrc),
-            ::std::mem::transmute(wflags),
+            ::core::mem::transmute(xdst),
+            ::core::mem::transmute(ydst),
+            ::core::mem::transmute(dxdst),
+            ::core::mem::transmute(dydst),
+            ::core::mem::transmute(lpbi),
+            ::core::mem::transmute(lpbits),
+            ::core::mem::transmute(xsrc),
+            ::core::mem::transmute(ysrc),
+            ::core::mem::transmute(dxsrc),
+            ::core::mem::transmute(dysrc),
+            ::core::mem::transmute(wflags),
         ))
     }
     #[cfg(not(windows))]
@@ -3515,7 +3515,7 @@ pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
         extern "system" {
             fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibEnd(::std::mem::transmute(hdd)))
+        ::core::mem::transmute(DrawDibEnd(::core::mem::transmute(hdd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3523,14 +3523,14 @@ pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::std::ffi::c_void {
+pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::std::ffi::c_void;
+            fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(DrawDibGetBuffer(::std::mem::transmute(hdd), ::std::mem::transmute(lpbi), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(DrawDibGetBuffer(::core::mem::transmute(hdd), ::core::mem::transmute(lpbi), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3545,7 +3545,7 @@ pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPAL
         extern "system" {
             fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE;
         }
-        ::std::mem::transmute(DrawDibGetPalette(::std::mem::transmute(hdd)))
+        ::core::mem::transmute(DrawDibGetPalette(::core::mem::transmute(hdd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3559,7 +3559,7 @@ pub unsafe fn DrawDibOpen() -> isize {
         extern "system" {
             fn DrawDibOpen() -> isize;
         }
-        ::std::mem::transmute(DrawDibOpen())
+        ::core::mem::transmute(DrawDibOpen())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3574,7 +3574,7 @@ pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BI
         extern "system" {
             fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DrawDibProfileDisplay(::std::mem::transmute(lpbi)))
+        ::core::mem::transmute(DrawDibProfileDisplay(::core::mem::transmute(lpbi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3589,7 +3589,7 @@ pub unsafe fn DrawDibRealize<'a, Param1: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DrawDibRealize(::std::mem::transmute(hdd), hdc.into_param().abi(), fbackground.into_param().abi()))
+        ::core::mem::transmute(DrawDibRealize(::core::mem::transmute(hdd), hdc.into_param().abi(), fbackground.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3604,7 +3604,7 @@ pub unsafe fn DrawDibSetPalette<'a, Param1: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn DrawDibSetPalette(hdd: isize, hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibSetPalette(::std::mem::transmute(hdd), hpal.into_param().abi()))
+        ::core::mem::transmute(DrawDibSetPalette(::core::mem::transmute(hdd), hpal.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3619,7 +3619,7 @@ pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::B
         extern "system" {
             fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibStart(::std::mem::transmute(hdd), ::std::mem::transmute(rate)))
+        ::core::mem::transmute(DrawDibStart(::core::mem::transmute(hdd), ::core::mem::transmute(rate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3634,7 +3634,7 @@ pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
         extern "system" {
             fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibStop(::std::mem::transmute(hdd)))
+        ::core::mem::transmute(DrawDibStop(::core::mem::transmute(hdd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3649,7 +3649,7 @@ pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::supe
         extern "system" {
             fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibTime(::std::mem::transmute(hdd), ::std::mem::transmute(lpddtime)))
+        ::core::mem::transmute(DrawDibTime(::core::mem::transmute(hdd), ::core::mem::transmute(lpddtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3664,7 +3664,7 @@ pub unsafe fn DriverCallback<'a, Param2: ::windows::runtime::IntoParam<'a, HDRVR
         extern "system" {
             fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DriverCallback(::std::mem::transmute(dwcallback), ::std::mem::transmute(dwflags), hdevice.into_param().abi(), ::std::mem::transmute(dwmsg), ::std::mem::transmute(dwuser), ::std::mem::transmute(dwparam1), ::std::mem::transmute(dwparam2)))
+        ::core::mem::transmute(DriverCallback(::core::mem::transmute(dwcallback), ::core::mem::transmute(dwflags), hdevice.into_param().abi(), ::core::mem::transmute(dwmsg), ::core::mem::transmute(dwuser), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3679,33 +3679,33 @@ pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
         }
-        ::std::mem::transmute(DrvGetModuleHandle(hdriver.into_param().abi()))
+        ::core::mem::transmute(DrvGetModuleHandle(hdriver.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl ECHOSC1WAVEFORMAT {}
-impl ::std::default::Default for ECHOSC1WAVEFORMAT {
+impl ::core::default::Default for ECHOSC1WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ECHOSC1WAVEFORMAT {
+impl ::core::cmp::PartialEq for ECHOSC1WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ECHOSC1WAVEFORMAT {}
+impl ::core::cmp::Eq for ECHOSC1WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for ECHOSC1WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ECHOWAVEFILTER {
@@ -3714,21 +3714,21 @@ pub struct ECHOWAVEFILTER {
     pub dwDelay: u32,
 }
 impl ECHOWAVEFILTER {}
-impl ::std::default::Default for ECHOWAVEFILTER {
+impl ::core::default::Default for ECHOWAVEFILTER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ECHOWAVEFILTER {
+impl ::core::cmp::PartialEq for ECHOWAVEFILTER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ECHOWAVEFILTER {}
+impl ::core::cmp::Eq for ECHOWAVEFILTER {}
 unsafe impl ::windows::runtime::Abi for ECHOWAVEFILTER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
@@ -3739,19 +3739,19 @@ pub struct EXBMINFOHEADER {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl EXBMINFOHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for EXBMINFOHEADER {
+impl ::core::default::Default for EXBMINFOHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for EXBMINFOHEADER {
+impl ::core::cmp::PartialEq for EXBMINFOHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for EXBMINFOHEADER {}
+impl ::core::cmp::Eq for EXBMINFOHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for EXBMINFOHEADER {
     type Abi = Self;
@@ -3765,7 +3765,7 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
         extern "system" {
             fn EditStreamClone(pavi: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         EditStreamClone(pavi.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
@@ -3773,28 +3773,28 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EditStreamCopy(pavi: ::windows::runtime::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        EditStreamCopy(pavi.into_param().abi(), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
+        EditStreamCopy(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EditStreamCut(pavi: ::windows::runtime::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        EditStreamCut(pavi.into_param().abi(), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
+        EditStreamCut(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3808,7 +3808,7 @@ pub unsafe fn EditStreamPaste<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
         extern "system" {
             fn EditStreamPaste(pavi: ::windows::runtime::RawPtr, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::runtime::RawPtr, lstart: i32, lend: i32) -> ::windows::runtime::HRESULT;
         }
-        EditStreamPaste(pavi.into_param().abi(), ::std::mem::transmute(plpos), ::std::mem::transmute(pllength), pstream.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lend)).ok()
+        EditStreamPaste(pavi.into_param().abi(), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3823,7 +3823,7 @@ pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, I
         extern "system" {
             fn EditStreamSetInfoA(pavi: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::runtime::HRESULT;
         }
-        EditStreamSetInfoA(pavi.into_param().abi(), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
+        EditStreamSetInfoA(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3838,7 +3838,7 @@ pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, I
         extern "system" {
             fn EditStreamSetInfoW(pavi: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::HRESULT;
         }
-        EditStreamSetInfoW(pavi.into_param().abi(), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
+        EditStreamSetInfoW(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3913,7 +3913,7 @@ pub const FIND_RET: i32 = 61440i32;
 pub const FIND_SIZE: i32 = 12288i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const FIND_TYPE: i32 = 240i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct FMTOWNS_SND_WAVEFORMAT {
@@ -3921,17 +3921,17 @@ pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wRevision: u16,
 }
 impl FMTOWNS_SND_WAVEFORMAT {}
-impl ::std::default::Default for FMTOWNS_SND_WAVEFORMAT {
+impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
+impl ::core::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
+impl ::core::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for FMTOWNS_SND_WAVEFORMAT {
     type Abi = Self;
 }
@@ -3943,7 +3943,7 @@ pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
 pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct G721_ADPCMWAVEFORMAT {
@@ -3951,21 +3951,21 @@ pub struct G721_ADPCMWAVEFORMAT {
     pub nAuxBlockSize: u16,
 }
 impl G721_ADPCMWAVEFORMAT {}
-impl ::std::default::Default for G721_ADPCMWAVEFORMAT {
+impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for G721_ADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for G721_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for G721_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct G723_ADPCMWAVEFORMAT {
@@ -3974,21 +3974,21 @@ pub struct G723_ADPCMWAVEFORMAT {
     pub nAuxBlockSize: u16,
 }
 impl G723_ADPCMWAVEFORMAT {}
-impl ::std::default::Default for G723_ADPCMWAVEFORMAT {
+impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for G723_ADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for G723_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for G723_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct GSM610WAVEFORMAT {
@@ -3996,17 +3996,17 @@ pub struct GSM610WAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl GSM610WAVEFORMAT {}
-impl ::std::default::Default for GSM610WAVEFORMAT {
+impl ::core::default::Default for GSM610WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for GSM610WAVEFORMAT {
+impl ::core::cmp::PartialEq for GSM610WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for GSM610WAVEFORMAT {}
+impl ::core::cmp::Eq for GSM610WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for GSM610WAVEFORMAT {
     type Abi = Self;
 }
@@ -4020,7 +4020,7 @@ pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
         }
-        ::std::mem::transmute(GetDriverModuleHandle(hdriver.into_param().abi()))
+        ::core::mem::transmute(GetDriverModuleHandle(hdriver.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4033,9 +4033,9 @@ pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewA(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewA(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetOpenFileNamePreviewA(::std::mem::transmute(lpofn)))
+        ::core::mem::transmute(GetOpenFileNamePreviewA(::core::mem::transmute(lpofn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4048,9 +4048,9 @@ pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewW(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewW(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetOpenFileNamePreviewW(::std::mem::transmute(lpofn)))
+        ::core::mem::transmute(GetOpenFileNamePreviewW(::core::mem::transmute(lpofn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4063,9 +4063,9 @@ pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewA(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewA(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSaveFileNamePreviewA(::std::mem::transmute(lpofn)))
+        ::core::mem::transmute(GetSaveFileNamePreviewA(::core::mem::transmute(lpofn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4078,211 +4078,211 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewW(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewW(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSaveFileNamePreviewW(::std::mem::transmute(lpofn)))
+        ::core::mem::transmute(GetSaveFileNamePreviewW(::core::mem::transmute(lpofn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMDRIVER(pub isize);
-impl ::std::default::Default for HACMDRIVER {
+impl ::core::default::Default for HACMDRIVER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HACMDRIVER {}
 unsafe impl ::windows::runtime::Abi for HACMDRIVER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMDRIVERID(pub isize);
-impl ::std::default::Default for HACMDRIVERID {
+impl ::core::default::Default for HACMDRIVERID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HACMDRIVERID {}
 unsafe impl ::windows::runtime::Abi for HACMDRIVERID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMOBJ(pub isize);
-impl ::std::default::Default for HACMOBJ {
+impl ::core::default::Default for HACMOBJ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HACMOBJ {}
 unsafe impl ::windows::runtime::Abi for HACMOBJ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMSTREAM(pub isize);
-impl ::std::default::Default for HACMSTREAM {
+impl ::core::default::Default for HACMSTREAM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HACMSTREAM {}
 unsafe impl ::windows::runtime::Abi for HACMSTREAM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDRVR(pub isize);
-impl ::std::default::Default for HDRVR {
+impl ::core::default::Default for HDRVR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDRVR {}
 unsafe impl ::windows::runtime::Abi for HDRVR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HIC(pub isize);
-impl ::std::default::Default for HIC {
+impl ::core::default::Default for HIC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HIC {}
 unsafe impl ::windows::runtime::Abi for HIC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDI(pub isize);
-impl ::std::default::Default for HMIDI {
+impl ::core::default::Default for HMIDI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMIDI {}
 unsafe impl ::windows::runtime::Abi for HMIDI {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDIIN(pub isize);
-impl ::std::default::Default for HMIDIIN {
+impl ::core::default::Default for HMIDIIN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMIDIIN {}
 unsafe impl ::windows::runtime::Abi for HMIDIIN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDIOUT(pub isize);
-impl ::std::default::Default for HMIDIOUT {
+impl ::core::default::Default for HMIDIOUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMIDIOUT {}
 unsafe impl ::windows::runtime::Abi for HMIDIOUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDISTRM(pub isize);
-impl ::std::default::Default for HMIDISTRM {
+impl ::core::default::Default for HMIDISTRM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMIDISTRM {}
 unsafe impl ::windows::runtime::Abi for HMIDISTRM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIXER(pub isize);
-impl ::std::default::Default for HMIXER {
+impl ::core::default::Default for HMIXER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMIXER {}
 unsafe impl ::windows::runtime::Abi for HMIXER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIXEROBJ(pub isize);
-impl ::std::default::Default for HMIXEROBJ {
+impl ::core::default::Default for HMIXEROBJ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMIXEROBJ {}
 unsafe impl ::windows::runtime::Abi for HMIXEROBJ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMMIO(pub isize);
-impl ::std::default::Default for HMMIO {
+impl ::core::default::Default for HMMIO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HMMIO {}
 unsafe impl ::windows::runtime::Abi for HMMIO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HVIDEO(pub isize);
-impl ::std::default::Default for HVIDEO {
+impl ::core::default::Default for HVIDEO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HVIDEO {}
 unsafe impl ::windows::runtime::Abi for HVIDEO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWAVE(pub isize);
-impl ::std::default::Default for HWAVE {
+impl ::core::default::Default for HWAVE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HWAVE {}
 unsafe impl ::windows::runtime::Abi for HWAVE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWAVEIN(pub isize);
-impl ::std::default::Default for HWAVEIN {
+impl ::core::default::Default for HWAVEIN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HWAVEIN {}
 unsafe impl ::windows::runtime::Abi for HWAVEIN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWAVEOUT(pub isize);
-impl ::std::default::Default for HWAVEOUT {
+impl ::core::default::Default for HWAVEOUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HWAVEOUT {}
@@ -4291,42 +4291,42 @@ unsafe impl ::windows::runtime::Abi for HWAVEOUT {
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAVIEditStream(pub ::windows::runtime::IUnknown);
 impl IAVIEditStream {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
+    pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
+    pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Paste<'a, Param2: ::windows::runtime::IntoParam<'a, IAVIStream>>(&self, plpos: *mut i32, pllength: *mut i32, pstream: Param2, lstart: i32, lend: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(plpos), ::std::mem::transmute(pllength), pstream.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lend)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IAVIStream> {
-        let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IAVIStream>(result__)
+        let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAVIStream>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIEditStream {
     type Vtable = IAVIEditStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131108, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IAVIEditStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAVIEditStream> for ::windows::runtime::IUnknown {
     fn from(value: IAVIEditStream) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAVIEditStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAVIEditStream> for ::windows::runtime::IUnknown {
     fn from(value: &IAVIEditStream) -> Self {
         value.0.clone()
     }
@@ -4356,49 +4356,49 @@ pub struct IAVIEditStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAVIFile(pub ::windows::runtime::IUnknown);
 impl IAVIFile {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfi), ::std::mem::transmute(lsize)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn GetStream(&self, ppstream: *mut ::std::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppstream), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam)).ok()
+    pub unsafe fn GetStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-    pub unsafe fn CreateStream(&self, ppstream: *mut ::std::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppstream), ::std::mem::transmute(psi)).ok()
+    pub unsafe fn CreateStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(psi)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(cbdata)).ok()
+    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(lpcbdata)).ok()
+    pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn EndRecord(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIFile {
     type Vtable = IAVIFile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131104, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IAVIFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAVIFile> for ::windows::runtime::IUnknown {
     fn from(value: IAVIFile) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAVIFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAVIFile> for ::windows::runtime::IUnknown {
     fn from(value: &IAVIFile) -> Self {
         value.0.clone()
     }
@@ -4423,61 +4423,61 @@ pub struct IAVIFile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstream: *mut ::windows::runtime::RawPtr, fcctype: u32, lparam: i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstream: *mut ::windows::runtime::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcctype: u32, lparam: i32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAVIPersistFile(pub ::windows::runtime::IUnknown);
 impl IAVIPersistFile {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0, dwmode: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszfilename.into_param().abi(), ::std::mem::transmute(dwmode)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), ::core::mem::transmute(dwmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszfilename: Param0, fremember: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszfilename.into_param().abi(), fremember.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), fremember.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn SaveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn GetCurFile(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Reserved1(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131109, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IAVIPersistFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAVIPersistFile> for ::windows::runtime::IUnknown {
     fn from(value: IAVIPersistFile) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAVIPersistFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAVIPersistFile> for ::windows::runtime::IUnknown {
     fn from(value: &IAVIPersistFile) -> Self {
         value.0.clone()
     }
@@ -4493,51 +4493,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<IAVIPersistFile> for super::super::System::Com::IPersistFile {
+impl ::core::convert::From<IAVIPersistFile> for super::super::System::Com::IPersistFile {
     fn from(value: IAVIPersistFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersistFile {
+impl ::core::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersistFile {
     fn from(value: &IAVIPersistFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistFile> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistFile> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<IAVIPersistFile> for super::super::System::Com::IPersist {
+impl ::core::convert::From<IAVIPersistFile> for super::super::System::Com::IPersist {
     fn from(value: IAVIPersistFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersist {
+impl ::core::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersist {
     fn from(value: &IAVIPersistFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4560,67 +4560,67 @@ pub struct IAVIPersistFile_abi(
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAVIStream(pub ::windows::runtime::IUnknown);
 impl IAVIStream {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lparam1: Param0, lparam2: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(psi), ::std::mem::transmute(lsize)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos), ::std::mem::transmute(lflags)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(lpcbformat)).ok()
+    pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(cbformat)).ok()
+    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(plbytes), ::std::mem::transmute(plsamples)).ok()
+    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(dwflags), ::std::mem::transmute(plsampwritten), ::std::mem::transmute(plbyteswritten)).ok()
+    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn ReadData(&self, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(lpcb)).ok()
+    pub unsafe fn ReadData(&self, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn WriteData(&self, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(cb)).ok()
+    pub unsafe fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIStream {
     type Vtable = IAVIStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131105, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IAVIStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAVIStream> for ::windows::runtime::IUnknown {
     fn from(value: IAVIStream) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAVIStream> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAVIStream> for ::windows::runtime::IUnknown {
     fn from(value: &IAVIStream) -> Self {
         value.0.clone()
     }
@@ -4646,40 +4646,40 @@ pub struct IAVIStream_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lflags: i32) -> i32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAVIStreaming(pub ::windows::runtime::IUnknown);
 impl IAVIStreaming {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lend), ::std::mem::transmute(lrate)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIStreaming {
     type Vtable = IAVIStreaming_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131106, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IAVIStreaming> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IAVIStreaming> for ::windows::runtime::IUnknown {
     fn from(value: IAVIStreaming) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IAVIStreaming> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IAVIStreaming> for ::windows::runtime::IUnknown {
     fn from(value: &IAVIStreaming) -> Self {
         value.0.clone()
     }
@@ -4703,35 +4703,35 @@ pub struct IAVIStreaming_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpOutput: *mut ::std::ffi::c_void,
+    pub lpOutput: *mut ::core::ffi::c_void,
     pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpInput: *mut ::std::ffi::c_void,
+    pub lpInput: *mut ::core::ffi::c_void,
     pub lpckid: *mut u32,
     pub lpdwFlags: *mut u32,
     pub lFrameNum: i32,
     pub dwFrameSize: u32,
     pub dwQuality: u32,
     pub lpbiPrev: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpPrev: *mut ::std::ffi::c_void,
+    pub lpPrev: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICCOMPRESS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for ICCOMPRESS {
+impl ::core::default::Default for ICCOMPRESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for ICCOMPRESS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICCOMPRESS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICCOMPRESS")
             .field("dwFlags", &self.dwFlags)
             .field("lpbiOutput", &self.lpbiOutput)
@@ -4749,18 +4749,18 @@ impl ::std::fmt::Debug for ICCOMPRESS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for ICCOMPRESS {
+impl ::core::cmp::PartialEq for ICCOMPRESS {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.lpbiOutput == other.lpbiOutput && self.lpOutput == other.lpOutput && self.lpbiInput == other.lpbiInput && self.lpInput == other.lpInput && self.lpckid == other.lpckid && self.lpdwFlags == other.lpdwFlags && self.lFrameNum == other.lFrameNum && self.dwFrameSize == other.dwFrameSize && self.dwQuality == other.dwQuality && self.lpbiPrev == other.lpbiPrev && self.lpPrev == other.lpPrev
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for ICCOMPRESS {}
+impl ::core::cmp::Eq for ICCOMPRESS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICCOMPRESS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -4785,14 +4785,14 @@ pub struct ICCOMPRESSFRAMES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ICCOMPRESSFRAMES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for ICCOMPRESSFRAMES {
+impl ::core::default::Default for ICCOMPRESSFRAMES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for ICCOMPRESSFRAMES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICCOMPRESSFRAMES")
             .field("dwFlags", &self.dwFlags)
             .field("lpbiOutput", &self.lpbiOutput)
@@ -4814,7 +4814,7 @@ impl ::std::fmt::Debug for ICCOMPRESSFRAMES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for ICCOMPRESSFRAMES {
+impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags
             && self.lpbiOutput == other.lpbiOutput
@@ -4835,7 +4835,7 @@ impl ::std::cmp::PartialEq for ICCOMPRESSFRAMES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for ICCOMPRESSFRAMES {}
+impl ::core::cmp::Eq for ICCOMPRESSFRAMES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICCOMPRESSFRAMES {
     type Abi = Self;
@@ -4854,7 +4854,7 @@ pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: P
         extern "system" {
             fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(ICClose(hic.into_param().abi()))
+        ::core::mem::transmute(ICClose(hic.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4862,27 +4862,41 @@ pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: P
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::std::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
+    hic: Param0,
+    dwflags: u32,
+    lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    lpdata: *mut ::core::ffi::c_void,
+    lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    lpbits: *const ::core::ffi::c_void,
+    lpckid: *mut u32,
+    lpdwflags: *mut u32,
+    lframenum: i32,
+    dwframesize: u32,
+    dwquality: u32,
+    lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
+    lpprev: *const ::core::ffi::c_void,
+) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::std::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::std::ffi::c_void) -> u32;
+            fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(ICCompress(
+        ::core::mem::transmute(ICCompress(
             hic.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpbioutput),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(lpbiinput),
-            ::std::mem::transmute(lpbits),
-            ::std::mem::transmute(lpckid),
-            ::std::mem::transmute(lpdwflags),
-            ::std::mem::transmute(lframenum),
-            ::std::mem::transmute(dwframesize),
-            ::std::mem::transmute(dwquality),
-            ::std::mem::transmute(lpbiprev),
-            ::std::mem::transmute(lpprev),
+            ::core::mem::transmute(dwflags),
+            ::core::mem::transmute(lpbioutput),
+            ::core::mem::transmute(lpdata),
+            ::core::mem::transmute(lpbiinput),
+            ::core::mem::transmute(lpbits),
+            ::core::mem::transmute(lpckid),
+            ::core::mem::transmute(lpdwflags),
+            ::core::mem::transmute(lframenum),
+            ::core::mem::transmute(dwframesize),
+            ::core::mem::transmute(dwquality),
+            ::core::mem::transmute(lpbiprev),
+            ::core::mem::transmute(lpprev),
         ))
     }
     #[cfg(not(windows))]
@@ -4891,14 +4905,14 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICCompressorChoose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, uiflags: u32, pvin: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, pc: *mut COMPVARS, lpsztitle: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn ICCompressorChoose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, pc: *mut COMPVARS, lpsztitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+            fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICCompressorChoose(hwnd.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(pvin), ::std::mem::transmute(lpdata), ::std::mem::transmute(pc), lpsztitle.into_param().abi()))
+        ::core::mem::transmute(ICCompressorChoose(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(pvin), ::core::mem::transmute(lpdata), ::core::mem::transmute(pc), lpsztitle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4913,59 +4927,59 @@ pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
         extern "system" {
             fn ICCompressorFree(pc: *const COMPVARS);
         }
-        ::std::mem::transmute(ICCompressorFree(::std::mem::transmute(pc)))
+        ::core::mem::transmute(ICCompressorFree(::core::mem::transmute(pc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
     pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpInput: *mut ::std::ffi::c_void,
+    pub lpInput: *mut ::core::ffi::c_void,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpOutput: *mut ::std::ffi::c_void,
+    pub lpOutput: *mut ::core::ffi::c_void,
     pub ckid: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICDECOMPRESS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for ICDECOMPRESS {
+impl ::core::default::Default for ICDECOMPRESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for ICDECOMPRESS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICDECOMPRESS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICDECOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("ckid", &self.ckid).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for ICDECOMPRESS {
+impl ::core::cmp::PartialEq for ICDECOMPRESS {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.lpbiInput == other.lpbiInput && self.lpInput == other.lpInput && self.lpbiOutput == other.lpbiOutput && self.lpOutput == other.lpOutput && self.ckid == other.ckid
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for ICDECOMPRESS {}
+impl ::core::cmp::Eq for ICDECOMPRESS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICDECOMPRESS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
     pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpSrc: *mut ::std::ffi::c_void,
+    pub lpSrc: *mut ::core::ffi::c_void,
     pub lpbiDst: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    pub lpDst: *mut ::std::ffi::c_void,
+    pub lpDst: *mut ::core::ffi::c_void,
     pub xDst: i32,
     pub yDst: i32,
     pub dxDst: i32,
@@ -4978,14 +4992,14 @@ pub struct ICDECOMPRESSEX {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICDECOMPRESSEX {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for ICDECOMPRESSEX {
+impl ::core::default::Default for ICDECOMPRESSEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for ICDECOMPRESSEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICDECOMPRESSEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICDECOMPRESSEX")
             .field("dwFlags", &self.dwFlags)
             .field("lpbiSrc", &self.lpbiSrc)
@@ -5004,13 +5018,13 @@ impl ::std::fmt::Debug for ICDECOMPRESSEX {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for ICDECOMPRESSEX {
+impl ::core::cmp::PartialEq for ICDECOMPRESSEX {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.lpbiSrc == other.lpbiSrc && self.lpSrc == other.lpSrc && self.lpbiDst == other.lpbiDst && self.lpDst == other.lpDst && self.xDst == other.xDst && self.yDst == other.yDst && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for ICDECOMPRESSEX {}
+impl ::core::cmp::Eq for ICDECOMPRESSEX {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICDECOMPRESSEX {
     type Abi = Self;
@@ -5025,37 +5039,37 @@ pub const ICDECOMPRESS_NULLFRAME: i32 = 268435456i32;
 pub const ICDECOMPRESS_PREROLL: i32 = 536870912i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICDECOMPRESS_UPDATE: i32 = 1073741824i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ICDRAW {
     pub dwFlags: u32,
-    pub lpFormat: *mut ::std::ffi::c_void,
-    pub lpData: *mut ::std::ffi::c_void,
+    pub lpFormat: *mut ::core::ffi::c_void,
+    pub lpData: *mut ::core::ffi::c_void,
     pub cbData: u32,
     pub lTime: i32,
 }
 impl ICDRAW {}
-impl ::std::default::Default for ICDRAW {
+impl ::core::default::Default for ICDRAW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ICDRAW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICDRAW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICDRAW").field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("lpData", &self.lpData).field("cbData", &self.cbData).field("lTime", &self.lTime).finish()
     }
 }
-impl ::std::cmp::PartialEq for ICDRAW {
+impl ::core::cmp::PartialEq for ICDRAW {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.lpFormat == other.lpFormat && self.lpData == other.lpData && self.cbData == other.cbData && self.lTime == other.lTime
     }
 }
-impl ::std::cmp::Eq for ICDRAW {}
+impl ::core::cmp::Eq for ICDRAW {}
 unsafe impl ::windows::runtime::Abi for ICDRAW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -5079,14 +5093,14 @@ pub struct ICDRAWBEGIN {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ICDRAWBEGIN {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for ICDRAWBEGIN {
+impl ::core::default::Default for ICDRAWBEGIN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::fmt::Debug for ICDRAWBEGIN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICDRAWBEGIN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICDRAWBEGIN")
             .field("dwFlags", &self.dwFlags)
             .field("hpal", &self.hpal)
@@ -5107,18 +5121,18 @@ impl ::std::fmt::Debug for ICDRAWBEGIN {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for ICDRAWBEGIN {
+impl ::core::cmp::PartialEq for ICDRAWBEGIN {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.hpal == other.hpal && self.hwnd == other.hwnd && self.hdc == other.hdc && self.xDst == other.xDst && self.yDst == other.yDst && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.lpbi == other.lpbi && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc && self.dwRate == other.dwRate && self.dwScale == other.dwScale
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for ICDRAWBEGIN {}
+impl ::core::cmp::Eq for ICDRAWBEGIN {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICDRAWBEGIN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
@@ -5134,25 +5148,25 @@ pub struct ICDRAWSUGGEST {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICDRAWSUGGEST {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for ICDRAWSUGGEST {
+impl ::core::default::Default for ICDRAWSUGGEST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for ICDRAWSUGGEST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICDRAWSUGGEST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICDRAWSUGGEST").field("lpbiIn", &self.lpbiIn).field("lpbiSuggest", &self.lpbiSuggest).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("hicDecompressor", &self.hicDecompressor).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for ICDRAWSUGGEST {
+impl ::core::cmp::PartialEq for ICDRAWSUGGEST {
     fn eq(&self, other: &Self) -> bool {
         self.lpbiIn == other.lpbiIn && self.lpbiSuggest == other.lpbiSuggest && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.hicDecompressor == other.hicDecompressor
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for ICDRAWSUGGEST {}
+impl ::core::cmp::Eq for ICDRAWSUGGEST {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICDRAWSUGGEST {
     type Abi = Self;
@@ -5188,28 +5202,28 @@ pub const ICDRAW_UPDATING: i32 = 64i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::std::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::std::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::std::ffi::c_void) -> u32;
+            fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(ICDecompress(hic.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpbiformat), ::std::mem::transmute(lpdata), ::std::mem::transmute(lpbi), ::std::mem::transmute(lpbits)))
+        ::core::mem::transmute(ICDecompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbiformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpformat: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, cbdata: u32, ltime: i32) -> u32 {
+pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
+            fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
         }
-        ::std::mem::transmute(ICDraw(hic.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpformat), ::std::mem::transmute(lpdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(ltime)))
+        ::core::mem::transmute(ICDraw(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(ltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5241,23 +5255,23 @@ pub unsafe fn ICDrawBegin<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>, Pa
         extern "system" {
             fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
         }
-        ::std::mem::transmute(ICDrawBegin(
+        ::core::mem::transmute(ICDrawBegin(
             hic.into_param().abi(),
-            ::std::mem::transmute(dwflags),
+            ::core::mem::transmute(dwflags),
             hpal.into_param().abi(),
             hwnd.into_param().abi(),
             hdc.into_param().abi(),
-            ::std::mem::transmute(xdst),
-            ::std::mem::transmute(ydst),
-            ::std::mem::transmute(dxdst),
-            ::std::mem::transmute(dydst),
-            ::std::mem::transmute(lpbi),
-            ::std::mem::transmute(xsrc),
-            ::std::mem::transmute(ysrc),
-            ::std::mem::transmute(dxsrc),
-            ::std::mem::transmute(dysrc),
-            ::std::mem::transmute(dwrate),
-            ::std::mem::transmute(dwscale),
+            ::core::mem::transmute(xdst),
+            ::core::mem::transmute(ydst),
+            ::core::mem::transmute(dxdst),
+            ::core::mem::transmute(dydst),
+            ::core::mem::transmute(lpbi),
+            ::core::mem::transmute(xsrc),
+            ::core::mem::transmute(ysrc),
+            ::core::mem::transmute(dxsrc),
+            ::core::mem::transmute(dysrc),
+            ::core::mem::transmute(dwrate),
+            ::core::mem::transmute(dwscale),
         ))
     }
     #[cfg(not(windows))]
@@ -5311,7 +5325,7 @@ pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
         }
-        ::std::mem::transmute(ICGetDisplayFormat(hic.into_param().abi(), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbiout), ::std::mem::transmute(bitdepth), ::std::mem::transmute(dx), ::std::mem::transmute(dy)))
+        ::core::mem::transmute(ICGetDisplayFormat(hic.into_param().abi(), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), ::core::mem::transmute(bitdepth), ::core::mem::transmute(dx), ::core::mem::transmute(dy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5326,12 +5340,12 @@ pub unsafe fn ICGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic:
         extern "system" {
             fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(ICGetInfo(hic.into_param().abi(), ::std::mem::transmute(picinfo), ::std::mem::transmute(cb)))
+        ::core::mem::transmute(ICGetInfo(hic.into_param().abi(), ::core::mem::transmute(picinfo), ::core::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ICINFO {
@@ -5346,13 +5360,13 @@ pub struct ICINFO {
     pub szDriver: [u16; 128],
 }
 impl ICINFO {}
-impl ::std::default::Default for ICINFO {
+impl ::core::default::Default for ICINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ICINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICINFO")
             .field("dwSize", &self.dwSize)
             .field("fccType", &self.fccType)
@@ -5366,12 +5380,12 @@ impl ::std::fmt::Debug for ICINFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for ICINFO {
+impl ::core::cmp::PartialEq for ICINFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwVersion == other.dwVersion && self.dwVersionICM == other.dwVersionICM && self.szName == other.szName && self.szDescription == other.szDescription && self.szDriver == other.szDriver
     }
 }
-impl ::std::cmp::Eq for ICINFO {}
+impl ::core::cmp::Eq for ICINFO {}
 unsafe impl ::windows::runtime::Abi for ICINFO {
     type Abi = Self;
 }
@@ -5388,14 +5402,14 @@ pub const ICINSTALL_UNICODE: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE {
+pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
+            fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(ICImageCompress(hic.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbits), ::std::mem::transmute(lpbiout), ::std::mem::transmute(lquality), ::std::mem::transmute(plsize)))
+        ::core::mem::transmute(ICImageCompress(hic.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout), ::core::mem::transmute(lquality), ::core::mem::transmute(plsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5403,14 +5417,14 @@ pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE {
+pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
+            fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(ICImageDecompress(hic.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbits), ::std::mem::transmute(lpbiout)))
+        ::core::mem::transmute(ICImageDecompress(hic.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5425,7 +5439,7 @@ pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> su
         extern "system" {
             fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICInfo(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(lpicinfo)))
+        ::core::mem::transmute(ICInfo(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(lpicinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5440,7 +5454,7 @@ pub unsafe fn ICInstall<'a, Param2: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: super::super::Foundation::PSTR, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICInstall(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), lparam.into_param().abi(), szdesc.into_param().abi(), ::std::mem::transmute(wflags)))
+        ::core::mem::transmute(ICInstall(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), lparam.into_param().abi(), szdesc.into_param().abi(), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5455,7 +5469,7 @@ pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::supe
         extern "system" {
             fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
         }
-        ::std::mem::transmute(ICLocate(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbiout), ::std::mem::transmute(wflags)))
+        ::core::mem::transmute(ICLocate(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5608,7 +5622,7 @@ pub const ICM_SETSTATE: u32 = 20481u32;
 pub const ICM_SET_STATUS_PROC: u32 = 16456u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICM_USER: u32 = 16384u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -5619,21 +5633,21 @@ pub struct ICOPEN {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub dwError: super::super::Foundation::LRESULT,
-    pub pV1Reserved: *mut ::std::ffi::c_void,
-    pub pV2Reserved: *mut ::std::ffi::c_void,
+    pub pV1Reserved: *mut ::core::ffi::c_void,
+    pub pV2Reserved: *mut ::core::ffi::c_void,
     pub dnDevNode: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICOPEN {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ICOPEN {
+impl ::core::default::Default for ICOPEN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ICOPEN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICOPEN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICOPEN")
             .field("dwSize", &self.dwSize)
             .field("fccType", &self.fccType)
@@ -5648,13 +5662,13 @@ impl ::std::fmt::Debug for ICOPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ICOPEN {
+impl ::core::cmp::PartialEq for ICOPEN {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.dwError == other.dwError && self.pV1Reserved == other.pV1Reserved && self.pV2Reserved == other.pV2Reserved && self.dnDevNode == other.dnDevNode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ICOPEN {}
+impl ::core::cmp::Eq for ICOPEN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ICOPEN {
     type Abi = Self;
@@ -5668,7 +5682,7 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
         extern "system" {
             fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
         }
-        ::std::mem::transmute(ICOpen(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(wmode)))
+        ::core::mem::transmute(ICOpen(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5676,19 +5690,19 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::std::option::Option<super::super::Foundation::FARPROC>) -> HIC {
+pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::core::option::Option<super::super::Foundation::FARPROC>) -> HIC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::windows::runtime::RawPtr) -> HIC;
         }
-        ::std::mem::transmute(ICOpenFunction(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(wmode), ::std::mem::transmute(lpfnhandler)))
+        ::core::mem::transmute(ICOpenFunction(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode), ::core::mem::transmute(lpfnhandler)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
@@ -5701,25 +5715,25 @@ pub struct ICPALETTE {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ICPALETTE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::default::Default for ICPALETTE {
+impl ::core::default::Default for ICPALETTE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::fmt::Debug for ICPALETTE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICPALETTE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICPALETTE").field("dwFlags", &self.dwFlags).field("iStart", &self.iStart).field("iLen", &self.iLen).field("lppe", &self.lppe).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::PartialEq for ICPALETTE {
+impl ::core::cmp::PartialEq for ICPALETTE {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.iStart == other.iStart && self.iLen == other.iLen && self.lppe == other.lppe
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::std::cmp::Eq for ICPALETTE {}
+impl ::core::cmp::Eq for ICPALETTE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICPALETTE {
     type Abi = Self;
@@ -5740,12 +5754,12 @@ pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::sup
         extern "system" {
             fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICRemove(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(wflags)))
+        ::core::mem::transmute(ICRemove(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -5757,25 +5771,25 @@ pub struct ICSETSTATUSPROC {
 #[cfg(feature = "Win32_Foundation")]
 impl ICSETSTATUSPROC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ICSETSTATUSPROC {
+impl ::core::default::Default for ICSETSTATUSPROC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ICSETSTATUSPROC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICSETSTATUSPROC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICSETSTATUSPROC").field("dwFlags", &self.dwFlags).field("lParam", &self.lParam).field("Status", &self.Status).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ICSETSTATUSPROC {
+impl ::core::cmp::PartialEq for ICSETSTATUSPROC {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.lParam == other.lParam && self.Status == other.Status
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ICSETSTATUSPROC {}
+impl ::core::cmp::Eq for ICSETSTATUSPROC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ICSETSTATUSPROC {
     type Abi = Self;
@@ -5800,7 +5814,7 @@ pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
         extern "system" {
             fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(ICSendMessage(hic.into_param().abi(), ::std::mem::transmute(msg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
+        ::core::mem::transmute(ICSendMessage(hic.into_param().abi(), ::core::mem::transmute(msg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5808,14 +5822,14 @@ pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::std::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::std::ffi::c_void {
+pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::std::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::std::ffi::c_void;
+            fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(ICSeqCompressFrame(::std::mem::transmute(pc), ::std::mem::transmute(uiflags), ::std::mem::transmute(lpbits), ::std::mem::transmute(pfkey), ::std::mem::transmute(plsize)))
+        ::core::mem::transmute(ICSeqCompressFrame(::core::mem::transmute(pc), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbits), ::core::mem::transmute(pfkey), ::core::mem::transmute(plsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5830,7 +5844,7 @@ pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
         extern "system" {
             fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
         }
-        ::std::mem::transmute(ICSeqCompressFrameEnd(::std::mem::transmute(pc)))
+        ::core::mem::transmute(ICSeqCompressFrameEnd(::core::mem::transmute(pc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5845,7 +5859,7 @@ pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super:
         extern "system" {
             fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICSeqCompressFrameStart(::std::mem::transmute(pc), ::std::mem::transmute(lpbiin)))
+        ::core::mem::transmute(ICSeqCompressFrameStart(::core::mem::transmute(pc), ::core::mem::transmute(lpbiin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5994,37 +6008,37 @@ pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IGetFrame(pub ::windows::runtime::IUnknown);
 impl IGetFrame {
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-    pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::std::ffi::c_void {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos)))
+    pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void {
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpos)))
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lend), ::std::mem::transmute(lrate)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Multimedia`*"]
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Graphics_Gdi`*"]
-    pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpbi), ::std::mem::transmute(lpbits), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(dx), ::std::mem::transmute(dy)).ok()
+    pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(dx), ::core::mem::transmute(dy)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IGetFrame {
     type Vtable = IGetFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131107, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IGetFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGetFrame> for ::windows::runtime::IUnknown {
     fn from(value: IGetFrame) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IGetFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGetFrame> for ::windows::runtime::IUnknown {
     fn from(value: &IGetFrame) -> Self {
         value.0.clone()
     }
@@ -6045,13 +6059,13 @@ pub struct IGetFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32) -> *mut ::std::ffi::c_void,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32) -> *mut ::core::ffi::c_void,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct IMAADPCMWAVEFORMAT {
@@ -6059,17 +6073,17 @@ pub struct IMAADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl IMAADPCMWAVEFORMAT {}
-impl ::std::default::Default for IMAADPCMWAVEFORMAT {
+impl ::core::default::Default for IMAADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IMAADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for IMAADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IMAADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for IMAADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for IMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -6203,7 +6217,7 @@ pub const JIFMK_SOI: u32 = 65496u32;
 pub const JIFMK_SOS: u32 = 65498u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JIFMK_TEM: u32 = 65281u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYCALIBRATE {
@@ -6215,21 +6229,21 @@ pub struct JOYCALIBRATE {
     pub wZdelta: u16,
 }
 impl JOYCALIBRATE {}
-impl ::std::default::Default for JOYCALIBRATE {
+impl ::core::default::Default for JOYCALIBRATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYCALIBRATE {
+impl ::core::cmp::PartialEq for JOYCALIBRATE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYCALIBRATE {}
+impl ::core::cmp::Eq for JOYCALIBRATE {}
 unsafe impl ::windows::runtime::Abi for JOYCALIBRATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -6265,24 +6279,24 @@ pub struct JOYCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl JOYCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JOYCAPS2A {
+impl ::core::default::Default for JOYCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JOYCAPS2A {
+impl ::core::cmp::PartialEq for JOYCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JOYCAPS2A {}
+impl ::core::cmp::Eq for JOYCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JOYCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYCAPS2W {
@@ -6315,21 +6329,21 @@ pub struct JOYCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl JOYCAPS2W {}
-impl ::std::default::Default for JOYCAPS2W {
+impl ::core::default::Default for JOYCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYCAPS2W {
+impl ::core::cmp::PartialEq for JOYCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYCAPS2W {}
+impl ::core::cmp::Eq for JOYCAPS2W {}
 unsafe impl ::windows::runtime::Abi for JOYCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -6362,24 +6376,24 @@ pub struct JOYCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl JOYCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JOYCAPSA {
+impl ::core::default::Default for JOYCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JOYCAPSA {
+impl ::core::cmp::PartialEq for JOYCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JOYCAPSA {}
+impl ::core::cmp::Eq for JOYCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JOYCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYCAPSW {
@@ -6409,17 +6423,17 @@ pub struct JOYCAPSW {
     pub szOEMVxD: [u16; 260],
 }
 impl JOYCAPSW {}
-impl ::std::default::Default for JOYCAPSW {
+impl ::core::default::Default for JOYCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYCAPSW {
+impl ::core::cmp::PartialEq for JOYCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYCAPSW {}
+impl ::core::cmp::Eq for JOYCAPSW {}
 unsafe impl ::windows::runtime::Abi for JOYCAPSW {
     type Abi = Self;
 }
@@ -6447,7 +6461,7 @@ pub const JOYERR_NOERROR: u32 = 0u32;
 pub const JOYERR_PARMS: u32 = 165u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOYERR_UNPLUGGED: u32 = 167u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYINFO {
@@ -6457,21 +6471,21 @@ pub struct JOYINFO {
     pub wButtons: u32,
 }
 impl JOYINFO {}
-impl ::std::default::Default for JOYINFO {
+impl ::core::default::Default for JOYINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYINFO {
+impl ::core::cmp::PartialEq for JOYINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYINFO {}
+impl ::core::cmp::Eq for JOYINFO {}
 unsafe impl ::windows::runtime::Abi for JOYINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYINFOEX {
@@ -6490,21 +6504,21 @@ pub struct JOYINFOEX {
     pub dwReserved2: u32,
 }
 impl JOYINFOEX {}
-impl ::std::default::Default for JOYINFOEX {
+impl ::core::default::Default for JOYINFOEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYINFOEX {
+impl ::core::cmp::PartialEq for JOYINFOEX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYINFOEX {}
+impl ::core::cmp::Eq for JOYINFOEX {}
 unsafe impl ::windows::runtime::Abi for JOYINFOEX {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYPOS {
@@ -6516,21 +6530,21 @@ pub struct JOYPOS {
     pub dwV: u32,
 }
 impl JOYPOS {}
-impl ::std::default::Default for JOYPOS {
+impl ::core::default::Default for JOYPOS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYPOS {
+impl ::core::cmp::PartialEq for JOYPOS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYPOS {}
+impl ::core::cmp::Eq for JOYPOS {}
 unsafe impl ::windows::runtime::Abi for JOYPOS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYRANGE {
@@ -6539,21 +6553,21 @@ pub struct JOYRANGE {
     pub jpCenter: JOYPOS,
 }
 impl JOYRANGE {}
-impl ::std::default::Default for JOYRANGE {
+impl ::core::default::Default for JOYRANGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYRANGE {
+impl ::core::cmp::PartialEq for JOYRANGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYRANGE {}
+impl ::core::cmp::Eq for JOYRANGE {}
 unsafe impl ::windows::runtime::Abi for JOYRANGE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Devices_HumanInterfaceDevice`*"]
@@ -6567,24 +6581,24 @@ pub struct JOYREGHWCONFIG {
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
 impl JOYREGHWCONFIG {}
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl ::std::default::Default for JOYREGHWCONFIG {
+impl ::core::default::Default for JOYREGHWCONFIG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl ::std::cmp::PartialEq for JOYREGHWCONFIG {
+impl ::core::cmp::PartialEq for JOYREGHWCONFIG {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl ::std::cmp::Eq for JOYREGHWCONFIG {}
+impl ::core::cmp::Eq for JOYREGHWCONFIG {}
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
 unsafe impl ::windows::runtime::Abi for JOYREGHWCONFIG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYREGHWSETTINGS {
@@ -6592,21 +6606,21 @@ pub struct JOYREGHWSETTINGS {
     pub dwNumButtons: u32,
 }
 impl JOYREGHWSETTINGS {}
-impl ::std::default::Default for JOYREGHWSETTINGS {
+impl ::core::default::Default for JOYREGHWSETTINGS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYREGHWSETTINGS {
+impl ::core::cmp::PartialEq for JOYREGHWSETTINGS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYREGHWSETTINGS {}
+impl ::core::cmp::Eq for JOYREGHWSETTINGS {}
 unsafe impl ::windows::runtime::Abi for JOYREGHWSETTINGS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JOYREGUSERVALUES {
@@ -6615,17 +6629,17 @@ pub struct JOYREGUSERVALUES {
     pub jpDeadZone: JOYPOS,
 }
 impl JOYREGUSERVALUES {}
-impl ::std::default::Default for JOYREGUSERVALUES {
+impl ::core::default::Default for JOYREGUSERVALUES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JOYREGUSERVALUES {
+impl ::core::cmp::PartialEq for JOYREGUSERVALUES {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JOYREGUSERVALUES {}
+impl ::core::cmp::Eq for JOYREGUSERVALUES {}
 unsafe impl ::windows::runtime::Abi for JOYREGUSERVALUES {
     type Abi = Self;
 }
@@ -6761,7 +6775,7 @@ pub const JOY_RETURNY: i32 = 2i32;
 pub const JOY_RETURNZ: i32 = 4i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOY_USEDEADZONE: i32 = 2048i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct JPEGINFOHEADER {
@@ -6773,17 +6787,17 @@ pub struct JPEGINFOHEADER {
     pub JPEGVSubSampling: u32,
 }
 impl JPEGINFOHEADER {}
-impl ::std::default::Default for JPEGINFOHEADER {
+impl ::core::default::Default for JPEGINFOHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JPEGINFOHEADER {
+impl ::core::cmp::PartialEq for JPEGINFOHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JPEGINFOHEADER {}
+impl ::core::cmp::Eq for JPEGINFOHEADER {}
 unsafe impl ::windows::runtime::Abi for JPEGINFOHEADER {
     type Abi = Self;
 }
@@ -6805,7 +6819,7 @@ pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACM
 pub type LPDRVCALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPJOYDEVMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: i32, param3: i32) -> u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -7067,7 +7081,7 @@ pub unsafe fn MCIWndCreateA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::std::mem::transmute(dwstyle), szfile.into_param().abi()))
+        ::core::mem::transmute(MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(dwstyle), szfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7082,7 +7096,7 @@ pub unsafe fn MCIWndCreateW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::std::mem::transmute(dwstyle), szfile.into_param().abi()))
+        ::core::mem::transmute(MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(dwstyle), szfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7097,7 +7111,7 @@ pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
         extern "system" {
             fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MCIWndRegisterClass())
+        ::core::mem::transmute(MCIWndRegisterClass())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7134,7 +7148,7 @@ pub const MCI_CONSTANT: u32 = 8u32;
 pub const MCI_DGV_CAPTURE_AS: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_CAPTURE_AT: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7146,24 +7160,24 @@ pub struct MCI_DGV_CAPTURE_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_CAPTURE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_CAPTURE_PARMSA {
+impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_CAPTURE_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CAPTURE_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7175,19 +7189,19 @@ pub struct MCI_DGV_CAPTURE_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_CAPTURE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_CAPTURE_PARMSW {
+impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_CAPTURE_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CAPTURE_PARMSW {
     type Abi = Self;
@@ -7196,7 +7210,7 @@ unsafe impl ::windows::runtime::Abi for MCI_DGV_CAPTURE_PARMSW {
 pub const MCI_DGV_COPY_AT: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_COPY_AUDIO_STREAM: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7211,19 +7225,19 @@ pub struct MCI_DGV_COPY_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_COPY_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_COPY_PARMS {
+impl ::core::default::Default for MCI_DGV_COPY_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_COPY_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_COPY_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_COPY_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_COPY_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_COPY_PARMS {
     type Abi = Self;
@@ -7236,7 +7250,7 @@ pub const MCI_DGV_CUE_INPUT: i32 = 65536i32;
 pub const MCI_DGV_CUE_NOSHOW: i32 = 262144i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_CUE_OUTPUT: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MCI_DGV_CUE_PARMS {
@@ -7244,17 +7258,17 @@ pub struct MCI_DGV_CUE_PARMS {
     pub dwTo: u32,
 }
 impl MCI_DGV_CUE_PARMS {}
-impl ::std::default::Default for MCI_DGV_CUE_PARMS {
+impl ::core::default::Default for MCI_DGV_CUE_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MCI_DGV_CUE_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_CUE_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MCI_DGV_CUE_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_CUE_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CUE_PARMS {
     type Abi = Self;
 }
@@ -7262,7 +7276,7 @@ unsafe impl ::windows::runtime::Abi for MCI_DGV_CUE_PARMS {
 pub const MCI_DGV_CUT_AT: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_CUT_AUDIO_STREAM: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7277,19 +7291,19 @@ pub struct MCI_DGV_CUT_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_CUT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_CUT_PARMS {
+impl ::core::default::Default for MCI_DGV_CUT_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_CUT_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_CUT_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_CUT_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_CUT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CUT_PARMS {
     type Abi = Self;
@@ -7300,7 +7314,7 @@ pub const MCI_DGV_CUT_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_DELETE_AT: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_DELETE_AUDIO_STREAM: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7315,19 +7329,19 @@ pub struct MCI_DGV_DELETE_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_DELETE_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_DELETE_PARMS {
+impl ::core::default::Default for MCI_DGV_DELETE_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_DELETE_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_DELETE_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_DELETE_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_DELETE_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_DELETE_PARMS {
     type Abi = Self;
@@ -7400,7 +7414,7 @@ pub const MCI_DGV_INFO_AUDIO_ALG: i32 = 16388i32;
 pub const MCI_DGV_INFO_AUDIO_QUALITY: i32 = 16385i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_INFO_ITEM: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7413,24 +7427,24 @@ pub struct MCI_DGV_INFO_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_INFO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_INFO_PARMSA {
+impl ::core::default::Default for MCI_DGV_INFO_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_INFO_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_INFO_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_INFO_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7443,19 +7457,19 @@ pub struct MCI_DGV_INFO_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_INFO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_INFO_PARMSW {
+impl ::core::default::Default for MCI_DGV_INFO_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_INFO_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_INFO_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_INFO_PARMSW {
     type Abi = Self;
@@ -7488,7 +7502,7 @@ pub const MCI_DGV_LIST_COUNT: i32 = 131072i32;
 pub const MCI_DGV_LIST_ITEM: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_LIST_NUMBER: i32 = 262144i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7503,24 +7517,24 @@ pub struct MCI_DGV_LIST_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_LIST_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_LIST_PARMSA {
+impl ::core::default::Default for MCI_DGV_LIST_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_LIST_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_LIST_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_LIST_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7535,19 +7549,19 @@ pub struct MCI_DGV_LIST_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_LIST_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_LIST_PARMSW {
+impl ::core::default::Default for MCI_DGV_LIST_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_LIST_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_LIST_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_LIST_PARMSW {
     type Abi = Self;
@@ -7576,7 +7590,7 @@ pub const MCI_DGV_MONITOR_FILE: i32 = 16385i32;
 pub const MCI_DGV_MONITOR_INPUT: i32 = 16384i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_MONITOR_METHOD: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MCI_DGV_MONITOR_PARMS {
@@ -7585,17 +7599,17 @@ pub struct MCI_DGV_MONITOR_PARMS {
     pub dwMethod: u32,
 }
 impl MCI_DGV_MONITOR_PARMS {}
-impl ::std::default::Default for MCI_DGV_MONITOR_PARMS {
+impl ::core::default::Default for MCI_DGV_MONITOR_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MCI_DGV_MONITOR_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_MONITOR_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MCI_DGV_MONITOR_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_MONITOR_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_MONITOR_PARMS {
     type Abi = Self;
 }
@@ -7609,7 +7623,7 @@ pub const MCI_DGV_OPEN_32BIT: i32 = 1048576i32;
 pub const MCI_DGV_OPEN_NOSTATIC: i32 = 262144i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_OPEN_PARENT: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7625,24 +7639,24 @@ pub struct MCI_DGV_OPEN_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_OPEN_PARMSA {
+impl ::core::default::Default for MCI_DGV_OPEN_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_OPEN_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_OPEN_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_OPEN_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7658,19 +7672,19 @@ pub struct MCI_DGV_OPEN_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_OPEN_PARMSW {
+impl ::core::default::Default for MCI_DGV_OPEN_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_OPEN_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_OPEN_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_OPEN_PARMSW {
     type Abi = Self;
@@ -7685,7 +7699,7 @@ pub const MCI_DGV_PASTE_AUDIO_STREAM: i32 = 131072i32;
 pub const MCI_DGV_PASTE_INSERT: i32 = 524288i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_PASTE_OVERWRITE: i32 = 1048576i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7699,19 +7713,19 @@ pub struct MCI_DGV_PASTE_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_PASTE_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_PASTE_PARMS {
+impl ::core::default::Default for MCI_DGV_PASTE_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_PASTE_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_PASTE_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_PASTE_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_PASTE_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_PASTE_PARMS {
     type Abi = Self;
@@ -7734,7 +7748,7 @@ pub const MCI_DGV_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_DGV_PUT_VIDEO: i32 = 1048576i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_PUT_WINDOW: i32 = 2097152i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7748,24 +7762,24 @@ pub struct MCI_DGV_QUALITY_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_QUALITY_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_QUALITY_PARMSA {
+impl ::core::default::Default for MCI_DGV_QUALITY_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_QUALITY_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_QUALITY_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_QUALITY_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7779,19 +7793,19 @@ pub struct MCI_DGV_QUALITY_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_QUALITY_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_QUALITY_PARMSW {
+impl ::core::default::Default for MCI_DGV_QUALITY_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_QUALITY_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_QUALITY_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_QUALITY_PARMSW {
     type Abi = Self;
@@ -7804,7 +7818,7 @@ pub const MCI_DGV_REALIZE_NORM: i32 = 65536i32;
 pub const MCI_DGV_RECORD_AUDIO_STREAM: i32 = 262144i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RECORD_HOLD: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7819,19 +7833,19 @@ pub struct MCI_DGV_RECORD_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_RECORD_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_RECORD_PARMS {
+impl ::core::default::Default for MCI_DGV_RECORD_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_RECORD_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_RECORD_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_RECORD_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_RECORD_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RECORD_PARMS {
     type Abi = Self;
@@ -7840,7 +7854,7 @@ unsafe impl ::windows::runtime::Abi for MCI_DGV_RECORD_PARMS {
 pub const MCI_DGV_RECORD_VIDEO_STREAM: i32 = 524288i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RECT: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7851,26 +7865,26 @@ pub struct MCI_DGV_RECT_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_RECT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_RECT_PARMS {
+impl ::core::default::Default for MCI_DGV_RECT_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_RECT_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_RECT_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_RECT_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_RECT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RECT_PARMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RESERVE_IN: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7882,24 +7896,24 @@ pub struct MCI_DGV_RESERVE_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_RESERVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_RESERVE_PARMSA {
+impl ::core::default::Default for MCI_DGV_RESERVE_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_RESERVE_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_RESERVE_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESERVE_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7911,19 +7925,19 @@ pub struct MCI_DGV_RESERVE_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_RESERVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_RESERVE_PARMSW {
+impl ::core::default::Default for MCI_DGV_RESERVE_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_RESERVE_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_RESERVE_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESERVE_PARMSW {
     type Abi = Self;
@@ -7934,7 +7948,7 @@ pub const MCI_DGV_RESERVE_SIZE: i32 = 131072i32;
 pub const MCI_DGV_RESTORE_AT: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RESTORE_FROM: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7946,24 +7960,24 @@ pub struct MCI_DGV_RESTORE_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_RESTORE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_RESTORE_PARMSA {
+impl ::core::default::Default for MCI_DGV_RESTORE_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_RESTORE_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_RESTORE_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESTORE_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -7975,19 +7989,19 @@ pub struct MCI_DGV_RESTORE_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_RESTORE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_RESTORE_PARMSW {
+impl ::core::default::Default for MCI_DGV_RESTORE_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_RESTORE_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_RESTORE_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESTORE_PARMSW {
     type Abi = Self;
@@ -7996,7 +8010,7 @@ unsafe impl ::windows::runtime::Abi for MCI_DGV_RESTORE_PARMSW {
 pub const MCI_DGV_SAVE_ABORT: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SAVE_KEEPRESERVE: i32 = 262144i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8008,24 +8022,24 @@ pub struct MCI_DGV_SAVE_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_SAVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_SAVE_PARMSA {
+impl ::core::default::Default for MCI_DGV_SAVE_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_SAVE_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_SAVE_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SAVE_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8037,19 +8051,19 @@ pub struct MCI_DGV_SAVE_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_SAVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_SAVE_PARMSW {
+impl ::core::default::Default for MCI_DGV_SAVE_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_SAVE_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_SAVE_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SAVE_PARMSW {
     type Abi = Self;
@@ -8076,7 +8090,7 @@ pub const MCI_DGV_SETAUDIO_LEFT: i32 = 2097152i32;
 pub const MCI_DGV_SETAUDIO_OUTPUT: i32 = 67108864i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SETAUDIO_OVER: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8091,24 +8105,24 @@ pub struct MCI_DGV_SETAUDIO_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_SETAUDIO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_SETAUDIO_PARMSA {
+impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_SETAUDIO_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETAUDIO_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8123,19 +8137,19 @@ pub struct MCI_DGV_SETAUDIO_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_SETAUDIO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_SETAUDIO_PARMSW {
+impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_SETAUDIO_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETAUDIO_PARMSW {
     type Abi = Self;
@@ -8204,7 +8218,7 @@ pub const MCI_DGV_SETVIDEO_OUTPUT: i32 = 67108864i32;
 pub const MCI_DGV_SETVIDEO_OVER: i32 = 2097152i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SETVIDEO_PALHANDLE: i32 = 16391i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8220,24 +8234,24 @@ pub struct MCI_DGV_SETVIDEO_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_SETVIDEO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_SETVIDEO_PARMSA {
+impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_SETVIDEO_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETVIDEO_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8253,19 +8267,19 @@ pub struct MCI_DGV_SETVIDEO_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_SETVIDEO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_SETVIDEO_PARMSW {
+impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_SETVIDEO_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETVIDEO_PARMSW {
     type Abi = Self;
@@ -8314,7 +8328,7 @@ pub const MCI_DGV_SETVIDEO_TINT: i32 = 16387i32;
 pub const MCI_DGV_SETVIDEO_VALUE: i32 = 16777216i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SET_FILEFORMAT: i32 = 524288i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MCI_DGV_SET_PARMS {
@@ -8325,17 +8339,17 @@ pub struct MCI_DGV_SET_PARMS {
     pub dwSpeed: u32,
 }
 impl MCI_DGV_SET_PARMS {}
-impl ::std::default::Default for MCI_DGV_SET_PARMS {
+impl ::core::default::Default for MCI_DGV_SET_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MCI_DGV_SET_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_SET_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MCI_DGV_SET_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_SET_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SET_PARMS {
     type Abi = Self;
 }
@@ -8351,7 +8365,7 @@ pub const MCI_DGV_SIGNAL_AT: i32 = 65536i32;
 pub const MCI_DGV_SIGNAL_CANCEL: i32 = 524288i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SIGNAL_EVERY: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MCI_DGV_SIGNAL_PARMS {
@@ -8361,17 +8375,17 @@ pub struct MCI_DGV_SIGNAL_PARMS {
     pub dwUserParm: u32,
 }
 impl MCI_DGV_SIGNAL_PARMS {}
-impl ::std::default::Default for MCI_DGV_SIGNAL_PARMS {
+impl ::core::default::Default for MCI_DGV_SIGNAL_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MCI_DGV_SIGNAL_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_SIGNAL_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MCI_DGV_SIGNAL_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_SIGNAL_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SIGNAL_PARMS {
     type Abi = Self;
 }
@@ -8439,7 +8453,7 @@ pub const MCI_DGV_STATUS_MONITOR_METHOD: i32 = 16396i32;
 pub const MCI_DGV_STATUS_NOMINAL: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_STATUS_OUTPUT: i32 = 8388608i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8454,24 +8468,24 @@ pub struct MCI_DGV_STATUS_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_STATUS_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_STATUS_PARMSA {
+impl ::core::default::Default for MCI_DGV_STATUS_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_STATUS_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_STATUS_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_STATUS_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8486,19 +8500,19 @@ pub struct MCI_DGV_STATUS_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_STATUS_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_STATUS_PARMSW {
+impl ::core::default::Default for MCI_DGV_STATUS_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_STATUS_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_STATUS_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_STATUS_PARMSW {
     type Abi = Self;
@@ -8551,7 +8565,7 @@ pub const MCI_DGV_STATUS_WINDOW_MINIMIZED: i32 = 16418i32;
 pub const MCI_DGV_STATUS_WINDOW_VISIBLE: i32 = 16417i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_STEP_FRAMES: i32 = 131072i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MCI_DGV_STEP_PARMS {
@@ -8559,17 +8573,17 @@ pub struct MCI_DGV_STEP_PARMS {
     pub dwFrames: u32,
 }
 impl MCI_DGV_STEP_PARMS {}
-impl ::std::default::Default for MCI_DGV_STEP_PARMS {
+impl ::core::default::Default for MCI_DGV_STEP_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MCI_DGV_STEP_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_STEP_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MCI_DGV_STEP_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_STEP_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_STEP_PARMS {
     type Abi = Self;
 }
@@ -8581,7 +8595,7 @@ pub const MCI_DGV_STOP_HOLD: i32 = 65536i32;
 pub const MCI_DGV_UPDATE_HDC: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_UPDATE_PAINT: i32 = 262144i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -8593,19 +8607,19 @@ pub struct MCI_DGV_UPDATE_PARMS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl MCI_DGV_UPDATE_PARMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::default::Default for MCI_DGV_UPDATE_PARMS {
+impl ::core::default::Default for MCI_DGV_UPDATE_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::PartialEq for MCI_DGV_UPDATE_PARMS {
+impl ::core::cmp::PartialEq for MCI_DGV_UPDATE_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::std::cmp::Eq for MCI_DGV_UPDATE_PARMS {}
+impl ::core::cmp::Eq for MCI_DGV_UPDATE_PARMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_UPDATE_PARMS {
     type Abi = Self;
@@ -8626,7 +8640,7 @@ pub const MCI_DGV_WHERE_WINDOW: i32 = 2097152i32;
 pub const MCI_DGV_WINDOW_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_WINDOW_HWND: i32 = 65536i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8639,24 +8653,24 @@ pub struct MCI_DGV_WINDOW_PARMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_WINDOW_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_WINDOW_PARMSA {
+impl ::core::default::Default for MCI_DGV_WINDOW_PARMSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_WINDOW_PARMSA {
+impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_WINDOW_PARMSA {}
+impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_WINDOW_PARMSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8669,19 +8683,19 @@ pub struct MCI_DGV_WINDOW_PARMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_DGV_WINDOW_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_DGV_WINDOW_PARMSW {
+impl ::core::default::Default for MCI_DGV_WINDOW_PARMSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_DGV_WINDOW_PARMSW {
+impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_DGV_WINDOW_PARMSW {}
+impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_WINDOW_PARMSW {
     type Abi = Self;
@@ -8758,7 +8772,7 @@ pub const MCI_ON: u32 = 1u32;
 pub const MCI_ON_S: i32 = 32768i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_OPEN_DRIVER: u32 = 2049u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8771,19 +8785,19 @@ pub struct MCI_OPEN_DRIVER_PARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl MCI_OPEN_DRIVER_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MCI_OPEN_DRIVER_PARMS {
+impl ::core::default::Default for MCI_OPEN_DRIVER_PARMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MCI_OPEN_DRIVER_PARMS {
+impl ::core::cmp::PartialEq for MCI_OPEN_DRIVER_PARMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MCI_OPEN_DRIVER_PARMS {}
+impl ::core::cmp::Eq for MCI_OPEN_DRIVER_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OPEN_DRIVER_PARMS {
     type Abi = Self;
@@ -8858,7 +8872,7 @@ pub const MCI_WAVE_OFFSET: u32 = 1152u32;
 pub const MCMADM_E_REGKEY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889750i32 as _);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCMADM_I_NO_EVENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593897i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
@@ -8866,17 +8880,17 @@ pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 impl MEDIASPACEADPCMWAVEFORMAT {}
-impl ::std::default::Default for MEDIASPACEADPCMWAVEFORMAT {
+impl ::core::default::Default for MEDIASPACEADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for MEDIASPACEADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -8922,7 +8936,7 @@ pub const MIDIERR_NOTREADY: u32 = 67u32;
 pub const MIDIERR_STILLPLAYING: u32 = 65u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIERR_UNPREPARED: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIEVENT {
@@ -8932,21 +8946,21 @@ pub struct MIDIEVENT {
     pub dwParms: [u32; 1],
 }
 impl MIDIEVENT {}
-impl ::std::default::Default for MIDIEVENT {
+impl ::core::default::Default for MIDIEVENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIEVENT {
+impl ::core::cmp::PartialEq for MIDIEVENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIEVENT {}
+impl ::core::cmp::Eq for MIDIEVENT {}
 unsafe impl ::windows::runtime::Abi for MIDIEVENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8964,24 +8978,24 @@ pub struct MIDIHDR {
 #[cfg(feature = "Win32_Foundation")]
 impl MIDIHDR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIDIHDR {
+impl ::core::default::Default for MIDIHDR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIDIHDR {
+impl ::core::cmp::PartialEq for MIDIHDR {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIDIHDR {}
+impl ::core::cmp::Eq for MIDIHDR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIHDR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -8998,24 +9012,24 @@ pub struct MIDIINCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl MIDIINCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIDIINCAPS2A {
+impl ::core::default::Default for MIDIINCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIDIINCAPS2A {
+impl ::core::cmp::PartialEq for MIDIINCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIDIINCAPS2A {}
+impl ::core::cmp::Eq for MIDIINCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIINCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIINCAPS2W {
@@ -9029,21 +9043,21 @@ pub struct MIDIINCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl MIDIINCAPS2W {}
-impl ::std::default::Default for MIDIINCAPS2W {
+impl ::core::default::Default for MIDIINCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIINCAPS2W {
+impl ::core::cmp::PartialEq for MIDIINCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIINCAPS2W {}
+impl ::core::cmp::Eq for MIDIINCAPS2W {}
 unsafe impl ::windows::runtime::Abi for MIDIINCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9057,24 +9071,24 @@ pub struct MIDIINCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIDIINCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIDIINCAPSA {
+impl ::core::default::Default for MIDIINCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIDIINCAPSA {
+impl ::core::cmp::PartialEq for MIDIINCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIDIINCAPSA {}
+impl ::core::cmp::Eq for MIDIINCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIINCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIINCAPSW {
@@ -9085,23 +9099,23 @@ pub struct MIDIINCAPSW {
     pub dwSupport: u32,
 }
 impl MIDIINCAPSW {}
-impl ::std::default::Default for MIDIINCAPSW {
+impl ::core::default::Default for MIDIINCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIINCAPSW {
+impl ::core::cmp::PartialEq for MIDIINCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIINCAPSW {}
+impl ::core::cmp::Eq for MIDIINCAPSW {}
 unsafe impl ::windows::runtime::Abi for MIDIINCAPSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIMAPPER_S: u32 = 1227u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIOPENSTRMID {
@@ -9109,21 +9123,21 @@ pub struct MIDIOPENSTRMID {
     pub uDeviceID: u32,
 }
 impl MIDIOPENSTRMID {}
-impl ::std::default::Default for MIDIOPENSTRMID {
+impl ::core::default::Default for MIDIOPENSTRMID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIOPENSTRMID {
+impl ::core::cmp::PartialEq for MIDIOPENSTRMID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIOPENSTRMID {}
+impl ::core::cmp::Eq for MIDIOPENSTRMID {}
 unsafe impl ::windows::runtime::Abi for MIDIOPENSTRMID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9144,24 +9158,24 @@ pub struct MIDIOUTCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl MIDIOUTCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIDIOUTCAPS2A {
+impl ::core::default::Default for MIDIOUTCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIDIOUTCAPS2A {
+impl ::core::cmp::PartialEq for MIDIOUTCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIDIOUTCAPS2A {}
+impl ::core::cmp::Eq for MIDIOUTCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIOUTCAPS2W {
@@ -9179,21 +9193,21 @@ pub struct MIDIOUTCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl MIDIOUTCAPS2W {}
-impl ::std::default::Default for MIDIOUTCAPS2W {
+impl ::core::default::Default for MIDIOUTCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIOUTCAPS2W {
+impl ::core::cmp::PartialEq for MIDIOUTCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIOUTCAPS2W {}
+impl ::core::cmp::Eq for MIDIOUTCAPS2W {}
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9211,24 +9225,24 @@ pub struct MIDIOUTCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIDIOUTCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIDIOUTCAPSA {
+impl ::core::default::Default for MIDIOUTCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIDIOUTCAPSA {
+impl ::core::cmp::PartialEq for MIDIOUTCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIDIOUTCAPSA {}
+impl ::core::cmp::Eq for MIDIOUTCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIOUTCAPSW {
@@ -9243,23 +9257,23 @@ pub struct MIDIOUTCAPSW {
     pub dwSupport: u32,
 }
 impl MIDIOUTCAPSW {}
-impl ::std::default::Default for MIDIOUTCAPSW {
+impl ::core::default::Default for MIDIOUTCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIOUTCAPSW {
+impl ::core::cmp::PartialEq for MIDIOUTCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIOUTCAPSW {}
+impl ::core::cmp::Eq for MIDIOUTCAPSW {}
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIPATCHSIZE: u32 = 128u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIPROPTEMPO {
@@ -9267,21 +9281,21 @@ pub struct MIDIPROPTEMPO {
     pub dwTempo: u32,
 }
 impl MIDIPROPTEMPO {}
-impl ::std::default::Default for MIDIPROPTEMPO {
+impl ::core::default::Default for MIDIPROPTEMPO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIPROPTEMPO {
+impl ::core::cmp::PartialEq for MIDIPROPTEMPO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIPROPTEMPO {}
+impl ::core::cmp::Eq for MIDIPROPTEMPO {}
 unsafe impl ::windows::runtime::Abi for MIDIPROPTEMPO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDIPROPTIMEDIV {
@@ -9289,17 +9303,17 @@ pub struct MIDIPROPTIMEDIV {
     pub dwTimeDiv: u32,
 }
 impl MIDIPROPTIMEDIV {}
-impl ::std::default::Default for MIDIPROPTIMEDIV {
+impl ::core::default::Default for MIDIPROPTIMEDIV {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDIPROPTIMEDIV {
+impl ::core::cmp::PartialEq for MIDIPROPTIMEDIV {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDIPROPTIMEDIV {}
+impl ::core::cmp::Eq for MIDIPROPTIMEDIV {}
 unsafe impl ::windows::runtime::Abi for MIDIPROPTIMEDIV {
     type Abi = Self;
 }
@@ -9311,7 +9325,7 @@ pub const MIDIPROP_SET: i32 = -2147483648i32;
 pub const MIDIPROP_TEMPO: i32 = 2i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIPROP_TIMEDIV: i32 = 1i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIDISTRMBUFFVER {
@@ -9320,17 +9334,17 @@ pub struct MIDISTRMBUFFVER {
     pub dwOEMVersion: u32,
 }
 impl MIDISTRMBUFFVER {}
-impl ::std::default::Default for MIDISTRMBUFFVER {
+impl ::core::default::Default for MIDISTRMBUFFVER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIDISTRMBUFFVER {
+impl ::core::cmp::PartialEq for MIDISTRMBUFFVER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIDISTRMBUFFVER {}
+impl ::core::cmp::Eq for MIDISTRMBUFFVER {}
 unsafe impl ::windows::runtime::Abi for MIDISTRMBUFFVER {
     type Abi = Self;
 }
@@ -9349,7 +9363,7 @@ pub const MIDI_IO_PACKED: i32 = 0i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDI_UNCACHE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
 pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
@@ -9366,7 +9380,7 @@ pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
 pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
 pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
 pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
-impl ::std::convert::From<u32> for MIDI_WAVE_OPEN_TYPE {
+impl ::core::convert::From<u32> for MIDI_WAVE_OPEN_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -9374,29 +9388,29 @@ impl ::std::convert::From<u32> for MIDI_WAVE_OPEN_TYPE {
 unsafe impl ::windows::runtime::Abi for MIDI_WAVE_OPEN_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MIDI_WAVE_OPEN_TYPE {
+impl ::core::ops::BitOr for MIDI_WAVE_OPEN_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MIDI_WAVE_OPEN_TYPE {
+impl ::core::ops::BitAnd for MIDI_WAVE_OPEN_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MIDI_WAVE_OPEN_TYPE {
+impl ::core::ops::BitOrAssign for MIDI_WAVE_OPEN_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MIDI_WAVE_OPEN_TYPE {
+impl ::core::ops::BitAndAssign for MIDI_WAVE_OPEN_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MIDI_WAVE_OPEN_TYPE {
+impl ::core::ops::Not for MIDI_WAVE_OPEN_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -9444,7 +9458,7 @@ pub const MIM_LONGERROR: u32 = 966u32;
 pub const MIM_MOREDATA: u32 = 972u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIM_OPEN: u32 = 961u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9462,24 +9476,24 @@ pub struct MIXERCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCAPS2A {
+impl ::core::default::Default for MIXERCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCAPS2A {
+impl ::core::cmp::PartialEq for MIXERCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCAPS2A {}
+impl ::core::cmp::Eq for MIXERCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCAPS2W {
@@ -9494,21 +9508,21 @@ pub struct MIXERCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl MIXERCAPS2W {}
-impl ::std::default::Default for MIXERCAPS2W {
+impl ::core::default::Default for MIXERCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCAPS2W {
+impl ::core::cmp::PartialEq for MIXERCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCAPS2W {}
+impl ::core::cmp::Eq for MIXERCAPS2W {}
 unsafe impl ::windows::runtime::Abi for MIXERCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9523,24 +9537,24 @@ pub struct MIXERCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCAPSA {
+impl ::core::default::Default for MIXERCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCAPSA {
+impl ::core::cmp::PartialEq for MIXERCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCAPSA {}
+impl ::core::cmp::Eq for MIXERCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCAPSW {
@@ -9552,21 +9566,21 @@ pub struct MIXERCAPSW {
     pub cDestinations: u32,
 }
 impl MIXERCAPSW {}
-impl ::std::default::Default for MIXERCAPSW {
+impl ::core::default::Default for MIXERCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCAPSW {
+impl ::core::cmp::PartialEq for MIXERCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCAPSW {}
+impl ::core::cmp::Eq for MIXERCAPSW {}
 unsafe impl ::windows::runtime::Abi for MIXERCAPSW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9584,24 +9598,24 @@ pub struct MIXERCONTROLA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLA {
+impl ::core::default::Default for MIXERCONTROLA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLA {
+impl ::core::cmp::PartialEq for MIXERCONTROLA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLA {}
+impl ::core::cmp::Eq for MIXERCONTROLA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub union MIXERCONTROLA_0 {
@@ -9612,24 +9626,24 @@ pub union MIXERCONTROLA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLA_0 {
+impl ::core::default::Default for MIXERCONTROLA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLA_0 {
+impl ::core::cmp::PartialEq for MIXERCONTROLA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLA_0 {}
+impl ::core::cmp::Eq for MIXERCONTROLA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLA_0_0 {
@@ -9639,24 +9653,24 @@ pub struct MIXERCONTROLA_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLA_0_0 {
+impl ::core::default::Default for MIXERCONTROLA_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLA_0_0 {
+impl ::core::cmp::PartialEq for MIXERCONTROLA_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLA_0_0 {}
+impl ::core::cmp::Eq for MIXERCONTROLA_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLA_0_1 {
@@ -9666,24 +9680,24 @@ pub struct MIXERCONTROLA_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLA_0_1 {
+impl ::core::default::Default for MIXERCONTROLA_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLA_0_1 {
+impl ::core::cmp::PartialEq for MIXERCONTROLA_0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLA_0_1 {}
+impl ::core::cmp::Eq for MIXERCONTROLA_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub union MIXERCONTROLA_1 {
@@ -9694,24 +9708,24 @@ pub union MIXERCONTROLA_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLA_1 {
+impl ::core::default::Default for MIXERCONTROLA_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLA_1 {
+impl ::core::cmp::PartialEq for MIXERCONTROLA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLA_1 {}
+impl ::core::cmp::Eq for MIXERCONTROLA_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9721,29 +9735,29 @@ pub struct MIXERCONTROLDETAILS {
     pub cChannels: u32,
     pub Anonymous: MIXERCONTROLDETAILS_0,
     pub cbDetails: u32,
-    pub paDetails: *mut ::std::ffi::c_void,
+    pub paDetails: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLDETAILS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLDETAILS {
+impl ::core::default::Default for MIXERCONTROLDETAILS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub union MIXERCONTROLDETAILS_0 {
@@ -9753,45 +9767,45 @@ pub union MIXERCONTROLDETAILS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLDETAILS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLDETAILS_0 {
+impl ::core::default::Default for MIXERCONTROLDETAILS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_0 {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS_0 {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: i32,
 }
 impl MIXERCONTROLDETAILS_BOOLEAN {}
-impl ::std::default::Default for MIXERCONTROLDETAILS_BOOLEAN {
+impl ::core::default::Default for MIXERCONTROLDETAILS_BOOLEAN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_BOOLEAN {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_BOOLEAN {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS_BOOLEAN {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS_BOOLEAN {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_BOOLEAN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -9803,24 +9817,24 @@ pub struct MIXERCONTROLDETAILS_LISTTEXTA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLDETAILS_LISTTEXTA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERCONTROLDETAILS_LISTTEXTA {
+impl ::core::default::Default for MIXERCONTROLDETAILS_LISTTEXTA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTA {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTA {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLDETAILS_LISTTEXTW {
@@ -9829,63 +9843,63 @@ pub struct MIXERCONTROLDETAILS_LISTTEXTW {
     pub szName: [u16; 64],
 }
 impl MIXERCONTROLDETAILS_LISTTEXTW {}
-impl ::std::default::Default for MIXERCONTROLDETAILS_LISTTEXTW {
+impl ::core::default::Default for MIXERCONTROLDETAILS_LISTTEXTW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTW {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTW {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTW {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: i32,
 }
 impl MIXERCONTROLDETAILS_SIGNED {}
-impl ::std::default::Default for MIXERCONTROLDETAILS_SIGNED {
+impl ::core::default::Default for MIXERCONTROLDETAILS_SIGNED {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_SIGNED {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_SIGNED {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS_SIGNED {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS_SIGNED {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_SIGNED {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: u32,
 }
 impl MIXERCONTROLDETAILS_UNSIGNED {}
-impl ::std::default::Default for MIXERCONTROLDETAILS_UNSIGNED {
+impl ::core::default::Default for MIXERCONTROLDETAILS_UNSIGNED {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_UNSIGNED {
+impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_UNSIGNED {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLDETAILS_UNSIGNED {}
+impl ::core::cmp::Eq for MIXERCONTROLDETAILS_UNSIGNED {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_UNSIGNED {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLW {
@@ -9900,21 +9914,21 @@ pub struct MIXERCONTROLW {
     pub Metrics: MIXERCONTROLW_1,
 }
 impl MIXERCONTROLW {}
-impl ::std::default::Default for MIXERCONTROLW {
+impl ::core::default::Default for MIXERCONTROLW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLW {
+impl ::core::cmp::PartialEq for MIXERCONTROLW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLW {}
+impl ::core::cmp::Eq for MIXERCONTROLW {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub union MIXERCONTROLW_0 {
@@ -9923,21 +9937,21 @@ pub union MIXERCONTROLW_0 {
     pub dwReserved: [u32; 6],
 }
 impl MIXERCONTROLW_0 {}
-impl ::std::default::Default for MIXERCONTROLW_0 {
+impl ::core::default::Default for MIXERCONTROLW_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLW_0 {
+impl ::core::cmp::PartialEq for MIXERCONTROLW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLW_0 {}
+impl ::core::cmp::Eq for MIXERCONTROLW_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLW_0_0 {
@@ -9945,21 +9959,21 @@ pub struct MIXERCONTROLW_0_0 {
     pub lMaximum: i32,
 }
 impl MIXERCONTROLW_0_0 {}
-impl ::std::default::Default for MIXERCONTROLW_0_0 {
+impl ::core::default::Default for MIXERCONTROLW_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLW_0_0 {
+impl ::core::cmp::PartialEq for MIXERCONTROLW_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLW_0_0 {}
+impl ::core::cmp::Eq for MIXERCONTROLW_0_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERCONTROLW_0_1 {
@@ -9967,21 +9981,21 @@ pub struct MIXERCONTROLW_0_1 {
     pub dwMaximum: u32,
 }
 impl MIXERCONTROLW_0_1 {}
-impl ::std::default::Default for MIXERCONTROLW_0_1 {
+impl ::core::default::Default for MIXERCONTROLW_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLW_0_1 {
+impl ::core::cmp::PartialEq for MIXERCONTROLW_0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLW_0_1 {}
+impl ::core::cmp::Eq for MIXERCONTROLW_0_1 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub union MIXERCONTROLW_1 {
@@ -9990,17 +10004,17 @@ pub union MIXERCONTROLW_1 {
     pub dwReserved: [u32; 6],
 }
 impl MIXERCONTROLW_1 {}
-impl ::std::default::Default for MIXERCONTROLW_1 {
+impl ::core::default::Default for MIXERCONTROLW_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERCONTROLW_1 {
+impl ::core::cmp::PartialEq for MIXERCONTROLW_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERCONTROLW_1 {}
+impl ::core::cmp::Eq for MIXERCONTROLW_1 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_1 {
     type Abi = Self;
 }
@@ -10126,7 +10140,7 @@ pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680i32;
 pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -10148,24 +10162,24 @@ pub struct MIXERLINEA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERLINEA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERLINEA {
+impl ::core::default::Default for MIXERLINEA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERLINEA {
+impl ::core::cmp::PartialEq for MIXERLINEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERLINEA {}
+impl ::core::cmp::Eq for MIXERLINEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINEA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MIXERLINEA_0 {
@@ -10179,24 +10193,24 @@ pub struct MIXERLINEA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERLINEA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERLINEA_0 {
+impl ::core::default::Default for MIXERLINEA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERLINEA_0 {
+impl ::core::cmp::PartialEq for MIXERLINEA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERLINEA_0 {}
+impl ::core::cmp::Eq for MIXERLINEA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINEA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -10211,24 +10225,24 @@ pub struct MIXERLINECONTROLSA {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERLINECONTROLSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERLINECONTROLSA {
+impl ::core::default::Default for MIXERLINECONTROLSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERLINECONTROLSA {
+impl ::core::cmp::PartialEq for MIXERLINECONTROLSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERLINECONTROLSA {}
+impl ::core::cmp::Eq for MIXERLINECONTROLSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub union MIXERLINECONTROLSA_0 {
@@ -10238,24 +10252,24 @@ pub union MIXERLINECONTROLSA_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl MIXERLINECONTROLSA_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MIXERLINECONTROLSA_0 {
+impl ::core::default::Default for MIXERLINECONTROLSA_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MIXERLINECONTROLSA_0 {
+impl ::core::cmp::PartialEq for MIXERLINECONTROLSA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MIXERLINECONTROLSA_0 {}
+impl ::core::cmp::Eq for MIXERLINECONTROLSA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERLINECONTROLSW {
@@ -10267,21 +10281,21 @@ pub struct MIXERLINECONTROLSW {
     pub pamxctrl: *mut MIXERCONTROLW,
 }
 impl MIXERLINECONTROLSW {}
-impl ::std::default::Default for MIXERLINECONTROLSW {
+impl ::core::default::Default for MIXERLINECONTROLSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERLINECONTROLSW {
+impl ::core::cmp::PartialEq for MIXERLINECONTROLSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERLINECONTROLSW {}
+impl ::core::cmp::Eq for MIXERLINECONTROLSW {}
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub union MIXERLINECONTROLSW_0 {
@@ -10289,21 +10303,21 @@ pub union MIXERLINECONTROLSW_0 {
     pub dwControlType: u32,
 }
 impl MIXERLINECONTROLSW_0 {}
-impl ::std::default::Default for MIXERLINECONTROLSW_0 {
+impl ::core::default::Default for MIXERLINECONTROLSW_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERLINECONTROLSW_0 {
+impl ::core::cmp::PartialEq for MIXERLINECONTROLSW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERLINECONTROLSW_0 {}
+impl ::core::cmp::Eq for MIXERLINECONTROLSW_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSW_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERLINEW {
@@ -10322,21 +10336,21 @@ pub struct MIXERLINEW {
     pub Target: MIXERLINEW_0,
 }
 impl MIXERLINEW {}
-impl ::std::default::Default for MIXERLINEW {
+impl ::core::default::Default for MIXERLINEW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERLINEW {
+impl ::core::cmp::PartialEq for MIXERLINEW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERLINEW {}
+impl ::core::cmp::Eq for MIXERLINEW {}
 unsafe impl ::windows::runtime::Abi for MIXERLINEW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXERLINEW_0 {
@@ -10348,22 +10362,22 @@ pub struct MIXERLINEW_0 {
     pub szPname: [u16; 32],
 }
 impl MIXERLINEW_0 {}
-impl ::std::default::Default for MIXERLINEW_0 {
+impl ::core::default::Default for MIXERLINEW_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXERLINEW_0 {
+impl ::core::cmp::PartialEq for MIXERLINEW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXERLINEW_0 {}
+impl ::core::cmp::Eq for MIXERLINEW_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERLINEW_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
 pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
@@ -10386,7 +10400,7 @@ pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIX
 pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
 pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
 pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
-impl ::std::convert::From<u32> for MIXERLINE_COMPONENTTYPE {
+impl ::core::convert::From<u32> for MIXERLINE_COMPONENTTYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10394,29 +10408,29 @@ impl ::std::convert::From<u32> for MIXERLINE_COMPONENTTYPE {
 unsafe impl ::windows::runtime::Abi for MIXERLINE_COMPONENTTYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MIXERLINE_COMPONENTTYPE {
+impl ::core::ops::BitOr for MIXERLINE_COMPONENTTYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MIXERLINE_COMPONENTTYPE {
+impl ::core::ops::BitAnd for MIXERLINE_COMPONENTTYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MIXERLINE_COMPONENTTYPE {
+impl ::core::ops::BitOrAssign for MIXERLINE_COMPONENTTYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MIXERLINE_COMPONENTTYPE {
+impl ::core::ops::BitAndAssign for MIXERLINE_COMPONENTTYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MIXERLINE_COMPONENTTYPE {
+impl ::core::ops::Not for MIXERLINE_COMPONENTTYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -10448,28 +10462,28 @@ pub const MIXERLINE_TARGETTYPE_UNDEFINED: u32 = 0u32;
 pub const MIXERLINE_TARGETTYPE_WAVEIN: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERLINE_TARGETTYPE_WAVEOUT: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MIXEROPENDESC {
     pub hmx: HMIXER,
-    pub pReserved0: *mut ::std::ffi::c_void,
+    pub pReserved0: *mut ::core::ffi::c_void,
     pub dwCallback: usize,
     pub dwInstance: usize,
     pub dnDevNode: usize,
 }
 impl MIXEROPENDESC {}
-impl ::std::default::Default for MIXEROPENDESC {
+impl ::core::default::Default for MIXEROPENDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MIXEROPENDESC {
+impl ::core::cmp::PartialEq for MIXEROPENDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MIXEROPENDESC {}
+impl ::core::cmp::Eq for MIXEROPENDESC {}
 unsafe impl ::windows::runtime::Abi for MIXEROPENDESC {
     type Abi = Self;
 }
@@ -10533,7 +10547,7 @@ pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MMCKINFO {
@@ -10544,17 +10558,17 @@ pub struct MMCKINFO {
     pub dwFlags: u32,
 }
 impl MMCKINFO {}
-impl ::std::default::Default for MMCKINFO {
+impl ::core::default::Default for MMCKINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MMCKINFO {
+impl ::core::cmp::PartialEq for MMCKINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MMCKINFO {}
+impl ::core::cmp::Eq for MMCKINFO {}
 unsafe impl ::windows::runtime::Abi for MMCKINFO {
     type Abi = Self;
 }
@@ -10593,7 +10607,7 @@ pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
-impl ::std::clone::Clone for MMIOINFO {
+impl ::core::clone::Clone for MMIOINFO {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -10604,7 +10618,7 @@ impl ::std::clone::Clone for MMIOINFO {
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
-    pub pIOProc: ::std::option::Option<LPMMIOPROC>,
+    pub pIOProc: ::core::option::Option<LPMMIOPROC>,
     pub wErrorRet: u32,
     pub htask: super::Audio::CoreAudio::HTASK,
     pub cchBuffer: i32,
@@ -10622,22 +10636,22 @@ pub struct MMIOINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 impl MMIOINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
-impl ::std::default::Default for MMIOINFO {
+impl ::core::default::Default for MMIOINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
-impl ::std::cmp::PartialEq for MMIOINFO {
+impl ::core::cmp::PartialEq for MMIOINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
-impl ::std::cmp::Eq for MMIOINFO {}
+impl ::core::cmp::Eq for MMIOINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 unsafe impl ::windows::runtime::Abi for MMIOINFO {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMIOM_CLOSE: u32 = 4u32;
@@ -10765,7 +10779,7 @@ pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MMTIME {
@@ -10773,21 +10787,21 @@ pub struct MMTIME {
     pub u: MMTIME_0,
 }
 impl MMTIME {}
-impl ::std::default::Default for MMTIME {
+impl ::core::default::Default for MMTIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MMTIME {
+impl ::core::cmp::PartialEq for MMTIME {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MMTIME {}
+impl ::core::cmp::Eq for MMTIME {}
 unsafe impl ::windows::runtime::Abi for MMTIME {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub union MMTIME_0 {
@@ -10799,42 +10813,42 @@ pub union MMTIME_0 {
     pub midi: MMTIME_0_0,
 }
 impl MMTIME_0 {}
-impl ::std::default::Default for MMTIME_0 {
+impl ::core::default::Default for MMTIME_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MMTIME_0 {
+impl ::core::cmp::PartialEq for MMTIME_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MMTIME_0 {}
+impl ::core::cmp::Eq for MMTIME_0 {}
 unsafe impl ::windows::runtime::Abi for MMTIME_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
 impl MMTIME_0_0 {}
-impl ::std::default::Default for MMTIME_0_0 {
+impl ::core::default::Default for MMTIME_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MMTIME_0_0 {
+impl ::core::cmp::PartialEq for MMTIME_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MMTIME_0_0 {}
+impl ::core::cmp::Eq for MMTIME_0_0 {}
 unsafe impl ::windows::runtime::Abi for MMTIME_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MMTIME_0_1 {
@@ -10847,22 +10861,22 @@ pub struct MMTIME_0_1 {
     pub pad: [u8; 2],
 }
 impl MMTIME_0_1 {}
-impl ::std::default::Default for MMTIME_0_1 {
+impl ::core::default::Default for MMTIME_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MMTIME_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MMTIME_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_smpte_e__Struct").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
     }
 }
-impl ::std::cmp::PartialEq for MMTIME_0_1 {
+impl ::core::cmp::PartialEq for MMTIME_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
     }
 }
-impl ::std::cmp::Eq for MMTIME_0_1 {}
+impl ::core::cmp::Eq for MMTIME_0_1 {}
 unsafe impl ::windows::runtime::Abi for MMTIME_0_1 {
     type Abi = Self;
 }
@@ -14072,7 +14086,7 @@ pub const MPEGLAYER3_ID_MPEG: u32 = 1u32;
 pub const MPEGLAYER3_ID_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: u32 = 12u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct MSAUDIO1WAVEFORMAT {
@@ -14081,17 +14095,17 @@ pub struct MSAUDIO1WAVEFORMAT {
     pub wEncodeOptions: u16,
 }
 impl MSAUDIO1WAVEFORMAT {}
-impl ::std::default::Default for MSAUDIO1WAVEFORMAT {
+impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
+impl ::core::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for MSAUDIO1WAVEFORMAT {}
+impl ::core::cmp::Eq for MSAUDIO1WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for MSAUDIO1WAVEFORMAT {
     type Abi = Self;
 }
@@ -14123,7 +14137,7 @@ pub const MXDM_OPEN: u32 = 3u32;
 pub const MXDM_SETCONTROLDETAILS: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MXDM_USER: u32 = 16384u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct NMS_VBXADPCMWAVEFORMAT {
@@ -14131,17 +14145,17 @@ pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 impl NMS_VBXADPCMWAVEFORMAT {}
-impl ::std::default::Default for NMS_VBXADPCMWAVEFORMAT {
+impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for NMS_VBXADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -16555,108 +16569,108 @@ pub const NS_W_FILE_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT = ::windows::ru
 pub const NS_W_SERVER_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631677i32 as _);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const NS_W_UNKNOWN_EVENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631584i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl OLIADPCMWAVEFORMAT {}
-impl ::std::default::Default for OLIADPCMWAVEFORMAT {
+impl ::core::default::Default for OLIADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for OLIADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for OLIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for OLIADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for OLIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLIADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl OLICELPWAVEFORMAT {}
-impl ::std::default::Default for OLICELPWAVEFORMAT {
+impl ::core::default::Default for OLICELPWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for OLICELPWAVEFORMAT {
+impl ::core::cmp::PartialEq for OLICELPWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for OLICELPWAVEFORMAT {}
+impl ::core::cmp::Eq for OLICELPWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLICELPWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl OLIGSMWAVEFORMAT {}
-impl ::std::default::Default for OLIGSMWAVEFORMAT {
+impl ::core::default::Default for OLIGSMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for OLIGSMWAVEFORMAT {
+impl ::core::cmp::PartialEq for OLIGSMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for OLIGSMWAVEFORMAT {}
+impl ::core::cmp::Eq for OLIGSMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLIGSMWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl OLIOPRWAVEFORMAT {}
-impl ::std::default::Default for OLIOPRWAVEFORMAT {
+impl ::core::default::Default for OLIOPRWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for OLIOPRWAVEFORMAT {
+impl ::core::cmp::PartialEq for OLIOPRWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for OLIOPRWAVEFORMAT {}
+impl ::core::cmp::Eq for OLIOPRWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLIOPRWAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl OLISBCWAVEFORMAT {}
-impl ::std::default::Default for OLISBCWAVEFORMAT {
+impl ::core::default::Default for OLISBCWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for OLISBCWAVEFORMAT {
+impl ::core::cmp::PartialEq for OLISBCWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for OLISBCWAVEFORMAT {}
+impl ::core::cmp::Eq for OLISBCWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLISBCWAVEFORMAT {
     type Abi = Self;
 }
@@ -16670,12 +16684,12 @@ pub unsafe fn OpenDriver<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn OpenDriver(szdrivername: super::super::Foundation::PWSTR, szsectionname: super::super::Foundation::PWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
         }
-        ::std::mem::transmute(OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct PCMWAVEFORMAT {
@@ -16683,17 +16697,17 @@ pub struct PCMWAVEFORMAT {
     pub wBitsPerSample: u16,
 }
 impl PCMWAVEFORMAT {}
-impl ::std::default::Default for PCMWAVEFORMAT {
+impl ::core::default::Default for PCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for PCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for PCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for PCMWAVEFORMAT {}
+impl ::core::cmp::Eq for PCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for PCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -16717,7 +16731,7 @@ pub unsafe fn PlaySoundA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), ::std::mem::transmute(fdwsound)))
+        ::core::mem::transmute(PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16732,7 +16746,7 @@ pub unsafe fn PlaySoundW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), ::std::mem::transmute(fdwsound)))
+        ::core::mem::transmute(PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16777,7 +16791,7 @@ pub const SEEK_CUR: u32 = 1u32;
 pub const SEEK_END: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const SEEK_SET: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct SIERRAADPCMWAVEFORMAT {
@@ -16785,17 +16799,17 @@ pub struct SIERRAADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 impl SIERRAADPCMWAVEFORMAT {}
-impl ::std::default::Default for SIERRAADPCMWAVEFORMAT {
+impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for SIERRAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -16833,7 +16847,7 @@ pub const SND_SENTRY: i32 = 524288i32;
 pub const SND_SYNC: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const SND_SYSTEM: i32 = 2097152i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct SONARCWAVEFORMAT {
@@ -16841,17 +16855,17 @@ pub struct SONARCWAVEFORMAT {
     pub wCompType: u16,
 }
 impl SONARCWAVEFORMAT {}
-impl ::std::default::Default for SONARCWAVEFORMAT {
+impl ::core::default::Default for SONARCWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SONARCWAVEFORMAT {
+impl ::core::cmp::PartialEq for SONARCWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SONARCWAVEFORMAT {}
+impl ::core::cmp::Eq for SONARCWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for SONARCWAVEFORMAT {
     type Abi = Self;
 }
@@ -16865,7 +16879,7 @@ pub unsafe fn SendDriverMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HD
         extern "system" {
             fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendDriverMessage(hdriver.into_param().abi(), ::std::mem::transmute(message), lparam1.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(SendDriverMessage(hdriver.into_param().abi(), ::core::mem::transmute(message), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16886,7 +16900,7 @@ pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct TIMECAPS {
@@ -16894,22 +16908,22 @@ pub struct TIMECAPS {
     pub wPeriodMax: u32,
 }
 impl TIMECAPS {}
-impl ::std::default::Default for TIMECAPS {
+impl ::core::default::Default for TIMECAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TIMECAPS {
+impl ::core::cmp::PartialEq for TIMECAPS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TIMECAPS {}
+impl ::core::cmp::Eq for TIMECAPS {}
 unsafe impl ::windows::runtime::Abi for TIMECAPS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::clone::Clone for TIMEREVENT {
+impl ::core::clone::Clone for TIMEREVENT {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -16920,7 +16934,7 @@ impl ::std::clone::Clone for TIMEREVENT {
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
-    pub lpFunction: ::std::option::Option<super::super::System::SystemServices::LPTIMECALLBACK>,
+    pub lpFunction: ::core::option::Option<super::super::System::SystemServices::LPTIMECALLBACK>,
     pub dwUser: u32,
     pub wFlags: u16,
     pub wReserved1: u16,
@@ -16928,22 +16942,22 @@ pub struct TIMEREVENT {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl TIMEREVENT {}
 #[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::default::Default for TIMEREVENT {
+impl ::core::default::Default for TIMEREVENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::PartialEq for TIMEREVENT {
+impl ::core::cmp::PartialEq for TIMEREVENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::Eq for TIMEREVENT {}
+impl ::core::cmp::Eq for TIMEREVENT {}
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for TIMEREVENT {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const TIMERR_BASE: u32 = 96u32;
@@ -16965,7 +16979,7 @@ pub const TIME_SAMPLES: u32 = 2u32;
 pub const TIME_SMPTE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const TIME_TICKS: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct TRUESPEECHWAVEFORMAT {
@@ -16975,17 +16989,17 @@ pub struct TRUESPEECHWAVEFORMAT {
     pub abReserved: [u8; 28],
 }
 impl TRUESPEECHWAVEFORMAT {}
-impl ::std::default::Default for TRUESPEECHWAVEFORMAT {
+impl ::core::default::Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
+impl ::core::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TRUESPEECHWAVEFORMAT {}
+impl ::core::cmp::Eq for TRUESPEECHWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for TRUESPEECHWAVEFORMAT {
     type Abi = Self;
 }
@@ -17001,7 +17015,7 @@ pub const VCAPS_OVERLAY: u32 = 1u32;
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::std::ffi::c_void, pfnaddpropertypage: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> u32;
+pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -17040,7 +17054,7 @@ pub const VIDCF_FASTTEMPORALD: u32 = 128u32;
 pub const VIDCF_QUALITY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VIDCF_TEMPORAL: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct VIDEOHDR {
@@ -17053,22 +17067,22 @@ pub struct VIDEOHDR {
     pub dwReserved: [usize; 4],
 }
 impl VIDEOHDR {}
-impl ::std::default::Default for VIDEOHDR {
+impl ::core::default::Default for VIDEOHDR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VIDEOHDR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VIDEOHDR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VIDEOHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesUsed", &self.dwBytesUsed).field("dwTimeCaptured", &self.dwTimeCaptured).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for VIDEOHDR {
+impl ::core::cmp::PartialEq for VIDEOHDR {
     fn eq(&self, other: &Self) -> bool {
         self.lpData == other.lpData && self.dwBufferLength == other.dwBufferLength && self.dwBytesUsed == other.dwBytesUsed && self.dwTimeCaptured == other.dwTimeCaptured && self.dwUser == other.dwUser && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
     }
 }
-impl ::std::cmp::Eq for VIDEOHDR {}
+impl ::core::cmp::Eq for VIDEOHDR {}
 unsafe impl ::windows::runtime::Abi for VIDEOHDR {
     type Abi = Self;
 }
@@ -17098,7 +17112,7 @@ pub const VIDEO_EXTERNALOUT: u32 = 2u32;
 pub const VIDEO_IN: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VIDEO_OUT: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct VOLUMEWAVEFILTER {
@@ -17106,17 +17120,17 @@ pub struct VOLUMEWAVEFILTER {
     pub dwVolume: u32,
 }
 impl VOLUMEWAVEFILTER {}
-impl ::std::default::Default for VOLUMEWAVEFILTER {
+impl ::core::default::Default for VOLUMEWAVEFILTER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for VOLUMEWAVEFILTER {
+impl ::core::cmp::PartialEq for VOLUMEWAVEFILTER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for VOLUMEWAVEFILTER {}
+impl ::core::cmp::Eq for VOLUMEWAVEFILTER {}
 unsafe impl ::windows::runtime::Abi for VOLUMEWAVEFILTER {
     type Abi = Self;
 }
@@ -17205,7 +17219,7 @@ pub unsafe fn VideoForWindowsVersion() -> u32 {
         extern "system" {
             fn VideoForWindowsVersion() -> u32;
         }
-        ::std::mem::transmute(VideoForWindowsVersion())
+        ::core::mem::transmute(VideoForWindowsVersion())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17222,7 +17236,7 @@ pub const WAVECAPS_SAMPLEACCURATE: u32 = 32u32;
 pub const WAVECAPS_SYNC: u32 = 16u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVECAPS_VOLUME: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEFILTER {
@@ -17232,21 +17246,21 @@ pub struct WAVEFILTER {
     pub dwReserved: [u32; 5],
 }
 impl WAVEFILTER {}
-impl ::std::default::Default for WAVEFILTER {
+impl ::core::default::Default for WAVEFILTER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEFILTER {
+impl ::core::cmp::PartialEq for WAVEFILTER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEFILTER {}
+impl ::core::cmp::Eq for WAVEFILTER {}
 unsafe impl ::windows::runtime::Abi for WAVEFILTER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEFORMAT {
@@ -17257,21 +17271,21 @@ pub struct WAVEFORMAT {
     pub nBlockAlign: u16,
 }
 impl WAVEFORMAT {}
-impl ::std::default::Default for WAVEFORMAT {
+impl ::core::default::Default for WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEFORMAT {
+impl ::core::cmp::PartialEq for WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEFORMAT {}
+impl ::core::cmp::Eq for WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEFORMATEX {
@@ -17284,21 +17298,21 @@ pub struct WAVEFORMATEX {
     pub cbSize: u16,
 }
 impl WAVEFORMATEX {}
-impl ::std::default::Default for WAVEFORMATEX {
+impl ::core::default::Default for WAVEFORMATEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEFORMATEX {
+impl ::core::cmp::PartialEq for WAVEFORMATEX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEFORMATEX {}
+impl ::core::cmp::Eq for WAVEFORMATEX {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEX {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEFORMATEXTENSIBLE {
@@ -17308,21 +17322,21 @@ pub struct WAVEFORMATEXTENSIBLE {
     pub SubFormat: ::windows::runtime::GUID,
 }
 impl WAVEFORMATEXTENSIBLE {}
-impl ::std::default::Default for WAVEFORMATEXTENSIBLE {
+impl ::core::default::Default for WAVEFORMATEXTENSIBLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEFORMATEXTENSIBLE {
+impl ::core::cmp::PartialEq for WAVEFORMATEXTENSIBLE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEFORMATEXTENSIBLE {}
+impl ::core::cmp::Eq for WAVEFORMATEXTENSIBLE {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub union WAVEFORMATEXTENSIBLE_0 {
@@ -17331,21 +17345,21 @@ pub union WAVEFORMATEXTENSIBLE_0 {
     pub wReserved: u16,
 }
 impl WAVEFORMATEXTENSIBLE_0 {}
-impl ::std::default::Default for WAVEFORMATEXTENSIBLE_0 {
+impl ::core::default::Default for WAVEFORMATEXTENSIBLE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEFORMATEXTENSIBLE_0 {
+impl ::core::cmp::PartialEq for WAVEFORMATEXTENSIBLE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEFORMATEXTENSIBLE_0 {}
+impl ::core::cmp::Eq for WAVEFORMATEXTENSIBLE_0 {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -17362,24 +17376,24 @@ pub struct WAVEHDR {
 #[cfg(feature = "Win32_Foundation")]
 impl WAVEHDR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WAVEHDR {
+impl ::core::default::Default for WAVEHDR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WAVEHDR {
+impl ::core::cmp::PartialEq for WAVEHDR {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WAVEHDR {}
+impl ::core::cmp::Eq for WAVEHDR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEHDR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -17398,24 +17412,24 @@ pub struct WAVEINCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl WAVEINCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WAVEINCAPS2A {
+impl ::core::default::Default for WAVEINCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WAVEINCAPS2A {
+impl ::core::cmp::PartialEq for WAVEINCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WAVEINCAPS2A {}
+impl ::core::cmp::Eq for WAVEINCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEINCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEINCAPS2W {
@@ -17431,21 +17445,21 @@ pub struct WAVEINCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl WAVEINCAPS2W {}
-impl ::std::default::Default for WAVEINCAPS2W {
+impl ::core::default::Default for WAVEINCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEINCAPS2W {
+impl ::core::cmp::PartialEq for WAVEINCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEINCAPS2W {}
+impl ::core::cmp::Eq for WAVEINCAPS2W {}
 unsafe impl ::windows::runtime::Abi for WAVEINCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -17461,24 +17475,24 @@ pub struct WAVEINCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl WAVEINCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WAVEINCAPSA {
+impl ::core::default::Default for WAVEINCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WAVEINCAPSA {
+impl ::core::cmp::PartialEq for WAVEINCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WAVEINCAPSA {}
+impl ::core::cmp::Eq for WAVEINCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEINCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEINCAPSW {
@@ -17491,17 +17505,17 @@ pub struct WAVEINCAPSW {
     pub wReserved1: u16,
 }
 impl WAVEINCAPSW {}
-impl ::std::default::Default for WAVEINCAPSW {
+impl ::core::default::Default for WAVEINCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEINCAPSW {
+impl ::core::cmp::PartialEq for WAVEINCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEINCAPSW {}
+impl ::core::cmp::Eq for WAVEINCAPSW {}
 unsafe impl ::windows::runtime::Abi for WAVEINCAPSW {
     type Abi = Self;
 }
@@ -17511,7 +17525,7 @@ pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
 pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEOPENDESC {
@@ -17523,21 +17537,21 @@ pub struct WAVEOPENDESC {
     pub dnDevNode: usize,
 }
 impl WAVEOPENDESC {}
-impl ::std::default::Default for WAVEOPENDESC {
+impl ::core::default::Default for WAVEOPENDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEOPENDESC {
+impl ::core::cmp::PartialEq for WAVEOPENDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEOPENDESC {}
+impl ::core::cmp::Eq for WAVEOPENDESC {}
 unsafe impl ::windows::runtime::Abi for WAVEOPENDESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -17557,24 +17571,24 @@ pub struct WAVEOUTCAPS2A {
 #[cfg(feature = "Win32_Foundation")]
 impl WAVEOUTCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WAVEOUTCAPS2A {
+impl ::core::default::Default for WAVEOUTCAPS2A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WAVEOUTCAPS2A {
+impl ::core::cmp::PartialEq for WAVEOUTCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WAVEOUTCAPS2A {}
+impl ::core::cmp::Eq for WAVEOUTCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEOUTCAPS2W {
@@ -17591,21 +17605,21 @@ pub struct WAVEOUTCAPS2W {
     pub NameGuid: ::windows::runtime::GUID,
 }
 impl WAVEOUTCAPS2W {}
-impl ::std::default::Default for WAVEOUTCAPS2W {
+impl ::core::default::Default for WAVEOUTCAPS2W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEOUTCAPS2W {
+impl ::core::cmp::PartialEq for WAVEOUTCAPS2W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEOUTCAPS2W {}
+impl ::core::cmp::Eq for WAVEOUTCAPS2W {}
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -17622,24 +17636,24 @@ pub struct WAVEOUTCAPSA {
 #[cfg(feature = "Win32_Foundation")]
 impl WAVEOUTCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WAVEOUTCAPSA {
+impl ::core::default::Default for WAVEOUTCAPSA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WAVEOUTCAPSA {
+impl ::core::cmp::PartialEq for WAVEOUTCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WAVEOUTCAPSA {}
+impl ::core::cmp::Eq for WAVEOUTCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WAVEOUTCAPSW {
@@ -17653,17 +17667,17 @@ pub struct WAVEOUTCAPSW {
     pub dwSupport: u32,
 }
 impl WAVEOUTCAPSW {}
-impl ::std::default::Default for WAVEOUTCAPSW {
+impl ::core::default::Default for WAVEOUTCAPSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WAVEOUTCAPSW {
+impl ::core::cmp::PartialEq for WAVEOUTCAPSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WAVEOUTCAPSW {}
+impl ::core::cmp::Eq for WAVEOUTCAPSW {}
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSW {
     type Abi = Self;
 }
@@ -18331,7 +18345,7 @@ pub const WIM_CLOSE: u32 = 959u32;
 pub const WIM_DATA: u32 = 960u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WIM_OPEN: u32 = 958u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WMAUDIO2WAVEFORMAT {
@@ -18341,17 +18355,17 @@ pub struct WMAUDIO2WAVEFORMAT {
     pub dwSuperBlockAlign: u32,
 }
 impl WMAUDIO2WAVEFORMAT {}
-impl ::std::default::Default for WMAUDIO2WAVEFORMAT {
+impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
+impl ::core::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WMAUDIO2WAVEFORMAT {}
+impl ::core::cmp::Eq for WMAUDIO2WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for WMAUDIO2WAVEFORMAT {
     type Abi = Self;
 }
@@ -18359,7 +18373,7 @@ unsafe impl ::windows::runtime::Abi for WMAUDIO2WAVEFORMAT {
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct WMAUDIO3WAVEFORMAT {
@@ -18372,17 +18386,17 @@ pub struct WMAUDIO3WAVEFORMAT {
     pub wReserved3: u16,
 }
 impl WMAUDIO3WAVEFORMAT {}
-impl ::std::default::Default for WMAUDIO3WAVEFORMAT {
+impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
+impl ::core::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WMAUDIO3WAVEFORMAT {}
+impl ::core::cmp::Eq for WMAUDIO3WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for WMAUDIO3WAVEFORMAT {
     type Abi = Self;
 }
@@ -18606,24 +18620,24 @@ pub const WOM_CLOSE: u32 = 956u32;
 pub const WOM_DONE: u32 = 957u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WOM_OPEN: u32 = 955u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: WAVEFORMATEX,
 }
 impl YAMAHA_ADPCMWAVEFORMAT {}
-impl ::std::default::Default for YAMAHA_ADPCMWAVEFORMAT {
+impl ::core::default::Default for YAMAHA_ADPCMWAVEFORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for YAMAHA_ADPCMWAVEFORMAT {
+impl ::core::cmp::PartialEq for YAMAHA_ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for YAMAHA_ADPCMWAVEFORMAT {}
+impl ::core::cmp::Eq for YAMAHA_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for YAMAHA_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -18637,7 +18651,7 @@ pub unsafe fn acmDriverAddA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverAddA(::std::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(dwpriority), ::std::mem::transmute(fdwadd)))
+        ::core::mem::transmute(acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18652,7 +18666,7 @@ pub unsafe fn acmDriverAddW<'a, Param1: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn acmDriverAddW(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverAddW(::std::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(dwpriority), ::std::mem::transmute(fdwadd)))
+        ::core::mem::transmute(acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18666,7 +18680,7 @@ pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
         extern "system" {
             fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverClose(had.into_param().abi(), ::std::mem::transmute(fdwclose)))
+        ::core::mem::transmute(acmDriverClose(had.into_param().abi(), ::core::mem::transmute(fdwclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18681,7 +18695,7 @@ pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverDetailsA(hadid.into_param().abi(), ::std::mem::transmute(padd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmDriverDetailsA(hadid.into_param().abi(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18696,7 +18710,7 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverDetailsW(hadid.into_param().abi(), ::std::mem::transmute(padd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmDriverDetailsW(hadid.into_param().abi(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18704,14 +18718,14 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverEnum(fncallback: ::std::option::Option<ACMDRIVERENUMCB>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmDriverEnum(fncallback: ::core::option::Option<ACMDRIVERENUMCB>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmDriverEnum(fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverEnum(::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmDriverEnum(::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18725,7 +18739,7 @@ pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>
         extern "system" {
             fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverID(hao.into_param().abi(), ::std::mem::transmute(phadid), ::std::mem::transmute(fdwdriverid)))
+        ::core::mem::transmute(acmDriverID(hao.into_param().abi(), ::core::mem::transmute(phadid), ::core::mem::transmute(fdwdriverid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18740,7 +18754,7 @@ pub unsafe fn acmDriverMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
         extern "system" {
             fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(acmDriverMessage(had.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(acmDriverMessage(had.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18754,7 +18768,7 @@ pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDR
         extern "system" {
             fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverOpen(::std::mem::transmute(phad), hadid.into_param().abi(), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(acmDriverOpen(::core::mem::transmute(phad), hadid.into_param().abi(), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18768,7 +18782,7 @@ pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverPriority(hadid.into_param().abi(), ::std::mem::transmute(dwpriority), ::std::mem::transmute(fdwpriority)))
+        ::core::mem::transmute(acmDriverPriority(hadid.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwpriority)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18782,7 +18796,7 @@ pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACM
         extern "system" {
             fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverRemove(hadid.into_param().abi(), ::std::mem::transmute(fdwremove)))
+        ::core::mem::transmute(acmDriverRemove(hadid.into_param().abi(), ::core::mem::transmute(fdwremove)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18795,9 +18809,9 @@ pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterChooseA(pafltrc: *mut ::std::mem::ManuallyDrop<ACMFILTERCHOOSEA>) -> u32;
+            fn acmFilterChooseA(pafltrc: *mut ::core::mem::ManuallyDrop<ACMFILTERCHOOSEA>) -> u32;
         }
-        ::std::mem::transmute(acmFilterChooseA(::std::mem::transmute(pafltrc)))
+        ::core::mem::transmute(acmFilterChooseA(::core::mem::transmute(pafltrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18810,9 +18824,9 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterChooseW(pafltrc: *mut ::std::mem::ManuallyDrop<ACMFILTERCHOOSEW>) -> u32;
+            fn acmFilterChooseW(pafltrc: *mut ::core::mem::ManuallyDrop<ACMFILTERCHOOSEW>) -> u32;
         }
-        ::std::mem::transmute(acmFilterChooseW(::std::mem::transmute(pafltrc)))
+        ::core::mem::transmute(acmFilterChooseW(::core::mem::transmute(pafltrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18827,7 +18841,7 @@ pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterDetailsA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFilterDetailsA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18841,7 +18855,7 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterDetailsW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFilterDetailsW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18849,14 +18863,14 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ::std::option::Option<ACMFILTERENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ::core::option::Option<ACMFILTERENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterEnumA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFilterEnumA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18864,14 +18878,14 @@ pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ::std::option::Option<ACMFILTERENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ::core::option::Option<ACMFILTERENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterEnumW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFilterEnumW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18886,7 +18900,7 @@ pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagDetailsA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFilterTagDetailsA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18900,7 +18914,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagDetailsW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFilterTagDetailsW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18908,14 +18922,14 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::std::option::Option<ACMFILTERTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagEnumA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFilterTagEnumA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18923,14 +18937,14 @@ pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::std::option::Option<ACMFILTERTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagEnumW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFilterTagEnumW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18943,9 +18957,9 @@ pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatChooseA(pafmtc: *mut ::std::mem::ManuallyDrop<ACMFORMATCHOOSEA>) -> u32;
+            fn acmFormatChooseA(pafmtc: *mut ::core::mem::ManuallyDrop<ACMFORMATCHOOSEA>) -> u32;
         }
-        ::std::mem::transmute(acmFormatChooseA(::std::mem::transmute(pafmtc)))
+        ::core::mem::transmute(acmFormatChooseA(::core::mem::transmute(pafmtc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18958,9 +18972,9 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatChooseW(pafmtc: *mut ::std::mem::ManuallyDrop<ACMFORMATCHOOSEW>) -> u32;
+            fn acmFormatChooseW(pafmtc: *mut ::core::mem::ManuallyDrop<ACMFORMATCHOOSEW>) -> u32;
         }
-        ::std::mem::transmute(acmFormatChooseW(::std::mem::transmute(pafmtc)))
+        ::core::mem::transmute(acmFormatChooseW(::core::mem::transmute(pafmtc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18975,7 +18989,7 @@ pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatDetailsA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFormatDetailsA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18989,7 +19003,7 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
         extern "system" {
             fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatDetailsW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFormatDetailsW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18997,14 +19011,14 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ::std::option::Option<ACMFORMATENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ::core::option::Option<ACMFORMATENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatEnumA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFormatEnumA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19012,14 +19026,14 @@ pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ::std::option::Option<ACMFORMATENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ::core::option::Option<ACMFORMATENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatEnumW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFormatEnumW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19033,7 +19047,7 @@ pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
         extern "system" {
             fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatSuggest(had.into_param().abi(), ::std::mem::transmute(pwfxsrc), ::std::mem::transmute(pwfxdst), ::std::mem::transmute(cbwfxdst), ::std::mem::transmute(fdwsuggest)))
+        ::core::mem::transmute(acmFormatSuggest(had.into_param().abi(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(cbwfxdst), ::core::mem::transmute(fdwsuggest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19048,7 +19062,7 @@ pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagDetailsA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFormatTagDetailsA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19062,7 +19076,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagDetailsW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(acmFormatTagDetailsW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19070,14 +19084,14 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::std::option::Option<ACMFORMATTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagEnumA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFormatTagEnumA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19085,14 +19099,14 @@ pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::std::option::Option<ACMFORMATTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagEnumW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
+        ::core::mem::transmute(acmFormatTagEnumW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19106,21 +19120,21 @@ pub unsafe fn acmGetVersion() -> u32 {
         extern "system" {
             fn acmGetVersion() -> u32;
         }
-        ::std::mem::transmute(acmGetVersion())
+        ::core::mem::transmute(acmGetVersion())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::std::ffi::c_void) -> u32;
+            fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(acmMetrics(hao.into_param().abi(), ::std::mem::transmute(umetric), ::std::mem::transmute(pmetric)))
+        ::core::mem::transmute(acmMetrics(hao.into_param().abi(), ::core::mem::transmute(umetric), ::core::mem::transmute(pmetric)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19134,7 +19148,7 @@ pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMS
         extern "system" {
             fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamClose(has.into_param().abi(), ::std::mem::transmute(fdwclose)))
+        ::core::mem::transmute(acmStreamClose(has.into_param().abi(), ::core::mem::transmute(fdwclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19148,7 +19162,7 @@ pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
         extern "system" {
             fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamConvert(has.into_param().abi(), ::std::mem::transmute(pash), ::std::mem::transmute(fdwconvert)))
+        ::core::mem::transmute(acmStreamConvert(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwconvert)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19163,7 +19177,7 @@ pub unsafe fn acmStreamMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
         extern "system" {
             fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32;
         }
-        ::std::mem::transmute(acmStreamMessage(has.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(acmStreamMessage(has.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19177,7 +19191,7 @@ pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDR
         extern "system" {
             fn acmStreamOpen(phas: *mut isize, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamOpen(::std::mem::transmute(phas), had.into_param().abi(), ::std::mem::transmute(pwfxsrc), ::std::mem::transmute(pwfxdst), ::std::mem::transmute(pwfltr), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(acmStreamOpen(::core::mem::transmute(phas), had.into_param().abi(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19191,7 +19205,7 @@ pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamPrepareHeader(has.into_param().abi(), ::std::mem::transmute(pash), ::std::mem::transmute(fdwprepare)))
+        ::core::mem::transmute(acmStreamPrepareHeader(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwprepare)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19205,7 +19219,7 @@ pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMS
         extern "system" {
             fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamReset(has.into_param().abi(), ::std::mem::transmute(fdwreset)))
+        ::core::mem::transmute(acmStreamReset(has.into_param().abi(), ::core::mem::transmute(fdwreset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19219,7 +19233,7 @@ pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMST
         extern "system" {
             fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamSize(has.into_param().abi(), ::std::mem::transmute(cbinput), ::std::mem::transmute(pdwoutputbytes), ::std::mem::transmute(fdwsize)))
+        ::core::mem::transmute(acmStreamSize(has.into_param().abi(), ::core::mem::transmute(cbinput), ::core::mem::transmute(pdwoutputbytes), ::core::mem::transmute(fdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19233,7 +19247,7 @@ pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamUnprepareHeader(has.into_param().abi(), ::std::mem::transmute(pash), ::std::mem::transmute(fdwunprepare)))
+        ::core::mem::transmute(acmStreamUnprepareHeader(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwunprepare)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19248,7 +19262,7 @@ pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) ->
         extern "system" {
             fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;
         }
-        ::std::mem::transmute(auxGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pac), ::std::mem::transmute(cbac)))
+        ::core::mem::transmute(auxGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pac), ::core::mem::transmute(cbac)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19262,7 +19276,7 @@ pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) ->
         extern "system" {
             fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32;
         }
-        ::std::mem::transmute(auxGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pac), ::std::mem::transmute(cbac)))
+        ::core::mem::transmute(auxGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pac), ::core::mem::transmute(cbac)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19276,7 +19290,7 @@ pub unsafe fn auxGetNumDevs() -> u32 {
         extern "system" {
             fn auxGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(auxGetNumDevs())
+        ::core::mem::transmute(auxGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19290,7 +19304,7 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
         extern "system" {
             fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32;
         }
-        ::std::mem::transmute(auxGetVolume(::std::mem::transmute(udeviceid), ::std::mem::transmute(pdwvolume)))
+        ::core::mem::transmute(auxGetVolume(::core::mem::transmute(udeviceid), ::core::mem::transmute(pdwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19304,7 +19318,7 @@ pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -
         extern "system" {
             fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(auxOutMessage(::std::mem::transmute(udeviceid), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
+        ::core::mem::transmute(auxOutMessage(::core::mem::transmute(udeviceid), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19318,7 +19332,7 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
         extern "system" {
             fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32;
         }
-        ::std::mem::transmute(auxSetVolume(::std::mem::transmute(udeviceid), ::std::mem::transmute(dwvolume)))
+        ::core::mem::transmute(auxSetVolume(::core::mem::transmute(udeviceid), ::core::mem::transmute(dwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19333,7 +19347,7 @@ pub unsafe fn capCreateCaptureWindowA<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn capCreateCaptureWindowA(lpszwindowname: super::super::Foundation::PSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(capCreateCaptureWindowA(lpszwindowname.into_param().abi(), ::std::mem::transmute(dwstyle), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), hwndparent.into_param().abi(), ::std::mem::transmute(nid)))
+        ::core::mem::transmute(capCreateCaptureWindowA(lpszwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), ::core::mem::transmute(nid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19348,7 +19362,7 @@ pub unsafe fn capCreateCaptureWindowW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn capCreateCaptureWindowW(lpszwindowname: super::super::Foundation::PWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(capCreateCaptureWindowW(lpszwindowname.into_param().abi(), ::std::mem::transmute(dwstyle), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), hwndparent.into_param().abi(), ::std::mem::transmute(nid)))
+        ::core::mem::transmute(capCreateCaptureWindowW(lpszwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), ::core::mem::transmute(nid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19363,7 +19377,7 @@ pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super
         extern "system" {
             fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(capGetDriverDescriptionA(::std::mem::transmute(wdriverindex), ::std::mem::transmute(lpszname), ::std::mem::transmute(cbname), ::std::mem::transmute(lpszver), ::std::mem::transmute(cbver)))
+        ::core::mem::transmute(capGetDriverDescriptionA(::core::mem::transmute(wdriverindex), ::core::mem::transmute(lpszname), ::core::mem::transmute(cbname), ::core::mem::transmute(lpszver), ::core::mem::transmute(cbver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19378,7 +19392,7 @@ pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super
         extern "system" {
             fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(capGetDriverDescriptionW(::std::mem::transmute(wdriverindex), ::std::mem::transmute(lpszname), ::std::mem::transmute(cbname), ::std::mem::transmute(lpszver), ::std::mem::transmute(cbver)))
+        ::core::mem::transmute(capGetDriverDescriptionW(::core::mem::transmute(wdriverindex), ::core::mem::transmute(lpszname), ::core::mem::transmute(cbname), ::core::mem::transmute(lpszver), ::core::mem::transmute(cbver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19393,7 +19407,7 @@ pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u3
         extern "system" {
             fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
         }
-        ::std::mem::transmute(joyGetDevCapsA(::std::mem::transmute(ujoyid), ::std::mem::transmute(pjc), ::std::mem::transmute(cbjc)))
+        ::core::mem::transmute(joyGetDevCapsA(::core::mem::transmute(ujoyid), ::core::mem::transmute(pjc), ::core::mem::transmute(cbjc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19407,7 +19421,7 @@ pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u3
         extern "system" {
             fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
         }
-        ::std::mem::transmute(joyGetDevCapsW(::std::mem::transmute(ujoyid), ::std::mem::transmute(pjc), ::std::mem::transmute(cbjc)))
+        ::core::mem::transmute(joyGetDevCapsW(::core::mem::transmute(ujoyid), ::core::mem::transmute(pjc), ::core::mem::transmute(cbjc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19421,7 +19435,7 @@ pub unsafe fn joyGetNumDevs() -> u32 {
         extern "system" {
             fn joyGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(joyGetNumDevs())
+        ::core::mem::transmute(joyGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19435,7 +19449,7 @@ pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
         extern "system" {
             fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
         }
-        ::std::mem::transmute(joyGetPos(::std::mem::transmute(ujoyid), ::std::mem::transmute(pji)))
+        ::core::mem::transmute(joyGetPos(::core::mem::transmute(ujoyid), ::core::mem::transmute(pji)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19449,7 +19463,7 @@ pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
         extern "system" {
             fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
         }
-        ::std::mem::transmute(joyGetPosEx(::std::mem::transmute(ujoyid), ::std::mem::transmute(pji)))
+        ::core::mem::transmute(joyGetPosEx(::core::mem::transmute(ujoyid), ::core::mem::transmute(pji)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19463,7 +19477,7 @@ pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
         extern "system" {
             fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
         }
-        ::std::mem::transmute(joyGetThreshold(::std::mem::transmute(ujoyid), ::std::mem::transmute(puthreshold)))
+        ::core::mem::transmute(joyGetThreshold(::core::mem::transmute(ujoyid), ::core::mem::transmute(puthreshold)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19477,7 +19491,7 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
         extern "system" {
             fn joyReleaseCapture(ujoyid: u32) -> u32;
         }
-        ::std::mem::transmute(joyReleaseCapture(::std::mem::transmute(ujoyid)))
+        ::core::mem::transmute(joyReleaseCapture(::core::mem::transmute(ujoyid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19492,7 +19506,7 @@ pub unsafe fn joySetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(joySetCapture(hwnd.into_param().abi(), ::std::mem::transmute(ujoyid), ::std::mem::transmute(uperiod), fchanged.into_param().abi()))
+        ::core::mem::transmute(joySetCapture(hwnd.into_param().abi(), ::core::mem::transmute(ujoyid), ::core::mem::transmute(uperiod), fchanged.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19506,35 +19520,35 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
         extern "system" {
             fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
         }
-        ::std::mem::transmute(joySetThreshold(::std::mem::transmute(ujoyid), ::std::mem::transmute(uthreshold)))
+        ::core::mem::transmute(joySetThreshold(::core::mem::transmute(ujoyid), ::core::mem::transmute(uthreshold)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn midiConnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn midiConnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::std::ffi::c_void) -> u32;
+            fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(midiConnect(hmi.into_param().abi(), hmo.into_param().abi(), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(midiConnect(hmi.into_param().abi(), hmo.into_param().abi(), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn midiDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn midiDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::std::ffi::c_void) -> u32;
+            fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(midiDisconnect(hmi.into_param().abi(), hmo.into_param().abi(), ::std::mem::transmute(preserved)))
+        ::core::mem::transmute(midiDisconnect(hmi.into_param().abi(), hmo.into_param().abi(), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19549,7 +19563,7 @@ pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
         extern "system" {
             fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiInAddBuffer(hmi.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiInAddBuffer(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19563,7 +19577,7 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
         extern "system" {
             fn midiInClose(hmi: HMIDIIN) -> u32;
         }
-        ::std::mem::transmute(midiInClose(hmi.into_param().abi()))
+        ::core::mem::transmute(midiInClose(hmi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19578,7 +19592,7 @@ pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic:
         extern "system" {
             fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmic), ::std::mem::transmute(cbmic)))
+        ::core::mem::transmute(midiInGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmic), ::core::mem::transmute(cbmic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19592,7 +19606,7 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
         extern "system" {
             fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmic), ::std::mem::transmute(cbmic)))
+        ::core::mem::transmute(midiInGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmic), ::core::mem::transmute(cbmic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19607,7 +19621,7 @@ pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundati
         extern "system" {
             fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(midiInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19622,7 +19636,7 @@ pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundati
         extern "system" {
             fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(midiInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19636,7 +19650,7 @@ pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
         extern "system" {
             fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetID(hmi.into_param().abi(), ::std::mem::transmute(pudeviceid)))
+        ::core::mem::transmute(midiInGetID(hmi.into_param().abi(), ::core::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19650,7 +19664,7 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
         extern "system" {
             fn midiInGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(midiInGetNumDevs())
+        ::core::mem::transmute(midiInGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19664,7 +19678,7 @@ pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDII
         extern "system" {
             fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(midiInMessage(hmi.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
+        ::core::mem::transmute(midiInMessage(hmi.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19678,7 +19692,7 @@ pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, 
         extern "system" {
             fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(midiInOpen(::std::mem::transmute(phmi), ::std::mem::transmute(udeviceid), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(midiInOpen(::core::mem::transmute(phmi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19693,7 +19707,7 @@ pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiInPrepareHeader(hmi.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiInPrepareHeader(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19707,7 +19721,7 @@ pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
         extern "system" {
             fn midiInReset(hmi: HMIDIIN) -> u32;
         }
-        ::std::mem::transmute(midiInReset(hmi.into_param().abi()))
+        ::core::mem::transmute(midiInReset(hmi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19721,7 +19735,7 @@ pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
         extern "system" {
             fn midiInStart(hmi: HMIDIIN) -> u32;
         }
-        ::std::mem::transmute(midiInStart(hmi.into_param().abi()))
+        ::core::mem::transmute(midiInStart(hmi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19735,7 +19749,7 @@ pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>
         extern "system" {
             fn midiInStop(hmi: HMIDIIN) -> u32;
         }
-        ::std::mem::transmute(midiInStop(hmi.into_param().abi()))
+        ::core::mem::transmute(midiInStop(hmi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19750,7 +19764,7 @@ pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiInUnprepareHeader(hmi.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiInUnprepareHeader(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19764,7 +19778,7 @@ pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::std::mem::transmute(upatch), ::std::mem::transmute(pwkya), ::std::mem::transmute(fucache)))
+        ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::core::mem::transmute(upatch), ::core::mem::transmute(pwkya), ::core::mem::transmute(fucache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19778,7 +19792,7 @@ pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::std::mem::transmute(ubank), ::std::mem::transmute(pwpa), ::std::mem::transmute(fucache)))
+        ::core::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::core::mem::transmute(ubank), ::core::mem::transmute(pwpa), ::core::mem::transmute(fucache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19792,7 +19806,7 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
         extern "system" {
             fn midiOutClose(hmo: HMIDIOUT) -> u32;
         }
-        ::std::mem::transmute(midiOutClose(hmo.into_param().abi()))
+        ::core::mem::transmute(midiOutClose(hmo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19807,7 +19821,7 @@ pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmo
         extern "system" {
             fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmoc), ::std::mem::transmute(cbmoc)))
+        ::core::mem::transmute(midiOutGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmoc), ::core::mem::transmute(cbmoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19821,7 +19835,7 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
         extern "system" {
             fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmoc), ::std::mem::transmute(cbmoc)))
+        ::core::mem::transmute(midiOutGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmoc), ::core::mem::transmute(cbmoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19836,7 +19850,7 @@ pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundat
         extern "system" {
             fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(midiOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19851,7 +19865,7 @@ pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundat
         extern "system" {
             fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(midiOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19865,7 +19879,7 @@ pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
         extern "system" {
             fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetID(hmo.into_param().abi(), ::std::mem::transmute(pudeviceid)))
+        ::core::mem::transmute(midiOutGetID(hmo.into_param().abi(), ::core::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19879,7 +19893,7 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
         extern "system" {
             fn midiOutGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(midiOutGetNumDevs())
+        ::core::mem::transmute(midiOutGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19893,7 +19907,7 @@ pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
         extern "system" {
             fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetVolume(hmo.into_param().abi(), ::std::mem::transmute(pdwvolume)))
+        ::core::mem::transmute(midiOutGetVolume(hmo.into_param().abi(), ::core::mem::transmute(pdwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19908,7 +19922,7 @@ pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
         extern "system" {
             fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutLongMsg(hmo.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiOutLongMsg(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19922,7 +19936,7 @@ pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
         extern "system" {
             fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(midiOutMessage(hmo.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
+        ::core::mem::transmute(midiOutMessage(hmo.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19936,7 +19950,7 @@ pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize
         extern "system" {
             fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(midiOutOpen(::std::mem::transmute(phmo), ::std::mem::transmute(udeviceid), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(midiOutOpen(::core::mem::transmute(phmo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19951,7 +19965,7 @@ pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutPrepareHeader(hmo.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiOutPrepareHeader(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19965,7 +19979,7 @@ pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
         extern "system" {
             fn midiOutReset(hmo: HMIDIOUT) -> u32;
         }
-        ::std::mem::transmute(midiOutReset(hmo.into_param().abi()))
+        ::core::mem::transmute(midiOutReset(hmo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19979,7 +19993,7 @@ pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
         extern "system" {
             fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutSetVolume(hmo.into_param().abi(), ::std::mem::transmute(dwvolume)))
+        ::core::mem::transmute(midiOutSetVolume(hmo.into_param().abi(), ::core::mem::transmute(dwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19993,7 +20007,7 @@ pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
         extern "system" {
             fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutShortMsg(hmo.into_param().abi(), ::std::mem::transmute(dwmsg)))
+        ::core::mem::transmute(midiOutShortMsg(hmo.into_param().abi(), ::core::mem::transmute(dwmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20008,7 +20022,7 @@ pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutUnprepareHeader(hmo.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiOutUnprepareHeader(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20022,7 +20036,7 @@ pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
         extern "system" {
             fn midiStreamClose(hms: HMIDISTRM) -> u32;
         }
-        ::std::mem::transmute(midiStreamClose(hms.into_param().abi()))
+        ::core::mem::transmute(midiStreamClose(hms.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20036,7 +20050,7 @@ pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: 
         extern "system" {
             fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamOpen(::std::mem::transmute(phms), ::std::mem::transmute(pudeviceid), ::std::mem::transmute(cmidi), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(pudeviceid), ::core::mem::transmute(cmidi), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20051,7 +20065,7 @@ pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIS
         extern "system" {
             fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamOut(hms.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
+        ::core::mem::transmute(midiStreamOut(hms.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20065,7 +20079,7 @@ pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
         extern "system" {
             fn midiStreamPause(hms: HMIDISTRM) -> u32;
         }
-        ::std::mem::transmute(midiStreamPause(hms.into_param().abi()))
+        ::core::mem::transmute(midiStreamPause(hms.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20079,7 +20093,7 @@ pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamPosition(hms.into_param().abi(), ::std::mem::transmute(lpmmt), ::std::mem::transmute(cbmmt)))
+        ::core::mem::transmute(midiStreamPosition(hms.into_param().abi(), ::core::mem::transmute(lpmmt), ::core::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20093,7 +20107,7 @@ pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamProperty(hms.into_param().abi(), ::std::mem::transmute(lppropdata), ::std::mem::transmute(dwproperty)))
+        ::core::mem::transmute(midiStreamProperty(hms.into_param().abi(), ::core::mem::transmute(lppropdata), ::core::mem::transmute(dwproperty)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20107,7 +20121,7 @@ pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HM
         extern "system" {
             fn midiStreamRestart(hms: HMIDISTRM) -> u32;
         }
-        ::std::mem::transmute(midiStreamRestart(hms.into_param().abi()))
+        ::core::mem::transmute(midiStreamRestart(hms.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20121,7 +20135,7 @@ pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
         extern "system" {
             fn midiStreamStop(hms: HMIDISTRM) -> u32;
         }
-        ::std::mem::transmute(midiStreamStop(hms.into_param().abi()))
+        ::core::mem::transmute(midiStreamStop(hms.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20135,7 +20149,7 @@ pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
         extern "system" {
             fn mixerClose(hmx: HMIXER) -> u32;
         }
-        ::std::mem::transmute(mixerClose(hmx.into_param().abi()))
+        ::core::mem::transmute(mixerClose(hmx.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20150,7 +20164,7 @@ pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetControlDetailsA(hmxobj.into_param().abi(), ::std::mem::transmute(pmxcd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(mixerGetControlDetailsA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20165,7 +20179,7 @@ pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetControlDetailsW(hmxobj.into_param().abi(), ::std::mem::transmute(pmxcd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(mixerGetControlDetailsW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20180,7 +20194,7 @@ pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps:
         extern "system" {
             fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetDevCapsA(::std::mem::transmute(umxid), ::std::mem::transmute(pmxcaps), ::std::mem::transmute(cbmxcaps)))
+        ::core::mem::transmute(mixerGetDevCapsA(::core::mem::transmute(umxid), ::core::mem::transmute(pmxcaps), ::core::mem::transmute(cbmxcaps)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20194,7 +20208,7 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
         extern "system" {
             fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetDevCapsW(::std::mem::transmute(umxid), ::std::mem::transmute(pmxcaps), ::std::mem::transmute(cbmxcaps)))
+        ::core::mem::transmute(mixerGetDevCapsW(::core::mem::transmute(umxid), ::core::mem::transmute(pmxcaps), ::core::mem::transmute(cbmxcaps)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20208,7 +20222,7 @@ pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ
         extern "system" {
             fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetID(hmxobj.into_param().abi(), ::std::mem::transmute(pumxid), ::std::mem::transmute(fdwid)))
+        ::core::mem::transmute(mixerGetID(hmxobj.into_param().abi(), ::core::mem::transmute(pumxid), ::core::mem::transmute(fdwid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20223,7 +20237,7 @@ pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineControlsA(hmxobj.into_param().abi(), ::std::mem::transmute(pmxlc), ::std::mem::transmute(fdwcontrols)))
+        ::core::mem::transmute(mixerGetLineControlsA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20237,7 +20251,7 @@ pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineControlsW(hmxobj.into_param().abi(), ::std::mem::transmute(pmxlc), ::std::mem::transmute(fdwcontrols)))
+        ::core::mem::transmute(mixerGetLineControlsW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20252,7 +20266,7 @@ pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HM
         extern "system" {
             fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineInfoA(hmxobj.into_param().abi(), ::std::mem::transmute(pmxl), ::std::mem::transmute(fdwinfo)))
+        ::core::mem::transmute(mixerGetLineInfoA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20266,7 +20280,7 @@ pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HM
         extern "system" {
             fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineInfoW(hmxobj.into_param().abi(), ::std::mem::transmute(pmxl), ::std::mem::transmute(fdwinfo)))
+        ::core::mem::transmute(mixerGetLineInfoW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20280,7 +20294,7 @@ pub unsafe fn mixerGetNumDevs() -> u32 {
         extern "system" {
             fn mixerGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(mixerGetNumDevs())
+        ::core::mem::transmute(mixerGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20294,7 +20308,7 @@ pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>
         extern "system" {
             fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
-        ::std::mem::transmute(mixerMessage(hmx.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dwparam1), ::std::mem::transmute(dwparam2)))
+        ::core::mem::transmute(mixerMessage(hmx.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20308,7 +20322,7 @@ pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinsta
         extern "system" {
             fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(mixerOpen(::std::mem::transmute(phmx), ::std::mem::transmute(umxid), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mixerOpen(::core::mem::transmute(phmx), ::core::mem::transmute(umxid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20323,7 +20337,7 @@ pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(mixerSetControlDetails(hmxobj.into_param().abi(), ::std::mem::transmute(pmxcd), ::std::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(mixerSetControlDetails(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20331,14 +20345,14 @@ pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmDrvInstall<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: ::std::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32 {
+pub unsafe fn mmDrvInstall<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: ::core::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: ::windows::runtime::RawPtr, wflags: u32) -> u32;
         }
-        ::std::mem::transmute(mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), ::std::mem::transmute(drvmessage), ::std::mem::transmute(wflags)))
+        ::core::mem::transmute(mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), ::core::mem::transmute(drvmessage), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20352,7 +20366,7 @@ pub unsafe fn mmGetCurrentTask() -> u32 {
         extern "system" {
             fn mmGetCurrentTask() -> u32;
         }
-        ::std::mem::transmute(mmGetCurrentTask())
+        ::core::mem::transmute(mmGetCurrentTask())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20366,7 +20380,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
         extern "system" {
             fn mmTaskBlock(h: u32);
         }
-        ::std::mem::transmute(mmTaskBlock(::std::mem::transmute(h)))
+        ::core::mem::transmute(mmTaskBlock(::core::mem::transmute(h)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20374,14 +20388,14 @@ pub unsafe fn mmTaskBlock(h: u32) {
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmTaskCreate(lpfn: ::std::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
+pub unsafe fn mmTaskCreate(lpfn: ::core::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmTaskCreate(lpfn: ::windows::runtime::RawPtr, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
         }
-        ::std::mem::transmute(mmTaskCreate(::std::mem::transmute(lpfn), ::std::mem::transmute(lph), ::std::mem::transmute(dwinst)))
+        ::core::mem::transmute(mmTaskCreate(::core::mem::transmute(lpfn), ::core::mem::transmute(lph), ::core::mem::transmute(dwinst)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20396,7 +20410,7 @@ pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
         extern "system" {
             fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(mmTaskSignal(::std::mem::transmute(h)))
+        ::core::mem::transmute(mmTaskSignal(::core::mem::transmute(h)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20410,7 +20424,7 @@ pub unsafe fn mmTaskYield() {
         extern "system" {
             fn mmTaskYield();
         }
-        ::std::mem::transmute(mmTaskYield())
+        ::core::mem::transmute(mmTaskYield())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20423,9 +20437,9 @@ pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fuadvance: u32) -> u32;
+            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fuadvance: u32) -> u32;
         }
-        ::std::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fuadvance)))
+        ::core::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuadvance)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20439,7 +20453,7 @@ pub unsafe fn mmioAscend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(h
         extern "system" {
             fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
         }
-        ::std::mem::transmute(mmioAscend(hmmio.into_param().abi(), ::std::mem::transmute(pmmcki), ::std::mem::transmute(fuascend)))
+        ::core::mem::transmute(mmioAscend(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(fuascend)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20453,7 +20467,7 @@ pub unsafe fn mmioClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hm
         extern "system" {
             fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
         }
-        ::std::mem::transmute(mmioClose(hmmio.into_param().abi(), ::std::mem::transmute(fuclose)))
+        ::core::mem::transmute(mmioClose(hmmio.into_param().abi(), ::core::mem::transmute(fuclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20467,7 +20481,7 @@ pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::runtime::IntoParam<'a, HMMI
         extern "system" {
             fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
         }
-        ::std::mem::transmute(mmioCreateChunk(hmmio.into_param().abi(), ::std::mem::transmute(pmmcki), ::std::mem::transmute(fucreate)))
+        ::core::mem::transmute(mmioCreateChunk(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(fucreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20481,7 +20495,7 @@ pub unsafe fn mmioDescend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
         extern "system" {
             fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
         }
-        ::std::mem::transmute(mmioDescend(hmmio.into_param().abi(), ::std::mem::transmute(pmmcki), ::std::mem::transmute(pmmckiparent), ::std::mem::transmute(fudescend)))
+        ::core::mem::transmute(mmioDescend(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(pmmckiparent), ::core::mem::transmute(fudescend)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20495,7 +20509,7 @@ pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hm
         extern "system" {
             fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
         }
-        ::std::mem::transmute(mmioFlush(hmmio.into_param().abi(), ::std::mem::transmute(fuflush)))
+        ::core::mem::transmute(mmioFlush(hmmio.into_param().abi(), ::core::mem::transmute(fuflush)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20508,9 +20522,9 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
+            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fuinfo)))
+        ::core::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20518,14 +20532,14 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::std::option::Option<LPMMIOPROC>, dwflags: u32) -> ::std::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> ::core::option::Option<LPMMIOPROC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::runtime::RawPtr, dwflags: u32) -> ::std::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::runtime::RawPtr, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
         }
-        ::std::mem::transmute(mmioInstallIOProcA(::std::mem::transmute(fccioproc), ::std::mem::transmute(pioproc), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(mmioInstallIOProcA(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20533,14 +20547,14 @@ pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::std::option::Option<
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::std::option::Option<LPMMIOPROC>, dwflags: u32) -> ::std::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> ::core::option::Option<LPMMIOPROC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::runtime::RawPtr, dwflags: u32) -> ::std::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::runtime::RawPtr, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
         }
-        ::std::mem::transmute(mmioInstallIOProcW(::std::mem::transmute(fccioproc), ::std::mem::transmute(pioproc), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(mmioInstallIOProcW(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20553,9 +20567,9 @@ pub unsafe fn mmioOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
+            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
         }
-        ::std::mem::transmute(mmioOpenA(pszfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mmioOpenA(pszfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20568,9 +20582,9 @@ pub unsafe fn mmioOpenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
+            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
         }
-        ::std::mem::transmute(mmioOpenW(pszfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mmioOpenW(pszfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20584,7 +20598,7 @@ pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmm
         extern "system" {
             fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
         }
-        ::std::mem::transmute(mmioRead(hmmio.into_param().abi(), ::std::mem::transmute(pch), ::std::mem::transmute(cch)))
+        ::core::mem::transmute(mmioRead(hmmio.into_param().abi(), ::core::mem::transmute(pch), ::core::mem::transmute(cch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20597,9 +20611,9 @@ pub unsafe fn mmioRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
+            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
         }
-        ::std::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwrename)))
+        ::core::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20612,9 +20626,9 @@ pub unsafe fn mmioRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
+            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
         }
-        ::std::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwrename)))
+        ::core::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20628,7 +20642,7 @@ pub unsafe fn mmioSeek<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmm
         extern "system" {
             fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
         }
-        ::std::mem::transmute(mmioSeek(hmmio.into_param().abi(), ::std::mem::transmute(loffset), ::std::mem::transmute(iorigin)))
+        ::core::mem::transmute(mmioSeek(hmmio.into_param().abi(), ::core::mem::transmute(loffset), ::core::mem::transmute(iorigin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20643,7 +20657,7 @@ pub unsafe fn mmioSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMMI
         extern "system" {
             fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(mmioSendMessage(hmmio.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+        ::core::mem::transmute(mmioSendMessage(hmmio.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20658,7 +20672,7 @@ pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>
         extern "system" {
             fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: super::super::Foundation::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
         }
-        ::std::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::std::mem::transmute(pchbuffer), ::std::mem::transmute(cchbuffer), ::std::mem::transmute(fubuffer)))
+        ::core::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cchbuffer), ::core::mem::transmute(fubuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20671,9 +20685,9 @@ pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
+            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fuinfo)))
+        ::core::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20688,7 +20702,7 @@ pub unsafe fn mmioStringToFOURCCA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn mmioStringToFOURCCA(sz: super::super::Foundation::PSTR, uflags: u32) -> u32;
         }
-        ::std::mem::transmute(mmioStringToFOURCCA(sz.into_param().abi(), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(mmioStringToFOURCCA(sz.into_param().abi(), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20703,7 +20717,7 @@ pub unsafe fn mmioStringToFOURCCW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn mmioStringToFOURCCW(sz: super::super::Foundation::PWSTR, uflags: u32) -> u32;
         }
-        ::std::mem::transmute(mmioStringToFOURCCW(sz.into_param().abi(), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(mmioStringToFOURCCW(sz.into_param().abi(), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20718,12 +20732,12 @@ pub unsafe fn mmioWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>, Pa
         extern "system" {
             fn mmioWrite(hmmio: HMMIO, pch: super::super::Foundation::PSTR, cch: i32) -> i32;
         }
-        ::std::mem::transmute(mmioWrite(hmmio.into_param().abi(), pch.into_param().abi(), ::std::mem::transmute(cch)))
+        ::core::mem::transmute(mmioWrite(hmmio.into_param().abi(), pch.into_param().abi(), ::core::mem::transmute(cch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -20739,14 +20753,14 @@ pub struct s_RIFFWAVE_inst {
 #[cfg(feature = "Win32_Foundation")]
 impl s_RIFFWAVE_inst {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for s_RIFFWAVE_inst {
+impl ::core::default::Default for s_RIFFWAVE_inst {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for s_RIFFWAVE_inst {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for s_RIFFWAVE_inst {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("s_RIFFWAVE_inst")
             .field("bUnshiftedNote", &self.bUnshiftedNote)
             .field("chFineTune", &self.chFineTune)
@@ -20759,13 +20773,13 @@ impl ::std::fmt::Debug for s_RIFFWAVE_inst {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for s_RIFFWAVE_inst {
+impl ::core::cmp::PartialEq for s_RIFFWAVE_inst {
     fn eq(&self, other: &Self) -> bool {
         self.bUnshiftedNote == other.bUnshiftedNote && self.chFineTune == other.chFineTune && self.chGain == other.chGain && self.bLowNote == other.bLowNote && self.bHighNote == other.bHighNote && self.bLowVelocity == other.bLowVelocity && self.bHighVelocity == other.bHighVelocity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for s_RIFFWAVE_inst {}
+impl ::core::cmp::Eq for s_RIFFWAVE_inst {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for s_RIFFWAVE_inst {
     type Abi = Self;
@@ -20780,7 +20794,7 @@ pub unsafe fn sndOpenSound<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
-        ::std::mem::transmute(sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(filehandle)))
+        ::core::mem::transmute(sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20795,7 +20809,7 @@ pub unsafe fn sndPlaySoundA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn sndPlaySoundA(pszsound: super::super::Foundation::PSTR, fusound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(sndPlaySoundA(pszsound.into_param().abi(), ::std::mem::transmute(fusound)))
+        ::core::mem::transmute(sndPlaySoundA(pszsound.into_param().abi(), ::core::mem::transmute(fusound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20810,12 +20824,12 @@ pub unsafe fn sndPlaySoundW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn sndPlaySoundW(pszsound: super::super::Foundation::PWSTR, fusound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(sndPlaySoundW(pszsound.into_param().abi(), ::std::mem::transmute(fusound)))
+        ::core::mem::transmute(sndPlaySoundW(pszsound.into_param().abi(), ::core::mem::transmute(fusound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct tACMDRVFORMATSUGGEST {
@@ -20827,21 +20841,21 @@ pub struct tACMDRVFORMATSUGGEST {
     pub cbwfxDst: u32,
 }
 impl tACMDRVFORMATSUGGEST {}
-impl ::std::default::Default for tACMDRVFORMATSUGGEST {
+impl ::core::default::Default for tACMDRVFORMATSUGGEST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tACMDRVFORMATSUGGEST {
+impl ::core::cmp::PartialEq for tACMDRVFORMATSUGGEST {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tACMDRVFORMATSUGGEST {}
+impl ::core::cmp::Eq for tACMDRVFORMATSUGGEST {}
 unsafe impl ::windows::runtime::Abi for tACMDRVFORMATSUGGEST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -20859,24 +20873,24 @@ pub struct tACMDRVOPENDESCA {
 #[cfg(feature = "Win32_Foundation")]
 impl tACMDRVOPENDESCA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for tACMDRVOPENDESCA {
+impl ::core::default::Default for tACMDRVOPENDESCA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for tACMDRVOPENDESCA {
+impl ::core::cmp::PartialEq for tACMDRVOPENDESCA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for tACMDRVOPENDESCA {}
+impl ::core::cmp::Eq for tACMDRVOPENDESCA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tACMDRVOPENDESCA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -20894,24 +20908,24 @@ pub struct tACMDRVOPENDESCW {
 #[cfg(feature = "Win32_Foundation")]
 impl tACMDRVOPENDESCW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for tACMDRVOPENDESCW {
+impl ::core::default::Default for tACMDRVOPENDESCW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for tACMDRVOPENDESCW {
+impl ::core::cmp::PartialEq for tACMDRVOPENDESCW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for tACMDRVOPENDESCW {}
+impl ::core::cmp::Eq for tACMDRVOPENDESCW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tACMDRVOPENDESCW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct tACMDRVSTREAMHEADER {
@@ -20938,21 +20952,21 @@ pub struct tACMDRVSTREAMHEADER {
     pub cbPreparedDstLength: u32,
 }
 impl tACMDRVSTREAMHEADER {}
-impl ::std::default::Default for tACMDRVSTREAMHEADER {
+impl ::core::default::Default for tACMDRVSTREAMHEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tACMDRVSTREAMHEADER {
+impl ::core::cmp::PartialEq for tACMDRVSTREAMHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tACMDRVSTREAMHEADER {}
+impl ::core::cmp::Eq for tACMDRVSTREAMHEADER {}
 unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMHEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct tACMDRVSTREAMINSTANCE {
@@ -20968,21 +20982,21 @@ pub struct tACMDRVSTREAMINSTANCE {
     pub has: HACMSTREAM,
 }
 impl tACMDRVSTREAMINSTANCE {}
-impl ::std::default::Default for tACMDRVSTREAMINSTANCE {
+impl ::core::default::Default for tACMDRVSTREAMINSTANCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tACMDRVSTREAMINSTANCE {
+impl ::core::cmp::PartialEq for tACMDRVSTREAMINSTANCE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tACMDRVSTREAMINSTANCE {}
+impl ::core::cmp::Eq for tACMDRVSTREAMINSTANCE {}
 unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMINSTANCE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct tACMDRVSTREAMSIZE {
@@ -20992,21 +21006,21 @@ pub struct tACMDRVSTREAMSIZE {
     pub cbDstLength: u32,
 }
 impl tACMDRVSTREAMSIZE {}
-impl ::std::default::Default for tACMDRVSTREAMSIZE {
+impl ::core::default::Default for tACMDRVSTREAMSIZE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tACMDRVSTREAMSIZE {
+impl ::core::cmp::PartialEq for tACMDRVSTREAMSIZE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tACMDRVSTREAMSIZE {}
+impl ::core::cmp::Eq for tACMDRVSTREAMSIZE {}
 unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMSIZE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct tACMFORMATDETAILSW {
@@ -21019,17 +21033,17 @@ pub struct tACMFORMATDETAILSW {
     pub szFormat: [u16; 128],
 }
 impl tACMFORMATDETAILSW {}
-impl ::std::default::Default for tACMFORMATDETAILSW {
+impl ::core::default::Default for tACMFORMATDETAILSW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tACMFORMATDETAILSW {
+impl ::core::cmp::PartialEq for tACMFORMATDETAILSW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tACMFORMATDETAILSW {}
+impl ::core::cmp::Eq for tACMFORMATDETAILSW {}
 unsafe impl ::windows::runtime::Abi for tACMFORMATDETAILSW {
     type Abi = Self;
 }
@@ -21042,7 +21056,7 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
         extern "system" {
             fn timeBeginPeriod(uperiod: u32) -> u32;
         }
-        ::std::mem::transmute(timeBeginPeriod(::std::mem::transmute(uperiod)))
+        ::core::mem::transmute(timeBeginPeriod(::core::mem::transmute(uperiod)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21056,7 +21070,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
         extern "system" {
             fn timeEndPeriod(uperiod: u32) -> u32;
         }
-        ::std::mem::transmute(timeEndPeriod(::std::mem::transmute(uperiod)))
+        ::core::mem::transmute(timeEndPeriod(::core::mem::transmute(uperiod)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21070,7 +21084,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
         extern "system" {
             fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
         }
-        ::std::mem::transmute(timeGetDevCaps(::std::mem::transmute(ptc), ::std::mem::transmute(cbtc)))
+        ::core::mem::transmute(timeGetDevCaps(::core::mem::transmute(ptc), ::core::mem::transmute(cbtc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21084,7 +21098,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
         extern "system" {
             fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(timeGetSystemTime(::std::mem::transmute(pmmt), ::std::mem::transmute(cbmmt)))
+        ::core::mem::transmute(timeGetSystemTime(::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21098,7 +21112,7 @@ pub unsafe fn timeGetTime() -> u32 {
         extern "system" {
             fn timeGetTime() -> u32;
         }
-        ::std::mem::transmute(timeGetTime())
+        ::core::mem::transmute(timeGetTime())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21113,7 +21127,7 @@ pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
         extern "system" {
             fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveInAddBuffer(hwi.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
+        ::core::mem::transmute(waveInAddBuffer(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21127,7 +21141,7 @@ pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
         extern "system" {
             fn waveInClose(hwi: HWAVEIN) -> u32;
         }
-        ::std::mem::transmute(waveInClose(hwi.into_param().abi()))
+        ::core::mem::transmute(waveInClose(hwi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21142,7 +21156,7 @@ pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic:
         extern "system" {
             fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwic), ::std::mem::transmute(cbwic)))
+        ::core::mem::transmute(waveInGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwic), ::core::mem::transmute(cbwic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21156,7 +21170,7 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
         extern "system" {
             fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwic), ::std::mem::transmute(cbwic)))
+        ::core::mem::transmute(waveInGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwic), ::core::mem::transmute(cbwic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21171,7 +21185,7 @@ pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundati
         extern "system" {
             fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(waveInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21186,7 +21200,7 @@ pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundati
         extern "system" {
             fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(waveInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21200,7 +21214,7 @@ pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
         extern "system" {
             fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetID(hwi.into_param().abi(), ::std::mem::transmute(pudeviceid)))
+        ::core::mem::transmute(waveInGetID(hwi.into_param().abi(), ::core::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21214,7 +21228,7 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
         extern "system" {
             fn waveInGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(waveInGetNumDevs())
+        ::core::mem::transmute(waveInGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21228,7 +21242,7 @@ pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HW
         extern "system" {
             fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetPosition(hwi.into_param().abi(), ::std::mem::transmute(pmmt), ::std::mem::transmute(cbmmt)))
+        ::core::mem::transmute(waveInGetPosition(hwi.into_param().abi(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21242,7 +21256,7 @@ pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEI
         extern "system" {
             fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(waveInMessage(hwi.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
+        ::core::mem::transmute(waveInMessage(hwi.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21256,7 +21270,7 @@ pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFO
         extern "system" {
             fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(waveInOpen(::std::mem::transmute(phwi), ::std::mem::transmute(udeviceid), ::std::mem::transmute(pwfx), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(waveInOpen(::core::mem::transmute(phwi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21271,7 +21285,7 @@ pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveInPrepareHeader(hwi.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
+        ::core::mem::transmute(waveInPrepareHeader(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21285,7 +21299,7 @@ pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
         extern "system" {
             fn waveInReset(hwi: HWAVEIN) -> u32;
         }
-        ::std::mem::transmute(waveInReset(hwi.into_param().abi()))
+        ::core::mem::transmute(waveInReset(hwi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21299,7 +21313,7 @@ pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
         extern "system" {
             fn waveInStart(hwi: HWAVEIN) -> u32;
         }
-        ::std::mem::transmute(waveInStart(hwi.into_param().abi()))
+        ::core::mem::transmute(waveInStart(hwi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21313,7 +21327,7 @@ pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>
         extern "system" {
             fn waveInStop(hwi: HWAVEIN) -> u32;
         }
-        ::std::mem::transmute(waveInStop(hwi.into_param().abi()))
+        ::core::mem::transmute(waveInStop(hwi.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21328,7 +21342,7 @@ pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveInUnprepareHeader(hwi.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
+        ::core::mem::transmute(waveInUnprepareHeader(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21342,7 +21356,7 @@ pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
         extern "system" {
             fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32;
         }
-        ::std::mem::transmute(waveOutBreakLoop(hwo.into_param().abi()))
+        ::core::mem::transmute(waveOutBreakLoop(hwo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21356,7 +21370,7 @@ pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
         extern "system" {
             fn waveOutClose(hwo: HWAVEOUT) -> u32;
         }
-        ::std::mem::transmute(waveOutClose(hwo.into_param().abi()))
+        ::core::mem::transmute(waveOutClose(hwo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21371,7 +21385,7 @@ pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwo
         extern "system" {
             fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwoc), ::std::mem::transmute(cbwoc)))
+        ::core::mem::transmute(waveOutGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwoc), ::core::mem::transmute(cbwoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21385,7 +21399,7 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
         extern "system" {
             fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwoc), ::std::mem::transmute(cbwoc)))
+        ::core::mem::transmute(waveOutGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwoc), ::core::mem::transmute(cbwoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21400,7 +21414,7 @@ pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundat
         extern "system" {
             fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(waveOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21415,7 +21429,7 @@ pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundat
         extern "system" {
             fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
+        ::core::mem::transmute(waveOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21429,7 +21443,7 @@ pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
         extern "system" {
             fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetID(hwo.into_param().abi(), ::std::mem::transmute(pudeviceid)))
+        ::core::mem::transmute(waveOutGetID(hwo.into_param().abi(), ::core::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21443,7 +21457,7 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
         extern "system" {
             fn waveOutGetNumDevs() -> u32;
         }
-        ::std::mem::transmute(waveOutGetNumDevs())
+        ::core::mem::transmute(waveOutGetNumDevs())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21457,7 +21471,7 @@ pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
         extern "system" {
             fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetPitch(hwo.into_param().abi(), ::std::mem::transmute(pdwpitch)))
+        ::core::mem::transmute(waveOutGetPitch(hwo.into_param().abi(), ::core::mem::transmute(pdwpitch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21471,7 +21485,7 @@ pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetPlaybackRate(hwo.into_param().abi(), ::std::mem::transmute(pdwrate)))
+        ::core::mem::transmute(waveOutGetPlaybackRate(hwo.into_param().abi(), ::core::mem::transmute(pdwrate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21485,7 +21499,7 @@ pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, H
         extern "system" {
             fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetPosition(hwo.into_param().abi(), ::std::mem::transmute(pmmt), ::std::mem::transmute(cbmmt)))
+        ::core::mem::transmute(waveOutGetPosition(hwo.into_param().abi(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21499,7 +21513,7 @@ pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
         extern "system" {
             fn waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetVolume(hwo.into_param().abi(), ::std::mem::transmute(pdwvolume)))
+        ::core::mem::transmute(waveOutGetVolume(hwo.into_param().abi(), ::core::mem::transmute(pdwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21513,7 +21527,7 @@ pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
         extern "system" {
             fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(waveOutMessage(hwo.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
+        ::core::mem::transmute(waveOutMessage(hwo.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21527,7 +21541,7 @@ pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVE
         extern "system" {
             fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(waveOutOpen(::std::mem::transmute(phwo), ::std::mem::transmute(udeviceid), ::std::mem::transmute(pwfx), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
+        ::core::mem::transmute(waveOutOpen(::core::mem::transmute(phwo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21541,7 +21555,7 @@ pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
         extern "system" {
             fn waveOutPause(hwo: HWAVEOUT) -> u32;
         }
-        ::std::mem::transmute(waveOutPause(hwo.into_param().abi()))
+        ::core::mem::transmute(waveOutPause(hwo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21556,7 +21570,7 @@ pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutPrepareHeader(hwo.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
+        ::core::mem::transmute(waveOutPrepareHeader(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21570,7 +21584,7 @@ pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
         extern "system" {
             fn waveOutReset(hwo: HWAVEOUT) -> u32;
         }
-        ::std::mem::transmute(waveOutReset(hwo.into_param().abi()))
+        ::core::mem::transmute(waveOutReset(hwo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21584,7 +21598,7 @@ pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
         extern "system" {
             fn waveOutRestart(hwo: HWAVEOUT) -> u32;
         }
-        ::std::mem::transmute(waveOutRestart(hwo.into_param().abi()))
+        ::core::mem::transmute(waveOutRestart(hwo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21598,7 +21612,7 @@ pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
         extern "system" {
             fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutSetPitch(hwo.into_param().abi(), ::std::mem::transmute(dwpitch)))
+        ::core::mem::transmute(waveOutSetPitch(hwo.into_param().abi(), ::core::mem::transmute(dwpitch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21612,7 +21626,7 @@ pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutSetPlaybackRate(hwo.into_param().abi(), ::std::mem::transmute(dwrate)))
+        ::core::mem::transmute(waveOutSetPlaybackRate(hwo.into_param().abi(), ::core::mem::transmute(dwrate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21626,7 +21640,7 @@ pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
         extern "system" {
             fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutSetVolume(hwo.into_param().abi(), ::std::mem::transmute(dwvolume)))
+        ::core::mem::transmute(waveOutSetVolume(hwo.into_param().abi(), ::core::mem::transmute(dwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21641,7 +21655,7 @@ pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutUnprepareHeader(hwo.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
+        ::core::mem::transmute(waveOutUnprepareHeader(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21656,7 +21670,7 @@ pub unsafe fn waveOutWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
         extern "system" {
             fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutWrite(hwo.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
+        ::core::mem::transmute(waveOutWrite(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

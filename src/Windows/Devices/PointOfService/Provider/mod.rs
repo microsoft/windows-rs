@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerDisableScannerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerDisableScannerRequest {
     #[cfg(feature = "Foundation")]
@@ -9,8 +9,8 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -18,8 +18,8 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -27,8 +27,8 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerDisableScannerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -36,8 +36,8 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerDisableScannerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -51,12 +51,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerDisableScannerReques
 impl ::windows::runtime::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
 }
-impl ::std::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerDisableScannerRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
         value.0 .0.clone()
     }
@@ -71,12 +71,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerDisableScannerRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
         value.0.clone()
     }
@@ -91,19 +91,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerDisableScannerRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerDisableScannerRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerDisableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerDisableScannerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerDisableScannerRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerDisableScannerRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerDisableScannerRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -111,8 +111,8 @@ impl BarcodeScannerDisableScannerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -126,12 +126,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerDisableScannerReques
 impl ::windows::runtime::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerDisableScannerRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -146,12 +146,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerDisableScannerRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -166,11 +166,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerEnableScannerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerEnableScannerRequest {
     #[cfg(feature = "Foundation")]
@@ -178,8 +178,8 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -187,8 +187,8 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -196,8 +196,8 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerEnableScannerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -205,8 +205,8 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerEnableScannerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -220,12 +220,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerEnableScannerRequest
 impl ::windows::runtime::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
 }
-impl ::std::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerEnableScannerRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
         value.0 .0.clone()
     }
@@ -240,12 +240,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerEnableScannerRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
         value.0.clone()
     }
@@ -260,19 +260,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerEnableScannerRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerEnableScannerRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerEnableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerEnableScannerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerEnableScannerRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerEnableScannerRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerEnableScannerRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -280,8 +280,8 @@ impl BarcodeScannerEnableScannerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -295,12 +295,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerEnableScannerRequest
 impl ::windows::runtime::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerEnableScannerRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -315,12 +315,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerEnableScannerRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -335,26 +335,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerFrameReader(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerFrameReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -362,8 +362,8 @@ impl BarcodeScannerFrameReader {
     pub fn StopAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -371,16 +371,16 @@ impl BarcodeScannerFrameReader {
     pub fn TryAcquireLatestFrameAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<BarcodeScannerProviderConnection> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerProviderConnection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerProviderConnection>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -388,15 +388,15 @@ impl BarcodeScannerFrameReader {
     pub fn FrameArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveFrameArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerFrameReader {
@@ -409,12 +409,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerFrameReader {
 impl ::windows::runtime::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
 }
-impl ::std::convert::From<BarcodeScannerFrameReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerFrameReader> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerFrameReader) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerFrameReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerFrameReader> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerFrameReader) -> Self {
         value.0 .0.clone()
     }
@@ -429,12 +429,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerFrameReader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerFrameReader> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerFrameReader) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerFrameReader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerFrameReader> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerFrameReader) -> Self {
         value.0.clone()
     }
@@ -450,14 +450,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BarcodeScannerFrameReader) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &BarcodeScannerFrameReader) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -472,14 +472,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &BarcodeScannerFrameReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerFrameReader {}
-unsafe impl ::std::marker::Sync for BarcodeScannerFrameReader {}
+unsafe impl ::core::marker::Send for BarcodeScannerFrameReader {}
+unsafe impl ::core::marker::Sync for BarcodeScannerFrameReader {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -487,8 +487,8 @@ impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -502,12 +502,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerFrameReaderFrameArri
 impl ::windows::runtime::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -522,12 +522,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -542,19 +542,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerGetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerGetSymbologyAttributesRequest {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Symbology(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -562,8 +562,8 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportCompletedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::BarcodeSymbologyAttributes>>(&self, attributes: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), attributes.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), attributes.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -571,8 +571,8 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -580,8 +580,8 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerGetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -589,8 +589,8 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerGetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -604,12 +604,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerGetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
 }
-impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerGetSymbologyAttributesRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
         value.0 .0.clone()
     }
@@ -624,12 +624,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerGetSymbologyAttributesRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
         value.0.clone()
     }
@@ -644,19 +644,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerGetSymbologyAttributesRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerGetSymbologyAttributesRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerGetSymbologyAttributesRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -664,8 +664,8 @@ impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -679,12 +679,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerGetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -699,12 +699,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -719,11 +719,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerHideVideoPreviewRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerHideVideoPreviewRequest {
     #[cfg(feature = "Foundation")]
@@ -731,8 +731,8 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -740,8 +740,8 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -749,8 +749,8 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerHideVideoPreviewRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -758,8 +758,8 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerHideVideoPreviewRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -773,12 +773,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerHideVideoPreviewRequ
 impl ::windows::runtime::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
 }
-impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerHideVideoPreviewRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
         value.0 .0.clone()
     }
@@ -793,12 +793,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerHideVideoPreviewRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
         value.0.clone()
     }
@@ -813,19 +813,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerHideVideoPreviewRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerHideVideoPreviewRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerHideVideoPreviewRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerHideVideoPreviewRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -833,8 +833,8 @@ impl BarcodeScannerHideVideoPreviewRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -848,12 +848,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerHideVideoPreviewRequ
 impl ::windows::runtime::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -868,12 +868,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -888,33 +888,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerProviderConnection(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerProviderConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn VideoDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -922,61 +922,61 @@ impl BarcodeScannerProviderConnection {
     pub fn SupportedSymbologies(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<u32>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn CompanyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn SetCompanyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Version(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn SetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn ReportScannedDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::BarcodeScannerReport>>(&self, report: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), report.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), report.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -984,8 +984,8 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportTriggerStateAsync(&self, state: BarcodeScannerTriggerState) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), state, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -993,8 +993,8 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportErrorAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::UnifiedPosErrorData>>(&self, errordata: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), errordata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), errordata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1002,8 +1002,8 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportErrorAsyncWithScanReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::UnifiedPosErrorData>, Param2: ::windows::runtime::IntoParam<'a, super::BarcodeScannerReport>>(&self, errordata: Param0, isretriable: bool, scanreport: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), errordata.into_param().abi(), isretriable, scanreport.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), errordata.into_param().abi(), isretriable, scanreport.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1011,128 +1011,128 @@ impl BarcodeScannerProviderConnection {
     pub fn EnableScannerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveEnableScannerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn DisableScannerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveDisableScannerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn SetActiveSymbologiesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveSetActiveSymbologiesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn StartSoftwareTriggerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveStartSoftwareTriggerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn StopSoftwareTriggerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveStopSoftwareTriggerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn GetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveGetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn SetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveSetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn HideVideoPreviewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn RemoveHideVideoPreviewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn CreateFrameReaderAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
@@ -1140,8 +1140,8 @@ impl BarcodeScannerProviderConnection {
     pub fn CreateFrameReaderWithFormatAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), preferredformat, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), preferredformat, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
@@ -1149,8 +1149,8 @@ impl BarcodeScannerProviderConnection {
     pub fn CreateFrameReaderWithFormatAndSizeAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Imaging::BitmapSize>>(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), preferredformat, preferredsize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), preferredformat, preferredsize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
 }
@@ -1164,12 +1164,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerProviderConnection {
 impl ::windows::runtime::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
 }
-impl ::std::convert::From<BarcodeScannerProviderConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerProviderConnection> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerProviderConnection) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerProviderConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerProviderConnection> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerProviderConnection) -> Self {
         value.0 .0.clone()
     }
@@ -1184,12 +1184,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerProviderConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerProviderConnection> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerProviderConnection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerProviderConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerProviderConnection> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerProviderConnection) -> Self {
         value.0.clone()
     }
@@ -1205,14 +1205,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BarcodeScannerProviderConnection) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &BarcodeScannerProviderConnection) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1227,22 +1227,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &BarcodeScannerProviderConnection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerProviderConnection {}
-unsafe impl ::std::marker::Sync for BarcodeScannerProviderConnection {}
+unsafe impl ::core::marker::Send for BarcodeScannerProviderConnection {}
+unsafe impl ::core::marker::Sync for BarcodeScannerProviderConnection {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerProviderTriggerDetails {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<BarcodeScannerProviderConnection> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerProviderConnection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerProviderConnection>(result__)
         }
     }
 }
@@ -1256,12 +1256,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerProviderTriggerDetai
 impl ::windows::runtime::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
 }
-impl ::std::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerProviderTriggerDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
         value.0 .0.clone()
     }
@@ -1276,12 +1276,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerProviderTriggerDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
         value.0.clone()
     }
@@ -1296,11 +1296,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerProviderTriggerDetails {}
-unsafe impl ::std::marker::Sync for BarcodeScannerProviderTriggerDetails {}
+unsafe impl ::core::marker::Send for BarcodeScannerProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerSetActiveSymbologiesRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequest {
     #[cfg(feature = "Foundation_Collections")]
@@ -1308,8 +1308,8 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn Symbologies(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1317,8 +1317,8 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1326,8 +1326,8 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1335,8 +1335,8 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerSetActiveSymbologiesRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1344,8 +1344,8 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerSetActiveSymbologiesRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1359,12 +1359,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetActiveSymbologies
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
 }
-impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerSetActiveSymbologiesRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1379,12 +1379,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerSetActiveSymbologiesRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
         value.0.clone()
     }
@@ -1399,19 +1399,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerSetActiveSymbologiesRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerSetActiveSymbologiesRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerSetActiveSymbologiesRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1419,8 +1419,8 @@ impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1434,12 +1434,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetActiveSymbologies
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1454,12 +1454,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -1474,27 +1474,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerSetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetSymbologyAttributesRequest {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Symbology(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<super::BarcodeSymbologyAttributes> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::BarcodeSymbologyAttributes>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BarcodeSymbologyAttributes>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1502,8 +1502,8 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1511,8 +1511,8 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1520,8 +1520,8 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerSetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1529,8 +1529,8 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerSetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1544,12 +1544,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
 }
-impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerSetSymbologyAttributesRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1564,12 +1564,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerSetSymbologyAttributesRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
         value.0.clone()
     }
@@ -1584,19 +1584,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerSetSymbologyAttributesRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerSetSymbologyAttributesRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerSetSymbologyAttributesRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1604,8 +1604,8 @@ impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1619,12 +1619,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1639,12 +1639,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -1659,11 +1659,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerStartSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStartSoftwareTriggerRequest {
     #[cfg(feature = "Foundation")]
@@ -1671,8 +1671,8 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1680,8 +1680,8 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1689,8 +1689,8 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerStartSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1698,8 +1698,8 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerStartSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1713,12 +1713,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStartSoftwareTrigger
 impl ::windows::runtime::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
 }
-impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerStartSoftwareTriggerRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1733,12 +1733,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerStartSoftwareTriggerRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
         value.0.clone()
     }
@@ -1753,19 +1753,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerStartSoftwareTriggerRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStartSoftwareTriggerRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStartSoftwareTriggerRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1773,8 +1773,8 @@ impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1788,12 +1788,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStartSoftwareTrigger
 impl ::windows::runtime::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1808,12 +1808,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -1828,11 +1828,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerStopSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStopSoftwareTriggerRequest {
     #[cfg(feature = "Foundation")]
@@ -1840,8 +1840,8 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1849,8 +1849,8 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1858,8 +1858,8 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerStopSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1867,8 +1867,8 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBarcodeScannerStopSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, failedreasondescription.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1882,12 +1882,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStopSoftwareTriggerR
 impl ::windows::runtime::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
 }
-impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerStopSoftwareTriggerRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1902,12 +1902,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerStopSoftwareTriggerRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
         value.0.clone()
     }
@@ -1922,19 +1922,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
-unsafe impl ::std::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
+unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerStopSoftwareTriggerRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStopSoftwareTriggerRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStopSoftwareTriggerRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1942,8 +1942,8 @@ impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1957,12 +1957,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStopSoftwareTriggerR
 impl ::windows::runtime::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
 }
-impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1977,12 +1977,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
         value.0.clone()
     }
@@ -1997,17 +1997,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
-unsafe impl ::std::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
+unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {
     pub const Released: BarcodeScannerTriggerState = BarcodeScannerTriggerState(0i32);
     pub const Pressed: BarcodeScannerTriggerState = BarcodeScannerTriggerState(1i32);
 }
-impl ::std::convert::From<i32> for BarcodeScannerTriggerState {
+impl ::core::convert::From<i32> for BarcodeScannerTriggerState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2023,38 +2023,38 @@ impl ::windows::runtime::DefaultType for BarcodeScannerTriggerState {
 }
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerVideoFrame(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerVideoFrame {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Graphics_Imaging`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Graphics::Imaging::BitmapPixelFormat = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
+            let mut result__: super::super::super::Graphics::Imaging::BitmapPixelFormat = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2062,8 +2062,8 @@ impl BarcodeScannerVideoFrame {
     pub fn PixelData(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -2077,12 +2077,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerVideoFrame {
 impl ::windows::runtime::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
 }
-impl ::std::convert::From<BarcodeScannerVideoFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeScannerVideoFrame> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeScannerVideoFrame) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeScannerVideoFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeScannerVideoFrame> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeScannerVideoFrame) -> Self {
         value.0 .0.clone()
     }
@@ -2097,12 +2097,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeScannerVideoFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeScannerVideoFrame> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeScannerVideoFrame) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeScannerVideoFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeScannerVideoFrame> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeScannerVideoFrame) -> Self {
         value.0.clone()
     }
@@ -2118,14 +2118,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BarcodeScannerVideoFrame) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &BarcodeScannerVideoFrame) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2140,14 +2140,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &BarcodeScannerVideoFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeScannerVideoFrame {}
-unsafe impl ::std::marker::Sync for BarcodeScannerVideoFrame {}
+unsafe impl ::core::marker::Send for BarcodeScannerVideoFrame {}
+unsafe impl ::core::marker::Sync for BarcodeScannerVideoFrame {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeSymbologyAttributesBuilder(pub ::windows::runtime::IInspectable);
 impl BarcodeSymbologyAttributesBuilder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2161,47 +2161,47 @@ impl BarcodeSymbologyAttributesBuilder {
     pub fn IsCheckDigitValidationSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn SetIsCheckDigitValidationSupported(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn IsCheckDigitTransmissionSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn SetIsCheckDigitTransmissionSupported(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn IsDecodeLengthSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn SetIsDecodeLengthSupported(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn CreateAttributes(&self) -> ::windows::runtime::Result<super::BarcodeSymbologyAttributes> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::BarcodeSymbologyAttributes>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BarcodeSymbologyAttributes>(result__)
         }
     }
 }
@@ -2215,12 +2215,12 @@ unsafe impl ::windows::runtime::Interface for BarcodeSymbologyAttributesBuilder 
 impl ::windows::runtime::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";
 }
-impl ::std::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IUnknown {
     fn from(value: BarcodeSymbologyAttributesBuilder) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IUnknown {
     fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
         value.0 .0.clone()
     }
@@ -2235,12 +2235,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IInspectable {
     fn from(value: BarcodeSymbologyAttributesBuilder) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IInspectable {
     fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
         value.0.clone()
     }
@@ -2255,8 +2255,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for BarcodeSymbologyAttributesBuilder {}
-unsafe impl ::std::marker::Sync for BarcodeSymbologyAttributesBuilder {}
+unsafe impl ::core::marker::Send for BarcodeSymbologyAttributesBuilder {}
+unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequest(pub ::windows::runtime::IInspectable);
@@ -2296,7 +2296,7 @@ pub struct IBarcodeScannerDisableScannerRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2358,7 +2358,7 @@ pub struct IBarcodeScannerEnableScannerRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2468,7 +2468,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2530,7 +2530,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2569,16 +2569,16 @@ pub struct IBarcodeScannerProviderConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, report: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -2703,7 +2703,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2767,7 +2767,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2829,7 +2829,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2891,7 +2891,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: i32, failedreasondescription: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
