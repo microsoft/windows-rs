@@ -492,9 +492,9 @@ impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetBorderMode(&self, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(bordermode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(transformmatrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -588,8 +588,8 @@ pub struct IDCompositionAffineTransform2DEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transformmatrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, value: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -2817,9 +2817,9 @@ pub struct IDCompositionLinearTransferEffect_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionMatrixTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionMatrixTransform {
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
+    pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -2921,8 +2921,8 @@ pub struct IDCompositionMatrixTransform_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, value: f32) -> ::windows::runtime::HRESULT,
 );
@@ -5057,9 +5057,9 @@ impl IDCompositionVisual {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5144,8 +5144,8 @@ pub struct IDCompositionVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
@@ -5185,9 +5185,9 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5300,8 +5300,8 @@ pub struct IDCompositionVisual2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
@@ -5343,9 +5343,9 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5549,8 +5549,8 @@ pub struct IDCompositionVisual3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
@@ -5607,9 +5607,9 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5759,8 +5759,8 @@ pub struct IDCompositionVisualDebug_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
