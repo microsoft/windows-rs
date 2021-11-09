@@ -36,8 +36,7 @@ pub fn gen_pwstr() -> TokenStream {
         #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                // TODO: call variant above
-                ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                ::windows::runtime::IntoParam::into_param(self.as_str())
             }
         }
         #[cfg(all(windows, not(feature = "no_std")))]
@@ -50,8 +49,7 @@ pub fn gen_pwstr() -> TokenStream {
         #[cfg(all(windows, not(feature = "no_std")))]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                use ::std::os::windows::ffi::OsStrExt;
-                ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                ::windows::runtime::IntoParam::into_param(self.as_os_str())
             }
         }
     }

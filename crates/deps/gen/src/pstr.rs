@@ -31,7 +31,7 @@ pub fn gen_pstr() -> TokenStream {
                 let len = self.len();
 
                 if let Ok(value) = ::windows::runtime::heap_alloc(len + 1) {
-                    let value = core::slice::from_raw_parts_mut(value as *mut u8, len + 1);
+                    let value = unsafe { core::slice::from_raw_parts_mut(value as *mut u8, len + 1) };
                     value.copy_from_slice(self.as_bytes());
                     value[len] = 0;
     
@@ -44,7 +44,7 @@ pub fn gen_pstr() -> TokenStream {
         #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                ::windows::runtime::IntoParam::into_param(&self)
+                ::windows::runtime::IntoParam::into_param(self.as_str())
             }
         }
     }

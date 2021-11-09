@@ -1541,7 +1541,7 @@ pub mod Windows {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                     let len = self.len();
                     if let Ok(value) = ::windows::runtime::heap_alloc(len + 1) {
-                        let value = core::slice::from_raw_parts_mut(value as *mut u8, len + 1);
+                        let value = unsafe { core::slice::from_raw_parts_mut(value as *mut u8, len + 1) };
                         value.copy_from_slice(self.as_bytes());
                         value[len] = 0;
                         ::windows::runtime::Param::Boxed(PSTR(value.as_mut_ptr()))
@@ -1553,7 +1553,7 @@ pub mod Windows {
             #[cfg(not(feature = "no_std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                    ::windows::runtime::IntoParam::into_param(&self)
+                    ::windows::runtime::IntoParam::into_param(self.as_str())
                 }
             }
             #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1591,7 +1591,7 @@ pub mod Windows {
             #[cfg(not(feature = "no_std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    ::windows::runtime::IntoParam::into_param(self.as_str())
                 }
             }
             #[cfg(all(windows, not(feature = "no_std")))]
@@ -1604,8 +1604,7 @@ pub mod Windows {
             #[cfg(all(windows, not(feature = "no_std")))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                    use std::os::windows::ffi::OsStrExt;
-                    ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    ::windows::runtime::IntoParam::into_param(self.as_os_str())
                 }
             }
             pub const S_OK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(0i32 as _);
