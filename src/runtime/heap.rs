@@ -4,6 +4,7 @@ use bindings::{
     Windows::Win32::System::Memory::*,
 };
 
+// TODO: why not Option<RawPtr>
 pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
     let ptr = unsafe { HeapAlloc(GetProcessHeap(), HEAP_NONE, bytes) };
 

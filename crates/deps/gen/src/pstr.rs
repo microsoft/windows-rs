@@ -18,26 +18,33 @@ pub fn gen_pstr() -> TokenStream {
         unsafe impl ::windows::runtime::Abi for PSTR {
             type Abi = Self;
 
-            #[cfg(not(feature = "no_std"))]
             unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                 if let ::windows::runtime::Param::Boxed(value) = param {
                     if !value.is_null() {
-                        unsafe { ::std::boxed::Box::from_raw(value.0); }
+                        unsafe { ::windows::runtime::heap_free(value.0 as *mut _) }
                     }
                 }
             }
         }
-        #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+                let len = self.len();
+
+                if let Ok(value) = ::windows::runtime::heap_alloc(len + 1) {
+                    let value = core::slice::from_raw_parts_mut(value as *mut u8, len + 1);
+                    value.copy_from_slice(self.as_bytes());
+                    value[len] = 0;
+    
+                    ::windows::runtime::Param::Boxed(PSTR(value.as_mut_ptr()))
+                } else {
+                    ::windows::runtime::Param::None
+                }
             }
         }
         #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                // TODO: call variant above
-                ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+                ::windows::runtime::IntoParam::into_param(&self)
             }
         }
     }
