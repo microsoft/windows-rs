@@ -6,7 +6,7 @@ pub fn main() -> windows::runtime::Result<()> {
         Win32::Foundation::CloseHandle,
         Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject, WAIT_OBJECT_0},
     };
-    
+
     unsafe {
         let event = CreateEventW(core::ptr::null_mut(), true, false, None);
 
