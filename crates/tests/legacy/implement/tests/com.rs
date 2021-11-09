@@ -2,11 +2,13 @@ use test_implement::*;
 use windows::runtime::*;
 use Windows::Foundation::IStringable;
 use Windows::Win32::Foundation::HANDLE;
-use Windows::Win32::System::WinRT::{IDisplayPathInterop, ISwapChainInterop};
+use Windows::Win32::System::WinRT::Display::IDisplayPathInterop;
+use Windows::Win32::System::WinRT::Composition::ISwapChainInterop;
 
 #[implement(
     Windows::Foundation::IStringable,
-    Windows::Win32::System::WinRT::{ISwapChainInterop, IDisplayPathInterop}
+    Windows::Win32::System::WinRT::Composition::ISwapChainInterop,
+    Windows::Win32::System::WinRT::Display::IDisplayPathInterop,
 )]
 struct Mix();
 

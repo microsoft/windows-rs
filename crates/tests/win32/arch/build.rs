@@ -3,6 +3,6 @@ fn main() {
     // and one of those definitions has nested types. This combination is tricky because
     // traditional scope resolution is insufficient.
     windows::runtime::build! {
-        Windows::Win32::System::SystemServices::KNONVOLATILE_CONTEXT_POINTERS,
+        Windows::Win32::System::Diagnostics::Debug::KNONVOLATILE_CONTEXT_POINTERS,
     };
 }

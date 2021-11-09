@@ -6,7 +6,7 @@ fn main() {
 
         // Test to verify property key constants are generated
         // https://github.com/microsoft/win32metadata/issues/339
-        Windows::Win32::System::SystemServices::DEVPKEY_Device_BiosDeviceName,
+        Windows::Win32::Devices::Properties::DEVPKEY_Device_BiosDeviceName,
 
         // Test to verify format parameters and traits are passed on to the DebugStruct builder
         // in generated struct Debug implementations.

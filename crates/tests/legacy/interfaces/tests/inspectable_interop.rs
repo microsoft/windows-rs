@@ -1,4 +1,7 @@
-use test_interfaces::Windows::Win32::System::WinRT::{ICompositorInterop_abi, ISystemMediaTransportControlsInterop_abi};
+use test_interfaces::{
+    Windows::Win32::System::WinRT::*,
+    Windows::Win32::System::WinRT::Composition::*,  
+};
 
 #[test]
 fn test() {
