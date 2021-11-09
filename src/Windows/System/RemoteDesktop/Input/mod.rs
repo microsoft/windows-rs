@@ -179,7 +179,7 @@ impl RemoteTextConnectionDataHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {

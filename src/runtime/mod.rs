@@ -1,6 +1,3 @@
-#[macro_use]
-mod macros;
-
 mod abi;
 mod activation_factory;
 mod array;

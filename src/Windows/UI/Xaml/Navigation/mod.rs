@@ -316,7 +316,7 @@ impl LoadCompletedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -393,7 +393,7 @@ impl NavigatedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -575,7 +575,7 @@ impl NavigatingCancelEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigatingCancelEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -878,7 +878,7 @@ impl NavigationFailedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -979,7 +979,7 @@ impl NavigationStoppedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {

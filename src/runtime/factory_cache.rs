@@ -52,25 +52,31 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let name = HSTRING::from(C::NAME);
 
     unsafe {
-        // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
+        let function = delay_load(b"ole32.dll\0", b"RoGetActivationFactory\0");
 
-        // Treat any delay-load errors like standard errors, so that the heuristics
-        // below can still load registration-free libraries on Windows versions below 10.
-        let mut code = code.unwrap_or(CLASS_E_CLASSNOTAVAILABLE);
+        let code = if !function.is_null() {
+            let function: RoGetActivationFactory = core::mem::transmute(function);
+            let mut code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
-        // If this fails because combase hasn't been loaded yet then load combase
-        // automatically so that it "just works" for apartment-agnostic code.
-        if code == CO_E_NOTINITIALIZED {
-            let mut _cookie = core::ptr::null_mut();
+            // If this fails because combase hasn't been loaded yet then load combase
+            // automatically so that it "just works" for apartment-agnostic code.
+            if code == CO_E_NOTINITIALIZED {
+                let mta = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0");
 
-            // Won't get any delay-load errors here if we got CO_E_NOTINITIALIZED, so quiet the
-            // warning from the #[must_use] on the returned Result<>.
-            let _ = CoIncrementMTAUsage(&mut _cookie);
+                if !mta.is_null() {
+                    let mta: CoIncrementMTAUsage = core::mem::transmute(function);
+                    let mut _cookie = core::ptr::null_mut();
+                    let _ = mta(&mut _cookie);
+                }
 
-            // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _).unwrap();
-        }
+                // Now try a second time to get the activation factory via the OS.
+                code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
+            }
+
+            code
+        } else {
+            CLASS_E_CLASSNOTAVAILABLE
+        };
 
         // If this succeeded then return the resulting factory interface.
         if code.is_ok() {
@@ -94,7 +100,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             library[..path.len()].copy_from_slice(path.as_bytes());
             library[path.len()..].copy_from_slice(b".dll\0");
 
-            let function = delay_load(library, "DllGetActivationFactory");
+            let function = delay_load(library, b"DllGetActivationFactory\0");
 
             if !function.is_null() {
                 let function: DllGetActivationFactory = core::mem::transmute(function);
@@ -114,11 +120,16 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     }
 }
 
-demand_load! {
-    "ole32.dll\0" {
-        fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
-    }
-    "combase.dll\0" {
-        fn RoGetActivationFactory(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
-    }
-}
+// demand_load! {
+//     "ole32.dll\0" {
+//         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
+//     }
+//     "combase.dll\0" {
+//         fn RoGetActivationFactory(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
+//     }
+// }
+
+type CoIncrementMTAUsage = extern "system" fn(cookie: *mut RawPtr) -> HRESULT;
+type RoGetActivationFactory = extern "system" fn(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
+
+

@@ -11139,7 +11139,7 @@ impl MediaCaptureFailedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Capture`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaCapture>, Param1: ::windows::runtime::IntoParam<'a, MediaCaptureFailedEventArgs>>(&self, sender: Param0, erroreventargs: Param1) -> ::windows::runtime::Result<()> {
@@ -12741,7 +12741,7 @@ impl RecordLimitationExceededEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Capture`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaCapture>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {

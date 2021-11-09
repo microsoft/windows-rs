@@ -75,7 +75,7 @@ impl ActivatedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
@@ -330,7 +330,7 @@ impl BackgroundActivatedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
@@ -521,7 +521,7 @@ impl EnteredBackgroundEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
@@ -1472,7 +1472,7 @@ impl LeavingBackgroundEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
@@ -1555,7 +1555,7 @@ impl NavigatedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1746,7 +1746,7 @@ impl ResumingEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -2022,7 +2022,7 @@ impl SuspendingEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]

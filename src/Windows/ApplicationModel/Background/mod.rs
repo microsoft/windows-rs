@@ -1001,7 +1001,7 @@ impl BackgroundTaskCanceledEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_Background`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundTaskInstance>>(&self, sender: Param0, reason: BackgroundTaskCancellationReason) -> ::windows::runtime::Result<()> {
@@ -1177,7 +1177,7 @@ impl BackgroundTaskCompletedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_Background`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::runtime::IntoParam<'a, BackgroundTaskCompletedEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -1391,7 +1391,7 @@ impl BackgroundTaskProgressEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_Background`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::runtime::IntoParam<'a, BackgroundTaskProgressEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {

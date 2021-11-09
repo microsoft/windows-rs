@@ -56,7 +56,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                     invoke,
                 };
                 unsafe {
-                    std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com))
+                    core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com))
                 }
             }
             #invoke

@@ -367,7 +367,7 @@ impl MenuClosedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -440,7 +440,7 @@ impl MenuOpenedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -513,7 +513,7 @@ impl SizeChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebUICommandBarSizeChangedEventArgs>>(&self, eventargs: Param0) -> ::windows::runtime::Result<()> {

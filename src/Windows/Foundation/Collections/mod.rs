@@ -1851,7 +1851,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IObservableMap<K, V>>, Param1: ::windows::runtime::IntoParam<'a, IMapChangedEventArgs<K>>>(&self, sender: Param0, event: Param1) -> ::windows::runtime::Result<()> {
@@ -2631,7 +2631,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> VectorChangedEventHandler<T> 
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IObservableVector<T>>, Param1: ::windows::runtime::IntoParam<'a, IVectorChangedEventArgs>>(&self, sender: Param0, event: Param1) -> ::windows::runtime::Result<()> {

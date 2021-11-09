@@ -20,18 +20,18 @@ impl Error {
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
     pub fn new(code: HRESULT, message: HSTRING) -> Self {
-        // RoOriginateError creates the error object and associates it with the thread.
-        // Need to ignore the result, as that is the delay-load error, which would mean
-        // that there's no WinRT to tell about the error.
         unsafe {
-            let _ = RoOriginateError(code, core::mem::transmute_copy(&message));
+            let function = delay_load(b"combase.dll\0", b"DllGetActivationFactory\0");
+
+            if !function.is_null() {
+                let function: RoOriginateError = core::mem::transmute(function);
+                function(code, core::mem::transmute_copy(&message));
+            }
+
+            let info = GetErrorInfo(0).and_then(|e| e.cast()).ok();
+
+            Self { code, info }
         }
-
-        let info = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
-
-        // The error information is then associated with the returning error object and no longer
-        // associated with the thread.
-        Self { code, info }
     }
 
     #[doc(hidden)]
@@ -152,8 +152,4 @@ impl core::fmt::Display for Error {
 #[cfg(feature = "std")]
 impl std::error::Error for Error {}
 
-demand_load! {
-    "combase.dll\0" {
-        fn RoOriginateError(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> BOOL;
-    }
-}
+type RoOriginateError = extern "system" fn(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> BOOL;

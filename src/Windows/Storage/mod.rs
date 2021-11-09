@@ -1159,7 +1159,7 @@ impl ApplicationDataSetVersionHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Storage`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SetVersionRequest>>(&self, setversionrequest: Param0) -> ::windows::runtime::Result<()> {
@@ -7601,7 +7601,7 @@ impl StreamedFileDataRequestedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Storage`, `Storage_Streams`*"]

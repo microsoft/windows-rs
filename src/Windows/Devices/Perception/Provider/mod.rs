@@ -1354,7 +1354,7 @@ impl PerceptionStartFaceAuthenticationHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_Perception_Provider`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionFaceAuthenticationGroup>>(&self, sender: Param0) -> ::windows::runtime::Result<bool> {
@@ -1437,7 +1437,7 @@ impl PerceptionStopFaceAuthenticationHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_Perception_Provider`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionFaceAuthenticationGroup>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {

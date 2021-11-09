@@ -1721,7 +1721,7 @@ impl DataProviderHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, DataProviderRequest>>(&self, request: Param0) -> ::windows::runtime::Result<()> {
@@ -3603,7 +3603,7 @@ impl ShareProviderHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ShareProviderOperation>>(&self, operation: Param0) -> ::windows::runtime::Result<()> {

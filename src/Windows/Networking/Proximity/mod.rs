@@ -76,7 +76,7 @@ impl DeviceArrivedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -149,7 +149,7 @@ impl DeviceDepartedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -508,7 +508,7 @@ impl MessageReceivedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>, Param1: ::windows::runtime::IntoParam<'a, ProximityMessage>>(&self, sender: Param0, message: Param1) -> ::windows::runtime::Result<()> {
@@ -581,7 +581,7 @@ impl MessageTransmittedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0, messageid: i64) -> ::windows::runtime::Result<()> {

@@ -863,7 +863,7 @@ impl CallControlEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -1554,7 +1554,7 @@ impl DialRequestedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, DialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -4999,7 +4999,7 @@ impl KeypadPressedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, KeypadPressedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -6157,7 +6157,7 @@ impl RedialRequestedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, RedialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {

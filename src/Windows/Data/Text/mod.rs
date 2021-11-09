@@ -593,7 +593,7 @@ impl SelectableWordSegmentsTokenizingHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Data_Text`, `Foundation_Collections`*"]
@@ -1662,7 +1662,7 @@ impl WordSegmentsTokenizingHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Data_Text`, `Foundation_Collections`*"]

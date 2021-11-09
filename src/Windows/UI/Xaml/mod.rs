@@ -549,7 +549,7 @@ impl ApplicationInitializationCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ApplicationInitializationCallbackParams>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
@@ -849,7 +849,7 @@ impl BindingFailedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, BindingFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -2185,7 +2185,7 @@ impl CreateDefaultValueCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
@@ -3393,7 +3393,7 @@ impl DependencyPropertyChangedCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, DependencyProperty>>(&self, sender: Param0, dp: Param1) -> ::windows::runtime::Result<()> {
@@ -3548,7 +3548,7 @@ impl DependencyPropertyChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, DependencyPropertyChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -3923,7 +3923,7 @@ impl DragEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, DragEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -5280,7 +5280,7 @@ impl EnteredBackgroundEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_Xaml`, `ApplicationModel`*"]
@@ -5640,7 +5640,7 @@ impl ExceptionRoutedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ExceptionRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -13199,7 +13199,7 @@ impl LeavingBackgroundEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_Xaml`, `ApplicationModel`*"]
@@ -13519,7 +13519,7 @@ impl PropertyChangedCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, DependencyPropertyChangedEventArgs>>(&self, d: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -14493,7 +14493,7 @@ impl RoutedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, RoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -15356,7 +15356,7 @@ impl SizeChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, SizeChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -16060,7 +16060,7 @@ impl SuspendingEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_Xaml`, `ApplicationModel`*"]
@@ -19770,7 +19770,7 @@ impl UnhandledExceptionEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, UnhandledExceptionEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -20328,7 +20328,7 @@ impl VisualStateChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Xaml`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, VisualStateChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -21232,7 +21232,7 @@ impl WindowActivatedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "UI_Core")]
     #[doc = "*Required features: `UI_Xaml`, `UI_Core`*"]
@@ -21317,7 +21317,7 @@ impl WindowClosedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "UI_Core")]
     #[doc = "*Required features: `UI_Xaml`, `UI_Core`*"]
@@ -21468,7 +21468,7 @@ impl WindowSizeChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "UI_Core")]
     #[doc = "*Required features: `UI_Xaml`, `UI_Core`*"]
@@ -21553,7 +21553,7 @@ impl WindowVisibilityChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "UI_Core")]
     #[doc = "*Required features: `UI_Xaml`, `UI_Core`*"]

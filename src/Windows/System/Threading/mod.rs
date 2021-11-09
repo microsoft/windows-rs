@@ -234,7 +234,7 @@ impl TimerDestroyedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_Threading`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::runtime::Result<()> {
@@ -307,7 +307,7 @@ impl TimerElapsedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_Threading`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::runtime::Result<()> {
@@ -382,7 +382,7 @@ impl WorkItemHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading`, `Foundation`*"]

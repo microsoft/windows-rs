@@ -415,7 +415,7 @@ impl CredentialCommandCredentialDeletedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CredentialCommand>>(&self, command: Param0) -> ::windows::runtime::Result<()> {
@@ -1474,7 +1474,7 @@ impl WebAccountCommandInvokedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebAccountCommand>, Param1: ::windows::runtime::IntoParam<'a, WebAccountInvokedArgs>>(&self, command: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -1700,7 +1700,7 @@ impl WebAccountProviderCommandInvokedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebAccountProviderCommand>>(&self, command: Param0) -> ::windows::runtime::Result<()> {

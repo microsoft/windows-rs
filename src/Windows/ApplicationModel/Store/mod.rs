@@ -851,7 +851,7 @@ impl LicenseChangedEventHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {

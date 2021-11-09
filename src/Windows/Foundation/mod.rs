@@ -18,7 +18,7 @@ impl AsyncActionCompletedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncAction>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -93,7 +93,7 @@ impl<TProgress: ::windows::runtime::RuntimeType + 'static> AsyncActionProgressHa
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncActionWithProgress<TProgress>>, Param1: ::windows::runtime::IntoParam<'a, TProgress>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::runtime::Result<()> {
@@ -178,7 +178,7 @@ impl<TProgress: ::windows::runtime::RuntimeType + 'static> AsyncActionWithProgre
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncActionWithProgress<TProgress>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -259,7 +259,7 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static> AsyncOperationCompleted
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncOperation<TResult>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -341,7 +341,7 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::r
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Param1: ::windows::runtime::IntoParam<'a, TProgress>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::runtime::Result<()> {
@@ -439,7 +439,7 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::r
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -687,7 +687,7 @@ impl DeferralCompletedHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -762,7 +762,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> EventHandler<T> {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, T>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -4202,7 +4202,7 @@ impl<TSender: ::windows::runtime::RuntimeType + 'static, TResult: ::windows::run
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, TSender>, Param1: ::windows::runtime::IntoParam<'a, TResult>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {

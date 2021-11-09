@@ -12,7 +12,7 @@ impl HostMessageReceivedCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Isolation`, `Foundation_Collections`*"]
@@ -2772,7 +2772,7 @@ impl MessageReceivedCallback {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Isolation`, `Foundation_Collections`*"]

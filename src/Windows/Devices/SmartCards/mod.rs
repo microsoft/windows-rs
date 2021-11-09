@@ -4600,7 +4600,7 @@ impl SmartCardPinResetHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_SmartCards`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmartCardProvisioning>, Param1: ::windows::runtime::IntoParam<'a, SmartCardPinResetRequest>>(&self, sender: Param0, request: Param1) -> ::windows::runtime::Result<()> {
