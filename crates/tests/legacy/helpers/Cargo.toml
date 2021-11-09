@@ -9,3 +9,7 @@ windows = { path = "../../../.." }
 
 [build-dependencies]
 windows = { path = "../../../..", features = ["build"] }
+
+[features]
+default = ["std"]
+std = []

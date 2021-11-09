@@ -29,8 +29,8 @@ mod weak;
 mod weak_ref_count;
 
 pub(crate) use delay_load::*;
-pub(crate) use heap::*;
-
+#[doc(hidden)]
+pub use heap::*;
 #[doc(hidden)]
 pub use abi::*;
 #[doc(hidden)]

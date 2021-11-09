@@ -22,7 +22,7 @@ impl<T: RuntimeType + 'static> Iterator<T> {
         if owner.0.len() > self.current {
             Ok(owner.0[self.current].clone())
         } else {
-            Err(Error::new(E_BOUNDS, ""))
+            Err(Error::new(E_BOUNDS, "".into()))
         }
     }
 

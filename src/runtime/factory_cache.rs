@@ -90,8 +90,8 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
 
-            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 5)? as *mut u8, path.len() + 4);
-            library.copy_from_slice(path.as_bytes());
+            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 5)? as *mut u8, path.len() + 5);
+            library[..path.len()].copy_from_slice(path.as_bytes());
             library[path.len()..].copy_from_slice(b".dll\0");
 
             let function = delay_load(library, "DllGetActivationFactory");
