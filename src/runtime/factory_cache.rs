@@ -3,8 +3,6 @@ use bindings::Windows::Win32::Foundation::{CLASS_E_CLASSNOTAVAILABLE, CO_E_NOTIN
 use core::marker::PhantomData;
 use core::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
-
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<core::ffi::c_void>,
@@ -52,19 +50,19 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let name = HSTRING::from(C::NAME);
 
     unsafe {
-        let function = delay_load(b"ole32.dll\0", b"RoGetActivationFactory\0");
+        let function = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0");
 
         let code = if !function.is_null() {
             let function: RoGetActivationFactory = core::mem::transmute(function);
             let mut code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
-            // If this fails because combase hasn't been loaded yet then load combase
+            // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
             // automatically so that it "just works" for apartment-agnostic code.
             if code == CO_E_NOTINITIALIZED {
                 let mta = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0");
 
                 if !mta.is_null() {
-                    let mta: CoIncrementMTAUsage = core::mem::transmute(function);
+                    let mta: CoIncrementMTAUsage = core::mem::transmute(mta);
                     let mut _cookie = core::ptr::null_mut();
                     let _ = mta(&mut _cookie);
                 }
@@ -120,16 +118,6 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     }
 }
 
-// demand_load! {
-//     "ole32.dll\0" {
-//         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
-//     }
-//     "combase.dll\0" {
-//         fn RoGetActivationFactory(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
-//     }
-// }
-
 type CoIncrementMTAUsage = extern "system" fn(cookie: *mut RawPtr) -> HRESULT;
 type RoGetActivationFactory = extern "system" fn(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
-
-
+type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;

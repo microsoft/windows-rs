@@ -47,6 +47,7 @@ pub fn gen_vector3() -> TokenStream {
             pub fn length_squared(&self) -> f32 {
                 self.dot(self)
             }
+            #[cfg(feature = "std")]
             pub fn length(&self) -> f32 {
                 self.length_squared().sqrt()
             }

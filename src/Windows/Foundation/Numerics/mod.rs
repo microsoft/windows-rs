@@ -570,6 +570,7 @@ impl Vector2 {
     pub fn length_squared(&self) -> f32 {
         self.dot(self)
     }
+    #[cfg(feature = "std")]
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
@@ -780,6 +781,7 @@ impl Vector3 {
     pub fn length_squared(&self) -> f32 {
         self.dot(self)
     }
+    #[cfg(feature = "std")]
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
@@ -994,6 +996,7 @@ impl Vector4 {
     pub fn length_squared(&self) -> f32 {
         self.dot(self)
     }
+    #[cfg(feature = "std")]
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
