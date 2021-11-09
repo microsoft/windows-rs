@@ -410,12 +410,12 @@ impl ::std::convert::From<&AudioTrack> for IMediaTrack {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for AudioTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaTrack>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for &AudioTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaTrack>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for AudioTrack {}
@@ -1788,13 +1788,13 @@ impl ::std::convert::From<&FaceDetectionEffectDefinition> for super::Effects::IV
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for FaceDetectionEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Effects::IVideoEffectDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &FaceDetectionEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Effects::IVideoEffectDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
@@ -6969,13 +6969,13 @@ impl ::std::convert::From<&MediaStreamSamplePropertySet> for super::super::Found
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> for MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> for &MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -9252,13 +9252,13 @@ impl ::std::convert::From<&SceneAnalysisEffectDefinition> for super::Effects::IV
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for SceneAnalysisEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Effects::IVideoEffectDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &SceneAnalysisEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Effects::IVideoEffectDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
@@ -9919,12 +9919,12 @@ impl ::std::convert::From<&TimedMetadataStreamDescriptor> for IMediaStreamDescri
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for TimedMetadataStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaStreamDescriptor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for &TimedMetadataStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaStreamDescriptor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<TimedMetadataStreamDescriptor> for IMediaStreamDescriptor2 {
@@ -12378,13 +12378,13 @@ impl ::std::convert::From<&VideoStabilizationEffectDefinition> for super::Effect
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for VideoStabilizationEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Effects::IVideoEffectDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &VideoStabilizationEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Effects::IVideoEffectDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
@@ -12812,12 +12812,12 @@ impl ::std::convert::From<&VideoTrack> for IMediaTrack {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for VideoTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaTrack>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for &VideoTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaTrack>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for VideoTrack {}

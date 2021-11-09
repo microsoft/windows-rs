@@ -478,6 +478,16 @@ impl TypeDef {
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
         self.overridable_interfaces().iter().flat_map(|interface| interface.methods().map(|method| method.name())).collect()
     }
+
+    pub fn async_kind(&self) -> AsyncKind {
+        match self.type_name() {
+            TypeName::IAsyncAction => AsyncKind::Action,
+            TypeName::IAsyncActionWithProgress => AsyncKind::ActionWithProgress,
+            TypeName::IAsyncOperation => AsyncKind::Operation,
+            TypeName::IAsyncOperationWithProgress => AsyncKind::OperationWithProgress,
+            _ => AsyncKind::None,
+        }
+    }
 }
 
 struct Bases(TypeDef);

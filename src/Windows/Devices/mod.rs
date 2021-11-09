@@ -368,12 +368,12 @@ impl ::std::convert::From<&LowLevelDevicesAggregateProvider> for ILowLevelDevice
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILowLevelDevicesAggregateProvider> for LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILowLevelDevicesAggregateProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILowLevelDevicesAggregateProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILowLevelDevicesAggregateProvider> for &LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILowLevelDevicesAggregateProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILowLevelDevicesAggregateProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for LowLevelDevicesAggregateProvider {}

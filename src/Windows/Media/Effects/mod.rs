@@ -251,12 +251,12 @@ impl ::std::convert::From<&AudioEffectDefinition> for IAudioEffectDefinition {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioEffectDefinition> for AudioEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioEffectDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioEffectDefinition> for &AudioEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioEffectDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for AudioEffectDefinition {}
@@ -1968,12 +1968,12 @@ impl ::std::convert::From<&VideoCompositorDefinition> for IVideoCompositorDefini
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVideoCompositorDefinition> for VideoCompositorDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVideoCompositorDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVideoCompositorDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVideoCompositorDefinition> for &VideoCompositorDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVideoCompositorDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVideoCompositorDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for VideoCompositorDefinition {}
@@ -2082,12 +2082,12 @@ impl ::std::convert::From<&VideoEffectDefinition> for IVideoEffectDefinition {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVideoEffectDefinition> for VideoEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVideoEffectDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVideoEffectDefinition> for &VideoEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVideoEffectDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for VideoEffectDefinition {}
@@ -2282,12 +2282,12 @@ impl ::std::convert::From<&VideoTransformEffectDefinition> for IVideoEffectDefin
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVideoEffectDefinition> for VideoTransformEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVideoEffectDefinition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVideoEffectDefinition> for &VideoTransformEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVideoEffectDefinition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for VideoTransformEffectDefinition {}

@@ -585,13 +585,13 @@ impl ::std::convert::From<&ApplicationDataCompositeValue> for super::Foundation:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet> for ApplicationDataCompositeValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Foundation::Collections::IPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet> for &ApplicationDataCompositeValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Foundation::Collections::IPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -994,13 +994,13 @@ impl ::std::convert::From<&ApplicationDataContainerSettings> for super::Foundati
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet> for ApplicationDataContainerSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Foundation::Collections::IPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet> for &ApplicationDataContainerSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Foundation::Collections::IPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -5602,12 +5602,12 @@ impl ::std::convert::From<&StorageFile> for IStorageFile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageFile> for StorageFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageFile> for &StorageFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<StorageFile> for IStorageFile2 {
@@ -6366,12 +6366,12 @@ impl ::std::convert::From<&StorageFolder> for IStorageFolder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageFolder> for StorageFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageFolder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageFolder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageFolder> for &StorageFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageFolder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageFolder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<StorageFolder> for IStorageFolder2 {
@@ -7527,13 +7527,13 @@ impl ::std::convert::From<&StreamedFileDataRequest> for Streams::IOutputStream {
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, Streams::IOutputStream> for StreamedFileDataRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, Streams::IOutputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Streams::IOutputStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, Streams::IOutputStream> for &StreamedFileDataRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, Streams::IOutputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Streams::IOutputStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]

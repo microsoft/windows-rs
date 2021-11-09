@@ -31,7 +31,7 @@ fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
         r#"
 [package]
 name = "windows"
-version = "0.24.0"
+version = "0.25.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -58,21 +58,24 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies]
-windows_macros = { path = "crates/deps/macros",  version = "0.24.0", optional = true }
-windows_reader = { path = "crates/deps/reader", version = "0.24.0", optional = true }
-windows_gen = { path = "crates/deps/gen",  version = "0.24.0", optional = true }
+windows_macros = { path = "crates/deps/macros",  version = "0.25.0", optional = true }
+windows_reader = { path = "crates/deps/reader", version = "0.25.0", optional = true }
+windows_gen = { path = "crates/deps/gen",  version = "0.25.0", optional = true }
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.24.0" }
+windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.25.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.24.0" }
+windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.25.0" }
+
+[target.aarch64-pc-windows-msvc.dependencies]
+windows_aarch64_msvc = { path = "crates/targets/aarch64_msvc", version = "0.25.0" }
 
 [target.i686-pc-windows-gnu.dependencies]
-windows_i686_gnu = { path = "crates/targets/i686_gnu", version = "0.24.0" }
+windows_i686_gnu = { path = "crates/targets/i686_gnu", version = "0.25.0" }
 
 [target.x86_64-pc-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "crates/targets/x86_64_gnu", version = "0.24.0" }
+windows_x86_64_gnu = { path = "crates/targets/x86_64_gnu", version = "0.25.0" }
 
 [features]
 default = []
@@ -94,6 +97,10 @@ fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::T
 }
 
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
+    if !tree.include {
+        return;
+    }
+
     let feature = tree.namespace[root.len() + 1..].replace('.', "_");
 
     if let Some(pos) = feature.rfind('_') {
@@ -111,6 +118,8 @@ fn include_all(tree: &mut reader::TypeTree) {
     tree.types.values_mut().for_each(|entry| entry.include = reader::TypeInclude::Full);
 
     tree.namespaces.values_mut().for_each(include_all);
+
+    tree.exclude_namespace("Windows.Win32.Interop");
 }
 
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
@@ -124,6 +133,10 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
+    if !tree.include {
+        return;
+    }
+
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 

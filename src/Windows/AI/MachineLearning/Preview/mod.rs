@@ -1334,12 +1334,12 @@ impl ::std::convert::From<&LearningModelVariableDescriptorPreview> for ILearning
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILearningModelVariableDescriptorPreview> for LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILearningModelVariableDescriptorPreview>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILearningModelVariableDescriptorPreview>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

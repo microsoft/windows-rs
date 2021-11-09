@@ -1031,13 +1031,13 @@ impl ::std::convert::From<&SettingsCommand> for super::Popups::IUICommand {
 #[cfg(feature = "UI_Popups")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Popups::IUICommand> for SettingsCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Popups::IUICommand> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Popups::IUICommand>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Popups")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Popups::IUICommand> for &SettingsCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Popups::IUICommand> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Popups::IUICommand>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]

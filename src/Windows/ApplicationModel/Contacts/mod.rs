@@ -2513,12 +2513,12 @@ impl ::std::convert::From<&ContactField> for IContactField {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactField> for ContactField {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactField> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactField>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactField> for &ContactField {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactField> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactField>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ContactField {}
@@ -2705,12 +2705,12 @@ impl ::std::convert::From<&ContactFieldFactory> for IContactFieldFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactFieldFactory> for ContactFieldFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactFieldFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactFieldFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactFieldFactory> for &ContactFieldFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactFieldFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactFieldFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactFieldFactory> for IContactInstantMessageFieldFactory {

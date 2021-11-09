@@ -2072,12 +2072,12 @@ impl ::std::convert::From<&PropertySet> for IPropertySet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertySet> for PropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertySet> for &PropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PropertySet> for IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
@@ -2310,12 +2310,12 @@ impl ::std::convert::From<&StringMap> for IMap<::windows::runtime::HSTRING, ::wi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> for StringMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> for &StringMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<StringMap> for IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
@@ -2526,12 +2526,12 @@ impl ::std::convert::From<&ValueSet> for IPropertySet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertySet> for ValueSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertySet> for &ValueSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ValueSet> for IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {

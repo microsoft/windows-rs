@@ -119,12 +119,12 @@ impl ::std::convert::From<&Buffer> for IBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBuffer> for Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBuffer> for &Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for Buffer {}
@@ -446,12 +446,12 @@ impl ::std::convert::From<&DataReader> for IDataReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataReader> for DataReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataReader> for &DataReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -658,13 +658,13 @@ impl ::std::convert::From<&DataReaderLoadOperation> for super::super::Foundation
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for DataReaderLoadOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<u32>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for &DataReaderLoadOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<u32>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -955,12 +955,12 @@ impl ::std::convert::From<&DataWriter> for IDataWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataWriter> for DataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDataWriter> for &DataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDataWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDataWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1167,13 +1167,13 @@ impl ::std::convert::From<&DataWriterStoreOperation> for super::super::Foundatio
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for DataWriterStoreOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<u32>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for &DataWriterStoreOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<u32>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1289,12 +1289,12 @@ impl ::std::convert::From<&FileInputStream> for IInputStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInputStream> for FileInputStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInputStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInputStream> for &FileInputStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInputStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1442,12 +1442,12 @@ impl ::std::convert::From<&FileOutputStream> for IOutputStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOutputStream> for FileOutputStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOutputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOutputStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOutputStream> for &FileOutputStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOutputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOutputStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1713,12 +1713,12 @@ impl ::std::convert::From<&FileRandomAccessStream> for IRandomAccessStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStream> for FileRandomAccessStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStream> for &FileRandomAccessStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3825,12 +3825,12 @@ impl ::std::convert::From<&InMemoryRandomAccessStream> for IRandomAccessStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStream> for InMemoryRandomAccessStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStream> for &InMemoryRandomAccessStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4039,12 +4039,12 @@ impl ::std::convert::From<&InputStreamOverStream> for IInputStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInputStream> for InputStreamOverStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInputStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInputStream> for &InputStreamOverStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInputStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4167,12 +4167,12 @@ impl ::std::convert::From<&OutputStreamOverStream> for IOutputStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOutputStream> for OutputStreamOverStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOutputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOutputStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOutputStream> for &OutputStreamOverStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOutputStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOutputStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4405,12 +4405,12 @@ impl ::std::convert::From<&RandomAccessStreamOverStream> for IRandomAccessStream
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStream> for RandomAccessStreamOverStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStream> for &RandomAccessStreamOverStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4588,12 +4588,12 @@ impl ::std::convert::From<&RandomAccessStreamReference> for IRandomAccessStreamR
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStreamReference> for RandomAccessStreamReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStreamReference> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStreamReference>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRandomAccessStreamReference> for &RandomAccessStreamReference {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRandomAccessStreamReference> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRandomAccessStreamReference>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for RandomAccessStreamReference {}

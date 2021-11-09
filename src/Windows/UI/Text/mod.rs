@@ -3392,12 +3392,12 @@ impl ::std::convert::From<&RichEditTextDocument> for ITextDocument {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextDocument> for RichEditTextDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextDocument> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextDocument>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextDocument> for &RichEditTextDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextDocument> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextDocument>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for RichEditTextDocument {}
@@ -3824,12 +3824,12 @@ impl ::std::convert::From<&RichEditTextRange> for ITextRange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextRange> for RichEditTextRange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextRange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextRange> for &RichEditTextRange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextRange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for RichEditTextRange {}

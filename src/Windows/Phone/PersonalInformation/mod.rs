@@ -450,12 +450,12 @@ impl ::std::convert::From<&ContactInformation> for IContactInformation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactInformation> for ContactInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactInformation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactInformation> for &ContactInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactInformation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ContactInformation {}

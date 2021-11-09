@@ -264,8 +264,6 @@ impl Class {
             }
         })
     }
-
-    // TODO: don't generate conversions for exclusive interfaces
 }
 
 #[cfg(test)]

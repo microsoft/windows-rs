@@ -7,6 +7,7 @@ fn main() {
         match platform {
             "x86" => "i686_msvc",
             "x64" => "x86_64_msvc",
+            "arm64" => "aarch64_msvc",
             _ => {
                 println!("Unknown platform");
                 return;

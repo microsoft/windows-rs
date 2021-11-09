@@ -2181,13 +2181,13 @@ impl ::std::convert::From<&AudioGraphBatchUpdater> for super::super::Foundation:
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IClosable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IClosable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3938,12 +3938,12 @@ impl ::std::convert::From<&AudioSubmixNode> for IAudioInputNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode> for AudioSubmixNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioInputNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioInputNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode> for &AudioSubmixNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioInputNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioInputNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]

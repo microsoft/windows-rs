@@ -1328,12 +1328,12 @@ impl ::std::convert::From<&IndexableContent> for IIndexableContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IIndexableContent> for IndexableContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IIndexableContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IIndexableContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IIndexableContent> for &IndexableContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IIndexableContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IIndexableContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for IndexableContent {}
@@ -1816,13 +1816,13 @@ impl ::std::convert::From<&SortEntryVector> for super::super::Foundation::Collec
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<SortEntry>> for SortEntryVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVector<SortEntry>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVector<SortEntry>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<SortEntry>> for &SortEntryVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVector<SortEntry>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVector<SortEntry>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]

@@ -1632,13 +1632,13 @@ impl ::std::convert::From<&StorageItemThumbnail> for super::Streams::IRandomAcce
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IRandomAccessStreamWithContentType> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Streams::IRandomAccessStreamWithContentType>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IRandomAccessStreamWithContentType> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Streams::IRandomAccessStreamWithContentType>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]

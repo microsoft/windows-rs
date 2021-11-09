@@ -410,12 +410,12 @@ impl ::std::convert::From<&FileLoggingSession> for IFileLoggingSession {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileLoggingSession> for FileLoggingSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileLoggingSession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileLoggingSession>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileLoggingSession> for &FileLoggingSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileLoggingSession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileLoggingSession>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileLoggingSession> for super::IClosable {
@@ -2114,12 +2114,12 @@ impl ::std::convert::From<&LoggingChannel> for ILoggingChannel {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILoggingChannel> for LoggingChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILoggingChannel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILoggingChannel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILoggingChannel> for &LoggingChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILoggingChannel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILoggingChannel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<LoggingChannel> for super::IClosable {
@@ -3258,12 +3258,12 @@ impl ::std::convert::From<&LoggingSession> for ILoggingSession {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILoggingSession> for LoggingSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILoggingSession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILoggingSession>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILoggingSession> for &LoggingSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILoggingSession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILoggingSession>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<LoggingSession> for super::IClosable {
@@ -3378,12 +3378,12 @@ impl ::std::convert::From<&RuntimeBrokerErrorSettings> for IErrorReportingSettin
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IErrorReportingSettings> for RuntimeBrokerErrorSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IErrorReportingSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IErrorReportingSettings>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IErrorReportingSettings> for &RuntimeBrokerErrorSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IErrorReportingSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IErrorReportingSettings>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for RuntimeBrokerErrorSettings {}

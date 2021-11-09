@@ -1617,12 +1617,12 @@ impl ::std::convert::From<&SyndicationClient> for ISyndicationClient {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyndicationClient> for SyndicationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyndicationClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyndicationClient>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyndicationClient> for &SyndicationClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyndicationClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyndicationClient>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SyndicationClient {}
@@ -3470,12 +3470,12 @@ impl ::std::convert::From<&SyndicationNode> for ISyndicationNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyndicationNode> for SyndicationNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyndicationNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyndicationNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyndicationNode> for &SyndicationNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyndicationNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyndicationNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SyndicationNode {}
@@ -3949,12 +3949,12 @@ impl ::std::convert::From<&SyndicationText> for ISyndicationText {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyndicationText> for SyndicationText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyndicationText> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyndicationText>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyndicationText> for &SyndicationText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyndicationText> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyndicationText>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<SyndicationText> for ISyndicationNode {

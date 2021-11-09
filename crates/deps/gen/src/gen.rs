@@ -3,9 +3,6 @@ use super::*;
 pub struct Gen {
     pub relative: &'static str,
     pub root: &'static str,
-    // TODO: add module features here so method_features can remove any that are already module features
-
-    // TODO: add features TokenStream so different impls don't have to pass it around or regenerate?
 }
 
 impl Gen {

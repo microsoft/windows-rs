@@ -54,7 +54,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             let inspectable = gen_inspectable(&name, &constraints, &TokenStream::new());
             let iterator = gen_iterator(def, &interfaces, gen);
 
-            let send_sync = if async_kind(def) == AsyncKind::None {
+            let send_sync = if def.async_kind() == AsyncKind::None {
                 quote! {}
             } else {
                 quote! {

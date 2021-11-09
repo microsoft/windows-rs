@@ -304,13 +304,13 @@ impl ::std::convert::From<&BackgroundActivatedEventArgs> for super::super::Appli
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> for BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> for &BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -495,13 +495,13 @@ impl ::std::convert::From<&EnteredBackgroundEventArgs> for super::super::Applica
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> for EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::IEnteredBackgroundEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> for &EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::IEnteredBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::IEnteredBackgroundEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1446,13 +1446,13 @@ impl ::std::convert::From<&LeavingBackgroundEventArgs> for super::super::Applica
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> for LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ILeavingBackgroundEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> for &LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ILeavingBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ILeavingBackgroundEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1898,13 +1898,13 @@ impl ::std::convert::From<&SuspendingDeferral> for super::super::ApplicationMode
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingDeferral> for SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingDeferral> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ISuspendingDeferral>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingDeferral> for &SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingDeferral> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ISuspendingDeferral>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -2000,13 +2000,13 @@ impl ::std::convert::From<&SuspendingEventArgs> for super::super::ApplicationMod
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingEventArgs> for SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ISuspendingEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingEventArgs> for &SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ISuspendingEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -2196,13 +2196,13 @@ impl ::std::convert::From<&SuspendingOperation> for super::super::ApplicationMod
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingOperation> for SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ISuspendingOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::ISuspendingOperation> for &SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::ISuspendingOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::ISuspendingOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
@@ -2498,13 +2498,13 @@ impl ::std::convert::From<&WebUIAppointmentsProviderAddAppointmentActivatedEvent
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2757,13 +2757,13 @@ impl ::std::convert::From<&WebUIAppointmentsProviderRemoveAppointmentActivatedEv
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3016,13 +3016,13 @@ impl ::std::convert::From<&WebUIAppointmentsProviderReplaceAppointmentActivatedE
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3293,13 +3293,13 @@ impl ::std::convert::From<&WebUIAppointmentsProviderShowAppointmentDetailsActiva
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3561,13 +3561,13 @@ impl ::std::convert::From<&WebUIAppointmentsProviderShowTimeFrameActivatedEventA
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3848,12 +3848,12 @@ impl ::std::convert::From<&WebUIBackgroundTaskInstanceRuntimeClass> for IWebUIBa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUIBackgroundTaskInstance> for WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUIBackgroundTaskInstance> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebUIBackgroundTaskInstance>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUIBackgroundTaskInstance> for &WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUIBackgroundTaskInstance> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebUIBackgroundTaskInstance>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -4097,13 +4097,13 @@ impl ::std::convert::From<&WebUIBarcodeScannerPreviewActivatedEventArgs> for sup
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> for WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4247,13 +4247,13 @@ impl ::std::convert::From<&WebUICachedFileUpdaterActivatedEventArgs> for super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> for WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> for &WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4471,13 +4471,13 @@ impl ::std::convert::From<&WebUICameraSettingsActivatedEventArgs> for super::sup
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> for WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> for &WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4747,13 +4747,13 @@ impl ::std::convert::From<&WebUICommandLineActivatedEventArgs> for super::super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> for WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> for &WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4915,13 +4915,13 @@ impl ::std::convert::From<&WebUIContactCallActivatedEventArgs> for super::super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> for WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> for &WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5148,13 +5148,13 @@ impl ::std::convert::From<&WebUIContactMapActivatedEventArgs> for super::super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> for WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> for &WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5390,13 +5390,13 @@ impl ::std::convert::From<&WebUIContactMessageActivatedEventArgs> for super::sup
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> for WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> for &WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5701,13 +5701,13 @@ impl ::std::convert::From<&WebUIContactPanelActivatedEventArgs> for super::super
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> for WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> for &WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5842,13 +5842,13 @@ impl ::std::convert::From<&WebUIContactPickerActivatedEventArgs> for super::supe
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> for WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> for &WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -6058,13 +6058,13 @@ impl ::std::convert::From<&WebUIContactPostActivatedEventArgs> for super::super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> for WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> for &WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -6300,13 +6300,13 @@ impl ::std::convert::From<&WebUIContactVideoCallActivatedEventArgs> for super::s
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> for WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> for &WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -6542,13 +6542,13 @@ impl ::std::convert::From<&WebUIDeviceActivatedEventArgs> for super::super::Appl
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> for WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> for &WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -6844,13 +6844,13 @@ impl ::std::convert::From<&WebUIDevicePairingActivatedEventArgs> for super::supe
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> for WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> for &WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -7043,13 +7043,13 @@ impl ::std::convert::From<&WebUIDialReceiverActivatedEventArgs> for super::super
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> for WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> for &WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -7346,13 +7346,13 @@ impl ::std::convert::From<&WebUIFileActivatedEventArgs> for super::super::Applic
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> for WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> for &WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -7631,13 +7631,13 @@ impl ::std::convert::From<&WebUIFileOpenPickerActivatedEventArgs> for super::sup
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> for WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> for &WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -7891,13 +7891,13 @@ impl ::std::convert::From<&WebUIFileOpenPickerContinuationEventArgs> for super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> for WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> for &WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8159,13 +8159,13 @@ impl ::std::convert::From<&WebUIFileSavePickerActivatedEventArgs> for super::sup
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> for WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> for &WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8419,13 +8419,13 @@ impl ::std::convert::From<&WebUIFileSavePickerContinuationEventArgs> for super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> for WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> for &WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8679,13 +8679,13 @@ impl ::std::convert::From<&WebUIFolderPickerContinuationEventArgs> for super::su
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> for WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> for &WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8965,13 +8965,13 @@ impl ::std::convert::From<&WebUILaunchActivatedEventArgs> for super::super::Appl
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for &WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -9276,13 +9276,13 @@ impl ::std::convert::From<&WebUILockScreenActivatedEventArgs> for super::super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> for WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> for &WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -9544,13 +9544,13 @@ impl ::std::convert::From<&WebUILockScreenCallActivatedEventArgs> for super::sup
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> for WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> for &WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -9776,13 +9776,13 @@ impl ::std::convert::From<&WebUILockScreenComponentActivatedEventArgs> for super
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -9948,12 +9948,12 @@ impl ::std::convert::From<&WebUINavigatedEventArgs> for IWebUINavigatedEventArgs
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs> for WebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUINavigatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebUINavigatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs> for &WebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebUINavigatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebUINavigatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
@@ -10235,13 +10235,13 @@ impl ::std::convert::From<&WebUIPhoneCallActivatedEventArgs> for super::super::A
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> for WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> for &WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -10376,13 +10376,13 @@ impl ::std::convert::From<&WebUIPrint3DWorkflowActivatedEventArgs> for super::su
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> for WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> for &WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -10565,13 +10565,13 @@ impl ::std::convert::From<&WebUIPrintTaskSettingsActivatedEventArgs> for super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> for WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> for &WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -10745,13 +10745,13 @@ impl ::std::convert::From<&WebUIPrintWorkflowForegroundTaskActivatedEventArgs> f
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> for &WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -10944,13 +10944,13 @@ impl ::std::convert::From<&WebUIProtocolActivatedEventArgs> for super::super::Ap
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> for WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> for &WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11256,13 +11256,13 @@ impl ::std::convert::From<&WebUIProtocolForResultsActivatedEventArgs> for super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> for WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> for &WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11558,13 +11558,13 @@ impl ::std::convert::From<&WebUIRestrictedLaunchActivatedEventArgs> for super::s
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> for WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> for &WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11800,13 +11800,13 @@ impl ::std::convert::From<&WebUISearchActivatedEventArgs> for super::super::Appl
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> for WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> for &WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -12050,13 +12050,13 @@ impl ::std::convert::From<&WebUIShareTargetActivatedEventArgs> for super::super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> for WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> for &WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -12352,13 +12352,13 @@ impl ::std::convert::From<&WebUIStartupTaskActivatedEventArgs> for super::super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> for WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> for &WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -12511,13 +12511,13 @@ impl ::std::convert::From<&WebUIToastNotificationActivatedEventArgs> for super::
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> for WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> for &WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -12778,13 +12778,13 @@ impl ::std::convert::From<&WebUIUserDataAccountProviderActivatedEventArgs> for s
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> for WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> for &WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_WebUI`*"]
@@ -13538,13 +13538,13 @@ impl ::std::convert::From<&WebUIVoiceCommandActivatedEventArgs> for super::super
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> for WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> for &WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -13771,13 +13771,13 @@ impl ::std::convert::From<&WebUIWalletActionActivatedEventArgs> for super::super
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> for WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> for &WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -13969,13 +13969,13 @@ impl ::std::convert::From<&WebUIWebAccountProviderActivatedEventArgs> for super:
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> for WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> for &WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -14193,13 +14193,13 @@ impl ::std::convert::From<&WebUIWebAuthenticationBrokerContinuationEventArgs> fo
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> for WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
