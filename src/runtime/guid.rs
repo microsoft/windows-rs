@@ -117,15 +117,3 @@ impl HexReader for core::str::Bytes<'_> {
         self.next_u8().into()
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_new() {
-        let zeroed = GUID::zeroed();
-        let unique = GUID::new().unwrap();
-        assert_ne!(zeroed, unique);
-    }
-}

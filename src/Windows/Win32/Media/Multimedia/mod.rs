@@ -2,840 +2,6 @@
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMDM_BASE: u32 = 24576u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_DRIVER_DETAILS: u32 = 24586u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_DRIVER_NOTIFY: u32 = 24577u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_FILTERTAG_DETAILS: u32 = 24626u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_FILTER_DETAILS: u32 = 24627u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_FORMATTAG_DETAILS: u32 = 24601u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_FORMAT_DETAILS: u32 = 24602u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_FORMAT_SUGGEST: u32 = 24603u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_HARDWARE_WAVE_CAPS_INPUT: u32 = 24596u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_HARDWARE_WAVE_CAPS_OUTPUT: u32 = 24597u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_RESERVED_HIGH: u32 = 28671u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_RESERVED_LOW: u32 = 24576u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_CLOSE: u32 = 24653u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_CONVERT: u32 = 24655u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_OPEN: u32 = 24652u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_PREPARE: u32 = 24657u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_RESET: u32 = 24656u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_SIZE: u32 = 24654u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_UNPREPARE: u32 = 24658u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDM_USER: u32 = 16384u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
-pub struct ACMDRIVERDETAILSA {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vdwACM: u32,
-    pub vdwDriver: u32,
-    pub fdwSupport: u32,
-    pub cFormatTags: u32,
-    pub cFilterTags: u32,
-    pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-    pub szShortName: [super::super::Foundation::CHAR; 32],
-    pub szLongName: [super::super::Foundation::CHAR; 128],
-    pub szCopyright: [super::super::Foundation::CHAR; 80],
-    pub szLicensing: [super::super::Foundation::CHAR; 128],
-    pub szFeatures: [super::super::Foundation::CHAR; 512],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ACMDRIVERDETAILSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for ACMDRIVERDETAILSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for ACMDRIVERDETAILSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for ACMDRIVERDETAILSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_UI_WindowsAndMessaging`*"]
-pub struct ACMDRIVERDETAILSW {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vdwACM: u32,
-    pub vdwDriver: u32,
-    pub fdwSupport: u32,
-    pub cFormatTags: u32,
-    pub cFilterTags: u32,
-    pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-    pub szShortName: [u16; 32],
-    pub szLongName: [u16; 128],
-    pub szCopyright: [u16; 80],
-    pub szLicensing: [u16; 128],
-    pub szFeatures: [u16; 512],
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ACMDRIVERDETAILSW {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::default::Default for ACMDRIVERDETAILSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for ACMDRIVERDETAILSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for ACMDRIVERDETAILSW {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_COPYRIGHT_CHARS: u32 = 80u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_FEATURES_CHARS: u32 = 512u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_LICENSING_CHARS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_LONGNAME_CHARS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SHORTNAME_CHARS: u32 = 32u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_ASYNC: i32 = 16i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_CODEC: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_CONVERTER: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_DISABLED: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMERR_BASE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMERR_BUSY: u32 = 513u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMERR_CANCELED: u32 = 515u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMERR_UNPREPARED: u32 = 514u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFILTERCHOOSEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFILTERCHOOSEA {
-    pub cbStruct: u32,
-    pub fdwStyle: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pwfltr: *mut WAVEFILTER,
-    pub cbwfltr: u32,
-    pub pszTitle: super::super::Foundation::PSTR,
-    pub szFilterTag: [super::super::Foundation::CHAR; 48],
-    pub szFilter: [super::super::Foundation::CHAR; 128],
-    pub pszName: super::super::Foundation::PSTR,
-    pub cchName: u32,
-    pub fdwEnum: u32,
-    pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PSTR,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFILTERCHOOSEA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFILTERCHOOSEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFILTERCHOOSEA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFILTERCHOOSEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFILTERCHOOSEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFILTERCHOOSEW {
-    pub cbStruct: u32,
-    pub fdwStyle: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pwfltr: *mut WAVEFILTER,
-    pub cbwfltr: u32,
-    pub pszTitle: super::super::Foundation::PWSTR,
-    pub szFilterTag: [u16; 48],
-    pub szFilter: [u16; 128],
-    pub pszName: super::super::Foundation::PWSTR,
-    pub cchName: u32,
-    pub fdwEnum: u32,
-    pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PWSTR,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFILTERCHOOSEW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFILTERCHOOSEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFILTERCHOOSEW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFILTERCHOOSEW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFILTERDETAILSA {
-    pub cbStruct: u32,
-    pub dwFilterIndex: u32,
-    pub dwFilterTag: u32,
-    pub fdwSupport: u32,
-    pub pwfltr: *mut WAVEFILTER,
-    pub cbwfltr: u32,
-    pub szFilter: [super::super::Foundation::CHAR; 128],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFILTERDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFILTERDETAILSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFILTERDETAILSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFILTERDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct ACMFILTERDETAILSW {
-    pub cbStruct: u32,
-    pub dwFilterIndex: u32,
-    pub dwFilterTag: u32,
-    pub fdwSupport: u32,
-    pub pwfltr: *mut WAVEFILTER,
-    pub cbwfltr: u32,
-    pub szFilter: [u16; 128],
-}
-impl ACMFILTERDETAILSW {}
-impl ::core::default::Default for ACMFILTERDETAILSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for ACMFILTERDETAILSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for ACMFILTERDETAILSW {}
-unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFILTERTAGDETAILSA {
-    pub cbStruct: u32,
-    pub dwFilterTagIndex: u32,
-    pub dwFilterTag: u32,
-    pub cbFilterSize: u32,
-    pub fdwSupport: u32,
-    pub cStandardFilters: u32,
-    pub szFilterTag: [super::super::Foundation::CHAR; 48],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFILTERTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFILTERTAGDETAILSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFILTERTAGDETAILSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFILTERTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct ACMFILTERTAGDETAILSW {
-    pub cbStruct: u32,
-    pub dwFilterTagIndex: u32,
-    pub dwFilterTag: u32,
-    pub cbFilterSize: u32,
-    pub fdwSupport: u32,
-    pub cStandardFilters: u32,
-    pub szFilterTag: [u16; 48],
-}
-impl ACMFILTERTAGDETAILSW {}
-impl ::core::default::Default for ACMFILTERTAGDETAILSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for ACMFILTERTAGDETAILSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for ACMFILTERTAGDETAILSW {}
-unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFORMATCHOOSEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFORMATCHOOSEA {
-    pub cbStruct: u32,
-    pub fdwStyle: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pwfx: *mut WAVEFORMATEX,
-    pub cbwfx: u32,
-    pub pszTitle: super::super::Foundation::PSTR,
-    pub szFormatTag: [super::super::Foundation::CHAR; 48],
-    pub szFormat: [super::super::Foundation::CHAR; 128],
-    pub pszName: super::super::Foundation::PSTR,
-    pub cchName: u32,
-    pub fdwEnum: u32,
-    pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PSTR,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFORMATCHOOSEA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFORMATCHOOSEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFORMATCHOOSEA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFORMATCHOOSEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFORMATCHOOSEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFORMATCHOOSEW {
-    pub cbStruct: u32,
-    pub fdwStyle: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pwfx: *mut WAVEFORMATEX,
-    pub cbwfx: u32,
-    pub pszTitle: super::super::Foundation::PWSTR,
-    pub szFormatTag: [u16; 48],
-    pub szFormat: [u16; 128],
-    pub pszName: super::super::Foundation::PWSTR,
-    pub cchName: u32,
-    pub fdwEnum: u32,
-    pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PWSTR,
-    pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFORMATCHOOSEW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFORMATCHOOSEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFORMATCHOOSEW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFORMATCHOOSEW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFORMATDETAILSA {
-    pub cbStruct: u32,
-    pub dwFormatIndex: u32,
-    pub dwFormatTag: u32,
-    pub fdwSupport: u32,
-    pub pwfx: *mut WAVEFORMATEX,
-    pub cbwfx: u32,
-    pub szFormat: [super::super::Foundation::CHAR; 128],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFORMATDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFORMATDETAILSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFORMATDETAILSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFORMATDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFORMATDETAILSA {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct ACMFORMATTAGDETAILSA {
-    pub cbStruct: u32,
-    pub dwFormatTagIndex: u32,
-    pub dwFormatTag: u32,
-    pub cbFormatSize: u32,
-    pub fdwSupport: u32,
-    pub cStandardFormats: u32,
-    pub szFormatTag: [super::super::Foundation::CHAR; 48],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ACMFORMATTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACMFORMATTAGDETAILSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACMFORMATTAGDETAILSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACMFORMATTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct ACMFORMATTAGDETAILSW {
-    pub cbStruct: u32,
-    pub dwFormatTagIndex: u32,
-    pub dwFormatTag: u32,
-    pub cbFormatSize: u32,
-    pub fdwSupport: u32,
-    pub cStandardFormats: u32,
-    pub szFormatTag: [u16; 48],
-}
-impl ACMFORMATTAGDETAILSW {}
-impl ::core::default::Default for ACMFORMATTAGDETAILSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for ACMFORMATTAGDETAILSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for ACMFORMATTAGDETAILSW {}
-unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct ACMSTREAMHEADER {
-    pub cbStruct: u32,
-    pub fdwStatus: u32,
-    pub dwUser: usize,
-    pub pbSrc: *mut u8,
-    pub cbSrcLength: u32,
-    pub cbSrcLengthUsed: u32,
-    pub dwSrcUser: usize,
-    pub pbDst: *mut u8,
-    pub cbDstLength: u32,
-    pub cbDstLengthUsed: u32,
-    pub dwDstUser: usize,
-    pub dwReservedDriver: [u32; 15],
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ACMSTREAMHEADER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::default::Default for ACMSTREAMHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for ACMSTREAMHEADER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for ACMSTREAMHEADER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct ACMSTREAMHEADER {
-    pub cbStruct: u32,
-    pub fdwStatus: u32,
-    pub dwUser: usize,
-    pub pbSrc: *mut u8,
-    pub cbSrcLength: u32,
-    pub cbSrcLengthUsed: u32,
-    pub dwSrcUser: usize,
-    pub pbDst: *mut u8,
-    pub cbDstLength: u32,
-    pub cbDstLengthUsed: u32,
-    pub dwDstUser: usize,
-    pub dwReservedDriver: [u32; 10],
-}
-#[cfg(any(target_arch = "x86",))]
-impl ACMSTREAMHEADER {}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::default::Default for ACMSTREAMHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for ACMSTREAMHEADER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for ACMSTREAMHEADER {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMSTREAMHEADER_STATUSF_INQUEUE: i32 = 1048576i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACMSTREAMHEADER_STATUSF_PREPARED: i32 = 131072i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERADDF_FUNCTION: i32 = 3i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERADDF_GLOBAL: i32 = 8i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERADDF_LOCAL: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERADDF_NAME: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERADDF_NOTIFYHWND: i32 = 4i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERADDF_TYPEMASK: i32 = 7i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERENUMF_DISABLED: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERENUMF_NOLOCAL: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERPRIORITYF_ABLEMASK: i32 = 3i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERPRIORITYF_BEGIN: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERPRIORITYF_DEFERMASK: i32 = 196608i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERPRIORITYF_DISABLE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERPRIORITYF_ENABLE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_DRIVERPRIORITYF_END: i32 = 131072i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERDETAILSF_FILTER: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERDETAILSF_INDEX: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERDETAILSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERENUMF_DWFILTERTAG: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERTAGDETAILSF_FILTERTAG: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERTAGDETAILSF_INDEX: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERTAGDETAILSF_LARGESTSIZE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FILTERTAGDETAILSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATDETAILSF_FORMAT: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATDETAILSF_INDEX: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATDETAILSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_CONVERT: i32 = 1048576i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_HARDWARE: i32 = 4194304i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_INPUT: i32 = 8388608i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_NCHANNELS: i32 = 131072i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_NSAMPLESPERSEC: i32 = 262144i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_OUTPUT: i32 = 16777216i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_SUGGEST: i32 = 2097152i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_WBITSPERSAMPLE: i32 = 524288i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATENUMF_WFORMATTAG: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATSUGGESTF_NCHANNELS: i32 = 131072i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATSUGGESTF_NSAMPLESPERSEC: i32 = 262144i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATSUGGESTF_TYPEMASK: i32 = 16711680i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATSUGGESTF_WBITSPERSAMPLE: i32 = 524288i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATSUGGESTF_WFORMATTAG: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATTAGDETAILSF_FORMATTAG: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATTAGDETAILSF_INDEX: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATTAGDETAILSF_LARGESTSIZE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_FORMATTAGDETAILSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_CODECS: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_CONVERTERS: u32 = 3u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_DISABLED: u32 = 5u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_DRIVERS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_FILTERS: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_HARDWARE: u32 = 6u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_LOCAL_CODECS: u32 = 21u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_LOCAL_CONVERTERS: u32 = 22u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_LOCAL_DISABLED: u32 = 24u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_LOCAL_DRIVERS: u32 = 20u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_COUNT_LOCAL_FILTERS: u32 = 23u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_DRIVER_PRIORITY: u32 = 101u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_DRIVER_SUPPORT: u32 = 100u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_HARDWARE_WAVE_INPUT: u32 = 30u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_HARDWARE_WAVE_OUTPUT: u32 = 31u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_MAX_SIZE_FILTER: u32 = 51u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_METRIC_MAX_SIZE_FORMAT: u32 = 50u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACM_MPEG_DUALCHANNEL: u32 = 4u32;
@@ -859,24 +25,6 @@ pub const ACM_MPEG_PROTECTIONBIT: u32 = 8u32;
 pub const ACM_MPEG_SINGLECHANNEL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACM_MPEG_STEREO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMCONVERTF_BLOCKALIGN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMCONVERTF_END: u32 = 32u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMCONVERTF_START: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMOPENF_ASYNC: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMOPENF_NONREALTIME: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMOPENF_QUERY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMSIZEF_DESTINATION: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -901,247 +49,143 @@ unsafe impl ::windows::runtime::Abi for ADPCMCOEFSET {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct ADPCMEWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ADPCMEWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ADPCMEWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for ADPCMEWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for ADPCMEWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for ADPCMEWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct ADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
     pub wNumCoef: u16,
     pub aCoef: [ADPCMCOEFSET; 1],
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for ADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct APTXWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl APTXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for APTXWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for APTXWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for APTXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for APTXWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl AUDIOFILE_AF10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF10WAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl AUDIOFILE_AF36WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for AUDIOFILE_AF36WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF36WAVEFORMAT {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct AUXCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl AUXCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUXCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AUXCAPS2A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AUXCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AUXCAPS2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct AUXCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-impl AUXCAPS2W {}
-impl ::core::default::Default for AUXCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for AUXCAPS2W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for AUXCAPS2W {}
-unsafe impl ::windows::runtime::Abi for AUXCAPS2W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct AUXCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl AUXCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUXCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AUXCAPSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AUXCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for AUXCAPSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct AUXCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-}
-impl AUXCAPSW {}
-impl ::core::default::Default for AUXCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for AUXCAPSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for AUXCAPSW {}
-unsafe impl ::windows::runtime::Abi for AUXCAPSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const AUXCAPS_AUXIN: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const AUXCAPS_CDAUDIO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const AUXCAPS_LRVOLUME: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const AUXCAPS_VOLUME: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AUXDM_GETDEVCAPS: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -2571,9 +1615,9 @@ unsafe impl ::windows::runtime::Abi for CAPTUREPARMS {
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const WAVEHDR) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
+pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPYIELDCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT;
@@ -2705,45 +1749,57 @@ unsafe impl ::windows::runtime::Abi for COMPVARS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct CONTRESCR10WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl CONTRESCR10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for CONTRESCR10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for CONTRESCR10WAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct CONTRESVQLPCWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl CONTRESVQLPCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for CONTRESVQLPCWAVEFORMAT {
     type Abi = Self;
 }
@@ -2753,90 +1809,114 @@ pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
 pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct CREATIVEADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl CREATIVEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for CREATIVEADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl CREATIVEFASTSPEECH10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl CREATIVEFASTSPEECH8WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct CSIMAADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl CSIMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for CSIMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -2918,109 +1998,139 @@ pub const DDF_SAME_SIZE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DDF_UPDATE: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
-    pub ewf: WAVEFORMATEX,
+    pub ewf: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DIALOGICOKIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DIALOGICOKIADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DIGIADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DIGIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DIGIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DIGIADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DIGIFIXWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DIGIFIXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIFIXWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DIGIFIXWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DIGIFIXWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DIGIFIXWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DIGIREALWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DIGIREALWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIREALWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DIGIREALWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DIGIREALWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DIGIREALWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DIGISTDWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DIGISTDWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGISTDWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DIGISTDWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DIGISTDWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DIGISTDWAVEFORMAT {
     type Abi = Self;
 }
@@ -3030,23 +2140,29 @@ pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
 pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DOLBYAC2WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBitsCode: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DOLBYAC2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DOLBYAC2WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DOLBYAC2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DOLBYAC2WAVEFORMAT {
     type Abi = Self;
 }
@@ -3097,25 +2213,31 @@ pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, par
 pub type DRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DRMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wReserved: u16,
     pub ulContentId: u32,
-    pub wfxSecure: WAVEFORMATEX,
+    pub wfxSecure: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DRMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DRMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DRMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DRMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DRMWAVEFORMAT {
     type Abi = Self;
 }
@@ -3227,8 +2349,6 @@ unsafe impl ::windows::runtime::Abi for DRVM_IOCTL_DATA {
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_IOCTL_LAST: u32 = 261u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const DRVM_MAPPER: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_MAPPER_CONSOLEVOICECOM_GET: u32 = 8215u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_MAPPER_PREFERRED_FLAGS_PREFERREDONLY: u32 = 1u32;
@@ -3236,8 +2356,6 @@ pub const DRVM_MAPPER_PREFERRED_FLAGS_PREFERREDONLY: u32 = 1u32;
 pub const DRVM_MAPPER_PREFERRED_GET: u32 = 8213u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_MAPPER_RECONFIGURE: u32 = 8193u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_REMOVE_THRU: u32 = 258u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -3260,10 +2378,6 @@ pub const DRV_FREE: u32 = 6u32;
 pub const DRV_INSTALL: u32 = 9u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRV_LOAD: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRV_MCI_FIRST: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -3308,23 +2422,29 @@ pub const DRV_RESTART: u32 = 2u32;
 pub const DRV_USER: u32 = 16384u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct DVIADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl DVIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DVIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for DVIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for DVIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for DVIADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -3685,47 +2805,30 @@ pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct ECHOSC1WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ECHOSC1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ECHOSC1WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for ECHOSC1WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for ECHOSC1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for ECHOSC1WAVEFORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct ECHOWAVEFILTER {
-    pub wfltr: WAVEFILTER,
-    pub dwVolume: u32,
-    pub dwDelay: u32,
-}
-impl ECHOWAVEFILTER {}
-impl ::core::default::Default for ECHOWAVEFILTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for ECHOWAVEFILTER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for ECHOWAVEFILTER {}
-unsafe impl ::windows::runtime::Abi for ECHOWAVEFILTER {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -3878,14 +2981,6 @@ pub const FACILITY_NS: u32 = 13u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const FACILITY_NS_WIN32: u32 = 7u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FILTERCHOOSE_FILTERTAG_VERIFY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FILTERCHOOSE_FILTER_VERIFY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FILTERCHOOSE_MESSAGE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const FIND_ANY: i32 = 32i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const FIND_DIR: i32 = 15i32;
@@ -3915,98 +3010,114 @@ pub const FIND_SIZE: i32 = 12288i32;
 pub const FIND_TYPE: i32 = 240i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct FMTOWNS_SND_WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl FMTOWNS_SND_WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for FMTOWNS_SND_WAVEFORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FORMATCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct G721_ADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBlockSize: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl G721_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for G721_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for G721_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct G723_ADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub cbExtraSize: u16,
     pub nAuxBlockSize: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl G723_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for G723_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for G723_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct GSM610WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl GSM610WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for GSM610WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for GSM610WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for GSM610WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for GSM610WAVEFORMAT {
     type Abi = Self;
 }
@@ -4087,54 +3198,6 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
-pub struct HACMDRIVER(pub isize);
-impl ::core::default::Default for HACMDRIVER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HACMDRIVER {}
-unsafe impl ::windows::runtime::Abi for HACMDRIVER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HACMDRIVERID(pub isize);
-impl ::core::default::Default for HACMDRIVERID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HACMDRIVERID {}
-unsafe impl ::windows::runtime::Abi for HACMDRIVERID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HACMOBJ(pub isize);
-impl ::core::default::Default for HACMOBJ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HACMOBJ {}
-unsafe impl ::windows::runtime::Abi for HACMOBJ {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HACMSTREAM(pub isize);
-impl ::core::default::Default for HACMSTREAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HACMSTREAM {}
-unsafe impl ::windows::runtime::Abi for HACMSTREAM {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
 pub struct HDRVR(pub isize);
 impl ::core::default::Default for HDRVR {
     fn default() -> Self {
@@ -4159,78 +3222,6 @@ unsafe impl ::windows::runtime::Abi for HIC {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
-pub struct HMIDI(pub isize);
-impl ::core::default::Default for HMIDI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HMIDI {}
-unsafe impl ::windows::runtime::Abi for HMIDI {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HMIDIIN(pub isize);
-impl ::core::default::Default for HMIDIIN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HMIDIIN {}
-unsafe impl ::windows::runtime::Abi for HMIDIIN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HMIDIOUT(pub isize);
-impl ::core::default::Default for HMIDIOUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HMIDIOUT {}
-unsafe impl ::windows::runtime::Abi for HMIDIOUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HMIDISTRM(pub isize);
-impl ::core::default::Default for HMIDISTRM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HMIDISTRM {}
-unsafe impl ::windows::runtime::Abi for HMIDISTRM {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HMIXER(pub isize);
-impl ::core::default::Default for HMIXER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HMIXER {}
-unsafe impl ::windows::runtime::Abi for HMIXER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HMIXEROBJ(pub isize);
-impl ::core::default::Default for HMIXEROBJ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HMIXEROBJ {}
-unsafe impl ::windows::runtime::Abi for HMIXEROBJ {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
 pub struct HMMIO(pub isize);
 impl ::core::default::Default for HMMIO {
     fn default() -> Self {
@@ -4251,42 +3242,6 @@ impl ::core::default::Default for HVIDEO {
 }
 unsafe impl ::windows::runtime::Handle for HVIDEO {}
 unsafe impl ::windows::runtime::Abi for HVIDEO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HWAVE(pub isize);
-impl ::core::default::Default for HWAVE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HWAVE {}
-unsafe impl ::windows::runtime::Abi for HWAVE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HWAVEIN(pub isize);
-impl ::core::default::Default for HWAVEIN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HWAVEIN {}
-unsafe impl ::windows::runtime::Abi for HWAVEIN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HWAVEOUT(pub isize);
-impl ::core::default::Default for HWAVEOUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::runtime::Handle for HWAVEOUT {}
-unsafe impl ::windows::runtime::Abi for HWAVEOUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -6067,23 +5022,29 @@ pub struct IGetFrame_abi(
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct IMAADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl IMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for IMAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for IMAADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for IMAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for IMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -6217,32 +5178,6 @@ pub const JIFMK_SOI: u32 = 65496u32;
 pub const JIFMK_SOS: u32 = 65498u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JIFMK_TEM: u32 = 65281u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct JOYCALIBRATE {
-    pub wXbase: u16,
-    pub wXdelta: u16,
-    pub wYbase: u16,
-    pub wYdelta: u16,
-    pub wZbase: u16,
-    pub wZdelta: u16,
-}
-impl JOYCALIBRATE {}
-impl ::core::default::Default for JOYCALIBRATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for JOYCALIBRATE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for JOYCALIBRATE {}
-unsafe impl ::windows::runtime::Abi for JOYCALIBRATE {
-    type Abi = Self;
-}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6452,8 +5387,6 @@ pub const JOYCAPS_POV4DIR: u32 = 32u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOYCAPS_POVCTS: u32 = 64u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const JOYERR_BASE: u32 = 160u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOYERR_NOCANDO: u32 = 166u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOYERR_NOERROR: u32 = 0u32;
@@ -6516,131 +5449,6 @@ impl ::core::cmp::PartialEq for JOYINFOEX {
 }
 impl ::core::cmp::Eq for JOYINFOEX {}
 unsafe impl ::windows::runtime::Abi for JOYINFOEX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct JOYPOS {
-    pub dwX: u32,
-    pub dwY: u32,
-    pub dwZ: u32,
-    pub dwR: u32,
-    pub dwU: u32,
-    pub dwV: u32,
-}
-impl JOYPOS {}
-impl ::core::default::Default for JOYPOS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for JOYPOS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for JOYPOS {}
-unsafe impl ::windows::runtime::Abi for JOYPOS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct JOYRANGE {
-    pub jpMin: JOYPOS,
-    pub jpMax: JOYPOS,
-    pub jpCenter: JOYPOS,
-}
-impl JOYRANGE {}
-impl ::core::default::Default for JOYRANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for JOYRANGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for JOYRANGE {}
-unsafe impl ::windows::runtime::Abi for JOYRANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Devices_HumanInterfaceDevice`*"]
-pub struct JOYREGHWCONFIG {
-    pub hws: JOYREGHWSETTINGS,
-    pub dwUsageSettings: u32,
-    pub hwv: super::super::Devices::HumanInterfaceDevice::JOYREGHWVALUES,
-    pub dwType: u32,
-    pub dwReserved: u32,
-}
-#[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl JOYREGHWCONFIG {}
-#[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl ::core::default::Default for JOYREGHWCONFIG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl ::core::cmp::PartialEq for JOYREGHWCONFIG {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-impl ::core::cmp::Eq for JOYREGHWCONFIG {}
-#[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
-unsafe impl ::windows::runtime::Abi for JOYREGHWCONFIG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct JOYREGHWSETTINGS {
-    pub dwFlags: u32,
-    pub dwNumButtons: u32,
-}
-impl JOYREGHWSETTINGS {}
-impl ::core::default::Default for JOYREGHWSETTINGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for JOYREGHWSETTINGS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for JOYREGHWSETTINGS {}
-unsafe impl ::windows::runtime::Abi for JOYREGHWSETTINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct JOYREGUSERVALUES {
-    pub dwTimeOut: u32,
-    pub jrvRanges: JOYRANGE,
-    pub jpDeadZone: JOYPOS,
-}
-impl JOYREGUSERVALUES {}
-impl ::core::default::Default for JOYREGUSERVALUES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for JOYREGUSERVALUES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for JOYREGUSERVALUES {}
-unsafe impl ::windows::runtime::Abi for JOYREGUSERVALUES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -6810,31 +5618,14 @@ pub const JPEG_Y: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub type LPDRVCALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub type LPJOYDEVMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: i32, param3: i32) -> u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub type LPMIDICALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPMMIOPROC = unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPTASKCALLBACK = unsafe extern "system" fn(dwinst: usize);
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub type LPWAVECALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MAXERRORLENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MAXPNAMELEN: u32 = 32u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -6854,7 +5645,33 @@ pub const MCIERR_AVI_OLDAVIFORMAT: u32 = 612u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCIERR_AVI_TOOBIGFORVGA: u32 = 616u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MCIERR_BASE: u32 = 256u32;
+pub const MCIERR_BAD_CONSTANT: u32 = 290u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_BAD_INTEGER: u32 = 270u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_BAD_TIME_FORMAT: u32 = 293u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_CANNOT_LOAD_DRIVER: u32 = 266u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_CANNOT_USE_ALL: u32 = 279u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_CREATEWINDOW: u32 = 347u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_CUSTOM_DRIVER_BASE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_LENGTH: u32 = 310u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_LOCKED: u32 = 288u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_NOT_INSTALLED: u32 = 306u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_NOT_READY: u32 = 276u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_OPEN: u32 = 265u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_ORD_LENGTH: u32 = 311u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DEVICE_TYPE_REQUIRED: u32 = 287u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCIERR_DGV_BAD_CLIPBOARD_RANGE: u32 = 517u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -6867,6 +5684,130 @@ pub const MCIERR_DGV_DISK_FULL: u32 = 515u32;
 pub const MCIERR_DGV_IOERR: u32 = 513u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCIERR_DGV_WORKSPACE_EMPTY: u32 = 514u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DRIVER: u32 = 278u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DRIVER_INTERNAL: u32 = 272u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DUPLICATE_ALIAS: u32 = 289u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_DUPLICATE_FLAGS: u32 = 295u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_EXTENSION_NOT_FOUND: u32 = 281u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_EXTRA_CHARACTERS: u32 = 305u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_FILENAME_REQUIRED: u32 = 304u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_FILE_NOT_FOUND: u32 = 275u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_FILE_NOT_SAVED: u32 = 286u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_FILE_READ: u32 = 348u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_FILE_WRITE: u32 = 349u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_FLAGS_NOT_COMPATIBLE: u32 = 284u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_GET_CD: u32 = 307u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_HARDWARE: u32 = 262u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_ILLEGAL_FOR_AUTO_OPEN: u32 = 303u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_INTERNAL: u32 = 277u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_INVALID_DEVICE_ID: u32 = 257u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_INVALID_DEVICE_NAME: u32 = 263u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_INVALID_FILE: u32 = 296u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_MISSING_COMMAND_STRING: u32 = 267u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_MISSING_DEVICE_NAME: u32 = 292u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_MISSING_PARAMETER: u32 = 273u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_MISSING_STRING_ARGUMENT: u32 = 269u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_MULTIPLE: u32 = 280u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_MUST_USE_SHAREABLE: u32 = 291u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NEW_REQUIRES_ALIAS: u32 = 299u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NONAPPLICABLE_FUNCTION: u32 = 302u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NOTIFY_ON_AUTO_OPEN: u32 = 300u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NO_CLOSING_QUOTE: u32 = 294u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NO_ELEMENT_ALLOWED: u32 = 301u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NO_IDENTITY: u32 = 350u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NO_INTEGER: u32 = 312u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NO_WINDOW: u32 = 346u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_NULL_PARAMETER_BLOCK: u32 = 297u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_OUTOFRANGE: u32 = 282u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_OUT_OF_MEMORY: u32 = 264u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_PARAM_OVERFLOW: u32 = 268u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_PARSER_INTERNAL: u32 = 271u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_DIV_INCOMPATIBLE: u32 = 336u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_NOMIDIPRESENT: u32 = 343u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_PORTUNSPECIFIED: u32 = 342u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_PORT_INUSE: u32 = 337u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_PORT_MAPNODEVICE: u32 = 339u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_PORT_MISCERROR: u32 = 340u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_PORT_NONEXISTENT: u32 = 338u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SEQ_TIMER: u32 = 341u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SET_CD: u32 = 308u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_SET_DRIVE: u32 = 309u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_UNNAMED_RESOURCE: u32 = 298u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_UNRECOGNIZED_COMMAND: u32 = 261u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_UNRECOGNIZED_KEYWORD: u32 = 259u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_UNSUPPORTED_FUNCTION: u32 = 274u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_INPUTSINUSE: u32 = 322u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_INPUTSUNSUITABLE: u32 = 328u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_INPUTUNSPECIFIED: u32 = 325u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_OUTPUTSINUSE: u32 = 320u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_OUTPUTSUNSUITABLE: u32 = 326u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_OUTPUTUNSPECIFIED: u32 = 324u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_SETINPUTINUSE: u32 = 323u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_SETINPUTUNSUITABLE: u32 = 329u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_SETOUTPUTINUSE: u32 = 321u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCIERR_WAVE_SETOUTPUTUNSUITABLE: u32 = 327u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCIWNDF_NOAUTOSIZEMOVIE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -7117,6 +6058,309 @@ pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_CAN_STRETCH: i32 = 16391i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_FAST_RATE: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_MAX_WINDOWS: i32 = 16392i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_NORMAL_RATE: i32 = 16388i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_PALETTES: i32 = 16390i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_GETDEVCAPS_SLOW_RATE: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_INFO_TEXT: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_OPEN_NOSTATIC: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_OPEN_PARENT: i32 = 131072i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_ANIM_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PSTR,
+    pub lpstrElementName: super::super::Foundation::PSTR,
+    pub lpstrAlias: super::super::Foundation::PSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_ANIM_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_ANIM_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PWSTR,
+    pub lpstrElementName: super::super::Foundation::PWSTR,
+    pub lpstrAlias: super::super::Foundation::PWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_ANIM_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_OPEN_WS: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PLAY_FAST: i32 = 262144i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_ANIM_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub dwSpeed: u32,
+}
+impl MCI_ANIM_PLAY_PARMS {}
+impl ::core::default::Default for MCI_ANIM_PLAY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_ANIM_PLAY_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_ANIM_PLAY_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_PLAY_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PLAY_REVERSE: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PLAY_SCAN: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PLAY_SLOW: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PLAY_SPEED: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PUT_DESTINATION: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_PUT_SOURCE: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_REALIZE_BKGD: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_REALIZE_NORM: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_RECT: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_ANIM_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_ANIM_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_RECT_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_RECT_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_RECT_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STATUS_FORWARD: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STATUS_HPAL: i32 = 16388i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STATUS_HWND: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STATUS_SPEED: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STATUS_STRETCH: i32 = 16389i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STEP_FRAMES: i32 = 131072i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_ANIM_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+impl MCI_ANIM_STEP_PARMS {}
+impl ::core::default::Default for MCI_ANIM_STEP_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_ANIM_STEP_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_ANIM_STEP_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_STEP_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_STEP_REVERSE: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_UPDATE_HDC: i32 = 131072i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+pub struct MCI_ANIM_UPDATE_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl MCI_ANIM_UPDATE_PARMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for MCI_ANIM_UPDATE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MCI_ANIM_UPDATE_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MCI_ANIM_UPDATE_PARMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_UPDATE_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WHERE_SOURCE: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WINDOW_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WINDOW_HWND: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_ANIM_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_ANIM_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_WINDOW_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_ANIM_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_ANIM_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_ANIM_WINDOW_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WINDOW_STATE: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ANIM_WINDOW_TEXT: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_AVI_SETVIDEO_DRAW_PROCEDURE: i32 = 32768i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_AVI_SETVIDEO_PALETTE_COLOR: i32 = 33024i32;
@@ -7129,9 +6373,52 @@ pub const MCI_AVI_STATUS_FRAMES_SKIPPED: i32 = 32769i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_AVI_STATUS_LAST_PLAY_SPEED: i32 = 32770i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_BREAK: u32 = 2065u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_BREAK_HWND: i32 = 512i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_BREAK_KEY: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_BREAK_OFF: i32 = 1024i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_BREAK_PARMS {
+    pub dwCallback: usize,
+    pub nVirtKey: i32,
+    pub hwndBreak: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_BREAK_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_BREAK_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_BREAK_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_BREAK_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_BREAK_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_CAPTURE: u32 = 2160u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MCI_CD_OFFSET: u32 = 1088u32;
+pub const MCI_CDA_STATUS_TYPE_TRACK: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_CDA_TRACK_AUDIO: u32 = 1088u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_CDA_TRACK_OTHER: u32 = 1089u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_CLOSE: u32 = 2052u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_CLOSE_DRIVER: u32 = 2050u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -7144,6 +6431,42 @@ pub const MCI_COMMAND_HEAD: u32 = 0u32;
 pub const MCI_CONFIGURE: u32 = 2170u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_CONSTANT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_COPY: u32 = 2130u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_CUE: u32 = 2096u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_CUT: u32 = 2129u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DELETE: u32 = 2134u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_ANIMATION: u32 = 519u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_CD_AUDIO: u32 = 516u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_DAT: u32 = 517u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_DIGITAL_VIDEO: u32 = 520u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_FIRST: u32 = 513u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_FIRST_USER: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_LAST: u32 = 523u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_OTHER: u32 = 521u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_OVERLAY: u32 = 515u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_SCANNER: u32 = 518u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_SEQUENCER: u32 = 523u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_VCR: u32 = 513u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_VIDEODISC: u32 = 514u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_DEVTYPE_WAVEFORM_AUDIO: u32 = 522u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_CAPTURE_AS: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -8711,37 +8034,205 @@ pub const MCI_END_COMMAND_LIST: u32 = 6u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_END_CONSTANT: u32 = 9u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_ESCAPE: u32 = 2053u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FALSE: u32 = 531u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FIRST: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FLAG: u32 = 5u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_BYTES: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_BYTES_S: u32 = 541u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_FRAMES: u32 = 3u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_FRAMES_S: u32 = 536u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_HMS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_HMS_S: u32 = 534u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_MILLISECONDS: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_MILLISECONDS_S: u32 = 533u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_MSF: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_MSF_S: u32 = 535u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_SAMPLES: u32 = 9u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_SAMPLES_S: u32 = 542u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_SMPTE_24: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_SMPTE_24_S: u32 = 537u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_SMPTE_25: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_SMPTE_25_S: u32 = 538u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_SMPTE_30: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_SMPTE_30DROP: u32 = 7u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_SMPTE_30DROP_S: u32 = 540u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_SMPTE_30_S: u32 = 539u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FORMAT_TMSF: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_FORMAT_TMSF_S: u32 = 543u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FREEZE: u32 = 2116u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_FROM: i32 = 4i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_GENERIC_PARMS {
+    pub dwCallback: usize,
+}
+impl MCI_GENERIC_PARMS {}
+impl ::core::default::Default for MCI_GENERIC_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_GENERIC_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_GENERIC_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_GENERIC_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS: u32 = 2059u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_CAN_EJECT: i32 = 7i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_CAN_PLAY: i32 = 8i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_CAN_RECORD: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_CAN_SAVE: i32 = 9i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_COMPOUND_DEVICE: i32 = 6i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_DEVICE_TYPE: i32 = 4i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_HAS_AUDIO: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_HAS_VIDEO: i32 = 3i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_ITEM: i32 = 256i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_GETDEVCAPS_PARMS {
+    pub dwCallback: usize,
+    pub dwReturn: u32,
+    pub dwItem: u32,
+}
+impl MCI_GETDEVCAPS_PARMS {}
+impl ::core::default::Default for MCI_GETDEVCAPS_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_GETDEVCAPS_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_GETDEVCAPS_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_GETDEVCAPS_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_GETDEVCAPS_USES_FILES: i32 = 5i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_HDC: u32 = 12u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_HPAL: u32 = 11u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_HWND: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO: u32 = 2058u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO_COPYRIGHT: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO_FILE: i32 = 512i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO_MEDIA_IDENTITY: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO_MEDIA_UPC: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO_NAME: i32 = 4096i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_INFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: super::super::Foundation::PSTR,
+    pub dwRetSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_INFO_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_INFO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_INFO_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_INFO_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_INFO_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_INFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: super::super::Foundation::PWSTR,
+    pub dwRetSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_INFO_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_INFO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_INFO_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_INFO_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_INFO_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_INFO_PRODUCT: i32 = 256i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_INFO_VERSION: i32 = 1024i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -8751,7 +8242,69 @@ pub const MCI_INTEGER64: u32 = 13u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_INTEGER_RETURNED: u32 = 524288u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_LAST: u32 = 4095u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_LIST: u32 = 2168u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_LOAD: u32 = 2128u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_LOAD_FILE: i32 = 256i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_LOAD_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_LOAD_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_LOAD_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_LOAD_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_LOAD_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_LOAD_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_LOAD_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_LOAD_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_LOAD_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_LOAD_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_LOAD_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_LOAD_PARMSW {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_MAX_DEVICE_TYPE_LENGTH: u32 = 80u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -8761,7 +8314,31 @@ pub const MCI_MCIAVI_PLAY_FULLSCREEN: i32 = 33554432i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_MCIAVI_PLAY_WINDOW: i32 = 16777216i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_NOT_READY: u32 = 524u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_OPEN: u32 = 530u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_PAUSE: u32 = 529u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_PLAY: u32 = 526u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_RECORD: u32 = 527u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_SEEK: u32 = 528u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_MODE_STOP: u32 = 525u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_MONITOR: u32 = 2161u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_NOTIFY: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_NOTIFY_ABORTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_NOTIFY_FAILURE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_NOTIFY_SUCCESSFUL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_NOTIFY_SUPERSEDED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_OFF: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -8770,6 +8347,10 @@ pub const MCI_OFF_S: i32 = 32769i32;
 pub const MCI_ON: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_ON_S: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN: u32 = 2051u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN_ALIAS: i32 = 1024i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_OPEN_DRIVER: u32 = 2049u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8803,6 +8384,425 @@ unsafe impl ::windows::runtime::Abi for MCI_OPEN_DRIVER_PARMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN_ELEMENT: i32 = 512i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN_ELEMENT_ID: i32 = 2048i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PSTR,
+    pub lpstrElementName: super::super::Foundation::PSTR,
+    pub lpstrAlias: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OPEN_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PWSTR,
+    pub lpstrElementName: super::super::Foundation::PWSTR,
+    pub lpstrAlias: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OPEN_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN_SHAREABLE: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN_TYPE: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OPEN_TYPE_ID: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_GETDEVCAPS_CAN_FREEZE: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_INFO_TEXT: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_LOAD_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_LOAD_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_LOAD_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_LOAD_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_LOAD_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_LOAD_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_LOAD_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_LOAD_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_OPEN_PARENT: i32 = 131072i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PSTR,
+    pub lpstrElementName: super::super::Foundation::PSTR,
+    pub lpstrAlias: super::super::Foundation::PSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PWSTR,
+    pub lpstrElementName: super::super::Foundation::PWSTR,
+    pub lpstrAlias: super::super::Foundation::PWSTR,
+    pub dwStyle: u32,
+    pub hWndParent: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_OPEN_WS: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_PUT_DESTINATION: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_PUT_FRAME: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_PUT_SOURCE: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_PUT_VIDEO: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_RECT: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_RECT_PARMS {
+    pub dwCallback: usize,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_RECT_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_RECT_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_RECT_PARMS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_RECT_PARMS {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_SAVE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_SAVE_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PWSTR,
+    pub rc: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_SAVE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_SAVE_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_STATUS_HWND: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_STATUS_STRETCH: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WHERE_DESTINATION: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WHERE_FRAME: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WHERE_SOURCE: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WHERE_VIDEO: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WINDOW_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WINDOW_HWND: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_WINDOW_PARMSA {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_WINDOW_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_OVLY_WINDOW_PARMSW {
+    pub dwCallback: usize,
+    pub hWnd: super::super::Foundation::HWND,
+    pub nCmdShow: u32,
+    pub lpstrText: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_OVLY_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_OVLY_WINDOW_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WINDOW_STATE: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_OVLY_WINDOW_TEXT: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_PASTE: u32 = 2131u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_PAUSE: u32 = 2057u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_PLAY: u32 = 2054u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+impl MCI_PLAY_PARMS {}
+impl ::core::default::Default for MCI_PLAY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_PLAY_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_PLAY_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_PLAY_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_PUT: u32 = 2114u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_QUALITY: u32 = 2167u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_QUALITY_ALG: i32 = 262144i32;
@@ -8821,6 +8821,37 @@ pub const MCI_QUALITY_ITEM_VIDEO: i32 = 16386i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_QUALITY_NAME: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_REALIZE: u32 = 2112u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_RECORD: u32 = 2063u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_RECORD_INSERT: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_RECORD_OVERWRITE: i32 = 512i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_RECORD_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+impl MCI_RECORD_PARMS {}
+impl ::core::default::Default for MCI_RECORD_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_RECORD_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_RECORD_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_RECORD_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_RECT: u32 = 7u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_RESERVE: u32 = 2162u32;
@@ -8831,286 +8862,728 @@ pub const MCI_RESOURCE_RETURNED: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_RESTORE: u32 = 2171u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_RESUME: u32 = 2133u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_RETURN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SAVE: u32 = 2067u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SAVE_FILE: i32 = 256i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_SAVE_PARMSA {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_SAVE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_SAVE_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_SAVE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_SAVE_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_SAVE_PARMSW {
+    pub dwCallback: usize,
+    pub lpfilename: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_SAVE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_SAVE_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_SAVE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_SAVE_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEEK: u32 = 2055u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_SEEK_PARMS {
+    pub dwCallback: usize,
+    pub dwTo: u32,
+}
+impl MCI_SEEK_PARMS {}
+impl ::core::default::Default for MCI_SEEK_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_SEEK_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_SEEK_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_SEEK_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEEK_TO_END: i32 = 512i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEEK_TO_START: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_FILE: u32 = 16386u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SEQ_FILE_S: u32 = 1222u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_FORMAT_SONGPTR: u32 = 16385u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SEQ_FORMAT_SONGPTR_S: u32 = 1225u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_MAPPER: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SEQ_MAPPER_S: u32 = 1221u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_MIDI: u32 = 16387u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SEQ_MIDI_S: u32 = 1223u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_NONE: u32 = 65533u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SEQ_NONE_S: u32 = 1226u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MCI_SEQ_OFFSET: u32 = 1216u32;
+pub const MCI_SEQ_SET_MASTER: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_SET_OFFSET: i32 = 16777216i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_SEQ_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub dwTempo: u32,
+    pub dwPort: u32,
+    pub dwSlave: u32,
+    pub dwMaster: u32,
+    pub dwOffset: u32,
+}
+impl MCI_SEQ_SET_PARMS {}
+impl ::core::default::Default for MCI_SEQ_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_SEQ_SET_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_SEQ_SET_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_SEQ_SET_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_SET_PORT: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_SET_SLAVE: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_SET_TEMPO: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_SMPTE: u32 = 16388u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SEQ_SMPTE_S: u32 = 1224u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_COPYRIGHT: i32 = 16396i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_DIVTYPE: i32 = 16394i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_MASTER: i32 = 16392i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_NAME: i32 = 16395i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_OFFSET: i32 = 16393i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_PORT: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_SLAVE: i32 = 16391i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SEQ_STATUS_TEMPO: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET: u32 = 2061u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SETAUDIO: u32 = 2163u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SETVIDEO: u32 = 2166u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_AUDIO: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_AUDIO_ALL: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_AUDIO_LEFT: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_AUDIO_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_DOOR_CLOSED: i32 = 512i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_DOOR_OPEN: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_OFF: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_ON: i32 = 8192i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+}
+impl MCI_SET_PARMS {}
+impl ::core::default::Default for MCI_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_SET_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_SET_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_SET_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_TIME_FORMAT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SET_VIDEO: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_SIGNAL: u32 = 2165u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SPIN: u32 = 2060u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS: u32 = 2068u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_CURRENT_TRACK: i32 = 8i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_ITEM: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_LENGTH: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_MEDIA_PRESENT: i32 = 5i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_MODE: i32 = 4i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_NUMBER_OF_TRACKS: i32 = 3i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_STATUS_PARMS {
+    pub dwCallback: usize,
+    pub dwReturn: usize,
+    pub dwItem: u32,
+    pub dwTrack: u32,
+}
+impl MCI_STATUS_PARMS {}
+impl ::core::default::Default for MCI_STATUS_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_STATUS_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_STATUS_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_STATUS_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_POSITION: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_READY: i32 = 7i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_START: i32 = 512i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STATUS_TIME_FORMAT: i32 = 6i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STEP: u32 = 2062u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_STOP: u32 = 2056u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_STRING: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MCI_STRING_OFFSET: u32 = 512u32;
+pub const MCI_SYSINFO: u32 = 2064u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SYSINFO_INSTALLNAME: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SYSINFO_NAME: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SYSINFO_OPEN: i32 = 512i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_SYSINFO_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrReturn: super::super::Foundation::PSTR,
+    pub dwRetSize: u32,
+    pub dwNumber: u32,
+    pub wDeviceType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_SYSINFO_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_SYSINFO_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_SYSINFO_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_SYSINFO_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_SYSINFO_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrReturn: super::super::Foundation::PWSTR,
+    pub dwRetSize: u32,
+    pub dwNumber: u32,
+    pub wDeviceType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_SYSINFO_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_SYSINFO_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_SYSINFO_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_SYSINFO_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_SYSINFO_QUANTITY: i32 = 256i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_TEST: i32 = 32i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_TO: i32 = 8i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_TRACK: i32 = 16i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_TRUE: u32 = 532u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_UNDO: u32 = 2169u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_UNFREEZE: u32 = 2117u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_UPDATE: u32 = 2132u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_USER_MESSAGES: u32 = 3072u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_VD_ESCAPE_PARMSA {
+    pub dwCallback: usize,
+    pub lpstrCommand: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_VD_ESCAPE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_VD_ESCAPE_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_VD_ESCAPE_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_VD_ESCAPE_PARMSW {
+    pub dwCallback: usize,
+    pub lpstrCommand: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_VD_ESCAPE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_VD_ESCAPE_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_VD_ESCAPE_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_ESCAPE_STRING: i32 = 256i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_FORMAT_TRACK: u32 = 16385u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_VD_FORMAT_TRACK_S: u32 = 1029u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MCI_VD_OFFSET: u32 = 1024u32;
+pub const MCI_VD_GETDEVCAPS_CAN_REVERSE: i32 = 16386i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MCI_WAVE_OFFSET: u32 = 1152u32;
+pub const MCI_VD_GETDEVCAPS_CAV: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_GETDEVCAPS_CLV: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_GETDEVCAPS_FAST_RATE: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_GETDEVCAPS_NORMAL_RATE: i32 = 16389i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_GETDEVCAPS_SLOW_RATE: i32 = 16388i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_MEDIA_CAV: u32 = 1027u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_MEDIA_CLV: u32 = 1026u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_MEDIA_OTHER: u32 = 1028u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_MODE_PARK: u32 = 1025u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_PLAY_FAST: i32 = 131072i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_VD_PLAY_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+    pub dwSpeed: u32,
+}
+impl MCI_VD_PLAY_PARMS {}
+impl ::core::default::Default for MCI_VD_PLAY_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_VD_PLAY_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_VD_PLAY_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_VD_PLAY_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_PLAY_REVERSE: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_PLAY_SCAN: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_PLAY_SLOW: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_PLAY_SPEED: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_SEEK_REVERSE: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_SPIN_DOWN: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_SPIN_UP: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STATUS_DISC_SIZE: i32 = 16390i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STATUS_FORWARD: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STATUS_MEDIA_TYPE: i32 = 16388i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STATUS_SIDE: i32 = 16389i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STATUS_SPEED: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STEP_FRAMES: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_VD_STEP_PARMS {
+    pub dwCallback: usize,
+    pub dwFrames: u32,
+}
+impl MCI_VD_STEP_PARMS {}
+impl ::core::default::Default for MCI_VD_STEP_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_VD_STEP_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_VD_STEP_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_VD_STEP_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_VD_STEP_REVERSE: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAIT: i32 = 2i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_WAVE_DELETE_PARMS {
+    pub dwCallback: usize,
+    pub dwFrom: u32,
+    pub dwTo: u32,
+}
+impl MCI_WAVE_DELETE_PARMS {}
+impl ::core::default::Default for MCI_WAVE_DELETE_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_WAVE_DELETE_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_WAVE_DELETE_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_WAVE_DELETE_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_GETDEVCAPS_OUTPUTS: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_INPUT: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_MAPPER: u32 = 1153u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_OPEN_BUFFER: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_WAVE_OPEN_PARMSA {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PSTR,
+    pub lpstrElementName: super::super::Foundation::PSTR,
+    pub lpstrAlias: super::super::Foundation::PSTR,
+    pub dwBufferSeconds: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_WAVE_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_WAVE_OPEN_PARMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_WAVE_OPEN_PARMSA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+pub struct MCI_WAVE_OPEN_PARMSW {
+    pub dwCallback: usize,
+    pub wDeviceID: u32,
+    pub lpstrDeviceType: super::super::Foundation::PWSTR,
+    pub lpstrElementName: super::super::Foundation::PWSTR,
+    pub lpstrAlias: super::super::Foundation::PWSTR,
+    pub dwBufferSeconds: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MCI_WAVE_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MCI_WAVE_OPEN_PARMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MCI_WAVE_OPEN_PARMSW {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_OUTPUT: i32 = 8388608i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_PCM: u32 = 1152u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_ANYINPUT: i32 = 67108864i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_ANYOUTPUT: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_AVGBYTESPERSEC: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_BITSPERSAMPLE: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_BLOCKALIGN: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_CHANNELS: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_FORMATTAG: i32 = 65536i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct MCI_WAVE_SET_PARMS {
+    pub dwCallback: usize,
+    pub dwTimeFormat: u32,
+    pub dwAudio: u32,
+    pub wInput: u32,
+    pub wOutput: u32,
+    pub wFormatTag: u16,
+    pub wReserved2: u16,
+    pub nChannels: u16,
+    pub wReserved3: u16,
+    pub nSamplesPerSec: u32,
+    pub nAvgBytesPerSec: u32,
+    pub nBlockAlign: u16,
+    pub wReserved4: u16,
+    pub wBitsPerSample: u16,
+    pub wReserved5: u16,
+}
+impl MCI_WAVE_SET_PARMS {}
+impl ::core::default::Default for MCI_WAVE_SET_PARMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for MCI_WAVE_SET_PARMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for MCI_WAVE_SET_PARMS {}
+unsafe impl ::windows::runtime::Abi for MCI_WAVE_SET_PARMS {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_AVGBYTESPERSEC: i32 = 16388i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_BITSPERSAMPLE: i32 = 16390i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_BLOCKALIGN: i32 = 16389i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_CHANNELS: i32 = 16386i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_FORMATTAG: i32 = 16385i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_LEVEL: i32 = 16391i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WAVE_STATUS_SAMPLESPERSEC: i32 = 16387i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WHERE: u32 = 2115u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub const MCI_WINDOW: u32 = 2113u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCMADM_E_REGKEY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889750i32 as _);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCMADM_I_NO_EVENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593897i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl MEDIASPACEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MEDIASPACEADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for MEDIASPACEADPCMWAVEFORMAT {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MEVT_F_LONG: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MEVT_F_SHORT: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MHDR_DONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MHDR_INQUEUE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MHDR_ISSTRM: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MHDR_PREPARED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDICAPS_CACHE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDICAPS_LRVOLUME: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDICAPS_STREAM: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDICAPS_VOLUME: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_BADOPENMODE: u32 = 70u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_BASE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_DONT_CONTINUE: u32 = 71u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_INVALIDSETUP: u32 = 69u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_LASTERROR: u32 = 71u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_NODEVICE: u32 = 68u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_NOMAP: u32 = 66u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_NOTREADY: u32 = 67u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_STILLPLAYING: u32 = 65u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIERR_UNPREPARED: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIEVENT {
-    pub dwDeltaTime: u32,
-    pub dwStreamID: u32,
-    pub dwEvent: u32,
-    pub dwParms: [u32; 1],
-}
-impl MIDIEVENT {}
-impl ::core::default::Default for MIDIEVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIEVENT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIEVENT {}
-unsafe impl ::windows::runtime::Abi for MIDIEVENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIDIHDR {
-    pub lpData: super::super::Foundation::PSTR,
-    pub dwBufferLength: u32,
-    pub dwBytesRecorded: u32,
-    pub dwUser: usize,
-    pub dwFlags: u32,
-    pub lpNext: *mut MIDIHDR,
-    pub reserved: usize,
-    pub dwOffset: u32,
-    pub dwReserved: [usize; 8],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIDIHDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIDIHDR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIDIHDR {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIDIHDR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIDIHDR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIDIINCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIDIINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIDIINCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIDIINCAPS2A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIDIINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIDIINCAPS2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIINCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-impl MIDIINCAPS2W {}
-impl ::core::default::Default for MIDIINCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIINCAPS2W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIINCAPS2W {}
-unsafe impl ::windows::runtime::Abi for MIDIINCAPS2W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIDIINCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub dwSupport: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIDIINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIDIINCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIDIINCAPSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIDIINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIDIINCAPSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIINCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub dwSupport: u32,
-}
-impl MIDIINCAPSW {}
-impl ::core::default::Default for MIDIINCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIINCAPSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIINCAPSW {}
-unsafe impl ::windows::runtime::Abi for MIDIINCAPSW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -9137,285 +9610,10 @@ impl ::core::cmp::Eq for MIDIOPENSTRMID {}
 unsafe impl ::windows::runtime::Abi for MIDIOPENSTRMID {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIDIOUTCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIDIOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIDIOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIDIOUTCAPS2A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIDIOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIOUTCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-impl MIDIOUTCAPS2W {}
-impl ::core::default::Default for MIDIOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIOUTCAPS2W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIOUTCAPS2W {}
-unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIDIOUTCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIDIOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIDIOUTCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIDIOUTCAPSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIDIOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIOUTCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub wTechnology: u16,
-    pub wVoices: u16,
-    pub wNotes: u16,
-    pub wChannelMask: u16,
-    pub dwSupport: u32,
-}
-impl MIDIOUTCAPSW {}
-impl ::core::default::Default for MIDIOUTCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIOUTCAPSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIOUTCAPSW {}
-unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIPATCHSIZE: u32 = 128u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIPROPTEMPO {
-    pub cbStruct: u32,
-    pub dwTempo: u32,
-}
-impl MIDIPROPTEMPO {}
-impl ::core::default::Default for MIDIPROPTEMPO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIPROPTEMPO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIPROPTEMPO {}
-unsafe impl ::windows::runtime::Abi for MIDIPROPTEMPO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDIPROPTIMEDIV {
-    pub cbStruct: u32,
-    pub dwTimeDiv: u32,
-}
-impl MIDIPROPTIMEDIV {}
-impl ::core::default::Default for MIDIPROPTIMEDIV {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDIPROPTIMEDIV {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDIPROPTIMEDIV {}
-unsafe impl ::windows::runtime::Abi for MIDIPROPTIMEDIV {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIPROP_GET: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIPROP_SET: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIPROP_TEMPO: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDIPROP_TIMEDIV: i32 = 1i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIDISTRMBUFFVER {
-    pub dwVersion: u32,
-    pub dwMid: u32,
-    pub dwOEMVersion: u32,
-}
-impl MIDISTRMBUFFVER {}
-impl ::core::default::Default for MIDISTRMBUFFVER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIDISTRMBUFFVER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIDISTRMBUFFVER {}
-unsafe impl ::windows::runtime::Abi for MIDISTRMBUFFVER {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDISTRM_ERROR: i32 = -2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDI_CACHE_ALL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDI_CACHE_BESTFIT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDI_CACHE_QUERY: u32 = 3u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDI_IO_COOKED: i32 = 2i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDI_IO_PACKED: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIDI_UNCACHE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
-pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
-pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(0u32);
-pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
-pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
-pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(196608u32);
-pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
-pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(327680u32);
-pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(1u32);
-pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
-pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
-pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
-pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
-pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
-pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
-impl ::core::convert::From<u32> for MIDI_WAVE_OPEN_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for MIDI_WAVE_OPEN_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MIDI_WAVE_OPEN_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MIDI_WAVE_OPEN_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MIDI_WAVE_OPEN_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MIDI_WAVE_OPEN_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MIDI_WAVE_OPEN_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDM_ADDBUFFER: u32 = 59u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -9445,1108 +9643,42 @@ pub const MIDM_UNPREPARE: u32 = 58u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDM_USER: u32 = 16384u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_CLOSE: u32 = 962u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_DATA: u32 = 963u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_ERROR: u32 = 965u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_LONGDATA: u32 = 964u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_LONGERROR: u32 = 966u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_MOREDATA: u32 = 972u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIM_OPEN: u32 = 961u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCAPS2A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCAPS2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-impl MIXERCAPS2W {}
-impl ::core::default::Default for MIXERCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCAPS2W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCAPS2W {}
-unsafe impl ::windows::runtime::Abi for MIXERCAPS2W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCAPSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCAPSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub fdwSupport: u32,
-    pub cDestinations: u32,
-}
-impl MIXERCAPSW {}
-impl ::core::default::Default for MIXERCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCAPSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCAPSW {}
-unsafe impl ::windows::runtime::Abi for MIXERCAPSW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERCONTROLA {
-    pub cbStruct: u32,
-    pub dwControlID: u32,
-    pub dwControlType: u32,
-    pub fdwControl: u32,
-    pub cMultipleItems: u32,
-    pub szShortName: [super::super::Foundation::CHAR; 16],
-    pub szName: [super::super::Foundation::CHAR; 64],
-    pub Bounds: MIXERCONTROLA_0,
-    pub Metrics: MIXERCONTROLA_1,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub union MIXERCONTROLA_0 {
-    pub Anonymous1: MIXERCONTROLA_0_0,
-    pub Anonymous2: MIXERCONTROLA_0_1,
-    pub dwReserved: [u32; 6],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLA_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MIXERCONTROLA_0_0 {
-    pub lMinimum: i32,
-    pub lMaximum: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLA_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLA_0_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MIXERCONTROLA_0_1 {
-    pub dwMinimum: u32,
-    pub dwMaximum: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLA_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLA_0_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub union MIXERCONTROLA_1 {
-    pub cSteps: u32,
-    pub cbCustomData: u32,
-    pub dwReserved: [u32; 6],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLA_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLA_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLA_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLA_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERCONTROLDETAILS {
-    pub cbStruct: u32,
-    pub dwControlID: u32,
-    pub cChannels: u32,
-    pub Anonymous: MIXERCONTROLDETAILS_0,
-    pub cbDetails: u32,
-    pub paDetails: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLDETAILS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLDETAILS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub union MIXERCONTROLDETAILS_0 {
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub cMultipleItems: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLDETAILS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLDETAILS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLDETAILS_BOOLEAN {
-    pub fValue: i32,
-}
-impl MIXERCONTROLDETAILS_BOOLEAN {}
-impl ::core::default::Default for MIXERCONTROLDETAILS_BOOLEAN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_BOOLEAN {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS_BOOLEAN {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_BOOLEAN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERCONTROLDETAILS_LISTTEXTA {
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERCONTROLDETAILS_LISTTEXTA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERCONTROLDETAILS_LISTTEXTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLDETAILS_LISTTEXTW {
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub szName: [u16; 64],
-}
-impl MIXERCONTROLDETAILS_LISTTEXTW {}
-impl ::core::default::Default for MIXERCONTROLDETAILS_LISTTEXTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTW {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLDETAILS_SIGNED {
-    pub lValue: i32,
-}
-impl MIXERCONTROLDETAILS_SIGNED {}
-impl ::core::default::Default for MIXERCONTROLDETAILS_SIGNED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_SIGNED {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS_SIGNED {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_SIGNED {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLDETAILS_UNSIGNED {
-    pub dwValue: u32,
-}
-impl MIXERCONTROLDETAILS_UNSIGNED {}
-impl ::core::default::Default for MIXERCONTROLDETAILS_UNSIGNED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLDETAILS_UNSIGNED {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLDETAILS_UNSIGNED {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_UNSIGNED {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLW {
-    pub cbStruct: u32,
-    pub dwControlID: u32,
-    pub dwControlType: u32,
-    pub fdwControl: u32,
-    pub cMultipleItems: u32,
-    pub szShortName: [u16; 16],
-    pub szName: [u16; 64],
-    pub Bounds: MIXERCONTROLW_0,
-    pub Metrics: MIXERCONTROLW_1,
-}
-impl MIXERCONTROLW {}
-impl ::core::default::Default for MIXERCONTROLW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLW {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub union MIXERCONTROLW_0 {
-    pub Anonymous1: MIXERCONTROLW_0_0,
-    pub Anonymous2: MIXERCONTROLW_0_1,
-    pub dwReserved: [u32; 6],
-}
-impl MIXERCONTROLW_0 {}
-impl ::core::default::Default for MIXERCONTROLW_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLW_0 {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLW_0_0 {
-    pub lMinimum: i32,
-    pub lMaximum: i32,
-}
-impl MIXERCONTROLW_0_0 {}
-impl ::core::default::Default for MIXERCONTROLW_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLW_0_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLW_0_0 {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERCONTROLW_0_1 {
-    pub dwMinimum: u32,
-    pub dwMaximum: u32,
-}
-impl MIXERCONTROLW_0_1 {}
-impl ::core::default::Default for MIXERCONTROLW_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLW_0_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLW_0_1 {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub union MIXERCONTROLW_1 {
-    pub cSteps: u32,
-    pub cbCustomData: u32,
-    pub dwReserved: [u32; 6],
-}
-impl MIXERCONTROLW_1 {}
-impl ::core::default::Default for MIXERCONTROLW_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERCONTROLW_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERCONTROLW_1 {}
-unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_1 {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLF_DISABLED: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLF_MULTIPLE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLF_UNIFORM: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_BASS: u32 = 1342373890u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_BASS_BOOST: u32 = 536945271u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_BOOLEAN: u32 = 536936448u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_BOOLEANMETER: u32 = 268500992u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_BUTTON: u32 = 553713664u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_CUSTOM: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_DECIBELS: u32 = 805568512u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_EQUALIZER: u32 = 1342373892u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_FADER: u32 = 1342373888u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_LOUDNESS: u32 = 536936452u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MICROTIME: u32 = 1610809344u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MILLITIME: u32 = 1627586560u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MIXER: u32 = 1895890945u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MONO: u32 = 536936451u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MULTIPLESELECT: u32 = 1895890944u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MUTE: u32 = 536936450u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_MUX: u32 = 1879113729u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_ONOFF: u32 = 536936449u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_PAN: u32 = 1073872897u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_PEAKMETER: u32 = 268566529u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_PERCENT: u32 = 805634048u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_QSOUNDPAN: u32 = 1073872898u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_SIGNED: u32 = 805437440u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_SIGNEDMETER: u32 = 268566528u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_SINGLESELECT: u32 = 1879113728u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_SLIDER: u32 = 1073872896u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERCONTROL_CONTROLTYPE_SRS_MTS: u32 = 536936454u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERCONTROL_CONTROLTYPE_SRS_ONOFF: u32 = 536936455u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT: u32 = 536936456u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_STEREOENH: u32 = 536936453u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_TREBLE: u32 = 1342373891u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_UNSIGNED: u32 = 805502976u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_UNSIGNEDMETER: u32 = 268632064u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CONTROLTYPE_VOLUME: u32 = 1342373889u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_CUSTOM: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_FADER: i32 = 1342177280i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_LIST: i32 = 1879048192i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_MASK: i32 = -268435456i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_METER: i32 = 268435456i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_NUMBER: i32 = 805306368i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_SLIDER: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_SWITCH: i32 = 536870912i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_CLASS_TIME: i32 = 1610612736i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_LIST_MULTIPLE: i32 = 16777216i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_LIST_SINGLE: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_METER_POLLED: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_SWITCH_BOOLEAN: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_SWITCH_BUTTON: i32 = 16777216i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_TIME_MICROSECS: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SC_TIME_MILLISECS: i32 = 16777216i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_SUBCLASS_MASK: i32 = 251658240i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_BOOLEAN: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_CUSTOM: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_DECIBELS: i32 = 262144i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_MASK: i32 = 16711680i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERLINEA {
-    pub cbStruct: u32,
-    pub dwDestination: u32,
-    pub dwSource: u32,
-    pub dwLineID: u32,
-    pub fdwLine: u32,
-    pub dwUser: usize,
-    pub dwComponentType: MIXERLINE_COMPONENTTYPE,
-    pub cChannels: u32,
-    pub cConnections: u32,
-    pub cControls: u32,
-    pub szShortName: [super::super::Foundation::CHAR; 16],
-    pub szName: [super::super::Foundation::CHAR; 64],
-    pub Target: MIXERLINEA_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERLINEA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERLINEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERLINEA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERLINEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERLINEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MIXERLINEA_0 {
-    pub dwType: u32,
-    pub dwDeviceID: u32,
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERLINEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERLINEA_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERLINEA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERLINEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERLINEA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct MIXERLINECONTROLSA {
-    pub cbStruct: u32,
-    pub dwLineID: u32,
-    pub Anonymous: MIXERLINECONTROLSA_0,
-    pub cControls: u32,
-    pub cbmxctrl: u32,
-    pub pamxctrl: *mut MIXERCONTROLA,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERLINECONTROLSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERLINECONTROLSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-pub union MIXERLINECONTROLSA_0 {
-    pub dwControlID: u32,
-    pub dwControlType: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MIXERLINECONTROLSA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MIXERLINECONTROLSA_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MIXERLINECONTROLSA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MIXERLINECONTROLSA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERLINECONTROLSW {
-    pub cbStruct: u32,
-    pub dwLineID: u32,
-    pub Anonymous: MIXERLINECONTROLSW_0,
-    pub cControls: u32,
-    pub cbmxctrl: u32,
-    pub pamxctrl: *mut MIXERCONTROLW,
-}
-impl MIXERLINECONTROLSW {}
-impl ::core::default::Default for MIXERLINECONTROLSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERLINECONTROLSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERLINECONTROLSW {}
-unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub union MIXERLINECONTROLSW_0 {
-    pub dwControlID: u32,
-    pub dwControlType: u32,
-}
-impl MIXERLINECONTROLSW_0 {}
-impl ::core::default::Default for MIXERLINECONTROLSW_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERLINECONTROLSW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERLINECONTROLSW_0 {}
-unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSW_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERLINEW {
-    pub cbStruct: u32,
-    pub dwDestination: u32,
-    pub dwSource: u32,
-    pub dwLineID: u32,
-    pub fdwLine: u32,
-    pub dwUser: usize,
-    pub dwComponentType: MIXERLINE_COMPONENTTYPE,
-    pub cChannels: u32,
-    pub cConnections: u32,
-    pub cControls: u32,
-    pub szShortName: [u16; 16],
-    pub szName: [u16; 64],
-    pub Target: MIXERLINEW_0,
-}
-impl MIXERLINEW {}
-impl ::core::default::Default for MIXERLINEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERLINEW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERLINEW {}
-unsafe impl ::windows::runtime::Abi for MIXERLINEW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MIXERLINEW_0 {
-    pub dwType: u32,
-    pub dwDeviceID: u32,
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-}
-impl MIXERLINEW_0 {}
-impl ::core::default::Default for MIXERLINEW_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MIXERLINEW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MIXERLINEW_0 {}
-unsafe impl ::windows::runtime::Abi for MIXERLINEW_0 {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MIXERLINE_COMPONENTTYPE(pub u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
-impl ::core::convert::From<u32> for MIXERLINE_COMPONENTTYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for MIXERLINE_COMPONENTTYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MIXERLINE_COMPONENTTYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MIXERLINE_COMPONENTTYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MIXERLINE_COMPONENTTYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MIXERLINE_COMPONENTTYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MIXERLINE_COMPONENTTYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_FIRST: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_LAST: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_FIRST: i32 = 4096i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_LAST: u32 = 4106u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_LINEF_ACTIVE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_LINEF_DISCONNECTED: i32 = 32768i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_LINEF_SOURCE: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_TARGETTYPE_AUX: u32 = 5u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_TARGETTYPE_MIDIIN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_TARGETTYPE_MIDIOUT: u32 = 3u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_TARGETTYPE_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_TARGETTYPE_WAVEIN: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERLINE_TARGETTYPE_WAVEOUT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct MIXEROPENDESC {
-    pub hmx: HMIXER,
+    pub hmx: super::Audio::HMIXER,
     pub pReserved0: *mut ::core::ffi::c_void,
     pub dwCallback: usize,
     pub dwInstance: usize,
     pub dnDevNode: usize,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl MIXEROPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MIXEROPENDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for MIXEROPENDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for MIXEROPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for MIXEROPENDESC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERR_BASE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERR_INVALCONTROL: u32 = 1025u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERR_INVALLINE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERR_INVALVALUE: u32 = 1026u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXERR_LASTERROR: u32 = 1026u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETCONTROLDETAILSF_LISTTEXT: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETCONTROLDETAILSF_VALUE: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINECONTROLSF_ALL: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINECONTROLSF_ONEBYID: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINECONTROLSF_ONEBYTYPE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINECONTROLSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINEINFOF_COMPONENTTYPE: i32 = 3i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINEINFOF_DESTINATION: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINEINFOF_LINEID: i32 = 2i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINEINFOF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINEINFOF_SOURCE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_GETLINEINFOF_TARGETTYPE: i32 = 4i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_LONG_NAME_CHARS: u32 = 64u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_AUX: i32 = 1342177280i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_HANDLE: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_MIDIIN: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_MIDIOUT: i32 = 805306368i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_MIXER: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_WAVEIN: i32 = 536870912i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_OBJECTF_WAVEOUT: i32 = 268435456i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_SETCONTROLDETAILSF_CUSTOM: i32 = 1i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -10606,21 +9738,21 @@ pub const MMIOERR_SHARINGVIOLATION: u32 = 269u32;
 pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MMIOINFO {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
     pub pIOProc: ::core::option::Option<LPMMIOPROC>,
     pub wErrorRet: u32,
-    pub htask: super::Audio::CoreAudio::HTASK,
+    pub htask: super::HTASK,
     pub cchBuffer: i32,
     pub pchBuffer: *mut i8,
     pub pchNext: *mut i8,
@@ -10633,23 +9765,23 @@ pub struct MMIOINFO {
     pub dwReserved2: u32,
     pub hmmio: HMMIO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[cfg(feature = "Win32_Foundation")]
 impl MMIOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MMIOINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MMIOINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MMIOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMIOINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -10732,155 +9864,6 @@ pub const MMIO_UNICODEPROC: u32 = 16777216u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMIO_WRITE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_ALLOCATED: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_BADDB: u32 = 14u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_BADDEVICEID: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_BADERRNUM: u32 = 9u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_BASE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_DELETEERROR: u32 = 18u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_ERROR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_HANDLEBUSY: u32 = 12u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_INVALFLAG: u32 = 10u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_INVALHANDLE: u32 = 5u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_INVALIDALIAS: u32 = 13u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_INVALPARAM: u32 = 11u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_KEYNOTFOUND: u32 = 15u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_LASTERROR: u32 = 21u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_MOREDATA: u32 = 21u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_NODRIVER: u32 = 6u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_NODRIVERCB: u32 = 20u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_NOERROR: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_NOMEM: u32 = 7u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_NOTENABLED: u32 = 3u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_READERROR: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MMSYSERR_WRITEERROR: u32 = 17u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MMTIME {
-    pub wType: u32,
-    pub u: MMTIME_0,
-}
-impl MMTIME {}
-impl ::core::default::Default for MMTIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MMTIME {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MMTIME {}
-unsafe impl ::windows::runtime::Abi for MMTIME {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub union MMTIME_0 {
-    pub ms: u32,
-    pub sample: u32,
-    pub cb: u32,
-    pub ticks: u32,
-    pub smpte: MMTIME_0_1,
-    pub midi: MMTIME_0_0,
-}
-impl MMTIME_0 {}
-impl ::core::default::Default for MMTIME_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MMTIME_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MMTIME_0 {}
-unsafe impl ::windows::runtime::Abi for MMTIME_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MMTIME_0_0 {
-    pub songptrpos: u32,
-}
-impl MMTIME_0_0 {}
-impl ::core::default::Default for MMTIME_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for MMTIME_0_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MMTIME_0_0 {}
-unsafe impl ::windows::runtime::Abi for MMTIME_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct MMTIME_0_1 {
-    pub hour: u8,
-    pub min: u8,
-    pub sec: u8,
-    pub frame: u8,
-    pub fps: u8,
-    pub dummy: u8,
-    pub pad: [u8; 2],
-}
-impl MMTIME_0_1 {}
-impl ::core::default::Default for MMTIME_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for MMTIME_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_smpte_e__Struct").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MMTIME_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
-    }
-}
-impl ::core::cmp::Eq for MMTIME_0_1 {}
-unsafe impl ::windows::runtime::Abi for MMTIME_0_1 {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_3COM: u32 = 260u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_3COM_CB_MIXER: u32 = 1u32;
@@ -10900,16 +9883,6 @@ pub const MM_AARDVARK_STUDIO12_WAVEOUT: u32 = 1u32;
 pub const MM_AARDVARK_STUDIO88_WAVEIN: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_AARDVARK_STUDIO88_WAVEOUT: u32 = 3u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_ACM_CLOSE: u32 = 981u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_ACM_DONE: u32 = 982u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_ACM_FILTERCHOOSE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_ACM_FORMATCHOOSE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_ACM_OPEN: u32 = 980u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_ACTIVEVOICE: u32 = 225u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -10932,8 +9905,6 @@ pub const MM_ADDX_PCTV_WAVEIN: u32 = 2u32;
 pub const MM_ADDX_PCTV_WAVEOUT: u32 = 3u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_ADLACC: u32 = 91u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_ADLIB: u32 = 9u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_ADMOS: u32 = 235u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -11541,14 +10512,6 @@ pub const MM_DOLBY: u32 = 78u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_DPSINC: u32 = 191u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_DRVM_CLOSE: u32 = 977u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_DRVM_DATA: u32 = 978u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_DRVM_ERROR: u32 = 979u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_DRVM_OPEN: u32 = 976u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_DSP_GROUP: u32 = 43u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_DSP_GROUP_TRUESPEECH: u32 = 1u32;
@@ -12043,22 +11006,6 @@ pub const MM_I_LINK: u32 = 233u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_I_LINK_VOICE_CODER: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY1BUTTONDOWN: u32 = 949u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY1BUTTONUP: u32 = 951u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY1MOVE: u32 = 928u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY1ZMOVE: u32 = 930u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY2BUTTONDOWN: u32 = 950u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY2BUTTONUP: u32 = 952u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY2MOVE: u32 = 929u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_JOY2ZMOVE: u32 = 931u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_KAY_ELEMETRICS: u32 = 131u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_KAY_ELEMETRICS_CSL: u32 = 17152u32;
@@ -12143,10 +11090,6 @@ pub const MM_MATSUSHITA_WAVEIN: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MATSUSHITA_WAVEOUT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MCINOTIFY: u32 = 953u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MCISIGNAL: u32 = 971u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MEDIASONIC: u32 = 71u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MEDIASONIC_ACM_G723: u32 = 1u32;
@@ -12192,24 +11135,6 @@ pub const MM_MICRONAS: u32 = 251u32;
 pub const MM_MICRONAS_CLP833: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MICRONAS_SC4: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MICROSOFT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIDI_MAPPER: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_CLOSE: u32 = 962u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_DATA: u32 = 963u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_ERROR: u32 = 965u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_LONGDATA: u32 = 964u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_LONGERROR: u32 = 966u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_MOREDATA: u32 = 972u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIM_OPEN: u32 = 961u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MINDMAKER: u32 = 263u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -12269,23 +11194,11 @@ pub const MM_MITEL_TALKTO_LINE_WAVEIN: u32 = 101u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MITEL_TALKTO_LINE_WAVEOUT: u32 = 100u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIXM_CONTROL_CHANGE: u32 = 977u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MIXM_LINE_CHANGE: u32 = 976u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MMOTION_WAVEAUX: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MMOTION_WAVEIN: u32 = 3u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MMOTION_WAVEOUT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MOM_CLOSE: u32 = 968u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MOM_DONE: u32 = 969u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MOM_OPEN: u32 = 967u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MOM_POSITIONCB: u32 = 970u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MOSCOM: u32 = 68u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -12620,10 +11533,6 @@ pub const MM_MOTU_PKX_MIDI_OUT_B: u32 = 702u32;
 pub const MM_MPTUS: u32 = 95u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MPTUS_SPWAVEOUT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MPU401_MIDIIN: u32 = 11u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_MPU401_MIDIOUT: u32 = 10u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_MSFT_ACM_G711: u32 = 37u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -13061,8 +11970,6 @@ pub const MM_PACIFICRESEARCH: u32 = 210u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_PCSPEAKER_WAVEOUT: u32 = 13u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_PC_JOYSTICK: u32 = 12u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_PHILIPS_ACM_LPCBB: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_PHILIPS_SPEECH_PROCESSING: u32 = 7u32;
@@ -13439,16 +12346,6 @@ pub const MM_SIPROLAB: u32 = 211u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_SIPROLAB_ACELPNET: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_SNDBLST_MIDIIN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_SNDBLST_MIDIOUT: u32 = 3u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_SNDBLST_SYNTH: u32 = 5u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_SNDBLST_WAVEIN: u32 = 7u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_SNDBLST_WAVEOUT: u32 = 6u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_SNI: u32 = 18u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_SNI_ACM_G721: u32 = 1u32;
@@ -13524,14 +12421,6 @@ pub const MM_SSP_SNDFESSYNTH: u32 = 5u32;
 pub const MM_SSP_SNDFESWAVEIN: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_SSP_SNDFESWAVEOUT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_STREAM_CLOSE: u32 = 981u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_STREAM_DONE: u32 = 982u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_STREAM_ERROR: u32 = 983u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_STREAM_OPEN: u32 = 980u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_STUDER: u32 = 171u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -13799,8 +12688,6 @@ pub const MM_WANGLABS_WAVEIN1: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WANGLABS_WAVEOUT1: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WAVE_MAPPER: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WEITEK: u32 = 96u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WILDCAT: u32 = 119u32;
@@ -13845,12 +12732,6 @@ pub const MM_WILLOWPOND_SNDPORT_WAVEIN: u32 = 100u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WILLOWPOND_SNDPORT_WAVEOUT: u32 = 101u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WIM_CLOSE: u32 = 959u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WIM_DATA: u32 = 960u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WIM_OPEN: u32 = 958u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WINBOND: u32 = 204u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WINNOV: u32 = 61u32;
@@ -13864,12 +12745,6 @@ pub const MM_WINNOV_CAVIAR_WAVEIN: u32 = 1u32;
 pub const MM_WINNOV_CAVIAR_WAVEOUT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WINNOV_CAVIAR_YUV8: u32 = 5u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WOM_CLOSE: u32 = 956u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WOM_DONE: u32 = 957u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MM_WOM_OPEN: u32 = 955u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_WORKBIT: u32 = 102u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -14057,28 +12932,6 @@ pub const MODM_UNPREPARE: u32 = 6u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MODM_USER: u32 = 16384u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_FMSYNTH: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_MAPPER: u32 = 5u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_MIDIPORT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_SQSYNTH: u32 = 3u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_SWSYNTH: u32 = 7u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_SYNTH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOD_WAVETABLE: u32 = 6u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOM_CLOSE: u32 = 968u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOM_DONE: u32 = 969u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOM_OPEN: u32 = 967u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const MOM_POSITIONCB: u32 = 970u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MPEGLAYER3_ID_CONSTANTFRAMESIZE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MPEGLAYER3_ID_MPEG: u32 = 1u32;
@@ -14088,24 +12941,30 @@ pub const MPEGLAYER3_ID_UNKNOWN: u32 = 0u32;
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: u32 = 12u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct MSAUDIO1WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
     pub wEncodeOptions: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl MSAUDIO1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for MSAUDIO1WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for MSAUDIO1WAVEFORMAT {
     type Abi = Self;
 }
@@ -14139,23 +12998,29 @@ pub const MXDM_SETCONTROLDETAILS: u32 = 8u32;
 pub const MXDM_USER: u32 = 16384u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct NMS_VBXADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl NMS_VBXADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for NMS_VBXADPCMWAVEFORMAT {
     type Abi = Self;
 }
@@ -16570,107 +15435,137 @@ pub const NS_W_SERVER_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT = ::windows::
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const NS_W_UNKNOWN_EVENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631584i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct OLIADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl OLIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for OLIADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for OLIADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for OLIADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct OLICELPWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl OLICELPWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLICELPWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for OLICELPWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for OLICELPWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for OLICELPWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct OLIGSMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl OLIGSMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIGSMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for OLIGSMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for OLIGSMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for OLIGSMWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct OLIOPRWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl OLIOPRWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIOPRWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for OLIOPRWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for OLIOPRWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for OLIOPRWAVEFORMAT {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct OLISBCWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl OLISBCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLISBCWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for OLISBCWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for OLISBCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for OLISBCWAVEFORMAT {
     type Abi = Self;
 }
@@ -16689,28 +15584,6 @@ pub unsafe fn OpenDriver<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct PCMWAVEFORMAT {
-    pub wf: WAVEFORMAT,
-    pub wBitsPerSample: u16,
-}
-impl PCMWAVEFORMAT {}
-impl ::core::default::Default for PCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for PCMWAVEFORMAT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PCMWAVEFORMAT {}
-unsafe impl ::windows::runtime::Abi for PCMWAVEFORMAT {
-    type Abi = Self;
-}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -16721,36 +15594,6 @@ pub const PD_STRETCHDIB_1_1_OK: u32 = 4u32;
 pub const PD_STRETCHDIB_1_2_OK: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const PD_STRETCHDIB_1_N_OK: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PlaySoundA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PlaySoundW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ROCKWELL_WA1_MIXER: u32 = 103u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -16793,79 +15636,57 @@ pub const SEEK_END: u32 = 2u32;
 pub const SEEK_SET: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct SIERRAADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl SIERRAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for SIERRAADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_ALIAS: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_ALIAS_ID: i32 = 1114112i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_ALIAS_START: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_APPLICATION: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_ASYNC: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_FILENAME: i32 = 131072i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_LOOP: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_MEMORY: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_NODEFAULT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_NOSTOP: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_NOWAIT: i32 = 8192i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_PURGE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_RESOURCE: i32 = 262148i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_RING: i32 = 1048576i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_SENTRY: i32 = 524288i32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_SYNC: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const SND_SYSTEM: i32 = 2097152i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct SONARCWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wCompType: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl SONARCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for SONARCWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for SONARCWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for SONARCWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for SONARCWAVEFORMAT {
     type Abi = Self;
 }
@@ -16900,106 +15721,63 @@ pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct TIMECAPS {
-    pub wPeriodMin: u32,
-    pub wPeriodMax: u32,
-}
-impl TIMECAPS {}
-impl ::core::default::Default for TIMECAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for TIMECAPS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TIMECAPS {}
-unsafe impl ::windows::runtime::Abi for TIMECAPS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::clone::Clone for TIMEREVENT {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_System_SystemServices`*"]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
-    pub lpFunction: ::core::option::Option<super::super::System::SystemServices::LPTIMECALLBACK>,
+    pub lpFunction: ::core::option::Option<super::LPTIMECALLBACK>,
     pub dwUser: u32,
     pub wFlags: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl TIMEREVENT {}
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::default::Default for TIMEREVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::cmp::PartialEq for TIMEREVENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::cmp::Eq for TIMEREVENT {}
-#[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for TIMEREVENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIMERR_BASE: u32 = 96u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIMERR_NOCANDO: u32 = 97u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIMERR_NOERROR: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIMERR_STRUCT: u32 = 129u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIME_BYTES: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIME_MIDI: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIME_MS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIME_SAMPLES: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIME_SMPTE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const TIME_TICKS: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct TRUESPEECHWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
     pub nSamplesPerBlock: u16,
     pub abReserved: [u8; 28],
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl TRUESPEECHWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for TRUESPEECHWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for TRUESPEECHWAVEFORMAT {
     type Abi = Self;
 }
@@ -17112,28 +15890,6 @@ pub const VIDEO_EXTERNALOUT: u32 = 2u32;
 pub const VIDEO_IN: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VIDEO_OUT: u32 = 8u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct VOLUMEWAVEFILTER {
-    pub wfltr: WAVEFILTER,
-    pub dwVolume: u32,
-}
-impl VOLUMEWAVEFILTER {}
-impl ::core::default::Default for VOLUMEWAVEFILTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for VOLUMEWAVEFILTER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for VOLUMEWAVEFILTER {}
-unsafe impl ::windows::runtime::Abi for VOLUMEWAVEFILTER {
-    type Abi = Self;
-}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VP_COMMAND_GET: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -17224,481 +15980,38 @@ pub unsafe fn VideoForWindowsVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVECAPS_LRVOLUME: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVECAPS_PITCH: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVECAPS_PLAYBACKRATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVECAPS_SAMPLEACCURATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVECAPS_SYNC: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVECAPS_VOLUME: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEFILTER {
-    pub cbStruct: u32,
-    pub dwFilterTag: u32,
-    pub fdwFilter: u32,
-    pub dwReserved: [u32; 5],
-}
-impl WAVEFILTER {}
-impl ::core::default::Default for WAVEFILTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEFILTER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEFILTER {}
-unsafe impl ::windows::runtime::Abi for WAVEFILTER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEFORMAT {
-    pub wFormatTag: u16,
-    pub nChannels: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-}
-impl WAVEFORMAT {}
-impl ::core::default::Default for WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEFORMAT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEFORMAT {}
-unsafe impl ::windows::runtime::Abi for WAVEFORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEFORMATEX {
-    pub wFormatTag: u16,
-    pub nChannels: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wBitsPerSample: u16,
-    pub cbSize: u16,
-}
-impl WAVEFORMATEX {}
-impl ::core::default::Default for WAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEFORMATEX {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEFORMATEX {}
-unsafe impl ::windows::runtime::Abi for WAVEFORMATEX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEFORMATEXTENSIBLE {
-    pub Format: WAVEFORMATEX,
-    pub Samples: WAVEFORMATEXTENSIBLE_0,
-    pub dwChannelMask: u32,
-    pub SubFormat: ::windows::runtime::GUID,
-}
-impl WAVEFORMATEXTENSIBLE {}
-impl ::core::default::Default for WAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEFORMATEXTENSIBLE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEFORMATEXTENSIBLE {}
-unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub union WAVEFORMATEXTENSIBLE_0 {
-    pub wValidBitsPerSample: u16,
-    pub wSamplesPerBlock: u16,
-    pub wReserved: u16,
-}
-impl WAVEFORMATEXTENSIBLE_0 {}
-impl ::core::default::Default for WAVEFORMATEXTENSIBLE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEFORMATEXTENSIBLE_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEFORMATEXTENSIBLE_0 {}
-unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct WAVEHDR {
-    pub lpData: super::super::Foundation::PSTR,
-    pub dwBufferLength: u32,
-    pub dwBytesRecorded: u32,
-    pub dwUser: usize,
-    pub dwFlags: u32,
-    pub dwLoops: u32,
-    pub lpNext: *mut WAVEHDR,
-    pub reserved: usize,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl WAVEHDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WAVEHDR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WAVEHDR {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WAVEHDR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WAVEHDR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct WAVEINCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl WAVEINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WAVEINCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WAVEINCAPS2A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WAVEINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WAVEINCAPS2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEINCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-impl WAVEINCAPS2W {}
-impl ::core::default::Default for WAVEINCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEINCAPS2W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEINCAPS2W {}
-unsafe impl ::windows::runtime::Abi for WAVEINCAPS2W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct WAVEINCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl WAVEINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WAVEINCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WAVEINCAPSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WAVEINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WAVEINCAPSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEINCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-}
-impl WAVEINCAPSW {}
-impl ::core::default::Default for WAVEINCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEINCAPSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEINCAPSW {}
-unsafe impl ::windows::runtime::Abi for WAVEINCAPSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct WAVEOPENDESC {
-    pub hWave: HWAVE,
-    pub lpFormat: *mut WAVEFORMAT,
+    pub hWave: super::Audio::HWAVE,
+    pub lpFormat: *mut super::Audio::WAVEFORMAT,
     pub dwCallback: usize,
     pub dwInstance: usize,
     pub uMappedDeviceID: u32,
     pub dnDevNode: usize,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl WAVEOPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WAVEOPENDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for WAVEOPENDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for WAVEOPENDESC {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for WAVEOPENDESC {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct WAVEOUTCAPS2A {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl WAVEOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WAVEOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WAVEOUTCAPS2A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WAVEOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEOUTCAPS2W {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-    pub ManufacturerGuid: ::windows::runtime::GUID,
-    pub ProductGuid: ::windows::runtime::GUID,
-    pub NameGuid: ::windows::runtime::GUID,
-}
-impl WAVEOUTCAPS2W {}
-impl ::core::default::Default for WAVEOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEOUTCAPS2W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEOUTCAPS2W {}
-unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct WAVEOUTCAPSA {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl WAVEOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WAVEOUTCAPSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WAVEOUTCAPSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WAVEOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct WAVEOUTCAPSW {
-    pub wMid: u16,
-    pub wPid: u16,
-    pub vDriverVersion: u32,
-    pub szPname: [u16; 32],
-    pub dwFormats: u32,
-    pub wChannels: u16,
-    pub wReserved1: u16,
-    pub dwSupport: u32,
-}
-impl WAVEOUTCAPSW {}
-impl ::core::default::Default for WAVEOUTCAPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for WAVEOUTCAPSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WAVEOUTCAPSW {}
-unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVEOUT_MAPPER_STATUS_DEVICE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVEOUT_MAPPER_STATUS_FORMAT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVEOUT_MAPPER_STATUS_MAPPED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVERR_BADFORMAT: u32 = 32u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVERR_BASE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVERR_LASTERROR: u32 = 35u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVERR_STILLPLAYING: u32 = 33u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVERR_SYNC: u32 = 35u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVERR_UNPREPARED: u32 = 34u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FILTER_DEVELOPMENT: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -17708,55 +16021,7 @@ pub const WAVE_FILTER_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FILTER_VOLUME: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_1M08: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_1M16: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_1S08: u32 = 2u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_1S16: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_2M08: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_2M16: u32 = 64u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_2S08: u32 = 32u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_2S16: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FORMAT_3COM_NBX: u32 = 28672u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_44M08: u32 = 256u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_44M16: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_44S08: u32 = 512u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_44S16: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_48M08: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_48M16: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_48S08: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_48S16: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_4M08: u32 = 256u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_4M16: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_4S08: u32 = 512u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_4S16: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_96M08: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_96M16: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_96S08: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_96S16: u32 = 524288u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FORMAT_ADPCM: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -18078,8 +16343,6 @@ pub const WAVE_FORMAT_PAC: u32 = 83u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FORMAT_PACKED: u32 = 153u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_FORMAT_PCM: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FORMAT_PCM_S: u32 = 1152u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FORMAT_PHILIPS_CELP: u32 = 288u32;
@@ -18294,21 +16557,7 @@ pub const WAVE_FORMAT_ZOLL_ASAO: u32 = 41224u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_FORMAT_ZYXEL_ADPCM: u32 = 151u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_INVALIDFORMAT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WAVE_MAPPER: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVE_MAPPER_S: u32 = 1153u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WHDR_BEGINLOOP: u32 = 4u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WHDR_DONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WHDR_ENDLOOP: u32 = 8u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WHDR_INQUEUE: u32 = 16u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WHDR_PREPARED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WIDM_ADDBUFFER: u32 = 56u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -18324,8 +16573,6 @@ pub const WIDM_INIT: u32 = 100u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WIDM_INIT_EX: u32 = 104u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WIDM_OPEN: u32 = 52u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WIDM_PREFERRED: u32 = 61u32;
@@ -18339,33 +16586,33 @@ pub const WIDM_START: u32 = 57u32;
 pub const WIDM_STOP: u32 = 58u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WIDM_UNPREPARE: u32 = 55u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WIM_CLOSE: u32 = 959u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WIM_DATA: u32 = 960u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WIM_OPEN: u32 = 958u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct WMAUDIO2WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub dwSamplesPerBlock: u32,
     pub wEncodeOptions: u16,
     pub dwSuperBlockAlign: u32,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl WMAUDIO2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for WMAUDIO2WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for WMAUDIO2WAVEFORMAT {
     type Abi = Self;
 }
@@ -18375,9 +16622,10 @@ pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct WMAUDIO3WAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
     pub wValidBitsPerSample: u16,
     pub dwChannelMask: u32,
     pub dwReserved1: u32,
@@ -18385,18 +16633,23 @@ pub struct WMAUDIO3WAVEFORMAT {
     pub wEncodeOptions: u16,
     pub wReserved3: u16,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl WMAUDIO3WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for WMAUDIO3WAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for WMAUDIO3WAVEFORMAT {
     type Abi = Self;
 }
@@ -18591,8 +16844,6 @@ pub const WODM_INIT: u32 = 100u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WODM_INIT_EX: u32 = 104u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WODM_MAPPER_STATUS: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WODM_OPEN: u32 = 5u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WODM_PAUSE: u32 = 10u32;
@@ -18614,729 +16865,35 @@ pub const WODM_SETVOLUME: u32 = 17u32;
 pub const WODM_UNPREPARE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WODM_WRITE: u32 = 9u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WOM_CLOSE: u32 = 956u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WOM_DONE: u32 = 957u32;
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub const WOM_OPEN: u32 = 955u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Media_Audio")]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Media_Audio`*"]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
-    pub wfx: WAVEFORMATEX,
+    pub wfx: super::Audio::WAVEFORMATEX,
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl YAMAHA_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for YAMAHA_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::PartialEq for YAMAHA_ADPCMWAVEFORMAT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::cmp::Eq for YAMAHA_ADPCMWAVEFORMAT {}
+#[cfg(feature = "Win32_Media_Audio")]
 unsafe impl ::windows::runtime::Abi for YAMAHA_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmDriverAddA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmDriverAddW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverAddW(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, fdwclose: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverClose(had.into_param().abi(), ::core::mem::transmute(fdwclose)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverDetailsA(hadid.into_param().abi(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_UI_WindowsAndMessaging`*"]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[inline]
-pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverDetailsW(hadid.into_param().abi(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmDriverEnum(fncallback: ::core::option::Option<ACMDRIVERENUMCB>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverEnum(fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverEnum(::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(hao: Param0, phadid: *mut isize, fdwdriverid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverID(hao.into_param().abi(), ::core::mem::transmute(phadid), ::core::mem::transmute(fdwdriverid)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmDriverMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(had: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(acmDriverMessage(had.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(phad: *mut isize, hadid: Param1, fdwopen: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverOpen(::core::mem::transmute(phad), hadid.into_param().abi(), ::core::mem::transmute(fdwopen)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, dwpriority: u32, fdwpriority: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverPriority(hadid.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwpriority)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, fdwremove: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
-        }
-        ::core::mem::transmute(acmDriverRemove(hadid.into_param().abi(), ::core::mem::transmute(fdwremove)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterChooseA(pafltrc: *mut ::core::mem::ManuallyDrop<ACMFILTERCHOOSEA>) -> u32;
-        }
-        ::core::mem::transmute(acmFilterChooseA(::core::mem::transmute(pafltrc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterChooseW(pafltrc: *mut ::core::mem::ManuallyDrop<ACMFILTERCHOOSEW>) -> u32;
-        }
-        ::core::mem::transmute(acmFilterChooseW(::core::mem::transmute(pafltrc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterDetailsA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterDetailsW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ::core::option::Option<ACMFILTERENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterEnumA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ::core::option::Option<ACMFILTERENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterEnumW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterTagDetailsA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterTagDetailsW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterTagEnumA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFilterTagEnumW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatChooseA(pafmtc: *mut ::core::mem::ManuallyDrop<ACMFORMATCHOOSEA>) -> u32;
-        }
-        ::core::mem::transmute(acmFormatChooseA(::core::mem::transmute(pafmtc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatChooseW(pafmtc: *mut ::core::mem::ManuallyDrop<ACMFORMATCHOOSEW>) -> u32;
-        }
-        ::core::mem::transmute(acmFormatChooseW(::core::mem::transmute(pafmtc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatDetailsA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatDetailsW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ::core::option::Option<ACMFORMATENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatEnumA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ::core::option::Option<ACMFORMATENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatEnumW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatSuggest(had.into_param().abi(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(cbwfxdst), ::core::mem::transmute(fdwsuggest)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatTagDetailsA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatTagDetailsW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatTagEnumA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
-        }
-        ::core::mem::transmute(acmFormatTagEnumW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmGetVersion() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmGetVersion() -> u32;
-        }
-        ::core::mem::transmute(acmGetVersion())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(acmMetrics(hao.into_param().abi(), ::core::mem::transmute(umetric), ::core::mem::transmute(pmetric)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwclose: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamClose(has.into_param().abi(), ::core::mem::transmute(fdwclose)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamConvert(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwconvert)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn acmStreamMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(has: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32;
-        }
-        ::core::mem::transmute(acmStreamMessage(has.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(phas: *mut isize, had: Param1, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamOpen(phas: *mut isize, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamOpen(::core::mem::transmute(phas), had.into_param().abi(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamPrepareHeader(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwprepare)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwreset: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamReset(has.into_param().abi(), ::core::mem::transmute(fdwreset)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamSize(has.into_param().abi(), ::core::mem::transmute(cbinput), ::core::mem::transmute(pdwoutputbytes), ::core::mem::transmute(fdwsize)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
-        }
-        ::core::mem::transmute(acmStreamUnprepareHeader(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwunprepare)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;
-        }
-        ::core::mem::transmute(auxGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pac), ::core::mem::transmute(cbac)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32;
-        }
-        ::core::mem::transmute(auxGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pac), ::core::mem::transmute(cbac)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn auxGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn auxGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(auxGetNumDevs())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(auxGetVolume(::core::mem::transmute(udeviceid), ::core::mem::transmute(pdwvolume)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32;
-        }
-        ::core::mem::transmute(auxOutMessage(::core::mem::transmute(udeviceid), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32;
-        }
-        ::core::mem::transmute(auxSetVolume(::core::mem::transmute(udeviceid), ::core::mem::transmute(dwvolume)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
+pub type YIELDPROC = unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -19525,30 +17082,31 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiConnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn mciDriverNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwndcallback: Param0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
+            fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(midiConnect(hmi.into_param().abi(), hmo.into_param().abi(), ::core::mem::transmute(preserved)))
+        ::core::mem::transmute(mciDriverNotify(hwndcallback.into_param().abi(), ::core::mem::transmute(wdeviceid), ::core::mem::transmute(ustatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn midiDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
+            fn mciDriverYield(wdeviceid: u32) -> u32;
         }
-        ::core::mem::transmute(midiDisconnect(hmi.into_param().abi(), hmo.into_param().abi(), ::core::mem::transmute(preserved)))
+        ::core::mem::transmute(mciDriverYield(::core::mem::transmute(wdeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19556,28 +17114,28 @@ pub unsafe fn midiDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
+            fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(midiInAddBuffer(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+        ::core::mem::transmute(mciFreeCommandResource(::core::mem::transmute(wtable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
+pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInClose(hmi: HMIDIIN) -> u32;
+            fn mciGetCreatorTask(mciid: u32) -> super::HTASK;
         }
-        ::core::mem::transmute(midiInClose(hmi.into_param().abi()))
+        ::core::mem::transmute(mciGetCreatorTask(::core::mem::transmute(mciid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19585,28 +17143,14 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
+pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
+            fn mciGetDeviceIDA(pszdevice: super::super::Foundation::PSTR) -> u32;
         }
-        ::core::mem::transmute(midiInGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmic), ::core::mem::transmute(cbmic)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
-        }
-        ::core::mem::transmute(midiInGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmic), ::core::mem::transmute(cbmic)))
+        ::core::mem::transmute(mciGetDeviceIDA(pszdevice.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19614,14 +17158,14 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
+pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
+            fn mciGetDeviceIDFromElementIDA(dwelementid: u32, lpstrtype: super::super::Foundation::PSTR) -> u32;
         }
-        ::core::mem::transmute(midiInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
+        ::core::mem::transmute(mciGetDeviceIDFromElementIDA(::core::mem::transmute(dwelementid), lpstrtype.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19629,70 +17173,14 @@ pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundati
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
+pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
+            fn mciGetDeviceIDFromElementIDW(dwelementid: u32, lpstrtype: super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(midiInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pudeviceid: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(midiInGetID(hmi.into_param().abi(), ::core::mem::transmute(pudeviceid)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(midiInGetNumDevs())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
-        }
-        ::core::mem::transmute(midiInMessage(hmi.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-        }
-        ::core::mem::transmute(midiInOpen(::core::mem::transmute(phmi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mciGetDeviceIDFromElementIDW(::core::mem::transmute(dwelementid), lpstrtype.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19700,56 +17188,28 @@ pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, 
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn mciGetDeviceIDW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
+            fn mciGetDeviceIDW(pszdevice: super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(midiInPrepareHeader(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+        ::core::mem::transmute(mciGetDeviceIDW(pszdevice.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
+pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInReset(hmi: HMIDIIN) -> u32;
+            fn mciGetDriverData(wdeviceid: u32) -> usize;
         }
-        ::core::mem::transmute(midiInReset(hmi.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInStart(hmi: HMIDIIN) -> u32;
-        }
-        ::core::mem::transmute(midiInStart(hmi.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiInStop(hmi: HMIDIIN) -> u32;
-        }
-        ::core::mem::transmute(midiInStop(hmi.into_param().abi()))
+        ::core::mem::transmute(mciGetDriverData(::core::mem::transmute(wdeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19757,56 +17217,14 @@ pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
+            fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(midiInUnprepareHeader(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: *const u16, fucache: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
-        }
-        ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::core::mem::transmute(upatch), ::core::mem::transmute(pwkya), ::core::mem::transmute(fucache)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: *const u16, fucache: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
-        }
-        ::core::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::core::mem::transmute(ubank), ::core::mem::transmute(pwpa), ::core::mem::transmute(fucache)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutClose(hmo: HMIDIOUT) -> u32;
-        }
-        ::core::mem::transmute(midiOutClose(hmo.into_param().abi()))
+        ::core::mem::transmute(mciGetErrorStringA(::core::mem::transmute(mcierr), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19814,28 +17232,28 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
+pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
+            fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(midiOutGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmoc), ::core::mem::transmute(cbmoc)))
+        ::core::mem::transmute(mciGetErrorStringW(::core::mem::transmute(mcierr), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
-pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32 {
+pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
+            fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC>;
         }
-        ::core::mem::transmute(midiOutGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmoc), ::core::mem::transmute(cbmoc)))
+        ::core::mem::transmute(mciGetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(pdwyielddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19843,14 +17261,42 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
+pub unsafe fn mciLoadCommandResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpresname: Param1, wtype: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
+            fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: super::super::Foundation::PWSTR, wtype: u32) -> u32;
         }
-        ::core::mem::transmute(midiOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
+        ::core::mem::transmute(mciLoadCommandResource(hinstance.into_param().abi(), lpresname.into_param().abi(), ::core::mem::transmute(wtype)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[inline]
+pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
+        }
+        ::core::mem::transmute(mciSendCommandA(::core::mem::transmute(mciid), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[inline]
+pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
+        }
+        ::core::mem::transmute(mciSendCommandW(::core::mem::transmute(mciid), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19858,56 +17304,14 @@ pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundat
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
+pub unsafe fn mciSendStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::Foundation::PSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
+            fn mciSendStringA(lpstrcommand: super::super::Foundation::PSTR, lpstrreturnstring: super::super::Foundation::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
         }
-        ::core::mem::transmute(midiOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pudeviceid: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(midiOutGetID(hmo.into_param().abi(), ::core::mem::transmute(pudeviceid)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(midiOutGetNumDevs())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pdwvolume: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(midiOutGetVolume(hmo.into_param().abi(), ::core::mem::transmute(pdwvolume)))
+        ::core::mem::transmute(mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring), ::core::mem::transmute(ureturnlength), hwndcallback.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19915,42 +17319,14 @@ pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn mciSendStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::Foundation::PWSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
+            fn mciSendStringW(lpstrcommand: super::super::Foundation::PWSTR, lpstrreturnstring: super::super::Foundation::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
         }
-        ::core::mem::transmute(midiOutLongMsg(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
-        }
-        ::core::mem::transmute(midiOutMessage(hmo.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-        }
-        ::core::mem::transmute(midiOutOpen(::core::mem::transmute(phmo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring), ::core::mem::transmute(ureturnlength), hwndcallback.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19958,56 +17334,14 @@ pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
+            fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(midiOutPrepareHeader(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutReset(hmo: HMIDIOUT) -> u32;
-        }
-        ::core::mem::transmute(midiOutReset(hmo.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwvolume: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
-        }
-        ::core::mem::transmute(midiOutSetVolume(hmo.into_param().abi(), ::core::mem::transmute(dwvolume)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwmsg: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
-        }
-        ::core::mem::transmute(midiOutShortMsg(hmo.into_param().abi(), ::core::mem::transmute(dwmsg)))
+        ::core::mem::transmute(mciSetDriverData(::core::mem::transmute(wdeviceid), ::core::mem::transmute(dwdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20015,329 +17349,14 @@ pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
+            fn mciSetYieldProc(mciid: u32, fpyieldproc: ::windows::runtime::RawPtr, dwyielddata: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(midiOutUnprepareHeader(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamClose(hms: HMIDISTRM) -> u32;
-        }
-        ::core::mem::transmute(midiStreamClose(hms.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
-        }
-        ::core::mem::transmute(midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(pudeviceid), ::core::mem::transmute(cmidi), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
-        }
-        ::core::mem::transmute(midiStreamOut(hms.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamPause(hms: HMIDISTRM) -> u32;
-        }
-        ::core::mem::transmute(midiStreamPause(hms.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0, lpmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut MMTIME, cbmmt: u32) -> u32;
-        }
-        ::core::mem::transmute(midiStreamPosition(hms.into_param().abi(), ::core::mem::transmute(lpmmt), ::core::mem::transmute(cbmmt)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0, lppropdata: *mut u8, dwproperty: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
-        }
-        ::core::mem::transmute(midiStreamProperty(hms.into_param().abi(), ::core::mem::transmute(lppropdata), ::core::mem::transmute(dwproperty)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamRestart(hms: HMIDISTRM) -> u32;
-        }
-        ::core::mem::transmute(midiStreamRestart(hms.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn midiStreamStop(hms: HMIDISTRM) -> u32;
-        }
-        ::core::mem::transmute(midiStreamStop(hms.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(hmx: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerClose(hmx: HMIXER) -> u32;
-        }
-        ::core::mem::transmute(mixerClose(hmx.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetControlDetailsA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetControlDetailsW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetDevCapsA(::core::mem::transmute(umxid), ::core::mem::transmute(pmxcaps), ::core::mem::transmute(cbmxcaps)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetDevCapsW(::core::mem::transmute(umxid), ::core::mem::transmute(pmxcaps), ::core::mem::transmute(cbmxcaps)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pumxid: *mut u32, fdwid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetID(hmxobj.into_param().abi(), ::core::mem::transmute(pumxid), ::core::mem::transmute(fdwid)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetLineControlsA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetLineControlsW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetLineInfoA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerGetLineInfoW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(mixerGetNumDevs())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(hmx: Param0, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
-        }
-        ::core::mem::transmute(mixerMessage(hmx.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerOpen(::core::mem::transmute(phmx), ::core::mem::transmute(umxid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
-        }
-        ::core::mem::transmute(mixerSetControlDetails(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+        ::core::mem::transmute(mciSetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(fpyieldproc), ::core::mem::transmute(dwyielddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20429,8 +17448,8 @@ pub unsafe fn mmTaskYield() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32 {
     #[cfg(windows)]
@@ -20514,8 +17533,8 @@ pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32 {
     #[cfg(windows)]
@@ -20559,8 +17578,8 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::core::option::Option
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
@@ -20574,8 +17593,8 @@ pub unsafe fn mmioOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
@@ -20603,8 +17622,8 @@ pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
     #[cfg(windows)]
@@ -20618,8 +17637,8 @@ pub unsafe fn mmioRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
     #[cfg(windows)]
@@ -20677,8 +17696,8 @@ pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32 {
     #[cfg(windows)]
@@ -20795,882 +17814,6 @@ pub unsafe fn sndOpenSound<'a, Param0: ::windows::runtime::IntoParam<'a, super::
             fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
         ::core::mem::transmute(sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filehandle)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn sndPlaySoundA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn sndPlaySoundA(pszsound: super::super::Foundation::PSTR, fusound: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(sndPlaySoundA(pszsound.into_param().abi(), ::core::mem::transmute(fusound)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn sndPlaySoundW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn sndPlaySoundW(pszsound: super::super::Foundation::PWSTR, fusound: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(sndPlaySoundW(pszsound.into_param().abi(), ::core::mem::transmute(fusound)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct tACMDRVFORMATSUGGEST {
-    pub cbStruct: u32,
-    pub fdwSuggest: u32,
-    pub pwfxSrc: *mut WAVEFORMATEX,
-    pub cbwfxSrc: u32,
-    pub pwfxDst: *mut WAVEFORMATEX,
-    pub cbwfxDst: u32,
-}
-impl tACMDRVFORMATSUGGEST {}
-impl ::core::default::Default for tACMDRVFORMATSUGGEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for tACMDRVFORMATSUGGEST {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for tACMDRVFORMATSUGGEST {}
-unsafe impl ::windows::runtime::Abi for tACMDRVFORMATSUGGEST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct tACMDRVOPENDESCA {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: u32,
-    pub pszSectionName: super::super::Foundation::PSTR,
-    pub pszAliasName: super::super::Foundation::PSTR,
-    pub dnDevNode: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl tACMDRVOPENDESCA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for tACMDRVOPENDESCA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for tACMDRVOPENDESCA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for tACMDRVOPENDESCA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for tACMDRVOPENDESCA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-pub struct tACMDRVOPENDESCW {
-    pub cbStruct: u32,
-    pub fccType: u32,
-    pub fccComp: u32,
-    pub dwVersion: u32,
-    pub dwFlags: u32,
-    pub dwError: u32,
-    pub pszSectionName: super::super::Foundation::PWSTR,
-    pub pszAliasName: super::super::Foundation::PWSTR,
-    pub dnDevNode: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl tACMDRVOPENDESCW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for tACMDRVOPENDESCW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for tACMDRVOPENDESCW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for tACMDRVOPENDESCW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for tACMDRVOPENDESCW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct tACMDRVSTREAMHEADER {
-    pub cbStruct: u32,
-    pub fdwStatus: u32,
-    pub dwUser: usize,
-    pub pbSrc: *mut u8,
-    pub cbSrcLength: u32,
-    pub cbSrcLengthUsed: u32,
-    pub dwSrcUser: usize,
-    pub pbDst: *mut u8,
-    pub cbDstLength: u32,
-    pub cbDstLengthUsed: u32,
-    pub dwDstUser: usize,
-    pub fdwConvert: u32,
-    pub padshNext: *mut tACMDRVSTREAMHEADER,
-    pub fdwDriver: u32,
-    pub dwDriver: usize,
-    pub fdwPrepared: u32,
-    pub dwPrepared: usize,
-    pub pbPreparedSrc: *mut u8,
-    pub cbPreparedSrcLength: u32,
-    pub pbPreparedDst: *mut u8,
-    pub cbPreparedDstLength: u32,
-}
-impl tACMDRVSTREAMHEADER {}
-impl ::core::default::Default for tACMDRVSTREAMHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for tACMDRVSTREAMHEADER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for tACMDRVSTREAMHEADER {}
-unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMHEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct tACMDRVSTREAMINSTANCE {
-    pub cbStruct: u32,
-    pub pwfxSrc: *mut WAVEFORMATEX,
-    pub pwfxDst: *mut WAVEFORMATEX,
-    pub pwfltr: *mut WAVEFILTER,
-    pub dwCallback: usize,
-    pub dwInstance: usize,
-    pub fdwOpen: u32,
-    pub fdwDriver: u32,
-    pub dwDriver: usize,
-    pub has: HACMSTREAM,
-}
-impl tACMDRVSTREAMINSTANCE {}
-impl ::core::default::Default for tACMDRVSTREAMINSTANCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for tACMDRVSTREAMINSTANCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for tACMDRVSTREAMINSTANCE {}
-unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMINSTANCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct tACMDRVSTREAMSIZE {
-    pub cbStruct: u32,
-    pub fdwSize: u32,
-    pub cbSrcLength: u32,
-    pub cbDstLength: u32,
-}
-impl tACMDRVSTREAMSIZE {}
-impl ::core::default::Default for tACMDRVSTREAMSIZE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for tACMDRVSTREAMSIZE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for tACMDRVSTREAMSIZE {}
-unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMSIZE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-pub struct tACMFORMATDETAILSW {
-    pub cbStruct: u32,
-    pub dwFormatIndex: u32,
-    pub dwFormatTag: u32,
-    pub fdwSupport: u32,
-    pub pwfx: *mut WAVEFORMATEX,
-    pub cbwfx: u32,
-    pub szFormat: [u16; 128],
-}
-impl tACMFORMATDETAILSW {}
-impl ::core::default::Default for tACMFORMATDETAILSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::cmp::PartialEq for tACMFORMATDETAILSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for tACMFORMATDETAILSW {}
-unsafe impl ::windows::runtime::Abi for tACMFORMATDETAILSW {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeBeginPeriod(uperiod: u32) -> u32;
-        }
-        ::core::mem::transmute(timeBeginPeriod(::core::mem::transmute(uperiod)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeEndPeriod(uperiod: u32) -> u32;
-        }
-        ::core::mem::transmute(timeEndPeriod(::core::mem::transmute(uperiod)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
-        }
-        ::core::mem::transmute(timeGetDevCaps(::core::mem::transmute(ptc), ::core::mem::transmute(cbtc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
-        }
-        ::core::mem::transmute(timeGetSystemTime(::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn timeGetTime() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeGetTime() -> u32;
-        }
-        ::core::mem::transmute(timeGetTime())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInAddBuffer(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInClose(hwi: HWAVEIN) -> u32;
-        }
-        ::core::mem::transmute(waveInClose(hwi.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwic), ::core::mem::transmute(cbwic)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwic), ::core::mem::transmute(cbwic)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pudeviceid: *const u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
-        }
-        ::core::mem::transmute(waveInGetID(hwi.into_param().abi(), ::core::mem::transmute(pudeviceid)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(waveInGetNumDevs())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInGetPosition(hwi.into_param().abi(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
-        }
-        ::core::mem::transmute(waveInMessage(hwi.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-        }
-        ::core::mem::transmute(waveInOpen(::core::mem::transmute(phwi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInPrepareHeader(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInReset(hwi: HWAVEIN) -> u32;
-        }
-        ::core::mem::transmute(waveInReset(hwi.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInStart(hwi: HWAVEIN) -> u32;
-        }
-        ::core::mem::transmute(waveInStart(hwi.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInStop(hwi: HWAVEIN) -> u32;
-        }
-        ::core::mem::transmute(waveInStop(hwi.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-        }
-        ::core::mem::transmute(waveInUnprepareHeader(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32;
-        }
-        ::core::mem::transmute(waveOutBreakLoop(hwo.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutClose(hwo: HWAVEOUT) -> u32;
-        }
-        ::core::mem::transmute(waveOutClose(hwo.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwoc), ::core::mem::transmute(cbwoc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwoc), ::core::mem::transmute(cbwoc)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext), ::core::mem::transmute(cchtext)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pudeviceid: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetID(hwo.into_param().abi(), ::core::mem::transmute(pudeviceid)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(waveOutGetNumDevs())
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwpitch: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetPitch(hwo.into_param().abi(), ::core::mem::transmute(pdwpitch)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwrate: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetPlaybackRate(hwo.into_param().abi(), ::core::mem::transmute(pdwrate)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetPosition(hwo.into_param().abi(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwvolume: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutGetVolume(hwo.into_param().abi(), ::core::mem::transmute(pdwvolume)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
-        }
-        ::core::mem::transmute(waveOutMessage(hwo.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-        }
-        ::core::mem::transmute(waveOutOpen(::core::mem::transmute(phwo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutPause(hwo: HWAVEOUT) -> u32;
-        }
-        ::core::mem::transmute(waveOutPause(hwo.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutPrepareHeader(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutReset(hwo: HWAVEOUT) -> u32;
-        }
-        ::core::mem::transmute(waveOutReset(hwo.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutRestart(hwo: HWAVEOUT) -> u32;
-        }
-        ::core::mem::transmute(waveOutRestart(hwo.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwpitch: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutSetPitch(hwo.into_param().abi(), ::core::mem::transmute(dwpitch)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwrate: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutSetPlaybackRate(hwo.into_param().abi(), ::core::mem::transmute(dwrate)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
-#[inline]
-pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwvolume: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutSetVolume(hwo.into_param().abi(), ::core::mem::transmute(dwvolume)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutUnprepareHeader(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn waveOutWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-        }
-        ::core::mem::transmute(waveOutWrite(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

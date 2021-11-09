@@ -43,8 +43,8 @@ pub const DBG_TEMPBP: u32 = 18u32;
 pub const DBG_TOOLHELP: u32 = 15u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_WOWINIT: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type DEBUGEVENTPROC = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>, param1: *mut ::core::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ACCELERATORS: u32 = 9u32;
@@ -616,9 +616,9 @@ pub type VDMGETADDREXPRESSIONPROC = unsafe extern "system" fn(param0: super::sup
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type VDMGETCONTEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMGETCONTEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -646,11 +646,11 @@ pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -781,22 +781,22 @@ impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULENEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type VDMSETCONTEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMSETCONTEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

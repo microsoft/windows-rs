@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
     pub displayVidPnSourceId: u32,
@@ -11,17 +11,17 @@ pub struct CompositionFrameDisplayInstance {
     pub instanceKind: CompositionFrameInstanceKind,
     pub finalTransform: PresentationTransform,
     pub requiredCrossAdapterCopy: u8,
-    pub colorSpace: super::Dxgi::DXGI_COLOR_SPACE_TYPE,
+    pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl CompositionFrameDisplayInstance {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for CompositionFrameDisplayInstance {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CompositionFrameDisplayInstance")
@@ -36,15 +36,15 @@ impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for CompositionFrameDisplayInstance {
     fn eq(&self, other: &Self) -> bool {
         self.displayAdapterLUID == other.displayAdapterLUID && self.displayVidPnSourceId == other.displayVidPnSourceId && self.displayUniqueId == other.displayUniqueId && self.renderAdapterLUID == other.renderAdapterLUID && self.instanceKind == other.instanceKind && self.finalTransform == other.finalTransform && self.requiredCrossAdapterCopy == other.requiredCrossAdapterCopy && self.colorSpace == other.colorSpace
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for CompositionFrameDisplayInstance {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for CompositionFrameDisplayInstance {
     type Abi = Self;
 }
@@ -98,8 +98,8 @@ impl ICompositionFramePresentStatistics {
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray)))
     }
@@ -158,8 +158,8 @@ pub struct ICompositionFramePresentStatistics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> PresentStatisticsKind,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
@@ -657,14 +657,14 @@ impl IPresentationSurface {
     pub unsafe fn SetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IPresentationBuffer>>(&self, presentationbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), presentationbuffer.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(alphamode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -741,10 +741,10 @@ pub struct IPresentationSurface_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tag: usize),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presentationbuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: super::Dxgi::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourcerect: *const super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: *const PresentationTransform) -> ::windows::runtime::HRESULT,

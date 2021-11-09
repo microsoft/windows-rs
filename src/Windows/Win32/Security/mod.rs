@@ -267,6 +267,32 @@ impl ::core::cmp::Eq for ACCESS_DENIED_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_DENIED_OBJECT_ACE {
     type Abi = Self;
 }
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Security`*"]
+pub struct ACCESS_REASONS {
+    pub Data: [u32; 32],
+}
+impl ACCESS_REASONS {}
+impl ::core::default::Default for ACCESS_REASONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for ACCESS_REASONS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("ACCESS_REASONS").field("Data", &self.Data).finish()
+    }
+}
+impl ::core::cmp::PartialEq for ACCESS_REASONS {
+    fn eq(&self, other: &Self) -> bool {
+        self.Data == other.Data
+    }
+}
+impl ::core::cmp::Eq for ACCESS_REASONS {}
+unsafe impl ::windows::runtime::Abi for ACCESS_REASONS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Security`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -3684,6 +3710,21 @@ pub unsafe fn RtlConvertSidToUnicodeString<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::runtime::IntoParam<'a, super::Foundation::BOOLEAN>>(securitydescriptor: *mut *mut SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::Foundation::BOOLEAN {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut *mut SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: super::Foundation::BOOLEAN) -> super::Foundation::BOOLEAN;
+        }
+        ::core::mem::transmute(RtlNormalizeSecurityDescriptor(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorlength), ::core::mem::transmute(newsecuritydescriptor), ::core::mem::transmute(newsecuritydescriptorlength), checkonly.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct SAFER_LEVEL_HANDLE(pub isize);
@@ -3925,6 +3966,186 @@ unsafe impl ::windows::runtime::Abi for SECURITY_QUALITY_OF_SERVICE {
 pub type SEC_THREAD_START = unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
+pub struct SE_ACCESS_REPLY {
+    pub Size: u32,
+    pub ResultListCount: u32,
+    pub GrantedAccess: *mut u32,
+    pub AccessStatus: *mut u32,
+    pub AccessReason: *mut ACCESS_REASONS,
+    pub Privileges: *mut *mut PRIVILEGE_SET,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SE_ACCESS_REPLY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SE_ACCESS_REPLY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SE_ACCESS_REPLY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("SE_ACCESS_REPLY").field("Size", &self.Size).field("ResultListCount", &self.ResultListCount).field("GrantedAccess", &self.GrantedAccess).field("AccessStatus", &self.AccessStatus).field("AccessReason", &self.AccessReason).field("Privileges", &self.Privileges).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SE_ACCESS_REPLY {
+    fn eq(&self, other: &Self) -> bool {
+        self.Size == other.Size && self.ResultListCount == other.ResultListCount && self.GrantedAccess == other.GrantedAccess && self.AccessStatus == other.AccessStatus && self.AccessReason == other.AccessReason && self.Privileges == other.Privileges
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SE_ACCESS_REPLY {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SE_ACCESS_REPLY {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
+pub struct SE_ACCESS_REQUEST {
+    pub Size: u32,
+    pub SeSecurityDescriptor: *mut SE_SECURITY_DESCRIPTOR,
+    pub DesiredAccess: u32,
+    pub PreviouslyGrantedAccess: u32,
+    pub PrincipalSelfSid: super::Foundation::PSID,
+    pub GenericMapping: *mut GENERIC_MAPPING,
+    pub ObjectTypeListCount: u32,
+    pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SE_ACCESS_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SE_ACCESS_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SE_ACCESS_REQUEST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("SE_ACCESS_REQUEST")
+            .field("Size", &self.Size)
+            .field("SeSecurityDescriptor", &self.SeSecurityDescriptor)
+            .field("DesiredAccess", &self.DesiredAccess)
+            .field("PreviouslyGrantedAccess", &self.PreviouslyGrantedAccess)
+            .field("PrincipalSelfSid", &self.PrincipalSelfSid)
+            .field("GenericMapping", &self.GenericMapping)
+            .field("ObjectTypeListCount", &self.ObjectTypeListCount)
+            .field("ObjectTypeList", &self.ObjectTypeList)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SE_ACCESS_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        self.Size == other.Size && self.SeSecurityDescriptor == other.SeSecurityDescriptor && self.DesiredAccess == other.DesiredAccess && self.PreviouslyGrantedAccess == other.PreviouslyGrantedAccess && self.PrincipalSelfSid == other.PrincipalSelfSid && self.GenericMapping == other.GenericMapping && self.ObjectTypeListCount == other.ObjectTypeListCount && self.ObjectTypeList == other.ObjectTypeList
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SE_ACCESS_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SE_ACCESS_REQUEST {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
+pub struct SE_IMPERSONATION_STATE {
+    pub Token: *mut ::core::ffi::c_void,
+    pub CopyOnOpen: super::Foundation::BOOLEAN,
+    pub EffectiveOnly: super::Foundation::BOOLEAN,
+    pub Level: SECURITY_IMPERSONATION_LEVEL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SE_IMPERSONATION_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SE_IMPERSONATION_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SE_IMPERSONATION_STATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("SE_IMPERSONATION_STATE").field("Token", &self.Token).field("CopyOnOpen", &self.CopyOnOpen).field("EffectiveOnly", &self.EffectiveOnly).field("Level", &self.Level).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SE_IMPERSONATION_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Token == other.Token && self.CopyOnOpen == other.CopyOnOpen && self.EffectiveOnly == other.EffectiveOnly && self.Level == other.Level
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SE_IMPERSONATION_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SE_IMPERSONATION_STATE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
+pub struct SE_SECURITY_DESCRIPTOR {
+    pub Size: u32,
+    pub Flags: u32,
+    pub SecurityDescriptor: *mut SECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SE_SECURITY_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SE_SECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SE_SECURITY_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("SE_SECURITY_DESCRIPTOR").field("Size", &self.Size).field("Flags", &self.Flags).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SE_SECURITY_DESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        self.Size == other.Size && self.Flags == other.Flags && self.SecurityDescriptor == other.SecurityDescriptor
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SE_SECURITY_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SE_SECURITY_DESCRIPTOR {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Security`*"]
+pub union SE_SID {
+    pub Sid: SID,
+    pub Buffer: [u8; 68],
+}
+impl SE_SID {}
+impl ::core::default::Default for SE_SID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::cmp::PartialEq for SE_SID {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::core::cmp::Eq for SE_SID {}
+unsafe impl ::windows::runtime::Abi for SE_SID {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SID {
     pub Revision: u8,
@@ -4068,6 +4289,34 @@ impl ::core::convert::From<i32> for SID_NAME_USE {
     }
 }
 unsafe impl ::windows::runtime::Abi for SID_NAME_USE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Security`*"]
+pub struct SYSTEM_ACCESS_FILTER_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl SYSTEM_ACCESS_FILTER_ACE {}
+impl ::core::default::Default for SYSTEM_ACCESS_FILTER_ACE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for SYSTEM_ACCESS_FILTER_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("SYSTEM_ACCESS_FILTER_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
+    }
+}
+impl ::core::cmp::PartialEq for SYSTEM_ACCESS_FILTER_ACE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
+    }
+}
+impl ::core::cmp::Eq for SYSTEM_ACCESS_FILTER_ACE {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_ACCESS_FILTER_ACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -4374,6 +4623,34 @@ impl ::core::cmp::PartialEq for SYSTEM_MANDATORY_LABEL_ACE {
 }
 impl ::core::cmp::Eq for SYSTEM_MANDATORY_LABEL_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_MANDATORY_LABEL_ACE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Security`*"]
+pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    pub Header: ACE_HEADER,
+    pub Mask: u32,
+    pub SidStart: u32,
+}
+impl SYSTEM_PROCESS_TRUST_LABEL_ACE {}
+impl ::core::default::Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("SYSTEM_PROCESS_TRUST_LABEL_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
+    }
+}
+impl ::core::cmp::PartialEq for SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
+    }
+}
+impl ::core::cmp::Eq for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]

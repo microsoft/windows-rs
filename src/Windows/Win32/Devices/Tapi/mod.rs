@@ -2162,8 +2162,40 @@ pub struct IEnumTerminalClass_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMcastAddressAllocation(pub ::windows::runtime::IUnknown);
 impl IMcastAddressAllocation {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Scopes(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -2193,8 +2225,8 @@ impl IMcastAddressAllocation {
         let mut result__: <IMcastLeaseInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(leasestarttime), ::core::mem::transmute(leasestoptime), ::core::mem::transmute(dwnumaddresses), ::core::mem::transmute(ppaddresses), prequestid.into_param().abi(), pserveraddress.into_param().abi(), &mut result__).from_abi::<IMcastLeaseInfo>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CreateLeaseInfoFromVariant<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: Param2, prequestid: Param3, pserveraddress: Param4) -> ::windows::runtime::Result<IMcastLeaseInfo> {
         let mut result__: <IMcastLeaseInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(leasestarttime), ::core::mem::transmute(leasestoptime), vaddresses.into_param().abi(), prequestid.into_param().abi(), pserveraddress.into_param().abi(), &mut result__).from_abi::<IMcastLeaseInfo>(result__)
@@ -2224,27 +2256,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<IMcastAddressAllocation> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IMcastAddressAllocation> for super::super::System::Com::IDispatch {
     fn from(value: IMcastAddressAllocation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&IMcastAddressAllocation> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IMcastAddressAllocation> for super::super::System::Com::IDispatch {
     fn from(value: &IMcastAddressAllocation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IMcastAddressAllocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for IMcastAddressAllocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IMcastAddressAllocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &IMcastAddressAllocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2255,30 +2287,62 @@ pub struct IMcastAddressAllocation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenummcastscope: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscope: ::windows::runtime::RawPtr, leasestarttime: f64, leasestoptime: f64, numaddresses: i32, ppleaseresponse: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lreserved: i32, prenewrequest: ::windows::runtime::RawPtr, pprenewresponse: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, preleaserequest: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const super::super::Foundation::PWSTR, prequestid: super::super::Foundation::PWSTR, pserveraddress: super::super::Foundation::PWSTR, ppreleaserequest: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, leasestarttime: f64, leasestoptime: f64, vaddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, prequestid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pserveraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppreleaserequest: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMcastLeaseInfo(pub ::windows::runtime::IUnknown);
 impl IMcastLeaseInfo {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn RequestID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -2319,8 +2383,8 @@ impl IMcastLeaseInfo {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Addresses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -2355,27 +2419,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<IMcastLeaseInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IMcastLeaseInfo> for super::super::System::Com::IDispatch {
     fn from(value: IMcastLeaseInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&IMcastLeaseInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IMcastLeaseInfo> for super::super::System::Com::IDispatch {
     fn from(value: &IMcastLeaseInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IMcastLeaseInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for IMcastLeaseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IMcastLeaseInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &IMcastLeaseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2386,13 +2450,13 @@ pub struct IMcastLeaseInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprequestid: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptime: *mut f64) -> ::windows::runtime::HRESULT,
@@ -2403,8 +2467,8 @@ pub struct IMcastLeaseInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pttl: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumaddresses: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2412,6 +2476,38 @@ pub struct IMcastLeaseInfo_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMcastScope(pub ::windows::runtime::IUnknown);
 impl IMcastScope {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn ScopeID(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -2463,27 +2559,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<IMcastScope> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IMcastScope> for super::super::System::Com::IDispatch {
     fn from(value: IMcastScope) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&IMcastScope> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IMcastScope> for super::super::System::Com::IDispatch {
     fn from(value: &IMcastScope) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IMcastScope {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for IMcastScope {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IMcastScope {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &IMcastScope {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2494,13 +2590,13 @@ pub struct IMcastScope_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pid: *mut i32) -> ::windows::runtime::HRESULT,
@@ -2517,6 +2613,38 @@ pub const INTERFACEMASK: u32 = 16711680u32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITACDGroup(pub ::windows::runtime::IUnknown);
 impl ITACDGroup {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -2528,8 +2656,8 @@ impl ITACDGroup {
         let mut result__: <IEnumQueue as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumQueue>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Queues(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -2559,27 +2687,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITACDGroup> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITACDGroup> for super::super::System::Com::IDispatch {
     fn from(value: ITACDGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITACDGroup> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITACDGroup> for super::super::System::Com::IDispatch {
     fn from(value: &ITACDGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITACDGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITACDGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITACDGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITACDGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2590,24 +2718,56 @@ pub struct ITACDGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumqueue: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITACDGroupEvent(pub ::windows::runtime::IUnknown);
 impl ITACDGroupEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Group(&self) -> ::windows::runtime::Result<ITACDGroup> {
         let mut result__: <ITACDGroup as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -2643,27 +2803,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITACDGroupEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITACDGroupEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITACDGroupEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITACDGroupEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITACDGroupEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITACDGroupEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITACDGroupEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITACDGroupEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITACDGroupEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITACDGroupEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2674,13 +2834,13 @@ pub struct ITACDGroupEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppgroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut ACDGROUP_EVENT) -> ::windows::runtime::HRESULT,
 );
@@ -2689,15 +2849,15 @@ pub struct ITACDGroupEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAMMediaFormat(pub ::windows::runtime::IUnknown);
 impl ITAMMediaFormat {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn MediaFormat(&self) -> ::windows::runtime::Result<*mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE> {
-        let mut result__: <*mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn MediaFormat(&self) -> ::windows::runtime::Result<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE> {
+        let mut result__: <*mut super::super::Media::DirectShow::AM_MEDIA_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn SetMediaFormat(&self, pmt: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn SetMediaFormat(&self, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmt)).ok()
     }
 }
@@ -2731,16 +2891,48 @@ pub struct ITAMMediaFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmt: *mut *mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmt: *const ::core::mem::ManuallyDrop<super::super::Graphics::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmt: *const ::core::mem::ManuallyDrop<super::super::Media::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITASRTerminalEvent(pub ::windows::runtime::IUnknown);
 impl ITASRTerminalEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Terminal(&self) -> ::windows::runtime::Result<ITTerminal> {
         let mut result__: <ITTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -2781,27 +2973,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITASRTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITASRTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITASRTerminalEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITASRTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITASRTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITASRTerminalEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITASRTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITASRTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITASRTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITASRTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2812,13 +3004,13 @@ pub struct ITASRTerminalEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phrerrorcode: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
@@ -2828,6 +3020,38 @@ pub struct ITASRTerminalEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAddress(pub ::windows::runtime::IUnknown);
 impl ITAddress {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<ADDRESS_STATE> {
         let mut result__: <ADDRESS_STATE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -2856,8 +3080,8 @@ impl ITAddress {
         let mut result__: <ITBasicCallControl as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pdestaddress.into_param().abi(), ::core::mem::transmute(laddresstype), ::core::mem::transmute(lmediatypes), &mut result__).from_abi::<ITBasicCallControl>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Calls(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -2930,27 +3154,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddress> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddress> for super::super::System::Com::IDispatch {
     fn from(value: ITAddress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddress> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddress> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddress {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2961,13 +3185,13 @@ pub struct ITAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddressstate: *mut ADDRESS_STATE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -2976,8 +3200,8 @@ pub struct ITAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptapiobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, laddresstype: i32, lmediatypes: i32, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdialableaddress: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -2999,20 +3223,20 @@ impl ITAddress2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -3054,8 +3278,8 @@ impl ITAddress2 {
         let mut result__: <ITBasicCallControl as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pdestaddress.into_param().abi(), ::core::mem::transmute(laddresstype), ::core::mem::transmute(lmediatypes), &mut result__).from_abi::<ITBasicCallControl>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Calls(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3103,8 +3327,8 @@ impl ITAddress2 {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Phones(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3119,8 +3343,8 @@ impl ITAddress2 {
         let mut result__: <ITPhone as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pterminal.into_param().abi(), &mut result__).from_abi::<ITPhone>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PreferredPhones(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3143,8 +3367,8 @@ impl ITAddress2 {
     pub unsafe fn DeviceSpecific<'a, Param0: ::windows::runtime::IntoParam<'a, ITCallInfo>>(&self, pcall: Param0, pparams: *const u8, dwsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pcall.into_param().abi(), ::core::mem::transmute(pparams), ::core::mem::transmute(dwsize)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DeviceSpecificVariant<'a, Param0: ::windows::runtime::IntoParam<'a, ITCallInfo>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pcall: Param0, vardevspecificbytearray: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pcall.into_param().abi(), vardevspecificbytearray.into_param().abi()).ok()
     }
@@ -3198,27 +3422,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITAddress> for &ITAddress2 {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddress2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddress2> for super::super::System::Com::IDispatch {
     fn from(value: ITAddress2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddress2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddress2> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddress2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddress2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddress2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddress2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddress2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3229,13 +3453,13 @@ pub struct ITAddress2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddressstate: *mut ADDRESS_STATE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -3244,8 +3468,8 @@ pub struct ITAddress2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptapiobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, laddresstype: i32, lmediatypes: i32, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdialableaddress: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -3256,18 +3480,18 @@ pub struct ITAddress2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfmessagewaiting: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fdonotdisturb: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfdonotdisturb: *mut i16) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumphone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminal: ::windows::runtime::RawPtr, ppphone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumphone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcall: ::windows::runtime::RawPtr, pparams: *const u8, dwsize: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcall: ::windows::runtime::RawPtr, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcall: ::windows::runtime::RawPtr, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3275,6 +3499,38 @@ pub struct ITAddress2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAddressCapabilities(pub ::windows::runtime::IUnknown);
 impl ITAddressCapabilities {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -3286,8 +3542,8 @@ impl ITAddressCapabilities {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresscapstring), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CallTreatments(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3297,8 +3553,8 @@ impl ITAddressCapabilities {
         let mut result__: <IEnumBstr as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumBstr>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CompletionMessages(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3308,8 +3564,8 @@ impl ITAddressCapabilities {
         let mut result__: <IEnumBstr as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumBstr>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DeviceClasses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3344,27 +3600,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddressCapabilities> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddressCapabilities> for super::super::System::Com::IDispatch {
     fn from(value: ITAddressCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddressCapabilities> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddressCapabilities> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddressCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddressCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddressCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddressCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddressCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3375,24 +3631,24 @@ pub struct ITAddressCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, addresscapstring: ADDRESS_CAPABILITY_STRING, ppcapabilitystring: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcalltreatment: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcompletionmessage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdeviceclass: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3400,6 +3656,38 @@ pub struct ITAddressCapabilities_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAddressDeviceSpecificEvent(pub ::windows::runtime::IUnknown);
 impl ITAddressDeviceSpecificEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Address(&self) -> ::windows::runtime::Result<ITAddress> {
         let mut result__: <ITAddress as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -3450,27 +3738,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddressDeviceSpecificEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddressDeviceSpecificEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITAddressDeviceSpecificEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddressDeviceSpecificEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddressDeviceSpecificEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddressDeviceSpecificEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddressDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddressDeviceSpecificEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddressDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddressDeviceSpecificEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3481,13 +3769,13 @@ pub struct ITAddressDeviceSpecificEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pparam1: *mut i32) -> ::windows::runtime::HRESULT,
@@ -3499,6 +3787,38 @@ pub struct ITAddressDeviceSpecificEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAddressEvent(pub ::windows::runtime::IUnknown);
 impl ITAddressEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Address(&self) -> ::windows::runtime::Result<ITAddress> {
         let mut result__: <ITAddress as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -3539,27 +3859,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddressEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddressEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITAddressEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddressEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddressEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddressEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddressEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddressEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddressEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddressEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3570,13 +3890,13 @@ pub struct ITAddressEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut ADDRESS_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -3586,6 +3906,38 @@ pub struct ITAddressEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAddressTranslation(pub ::windows::runtime::IUnknown);
 impl ITAddressTranslation {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn TranslateAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, paddresstotranslate: Param0, lcard: i32, ltranslateoptions: i32) -> ::windows::runtime::Result<ITAddressTranslationInfo> {
@@ -3602,8 +3954,8 @@ impl ITAddressTranslation {
         let mut result__: <IEnumLocation as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumLocation>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Locations(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3613,8 +3965,8 @@ impl ITAddressTranslation {
         let mut result__: <IEnumCallingCard as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumCallingCard>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CallingCards(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3644,27 +3996,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddressTranslation> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddressTranslation> for super::super::System::Com::IDispatch {
     fn from(value: ITAddressTranslation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddressTranslation> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddressTranslation> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddressTranslation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddressTranslation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddressTranslation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddressTranslation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddressTranslation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3675,29 +4027,61 @@ pub struct ITAddressTranslation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresstotranslate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcard: i32, ltranslateoptions: i32, pptranslated: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndowner: isize, paddressin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumlocation: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcallingcard: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAddressTranslationInfo(pub ::windows::runtime::IUnknown);
 impl ITAddressTranslationInfo {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn DialableString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -3750,27 +4134,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAddressTranslationInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAddressTranslationInfo> for super::super::System::Com::IDispatch {
     fn from(value: ITAddressTranslationInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAddressTranslationInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAddressTranslationInfo> for super::super::System::Com::IDispatch {
     fn from(value: &ITAddressTranslationInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAddressTranslationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAddressTranslationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAddressTranslationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAddressTranslationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3781,13 +4165,13 @@ pub struct ITAddressTranslationInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdialablestring: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdisplayablestring: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -3801,6 +4185,38 @@ pub struct ITAddressTranslationInfo_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAgent(pub ::windows::runtime::IUnknown);
 impl ITAgent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn EnumerateAgentSessions(&self) -> ::windows::runtime::Result<IEnumAgentSession> {
         let mut result__: <IEnumAgentSession as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -3883,8 +4299,8 @@ impl ITAgent {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn AgentSessions(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3914,27 +4330,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAgent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAgent> for super::super::System::Com::IDispatch {
     fn from(value: ITAgent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAgent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAgent> for super::super::System::Com::IDispatch {
     fn from(value: &ITAgent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3945,13 +4361,13 @@ pub struct ITAgent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumagentsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pacdgroup: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, ppagentsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pacdgroup: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, ppin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppagentsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -3972,14 +4388,46 @@ pub struct ITAgent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pltalktime: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcalltime: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plwrapuptime: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAgentEvent(pub ::windows::runtime::IUnknown);
 impl ITAgentEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Agent(&self) -> ::windows::runtime::Result<ITAgent> {
         let mut result__: <ITAgent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -4015,27 +4463,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAgentEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAgentEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITAgentEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAgentEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAgentEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITAgentEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAgentEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAgentEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAgentEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAgentEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4046,13 +4494,13 @@ pub struct ITAgentEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppagent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut AGENT_EVENT) -> ::windows::runtime::HRESULT,
 );
@@ -4061,6 +4509,38 @@ pub struct ITAgentEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAgentHandler(pub ::windows::runtime::IUnknown);
 impl ITAgentHandler {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -4088,14 +4568,14 @@ impl ITAgentHandler {
         let mut result__: <IEnumAddress as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumAddress>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ACDGroups(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn UsableAddresses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -4125,27 +4605,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAgentHandler> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAgentHandler> for super::super::System::Com::IDispatch {
     fn from(value: ITAgentHandler) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAgentHandler> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAgentHandler> for super::super::System::Com::IDispatch {
     fn from(value: &ITAgentHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAgentHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAgentHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAgentHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAgentHandler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4156,13 +4636,13 @@ pub struct ITAgentHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppagent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4170,16 +4650,48 @@ pub struct ITAgentHandler_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumacdgroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAgentHandlerEvent(pub ::windows::runtime::IUnknown);
 impl ITAgentHandlerEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn AgentHandler(&self) -> ::windows::runtime::Result<ITAgentHandler> {
         let mut result__: <ITAgentHandler as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -4215,27 +4727,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAgentHandlerEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAgentHandlerEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITAgentHandlerEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAgentHandlerEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAgentHandlerEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITAgentHandlerEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAgentHandlerEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAgentHandlerEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAgentHandlerEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAgentHandlerEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4246,13 +4758,13 @@ pub struct ITAgentHandlerEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppagenthandler: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut AGENTHANDLER_EVENT) -> ::windows::runtime::HRESULT,
 );
@@ -4261,6 +4773,38 @@ pub struct ITAgentHandlerEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAgentSession(pub ::windows::runtime::IUnknown);
 impl ITAgentSession {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Agent(&self) -> ::windows::runtime::Result<ITAgent> {
         let mut result__: <ITAgent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -4371,27 +4915,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAgentSession> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAgentSession> for super::super::System::Com::IDispatch {
     fn from(value: ITAgentSession) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAgentSession> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAgentSession> for super::super::System::Com::IDispatch {
     fn from(value: &ITAgentSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAgentSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAgentSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4402,13 +4946,13 @@ pub struct ITAgentSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppagent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppacdgroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4433,6 +4977,38 @@ pub struct ITAgentSession_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAgentSessionEvent(pub ::windows::runtime::IUnknown);
 impl ITAgentSessionEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<ITAgentSession> {
         let mut result__: <ITAgentSession as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -4468,27 +5044,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAgentSessionEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAgentSessionEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITAgentSessionEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAgentSessionEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAgentSessionEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITAgentSessionEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAgentSessionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAgentSessionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAgentSessionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAgentSessionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4499,13 +5075,13 @@ pub struct ITAgentSessionEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut AGENT_SESSION_EVENT) -> ::windows::runtime::HRESULT,
 );
@@ -4514,16 +5090,16 @@ pub struct ITAgentSessionEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAllocatorProperties(pub ::windows::runtime::IUnknown);
 impl ITAllocatorProperties {
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn SetAllocatorProperties(&self, pallocproperties: *const super::super::Graphics::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn SetAllocatorProperties(&self, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pallocproperties)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn GetAllocatorProperties(&self) -> ::windows::runtime::Result<super::super::Graphics::DirectShow::ALLOCATOR_PROPERTIES> {
-        let mut result__: <super::super::Graphics::DirectShow::ALLOCATOR_PROPERTIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::DirectShow::ALLOCATOR_PROPERTIES>(result__)
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn GetAllocatorProperties(&self) -> ::windows::runtime::Result<super::super::Media::DirectShow::ALLOCATOR_PROPERTIES> {
+        let mut result__: <super::super::Media::DirectShow::ALLOCATOR_PROPERTIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Media::DirectShow::ALLOCATOR_PROPERTIES>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
@@ -4576,10 +5152,10 @@ pub struct ITAllocatorProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pallocproperties: *const super::super::Graphics::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pallocproperties: *mut super::super::Graphics::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
+    #[cfg(feature = "Win32_Media_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))] usize,
+    #[cfg(feature = "Win32_Media_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pallocproperties: *mut super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ballocbuffers: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pballocbuffers: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
@@ -4592,6 +5168,38 @@ pub struct ITAllocatorProperties_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITAutomatedPhoneControl(pub ::windows::runtime::IUnknown);
 impl ITAutomatedPhoneControl {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn StartTone(&self, tone: PHONE_TONE, lduration: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(tone), ::core::mem::transmute(lduration)).ok()
@@ -4730,8 +5338,8 @@ impl ITAutomatedPhoneControl {
         let mut result__: <IEnumCall as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumCall>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SelectedCalls(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -4761,27 +5369,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITAutomatedPhoneControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITAutomatedPhoneControl> for super::super::System::Com::IDispatch {
     fn from(value: ITAutomatedPhoneControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITAutomatedPhoneControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITAutomatedPhoneControl> for super::super::System::Com::IDispatch {
     fn from(value: &ITAutomatedPhoneControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITAutomatedPhoneControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITAutomatedPhoneControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITAutomatedPhoneControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITAutomatedPhoneControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4792,13 +5400,13 @@ pub struct ITAutomatedPhoneControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tone: PHONE_TONE, lduration: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptone: *mut PHONE_TONE) -> ::windows::runtime::HRESULT,
@@ -4830,14 +5438,46 @@ pub struct ITAutomatedPhoneControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcall: ::windows::runtime::RawPtr, fselectdefaultterminals: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcall: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITBasicAudioTerminal(pub ::windows::runtime::IUnknown);
 impl ITBasicAudioTerminal {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lvolume)).ok()
@@ -4881,27 +5521,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITBasicAudioTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITBasicAudioTerminal> for super::super::System::Com::IDispatch {
     fn from(value: ITBasicAudioTerminal) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITBasicAudioTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITBasicAudioTerminal> for super::super::System::Com::IDispatch {
     fn from(value: &ITBasicAudioTerminal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITBasicAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITBasicAudioTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITBasicAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITBasicAudioTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4912,13 +5552,13 @@ pub struct ITBasicAudioTerminal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lvolume: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plvolume: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lbalance: i32) -> ::windows::runtime::HRESULT,
@@ -4929,6 +5569,38 @@ pub struct ITBasicAudioTerminal_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITBasicCallControl(pub ::windows::runtime::IUnknown);
 impl ITBasicCallControl {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Connect(&self, fsync: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(fsync)).ok()
@@ -5033,27 +5705,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITBasicCallControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITBasicCallControl> for super::super::System::Com::IDispatch {
     fn from(value: ITBasicCallControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITBasicCallControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITBasicCallControl> for super::super::System::Com::IDispatch {
     fn from(value: &ITBasicCallControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITBasicCallControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITBasicCallControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITBasicCallControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITBasicCallControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5064,13 +5736,13 @@ pub struct ITBasicCallControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fsync: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: DISCONNECT_CODE) -> ::windows::runtime::HRESULT,
@@ -5106,20 +5778,20 @@ impl ITBasicCallControl2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -5271,27 +5943,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITBasicCallControl> for &ITBasicCallC
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITBasicCallControl2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITBasicCallControl2> for super::super::System::Com::IDispatch {
     fn from(value: ITBasicCallControl2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITBasicCallControl2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITBasicCallControl2> for super::super::System::Com::IDispatch {
     fn from(value: &ITBasicCallControl2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITBasicCallControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITBasicCallControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITBasicCallControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITBasicCallControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5302,13 +5974,13 @@ pub struct ITBasicCallControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fsync: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: DISCONNECT_CODE) -> ::windows::runtime::HRESULT,
@@ -5344,6 +6016,38 @@ pub struct ITBasicCallControl2_abi(
 pub struct ITCallHub(pub ::windows::runtime::IUnknown);
 impl ITCallHub {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
@@ -5352,8 +6056,8 @@ impl ITCallHub {
         let mut result__: <IEnumCall as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumCall>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Calls(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -5393,27 +6097,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallHub> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallHub> for super::super::System::Com::IDispatch {
     fn from(value: ITCallHub) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallHub> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallHub> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallHub) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallHub {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallHub {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallHub {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallHub {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5424,17 +6128,17 @@ pub struct ITCallHub_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcalls: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcalls: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcalls: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut CALLHUB_STATE) -> ::windows::runtime::HRESULT,
 );
@@ -5443,6 +6147,38 @@ pub struct ITCallHub_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCallHubEvent(pub ::windows::runtime::IUnknown);
 impl ITCallHubEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Event(&self) -> ::windows::runtime::Result<CALLHUB_EVENT> {
         let mut result__: <CALLHUB_EVENT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -5483,27 +6219,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallHubEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallHubEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITCallHubEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallHubEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallHubEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallHubEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallHubEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallHubEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallHubEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallHubEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5514,13 +6250,13 @@ pub struct ITCallHubEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut CALLHUB_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallhub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5531,173 +6267,24 @@ pub struct ITCallHubEvent_abi(
 pub struct ITCallInfo(pub ::windows::runtime::IUnknown);
 impl ITCallInfo {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn Address(&self) -> ::windows::runtime::Result<ITAddress> {
-        let mut result__: <ITAddress as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITAddress>(result__)
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn CallState(&self) -> ::windows::runtime::Result<CALL_STATE> {
-        let mut result__: <CALL_STATE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<CALL_STATE>(result__)
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn Privilege(&self) -> ::windows::runtime::Result<CALL_PRIVILEGE> {
-        let mut result__: <CALL_PRIVILEGE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<CALL_PRIVILEGE>(result__)
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn CallHub(&self) -> ::windows::runtime::Result<ITCallHub> {
-        let mut result__: <ITCallHub as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITCallHub>(result__)
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn CallInfoLong(&self, callinfolong: CALLINFO_LONG) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfolong), &mut result__).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn SetCallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfolong), ::core::mem::transmute(lcallinfolongval)).ok()
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
-    pub unsafe fn CallInfoString(&self, callinfostring: CALLINFO_STRING) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfostring), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
-    pub unsafe fn SetCallInfoString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfostring), pcallinfostring.into_param().abi()).ok()
-    }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
-        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn SetCallInfoBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppcallinfobuffer)).ok()
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn SetCallInfoBuffer2(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(dwsize), ::core::mem::transmute(pcallinfobuffer)).ok()
-    }
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
-    pub unsafe fn ReleaseUserUserInfo(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self)).ok()
-    }
-}
-unsafe impl ::windows::runtime::Interface for ITCallInfo {
-    type Vtable = ITCallInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890209745, 4647, 4563, [131, 212, 0, 192, 79, 182, 128, 159]);
-}
-impl ::core::convert::From<ITCallInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallInfo) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&ITCallInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallInfo> for super::super::System::Ole::Automation::IDispatch {
-    fn from(value: ITCallInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallInfo> for super::super::System::Ole::Automation::IDispatch {
-    fn from(value: &ITCallInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ITCallInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallstate: *mut CALL_STATE) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprivilege: *mut CALL_PRIVILEGE) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallhub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfolong: CALLINFO_LONG, plcallinfolongval: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfostring: CALLINFO_STRING, ppcallinfostring: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfostring: CALLINFO_STRING, pcallinfostring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-);
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ITCallInfo2(pub ::windows::runtime::IUnknown);
-impl ITCallInfo2 {
-    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -5751,14 +6338,195 @@ impl ITCallInfo2 {
     pub unsafe fn SetCallInfoString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfostring), pcallinfostring.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn SetCallInfoBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppcallinfobuffer)).ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn SetCallInfoBuffer2(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(dwsize), ::core::mem::transmute(pcallinfobuffer)).ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn ReleaseUserUserInfo(&self) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self)).ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for ITCallInfo {
+    type Vtable = ITCallInfo_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890209745, 4647, 4563, [131, 212, 0, 192, 79, 182, 128, 159]);
+}
+impl ::core::convert::From<ITCallInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ITCallInfo) -> Self {
+        value.0
+    }
+}
+impl ::core::convert::From<&ITCallInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ITCallInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ITCallInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallInfo> for super::super::System::Com::IDispatch {
+    fn from(value: ITCallInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallInfo> for super::super::System::Com::IDispatch {
+    fn from(value: &ITCallInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITCallInfo_abi(
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallstate: *mut CALL_STATE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprivilege: *mut CALL_PRIVILEGE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallhub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfolong: CALLINFO_LONG, plcallinfolongval: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfostring: CALLINFO_STRING, ppcallinfostring: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfostring: CALLINFO_STRING, pcallinfostring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+);
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
+pub struct ITCallInfo2(pub ::windows::runtime::IUnknown);
+impl ITCallInfo2 {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn Address(&self) -> ::windows::runtime::Result<ITAddress> {
+        let mut result__: <ITAddress as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITAddress>(result__)
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn CallState(&self) -> ::windows::runtime::Result<CALL_STATE> {
+        let mut result__: <CALL_STATE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<CALL_STATE>(result__)
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn Privilege(&self) -> ::windows::runtime::Result<CALL_PRIVILEGE> {
+        let mut result__: <CALL_PRIVILEGE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<CALL_PRIVILEGE>(result__)
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn CallHub(&self) -> ::windows::runtime::Result<ITCallHub> {
+        let mut result__: <ITCallHub as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITCallHub>(result__)
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn CallInfoLong(&self, callinfolong: CALLINFO_LONG) -> ::windows::runtime::Result<i32> {
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfolong), &mut result__).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn SetCallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfolong), ::core::mem::transmute(lcallinfolongval)).ok()
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn CallInfoString(&self, callinfostring: CALLINFO_STRING) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfostring), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn SetCallInfoString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfostring), pcallinfostring.into_param().abi()).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCallInfoBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.into_param().abi()).ok()
     }
@@ -5828,27 +6596,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITCallInfo> for &ITCallInfo2 {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallInfo2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallInfo2> for super::super::System::Com::IDispatch {
     fn from(value: ITCallInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallInfo2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallInfo2> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallInfo2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallInfo2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallInfo2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5859,13 +6627,13 @@ pub struct ITCallInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallstate: *mut CALL_STATE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprivilege: *mut CALL_PRIVILEGE) -> ::windows::runtime::HRESULT,
@@ -5876,10 +6644,10 @@ pub struct ITCallInfo2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfostring: CALLINFO_STRING, pcallinfostring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5891,6 +6659,38 @@ pub struct ITCallInfo2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCallInfoChangeEvent(pub ::windows::runtime::IUnknown);
 impl ITCallInfoChangeEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -5931,27 +6731,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallInfoChangeEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallInfoChangeEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITCallInfoChangeEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallInfoChangeEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallInfoChangeEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallInfoChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallInfoChangeEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallInfoChangeEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallInfoChangeEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallInfoChangeEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5962,13 +6762,13 @@ pub struct ITCallInfoChangeEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcic: *mut CALLINFOCHANGE_CAUSE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcallbackinstance: *mut i32) -> ::windows::runtime::HRESULT,
@@ -5978,6 +6778,38 @@ pub struct ITCallInfoChangeEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCallMediaEvent(pub ::windows::runtime::IUnknown);
 impl ITCallMediaEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6033,27 +6865,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallMediaEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallMediaEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITCallMediaEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallMediaEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallMediaEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallMediaEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallMediaEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallMediaEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallMediaEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallMediaEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6064,13 +6896,13 @@ pub struct ITCallMediaEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallmediaevent: *mut CALL_MEDIA_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phrerror: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
@@ -6083,6 +6915,38 @@ pub struct ITCallMediaEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCallNotificationEvent(pub ::windows::runtime::IUnknown);
 impl ITCallNotificationEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6123,27 +6987,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallNotificationEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallNotificationEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITCallNotificationEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallNotificationEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallNotificationEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallNotificationEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallNotificationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallNotificationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallNotificationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallNotificationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6154,13 +7018,13 @@ pub struct ITCallNotificationEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallnotificationevent: *mut CALL_NOTIFICATION_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcallbackinstance: *mut i32) -> ::windows::runtime::HRESULT,
@@ -6170,6 +7034,38 @@ pub struct ITCallNotificationEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCallStateEvent(pub ::windows::runtime::IUnknown);
 impl ITCallStateEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6215,27 +7111,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallStateEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallStateEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITCallStateEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallStateEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallStateEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallStateEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallStateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallStateEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallStateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallStateEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6246,13 +7142,13 @@ pub struct ITCallStateEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallstate: *mut CALL_STATE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcec: *mut CALL_STATE_EVENT_CAUSE) -> ::windows::runtime::HRESULT,
@@ -6263,6 +7159,38 @@ pub struct ITCallStateEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCallingCard(pub ::windows::runtime::IUnknown);
 impl ITCallingCard {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn PermanentCardID(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6327,27 +7255,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCallingCard> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCallingCard> for super::super::System::Com::IDispatch {
     fn from(value: ITCallingCard) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCallingCard> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCallingCard> for super::super::System::Com::IDispatch {
     fn from(value: &ITCallingCard) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCallingCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCallingCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCallingCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCallingCard {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6358,13 +7286,13 @@ pub struct ITCallingCard_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcardid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pldigits: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ploptions: *mut i32) -> ::windows::runtime::HRESULT,
@@ -6383,12 +7311,44 @@ pub struct ITCallingCard_abi(
 pub struct ITCollection(pub ::windows::runtime::IUnknown);
 impl ITCollection {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -6423,27 +7383,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCollection> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCollection> for super::super::System::Com::IDispatch {
     fn from(value: ITCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCollection> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCollection> for super::super::System::Com::IDispatch {
     fn from(value: &ITCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6454,16 +7414,16 @@ pub struct ITCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcount: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppnewenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6476,20 +7436,20 @@ impl ITCollection2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -6508,8 +7468,8 @@ impl ITCollection2 {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -6519,8 +7479,8 @@ impl ITCollection2 {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Add(&self, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvariant)).ok()
     }
@@ -6573,27 +7533,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITCollection> for &ITCollection2 {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCollection2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCollection2> for super::super::System::Com::IDispatch {
     fn from(value: ITCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCollection2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCollection2> for super::super::System::Com::IDispatch {
     fn from(value: &ITCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCollection2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCollection2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCollection2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCollection2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6604,19 +7564,19 @@ pub struct ITCollection2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcount: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppnewenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pvariant: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pvariant: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6624,6 +7584,38 @@ pub struct ITCollection2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITCustomTone(pub ::windows::runtime::IUnknown);
 impl ITCustomTone {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Frequency(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6685,27 +7677,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITCustomTone> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITCustomTone> for super::super::System::Com::IDispatch {
     fn from(value: ITCustomTone) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITCustomTone> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITCustomTone> for super::super::System::Com::IDispatch {
     fn from(value: &ITCustomTone) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITCustomTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITCustomTone {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITCustomTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITCustomTone {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6716,13 +7708,13 @@ pub struct ITCustomTone_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plfrequency: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lfrequency: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcadenceon: *mut i32) -> ::windows::runtime::HRESULT,
@@ -6737,6 +7729,38 @@ pub struct ITCustomTone_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDetectTone(pub ::windows::runtime::IUnknown);
 impl ITDetectTone {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6789,27 +7813,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDetectTone> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDetectTone> for super::super::System::Com::IDispatch {
     fn from(value: ITDetectTone) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDetectTone> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDetectTone> for super::super::System::Com::IDispatch {
     fn from(value: &ITDetectTone) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDetectTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDetectTone {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDetectTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDetectTone {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6820,13 +7844,13 @@ pub struct ITDetectTone_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plappspecific: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lappspecific: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plduration: *mut i32) -> ::windows::runtime::HRESULT,
@@ -6839,6 +7863,38 @@ pub struct ITDetectTone_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDigitDetectionEvent(pub ::windows::runtime::IUnknown);
 impl ITDigitDetectionEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6889,27 +7945,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDigitDetectionEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDigitDetectionEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITDigitDetectionEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDigitDetectionEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDigitDetectionEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITDigitDetectionEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDigitDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDigitDetectionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDigitDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDigitDetectionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6920,13 +7976,13 @@ pub struct ITDigitDetectionEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pucdigit: *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdigitmode: *mut i32) -> ::windows::runtime::HRESULT,
@@ -6938,6 +7994,38 @@ pub struct ITDigitDetectionEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDigitGenerationEvent(pub ::windows::runtime::IUnknown);
 impl ITDigitGenerationEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -6983,27 +8071,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDigitGenerationEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDigitGenerationEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITDigitGenerationEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDigitGenerationEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDigitGenerationEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITDigitGenerationEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDigitGenerationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDigitGenerationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDigitGenerationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDigitGenerationEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7014,13 +8102,13 @@ pub struct ITDigitGenerationEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plgenerationtermination: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pltickcount: *mut i32) -> ::windows::runtime::HRESULT,
@@ -7031,6 +8119,38 @@ pub struct ITDigitGenerationEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDigitsGatheredEvent(pub ::windows::runtime::IUnknown);
 impl ITDigitsGatheredEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -7082,27 +8202,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDigitsGatheredEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDigitsGatheredEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITDigitsGatheredEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDigitsGatheredEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDigitsGatheredEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITDigitsGatheredEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDigitsGatheredEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDigitsGatheredEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDigitsGatheredEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDigitsGatheredEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7113,13 +8233,13 @@ pub struct ITDigitsGatheredEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdigits: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7132,6 +8252,38 @@ pub struct ITDigitsGatheredEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDirectory(pub ::windows::runtime::IUnknown);
 impl ITDirectory {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn DirectoryType(&self) -> ::windows::runtime::Result<DIRECTORY_TYPE> {
         let mut result__: <DIRECTORY_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -7186,8 +8338,8 @@ impl ITDirectory {
     pub unsafe fn DeleteDirectoryObject<'a, Param0: ::windows::runtime::IntoParam<'a, ITDirectoryObject>>(&self, pdirectoryobject: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), pdirectoryobject.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DirectoryObjects<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: Param1) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(directoryobjecttype), pname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -7223,27 +8375,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDirectory> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDirectory> for super::super::System::Com::IDispatch {
     fn from(value: ITDirectory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDirectory> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDirectory> for super::super::System::Com::IDispatch {
     fn from(value: &ITDirectory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDirectory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDirectory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDirectory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDirectory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7254,13 +8406,13 @@ pub struct ITDirectory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectorytype: *mut DIRECTORY_TYPE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7275,8 +8427,8 @@ pub struct ITDirectory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectoryobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectoryobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectoryobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppenumobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -7285,6 +8437,38 @@ pub struct ITDirectory_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDirectoryObject(pub ::windows::runtime::IUnknown);
 impl ITDirectoryObject {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn ObjectType(&self) -> ::windows::runtime::Result<DIRECTORY_OBJECT_TYPE> {
         let mut result__: <DIRECTORY_OBJECT_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -7301,8 +8485,8 @@ impl ITDirectoryObject {
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pname.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DialableAddrs(&self, dwaddresstype: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaddresstype), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -7312,15 +8496,15 @@ impl ITDirectoryObject {
         let mut result__: <IEnumDialableAddrs as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaddresstype), &mut result__).from_abi::<IEnumDialableAddrs>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn SecurityDescriptor(&self) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
-        let mut result__: <super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn SecurityDescriptor(&self) -> ::windows::runtime::Result<super::super::System::Com::IDispatch> {
+        let mut result__: <super::super::System::Com::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, psecdes: Param0) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, psecdes: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), psecdes.into_param().abi()).ok()
     }
 }
@@ -7348,27 +8532,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDirectoryObject> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDirectoryObject> for super::super::System::Com::IDispatch {
     fn from(value: ITDirectoryObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDirectoryObject> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDirectoryObject> for super::super::System::Com::IDispatch {
     fn from(value: &ITDirectoryObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDirectoryObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDirectoryObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7379,31 +8563,63 @@ pub struct ITDirectoryObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobjecttype: *mut DIRECTORY_OBJECT_TYPE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaddresstype: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaddresstype: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaddresstype: u32, ppenumdialableaddrs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecdes: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psecdes: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecdes: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psecdes: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDirectoryObjectConference(pub ::windows::runtime::IUnknown);
 impl ITDirectoryObjectConference {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn Protocol(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -7504,27 +8720,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDirectoryObjectConference> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDirectoryObjectConference> for super::super::System::Com::IDispatch {
     fn from(value: ITDirectoryObjectConference) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDirectoryObjectConference> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDirectoryObjectConference> for super::super::System::Com::IDispatch {
     fn from(value: &ITDirectoryObjectConference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDirectoryObjectConference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDirectoryObjectConference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDirectoryObjectConference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDirectoryObjectConference {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7535,13 +8751,13 @@ pub struct ITDirectoryObjectConference_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppprotocol: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pporiginator: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -7570,6 +8786,38 @@ pub struct ITDirectoryObjectConference_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDirectoryObjectUser(pub ::windows::runtime::IUnknown);
 impl ITDirectoryObjectUser {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn IPPhonePrimary(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -7606,27 +8854,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDirectoryObjectUser> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDirectoryObjectUser> for super::super::System::Com::IDispatch {
     fn from(value: ITDirectoryObjectUser) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDirectoryObjectUser> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDirectoryObjectUser> for super::super::System::Com::IDispatch {
     fn from(value: &ITDirectoryObjectUser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDirectoryObjectUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDirectoryObjectUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDirectoryObjectUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDirectoryObjectUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7637,13 +8885,13 @@ pub struct ITDirectoryObjectUser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -7654,11 +8902,43 @@ pub struct ITDirectoryObjectUser_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITDispatchMapper(pub ::windows::runtime::IUnknown);
 impl ITDispatchMapper {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn QueryDispatchInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, piid: Param0, pinterfacetomap: Param1) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
-        let mut result__: <super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), piid.into_param().abi(), pinterfacetomap.into_param().abi(), &mut result__).from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`*"]
+    pub unsafe fn QueryDispatchInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, piid: Param0, pinterfacetomap: Param1) -> ::windows::runtime::Result<super::super::System::Com::IDispatch> {
+        let mut result__: <super::super::System::Com::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), piid.into_param().abi(), pinterfacetomap.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITDispatchMapper {
@@ -7685,27 +8965,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITDispatchMapper> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITDispatchMapper> for super::super::System::Com::IDispatch {
     fn from(value: ITDispatchMapper) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITDispatchMapper> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITDispatchMapper> for super::super::System::Com::IDispatch {
     fn from(value: &ITDispatchMapper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITDispatchMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITDispatchMapper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITDispatchMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITDispatchMapper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7716,21 +8996,53 @@ pub struct ITDispatchMapper_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pinterfacetomap: ::windows::runtime::RawPtr, ppreturnedinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pinterfacetomap: ::windows::runtime::RawPtr, ppreturnedinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITFileTerminalEvent(pub ::windows::runtime::IUnknown);
 impl ITFileTerminalEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Terminal(&self) -> ::windows::runtime::Result<ITTerminal> {
         let mut result__: <ITTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -7786,27 +9098,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITFileTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITFileTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITFileTerminalEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITFileTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITFileTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITFileTerminalEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITFileTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITFileTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITFileTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITFileTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7817,13 +9129,13 @@ pub struct ITFileTerminalEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptrackterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -7836,15 +9148,47 @@ pub struct ITFileTerminalEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITFileTrack(pub ::windows::runtime::IUnknown);
 impl ITFileTrack {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn Format(&self) -> ::windows::runtime::Result<*mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE> {
-        let mut result__: <*mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE>(result__)
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn SetFormat(&self, pmt: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn Format(&self) -> ::windows::runtime::Result<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE> {
+        let mut result__: <*mut super::super::Media::DirectShow::AM_MEDIA_TYPE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE>(result__)
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn SetFormat(&self, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmt)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -7891,27 +9235,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITFileTrack> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITFileTrack> for super::super::System::Com::IDispatch {
     fn from(value: ITFileTrack) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITFileTrack> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITFileTrack> for super::super::System::Com::IDispatch {
     fn from(value: &ITFileTrack) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITFileTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITFileTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITFileTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITFileTrack {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7922,17 +9266,17 @@ pub struct ITFileTrack_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmt: *mut *mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmt: *const ::core::mem::ManuallyDrop<super::super::Graphics::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmt: *const ::core::mem::ManuallyDrop<super::super::Media::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcontrollingterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaudioformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paudioformat: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -7943,6 +9287,38 @@ pub struct ITFileTrack_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITForwardInformation(pub ::windows::runtime::IUnknown);
 impl ITForwardInformation {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn SetNumRingsNoAnswer(&self, lnumrings: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnumrings)).ok()
@@ -8003,27 +9379,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITForwardInformation> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITForwardInformation> for super::super::System::Com::IDispatch {
     fn from(value: ITForwardInformation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITForwardInformation> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITForwardInformation> for super::super::System::Com::IDispatch {
     fn from(value: &ITForwardInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITForwardInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITForwardInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITForwardInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITForwardInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8034,13 +9410,13 @@ pub struct ITForwardInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lnumrings: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plnumrings: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, forwardtype: i32, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalleraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -8063,20 +9439,20 @@ impl ITForwardInformation2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -8190,27 +9566,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITForwardInformation> for &ITForwardI
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITForwardInformation2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITForwardInformation2> for super::super::System::Com::IDispatch {
     fn from(value: ITForwardInformation2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITForwardInformation2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITForwardInformation2> for super::super::System::Com::IDispatch {
     fn from(value: &ITForwardInformation2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITForwardInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITForwardInformation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITForwardInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITForwardInformation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8221,13 +9597,13 @@ pub struct ITForwardInformation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lnumrings: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plnumrings: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, forwardtype: i32, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalleraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -8251,6 +9627,38 @@ pub struct ITForwardInformation2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITILSConfig(pub ::windows::runtime::IUnknown);
 impl ITILSConfig {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Port(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -8285,27 +9693,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITILSConfig> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITILSConfig> for super::super::System::Com::IDispatch {
     fn from(value: ITILSConfig) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITILSConfig> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITILSConfig> for super::super::System::Com::IDispatch {
     fn from(value: &ITILSConfig) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITILSConfig {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITILSConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITILSConfig {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITILSConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8316,13 +9724,13 @@ pub struct ITILSConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pport: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, port: i32) -> ::windows::runtime::HRESULT,
 );
@@ -8482,6 +9890,38 @@ pub struct ITLegacyAddressMediaControl2_abi(
 pub struct ITLegacyCallMediaControl(pub ::windows::runtime::IUnknown);
 impl ITLegacyCallMediaControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn DetectDigits(&self, digitmode: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(digitmode)).ok()
     }
@@ -8528,27 +9968,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITLegacyCallMediaControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITLegacyCallMediaControl> for super::super::System::Com::IDispatch {
     fn from(value: ITLegacyCallMediaControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITLegacyCallMediaControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITLegacyCallMediaControl> for super::super::System::Com::IDispatch {
     fn from(value: &ITLegacyCallMediaControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITLegacyCallMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITLegacyCallMediaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITLegacyCallMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITLegacyCallMediaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8559,13 +9999,13 @@ pub struct ITLegacyCallMediaControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, digitmode: i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdigits: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, digitmode: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -8584,20 +10024,20 @@ impl ITLegacyCallMediaControl2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -8673,8 +10113,8 @@ impl ITLegacyCallMediaControl2 {
         let mut result__: <ITCustomTone as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITCustomTone>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn GetIDAsVariant<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdeviceclass: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), bstrdeviceclass.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -8724,27 +10164,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITLegacyCallMediaControl> for &ITLega
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITLegacyCallMediaControl2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITLegacyCallMediaControl2> for super::super::System::Com::IDispatch {
     fn from(value: ITLegacyCallMediaControl2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITLegacyCallMediaControl2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITLegacyCallMediaControl2> for super::super::System::Com::IDispatch {
     fn from(value: &ITLegacyCallMediaControl2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITLegacyCallMediaControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITLegacyCallMediaControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITLegacyCallMediaControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITLegacyCallMediaControl2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8755,13 +10195,13 @@ pub struct ITLegacyCallMediaControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, digitmode: i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdigits: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, digitmode: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -8780,14 +10220,46 @@ pub struct ITLegacyCallMediaControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcustomtonecollection: ::windows::runtime::RawPtr, lduration: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdetecttone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcustomtone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardeviceid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardeviceid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITLegacyWaveSupport(pub ::windows::runtime::IUnknown);
 impl ITLegacyWaveSupport {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn IsFullDuplex(&self) -> ::windows::runtime::Result<FULLDUPLEX_SUPPORT> {
         let mut result__: <FULLDUPLEX_SUPPORT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -8818,27 +10290,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITLegacyWaveSupport> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITLegacyWaveSupport> for super::super::System::Com::IDispatch {
     fn from(value: ITLegacyWaveSupport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITLegacyWaveSupport> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITLegacyWaveSupport> for super::super::System::Com::IDispatch {
     fn from(value: &ITLegacyWaveSupport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITLegacyWaveSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITLegacyWaveSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITLegacyWaveSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITLegacyWaveSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8849,13 +10321,13 @@ pub struct ITLegacyWaveSupport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psupport: *mut FULLDUPLEX_SUPPORT) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8863,6 +10335,38 @@ pub struct ITLegacyWaveSupport_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITLocationInfo(pub ::windows::runtime::IUnknown);
 impl ITLocationInfo {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn PermanentLocationID(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -8949,27 +10453,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITLocationInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITLocationInfo> for super::super::System::Com::IDispatch {
     fn from(value: ITLocationInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITLocationInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITLocationInfo> for super::super::System::Com::IDispatch {
     fn from(value: &ITLocationInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITLocationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITLocationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITLocationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITLocationInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8980,13 +10484,13 @@ pub struct ITLocationInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pllocationid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcountrycode: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcountryid: *mut i32) -> ::windows::runtime::HRESULT,
@@ -9079,6 +10583,38 @@ pub struct ITMSPAddress_abi(
 pub struct ITMediaControl(pub ::windows::runtime::IUnknown);
 impl ITMediaControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Start(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
@@ -9120,27 +10656,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITMediaControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITMediaControl> for super::super::System::Com::IDispatch {
     fn from(value: ITMediaControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITMediaControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITMediaControl> for super::super::System::Com::IDispatch {
     fn from(value: &ITMediaControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITMediaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITMediaControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9151,13 +10687,13 @@ pub struct ITMediaControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -9168,13 +10704,45 @@ pub struct ITMediaControl_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITMediaPlayback(pub ::windows::runtime::IUnknown);
 impl ITMediaPlayback {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetPlayList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, playlistvariant: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), playlistvariant.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PlayList(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -9204,27 +10772,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITMediaPlayback> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITMediaPlayback> for super::super::System::Com::IDispatch {
     fn from(value: ITMediaPlayback) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITMediaPlayback> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITMediaPlayback> for super::super::System::Com::IDispatch {
     fn from(value: &ITMediaPlayback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITMediaPlayback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITMediaPlayback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITMediaPlayback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITMediaPlayback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9235,23 +10803,55 @@ pub struct ITMediaPlayback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, playlistvariant: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pplaylistvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, playlistvariant: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pplaylistvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITMediaRecord(pub ::windows::runtime::IUnknown);
 impl ITMediaRecord {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn SetFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfilename: Param0) -> ::windows::runtime::Result<()> {
@@ -9288,27 +10888,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITMediaRecord> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITMediaRecord> for super::super::System::Com::IDispatch {
     fn from(value: ITMediaRecord) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITMediaRecord> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITMediaRecord> for super::super::System::Com::IDispatch {
     fn from(value: &ITMediaRecord) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITMediaRecord {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITMediaRecord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITMediaRecord {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITMediaRecord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9319,13 +10919,13 @@ pub struct ITMediaRecord_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -9336,6 +10936,38 @@ pub struct ITMediaRecord_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITMediaSupport(pub ::windows::runtime::IUnknown);
 impl ITMediaSupport {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn MediaTypes(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -9371,27 +11003,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITMediaSupport> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITMediaSupport> for super::super::System::Com::IDispatch {
     fn from(value: ITMediaSupport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITMediaSupport> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITMediaSupport> for super::super::System::Com::IDispatch {
     fn from(value: &ITMediaSupport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITMediaSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITMediaSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITMediaSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITMediaSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9402,13 +11034,13 @@ pub struct ITMediaSupport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plmediatypes: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lmediatype: i32, pfsupport: *mut i16) -> ::windows::runtime::HRESULT,
 );
@@ -9417,8 +11049,40 @@ pub struct ITMediaSupport_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITMultiTrackTerminal(pub ::windows::runtime::IUnknown);
 impl ITMultiTrackTerminal {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn TrackTerminals(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -9472,27 +11136,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITMultiTrackTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITMultiTrackTerminal> for super::super::System::Com::IDispatch {
     fn from(value: ITMultiTrackTerminal) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITMultiTrackTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITMultiTrackTerminal> for super::super::System::Com::IDispatch {
     fn from(value: &ITMultiTrackTerminal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITMultiTrackTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITMultiTrackTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITMultiTrackTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITMultiTrackTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9503,15 +11167,15 @@ pub struct ITMultiTrackTerminal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mediatype: i32, terminaldirection: TERMINAL_DIRECTION, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plmediatypesinuse: *mut i32) -> ::windows::runtime::HRESULT,
@@ -9524,6 +11188,38 @@ pub struct ITMultiTrackTerminal_abi(
 pub struct ITPhone(pub ::windows::runtime::IUnknown);
 impl ITPhone {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Open(&self, privilege: PHONE_PRIVILEGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(privilege)).ok()
     }
@@ -9531,8 +11227,8 @@ impl ITPhone {
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Addresses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -9553,8 +11249,8 @@ impl ITPhone {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcscap), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Terminals<'a, Param0: ::windows::runtime::IntoParam<'a, ITAddress>>(&self, paddress: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), paddress.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -9634,8 +11330,8 @@ impl ITPhone {
     pub unsafe fn GetPhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcbcaps), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppphonecapsbuffer)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcbcaps), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -9660,8 +11356,8 @@ impl ITPhone {
     pub unsafe fn SetDisplay<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lrow: i32, lcolumn: i32, bstrdisplay: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrow), ::core::mem::transmute(lcolumn), bstrdisplay.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PreferredAddresses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -9675,8 +11371,8 @@ impl ITPhone {
     pub unsafe fn DeviceSpecific(&self, pparams: *const u8, dwsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(pparams), ::core::mem::transmute(dwsize)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DeviceSpecificVariant<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vardevspecificbytearray: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), vardevspecificbytearray.into_param().abi()).ok()
     }
@@ -9710,27 +11406,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITPhone> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITPhone> for super::super::System::Com::IDispatch {
     fn from(value: ITPhone) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITPhone> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITPhone> for super::super::System::Com::IDispatch {
     fn from(value: &ITPhone) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITPhone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITPhone {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITPhone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITPhone {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9741,23 +11437,23 @@ pub struct ITPhone_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, privilege: PHONE_PRIVILEGE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclcap: PHONECAPS_LONG, plcapability: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcscap: PHONECAPS_STRING, ppcapability: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, ppenumterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lbuttonid: i32, pbuttonmode: *mut PHONE_BUTTON_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::runtime::HRESULT,
@@ -9776,20 +11472,20 @@ pub struct ITPhone_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plringvolume: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprivilege: *mut PHONE_PRIVILEGE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llampid: i32, plampmode: *mut PHONE_LAMP_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdisplay: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrow: i32, lcolumn: i32, bstrdisplay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pparams: *const u8, dwsize: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9797,6 +11493,38 @@ pub struct ITPhone_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITPhoneDeviceSpecificEvent(pub ::windows::runtime::IUnknown);
 impl ITPhoneDeviceSpecificEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Phone(&self) -> ::windows::runtime::Result<ITPhone> {
         let mut result__: <ITPhone as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -9842,27 +11570,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITPhoneDeviceSpecificEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITPhoneDeviceSpecificEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITPhoneDeviceSpecificEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITPhoneDeviceSpecificEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITPhoneDeviceSpecificEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITPhoneDeviceSpecificEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITPhoneDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITPhoneDeviceSpecificEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITPhoneDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITPhoneDeviceSpecificEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9873,13 +11601,13 @@ pub struct ITPhoneDeviceSpecificEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppphone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pparam1: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pparam2: *mut i32) -> ::windows::runtime::HRESULT,
@@ -9890,6 +11618,38 @@ pub struct ITPhoneDeviceSpecificEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITPhoneEvent(pub ::windows::runtime::IUnknown);
 impl ITPhoneEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Phone(&self) -> ::windows::runtime::Result<ITPhone> {
         let mut result__: <ITPhone as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -9961,27 +11721,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITPhoneEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITPhoneEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITPhoneEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITPhoneEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITPhoneEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITPhoneEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITPhoneEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITPhoneEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITPhoneEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITPhoneEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9992,13 +11752,13 @@ pub struct ITPhoneEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppphone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut PHONE_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut PHONE_BUTTON_STATE) -> ::windows::runtime::HRESULT,
@@ -10015,6 +11775,38 @@ pub struct ITPhoneEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITPluggableTerminalClassInfo(pub ::windows::runtime::IUnknown);
 impl ITPluggableTerminalClassInfo {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -10080,27 +11872,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITPluggableTerminalClassInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITPluggableTerminalClassInfo> for super::super::System::Com::IDispatch {
     fn from(value: ITPluggableTerminalClassInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITPluggableTerminalClassInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITPluggableTerminalClassInfo> for super::super::System::Com::IDispatch {
     fn from(value: &ITPluggableTerminalClassInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITPluggableTerminalClassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITPluggableTerminalClassInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITPluggableTerminalClassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITPluggableTerminalClassInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10111,13 +11903,13 @@ pub struct ITPluggableTerminalClassInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcompany: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -10136,8 +11928,8 @@ pub struct ITPluggableTerminalClassInfo_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITPluggableTerminalEventSink(pub ::windows::runtime::IUnknown);
 impl ITPluggableTerminalEventSink {
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
     pub unsafe fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmspeventinfo)).ok()
     }
@@ -10172,8 +11964,8 @@ pub struct ITPluggableTerminalEventSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmspeventinfo: *const ::core::mem::ManuallyDrop<MSP_EVENT_INFO>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmspeventinfo: *const ::core::mem::ManuallyDrop<MSP_EVENT_INFO>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
@@ -10227,6 +12019,38 @@ pub struct ITPluggableTerminalEventSinkRegistration_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITPluggableTerminalSuperclassInfo(pub ::windows::runtime::IUnknown);
 impl ITPluggableTerminalSuperclassInfo {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -10264,27 +12088,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITPluggableTerminalSuperclassInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITPluggableTerminalSuperclassInfo> for super::super::System::Com::IDispatch {
     fn from(value: ITPluggableTerminalSuperclassInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITPluggableTerminalSuperclassInfo> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITPluggableTerminalSuperclassInfo> for super::super::System::Com::IDispatch {
     fn from(value: &ITPluggableTerminalSuperclassInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITPluggableTerminalSuperclassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITPluggableTerminalSuperclassInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITPluggableTerminalSuperclassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITPluggableTerminalSuperclassInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10295,13 +12119,13 @@ pub struct ITPluggableTerminalSuperclassInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclsid: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -10312,6 +12136,38 @@ pub struct ITPluggableTerminalSuperclassInfo_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITPrivateEvent(pub ::windows::runtime::IUnknown);
 impl ITPrivateEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Address(&self) -> ::windows::runtime::Result<ITAddress> {
         let mut result__: <ITAddress as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -10332,11 +12188,11 @@ impl ITPrivateEvent {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn EventInterface(&self) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
-        let mut result__: <super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn EventInterface(&self) -> ::windows::runtime::Result<super::super::System::Com::IDispatch> {
+        let mut result__: <super::super::System::Com::IDispatch as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITPrivateEvent {
@@ -10363,27 +12219,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITPrivateEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITPrivateEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITPrivateEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITPrivateEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITPrivateEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITPrivateEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITPrivateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITPrivateEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITPrivateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITPrivateEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10394,25 +12250,57 @@ pub struct ITPrivateEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallhub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pleventcode: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peventinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peventinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITQOSEvent(pub ::windows::runtime::IUnknown);
 impl ITQOSEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -10453,27 +12341,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITQOSEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITQOSEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITQOSEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITQOSEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITQOSEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITQOSEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITQOSEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITQOSEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITQOSEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITQOSEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10484,13 +12372,13 @@ pub struct ITQOSEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pqosevent: *mut QOS_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plmediatype: *mut i32) -> ::windows::runtime::HRESULT,
@@ -10500,6 +12388,38 @@ pub struct ITQOSEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITQueue(pub ::windows::runtime::IUnknown);
 impl ITQueue {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn SetMeasurementPeriod(&self, lperiod: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lperiod)).ok()
@@ -10585,27 +12505,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITQueue> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITQueue> for super::super::System::Com::IDispatch {
     fn from(value: ITQueue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITQueue> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITQueue> for super::super::System::Com::IDispatch {
     fn from(value: &ITQueue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10616,13 +12536,13 @@ pub struct ITQueue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lperiod: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plperiod: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcalls: *mut i32) -> ::windows::runtime::HRESULT,
@@ -10642,6 +12562,38 @@ pub struct ITQueue_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITQueueEvent(pub ::windows::runtime::IUnknown);
 impl ITQueueEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Queue(&self) -> ::windows::runtime::Result<ITQueue> {
         let mut result__: <ITQueue as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -10677,27 +12629,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITQueueEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITQueueEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITQueueEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITQueueEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITQueueEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITQueueEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITQueueEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITQueueEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITQueueEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITQueueEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10708,13 +12660,13 @@ pub struct ITQueueEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppqueue: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut ACDQUEUE_EVENT) -> ::windows::runtime::HRESULT,
 );
@@ -10723,8 +12675,40 @@ pub struct ITQueueEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITRendezvous(pub ::windows::runtime::IUnknown);
 impl ITRendezvous {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DefaultDirectories(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -10771,27 +12755,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITRendezvous> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITRendezvous> for super::super::System::Com::IDispatch {
     fn from(value: ITRendezvous) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITRendezvous> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITRendezvous> for super::super::System::Com::IDispatch {
     fn from(value: &ITRendezvous) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITRendezvous {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITRendezvous {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITRendezvous {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITRendezvous {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10802,15 +12786,15 @@ pub struct ITRendezvous_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdirectory: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, directorytype: DIRECTORY_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdir: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10822,6 +12806,38 @@ pub struct ITRendezvous_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITRequest(pub ::windows::runtime::IUnknown);
 impl ITRequest {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn MakeCall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pdestaddress: Param0, pappname: Param1, pcalledparty: Param2, pcomment: Param3) -> ::windows::runtime::Result<()> {
@@ -10852,27 +12868,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITRequest> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITRequest> for super::super::System::Com::IDispatch {
     fn from(value: ITRequest) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITRequest> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITRequest> for super::super::System::Com::IDispatch {
     fn from(value: &ITRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10883,13 +12899,13 @@ pub struct ITRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pappname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalledparty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -10898,6 +12914,38 @@ pub struct ITRequest_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITRequestEvent(pub ::windows::runtime::IUnknown);
 impl ITRequestEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn RegistrationInstance(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -10957,27 +13005,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITRequestEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITRequestEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITRequestEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITRequestEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITRequestEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITRequestEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITRequestEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITRequestEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITRequestEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITRequestEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10988,13 +13036,13 @@ pub struct ITRequestEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plregistrationinstance: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plrequestmode: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdestaddress: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -11011,6 +13059,38 @@ pub struct ITRequestEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITScriptableAudioFormat(pub ::windows::runtime::IUnknown);
 impl ITScriptableAudioFormat {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Channels(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -11090,27 +13170,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITScriptableAudioFormat> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITScriptableAudioFormat> for super::super::System::Com::IDispatch {
     fn from(value: ITScriptableAudioFormat) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITScriptableAudioFormat> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITScriptableAudioFormat> for super::super::System::Com::IDispatch {
     fn from(value: &ITScriptableAudioFormat) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITScriptableAudioFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITScriptableAudioFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITScriptableAudioFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITScriptableAudioFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11121,13 +13201,13 @@ pub struct ITScriptableAudioFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nnewval: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut i32) -> ::windows::runtime::HRESULT,
@@ -11146,6 +13226,38 @@ pub struct ITScriptableAudioFormat_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITStaticAudioTerminal(pub ::windows::runtime::IUnknown);
 impl ITStaticAudioTerminal {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn WaveId(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -11176,27 +13288,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITStaticAudioTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITStaticAudioTerminal> for super::super::System::Com::IDispatch {
     fn from(value: ITStaticAudioTerminal) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITStaticAudioTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITStaticAudioTerminal> for super::super::System::Com::IDispatch {
     fn from(value: &ITStaticAudioTerminal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITStaticAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITStaticAudioTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITStaticAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITStaticAudioTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11207,13 +13319,13 @@ pub struct ITStaticAudioTerminal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plwaveid: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11221,6 +13333,38 @@ pub struct ITStaticAudioTerminal_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITStream(pub ::windows::runtime::IUnknown);
 impl ITStream {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn MediaType(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -11262,8 +13406,8 @@ impl ITStream {
         let mut result__: <IEnumTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTerminal>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Terminals(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11293,27 +13437,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITStream> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITStream> for super::super::System::Com::IDispatch {
     fn from(value: ITStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITStream> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITStream> for super::super::System::Com::IDispatch {
     fn from(value: &ITStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11324,13 +13468,13 @@ pub struct ITStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plmediatype: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptd: *mut TERMINAL_DIRECTION) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
@@ -11341,14 +13485,46 @@ pub struct ITStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminal: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminal: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITStreamControl(pub ::windows::runtime::IUnknown);
 impl ITStreamControl {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn CreateStream(&self, lmediatype: i32, td: TERMINAL_DIRECTION) -> ::windows::runtime::Result<ITStream> {
         let mut result__: <ITStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -11363,8 +13539,8 @@ impl ITStreamControl {
         let mut result__: <IEnumStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumStream>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Streams(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11394,27 +13570,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITStreamControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITStreamControl> for super::super::System::Com::IDispatch {
     fn from(value: ITStreamControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITStreamControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITStreamControl> for super::super::System::Com::IDispatch {
     fn from(value: &ITStreamControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITStreamControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITStreamControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11425,24 +13601,56 @@ pub struct ITStreamControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lmediatype: i32, td: TERMINAL_DIRECTION, ppstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITSubStream(pub ::windows::runtime::IUnknown);
 impl ITSubStream {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn StartSubStream(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
@@ -11468,8 +13676,8 @@ impl ITSubStream {
         let mut result__: <IEnumTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTerminal>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Terminals(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11504,27 +13712,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITSubStream> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITSubStream> for super::super::System::Com::IDispatch {
     fn from(value: ITSubStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITSubStream> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITSubStream> for super::super::System::Com::IDispatch {
     fn from(value: &ITSubStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITSubStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITSubStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITSubStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITSubStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11535,21 +13743,21 @@ pub struct ITSubStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminal: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminal: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminals: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppitstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11557,6 +13765,38 @@ pub struct ITSubStream_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITSubStreamControl(pub ::windows::runtime::IUnknown);
 impl ITSubStreamControl {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn CreateSubStream(&self) -> ::windows::runtime::Result<ITSubStream> {
         let mut result__: <ITSubStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -11571,8 +13811,8 @@ impl ITSubStreamControl {
         let mut result__: <IEnumSubStream as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumSubStream>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SubStreams(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11602,27 +13842,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITSubStreamControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITSubStreamControl> for super::super::System::Com::IDispatch {
     fn from(value: ITSubStreamControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITSubStreamControl> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITSubStreamControl> for super::super::System::Com::IDispatch {
     fn from(value: &ITSubStreamControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITSubStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITSubStreamControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITSubStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITSubStreamControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11633,24 +13873,56 @@ pub struct ITSubStreamControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsubstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psubstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumsubstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTAPI(pub ::windows::runtime::IUnknown);
 impl ITTAPI {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
@@ -11659,8 +13931,8 @@ impl ITTAPI {
     pub unsafe fn Shutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Addresses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11679,8 +13951,8 @@ impl ITTAPI {
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(lregister)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CallHubs(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11690,8 +13962,8 @@ impl ITTAPI {
         let mut result__: <IEnumCallHub as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumCallHub>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCallHubTracking<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, paddresses: Param0, btracking: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), paddresses.into_param().abi(), ::core::mem::transmute(btracking)).ok()
     }
@@ -11701,8 +13973,8 @@ impl ITTAPI {
         let mut result__: <super::super::System::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PrivateTAPIObjects(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11755,27 +14027,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTAPI> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPI> for super::super::System::Com::IDispatch {
     fn from(value: ITTAPI) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTAPI> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPI> for super::super::System::Com::IDispatch {
     fn from(value: &ITTAPI) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTAPI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTAPI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTAPI {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11786,29 +14058,29 @@ pub struct ITTAPI_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32, plregister: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lregister: i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcallhub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: i16) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: i16) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumunknown: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lregistrationinstance: i32, lrequestmode: i32, fenable: i16) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pappfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpriority: i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -11827,20 +14099,20 @@ impl ITTAPI2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -11862,8 +14134,8 @@ impl ITTAPI2 {
     pub unsafe fn Shutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Addresses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11882,8 +14154,8 @@ impl ITTAPI2 {
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(lregister)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CallHubs(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11893,8 +14165,8 @@ impl ITTAPI2 {
         let mut result__: <IEnumCallHub as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumCallHub>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCallHubTracking<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, paddresses: Param0, btracking: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), paddresses.into_param().abi(), ::core::mem::transmute(btracking)).ok()
     }
@@ -11904,8 +14176,8 @@ impl ITTAPI2 {
         let mut result__: <super::super::System::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PrivateTAPIObjects(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11933,8 +14205,8 @@ impl ITTAPI2 {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Phones(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -11994,27 +14266,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITTAPI> for &ITTAPI2 {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTAPI2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPI2> for super::super::System::Com::IDispatch {
     fn from(value: ITTAPI2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTAPI2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPI2> for super::super::System::Com::IDispatch {
     fn from(value: &ITTAPI2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTAPI2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTAPI2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTAPI2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12025,29 +14297,29 @@ pub struct ITTAPI2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddress: ::windows::runtime::RawPtr, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32, plregister: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lregister: i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumcallhub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: i16) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: i16) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumunknown: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lregistrationinstance: i32, lrequestmode: i32, fenable: i16) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pappfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpriority: i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12055,8 +14327,8 @@ pub struct ITTAPI2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lfiltermask: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plfiltermask: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphones: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumphone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -12066,12 +14338,44 @@ pub struct ITTAPI2_abi(
 pub struct ITTAPICallCenter(pub ::windows::runtime::IUnknown);
 impl ITTAPICallCenter {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn EnumerateAgentHandlers(&self) -> ::windows::runtime::Result<IEnumAgentHandler> {
         let mut result__: <IEnumAgentHandler as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumAgentHandler>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn AgentHandlers(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12101,27 +14405,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTAPICallCenter> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPICallCenter> for super::super::System::Com::IDispatch {
     fn from(value: ITTAPICallCenter) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTAPICallCenter> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPICallCenter> for super::super::System::Com::IDispatch {
     fn from(value: &ITTAPICallCenter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTAPICallCenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPICallCenter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTAPICallCenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTAPICallCenter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12132,22 +14436,55 @@ pub struct ITTAPICallCenter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumhandler: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTAPIDispatchEventNotification(pub ::windows::runtime::IUnknown);
-impl ITTAPIDispatchEventNotification {}
+impl ITTAPIDispatchEventNotification {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
 unsafe impl ::windows::runtime::Interface for ITTAPIDispatchEventNotification {
     type Vtable = ITTAPIDispatchEventNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2670998107, 32354, 4562, [148, 87, 0, 192, 79, 142, 200, 136]);
@@ -12172,27 +14509,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTAPIDispatchEventNotification> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPIDispatchEventNotification> for super::super::System::Com::IDispatch {
     fn from(value: ITTAPIDispatchEventNotification) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTAPIDispatchEventNotification> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPIDispatchEventNotification> for super::super::System::Com::IDispatch {
     fn from(value: &ITTAPIDispatchEventNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTAPIDispatchEventNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPIDispatchEventNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTAPIDispatchEventNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTAPIDispatchEventNotification {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12203,22 +14540,22 @@ pub struct ITTAPIDispatchEventNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTAPIEventNotification(pub ::windows::runtime::IUnknown);
 impl ITTAPIEventNotification {
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Event<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, tapievent: TAPI_EVENT, pevent: Param1) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn Event<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, tapievent: TAPI_EVENT, pevent: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tapievent), pevent.into_param().abi()).ok()
     }
 }
@@ -12252,14 +14589,46 @@ pub struct ITTAPIEventNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tapievent: TAPI_EVENT, pevent: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tapievent: TAPI_EVENT, pevent: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTAPIObjectEvent(pub ::windows::runtime::IUnknown);
 impl ITTAPIObjectEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn TAPIObject(&self) -> ::windows::runtime::Result<ITTAPI> {
         let mut result__: <ITTAPI as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -12305,27 +14674,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTAPIObjectEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPIObjectEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITTAPIObjectEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTAPIObjectEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPIObjectEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITTAPIObjectEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTAPIObjectEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPIObjectEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTAPIObjectEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTAPIObjectEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12336,13 +14705,13 @@ pub struct ITTAPIObjectEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptapiobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut TAPIOBJECT_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -12358,20 +14727,20 @@ impl ITTAPIObjectEvent2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -12455,27 +14824,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITTAPIObjectEvent> for &ITTAPIObjectE
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTAPIObjectEvent2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPIObjectEvent2> for super::super::System::Com::IDispatch {
     fn from(value: ITTAPIObjectEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTAPIObjectEvent2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPIObjectEvent2> for super::super::System::Com::IDispatch {
     fn from(value: &ITTAPIObjectEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTAPIObjectEvent2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPIObjectEvent2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTAPIObjectEvent2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTAPIObjectEvent2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12486,13 +14855,13 @@ pub struct ITTAPIObjectEvent2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptapiobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevent: *mut TAPIOBJECT_EVENT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -12504,6 +14873,38 @@ pub struct ITTAPIObjectEvent2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTTSTerminalEvent(pub ::windows::runtime::IUnknown);
 impl ITTTSTerminalEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Terminal(&self) -> ::windows::runtime::Result<ITTerminal> {
         let mut result__: <ITTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -12544,27 +14945,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTTSTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTTSTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITTTSTerminalEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTTSTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTTSTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITTTSTerminalEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTTSTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTTSTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTTSTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTTSTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12575,13 +14976,13 @@ pub struct ITTTSTerminalEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phrerrorcode: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
@@ -12591,6 +14992,38 @@ pub struct ITTTSTerminalEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTerminal(pub ::windows::runtime::IUnknown);
 impl ITTerminal {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -12648,27 +15081,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTerminal> for super::super::System::Com::IDispatch {
     fn from(value: ITTerminal) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTerminal> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTerminal> for super::super::System::Com::IDispatch {
     fn from(value: &ITTerminal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTerminal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12679,13 +15112,13 @@ pub struct ITTerminal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminalstate: *mut TERMINAL_STATE) -> ::windows::runtime::HRESULT,
@@ -12700,8 +15133,40 @@ pub struct ITTerminal_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITTerminalSupport(pub ::windows::runtime::IUnknown);
 impl ITTerminalSupport {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn StaticTerminals(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12711,8 +15176,8 @@ impl ITTerminalSupport {
         let mut result__: <IEnumTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTerminal>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DynamicTerminalClasses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12758,27 +15223,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTerminalSupport> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTerminalSupport> for super::super::System::Com::IDispatch {
     fn from(value: ITTerminalSupport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTerminalSupport> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTerminalSupport> for super::super::System::Com::IDispatch {
     fn from(value: &ITTerminalSupport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTerminalSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTerminalSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTerminalSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTerminalSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12789,18 +15254,18 @@ pub struct ITTerminalSupport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminalenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminalclassenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminalclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12816,20 +15281,20 @@ impl ITTerminalSupport2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(dispidmember),
@@ -12843,8 +15308,8 @@ impl ITTerminalSupport2 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn StaticTerminals(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12854,8 +15319,8 @@ impl ITTerminalSupport2 {
         let mut result__: <IEnumTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTerminal>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DynamicTerminalClasses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12876,8 +15341,8 @@ impl ITTerminalSupport2 {
         let mut result__: <ITTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmediatype), ::core::mem::transmute(direction), &mut result__).from_abi::<ITTerminal>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PluggableSuperclasses(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12887,8 +15352,8 @@ impl ITTerminalSupport2 {
         let mut result__: <IEnumPluggableSuperclassInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumPluggableSuperclassInfo>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PluggableTerminalClasses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrterminalsuperclass: Param0, lmediatype: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), bstrterminalsuperclass.into_param().abi(), ::core::mem::transmute(lmediatype), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -12943,27 +15408,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITTerminalSupport> for &ITTerminalSup
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITTerminalSupport2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTerminalSupport2> for super::super::System::Com::IDispatch {
     fn from(value: ITTerminalSupport2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITTerminalSupport2> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTerminalSupport2> for super::super::System::Com::IDispatch {
     fn from(value: &ITTerminalSupport2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITTerminalSupport2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITTerminalSupport2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITTerminalSupport2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITTerminalSupport2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12974,27 +15439,27 @@ pub struct ITTerminalSupport2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminalenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminalclassenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pterminalclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsuperclassenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrterminalsuperclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrterminalsuperclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iidterminalsuperclass: ::windows::runtime::GUID, lmediatype: i32, ppclassenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -13002,6 +15467,38 @@ pub struct ITTerminalSupport2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITToneDetectionEvent(pub ::windows::runtime::IUnknown);
 impl ITToneDetectionEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Call(&self) -> ::windows::runtime::Result<ITCallInfo> {
         let mut result__: <ITCallInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -13047,27 +15544,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITToneDetectionEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITToneDetectionEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITToneDetectionEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITToneDetectionEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITToneDetectionEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITToneDetectionEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITToneDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITToneDetectionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITToneDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITToneDetectionEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13078,13 +15575,13 @@ pub struct ITToneDetectionEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcallinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plappspecific: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pltickcount: *mut i32) -> ::windows::runtime::HRESULT,
@@ -13095,6 +15592,38 @@ pub struct ITToneDetectionEvent_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITToneTerminalEvent(pub ::windows::runtime::IUnknown);
 impl ITToneTerminalEvent {
+    #[doc = "*Required features: `Win32_Devices_Tapi`*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: <super::super::System::Com::ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
+    }
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
     pub unsafe fn Terminal(&self) -> ::windows::runtime::Result<ITTerminal> {
         let mut result__: <ITTerminal as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
@@ -13135,27 +15664,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<ITToneTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITToneTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: ITToneTerminalEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::core::convert::From<&ITToneTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITToneTerminalEvent> for super::super::System::Com::IDispatch {
     fn from(value: &ITToneTerminalEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITToneTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for ITToneTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITToneTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IDispatch> for &ITToneTerminalEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13166,13 +15695,13 @@ pub struct ITToneTerminalEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppterminal: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcall: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phrerrorcode: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
@@ -16909,49 +19438,49 @@ impl ::core::convert::From<i32> for MSP_EVENT {
 unsafe impl ::windows::runtime::Abi for MSP_EVENT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
     pub hCall: *mut i32,
     pub Anonymous: MSP_EVENT_INFO_0,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
     pub MSP_CALL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_2>,
@@ -16962,95 +19491,95 @@ pub union MSP_EVENT_INFO_0 {
     pub MSP_TTS_TERMINAL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
     pub MSP_TONE_TERMINAL_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: ::core::option::Option<ITTerminal>,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_ADDRESS_EVENT_INFO_e__Struct").field("Type", &self.Type).field("pTerminal", &self.pTerminal).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.pTerminal == other.pTerminal
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: ::core::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_1 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_ASR_TERMINAL_EVENT_INFO_e__Struct").field("pASRTerminal", &self.pASRTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.pASRTerminal == other.pASRTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_1 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -17058,35 +19587,35 @@ pub struct MSP_EVENT_INFO_0_2 {
     pub pTerminal: ::core::option::Option<ITTerminal>,
     pub hrError: ::windows::runtime::HRESULT,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_CALL_EVENT_INFO_e__Struct").field("Type", &self.Type).field("Cause", &self.Cause).field("pStream", &self.pStream).field("pTerminal", &self.pTerminal).field("hrError", &self.hrError).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Cause == other.Cause && self.pStream == other.pStream && self.pTerminal == other.pTerminal && self.hrError == other.hrError
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: ::core::option::Option<ITTerminal>,
     pub pFileTrack: ::core::option::Option<ITFileTrack>,
@@ -17094,15 +19623,15 @@ pub struct MSP_EVENT_INFO_0_3 {
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_3 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_FILE_TERMINAL_EVENT_INFO_e__Struct")
@@ -17114,147 +19643,147 @@ impl ::core::fmt::Debug for MSP_EVENT_INFO_0_3 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.pParentFileTerminal == other.pParentFileTerminal && self.pFileTrack == other.pFileTrack && self.TerminalMediaState == other.TerminalMediaState && self.ftecEventCause == other.ftecEventCause && self.hrErrorCode == other.hrErrorCode
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_3 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
-    pub pEvent: ::core::option::Option<super::super::System::Ole::Automation::IDispatch>,
+    pub pEvent: ::core::option::Option<super::super::System::Com::IDispatch>,
     pub lEventCode: i32,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_4 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_4 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_PRIVATE_EVENT_INFO_e__Struct").field("pEvent", &self.pEvent).field("lEventCode", &self.lEventCode).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.pEvent == other.pEvent && self.lEventCode == other.lEventCode
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_4 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_4 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: ::core::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_5 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_TONE_TERMINAL_EVENT_INFO_e__Struct").field("pToneTerminal", &self.pToneTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.pToneTerminal == other.pToneTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_5 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_TSP_DATA_e__Struct").field("dwBufferSize", &self.dwBufferSize).field("pBuffer", &self.pBuffer).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.dwBufferSize == other.dwBufferSize && self.pBuffer == other.pBuffer
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: ::core::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl MSP_EVENT_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MSP_EVENT_INFO_0_7 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MSP_TTS_TERMINAL_EVENT_INFO_e__Struct").field("pTTSTerminal", &self.pTTSTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.pTTSTerminal == other.pTTSTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_7 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }

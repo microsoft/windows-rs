@@ -1,7 +1,7 @@
 use test_win32::Windows::Win32::{
     Foundation::{CloseHandle, BOOL, HANDLE, HWND, PSTR, PWSTR, RECT},
     Gaming::HasExpandedResources,
-    Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
+    Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
     Networking::Ldap::ldapsearch,
     Security::Authorization::*,
     System::Com::StructuredStorage::*,

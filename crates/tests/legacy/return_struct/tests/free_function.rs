@@ -6,7 +6,7 @@
 #[test]
 #[cfg(target_pointer_width = "64")]
 fn test() {
-    use test_return_struct::Windows::Win32::Graphics::Direct2D::*;
+    use test_return_struct::Windows::Win32::Graphics::Direct2D::{Common::*, *};
 
     let before = D2D1_COLOR_F { r: 1.0, g: 2.0, b: 3.0, a: 4.0 };
 

@@ -68,51 +68,51 @@ impl ::core::cmp::Eq for CPOINT {}
 unsafe impl ::windows::runtime::Abi for CPOINT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 8u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 4u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 6u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 3u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 2u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 5u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 7u32,
 };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
-pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
     pid: 9u32,
 };
@@ -4160,66 +4160,64 @@ pub const DIJC_REGHWCONFIGTYPE: u32 = 2u32;
 pub const DIJC_WDMGAMEPORT: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYCONFIG {
     pub dwSize: u32,
     pub guidInstance: ::windows::runtime::GUID,
-    pub hwc: super::super::Media::Multimedia::JOYREGHWCONFIG,
+    pub hwc: JOYREGHWCONFIG,
     pub dwGain: u32,
     pub wszType: [u16; 256],
     pub wszCallout: [u16; 256],
     pub guidGameport: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYCONFIG {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for DIJOYCONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for DIJOYCONFIG {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for DIJOYCONFIG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("DIJOYCONFIG").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("hwc", &self.hwc).field("dwGain", &self.dwGain).field("wszType", &self.wszType).field("wszCallout", &self.wszCallout).field("guidGameport", &self.guidGameport).finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for DIJOYCONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.hwc == other.hwc && self.dwGain == other.dwGain && self.wszType == other.wszType && self.wszCallout == other.wszCallout && self.guidGameport == other.guidGameport
+    }
+}
 impl ::core::cmp::Eq for DIJOYCONFIG {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYCONFIG {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYCONFIG_DX5 {
     pub dwSize: u32,
     pub guidInstance: ::windows::runtime::GUID,
-    pub hwc: super::super::Media::Multimedia::JOYREGHWCONFIG,
+    pub hwc: JOYREGHWCONFIG,
     pub dwGain: u32,
     pub wszType: [u16; 256],
     pub wszCallout: [u16; 256],
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYCONFIG_DX5 {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for DIJOYCONFIG_DX5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for DIJOYCONFIG_DX5 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for DIJOYCONFIG_DX5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("DIJOYCONFIG_DX5").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("hwc", &self.hwc).field("dwGain", &self.dwGain).field("wszType", &self.wszType).field("wszCallout", &self.wszCallout).finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for DIJOYCONFIG_DX5 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.hwc == other.hwc && self.dwGain == other.dwGain && self.wszType == other.wszType && self.wszCallout == other.wszCallout
+    }
+}
 impl ::core::cmp::Eq for DIJOYCONFIG_DX5 {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYCONFIG_DX5 {
     type Abi = Self;
 }
@@ -4374,11 +4372,10 @@ unsafe impl ::windows::runtime::Abi for DIJOYSTATE2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYTYPEINFO {
     pub dwSize: u32,
-    pub hws: super::super::Media::Multimedia::JOYREGHWSETTINGS,
+    pub hws: JOYREGHWSETTINGS,
     pub clsidConfig: ::windows::runtime::GUID,
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
@@ -4387,117 +4384,132 @@ pub struct DIJOYTYPEINFO {
     pub dwFlags2: u32,
     pub wszMapFile: [u16; 256],
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYTYPEINFO {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for DIJOYTYPEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for DIJOYTYPEINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("DIJOYTYPEINFO")
+            .field("dwSize", &self.dwSize)
+            .field("hws", &self.hws)
+            .field("clsidConfig", &self.clsidConfig)
+            .field("wszDisplayName", &self.wszDisplayName)
+            .field("wszCallout", &self.wszCallout)
+            .field("wszHardwareId", &self.wszHardwareId)
+            .field("dwFlags1", &self.dwFlags1)
+            .field("dwFlags2", &self.dwFlags2)
+            .field("wszMapFile", &self.wszMapFile)
+            .finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout && self.wszHardwareId == other.wszHardwareId && self.dwFlags1 == other.dwFlags1 && self.dwFlags2 == other.dwFlags2 && self.wszMapFile == other.wszMapFile
+    }
+}
 impl ::core::cmp::Eq for DIJOYTYPEINFO {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYTYPEINFO_DX5 {
     pub dwSize: u32,
-    pub hws: super::super::Media::Multimedia::JOYREGHWSETTINGS,
+    pub hws: JOYREGHWSETTINGS,
     pub clsidConfig: ::windows::runtime::GUID,
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYTYPEINFO_DX5 {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for DIJOYTYPEINFO_DX5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for DIJOYTYPEINFO_DX5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("DIJOYTYPEINFO_DX5").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout
+    }
+}
 impl ::core::cmp::Eq for DIJOYTYPEINFO_DX5 {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO_DX5 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYTYPEINFO_DX6 {
     pub dwSize: u32,
-    pub hws: super::super::Media::Multimedia::JOYREGHWSETTINGS,
+    pub hws: JOYREGHWSETTINGS,
     pub clsidConfig: ::windows::runtime::GUID,
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
     pub wszHardwareId: [u16; 256],
     pub dwFlags1: u32,
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYTYPEINFO_DX6 {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for DIJOYTYPEINFO_DX6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for DIJOYTYPEINFO_DX6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("DIJOYTYPEINFO_DX6")
+            .field("dwSize", &self.dwSize)
+            .field("hws", &self.hws)
+            .field("clsidConfig", &self.clsidConfig)
+            .field("wszDisplayName", &self.wszDisplayName)
+            .field("wszCallout", &self.wszCallout)
+            .field("wszHardwareId", &self.wszHardwareId)
+            .field("dwFlags1", &self.dwFlags1)
+            .finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout && self.wszHardwareId == other.wszHardwareId && self.dwFlags1 == other.dwFlags1
+    }
+}
 impl ::core::cmp::Eq for DIJOYTYPEINFO_DX6 {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO_DX6 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct DIJOYUSERVALUES {
     pub dwSize: u32,
-    pub ruv: super::super::Media::Multimedia::JOYREGUSERVALUES,
+    pub ruv: JOYREGUSERVALUES,
     pub wszGlobalDriver: [u16; 256],
     pub wszGameportEmulator: [u16; 256],
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl DIJOYUSERVALUES {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for DIJOYUSERVALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for DIJOYUSERVALUES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for DIJOYUSERVALUES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("DIJOYUSERVALUES").field("dwSize", &self.dwSize).field("ruv", &self.ruv).field("wszGlobalDriver", &self.wszGlobalDriver).field("wszGameportEmulator", &self.wszGameportEmulator).finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for DIJOYUSERVALUES {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.ruv == other.ruv && self.wszGlobalDriver == other.wszGlobalDriver && self.wszGameportEmulator == other.wszGameportEmulator
+    }
+}
 impl ::core::cmp::Eq for DIJOYUSERVALUES {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYUSERVALUES {
     type Abi = Self;
 }
@@ -11054,13 +11066,13 @@ impl IDirectInputJoyConfig {
     pub unsafe fn EnumTypes(&self, param0: ::core::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
@@ -11069,13 +11081,11 @@ impl IDirectInputJoyConfig {
     pub unsafe fn DeleteType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
@@ -11083,13 +11093,11 @@ impl IDirectInputJoyConfig {
     pub unsafe fn DeleteConfig(&self, param0: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
@@ -11146,21 +11154,17 @@ pub struct IDirectInputJoyConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
@@ -11195,13 +11199,13 @@ impl IDirectInputJoyConfig8 {
     pub unsafe fn EnumTypes(&self, param0: ::core::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn GetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
     pub unsafe fn SetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
@@ -11210,13 +11214,11 @@ impl IDirectInputJoyConfig8 {
     pub unsafe fn DeleteType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
@@ -11224,13 +11226,11 @@ impl IDirectInputJoyConfig8 {
     pub unsafe fn DeleteConfig(&self, param0: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
@@ -11287,21 +11287,17 @@ pub struct IDirectInputJoyConfig8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
@@ -11467,32 +11463,206 @@ pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Media_Multimedia`*"]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+pub struct JOYCALIBRATE {
+    pub wXbase: u32,
+    pub wXdelta: u32,
+    pub wYbase: u32,
+    pub wYdelta: u32,
+    pub wZbase: u32,
+    pub wZdelta: u32,
+}
+impl JOYCALIBRATE {}
+impl ::core::default::Default for JOYCALIBRATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for JOYCALIBRATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYCALIBRATE").field("wXbase", &self.wXbase).field("wXdelta", &self.wXdelta).field("wYbase", &self.wYbase).field("wYdelta", &self.wYdelta).field("wZbase", &self.wZbase).field("wZdelta", &self.wZdelta).finish()
+    }
+}
+impl ::core::cmp::PartialEq for JOYCALIBRATE {
+    fn eq(&self, other: &Self) -> bool {
+        self.wXbase == other.wXbase && self.wXdelta == other.wXdelta && self.wYbase == other.wYbase && self.wYdelta == other.wYdelta && self.wZbase == other.wZbase && self.wZdelta == other.wZdelta
+    }
+}
+impl ::core::cmp::Eq for JOYCALIBRATE {}
+unsafe impl ::windows::runtime::Abi for JOYCALIBRATE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+pub struct JOYPOS {
+    pub dwX: u32,
+    pub dwY: u32,
+    pub dwZ: u32,
+    pub dwR: u32,
+    pub dwU: u32,
+    pub dwV: u32,
+}
+impl JOYPOS {}
+impl ::core::default::Default for JOYPOS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for JOYPOS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYPOS").field("dwX", &self.dwX).field("dwY", &self.dwY).field("dwZ", &self.dwZ).field("dwR", &self.dwR).field("dwU", &self.dwU).field("dwV", &self.dwV).finish()
+    }
+}
+impl ::core::cmp::PartialEq for JOYPOS {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwX == other.dwX && self.dwY == other.dwY && self.dwZ == other.dwZ && self.dwR == other.dwR && self.dwU == other.dwU && self.dwV == other.dwV
+    }
+}
+impl ::core::cmp::Eq for JOYPOS {}
+unsafe impl ::windows::runtime::Abi for JOYPOS {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+pub struct JOYRANGE {
+    pub jpMin: JOYPOS,
+    pub jpMax: JOYPOS,
+    pub jpCenter: JOYPOS,
+}
+impl JOYRANGE {}
+impl ::core::default::Default for JOYRANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for JOYRANGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYRANGE").field("jpMin", &self.jpMin).field("jpMax", &self.jpMax).field("jpCenter", &self.jpCenter).finish()
+    }
+}
+impl ::core::cmp::PartialEq for JOYRANGE {
+    fn eq(&self, other: &Self) -> bool {
+        self.jpMin == other.jpMin && self.jpMax == other.jpMax && self.jpCenter == other.jpCenter
+    }
+}
+impl ::core::cmp::Eq for JOYRANGE {}
+unsafe impl ::windows::runtime::Abi for JOYRANGE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+pub struct JOYREGHWCONFIG {
+    pub hws: JOYREGHWSETTINGS,
+    pub dwUsageSettings: u32,
+    pub hwv: JOYREGHWVALUES,
+    pub dwType: u32,
+    pub dwReserved: u32,
+}
+impl JOYREGHWCONFIG {}
+impl ::core::default::Default for JOYREGHWCONFIG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for JOYREGHWCONFIG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYREGHWCONFIG").field("hws", &self.hws).field("dwUsageSettings", &self.dwUsageSettings).field("hwv", &self.hwv).field("dwType", &self.dwType).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+impl ::core::cmp::PartialEq for JOYREGHWCONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        self.hws == other.hws && self.dwUsageSettings == other.dwUsageSettings && self.hwv == other.hwv && self.dwType == other.dwType && self.dwReserved == other.dwReserved
+    }
+}
+impl ::core::cmp::Eq for JOYREGHWCONFIG {}
+unsafe impl ::windows::runtime::Abi for JOYREGHWCONFIG {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+pub struct JOYREGHWSETTINGS {
+    pub dwFlags: u32,
+    pub dwNumButtons: u32,
+}
+impl JOYREGHWSETTINGS {}
+impl ::core::default::Default for JOYREGHWSETTINGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for JOYREGHWSETTINGS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYREGHWSETTINGS").field("dwFlags", &self.dwFlags).field("dwNumButtons", &self.dwNumButtons).finish()
+    }
+}
+impl ::core::cmp::PartialEq for JOYREGHWSETTINGS {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwFlags == other.dwFlags && self.dwNumButtons == other.dwNumButtons
+    }
+}
+impl ::core::cmp::Eq for JOYREGHWSETTINGS {}
+unsafe impl ::windows::runtime::Abi for JOYREGHWSETTINGS {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub struct JOYREGHWVALUES {
-    pub jrvHardware: super::super::Media::Multimedia::JOYRANGE,
+    pub jrvHardware: JOYRANGE,
     pub dwPOVValues: [u32; 4],
     pub dwCalFlags: u32,
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl JOYREGHWVALUES {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for JOYREGHWVALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for JOYREGHWVALUES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+impl ::core::fmt::Debug for JOYREGHWVALUES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYREGHWVALUES").field("jrvHardware", &self.jrvHardware).field("dwPOVValues", &self.dwPOVValues).field("dwCalFlags", &self.dwCalFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
+impl ::core::cmp::PartialEq for JOYREGHWVALUES {
+    fn eq(&self, other: &Self) -> bool {
+        self.jrvHardware == other.jrvHardware && self.dwPOVValues == other.dwPOVValues && self.dwCalFlags == other.dwCalFlags
+    }
+}
 impl ::core::cmp::Eq for JOYREGHWVALUES {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for JOYREGHWVALUES {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+pub struct JOYREGUSERVALUES {
+    pub dwTimeOut: u32,
+    pub jrvRanges: JOYRANGE,
+    pub jpDeadZone: JOYPOS,
+}
+impl JOYREGUSERVALUES {}
+impl ::core::default::Default for JOYREGUSERVALUES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for JOYREGUSERVALUES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("JOYREGUSERVALUES").field("dwTimeOut", &self.dwTimeOut).field("jrvRanges", &self.jrvRanges).field("jpDeadZone", &self.jpDeadZone).finish()
+    }
+}
+impl ::core::cmp::PartialEq for JOYREGUSERVALUES {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwTimeOut == other.dwTimeOut && self.jrvRanges == other.jrvRanges && self.jpDeadZone == other.jpDeadZone
+    }
+}
+impl ::core::cmp::Eq for JOYREGUSERVALUES {}
+unsafe impl ::windows::runtime::Abi for JOYREGUSERVALUES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]

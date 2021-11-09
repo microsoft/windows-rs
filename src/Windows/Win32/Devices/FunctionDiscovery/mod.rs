@@ -213,11 +213,11 @@ impl IFunctionDiscoveryProvider {
     pub unsafe fn InstancePropertyStoreValidateAccess<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwstgaccess)).ok()
     }
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn InstancePropertyStoreOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn InstancePropertyStoreOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::runtime::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+        let mut result__: <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn InstancePropertyStoreFlush<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize) -> ::windows::runtime::Result<()> {
@@ -267,8 +267,8 @@ pub struct IFunctionDiscoveryProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctiondiscoveryproviderquery: ::windows::runtime::RawPtr, ppifunctioninstancecollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, dwstgaccess: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, dwstgaccess: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppiunknown: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize) -> ::windows::runtime::HRESULT,
@@ -278,15 +278,15 @@ pub struct IFunctionDiscoveryProvider_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFunctionDiscoveryProviderFactory(pub ::windows::runtime::IUnknown);
 impl IFunctionDiscoveryProviderFactory {
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn CreatePropertyStore(&self) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn CreatePropertyStore(&self) -> ::windows::runtime::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+        let mut result__: <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::PropertiesSystem::IPropertyStore>, Param4: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryProvider>>(
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param4: ::windows::runtime::IntoParam<'a, IFunctionDiscoveryProvider>>(
         &self,
         pszsubcategory: Param0,
         pszproviderinstanceidentity: Param1,
@@ -333,10 +333,10 @@ pub struct IFunctionDiscoveryProviderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR, iproviderinstancecontext: isize, pipropertystore: ::windows::runtime::RawPtr, pifunctiondiscoveryprovider: ::windows::runtime::RawPtr, ppifunctioninstance: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem")))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR, iproviderinstancecontext: isize, pipropertystore: ::windows::runtime::RawPtr, pifunctiondiscoveryprovider: ::windows::runtime::RawPtr, ppifunctioninstance: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppifunctioninstancecollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -464,11 +464,11 @@ impl IFunctionInstance {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn OpenPropertyStore(&self, dwstgaccess: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn OpenPropertyStore(&self, dwstgaccess: u32) -> ::windows::runtime::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+        let mut result__: <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstgaccess), &mut result__).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::runtime::Result<()> {
@@ -532,8 +532,8 @@ pub struct IFunctionInstance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszcomemidentity: *mut *mut u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszcomemproviderinstanceidentity: *mut *mut u16) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwstgaccess: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwstgaccess: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -623,9 +623,9 @@ impl IFunctionInstanceCollectionQuery {
     pub unsafe fn AddQueryConstraint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszconstraintname: Param0, pszconstraintvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszconstraintname.into_param().abi(), pszconstraintvalue.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn AddPropertyConstraint(&self, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn AddPropertyConstraint(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(pv), ::core::mem::transmute(enumpropertyconstraint)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -666,9 +666,8 @@ pub struct IFunctionInstanceCollectionQuery_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszconstraintname: super::super::Foundation::PWSTR, pszconstraintvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, pv: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppifunctioninstancecollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -840,27 +839,27 @@ impl IPropertyStoreCollection {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::System::PropertiesSystem::IPropertyStore>) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszinstanceidentity.into_param().abi(), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppipropertystore)).ok()
     }
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Item(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Item(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+        let mut result__: <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::PropertiesSystem::IPropertyStore>>(&self, pipropertystore: Param0) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(&self, pipropertystore: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pipropertystore.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Remove(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
-        let mut result__: <super::super::System::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::IPropertyStore>(result__)
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Remove(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+        let mut result__: <super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
     pub unsafe fn Delete(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
@@ -902,14 +901,14 @@ pub struct IPropertyStoreCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszinstanceidentity: super::super::Foundation::PWSTR, pdwindex: *mut u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem")))] usize,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pipropertystore: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszinstanceidentity: super::super::Foundation::PWSTR, pdwindex: *mut u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, ppipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pipropertystore: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pipropertystore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -923,21 +922,21 @@ impl IProviderProperties {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_PropertiesSystem")]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn GetAt<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwindex: u32) -> ::windows::runtime::Result<super::super::System::PropertiesSystem::PROPERTYKEY> {
-        let mut result__: <super::super::System::PropertiesSystem::PROPERTYKEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::System::PropertiesSystem::PROPERTYKEY>(result__)
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn GetAt<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, dwindex: u32) -> ::windows::runtime::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY> {
+        let mut result__: <super::super::UI::Shell::PropertiesSystem::PROPERTYKEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(dwindex), &mut result__).from_abi::<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(key), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, IFunctionInstance>>(&self, pifunctioninstance: Param0, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pifunctioninstance.into_param().abi(), ::core::mem::transmute(iproviderinstancecontext), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
     }
 }
@@ -972,14 +971,14 @@ pub struct IProviderProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pifunctioninstance: ::windows::runtime::RawPtr, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[repr(transparent)]
@@ -991,19 +990,19 @@ impl IProviderPropertyConstraintCollection {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Get(&self, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Get(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pdwpropertyconstraint)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Item(&self, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Item(&self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pkey), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pdwpropertyconstraint)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
-    pub unsafe fn Next(&self, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
+    pub unsafe fn Next(&self, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pdwpropertyconstraint)).ok()
     }
     #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -1046,14 +1045,12 @@ pub struct IProviderPropertyConstraintCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
-    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -1184,6 +1181,1434 @@ pub struct IProviderQueryConstraintCollection_abi(
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000u32;
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_Characteristics: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 29u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_ClassCoInstallers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1899828995, 41698, 18933, [146, 20, 86, 71, 46, 243, 218, 92]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_ClassInstaller: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_ClassName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_DefaultService: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_DevType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 27u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_Exclusive: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 28u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_LowerFilters: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 20u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_NoDisplayClass: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_NoInstallClass: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_NoUseClass: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_PropPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_Security: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 25u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_SecuritySDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 26u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_SilentInstall: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceClass_UpperFilters: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Address: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 51u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_AlwaysShowDeviceAsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 101u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_AssociationArray: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 80u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_BaselineExperienceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 78u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 90u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_CategoryGroup_Desc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 94u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_CategoryGroup_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 95u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Category_Desc_Plural: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 92u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Category_Desc_Singular: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 91u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Category_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 93u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_DeviceDescription1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 81u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_DeviceDescription2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 82u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_DeviceFunctionSubRank: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 100u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_DiscoveryMethod: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 52u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_ExperienceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 89u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_FriendlyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12288u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 57u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_InstallInProgress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsAuthenticated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 54u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 55u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsDefaultDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 86u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsDeviceUniquelyIdentifiable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 79u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsEncrypted: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 53u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsLocalMachine: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 70u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsMetadataSearchInProgress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 72u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsNetworkDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 85u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsNotInterestingForDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 74u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsNotWorkingProperly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 83u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsPaired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 56u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsSharedDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 84u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_IsShowInDisconnectedState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 68u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Last_Connected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 67u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Last_Seen: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 66u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_LaunchDeviceStageFromExplorer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 77u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_LaunchDeviceStageOnDeviceConnect: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 76u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8192u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_MetadataCabinet: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 87u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_MetadataChecksum: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 73u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_MetadataPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 71u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_ModelName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8194u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_ModelNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8195u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_PrimaryCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 97u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_RequiresPairingElevation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 88u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_RequiresUninstallElevation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 99u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_UnpairUninstall: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 98u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceDisplay_Version: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 65u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceInterfaceClass_DefaultInterface: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(348666521, 2879, 17591, [190, 76, 161, 120, 211, 153, 5, 100]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceInterface_ClassGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceInterface_Enabled: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DeviceInterface_FriendlyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_AdditionalSoftwareRequested: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Address: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 30u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_BIOSVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3941498653, 27187, 17617, [148, 65, 95, 70, 222, 242, 49, 152]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_BaseContainerId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 38u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_BusNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 23u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_BusRelations: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_BusReportedDeviceDesc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_BusTypeGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 21u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Capabilities: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 17u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Characteristics: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 29u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Children: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Class: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ClassGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_CompatibleIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ConfigFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ContainerId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2357121542, 16266, 18471, [179, 171, 174, 158, 31, 174, 252, 108]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DHP_Rebalance_Policy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DevNodeStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DevType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 27u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DeviceDesc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Driver: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverCoInstallers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverDesc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverInfPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverInfSection: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverInfSectionExt: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverLogoLevel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 15u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverPropPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverRank: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 14u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_DriverVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_EjectionRelations: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_EnumeratorName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 24u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Exclusive: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 28u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_FriendlyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 14u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_FriendlyNameAttributes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_GenericDriverInstalled: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 18u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_HardwareIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_InstallInProgress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_InstallState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 36u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_InstanceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 256u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_IsAssociateableByUserAction: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Legacy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2152296704, 35955, 18617, [170, 217, 206, 56, 126, 25, 197, 110]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_LegacyBusType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 22u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_LocationInfo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 15u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_LocationPaths: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 37u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_LowerFilters: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 20u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 13u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ManufacturerAttributes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_MatchingDeviceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ModelId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_NoConnectSound: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 17u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Numa_Node: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_PDOName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 16u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Parent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_PowerData: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 32u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_PowerRelations: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_PresenceNotForDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ProblemCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_RemovalPolicy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 33u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_RemovalPolicyDefault: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 34u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_RemovalPolicyOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 35u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_RemovalRelations: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Reported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2152296704, 35955, 18617, [170, 217, 206, 56, 126, 25, 197, 110]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ResourcePickerExceptions: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 13u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_ResourcePickerTags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_SafeRemovalRequired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2950264384, 34467, 16912, [182, 124, 40, 156, 65, 170, 190, 85]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_SafeRemovalRequiredOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2950264384, 34467, 16912, [182, 124, 40, 156, 65, 170, 190, 85]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Security: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 25u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_SecuritySDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 26u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Service: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_Siblings: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_SignalStrength: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_TransportRelations: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_UINumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 18u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_UINumberDescFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 31u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Device_UpperFilters: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DrvPkg_BrandingIcon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DrvPkg_DetailedDescription: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DrvPkg_DocumentationLink: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DrvPkg_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DrvPkg_Model: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_DrvPkg_VendorWebSite: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_FunctionInstance: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(146850387, 41300, 18246, [144, 5, 130, 222, 83, 23, 20, 139]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Devinst: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 4097u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_DisplayAttribute: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_DriverDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_DriverProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_DriverVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Function: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 4099u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Image: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 4098u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Model: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_SerialNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_ShellAttributes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 4100u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Hardware_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1588543218, 57546, 17816, [191, 6, 113, 237, 29, 157, 217, 83]),
+    pid: 4096u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3072717104, 18415, 4122, [165, 241, 2, 96, 140, 158, 235, 172]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Numa_Proximity_Domain: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Associated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1338312574, 46726, 17598, [147, 227, 134, 202, 254, 54, 140, 205]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Category_Desc_NonPlural: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12304u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_CompactSignature: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 28674u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_CompatibleTypes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1338312574, 46726, 17598, [147, 227, 134, 202, 254, 54, 140, 205]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_DeviceCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12292u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_DeviceCategory_Desc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12293u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_DeviceCertHash: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 28675u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_DomainName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 20480u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_FirmwareVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12289u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_GlobalIdentity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4096u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4101u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_IPBusEnumerated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 28688u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_InstallState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1338312574, 46726, 17598, [147, 227, 134, 202, 254, 54, 140, 205]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Installable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1338312574, 46726, 17598, [147, 227, 134, 202, 254, 54, 140, 205]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_IpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12297u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ManufacturerUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8193u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_MetadataVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4100u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ModelUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8196u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_NetworkInterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12296u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_NetworkInterfaceLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12295u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_PhysicalAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12294u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_PresentationUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8198u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_RemoteAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4102u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Removable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 28672u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_RootProxy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4103u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Scopes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4098u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_SecureChannel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 28673u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_SerialNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12290u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 16384u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ServiceControlUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 16388u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ServiceDescUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 16389u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ServiceEventSubUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 16390u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ServiceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 16385u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ServiceTypes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 16386u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_ShareName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 20482u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Types: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4097u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_Upc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8197u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PNPX_XAddrs: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 4099u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Pairing_IsWifiOnlyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2282212070, 32182, 20240, [142, 228, 67, 94, 170, 19, 146, 188]),
+    pid: 16u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Pairing_ListItemDefault: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2282212070, 32182, 20240, [142, 228, 67, 94, 170, 19, 146, 188]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Pairing_ListItemDescription: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2282212070, 32182, 20240, [142, 228, 67, 94, 170, 19, 146, 188]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Pairing_ListItemIcon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2282212070, 32182, 20240, [142, 228, 67, 94, 170, 19, 146, 188]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_Pairing_ListItemText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2282212070, 32182, 20240, [142, 228, 67, 94, 170, 19, 146, 188]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_SSDP_AltLocationInfo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 24576u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_SSDP_DevLifeTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 24577u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_SSDP_NetworkInterface: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 24578u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_AssocState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342728, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_AuthType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342722, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_ConfigError: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342729, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_ConfigMethods: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342725, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_ConfigState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342729, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_ConnType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342724, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_DevicePasswordId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342729, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_EncryptType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342723, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_OSVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342729, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 13u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_RegistrarType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342731, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 15u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_RequestType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342721, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_RfBand: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342727, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_VendorExtension: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342730, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 14u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_Version: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342720, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_Comment: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_DisplayType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_LocalName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_Provider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_RemoteName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_Scope: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_FunctionDiscovery`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WNET_Usage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3736970298, 14259, 17283, [145, 231, 68, 152, 218, 41, 149, 171]),
+    pid: 4u32,
+};
 pub const PNPXAssociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3471363273, 20331, 17513, [162, 53, 90, 34, 134, 158, 239, 3]);
 pub const PNPXPairingHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3097655618, 44519, 16517, [170, 110, 79, 173, 199, 173, 161, 239]);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]

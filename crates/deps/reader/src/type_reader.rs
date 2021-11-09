@@ -55,7 +55,7 @@ impl TypeReader {
                 }
 
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/725
-                if type_name == TypeName::new("Windows.Win32.System.SystemServices", "DISPATCHER_CONTEXT_ARM64") {
+                if type_name == TypeName::new("Windows.Win32.System.Diagnostics.Debug", "DISPATCHER_CONTEXT_ARM64") {
                     continue;
                 }
 

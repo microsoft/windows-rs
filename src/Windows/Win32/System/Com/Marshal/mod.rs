@@ -1969,8 +1969,8 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT) {
     #[cfg(windows)]
@@ -1984,8 +1984,8 @@ pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT) {
     #[cfg(windows)]
@@ -1999,8 +1999,8 @@ pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8 {
     #[cfg(windows)]
@@ -2014,8 +2014,8 @@ pub unsafe fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8 {
     #[cfg(windows)]
@@ -2029,8 +2029,8 @@ pub unsafe fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32 {
     #[cfg(windows)]
@@ -2044,8 +2044,8 @@ pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32 {
     #[cfg(windows)]
@@ -2059,8 +2059,8 @@ pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
     #[cfg(windows)]
@@ -2074,8 +2074,8 @@ pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
     #[cfg(windows)]

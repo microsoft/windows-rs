@@ -1,12 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 #[inline]
 pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     pwszobjectpath: Param0,
     pwszobjectclass: Param1,
     dwflags: u32,
-    ppsi: *mut ::core::option::Option<super::Authorization::ISecurityInformation>,
+    ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
     pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
     pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param6,
@@ -22,8 +22,8 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 #[inline]
 pub unsafe fn DSCreateISecurityInfoObjectEx<
     'a,
@@ -40,7 +40,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
     pwszusername: Param3,
     pwszpassword: Param4,
     dwflags: u32,
-    ppsi: *mut ::core::option::Option<super::Authorization::ISecurityInformation>,
+    ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
     pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
     pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param9,
@@ -129,11 +129,11 @@ pub const DSSI_NO_FILTER: u32 = 32u32;
 pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_READ_ONLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 pub type PFNDSCREATEISECINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut ::windows::runtime::RawPtr, param4: ::windows::runtime::RawPtr, param5: ::windows::runtime::RawPtr, param6: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
-#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization_UI`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 pub type PFNDSCREATEISECINFOEX = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: super::super::Foundation::PWSTR, param4: super::super::Foundation::PWSTR, param5: u32, param6: *mut ::windows::runtime::RawPtr, param7: ::windows::runtime::RawPtr, param8: ::windows::runtime::RawPtr, param9: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]

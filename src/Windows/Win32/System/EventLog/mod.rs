@@ -92,6 +92,79 @@ pub unsafe fn DeregisterEventSource<'a, Param0: ::windows::runtime::IntoParam<'a
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_EventLog`*"]
+pub struct EVENTLOGRECORD {
+    pub Length: u32,
+    pub Reserved: u32,
+    pub RecordNumber: u32,
+    pub TimeGenerated: u32,
+    pub TimeWritten: u32,
+    pub EventID: u32,
+    pub EventType: REPORT_EVENT_TYPE,
+    pub NumStrings: u16,
+    pub EventCategory: u16,
+    pub ReservedFlags: u16,
+    pub ClosingRecordNumber: u32,
+    pub StringOffset: u32,
+    pub UserSidLength: u32,
+    pub UserSidOffset: u32,
+    pub DataLength: u32,
+    pub DataOffset: u32,
+}
+impl EVENTLOGRECORD {}
+impl ::core::default::Default for EVENTLOGRECORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for EVENTLOGRECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("EVENTLOGRECORD")
+            .field("Length", &self.Length)
+            .field("Reserved", &self.Reserved)
+            .field("RecordNumber", &self.RecordNumber)
+            .field("TimeGenerated", &self.TimeGenerated)
+            .field("TimeWritten", &self.TimeWritten)
+            .field("EventID", &self.EventID)
+            .field("EventType", &self.EventType)
+            .field("NumStrings", &self.NumStrings)
+            .field("EventCategory", &self.EventCategory)
+            .field("ReservedFlags", &self.ReservedFlags)
+            .field("ClosingRecordNumber", &self.ClosingRecordNumber)
+            .field("StringOffset", &self.StringOffset)
+            .field("UserSidLength", &self.UserSidLength)
+            .field("UserSidOffset", &self.UserSidOffset)
+            .field("DataLength", &self.DataLength)
+            .field("DataOffset", &self.DataOffset)
+            .finish()
+    }
+}
+impl ::core::cmp::PartialEq for EVENTLOGRECORD {
+    fn eq(&self, other: &Self) -> bool {
+        self.Length == other.Length
+            && self.Reserved == other.Reserved
+            && self.RecordNumber == other.RecordNumber
+            && self.TimeGenerated == other.TimeGenerated
+            && self.TimeWritten == other.TimeWritten
+            && self.EventID == other.EventID
+            && self.EventType == other.EventType
+            && self.NumStrings == other.NumStrings
+            && self.EventCategory == other.EventCategory
+            && self.ReservedFlags == other.ReservedFlags
+            && self.ClosingRecordNumber == other.ClosingRecordNumber
+            && self.StringOffset == other.StringOffset
+            && self.UserSidLength == other.UserSidLength
+            && self.UserSidOffset == other.UserSidOffset
+            && self.DataLength == other.DataLength
+            && self.DataOffset == other.DataOffset
+    }
+}
+impl ::core::cmp::Eq for EVENTLOGRECORD {}
+unsafe impl ::windows::runtime::Abi for EVENTLOGRECORD {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
@@ -113,6 +186,35 @@ impl ::core::cmp::PartialEq for EVENTLOG_FULL_INFORMATION {
 }
 impl ::core::cmp::Eq for EVENTLOG_FULL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for EVENTLOG_FULL_INFORMATION {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub struct EVENTSFORLOGFILE {
+    pub ulSize: u32,
+    pub szLogicalLogFile: [u16; 256],
+    pub ulNumRecords: u32,
+    pub pEventLogRecords: [EVENTLOGRECORD; 1],
+}
+impl EVENTSFORLOGFILE {}
+impl ::core::default::Default for EVENTSFORLOGFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for EVENTSFORLOGFILE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("EVENTSFORLOGFILE").field("ulSize", &self.ulSize).field("szLogicalLogFile", &self.szLogicalLogFile).field("ulNumRecords", &self.ulNumRecords).field("pEventLogRecords", &self.pEventLogRecords).finish()
+    }
+}
+impl ::core::cmp::PartialEq for EVENTSFORLOGFILE {
+    fn eq(&self, other: &Self) -> bool {
+        self.ulSize == other.ulSize && self.szLogicalLogFile == other.szLogicalLogFile && self.ulNumRecords == other.ulNumRecords && self.pEventLogRecords == other.pEventLogRecords
+    }
+}
+impl ::core::cmp::Eq for EVENTSFORLOGFILE {}
+unsafe impl ::windows::runtime::Abi for EVENTSFORLOGFILE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]

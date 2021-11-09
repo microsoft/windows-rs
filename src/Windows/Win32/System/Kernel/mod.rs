@@ -78,8 +78,42 @@ impl ::core::convert::From<i32> for EXCEPTION_DISPOSITION {
 unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[derive(:: core :: clone :: Clone)]
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+pub struct EXCEPTION_REGISTRATION_RECORD {
+    pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
+    pub Handler: ::core::option::Option<EXCEPTION_ROUTINE>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl EXCEPTION_REGISTRATION_RECORD {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::default::Default for EXCEPTION_REGISTRATION_RECORD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::cmp::PartialEq for EXCEPTION_REGISTRATION_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        self.Next == other.Next && self.Handler.map(|f| f as usize) == other.Handler.map(|f| f as usize)
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::cmp::Eq for EXCEPTION_REGISTRATION_RECORD {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+unsafe impl ::windows::runtime::Abi for EXCEPTION_REGISTRATION_RECORD {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -283,6 +317,66 @@ impl ::core::convert::From<i32> for NT_PRODUCT_TYPE {
     }
 }
 unsafe impl ::windows::runtime::Abi for NT_PRODUCT_TYPE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+pub struct NT_TIB {
+    pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
+    pub StackBase: *mut ::core::ffi::c_void,
+    pub StackLimit: *mut ::core::ffi::c_void,
+    pub SubSystemTib: *mut ::core::ffi::c_void,
+    pub Anonymous: NT_TIB_0,
+    pub ArbitraryUserPointer: *mut ::core::ffi::c_void,
+    pub Self_: *mut NT_TIB,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl NT_TIB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::default::Default for NT_TIB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::cmp::PartialEq for NT_TIB {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::cmp::Eq for NT_TIB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+unsafe impl ::windows::runtime::Abi for NT_TIB {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+pub union NT_TIB_0 {
+    pub FiberData: *mut ::core::ffi::c_void,
+    pub Version: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl NT_TIB_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::default::Default for NT_TIB_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::cmp::PartialEq for NT_TIB_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+impl ::core::cmp::Eq for NT_TIB_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+unsafe impl ::windows::runtime::Abi for NT_TIB_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
@@ -580,6 +674,104 @@ unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_1 {
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
+        }
+        ::core::mem::transmute(RtlFirstEntrySList(::core::mem::transmute(listhead)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER);
+        }
+        ::core::mem::transmute(RtlInitializeSListHead(::core::mem::transmute(listhead)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+        }
+        ::core::mem::transmute(RtlInterlockedFlushSList(::core::mem::transmute(listhead)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+        }
+        ::core::mem::transmute(RtlInterlockedPopEntrySList(::core::mem::transmute(listhead)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
+        }
+        ::core::mem::transmute(RtlInterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
+        }
+        ::core::mem::transmute(RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[inline]
+pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
+        }
+        ::core::mem::transmute(RtlQueryDepthSList(::core::mem::transmute(listhead)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Kernel`*"]

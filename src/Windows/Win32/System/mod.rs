@@ -17,6 +17,8 @@ pub mod ComponentServices;
 pub mod Console;
 #[cfg(feature = "Win32_System_Contacts")]
 pub mod Contacts;
+#[cfg(feature = "Win32_System_CorrelationVector")]
+pub mod CorrelationVector;
 #[cfg(feature = "Win32_System_DataExchange")]
 pub mod DataExchange;
 #[cfg(feature = "Win32_System_DeploymentServices")]
@@ -89,8 +91,6 @@ pub mod Pipes;
 pub mod Power;
 #[cfg(feature = "Win32_System_ProcessStatus")]
 pub mod ProcessStatus;
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub mod PropertiesSystem;
 #[cfg(feature = "Win32_System_RealTimeCommunications")]
 pub mod RealTimeCommunications;
 #[cfg(feature = "Win32_System_Recovery")]

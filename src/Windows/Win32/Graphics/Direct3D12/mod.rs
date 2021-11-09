@@ -3,118 +3,15 @@ pub const CLSID_D3D12Debug: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249229764, 40948, 19160, [159, 24, 171, 174, 132, 220, 95, 242]);
 pub const CLSID_D3D12SDKConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2094688970, 41022, 18888, [148, 88, 3, 52, 210, 14, 7, 206]);
 pub const CLSID_D3D12Tools: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816953521, 15500, 18483, [170, 9, 10, 6, 182, 93, 150, 200]);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
-    pdevice: Param0,
-    flags: u32,
-    pfeaturelevels: *const super::Direct3D11::D3D_FEATURE_LEVEL,
-    featurelevels: u32,
-    ppcommandqueues: *const ::core::option::Option<::windows::runtime::IUnknown>,
-    numqueues: u32,
-    nodemask: u32,
-    ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>,
-    ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>,
-    pchosenfeaturelevel: *mut super::Direct3D11::D3D_FEATURE_LEVEL,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(padapter: Param0, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3D11On12CreateDevice(pdevice: ::windows::runtime::RawPtr, flags: u32, pfeaturelevels: *const super::Direct3D11::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::windows::runtime::RawPtr, numqueues: u32, nodemask: u32, ppdevice: *mut ::windows::runtime::RawPtr, ppimmediatecontext: *mut ::windows::runtime::RawPtr, pchosenfeaturelevel: *mut super::Direct3D11::D3D_FEATURE_LEVEL) -> ::windows::runtime::HRESULT;
-        }
-        D3D11On12CreateDevice(
-            pdevice.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(pfeaturelevels),
-            ::core::mem::transmute(featurelevels),
-            ::core::mem::transmute(ppcommandqueues),
-            ::core::mem::transmute(numqueues),
-            ::core::mem::transmute(nodemask),
-            ::core::mem::transmute(ppdevice),
-            ::core::mem::transmute(ppimmediatecontext),
-            ::core::mem::transmute(pchosenfeaturelevel),
-        )
-        .ok()
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct D3D11On12CreatorID(pub ::windows::runtime::IUnknown);
-impl D3D11On12CreatorID {}
-unsafe impl ::windows::runtime::Interface for D3D11On12CreatorID {
-    type Vtable = D3D11On12CreatorID_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3988739704, 10592, 20097, [132, 41, 153, 212, 178, 99, 12, 78]);
-}
-impl ::core::convert::From<D3D11On12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: D3D11On12CreatorID) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&D3D11On12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: &D3D11On12CreatorID) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for D3D11On12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a D3D11On12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct D3D11On12CreatorID_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-pub struct D3D11_RESOURCE_FLAGS {
-    pub BindFlags: u32,
-    pub MiscFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub StructureByteStride: u32,
-}
-impl D3D11_RESOURCE_FLAGS {}
-impl ::core::default::Default for D3D11_RESOURCE_FLAGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for D3D11_RESOURCE_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
-    }
-}
-impl ::core::cmp::PartialEq for D3D11_RESOURCE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BindFlags == other.BindFlags && self.MiscFlags == other.MiscFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.StructureByteStride == other.StructureByteStride
-    }
-}
-impl ::core::cmp::Eq for D3D11_RESOURCE_FLAGS {}
-unsafe impl ::windows::runtime::Abi for D3D11_RESOURCE_FLAGS {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
-#[inline]
-pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(padapter: Param0, minimumfeaturelevel: super::Direct3D11::D3D_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12CreateDevice(padapter: ::windows::runtime::RawPtr, minimumfeaturelevel: super::Direct3D11::D3D_FEATURE_LEVEL, riid: *const ::windows::runtime::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn D3D12CreateDevice(padapter: ::windows::runtime::RawPtr, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows::runtime::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
         D3D12CreateDevice(padapter.into_param().abi(), ::core::mem::transmute(minimumfeaturelevel), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -196,10 +93,10 @@ pub unsafe fn D3D12GetInterface<T: ::windows::runtime::Interface>(rclsid: *const
 #[cfg(feature = "Win32_Foundation")]
 pub type D3D12MessageFunc = unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::core::ffi::c_void);
 pub const D3D12MetaCommand: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342125438, 32887, 18632, [159, 220, 217, 209, 221, 49, 221, 119]);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D11::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -211,10 +108,10 @@ pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D11::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
+pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -741,38 +638,38 @@ impl ::core::ops::Not for D3D12_BUFFER_UAV_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     pub DestAccelerationStructureData: u64,
     pub Inputs: D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS,
     pub SourceAccelerationStructureData: u64,
     pub ScratchAccelerationStructureData: u64,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     pub Type: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE,
     pub Flags: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS,
@@ -780,51 +677,51 @@ pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     pub DescsLayout: D3D12_ELEMENTS_LAYOUT,
     pub Anonymous: D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub InstanceDescs: u64,
     pub pGeometryDescs: *mut D3D12_RAYTRACING_GEOMETRY_DESC,
     pub ppGeometryDescs: *mut *mut D3D12_RAYTRACING_GEOMETRY_DESC,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     type Abi = Self;
 }
@@ -926,56 +823,56 @@ impl ::core::ops::Not for D3D12_CLEAR_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_CLEAR_VALUE {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Anonymous: D3D12_CLEAR_VALUE_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_CLEAR_VALUE {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_CLEAR_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_CLEAR_VALUE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_CLEAR_VALUE {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_CLEAR_VALUE_0 {
     pub Color: [f32; 4],
     pub DepthStencil: D3D12_DEPTH_STENCIL_VALUE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_CLEAR_VALUE_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_CLEAR_VALUE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_CLEAR_VALUE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_CLEAR_VALUE_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE_0 {
     type Abi = Self;
 }
@@ -1394,50 +1291,6 @@ impl ::core::convert::From<i32> for D3D12_COMPARISON_FUNC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMPARISON_FUNC {
     type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct D3D12_COMPATIBILITY_SHARED_FLAGS(pub u32);
-pub const D3D12_COMPATIBILITY_SHARED_FLAG_NONE: D3D12_COMPATIBILITY_SHARED_FLAGS = D3D12_COMPATIBILITY_SHARED_FLAGS(0u32);
-pub const D3D12_COMPATIBILITY_SHARED_FLAG_NON_NT_HANDLE: D3D12_COMPATIBILITY_SHARED_FLAGS = D3D12_COMPATIBILITY_SHARED_FLAGS(1u32);
-pub const D3D12_COMPATIBILITY_SHARED_FLAG_KEYED_MUTEX: D3D12_COMPATIBILITY_SHARED_FLAGS = D3D12_COMPATIBILITY_SHARED_FLAGS(2u32);
-pub const D3D12_COMPATIBILITY_SHARED_FLAG_9_ON_12: D3D12_COMPATIBILITY_SHARED_FLAGS = D3D12_COMPATIBILITY_SHARED_FLAGS(4u32);
-impl ::core::convert::From<u32> for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for D3D12_COMPATIBILITY_SHARED_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
@@ -2061,37 +1914,37 @@ unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VALUE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_DEPTH_STENCIL_VIEW_DESC {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D12_DSV_DIMENSION,
     pub Flags: D3D12_DSV_FLAGS,
     pub Anonymous: D3D12_DEPTH_STENCIL_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_DEPTH_STENCIL_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_DEPTH_STENCIL_VIEW_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_DEPTH_STENCIL_VIEW_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_DEPTH_STENCIL_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D12_TEX1D_DSV,
     pub Texture1DArray: D3D12_TEX1D_ARRAY_DSV,
@@ -2100,23 +1953,23 @@ pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D12_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_DSV,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -4217,105 +4070,105 @@ unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_EXISTING_HEAPS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_FEATURE_DATA_FEATURE_LEVELS {
     pub NumFeatureLevels: u32,
-    pub pFeatureLevelsRequested: *mut super::Direct3D11::D3D_FEATURE_LEVEL,
-    pub MaxSupportedFeatureLevel: super::Direct3D11::D3D_FEATURE_LEVEL,
+    pub pFeatureLevelsRequested: *mut super::Direct3D::D3D_FEATURE_LEVEL,
+    pub MaxSupportedFeatureLevel: super::Direct3D::D3D_FEATURE_LEVEL,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl D3D12_FEATURE_DATA_FEATURE_LEVELS {}
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_FEATURE_LEVELS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_FEATURE_LEVELS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_FEATURE_DATA_FEATURE_LEVELS").field("NumFeatureLevels", &self.NumFeatureLevels).field("pFeatureLevelsRequested", &self.pFeatureLevelsRequested).field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_FEATURE_LEVELS {
     fn eq(&self, other: &Self) -> bool {
         self.NumFeatureLevels == other.NumFeatureLevels && self.pFeatureLevelsRequested == other.pFeatureLevelsRequested && self.MaxSupportedFeatureLevel == other.MaxSupportedFeatureLevel
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_FEATURE_LEVELS {}
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_FEATURE_LEVELS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_FEATURE_DATA_FORMAT_INFO {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub PlaneCount: u8,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_FEATURE_DATA_FORMAT_INFO {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_FORMAT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_FORMAT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_FEATURE_DATA_FORMAT_INFO").field("Format", &self.Format).field("PlaneCount", &self.PlaneCount).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_FORMAT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Format == other.Format && self.PlaneCount == other.PlaneCount
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_FORMAT_INFO {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_FORMAT_INFO {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_FEATURE_DATA_FORMAT_SUPPORT {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Support1: D3D12_FORMAT_SUPPORT1,
     pub Support2: D3D12_FORMAT_SUPPORT2,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_FEATURE_DATA_FORMAT_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_FEATURE_DATA_FORMAT_SUPPORT").field("Format", &self.Format).field("Support1", &self.Support1).field("Support2", &self.Support2).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
         self.Format == other.Format && self.Support1 == other.Support1 && self.Support2 == other.Support2
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_FORMAT_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     type Abi = Self;
 }
@@ -4348,37 +4201,37 @@ unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_S
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub SampleCount: u32,
     pub Flags: D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS,
     pub NumQualityLevels: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS").field("Format", &self.Format).field("SampleCount", &self.SampleCount).field("Flags", &self.Flags).field("NumQualityLevels", &self.NumQualityLevels).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     fn eq(&self, other: &Self) -> bool {
         self.Format == other.Format && self.SampleCount == other.SampleCount && self.Flags == other.Flags && self.NumQualityLevels == other.NumQualityLevels
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     type Abi = Self;
 }
@@ -4900,8 +4753,8 @@ pub const D3D12_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300f32;
 pub const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_FUNCTION_DESC {
     pub Version: u32,
     pub Creator: super::super::Foundation::PSTR,
@@ -4929,7 +4782,7 @@ pub struct D3D12_FUNCTION_DESC {
     pub MovcInstructionCount: u32,
     pub ConversionInstructionCount: u32,
     pub BitwiseInstructionCount: u32,
-    pub MinFeatureLevel: super::Direct3D11::D3D_FEATURE_LEVEL,
+    pub MinFeatureLevel: super::Direct3D::D3D_FEATURE_LEVEL,
     pub RequiredFeatureFlags: u64,
     pub Name: super::super::Foundation::PSTR,
     pub FunctionParameterCount: i32,
@@ -4937,15 +4790,15 @@ pub struct D3D12_FUNCTION_DESC {
     pub Has10Level9VertexShader: super::super::Foundation::BOOL,
     pub Has10Level9PixelShader: super::super::Foundation::BOOL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_FUNCTION_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_FUNCTION_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_FUNCTION_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_FUNCTION_DESC")
@@ -4985,7 +4838,7 @@ impl ::core::fmt::Debug for D3D12_FUNCTION_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_FUNCTION_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
@@ -5023,9 +4876,9 @@ impl ::core::cmp::PartialEq for D3D12_FUNCTION_DESC {
             && self.Has10Level9PixelShader == other.Has10Level9PixelShader
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_FUNCTION_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FUNCTION_DESC {
     type Abi = Self;
 }
@@ -5213,8 +5066,8 @@ unsafe impl ::windows::runtime::Abi for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRI
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     pub pRootSignature: ::core::option::Option<ID3D12RootSignature>,
     pub VS: D3D12_SHADER_BYTECODE,
@@ -5231,22 +5084,22 @@ pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     pub IBStripCutValue: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE,
     pub PrimitiveTopologyType: D3D12_PRIMITIVE_TOPOLOGY_TYPE,
     pub NumRenderTargets: u32,
-    pub RTVFormats: [super::Dxgi::DXGI_FORMAT; 8],
-    pub DSVFormat: super::Dxgi::DXGI_FORMAT,
-    pub SampleDesc: super::Dxgi::DXGI_SAMPLE_DESC,
+    pub RTVFormats: [super::Dxgi::Common::DXGI_FORMAT; 8],
+    pub DSVFormat: super::Dxgi::Common::DXGI_FORMAT,
+    pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
     pub Flags: D3D12_PIPELINE_STATE_FLAGS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_GRAPHICS_PIPELINE_STATE_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_GRAPHICS_PIPELINE_STATE_DESC")
@@ -5274,7 +5127,7 @@ impl ::core::fmt::Debug for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.pRootSignature == other.pRootSignature
@@ -5300,9 +5153,9 @@ impl ::core::cmp::PartialEq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
             && self.Flags == other.Flags
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -5739,36 +5592,36 @@ unsafe impl ::windows::runtime::Abi for D3D12_INDEX_BUFFER_STRIP_CUT_VALUE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_INDEX_BUFFER_VIEW {
     pub BufferLocation: u64,
     pub SizeInBytes: u32,
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_INDEX_BUFFER_VIEW {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_INDEX_BUFFER_VIEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_INDEX_BUFFER_VIEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_INDEX_BUFFER_VIEW").field("BufferLocation", &self.BufferLocation).field("SizeInBytes", &self.SizeInBytes).field("Format", &self.Format).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_INDEX_BUFFER_VIEW {
     fn eq(&self, other: &Self) -> bool {
         self.BufferLocation == other.BufferLocation && self.SizeInBytes == other.SizeInBytes && self.Format == other.Format
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_INDEX_BUFFER_VIEW {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_INDEX_BUFFER_VIEW {
     type Abi = Self;
 }
@@ -6050,26 +5903,26 @@ unsafe impl ::windows::runtime::Abi for D3D12_INPUT_CLASSIFICATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_INPUT_ELEMENT_DESC {
     pub SemanticName: super::super::Foundation::PSTR,
     pub SemanticIndex: u32,
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub InputSlot: u32,
     pub AlignedByteOffset: u32,
     pub InputSlotClass: D3D12_INPUT_CLASSIFICATION,
     pub InstanceDataStepRate: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_INPUT_ELEMENT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_INPUT_ELEMENT_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_INPUT_ELEMENT_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_INPUT_ELEMENT_DESC")
@@ -6083,49 +5936,49 @@ impl ::core::fmt::Debug for D3D12_INPUT_ELEMENT_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_INPUT_ELEMENT_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Format == other.Format && self.InputSlot == other.InputSlot && self.AlignedByteOffset == other.AlignedByteOffset && self.InputSlotClass == other.InputSlotClass && self.InstanceDataStepRate == other.InstanceDataStepRate
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_INPUT_ELEMENT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_INPUT_ELEMENT_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_INPUT_LAYOUT_DESC {
     pub pInputElementDescs: *mut D3D12_INPUT_ELEMENT_DESC,
     pub NumElements: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_INPUT_LAYOUT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_INPUT_LAYOUT_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_INPUT_LAYOUT_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_INPUT_LAYOUT_DESC").field("pInputElementDescs", &self.pInputElementDescs).field("NumElements", &self.NumElements).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_INPUT_LAYOUT_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.pInputElementDescs == other.pInputElementDescs && self.NumElements == other.NumElements
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_INPUT_LAYOUT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_INPUT_LAYOUT_DESC {
     type Abi = Self;
 }
@@ -7678,31 +7531,31 @@ unsafe impl ::windows::runtime::Abi for D3D12_PACKED_MIP_INFO {
 pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_PARAMETER_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub SemanticName: super::super::Foundation::PSTR,
-    pub Type: super::Direct3D11::D3D_SHADER_VARIABLE_TYPE,
-    pub Class: super::Direct3D11::D3D_SHADER_VARIABLE_CLASS,
+    pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
+    pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Rows: u32,
     pub Columns: u32,
-    pub InterpolationMode: super::Direct3D11::D3D_INTERPOLATION_MODE,
-    pub Flags: super::Direct3D11::D3D_PARAMETER_FLAGS,
+    pub InterpolationMode: super::Direct3D::D3D_INTERPOLATION_MODE,
+    pub Flags: super::Direct3D::D3D_PARAMETER_FLAGS,
     pub FirstInRegister: u32,
     pub FirstInComponent: u32,
     pub FirstOutRegister: u32,
     pub FirstOutComponent: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_PARAMETER_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_PARAMETER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_PARAMETER_DESC")
@@ -7721,15 +7574,15 @@ impl ::core::fmt::Debug for D3D12_PARAMETER_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_PARAMETER_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Name == other.Name && self.SemanticName == other.SemanticName && self.Type == other.Type && self.Class == other.Class && self.Rows == other.Rows && self.Columns == other.Columns && self.InterpolationMode == other.InterpolationMode && self.Flags == other.Flags && self.FirstInRegister == other.FirstInRegister && self.FirstInComponent == other.FirstInComponent && self.FirstOutRegister == other.FirstOutRegister && self.FirstOutComponent == other.FirstOutComponent
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_PARAMETER_DESC {
     type Abi = Self;
 }
@@ -7844,35 +7697,35 @@ unsafe impl ::windows::runtime::Abi for D3D12_PIPELINE_STATE_SUBOBJECT_TYPE {
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     pub Offset: u64,
     pub Footprint: D3D12_SUBRESOURCE_FOOTPRINT,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_PLACED_SUBRESOURCE_FOOTPRINT {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_PLACED_SUBRESOURCE_FOOTPRINT").field("Offset", &self.Offset).field("Footprint", &self.Footprint).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     fn eq(&self, other: &Self) -> bool {
         self.Offset == other.Offset && self.Footprint == other.Footprint
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     type Abi = Self;
 }
@@ -8799,57 +8652,57 @@ unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RAYTRACING_GEOMETRY_DESC {
     pub Type: D3D12_RAYTRACING_GEOMETRY_TYPE,
     pub Flags: D3D12_RAYTRACING_GEOMETRY_FLAGS,
     pub Anonymous: D3D12_RAYTRACING_GEOMETRY_DESC_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RAYTRACING_GEOMETRY_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RAYTRACING_GEOMETRY_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RAYTRACING_GEOMETRY_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     pub Triangles: D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub AABBs: D3D12_RAYTRACING_GEOMETRY_AABBS_DESC,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RAYTRACING_GEOMETRY_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     type Abi = Self;
 }
@@ -8898,26 +8751,26 @@ impl ::core::ops::Not for D3D12_RAYTRACING_GEOMETRY_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     pub Transform3x4: u64,
-    pub IndexFormat: super::Dxgi::DXGI_FORMAT,
-    pub VertexFormat: super::Dxgi::DXGI_FORMAT,
+    pub IndexFormat: super::Dxgi::Common::DXGI_FORMAT,
+    pub VertexFormat: super::Dxgi::Common::DXGI_FORMAT,
     pub IndexCount: u32,
     pub VertexCount: u32,
     pub IndexBuffer: u64,
     pub VertexBuffer: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC")
@@ -8931,15 +8784,15 @@ impl ::core::fmt::Debug for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Transform3x4 == other.Transform3x4 && self.IndexFormat == other.IndexFormat && self.VertexFormat == other.VertexFormat && self.IndexCount == other.IndexCount && self.VertexCount == other.VertexCount && self.IndexBuffer == other.IndexBuffer && self.VertexBuffer == other.VertexBuffer
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     type Abi = Self;
 }
@@ -9242,99 +9095,84 @@ impl ::core::ops::Not for D3D12_RAY_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct D3D12_REFLECT_SHARED_PROPERTY(pub i32);
-pub const D3D12_REFLECT_SHARED_PROPERTY_D3D11_RESOURCE_FLAGS: D3D12_REFLECT_SHARED_PROPERTY = D3D12_REFLECT_SHARED_PROPERTY(0i32);
-pub const D3D12_REFELCT_SHARED_PROPERTY_COMPATIBILITY_SHARED_FLAGS: D3D12_REFLECT_SHARED_PROPERTY = D3D12_REFLECT_SHARED_PROPERTY(1i32);
-pub const D3D12_REFLECT_SHARED_PROPERTY_NON_NT_SHARED_HANDLE: D3D12_REFLECT_SHARED_PROPERTY = D3D12_REFLECT_SHARED_PROPERTY(2i32);
-impl ::core::convert::From<i32> for D3D12_REFLECT_SHARED_PROPERTY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for D3D12_REFLECT_SHARED_PROPERTY {
-    type Abi = Self;
-}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS {
     pub Type: D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE,
     pub Anonymous: D3D12_RENDER_PASS_BEGINNING_ACCESS_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RENDER_PASS_BEGINNING_ACCESS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RENDER_PASS_BEGINNING_ACCESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_BEGINNING_ACCESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_BEGINNING_ACCESS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     pub Clear: D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     pub ClearValue: D3D12_CLEAR_VALUE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     type Abi = Self;
 }
@@ -9354,15 +9192,15 @@ impl ::core::convert::From<i32> for D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE {
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub DepthBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
@@ -9370,112 +9208,112 @@ pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub DepthEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
     pub StencilEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
     pub Type: D3D12_RENDER_PASS_ENDING_ACCESS_TYPE,
     pub Anonymous: D3D12_RENDER_PASS_ENDING_ACCESS_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_RENDER_PASS_ENDING_ACCESS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_RENDER_PASS_ENDING_ACCESS_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     pub pSrcResource: ::core::option::Option<ID3D12Resource>,
     pub pDstResource: ::core::option::Option<ID3D12Resource>,
     pub SubresourceCount: u32,
     pub pSubresourceParameters: *mut D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ResolveMode: D3D12_RESOLVE_MODE,
     pub PreserveResolveSource: super::super::Foundation::BOOL,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS")
@@ -9489,15 +9327,15 @@ impl ::core::fmt::Debug for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.pSrcResource == other.pSrcResource && self.pDstResource == other.pDstResource && self.SubresourceCount == other.SubresourceCount && self.pSubresourceParameters == other.pSubresourceParameters && self.Format == other.Format && self.ResolveMode == other.ResolveMode && self.PreserveResolveSource == other.PreserveResolveSource
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -9598,37 +9436,37 @@ impl ::core::ops::Not for D3D12_RENDER_PASS_FLAGS {
         Self(self.0.not())
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub BeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
     pub EndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl D3D12_RENDER_PASS_RENDER_TARGET_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for D3D12_RENDER_PASS_RENDER_TARGET_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
@@ -9702,36 +9540,36 @@ unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_BLEND_DESC {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RENDER_TARGET_VIEW_DESC {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D12_RTV_DIMENSION,
     pub Anonymous: D3D12_RENDER_TARGET_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RENDER_TARGET_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RENDER_TARGET_VIEW_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RENDER_TARGET_VIEW_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RENDER_TARGET_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_RTV,
     pub Texture1D: D3D12_TEX1D_RTV,
@@ -9742,23 +9580,23 @@ pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D12_TEX3D_RTV,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RENDER_TARGET_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RENDER_TARGET_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -10106,8 +9944,8 @@ unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_BINDING_TIER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RESOURCE_DESC {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub Alignment: u64,
@@ -10115,20 +9953,20 @@ pub struct D3D12_RESOURCE_DESC {
     pub Height: u32,
     pub DepthOrArraySize: u16,
     pub MipLevels: u16,
-    pub Format: super::Dxgi::DXGI_FORMAT,
-    pub SampleDesc: super::Dxgi::DXGI_SAMPLE_DESC,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub Layout: D3D12_TEXTURE_LAYOUT,
     pub Flags: D3D12_RESOURCE_FLAGS,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RESOURCE_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RESOURCE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_RESOURCE_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_RESOURCE_DESC")
@@ -10145,22 +9983,22 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_DESC {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Dimension == other.Dimension && self.Alignment == other.Alignment && self.Width == other.Width && self.Height == other.Height && self.DepthOrArraySize == other.DepthOrArraySize && self.MipLevels == other.MipLevels && self.Format == other.Format && self.SampleDesc == other.SampleDesc && self.Layout == other.Layout && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RESOURCE_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RESOURCE_DESC1 {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub Alignment: u64,
@@ -10168,21 +10006,21 @@ pub struct D3D12_RESOURCE_DESC1 {
     pub Height: u32,
     pub DepthOrArraySize: u16,
     pub MipLevels: u16,
-    pub Format: super::Dxgi::DXGI_FORMAT,
-    pub SampleDesc: super::Dxgi::DXGI_SAMPLE_DESC,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub Layout: D3D12_TEXTURE_LAYOUT,
     pub Flags: D3D12_RESOURCE_FLAGS,
     pub SamplerFeedbackMipRegion: D3D12_MIP_REGION,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RESOURCE_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RESOURCE_DESC1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_RESOURCE_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_RESOURCE_DESC1")
@@ -10200,15 +10038,15 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_DESC1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_DESC1 {
     fn eq(&self, other: &Self) -> bool {
         self.Dimension == other.Dimension && self.Alignment == other.Alignment && self.Width == other.Width && self.Height == other.Height && self.DepthOrArraySize == other.DepthOrArraySize && self.MipLevels == other.MipLevels && self.Format == other.Format && self.SampleDesc == other.SampleDesc && self.Layout == other.Layout && self.Flags == other.Flags && self.SamplerFeedbackMipRegion == other.SamplerFeedbackMipRegion
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RESOURCE_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_DESC1 {
     type Abi = Self;
 }
@@ -10858,35 +10696,35 @@ unsafe impl ::windows::runtime::Abi for D3D12_RTV_DIMENSION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_RT_FORMAT_ARRAY {
-    pub RTFormats: [super::Dxgi::DXGI_FORMAT; 8],
+    pub RTFormats: [super::Dxgi::Common::DXGI_FORMAT; 8],
     pub NumRenderTargets: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_RT_FORMAT_ARRAY {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_RT_FORMAT_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_RT_FORMAT_ARRAY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_RT_FORMAT_ARRAY").field("RTFormats", &self.RTFormats).field("NumRenderTargets", &self.NumRenderTargets).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_RT_FORMAT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
         self.RTFormats == other.RTFormats && self.NumRenderTargets == other.NumRenderTargets
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_RT_FORMAT_ARRAY {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_RT_FORMAT_ARRAY {
     type Abi = Self;
 }
@@ -11056,38 +10894,38 @@ unsafe impl ::windows::runtime::Abi for D3D12_SERIALIZED_RAYTRACING_ACCELERATION
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_SHADER_BUFFER_DESC {
     pub Name: super::super::Foundation::PSTR,
-    pub Type: super::Direct3D11::D3D_CBUFFER_TYPE,
+    pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
     pub Variables: u32,
     pub Size: u32,
     pub uFlags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_SHADER_BUFFER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_SHADER_BUFFER_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_SHADER_BUFFER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_SHADER_BUFFER_DESC").field("Name", &self.Name).field("Type", &self.Type).field("Variables", &self.Variables).field("Size", &self.Size).field("uFlags", &self.uFlags).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_SHADER_BUFFER_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Name == other.Name && self.Type == other.Type && self.Variables == other.Variables && self.Size == other.Size && self.uFlags == other.uFlags
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_SHADER_BUFFER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_BUFFER_DESC {
     type Abi = Self;
 }
@@ -11376,8 +11214,8 @@ pub const D3D12_SHADER_COMPONENT_MAPPING_MASK: u32 = 7u32;
 pub const D3D12_SHADER_COMPONENT_MAPPING_SHIFT: u32 = 3u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_SHADER_DESC {
     pub Version: u32,
     pub Creator: super::super::Foundation::PSTR,
@@ -11405,28 +11243,28 @@ pub struct D3D12_SHADER_DESC {
     pub ArrayInstructionCount: u32,
     pub CutInstructionCount: u32,
     pub EmitInstructionCount: u32,
-    pub GSOutputTopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY,
+    pub GSOutputTopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY,
     pub GSMaxOutputVertexCount: u32,
-    pub InputPrimitive: super::Direct3D11::D3D_PRIMITIVE,
+    pub InputPrimitive: super::Direct3D::D3D_PRIMITIVE,
     pub PatchConstantParameters: u32,
     pub cGSInstanceCount: u32,
     pub cControlPoints: u32,
-    pub HSOutputPrimitive: super::Direct3D11::D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
-    pub HSPartitioning: super::Direct3D11::D3D_TESSELLATOR_PARTITIONING,
-    pub TessellatorDomain: super::Direct3D11::D3D_TESSELLATOR_DOMAIN,
+    pub HSOutputPrimitive: super::Direct3D::D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
+    pub HSPartitioning: super::Direct3D::D3D_TESSELLATOR_PARTITIONING,
+    pub TessellatorDomain: super::Direct3D::D3D_TESSELLATOR_DOMAIN,
     pub cBarrierInstructions: u32,
     pub cInterlockedInstructions: u32,
     pub cTextureStoreInstructions: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_SHADER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_SHADER_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_SHADER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_SHADER_DESC")
@@ -11471,7 +11309,7 @@ impl ::core::fmt::Debug for D3D12_SHADER_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_SHADER_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
@@ -11514,9 +11352,9 @@ impl ::core::cmp::PartialEq for D3D12_SHADER_DESC {
             && self.cTextureStoreInstructions == other.cTextureStoreInstructions
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_SHADER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_DESC {
     type Abi = Self;
 }
@@ -11524,29 +11362,29 @@ unsafe impl ::windows::runtime::Abi for D3D12_SHADER_DESC {
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_SHADER_INPUT_BIND_DESC {
     pub Name: super::super::Foundation::PSTR,
-    pub Type: super::Direct3D11::D3D_SHADER_INPUT_TYPE,
+    pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
     pub BindPoint: u32,
     pub BindCount: u32,
     pub uFlags: u32,
-    pub ReturnType: super::Direct3D11::D3D_RESOURCE_RETURN_TYPE,
-    pub Dimension: super::Direct3D11::D3D_SRV_DIMENSION,
+    pub ReturnType: super::Direct3D::D3D_RESOURCE_RETURN_TYPE,
+    pub Dimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub NumSamples: u32,
     pub Space: u32,
     pub uID: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_SHADER_INPUT_BIND_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_SHADER_INPUT_BIND_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_SHADER_INPUT_BIND_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_SHADER_INPUT_BIND_DESC")
@@ -11563,15 +11401,15 @@ impl ::core::fmt::Debug for D3D12_SHADER_INPUT_BIND_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_SHADER_INPUT_BIND_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Name == other.Name && self.Type == other.Type && self.BindPoint == other.BindPoint && self.BindCount == other.BindCount && self.uFlags == other.uFlags && self.ReturnType == other.ReturnType && self.Dimension == other.Dimension && self.NumSamples == other.NumSamples && self.Space == other.Space && self.uID == other.uID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_SHADER_INPUT_BIND_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_INPUT_BIND_DESC {
     type Abi = Self;
 }
@@ -11632,37 +11470,37 @@ impl ::core::ops::Not for D3D12_SHADER_MIN_PRECISION_SUPPORT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_SHADER_RESOURCE_VIEW_DESC {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D12_SRV_DIMENSION,
     pub Shader4ComponentMapping: u32,
     pub Anonymous: D3D12_SHADER_RESOURCE_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_SHADER_RESOURCE_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_SHADER_RESOURCE_VIEW_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_SHADER_RESOURCE_VIEW_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_SHADER_RESOURCE_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_SRV,
     pub Texture1D: D3D12_TEX1D_SRV,
@@ -11676,33 +11514,33 @@ pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D12_TEXCUBE_ARRAY_SRV,
     pub RaytracingAccelerationStructure: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_SHADER_TYPE_DESC {
-    pub Class: super::Direct3D11::D3D_SHADER_VARIABLE_CLASS,
-    pub Type: super::Direct3D11::D3D_SHADER_VARIABLE_TYPE,
+    pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
+    pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
     pub Rows: u32,
     pub Columns: u32,
     pub Elements: u32,
@@ -11710,29 +11548,29 @@ pub struct D3D12_SHADER_TYPE_DESC {
     pub Offset: u32,
     pub Name: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_SHADER_TYPE_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_SHADER_TYPE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_SHADER_TYPE_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_SHADER_TYPE_DESC").field("Class", &self.Class).field("Type", &self.Type).field("Rows", &self.Rows).field("Columns", &self.Columns).field("Elements", &self.Elements).field("Members", &self.Members).field("Offset", &self.Offset).field("Name", &self.Name).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_SHADER_TYPE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Class == other.Class && self.Type == other.Type && self.Rows == other.Rows && self.Columns == other.Columns && self.Elements == other.Elements && self.Members == other.Members && self.Offset == other.Offset && self.Name == other.Name
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_SHADER_TYPE_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_TYPE_DESC {
     type Abi = Self;
 }
@@ -11887,28 +11725,28 @@ pub const D3D12_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 pub const D3D12_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
 pub struct D3D12_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: super::super::Foundation::PSTR,
     pub SemanticIndex: u32,
     pub Register: u32,
-    pub SystemValueType: super::Direct3D11::D3D_NAME,
-    pub ComponentType: super::Direct3D11::D3D_REGISTER_COMPONENT_TYPE,
+    pub SystemValueType: super::Direct3D::D3D_NAME,
+    pub ComponentType: super::Direct3D::D3D_REGISTER_COMPONENT_TYPE,
     pub Mask: u8,
     pub ReadWriteMask: u8,
     pub Stream: u32,
-    pub MinPrecision: super::Direct3D11::D3D_MIN_PRECISION,
+    pub MinPrecision: super::Direct3D::D3D_MIN_PRECISION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl D3D12_SIGNATURE_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::default::Default for D3D12_SIGNATURE_PARAMETER_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D12_SIGNATURE_PARAMETER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_SIGNATURE_PARAMETER_DESC")
@@ -11924,15 +11762,15 @@ impl ::core::fmt::Debug for D3D12_SIGNATURE_PARAMETER_DESC {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::PartialEq for D3D12_SIGNATURE_PARAMETER_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Register == other.Register && self.SystemValueType == other.SystemValueType && self.ComponentType == other.ComponentType && self.Mask == other.Mask && self.ReadWriteMask == other.ReadWriteMask && self.Stream == other.Stream && self.MinPrecision == other.MinPrecision
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::cmp::Eq for D3D12_SIGNATURE_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SIGNATURE_PARAMETER_DESC {
     type Abi = Self;
 }
@@ -12458,38 +12296,38 @@ unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_DATA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_SUBRESOURCE_FOOTPRINT {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Width: u32,
     pub Height: u32,
     pub Depth: u32,
     pub RowPitch: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_SUBRESOURCE_FOOTPRINT {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_SUBRESOURCE_FOOTPRINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_SUBRESOURCE_FOOTPRINT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("D3D12_SUBRESOURCE_FOOTPRINT").field("Format", &self.Format).field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("RowPitch", &self.RowPitch).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_SUBRESOURCE_FOOTPRINT {
     fn eq(&self, other: &Self) -> bool {
         self.Format == other.Format && self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.RowPitch == other.RowPitch
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_SUBRESOURCE_FOOTPRINT {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_FOOTPRINT {
     type Abi = Self;
 }
@@ -13370,64 +13208,64 @@ impl ::core::convert::From<i32> for D3D12_TEXTURE_ADDRESS_MODE {
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_ADDRESS_MODE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_TEXTURE_COPY_LOCATION {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
     pub pResource: ::core::option::Option<ID3D12Resource>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_TEXTURE_COPY_LOCATION {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_TEXTURE_COPY_LOCATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_TEXTURE_COPY_LOCATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_TEXTURE_COPY_LOCATION {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_LOCATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_TEXTURE_COPY_LOCATION_0 {
     pub PlacedFootprint: D3D12_PLACED_SUBRESOURCE_FOOTPRINT,
     pub SubresourceIndex: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_TEXTURE_COPY_LOCATION_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_TEXTURE_COPY_LOCATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_TEXTURE_COPY_LOCATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_TEXTURE_COPY_LOCATION_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_LOCATION_0 {
     type Abi = Self;
 }
@@ -13709,36 +13547,36 @@ pub const D3D12_UAV_SLOT_COUNT: u32 = 64u32;
 pub const D3D12_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D3D12_UNORDERED_ACCESS_VIEW_DESC {
-    pub Format: super::Dxgi::DXGI_FORMAT,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D12_UAV_DIMENSION,
     pub Anonymous: D3D12_UNORDERED_ACCESS_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_UNORDERED_ACCESS_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_UNORDERED_ACCESS_VIEW_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_UNORDERED_ACCESS_VIEW_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_UNORDERED_ACCESS_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_UAV,
     pub Texture1D: D3D12_TEX1D_UAV,
@@ -13747,23 +13585,23 @@ pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DArray: D3D12_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D12_TEX3D_UAV,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -14155,73 +13993,6 @@ impl ::core::cmp::Eq for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
-pub struct D3D9ON12_ARGS {
-    pub Enable9On12: super::super::Foundation::BOOL,
-    pub pD3D12Device: ::core::option::Option<::windows::runtime::IUnknown>,
-    pub ppD3D12Queues: [::core::option::Option<::windows::runtime::IUnknown>; 2],
-    pub NumQueues: u32,
-    pub NodeMask: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl D3D9ON12_ARGS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for D3D9ON12_ARGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D9ON12_ARGS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D9ON12_ARGS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for D3D9ON12_ARGS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct D3D9On12CreatorID(pub ::windows::runtime::IUnknown);
-impl D3D9On12CreatorID {}
-unsafe impl ::windows::runtime::Interface for D3D9On12CreatorID {
-    type Vtable = D3D9On12CreatorID_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294753151, 5587, 17058, [132, 30, 157, 141, 50, 243, 125, 221]);
-}
-impl ::core::convert::From<D3D9On12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: D3D9On12CreatorID) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&D3D9On12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: &D3D9On12CreatorID) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for D3D9On12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a D3D9On12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct D3D9On12CreatorID_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-);
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -14299,327 +14070,6 @@ pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384u32;
 pub const DXGI_DEBUG_D3D12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478759820, 43344, 17190, [145, 239, 155, 186, 161, 123, 253, 149]);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-#[inline]
-pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
-        }
-        ::core::mem::transmute(Direct3DCreate9On12(::core::mem::transmute(sdkversion), ::core::mem::transmute(poverridelist), ::core::mem::transmute(numoverrideentries)))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-#[inline]
-pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::core::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::runtime::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
-        }
-        Direct3DCreate9On12Ex(::core::mem::transmute(sdkversion), ::core::mem::transmute(poverridelist), ::core::mem::transmute(numoverrideentries), ::core::mem::transmute(ppoutputinterface)).ok()
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DirectMLTensorFlowCreatorID(pub ::windows::runtime::IUnknown);
-impl DirectMLTensorFlowCreatorID {}
-unsafe impl ::windows::runtime::Interface for DirectMLTensorFlowCreatorID {
-    type Vtable = DirectMLTensorFlowCreatorID_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3413414060, 35343, 17644, [155, 123, 111, 76, 175, 232, 233, 171]);
-}
-impl ::core::convert::From<DirectMLTensorFlowCreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: DirectMLTensorFlowCreatorID) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&DirectMLTensorFlowCreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: &DirectMLTensorFlowCreatorID) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DirectMLTensorFlowCreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DirectMLTensorFlowCreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct DirectMLTensorFlowCreatorID_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ID3D11On12Device(pub ::windows::runtime::IUnknown);
-impl ID3D11On12Device {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn CreateWrappedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, presource12: Param0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: D3D12_RESOURCE_STATES, outstate: D3D12_RESOURCE_STATES, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), presource12.into_param().abi(), ::core::mem::transmute(pflags11), ::core::mem::transmute(instate), ::core::mem::transmute(outstate), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources)))
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources)))
-    }
-}
-unsafe impl ::windows::runtime::Interface for ID3D11On12Device {
-    type Vtable = ID3D11On12Device_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2237734515, 28841, 18702, [150, 20, 169, 227, 2, 119, 121, 4]);
-}
-impl ::core::convert::From<ID3D11On12Device> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D11On12Device) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D11On12Device) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11On12Device {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11On12Device {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ID3D11On12Device_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource12: ::windows::runtime::RawPtr, pflags11: *const D3D11_RESOURCE_FLAGS, instate: D3D12_RESOURCE_STATES, outstate: D3D12_RESOURCE_STATES, riid: *const ::windows::runtime::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, numresources: u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, numresources: u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ID3D11On12Device1(pub ::windows::runtime::IUnknown);
-impl ID3D11On12Device1 {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn CreateWrappedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, presource12: Param0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: D3D12_RESOURCE_STATES, outstate: D3D12_RESOURCE_STATES, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), presource12.into_param().abi(), ::core::mem::transmute(pflags11), ::core::mem::transmute(instate), ::core::mem::transmute(outstate), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources)))
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources)))
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn GetD3D12Device<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-}
-unsafe impl ::windows::runtime::Interface for ID3D11On12Device1 {
-    type Vtable = ID3D11On12Device1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3182841332, 59951, 19568, [184, 97, 170, 171, 18, 88, 187, 93]);
-}
-impl ::core::convert::From<ID3D11On12Device1> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D11On12Device1) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device1> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D11On12Device1) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11On12Device1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11On12Device1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-impl ::core::convert::From<ID3D11On12Device1> for ID3D11On12Device {
-    fn from(value: ID3D11On12Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device1> for ID3D11On12Device {
-    fn from(value: &ID3D11On12Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ID3D11On12Device> for ID3D11On12Device1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11On12Device> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ID3D11On12Device> for &ID3D11On12Device1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11On12Device> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ID3D11On12Device1_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource12: ::windows::runtime::RawPtr, pflags11: *const D3D11_RESOURCE_FLAGS, instate: D3D12_RESOURCE_STATES, outstate: D3D12_RESOURCE_STATES, riid: *const ::windows::runtime::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, numresources: u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, numresources: u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ID3D11On12Device2(pub ::windows::runtime::IUnknown);
-impl ID3D11On12Device2 {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn CreateWrappedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, presource12: Param0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: D3D12_RESOURCE_STATES, outstate: D3D12_RESOURCE_STATES, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), presource12.into_param().abi(), ::core::mem::transmute(pflags11), ::core::mem::transmute(instate), ::core::mem::transmute(outstate), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources)))
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources)))
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn GetD3D12Device<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn UnwrapUnderlyingResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3D11Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12CommandQueue>, T: ::windows::runtime::Interface>(&self, presource11: Param0, pcommandqueue: Param1) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), presource11.into_param().abi(), pcommandqueue.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3D11Resource>>(&self, presource11: Param0, numsync: u32, psignalvalues: *const u64, ppfences: *const ::core::option::Option<ID3D12Fence>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), presource11.into_param().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
-    }
-}
-unsafe impl ::windows::runtime::Interface for ID3D11On12Device2 {
-    type Vtable = ID3D11On12Device2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3700486961, 18240, 17402, [134, 110, 103, 241, 44, 181, 130, 35]);
-}
-impl ::core::convert::From<ID3D11On12Device2> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D11On12Device2) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device2> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D11On12Device2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D11On12Device2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D11On12Device2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-impl ::core::convert::From<ID3D11On12Device2> for ID3D11On12Device1 {
-    fn from(value: ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device2> for ID3D11On12Device1 {
-    fn from(value: &ID3D11On12Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ID3D11On12Device1> for ID3D11On12Device2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11On12Device1> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ID3D11On12Device1> for &ID3D11On12Device2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11On12Device1> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11On12Device2> for ID3D11On12Device {
-    fn from(value: ID3D11On12Device2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11On12Device2> for ID3D11On12Device {
-    fn from(value: &ID3D11On12Device2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ID3D11On12Device> for ID3D11On12Device2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11On12Device> {
-        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ID3D11On12Device> for &ID3D11On12Device2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11On12Device> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ID3D11On12Device2_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource12: ::windows::runtime::RawPtr, pflags11: *const D3D11_RESOURCE_FLAGS, instate: D3D12_RESOURCE_STATES, outstate: D3D12_RESOURCE_STATES, riid: *const ::windows::runtime::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, numresources: u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, numresources: u32),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource11: ::windows::runtime::RawPtr, pcommandqueue: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource11: ::windows::runtime::RawPtr, numsync: u32, psignalvalues: *const u64, ppfences: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
-);
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -15199,100 +14649,6 @@ pub struct ID3D12CommandSignature_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ID3D12CompatibilityDevice(pub ::windows::runtime::IUnknown);
-impl ID3D12CompatibilityDevice {
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateSharedResource<'a, Param7: ::windows::runtime::IntoParam<'a, ID3D12LifetimeTracker>, Param8: ::windows::runtime::IntoParam<'a, ID3D12SwapChainAssistant>, T: ::windows::runtime::Interface>(
-        &self,
-        pheapproperties: *const D3D12_HEAP_PROPERTIES,
-        heapflags: D3D12_HEAP_FLAGS,
-        pdesc: *const D3D12_RESOURCE_DESC,
-        initialresourcestate: D3D12_RESOURCE_STATES,
-        poptimizedclearvalue: *const D3D12_CLEAR_VALUE,
-        pflags11: *const D3D11_RESOURCE_FLAGS,
-        compatibilityflags: D3D12_COMPATIBILITY_SHARED_FLAGS,
-        plifetimetracker: Param7,
-        powningswapchain: Param8,
-        result__: *mut ::core::option::Option<T>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pheapproperties),
-            ::core::mem::transmute(heapflags),
-            ::core::mem::transmute(pdesc),
-            ::core::mem::transmute(initialresourcestate),
-            ::core::mem::transmute(poptimizedclearvalue),
-            ::core::mem::transmute(pflags11),
-            ::core::mem::transmute(compatibilityflags),
-            plifetimetracker.into_param().abi(),
-            powningswapchain.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn CreateSharedHeap<T: ::windows::runtime::Interface>(&self, pheapdesc: *const D3D12_HEAP_DESC, compatibilityflags: D3D12_COMPATIBILITY_SHARED_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pheapdesc), ::core::mem::transmute(compatibilityflags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn ReflectSharedProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Object>>(&self, pheaporresource: Param0, reflecttype: D3D12_REFLECT_SHARED_PROPERTY, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pheaporresource.into_param().abi(), ::core::mem::transmute(reflecttype), ::core::mem::transmute(pdata), ::core::mem::transmute(datasize)).ok()
-    }
-}
-unsafe impl ::windows::runtime::Interface for ID3D12CompatibilityDevice {
-    type Vtable = ID3D12CompatibilityDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400980540, 64227, 19074, [176, 152, 191, 225, 112, 130, 7, 255]);
-}
-impl ::core::convert::From<ID3D12CompatibilityDevice> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D12CompatibilityDevice) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&ID3D12CompatibilityDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D12CompatibilityDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D12CompatibilityDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ID3D12CompatibilityDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ID3D12CompatibilityDevice_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pheapproperties: *const D3D12_HEAP_PROPERTIES,
-        heapflags: D3D12_HEAP_FLAGS,
-        pdesc: *const D3D12_RESOURCE_DESC,
-        initialresourcestate: D3D12_RESOURCE_STATES,
-        poptimizedclearvalue: *const D3D12_CLEAR_VALUE,
-        pflags11: *const D3D11_RESOURCE_FLAGS,
-        compatibilityflags: D3D12_COMPATIBILITY_SHARED_FLAGS,
-        plifetimetracker: ::windows::runtime::RawPtr,
-        powningswapchain: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppresource: *mut *mut ::core::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapdesc: *const D3D12_HEAP_DESC, compatibilityflags: D3D12_COMPATIBILITY_SHARED_FLAGS, riid: *const ::windows::runtime::GUID, ppheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheaporresource: ::windows::runtime::RawPtr, reflecttype: D3D12_REFLECT_SHARED_PROPERTY, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
@@ -16357,8 +15713,8 @@ impl ID3D12Device {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -16395,23 +15751,23 @@ impl ID3D12Device {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -16436,8 +15792,8 @@ impl ID3D12Device {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -16449,8 +15805,8 @@ impl ID3D12Device {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -16468,13 +15824,13 @@ impl ID3D12Device {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -16512,8 +15868,8 @@ impl ID3D12Device {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -16619,8 +15975,8 @@ pub struct ID3D12Device_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -16628,27 +15984,27 @@ pub struct ID3D12Device_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -16659,8 +16015,8 @@ pub struct ID3D12Device_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -16705,8 +16061,8 @@ impl ID3D12Device1 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -16743,23 +16099,23 @@ impl ID3D12Device1 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -16784,8 +16140,8 @@ impl ID3D12Device1 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -16797,8 +16153,8 @@ impl ID3D12Device1 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -16816,13 +16172,13 @@ impl ID3D12Device1 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -16860,8 +16216,8 @@ impl ID3D12Device1 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -17001,8 +16357,8 @@ pub struct ID3D12Device1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -17010,27 +16366,27 @@ pub struct ID3D12Device1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -17041,8 +16397,8 @@ pub struct ID3D12Device1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17091,8 +16447,8 @@ impl ID3D12Device2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -17129,23 +16485,23 @@ impl ID3D12Device2 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -17170,8 +16526,8 @@ impl ID3D12Device2 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -17183,8 +16539,8 @@ impl ID3D12Device2 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -17202,13 +16558,13 @@ impl ID3D12Device2 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -17246,8 +16602,8 @@ impl ID3D12Device2 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -17412,8 +16768,8 @@ pub struct ID3D12Device2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -17421,27 +16777,27 @@ pub struct ID3D12Device2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -17452,8 +16808,8 @@ pub struct ID3D12Device2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17503,8 +16859,8 @@ impl ID3D12Device3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -17541,23 +16897,23 @@ impl ID3D12Device3 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -17582,8 +16938,8 @@ impl ID3D12Device3 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -17595,8 +16951,8 @@ impl ID3D12Device3 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -17614,13 +16970,13 @@ impl ID3D12Device3 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -17658,8 +17014,8 @@ impl ID3D12Device3 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -17859,8 +17215,8 @@ pub struct ID3D12Device3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -17868,27 +17224,27 @@ pub struct ID3D12Device3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -17899,8 +17255,8 @@ pub struct ID3D12Device3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17954,8 +17310,8 @@ impl ID3D12Device4 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -17992,23 +17348,23 @@ impl ID3D12Device4 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -18033,8 +17389,8 @@ impl ID3D12Device4 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -18046,8 +17402,8 @@ impl ID3D12Device4 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -18065,13 +17421,13 @@ impl ID3D12Device4 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -18109,8 +17465,8 @@ impl ID3D12Device4 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -18201,8 +17557,8 @@ impl ID3D12Device4 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource1<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(
             ::core::mem::transmute_copy(self),
@@ -18221,13 +17577,13 @@ impl ID3D12Device4 {
     pub unsafe fn CreateHeap1<'a, Param1: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: Param1, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource1<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param3, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
@@ -18372,8 +17728,8 @@ pub struct ID3D12Device4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -18381,27 +17737,27 @@ pub struct ID3D12Device4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -18412,8 +17768,8 @@ pub struct ID3D12Device4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -18432,13 +17788,13 @@ pub struct ID3D12Device4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr, pfencetosignal: ::windows::runtime::RawPtr, fencevaluetosignal: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
@@ -18476,8 +17832,8 @@ impl ID3D12Device5 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -18514,23 +17870,23 @@ impl ID3D12Device5 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -18555,8 +17911,8 @@ impl ID3D12Device5 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -18568,8 +17924,8 @@ impl ID3D12Device5 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -18587,13 +17943,13 @@ impl ID3D12Device5 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -18631,8 +17987,8 @@ impl ID3D12Device5 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -18723,8 +18079,8 @@ impl ID3D12Device5 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource1<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(
             ::core::mem::transmute_copy(self),
@@ -18743,13 +18099,13 @@ impl ID3D12Device5 {
     pub unsafe fn CreateHeap1<'a, Param1: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: Param1, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource1<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param3, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
@@ -18784,8 +18140,8 @@ impl ID3D12Device5 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
     }
@@ -18952,8 +18308,8 @@ pub struct ID3D12Device5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -18961,27 +18317,27 @@ pub struct ID3D12Device5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -18992,8 +18348,8 @@ pub struct ID3D12Device5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -19012,13 +18368,13 @@ pub struct ID3D12Device5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr, pfencetosignal: ::windows::runtime::RawPtr, fencevaluetosignal: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, powner: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::runtime::HRESULT,
@@ -19027,8 +18383,8 @@ pub struct ID3D12Device5_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandid: *const ::windows::runtime::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::runtime::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::runtime::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -19067,8 +18423,8 @@ impl ID3D12Device6 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -19105,23 +18461,23 @@ impl ID3D12Device6 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -19146,8 +18502,8 @@ impl ID3D12Device6 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -19159,8 +18515,8 @@ impl ID3D12Device6 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -19178,13 +18534,13 @@ impl ID3D12Device6 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -19222,8 +18578,8 @@ impl ID3D12Device6 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -19314,8 +18670,8 @@ impl ID3D12Device6 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource1<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(
             ::core::mem::transmute_copy(self),
@@ -19334,13 +18690,13 @@ impl ID3D12Device6 {
     pub unsafe fn CreateHeap1<'a, Param1: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: Param1, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource1<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param3, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
@@ -19375,8 +18731,8 @@ impl ID3D12Device6 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
     }
@@ -19569,8 +18925,8 @@ pub struct ID3D12Device6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -19578,27 +18934,27 @@ pub struct ID3D12Device6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -19609,8 +18965,8 @@ pub struct ID3D12Device6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -19629,13 +18985,13 @@ pub struct ID3D12Device6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr, pfencetosignal: ::windows::runtime::RawPtr, fencevaluetosignal: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, powner: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::runtime::HRESULT,
@@ -19644,8 +19000,8 @@ pub struct ID3D12Device6_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandid: *const ::windows::runtime::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::runtime::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::runtime::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -19686,8 +19042,8 @@ impl ID3D12Device7 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -19724,23 +19080,23 @@ impl ID3D12Device7 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -19765,8 +19121,8 @@ impl ID3D12Device7 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -19778,8 +19134,8 @@ impl ID3D12Device7 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -19797,13 +19153,13 @@ impl ID3D12Device7 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -19841,8 +19197,8 @@ impl ID3D12Device7 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -19933,8 +19289,8 @@ impl ID3D12Device7 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource1<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(
             ::core::mem::transmute_copy(self),
@@ -19953,13 +19309,13 @@ impl ID3D12Device7 {
     pub unsafe fn CreateHeap1<'a, Param1: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: Param1, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource1<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param3, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
@@ -19994,8 +19350,8 @@ impl ID3D12Device7 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
     }
@@ -20218,8 +19574,8 @@ pub struct ID3D12Device7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -20227,27 +19583,27 @@ pub struct ID3D12Device7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -20258,8 +19614,8 @@ pub struct ID3D12Device7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -20278,13 +19634,13 @@ pub struct ID3D12Device7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr, pfencetosignal: ::windows::runtime::RawPtr, fencevaluetosignal: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, powner: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::runtime::HRESULT,
@@ -20293,8 +19649,8 @@ pub struct ID3D12Device7_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandid: *const ::windows::runtime::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::runtime::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::runtime::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -20337,8 +19693,8 @@ impl ID3D12Device8 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -20375,23 +19731,23 @@ impl ID3D12Device8 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -20416,8 +19772,8 @@ impl ID3D12Device8 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -20429,8 +19785,8 @@ impl ID3D12Device8 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -20448,13 +19804,13 @@ impl ID3D12Device8 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -20492,8 +19848,8 @@ impl ID3D12Device8 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -20584,8 +19940,8 @@ impl ID3D12Device8 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource1<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(
             ::core::mem::transmute_copy(self),
@@ -20604,13 +19960,13 @@ impl ID3D12Device8 {
     pub unsafe fn CreateHeap1<'a, Param1: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: Param1, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource1<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param3, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
@@ -20645,8 +20001,8 @@ impl ID3D12Device8 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
     }
@@ -20670,15 +20026,15 @@ impl ID3D12Device8 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource2<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(
             ::core::mem::transmute_copy(self),
@@ -20693,8 +20049,8 @@ impl ID3D12Device8 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource1<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -20702,8 +20058,8 @@ impl ID3D12Device8 {
     pub unsafe fn CreateSamplerFeedbackUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, ptargetedresource: Param0, pfeedbackresource: Param1, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ptargetedresource.into_param().abi(), pfeedbackresource.into_param().abi(), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).72)(
             ::core::mem::transmute_copy(self),
@@ -20936,8 +20292,8 @@ pub struct ID3D12Device8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -20945,27 +20301,27 @@ pub struct ID3D12Device8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -20976,8 +20332,8 @@ pub struct ID3D12Device8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -20996,13 +20352,13 @@ pub struct ID3D12Device8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr, pfencetosignal: ::windows::runtime::RawPtr, fencevaluetosignal: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, powner: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::runtime::HRESULT,
@@ -21011,22 +20367,22 @@ pub struct ID3D12Device8_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandid: *const ::windows::runtime::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::runtime::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::runtime::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptargetedresource: ::windows::runtime::RawPtr, pfeedbackresource: ::windows::runtime::RawPtr, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
@@ -21064,8 +20420,8 @@ impl ID3D12Device9 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateGraphicsPipelineState<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -21102,23 +20458,23 @@ impl ID3D12Device9 {
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param3: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
     }
@@ -21143,8 +20499,8 @@ impl ID3D12Device9 {
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs));
@@ -21156,8 +20512,8 @@ impl ID3D12Device9 {
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(nodemask), ::core::mem::transmute(heaptype));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource<T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(
             ::core::mem::transmute_copy(self),
@@ -21175,13 +20531,13 @@ impl ID3D12Device9 {
     pub unsafe fn CreateHeap<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource<T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -21219,8 +20575,8 @@ impl ID3D12Device9 {
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).38)(
             ::core::mem::transmute_copy(self),
@@ -21311,8 +20667,8 @@ impl ID3D12Device9 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource1<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(
             ::core::mem::transmute_copy(self),
@@ -21331,13 +20687,13 @@ impl ID3D12Device9 {
     pub unsafe fn CreateHeap1<'a, Param1: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: Param1, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateReservedResource1<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param3, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), pprotectedsession.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
@@ -21372,8 +20728,8 @@ impl ID3D12Device9 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
     }
@@ -21397,15 +20753,15 @@ impl ID3D12Device9 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateCommittedResource2<'a, Param5: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>, T: ::windows::runtime::Interface>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: Param5, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(
             ::core::mem::transmute_copy(self),
@@ -21420,8 +20776,8 @@ impl ID3D12Device9 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreatePlacedResource1<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Heap>, T: ::windows::runtime::Interface>(&self, pheap: Param0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -21429,8 +20785,8 @@ impl ID3D12Device9 {
     pub unsafe fn CreateSamplerFeedbackUnorderedAccessView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, ptargetedresource: Param0, pfeedbackresource: Param1, destdescriptor: Param2) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ptargetedresource.into_param().abi(), pfeedbackresource.into_param().abi(), destdescriptor.into_param().abi()))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).72)(
             ::core::mem::transmute_copy(self),
@@ -21696,8 +21052,8 @@ pub struct ID3D12Device9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::runtime::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::runtime::RawPtr, pinitialstate: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::runtime::HRESULT,
@@ -21705,27 +21061,27 @@ pub struct ID3D12Device9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::runtime::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcounterresource: ::windows::runtime::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -21736,8 +21092,8 @@ pub struct ID3D12Device9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::runtime::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -21756,13 +21112,13 @@ pub struct ID3D12Device9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::runtime::RawPtr, pfencetosignal: ::windows::runtime::RawPtr, fencevaluetosignal: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::runtime::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, powner: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::runtime::HRESULT,
@@ -21771,22 +21127,22 @@ pub struct ID3D12Device9_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandid: *const ::windows::runtime::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::runtime::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::runtime::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::runtime::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::runtime::RawPtr, riidresource: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheap: ::windows::runtime::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::runtime::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptargetedresource: ::windows::runtime::RawPtr, pfeedbackresource: ::windows::runtime::RawPtr, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows::runtime::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -22580,8 +21936,8 @@ pub struct ID3D12Fence1_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3D12FunctionParameterReflection(pub ::windows::runtime::IUnknown);
 impl ID3D12FunctionParameterReflection {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D12_PARAMETER_DESC> {
         let mut result__: <D3D12_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<D3D12_PARAMETER_DESC>(result__)
@@ -22617,16 +21973,16 @@ pub struct ID3D12FunctionParameterReflection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3D12FunctionReflection(pub ::windows::runtime::IUnknown);
 impl ID3D12FunctionReflection {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D12_FUNCTION_DESC> {
         let mut result__: <D3D12_FUNCTION_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<D3D12_FUNCTION_DESC>(result__)
@@ -22640,8 +21996,8 @@ impl ID3D12FunctionReflection {
     pub unsafe fn GetConstantBufferByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), name.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::runtime::Result<D3D12_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D12_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(resourceindex), &mut result__).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
@@ -22651,8 +22007,8 @@ impl ID3D12FunctionReflection {
     pub unsafe fn GetVariableByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), name.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetResourceBindingDescByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::windows::runtime::Result<D3D12_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D12_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
@@ -22692,17 +22048,17 @@ pub struct ID3D12FunctionReflection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_FUNCTION_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_FUNCTION_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bufferindex: u32) -> ::windows::runtime::RawPtr,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: i32) -> ::windows::runtime::RawPtr,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -22770,8 +22126,8 @@ impl ID3D12GraphicsCommandList {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -22792,14 +22148,14 @@ impl ID3D12GraphicsCommandList {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -22891,8 +22247,8 @@ impl ID3D12GraphicsCommandList {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -23087,15 +22443,15 @@ pub struct ID3D12GraphicsCommandList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -23119,8 +22475,8 @@ pub struct ID3D12GraphicsCommandList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -23209,8 +22565,8 @@ impl ID3D12GraphicsCommandList1 {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -23231,14 +22587,14 @@ impl ID3D12GraphicsCommandList1 {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -23330,8 +22686,8 @@ impl ID3D12GraphicsCommandList1 {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -23455,9 +22811,9 @@ impl ID3D12GraphicsCommandList1 {
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).64)(
             ::core::mem::transmute_copy(self),
             pdstresource.into_param().abi(),
@@ -23600,15 +22956,15 @@ pub struct ID3D12GraphicsCommandList1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -23632,8 +22988,8 @@ pub struct ID3D12GraphicsCommandList1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -23660,8 +23016,8 @@ pub struct ID3D12GraphicsCommandList1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::runtime::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, min: f32, max: f32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mask: u32),
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -23729,8 +23085,8 @@ impl ID3D12GraphicsCommandList2 {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -23751,14 +23107,14 @@ impl ID3D12GraphicsCommandList2 {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -23850,8 +23206,8 @@ impl ID3D12GraphicsCommandList2 {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -23975,9 +23331,9 @@ impl ID3D12GraphicsCommandList2 {
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).64)(
             ::core::mem::transmute_copy(self),
             pdstresource.into_param().abi(),
@@ -24144,15 +23500,15 @@ pub struct ID3D12GraphicsCommandList2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -24176,8 +23532,8 @@ pub struct ID3D12GraphicsCommandList2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -24204,8 +23560,8 @@ pub struct ID3D12GraphicsCommandList2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::runtime::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, min: f32, max: f32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mask: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
 );
@@ -24274,8 +23630,8 @@ impl ID3D12GraphicsCommandList3 {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -24296,14 +23652,14 @@ impl ID3D12GraphicsCommandList3 {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -24395,8 +23751,8 @@ impl ID3D12GraphicsCommandList3 {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -24520,9 +23876,9 @@ impl ID3D12GraphicsCommandList3 {
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).64)(
             ::core::mem::transmute_copy(self),
             pdstresource.into_param().abi(),
@@ -24713,15 +24069,15 @@ pub struct ID3D12GraphicsCommandList3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -24745,8 +24101,8 @@ pub struct ID3D12GraphicsCommandList3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -24773,8 +24129,8 @@ pub struct ID3D12GraphicsCommandList3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::runtime::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, min: f32, max: f32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mask: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotectedresourcesession: ::windows::runtime::RawPtr),
@@ -24844,8 +24200,8 @@ impl ID3D12GraphicsCommandList4 {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -24866,14 +24222,14 @@ impl ID3D12GraphicsCommandList4 {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -24965,8 +24321,8 @@ impl ID3D12GraphicsCommandList4 {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -25090,9 +24446,9 @@ impl ID3D12GraphicsCommandList4 {
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).64)(
             ::core::mem::transmute_copy(self),
             pdstresource.into_param().abi(),
@@ -25118,8 +24474,8 @@ impl ID3D12GraphicsCommandList4 {
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags)))
     }
@@ -25135,8 +24491,8 @@ impl ID3D12GraphicsCommandList4 {
     pub unsafe fn ExecuteMetaCommand<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs)))
     }
@@ -25341,15 +24697,15 @@ pub struct ID3D12GraphicsCommandList4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -25373,8 +24729,8 @@ pub struct ID3D12GraphicsCommandList4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -25401,18 +24757,18 @@ pub struct ID3D12GraphicsCommandList4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::runtime::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, min: f32, max: f32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mask: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotectedresourcesession: ::windows::runtime::RawPtr),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetacommand: ::windows::runtime::RawPtr, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetacommand: ::windows::runtime::RawPtr, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstateobject: ::windows::runtime::RawPtr),
@@ -25483,8 +24839,8 @@ impl ID3D12GraphicsCommandList5 {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -25505,14 +24861,14 @@ impl ID3D12GraphicsCommandList5 {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -25604,8 +24960,8 @@ impl ID3D12GraphicsCommandList5 {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -25729,9 +25085,9 @@ impl ID3D12GraphicsCommandList5 {
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).64)(
             ::core::mem::transmute_copy(self),
             pdstresource.into_param().abi(),
@@ -25757,8 +25113,8 @@ impl ID3D12GraphicsCommandList5 {
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags)))
     }
@@ -25774,8 +25130,8 @@ impl ID3D12GraphicsCommandList5 {
     pub unsafe fn ExecuteMetaCommand<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs)))
     }
@@ -26008,15 +25364,15 @@ pub struct ID3D12GraphicsCommandList5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -26040,8 +25396,8 @@ pub struct ID3D12GraphicsCommandList5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -26068,18 +25424,18 @@ pub struct ID3D12GraphicsCommandList5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::runtime::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, min: f32, max: f32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mask: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotectedresourcesession: ::windows::runtime::RawPtr),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetacommand: ::windows::runtime::RawPtr, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetacommand: ::windows::runtime::RawPtr, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstateobject: ::windows::runtime::RawPtr),
@@ -26152,8 +25508,8 @@ impl ID3D12GraphicsCommandList6 {
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
     }
@@ -26174,14 +25530,14 @@ impl ID3D12GraphicsCommandList6 {
             ::core::mem::transmute(flags),
         ))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -26273,8 +25629,8 @@ impl ID3D12GraphicsCommandList6 {
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
     }
@@ -26398,9 +25754,9 @@ impl ID3D12GraphicsCommandList6 {
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).64)(
             ::core::mem::transmute_copy(self),
             pdstresource.into_param().abi(),
@@ -26426,8 +25782,8 @@ impl ID3D12GraphicsCommandList6 {
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags)))
     }
@@ -26443,8 +25799,8 @@ impl ID3D12GraphicsCommandList6 {
     pub unsafe fn ExecuteMetaCommand<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs)))
     }
@@ -26701,15 +26057,15 @@ pub struct ID3D12GraphicsCommandList6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, numbytes: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, psrcresource: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptiledresource: ::windows::runtime::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::runtime::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY),
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numviewports: u32, pviewports: *const D3D12_VIEWPORT),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrects: u32, prects: *const super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -26733,8 +26089,8 @@ pub struct ID3D12GraphicsCommandList6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rootparameterindex: u32, bufferlocation: u64),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pview: *const D3D12_INDEX_BUFFER_VIEW),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -26761,18 +26117,18 @@ pub struct ID3D12GraphicsCommandList6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstbuffer: ::windows::runtime::RawPtr, dstoffset: u64, psrcbuffer: ::windows::runtime::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::runtime::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, min: f32, max: f32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstresource: ::windows::runtime::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::runtime::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mask: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprotectedresourcesession: ::windows::runtime::RawPtr),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetacommand: ::windows::runtime::RawPtr, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetacommand: ::windows::runtime::RawPtr, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstateobject: ::windows::runtime::RawPtr),
@@ -28088,8 +27444,8 @@ impl ID3D12PipelineLibrary {
     pub unsafe fn StorePipeline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ID3D12PipelineState>>(&self, pname: Param0, ppipeline: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pname.into_param().abi(), ppipeline.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn LoadGraphicsPipeline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::runtime::Interface>(&self, pname: Param0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -28187,8 +27543,8 @@ pub struct ID3D12PipelineLibrary_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, ppipeline: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
@@ -28225,8 +27581,8 @@ impl ID3D12PipelineLibrary1 {
     pub unsafe fn StorePipeline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ID3D12PipelineState>>(&self, pname: Param0, ppipeline: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pname.into_param().abi(), ppipeline.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn LoadGraphicsPipeline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::runtime::Interface>(&self, pname: Param0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(pdesc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -28350,8 +27706,8 @@ pub struct ID3D12PipelineLibrary1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, ppipeline: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pname: super::super::Foundation::PWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::runtime::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
@@ -28385,11 +27741,11 @@ impl ID3D12PipelineState {
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn GetCachedBlob(&self) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
-        let mut result__: <super::Direct3D11::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Direct3D11::ID3DBlob>(result__)
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn GetCachedBlob(&self) -> ::windows::runtime::Result<super::Direct3D::ID3DBlob> {
+        let mut result__: <super::Direct3D::ID3DBlob as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Direct3D::ID3DBlob>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ID3D12PipelineState {
@@ -28488,8 +27844,8 @@ pub struct ID3D12PipelineState_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
@@ -29072,8 +28428,8 @@ impl ID3D12Resource {
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
         let mut result__: D3D12_RESOURCE_DESC = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__);
@@ -29194,8 +28550,8 @@ pub struct ID3D12Resource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subresource: u32, pwrittenrange: *const D3D12_RANGE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> ::windows::runtime::HRESULT,
@@ -29235,8 +28591,8 @@ impl ID3D12Resource1 {
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
         let mut result__: D3D12_RESOURCE_DESC = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__);
@@ -29381,8 +28737,8 @@ pub struct ID3D12Resource1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subresource: u32, pwrittenrange: *const D3D12_RANGE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> ::windows::runtime::HRESULT,
@@ -29423,8 +28779,8 @@ impl ID3D12Resource2 {
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange)))
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
         let mut result__: D3D12_RESOURCE_DESC = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__);
@@ -29450,8 +28806,8 @@ impl ID3D12Resource2 {
     pub unsafe fn GetProtectedResourceSession<T: ::windows::runtime::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc1(&self) -> D3D12_RESOURCE_DESC1 {
         let mut result__: D3D12_RESOURCE_DESC1 = ::core::default::Default::default();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__);
@@ -29596,15 +28952,15 @@ pub struct ID3D12Resource2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subresource: u32, pwrittenrange: *const D3D12_RANGE),
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pheapproperties: *mut D3D12_HEAP_PROPERTIES, pheapflags: *mut D3D12_HEAP_FLAGS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC1),
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut D3D12_RESOURCE_DESC1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
@@ -29927,8 +29283,8 @@ pub struct ID3D12ShaderCacheSession_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3D12ShaderReflection(pub ::windows::runtime::IUnknown);
 impl ID3D12ShaderReflection {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D12_SHADER_DESC> {
         let mut result__: <D3D12_SHADER_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<D3D12_SHADER_DESC>(result__)
@@ -29942,26 +29298,26 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetConstantBufferByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), name.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::runtime::Result<D3D12_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D12_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(resourceindex), &mut result__).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D12_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D12_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(parameterindex), &mut result__).from_abi::<D3D12_SIGNATURE_PARAMETER_DESC>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D12_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D12_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(parameterindex), &mut result__).from_abi::<D3D12_SIGNATURE_PARAMETER_DESC>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetPatchConstantParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D12_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D12_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(parameterindex), &mut result__).from_abi::<D3D12_SIGNATURE_PARAMETER_DESC>(result__)
@@ -29971,8 +29327,8 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetVariableByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), name.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetResourceBindingDescByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::windows::runtime::Result<D3D12_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D12_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
@@ -29993,9 +29349,9 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetBitwiseInstructionCount(&self) -> u32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn GetGSInputPrimitive(&self) -> super::Direct3D11::D3D_PRIMITIVE {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn GetGSInputPrimitive(&self) -> super::Direct3D::D3D_PRIMITIVE {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -30007,11 +29363,11 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetNumInterfaceSlots(&self) -> u32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-    pub unsafe fn GetMinFeatureLevel(&self) -> ::windows::runtime::Result<super::Direct3D11::D3D_FEATURE_LEVEL> {
-        let mut result__: <super::Direct3D11::D3D_FEATURE_LEVEL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Direct3D11::D3D_FEATURE_LEVEL>(result__)
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn GetMinFeatureLevel(&self) -> ::windows::runtime::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
+        let mut result__: <super::Direct3D::D3D_FEATURE_LEVEL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Direct3D::D3D_FEATURE_LEVEL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32 {
@@ -30052,34 +29408,34 @@ pub struct ID3D12ShaderReflection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_SHADER_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_SHADER_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::RawPtr,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::Direct3D11::D3D_PRIMITIVE,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::Direct3D::D3D_PRIMITIVE,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plevel: *mut super::Direct3D11::D3D_FEATURE_LEVEL) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D11"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
 );
@@ -30088,8 +29444,8 @@ pub struct ID3D12ShaderReflection_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3D12ShaderReflectionConstantBuffer(pub ::windows::runtime::IUnknown);
 impl ID3D12ShaderReflectionConstantBuffer {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
     }
@@ -30133,8 +29489,8 @@ pub struct ID3D12ShaderReflectionConstantBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::RawPtr,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -30144,8 +29500,8 @@ pub struct ID3D12ShaderReflectionConstantBuffer_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3D12ShaderReflectionType(pub ::windows::runtime::IUnknown);
 impl ID3D12ShaderReflectionType {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D12_SHADER_TYPE_DESC> {
         let mut result__: <D3D12_SHADER_TYPE_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<D3D12_SHADER_TYPE_DESC>(result__)
@@ -30223,8 +29579,8 @@ pub struct ID3D12ShaderReflectionType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::RawPtr,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -30705,292 +30061,10 @@ pub struct ID3D12VersionedRootSignatureDeserializer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC,
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirect3DDevice9On12(pub ::windows::runtime::IUnknown);
-impl IDirect3DDevice9On12 {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn GetD3D12Device(&self, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvdevice)).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D9`*"]
-    pub unsafe fn UnwrapUnderlyingResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D9::IDirect3DResource9>, Param1: ::windows::runtime::IntoParam<'a, ID3D12CommandQueue>>(&self, presource: Param0, pcommandqueue: Param1, riid: *const ::windows::runtime::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcommandqueue.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvresource12)).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D9`*"]
-    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D9::IDirect3DResource9>>(&self, presource: Param0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut ::core::option::Option<ID3D12Fence>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
-    }
-}
-unsafe impl ::windows::runtime::Interface for IDirect3DDevice9On12 {
-    type Vtable = IDirect3DDevice9On12_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3892159028, 46473, 16457, [148, 13, 136, 120, 151, 117, 49, 200]);
-}
-impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::runtime::IUnknown {
-    fn from(value: IDirect3DDevice9On12) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice9On12> for ::windows::runtime::IUnknown {
-    fn from(value: &IDirect3DDevice9On12) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DDevice9On12 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DDevice9On12 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDirect3DDevice9On12_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, pcommandqueue: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presource: ::windows::runtime::RawPtr, numsync: u32, psignalvalues: *mut u64, ppfences: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IMFD3D12SynchronizationObject(pub ::windows::runtime::IUnknown);
-impl IMFD3D12SynchronizationObject {
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
-    pub unsafe fn SignalEventOnFinalResourceRelease<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
-    }
-}
-unsafe impl ::windows::runtime::Interface for IMFD3D12SynchronizationObject {
-    type Vtable = IMFD3D12SynchronizationObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2149778096, 33502, 17889, [180, 33, 241, 158, 229, 189, 175, 35]);
-}
-impl ::core::convert::From<IMFD3D12SynchronizationObject> for ::windows::runtime::IUnknown {
-    fn from(value: IMFD3D12SynchronizationObject) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IMFD3D12SynchronizationObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IMFD3D12SynchronizationObject) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMFD3D12SynchronizationObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMFD3D12SynchronizationObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IMFD3D12SynchronizationObject_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IMFD3D12SynchronizationObjectCommands(pub ::windows::runtime::IUnknown);
-impl IMFD3D12SynchronizationObjectCommands {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn EnqueueResourceReady<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12CommandQueue>>(&self, pproducercommandqueue: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pproducercommandqueue.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn EnqueueResourceReadyWait<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12CommandQueue>>(&self, pconsumercommandqueue: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pconsumercommandqueue.into_param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
-    pub unsafe fn SignalEventOnResourceReady<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-    pub unsafe fn EnqueueResourceRelease<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12CommandQueue>>(&self, pconsumercommandqueue: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pconsumercommandqueue.into_param().abi()).ok()
-    }
-}
-unsafe impl ::windows::runtime::Interface for IMFD3D12SynchronizationObjectCommands {
-    type Vtable = IMFD3D12SynchronizationObjectCommands_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164689973, 37631, 20051, [142, 250, 64, 250, 165, 81, 242, 51]);
-}
-impl ::core::convert::From<IMFD3D12SynchronizationObjectCommands> for ::windows::runtime::IUnknown {
-    fn from(value: IMFD3D12SynchronizationObjectCommands) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IMFD3D12SynchronizationObjectCommands> for ::windows::runtime::IUnknown {
-    fn from(value: &IMFD3D12SynchronizationObjectCommands) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMFD3D12SynchronizationObjectCommands {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMFD3D12SynchronizationObjectCommands {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IMFD3D12SynchronizationObjectCommands_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pproducercommandqueue: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconsumercommandqueue: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconsumercommandqueue: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const LUID_DEFINED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[inline]
-pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D12Device>>(pdevice: Param0, riid: *const ::windows::runtime::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateD3D12SynchronizationObject(pdevice: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
-        }
-        MFCreateD3D12SynchronizationObject(pdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(712805738, 34214, 18765, [160, 70, 6, 234, 26, 19, 143, 75]);
-pub const MF_MT_D3D12_CPU_READBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(686727139, 54401, 18086, [185, 138, 127, 105, 213, 40, 14, 130]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2795627577, 12182, 19125, [152, 220, 173, 247, 73, 115, 80, 93]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2970848707, 469, 19476, [155, 220, 205, 201, 51, 111, 85, 185]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004259205, 13360, 18828, [132, 162, 119, 177, 187, 165, 112, 246]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(172572850, 53206, 18232, [157, 2, 152, 17, 55, 52, 1, 90]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2194167367, 20567, 18784, [149, 89, 244, 91, 142, 39, 20, 39]);
-pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121004460, 65507, 18250, [171, 85, 22, 30, 228, 65, 122, 46]);
-pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2546490538, 3051, 20193, [151, 21, 242, 47, 173, 140, 16, 245]);
-pub const MF_MT_D3D_RESOURCE_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(391061125, 65062, 17725, [181, 46, 91, 221, 78, 85, 185, 68]);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(pub i32);
-pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = MF_MT_D3D_RESOURCE_VERSION_ENUM(0i32);
-pub const MF_D3D12_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = MF_MT_D3D_RESOURCE_VERSION_ENUM(1i32);
-impl ::core::convert::From<i32> for MF_MT_D3D_RESOURCE_VERSION_ENUM {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for MF_MT_D3D_RESOURCE_VERSION_ENUM {
-    type Abi = Self;
-}
-pub const MF_SA_D3D12_CLEAR_VALUE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2260376121, 1318, 18781, [154, 181, 84, 236, 159, 173, 111, 195]);
-pub const MF_SA_D3D12_HEAP_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1231762022, 53903, 20364, [147, 167, 74, 89, 107, 26, 49, 161]);
-pub const MF_SA_D3D12_HEAP_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1458727542, 48065, 19680, [187, 17, 226, 35, 104, 216, 116, 237]);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct OpenCLOn12CreatorID(pub ::windows::runtime::IUnknown);
-impl OpenCLOn12CreatorID {}
-unsafe impl ::windows::runtime::Interface for OpenCLOn12CreatorID {
-    type Vtable = OpenCLOn12CreatorID_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1064745844, 37301, 19080, [177, 38, 32, 202, 3, 49, 205, 96]);
-}
-impl ::core::convert::From<OpenCLOn12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: OpenCLOn12CreatorID) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&OpenCLOn12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: &OpenCLOn12CreatorID) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OpenCLOn12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OpenCLOn12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct OpenCLOn12CreatorID_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct OpenGLOn12CreatorID(pub ::windows::runtime::IUnknown);
-impl OpenGLOn12CreatorID {}
-unsafe impl ::windows::runtime::Interface for OpenGLOn12CreatorID {
-    type Vtable = OpenGLOn12CreatorID_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806945588, 3353, 17835, [151, 237, 215, 32, 186, 61, 252, 128]);
-}
-impl ::core::convert::From<OpenGLOn12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: OpenGLOn12CreatorID) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&OpenGLOn12CreatorID> for ::windows::runtime::IUnknown {
-    fn from(value: &OpenGLOn12CreatorID) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OpenGLOn12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a OpenGLOn12CreatorID {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct OpenGLOn12CreatorID_abi(
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-);
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
-pub type PFN_D3D11ON12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: u32, param2: *const super::Direct3D11::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows::runtime::RawPtr, numqueues: u32, param6: u32, param7: *mut ::windows::runtime::RawPtr, param8: *mut ::windows::runtime::RawPtr, param9: *mut super::Direct3D11::D3D_FEATURE_LEVEL) -> ::windows::runtime::HRESULT;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
-pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: super::Direct3D11::D3D_FEATURE_LEVEL, param2: *const ::windows::runtime::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows::runtime::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::runtime::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
@@ -30999,16 +30073,10 @@ pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = unsafe extern 
 pub type PFN_D3D12_GET_DEBUG_INTERFACE = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_GET_INTERFACE = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::windows::runtime::RawPtr, pperrorblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::windows::runtime::RawPtr, pperrorblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PFN_Direct3DCreate9On12 = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PFN_Direct3DCreate9On12Ex = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566218806, 30074, 18754, [149, 148, 182, 118, 154, 250, 67, 205]);

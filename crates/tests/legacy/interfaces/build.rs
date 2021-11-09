@@ -16,7 +16,8 @@ fn main() {
         Windows::Win32::System::DistributedTransactionCoordinator::ITransactionImport,
 
         // Test for https://github.com/microsoft/windows-rs/issues/924
-        Windows::Win32::System::WinRT::{ICompositorInterop, ISystemMediaTransportControlsInterop},
+        Windows::Win32::System::WinRT::Composition::ICompositorInterop,
+        Windows::Win32::System::WinRT::ISystemMediaTransportControlsInterop,
 
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::AI::MachineLearning::WinML::IWinMLEvaluationContext,

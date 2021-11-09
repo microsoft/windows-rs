@@ -1,4 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub mod Common;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn CreateDXGIFactory<T: ::windows::runtime::Interface>() -> ::windows::runtime::Result<T> {
@@ -407,91 +409,6 @@ impl ::core::ops::Not for DXGI_ADAPTER_FLAG3 {
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
-pub struct DXGI_ALPHA_MODE(pub u32);
-pub const DXGI_ALPHA_MODE_UNSPECIFIED: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(0u32);
-pub const DXGI_ALPHA_MODE_PREMULTIPLIED: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(1u32);
-pub const DXGI_ALPHA_MODE_STRAIGHT: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(2u32);
-pub const DXGI_ALPHA_MODE_IGNORE: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(3u32);
-pub const DXGI_ALPHA_MODE_FORCE_DWORD: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(4294967295u32);
-impl ::core::convert::From<u32> for DXGI_ALPHA_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for DXGI_ALPHA_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DXGI_ALPHA_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DXGI_ALPHA_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DXGI_ALPHA_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DXGI_ALPHA_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DXGI_ALPHA_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DXGI_COLOR_SPACE_TYPE(pub i32);
-pub const DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(0i32);
-pub const DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(1i32);
-pub const DXGI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(2i32);
-pub const DXGI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(3i32);
-pub const DXGI_COLOR_SPACE_RESERVED: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(4i32);
-pub const DXGI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(5i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P601: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(6i32);
-pub const DXGI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P601: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(7i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(8i32);
-pub const DXGI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(9i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(10i32);
-pub const DXGI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(11i32);
-pub const DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(12i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G2084_LEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(13i32);
-pub const DXGI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(14i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G22_TOPLEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(15i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G2084_TOPLEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(16i32);
-pub const DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(17i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(18i32);
-pub const DXGI_COLOR_SPACE_YCBCR_FULL_GHLG_TOPLEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(19i32);
-pub const DXGI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(20i32);
-pub const DXGI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(21i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P709: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(22i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(23i32);
-pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(24i32);
-pub const DXGI_COLOR_SPACE_CUSTOM: DXGI_COLOR_SPACE_TYPE = DXGI_COLOR_SPACE_TYPE(-1i32);
-impl ::core::convert::From<i32> for DXGI_COLOR_SPACE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for DXGI_COLOR_SPACE_TYPE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
 pub struct DXGI_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
 pub const DXGI_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(0i32);
 pub const DXGI_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(1i32);
@@ -506,16 +423,6 @@ impl ::core::convert::From<i32> for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
 unsafe impl ::windows::runtime::Abi for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_CPU_ACCESS_FIELD: u32 = 15u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_CPU_ACCESS_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_CPU_ACCESS_SCRATCH: u32 = 3u32;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
 pub const DXGI_DEBUG_ALL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834307203, 55936, 18699, [135, 230, 67, 233, 169, 207, 218, 8]);
@@ -709,170 +616,6 @@ unsafe impl ::windows::runtime::Abi for DXGI_FEATURE {
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
-pub struct DXGI_FORMAT(pub u32);
-pub const DXGI_FORMAT_UNKNOWN: DXGI_FORMAT = DXGI_FORMAT(0u32);
-pub const DXGI_FORMAT_R32G32B32A32_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(1u32);
-pub const DXGI_FORMAT_R32G32B32A32_FLOAT: DXGI_FORMAT = DXGI_FORMAT(2u32);
-pub const DXGI_FORMAT_R32G32B32A32_UINT: DXGI_FORMAT = DXGI_FORMAT(3u32);
-pub const DXGI_FORMAT_R32G32B32A32_SINT: DXGI_FORMAT = DXGI_FORMAT(4u32);
-pub const DXGI_FORMAT_R32G32B32_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(5u32);
-pub const DXGI_FORMAT_R32G32B32_FLOAT: DXGI_FORMAT = DXGI_FORMAT(6u32);
-pub const DXGI_FORMAT_R32G32B32_UINT: DXGI_FORMAT = DXGI_FORMAT(7u32);
-pub const DXGI_FORMAT_R32G32B32_SINT: DXGI_FORMAT = DXGI_FORMAT(8u32);
-pub const DXGI_FORMAT_R16G16B16A16_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(9u32);
-pub const DXGI_FORMAT_R16G16B16A16_FLOAT: DXGI_FORMAT = DXGI_FORMAT(10u32);
-pub const DXGI_FORMAT_R16G16B16A16_UNORM: DXGI_FORMAT = DXGI_FORMAT(11u32);
-pub const DXGI_FORMAT_R16G16B16A16_UINT: DXGI_FORMAT = DXGI_FORMAT(12u32);
-pub const DXGI_FORMAT_R16G16B16A16_SNORM: DXGI_FORMAT = DXGI_FORMAT(13u32);
-pub const DXGI_FORMAT_R16G16B16A16_SINT: DXGI_FORMAT = DXGI_FORMAT(14u32);
-pub const DXGI_FORMAT_R32G32_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(15u32);
-pub const DXGI_FORMAT_R32G32_FLOAT: DXGI_FORMAT = DXGI_FORMAT(16u32);
-pub const DXGI_FORMAT_R32G32_UINT: DXGI_FORMAT = DXGI_FORMAT(17u32);
-pub const DXGI_FORMAT_R32G32_SINT: DXGI_FORMAT = DXGI_FORMAT(18u32);
-pub const DXGI_FORMAT_R32G8X24_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(19u32);
-pub const DXGI_FORMAT_D32_FLOAT_S8X24_UINT: DXGI_FORMAT = DXGI_FORMAT(20u32);
-pub const DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(21u32);
-pub const DXGI_FORMAT_X32_TYPELESS_G8X24_UINT: DXGI_FORMAT = DXGI_FORMAT(22u32);
-pub const DXGI_FORMAT_R10G10B10A2_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(23u32);
-pub const DXGI_FORMAT_R10G10B10A2_UNORM: DXGI_FORMAT = DXGI_FORMAT(24u32);
-pub const DXGI_FORMAT_R10G10B10A2_UINT: DXGI_FORMAT = DXGI_FORMAT(25u32);
-pub const DXGI_FORMAT_R11G11B10_FLOAT: DXGI_FORMAT = DXGI_FORMAT(26u32);
-pub const DXGI_FORMAT_R8G8B8A8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(27u32);
-pub const DXGI_FORMAT_R8G8B8A8_UNORM: DXGI_FORMAT = DXGI_FORMAT(28u32);
-pub const DXGI_FORMAT_R8G8B8A8_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(29u32);
-pub const DXGI_FORMAT_R8G8B8A8_UINT: DXGI_FORMAT = DXGI_FORMAT(30u32);
-pub const DXGI_FORMAT_R8G8B8A8_SNORM: DXGI_FORMAT = DXGI_FORMAT(31u32);
-pub const DXGI_FORMAT_R8G8B8A8_SINT: DXGI_FORMAT = DXGI_FORMAT(32u32);
-pub const DXGI_FORMAT_R16G16_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(33u32);
-pub const DXGI_FORMAT_R16G16_FLOAT: DXGI_FORMAT = DXGI_FORMAT(34u32);
-pub const DXGI_FORMAT_R16G16_UNORM: DXGI_FORMAT = DXGI_FORMAT(35u32);
-pub const DXGI_FORMAT_R16G16_UINT: DXGI_FORMAT = DXGI_FORMAT(36u32);
-pub const DXGI_FORMAT_R16G16_SNORM: DXGI_FORMAT = DXGI_FORMAT(37u32);
-pub const DXGI_FORMAT_R16G16_SINT: DXGI_FORMAT = DXGI_FORMAT(38u32);
-pub const DXGI_FORMAT_R32_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(39u32);
-pub const DXGI_FORMAT_D32_FLOAT: DXGI_FORMAT = DXGI_FORMAT(40u32);
-pub const DXGI_FORMAT_R32_FLOAT: DXGI_FORMAT = DXGI_FORMAT(41u32);
-pub const DXGI_FORMAT_R32_UINT: DXGI_FORMAT = DXGI_FORMAT(42u32);
-pub const DXGI_FORMAT_R32_SINT: DXGI_FORMAT = DXGI_FORMAT(43u32);
-pub const DXGI_FORMAT_R24G8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(44u32);
-pub const DXGI_FORMAT_D24_UNORM_S8_UINT: DXGI_FORMAT = DXGI_FORMAT(45u32);
-pub const DXGI_FORMAT_R24_UNORM_X8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(46u32);
-pub const DXGI_FORMAT_X24_TYPELESS_G8_UINT: DXGI_FORMAT = DXGI_FORMAT(47u32);
-pub const DXGI_FORMAT_R8G8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(48u32);
-pub const DXGI_FORMAT_R8G8_UNORM: DXGI_FORMAT = DXGI_FORMAT(49u32);
-pub const DXGI_FORMAT_R8G8_UINT: DXGI_FORMAT = DXGI_FORMAT(50u32);
-pub const DXGI_FORMAT_R8G8_SNORM: DXGI_FORMAT = DXGI_FORMAT(51u32);
-pub const DXGI_FORMAT_R8G8_SINT: DXGI_FORMAT = DXGI_FORMAT(52u32);
-pub const DXGI_FORMAT_R16_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(53u32);
-pub const DXGI_FORMAT_R16_FLOAT: DXGI_FORMAT = DXGI_FORMAT(54u32);
-pub const DXGI_FORMAT_D16_UNORM: DXGI_FORMAT = DXGI_FORMAT(55u32);
-pub const DXGI_FORMAT_R16_UNORM: DXGI_FORMAT = DXGI_FORMAT(56u32);
-pub const DXGI_FORMAT_R16_UINT: DXGI_FORMAT = DXGI_FORMAT(57u32);
-pub const DXGI_FORMAT_R16_SNORM: DXGI_FORMAT = DXGI_FORMAT(58u32);
-pub const DXGI_FORMAT_R16_SINT: DXGI_FORMAT = DXGI_FORMAT(59u32);
-pub const DXGI_FORMAT_R8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(60u32);
-pub const DXGI_FORMAT_R8_UNORM: DXGI_FORMAT = DXGI_FORMAT(61u32);
-pub const DXGI_FORMAT_R8_UINT: DXGI_FORMAT = DXGI_FORMAT(62u32);
-pub const DXGI_FORMAT_R8_SNORM: DXGI_FORMAT = DXGI_FORMAT(63u32);
-pub const DXGI_FORMAT_R8_SINT: DXGI_FORMAT = DXGI_FORMAT(64u32);
-pub const DXGI_FORMAT_A8_UNORM: DXGI_FORMAT = DXGI_FORMAT(65u32);
-pub const DXGI_FORMAT_R1_UNORM: DXGI_FORMAT = DXGI_FORMAT(66u32);
-pub const DXGI_FORMAT_R9G9B9E5_SHAREDEXP: DXGI_FORMAT = DXGI_FORMAT(67u32);
-pub const DXGI_FORMAT_R8G8_B8G8_UNORM: DXGI_FORMAT = DXGI_FORMAT(68u32);
-pub const DXGI_FORMAT_G8R8_G8B8_UNORM: DXGI_FORMAT = DXGI_FORMAT(69u32);
-pub const DXGI_FORMAT_BC1_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(70u32);
-pub const DXGI_FORMAT_BC1_UNORM: DXGI_FORMAT = DXGI_FORMAT(71u32);
-pub const DXGI_FORMAT_BC1_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(72u32);
-pub const DXGI_FORMAT_BC2_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(73u32);
-pub const DXGI_FORMAT_BC2_UNORM: DXGI_FORMAT = DXGI_FORMAT(74u32);
-pub const DXGI_FORMAT_BC2_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(75u32);
-pub const DXGI_FORMAT_BC3_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(76u32);
-pub const DXGI_FORMAT_BC3_UNORM: DXGI_FORMAT = DXGI_FORMAT(77u32);
-pub const DXGI_FORMAT_BC3_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(78u32);
-pub const DXGI_FORMAT_BC4_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(79u32);
-pub const DXGI_FORMAT_BC4_UNORM: DXGI_FORMAT = DXGI_FORMAT(80u32);
-pub const DXGI_FORMAT_BC4_SNORM: DXGI_FORMAT = DXGI_FORMAT(81u32);
-pub const DXGI_FORMAT_BC5_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(82u32);
-pub const DXGI_FORMAT_BC5_UNORM: DXGI_FORMAT = DXGI_FORMAT(83u32);
-pub const DXGI_FORMAT_BC5_SNORM: DXGI_FORMAT = DXGI_FORMAT(84u32);
-pub const DXGI_FORMAT_B5G6R5_UNORM: DXGI_FORMAT = DXGI_FORMAT(85u32);
-pub const DXGI_FORMAT_B5G5R5A1_UNORM: DXGI_FORMAT = DXGI_FORMAT(86u32);
-pub const DXGI_FORMAT_B8G8R8A8_UNORM: DXGI_FORMAT = DXGI_FORMAT(87u32);
-pub const DXGI_FORMAT_B8G8R8X8_UNORM: DXGI_FORMAT = DXGI_FORMAT(88u32);
-pub const DXGI_FORMAT_R10G10B10_XR_BIAS_A2_UNORM: DXGI_FORMAT = DXGI_FORMAT(89u32);
-pub const DXGI_FORMAT_B8G8R8A8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(90u32);
-pub const DXGI_FORMAT_B8G8R8A8_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(91u32);
-pub const DXGI_FORMAT_B8G8R8X8_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(92u32);
-pub const DXGI_FORMAT_B8G8R8X8_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(93u32);
-pub const DXGI_FORMAT_BC6H_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(94u32);
-pub const DXGI_FORMAT_BC6H_UF16: DXGI_FORMAT = DXGI_FORMAT(95u32);
-pub const DXGI_FORMAT_BC6H_SF16: DXGI_FORMAT = DXGI_FORMAT(96u32);
-pub const DXGI_FORMAT_BC7_TYPELESS: DXGI_FORMAT = DXGI_FORMAT(97u32);
-pub const DXGI_FORMAT_BC7_UNORM: DXGI_FORMAT = DXGI_FORMAT(98u32);
-pub const DXGI_FORMAT_BC7_UNORM_SRGB: DXGI_FORMAT = DXGI_FORMAT(99u32);
-pub const DXGI_FORMAT_AYUV: DXGI_FORMAT = DXGI_FORMAT(100u32);
-pub const DXGI_FORMAT_Y410: DXGI_FORMAT = DXGI_FORMAT(101u32);
-pub const DXGI_FORMAT_Y416: DXGI_FORMAT = DXGI_FORMAT(102u32);
-pub const DXGI_FORMAT_NV12: DXGI_FORMAT = DXGI_FORMAT(103u32);
-pub const DXGI_FORMAT_P010: DXGI_FORMAT = DXGI_FORMAT(104u32);
-pub const DXGI_FORMAT_P016: DXGI_FORMAT = DXGI_FORMAT(105u32);
-pub const DXGI_FORMAT_420_OPAQUE: DXGI_FORMAT = DXGI_FORMAT(106u32);
-pub const DXGI_FORMAT_YUY2: DXGI_FORMAT = DXGI_FORMAT(107u32);
-pub const DXGI_FORMAT_Y210: DXGI_FORMAT = DXGI_FORMAT(108u32);
-pub const DXGI_FORMAT_Y216: DXGI_FORMAT = DXGI_FORMAT(109u32);
-pub const DXGI_FORMAT_NV11: DXGI_FORMAT = DXGI_FORMAT(110u32);
-pub const DXGI_FORMAT_AI44: DXGI_FORMAT = DXGI_FORMAT(111u32);
-pub const DXGI_FORMAT_IA44: DXGI_FORMAT = DXGI_FORMAT(112u32);
-pub const DXGI_FORMAT_P8: DXGI_FORMAT = DXGI_FORMAT(113u32);
-pub const DXGI_FORMAT_A8P8: DXGI_FORMAT = DXGI_FORMAT(114u32);
-pub const DXGI_FORMAT_B4G4R4A4_UNORM: DXGI_FORMAT = DXGI_FORMAT(115u32);
-pub const DXGI_FORMAT_P208: DXGI_FORMAT = DXGI_FORMAT(130u32);
-pub const DXGI_FORMAT_V208: DXGI_FORMAT = DXGI_FORMAT(131u32);
-pub const DXGI_FORMAT_V408: DXGI_FORMAT = DXGI_FORMAT(132u32);
-pub const DXGI_FORMAT_SAMPLER_FEEDBACK_MIN_MIP_OPAQUE: DXGI_FORMAT = DXGI_FORMAT(189u32);
-pub const DXGI_FORMAT_SAMPLER_FEEDBACK_MIP_REGION_USED_OPAQUE: DXGI_FORMAT = DXGI_FORMAT(190u32);
-pub const DXGI_FORMAT_FORCE_UINT: DXGI_FORMAT = DXGI_FORMAT(4294967295u32);
-impl ::core::convert::From<u32> for DXGI_FORMAT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for DXGI_FORMAT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DXGI_FORMAT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DXGI_FORMAT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DXGI_FORMAT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DXGI_FORMAT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DXGI_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_FORMAT_DEFINED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
 pub struct DXGI_FRAME_PRESENTATION_MODE(pub i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSED: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(0i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(1i32);
@@ -954,77 +697,6 @@ impl ::core::cmp::PartialEq for DXGI_FRAME_STATISTICS_MEDIA {
 }
 impl ::core::cmp::Eq for DXGI_FRAME_STATISTICS_MEDIA {}
 unsafe impl ::windows::runtime::Abi for DXGI_FRAME_STATISTICS_MEDIA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_GAMMA_CONTROL {
-    pub Scale: DXGI_RGB,
-    pub Offset: DXGI_RGB,
-    pub GammaCurve: [DXGI_RGB; 1025],
-}
-impl DXGI_GAMMA_CONTROL {}
-impl ::core::default::Default for DXGI_GAMMA_CONTROL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_GAMMA_CONTROL").field("Scale", &self.Scale).field("Offset", &self.Offset).field("GammaCurve", &self.GammaCurve).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Scale == other.Scale && self.Offset == other.Offset && self.GammaCurve == other.GammaCurve
-    }
-}
-impl ::core::cmp::Eq for DXGI_GAMMA_CONTROL {}
-unsafe impl ::windows::runtime::Abi for DXGI_GAMMA_CONTROL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
-    pub ScaleAndOffsetSupported: super::super::Foundation::BOOL,
-    pub MaxConvertedValue: f32,
-    pub MinConvertedValue: f32,
-    pub NumGammaControlPoints: u32,
-    pub ControlPointPositions: [f32; 1025],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DXGI_GAMMA_CONTROL_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DXGI_GAMMA_CONTROL_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_GAMMA_CONTROL_CAPABILITIES")
-            .field("ScaleAndOffsetSupported", &self.ScaleAndOffsetSupported)
-            .field("MaxConvertedValue", &self.MaxConvertedValue)
-            .field("MinConvertedValue", &self.MinConvertedValue)
-            .field("NumGammaControlPoints", &self.NumGammaControlPoints)
-            .field("ControlPointPositions", &self.ControlPointPositions)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.ScaleAndOffsetSupported == other.ScaleAndOffsetSupported && self.MaxConvertedValue == other.MaxConvertedValue && self.MinConvertedValue == other.MinConvertedValue && self.NumGammaControlPoints == other.NumGammaControlPoints && self.ControlPointPositions == other.ControlPointPositions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DXGI_GAMMA_CONTROL_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -1321,86 +993,6 @@ unsafe impl ::windows::runtime::Abi for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_JPEG_AC_HUFFMAN_TABLE {
-    pub CodeCounts: [u8; 16],
-    pub CodeValues: [u8; 162],
-}
-impl DXGI_JPEG_AC_HUFFMAN_TABLE {}
-impl ::core::default::Default for DXGI_JPEG_AC_HUFFMAN_TABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_JPEG_AC_HUFFMAN_TABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_JPEG_AC_HUFFMAN_TABLE").field("CodeCounts", &self.CodeCounts).field("CodeValues", &self.CodeValues).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_JPEG_AC_HUFFMAN_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.CodeCounts == other.CodeCounts && self.CodeValues == other.CodeValues
-    }
-}
-impl ::core::cmp::Eq for DXGI_JPEG_AC_HUFFMAN_TABLE {}
-unsafe impl ::windows::runtime::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_JPEG_DC_HUFFMAN_TABLE {
-    pub CodeCounts: [u8; 12],
-    pub CodeValues: [u8; 12],
-}
-impl DXGI_JPEG_DC_HUFFMAN_TABLE {}
-impl ::core::default::Default for DXGI_JPEG_DC_HUFFMAN_TABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_JPEG_DC_HUFFMAN_TABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_JPEG_DC_HUFFMAN_TABLE").field("CodeCounts", &self.CodeCounts).field("CodeValues", &self.CodeValues).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_JPEG_DC_HUFFMAN_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.CodeCounts == other.CodeCounts && self.CodeValues == other.CodeValues
-    }
-}
-impl ::core::cmp::Eq for DXGI_JPEG_DC_HUFFMAN_TABLE {}
-unsafe impl ::windows::runtime::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_JPEG_QUANTIZATION_TABLE {
-    pub Elements: [u8; 64],
-}
-impl DXGI_JPEG_QUANTIZATION_TABLE {}
-impl ::core::default::Default for DXGI_JPEG_QUANTIZATION_TABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_JPEG_QUANTIZATION_TABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_JPEG_QUANTIZATION_TABLE").field("Elements", &self.Elements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_JPEG_QUANTIZATION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Elements == other.Elements
-    }
-}
-impl ::core::cmp::Eq for DXGI_JPEG_QUANTIZATION_TABLE {}
-unsafe impl ::windows::runtime::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub struct DXGI_MAPPED_RECT {
     pub Pitch: i32,
     pub pBits: *mut u8,
@@ -1480,120 +1072,41 @@ unsafe impl ::windows::runtime::Abi for DXGI_MEMORY_SEGMENT_GROUP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_MODE_DESC {
-    pub Width: u32,
-    pub Height: u32,
-    pub RefreshRate: DXGI_RATIONAL,
-    pub Format: DXGI_FORMAT,
-    pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
-    pub Scaling: DXGI_MODE_SCALING,
-}
-impl DXGI_MODE_DESC {}
-impl ::core::default::Default for DXGI_MODE_DESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_MODE_DESC {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_MODE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_MODE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.RefreshRate == other.RefreshRate && self.Format == other.Format && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling
-    }
-}
-impl ::core::cmp::Eq for DXGI_MODE_DESC {}
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_DESC {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_MODE_DESC1 {
     pub Width: u32,
     pub Height: u32,
-    pub RefreshRate: DXGI_RATIONAL,
-    pub Format: DXGI_FORMAT,
-    pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
-    pub Scaling: DXGI_MODE_SCALING,
+    pub RefreshRate: Common::DXGI_RATIONAL,
+    pub Format: Common::DXGI_FORMAT,
+    pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
+    pub Scaling: Common::DXGI_MODE_SCALING,
     pub Stereo: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl DXGI_MODE_DESC1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for DXGI_MODE_DESC1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_MODE_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_MODE_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Stereo", &self.Stereo).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_MODE_DESC1 {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height && self.RefreshRate == other.RefreshRate && self.Format == other.Format && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling && self.Stereo == other.Stereo
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for DXGI_MODE_DESC1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for DXGI_MODE_DESC1 {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DXGI_MODE_ROTATION(pub i32);
-pub const DXGI_MODE_ROTATION_UNSPECIFIED: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(0i32);
-pub const DXGI_MODE_ROTATION_IDENTITY: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(1i32);
-pub const DXGI_MODE_ROTATION_ROTATE90: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(2i32);
-pub const DXGI_MODE_ROTATION_ROTATE180: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(3i32);
-pub const DXGI_MODE_ROTATION_ROTATE270: DXGI_MODE_ROTATION = DXGI_MODE_ROTATION(4i32);
-impl ::core::convert::From<i32> for DXGI_MODE_ROTATION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_ROTATION {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DXGI_MODE_SCALING(pub i32);
-pub const DXGI_MODE_SCALING_UNSPECIFIED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(0i32);
-pub const DXGI_MODE_SCALING_CENTERED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(1i32);
-pub const DXGI_MODE_SCALING_STRETCHED: DXGI_MODE_SCALING = DXGI_MODE_SCALING(2i32);
-impl ::core::convert::From<i32> for DXGI_MODE_SCALING {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_SCALING {
-    type Abi = Self;
-}
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DXGI_MODE_SCANLINE_ORDER(pub i32);
-pub const DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(0i32);
-pub const DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(1i32);
-pub const DXGI_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(2i32);
-pub const DXGI_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER = DXGI_MODE_SCANLINE_ORDER(3i32);
-impl ::core::convert::From<i32> for DXGI_MODE_SCANLINE_ORDER {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for DXGI_MODE_SCANLINE_ORDER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -1992,36 +1505,36 @@ unsafe impl ::windows::runtime::Abi for DXGI_OFFER_RESOURCE_PRIORITY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_OUTDUPL_DESC {
-    pub ModeDesc: DXGI_MODE_DESC,
-    pub Rotation: DXGI_MODE_ROTATION,
+    pub ModeDesc: Common::DXGI_MODE_DESC,
+    pub Rotation: Common::DXGI_MODE_ROTATION,
     pub DesktopImageInSystemMemory: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl DXGI_OUTDUPL_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for DXGI_OUTDUPL_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_OUTDUPL_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_OUTDUPL_DESC").field("ModeDesc", &self.ModeDesc).field("Rotation", &self.Rotation).field("DesktopImageInSystemMemory", &self.DesktopImageInSystemMemory).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_OUTDUPL_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.ModeDesc == other.ModeDesc && self.Rotation == other.Rotation && self.DesktopImageInSystemMemory == other.DesktopImageInSystemMemory
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for DXGI_OUTDUPL_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_DESC {
     type Abi = Self;
 }
@@ -2209,53 +1722,53 @@ unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
 pub struct DXGI_OUTPUT_DESC {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
     pub AttachedToDesktop: super::super::Foundation::BOOL,
-    pub Rotation: DXGI_MODE_ROTATION,
+    pub Rotation: Common::DXGI_MODE_ROTATION,
     pub Monitor: super::Gdi::HMONITOR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl DXGI_OUTPUT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DXGI_OUTPUT_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DXGI_OUTPUT_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_OUTPUT_DESC").field("DeviceName", &self.DeviceName).field("DesktopCoordinates", &self.DesktopCoordinates).field("AttachedToDesktop", &self.AttachedToDesktop).field("Rotation", &self.Rotation).field("Monitor", &self.Monitor).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DXGI_OUTPUT_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.DeviceName == other.DeviceName && self.DesktopCoordinates == other.DesktopCoordinates && self.AttachedToDesktop == other.AttachedToDesktop && self.Rotation == other.Rotation && self.Monitor == other.Monitor
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DXGI_OUTPUT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTPUT_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
 pub struct DXGI_OUTPUT_DESC1 {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
     pub AttachedToDesktop: super::super::Foundation::BOOL,
-    pub Rotation: DXGI_MODE_ROTATION,
+    pub Rotation: Common::DXGI_MODE_ROTATION,
     pub Monitor: super::Gdi::HMONITOR,
     pub BitsPerColor: u32,
-    pub ColorSpace: DXGI_COLOR_SPACE_TYPE,
+    pub ColorSpace: Common::DXGI_COLOR_SPACE_TYPE,
     pub RedPrimary: [f32; 2],
     pub GreenPrimary: [f32; 2],
     pub BluePrimary: [f32; 2],
@@ -2264,15 +1777,15 @@ pub struct DXGI_OUTPUT_DESC1 {
     pub MaxLuminance: f32,
     pub MaxFullFrameLuminance: f32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl DXGI_OUTPUT_DESC1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DXGI_OUTPUT_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_OUTPUT_DESC1")
@@ -2293,7 +1806,7 @@ impl ::core::fmt::Debug for DXGI_OUTPUT_DESC1 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DXGI_OUTPUT_DESC1 {
     fn eq(&self, other: &Self) -> bool {
         self.DeviceName == other.DeviceName
@@ -2312,9 +1825,9 @@ impl ::core::cmp::PartialEq for DXGI_OUTPUT_DESC1 {
             && self.MaxFullFrameLuminance == other.MaxFullFrameLuminance
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for DXGI_OUTPUT_DESC1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTPUT_DESC1 {
     type Abi = Self;
 }
@@ -2428,33 +1941,6 @@ impl ::core::cmp::Eq for DXGI_QUERY_VIDEO_MEMORY_INFO {}
 unsafe impl ::windows::runtime::Abi for DXGI_QUERY_VIDEO_MEMORY_INFO {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_RATIONAL {
-    pub Numerator: u32,
-    pub Denominator: u32,
-}
-impl DXGI_RATIONAL {}
-impl ::core::default::Default for DXGI_RATIONAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_RATIONAL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_RATIONAL").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_RATIONAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Numerator == other.Numerator && self.Denominator == other.Denominator
-    }
-}
-impl ::core::cmp::Eq for DXGI_RATIONAL {}
-unsafe impl ::windows::runtime::Abi for DXGI_RATIONAL {
-    type Abi = Self;
-}
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2533,34 +2019,6 @@ impl ::core::ops::Not for DXGI_RESOURCE_PRIORITY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_RGB {
-    pub Red: f32,
-    pub Green: f32,
-    pub Blue: f32,
-}
-impl DXGI_RGB {}
-impl ::core::default::Default for DXGI_RGB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_RGB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_RGB").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_RGB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue
-    }
-}
-impl ::core::cmp::Eq for DXGI_RGB {}
-unsafe impl ::windows::runtime::Abi for DXGI_RGB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub struct DXGI_RGBA {
     pub r: f32,
     pub g: f32,
@@ -2585,33 +2043,6 @@ impl ::core::cmp::PartialEq for DXGI_RGBA {
 }
 impl ::core::cmp::Eq for DXGI_RGBA {}
 unsafe impl ::windows::runtime::Abi for DXGI_RGBA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
-#[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub struct DXGI_SAMPLE_DESC {
-    pub Count: u32,
-    pub Quality: u32,
-}
-impl DXGI_SAMPLE_DESC {}
-impl ::core::default::Default for DXGI_SAMPLE_DESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::fmt::Debug for DXGI_SAMPLE_DESC {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_SAMPLE_DESC").field("Count", &self.Count).field("Quality", &self.Quality).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DXGI_SAMPLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Quality == other.Quality
-    }
-}
-impl ::core::cmp::Eq for DXGI_SAMPLE_DESC {}
-unsafe impl ::windows::runtime::Abi for DXGI_SAMPLE_DESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -2666,34 +2097,39 @@ unsafe impl ::windows::runtime::Abi for DXGI_SHARED_RESOURCE {
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_SURFACE_DESC {
     pub Width: u32,
     pub Height: u32,
-    pub Format: DXGI_FORMAT,
-    pub SampleDesc: DXGI_SAMPLE_DESC,
+    pub Format: Common::DXGI_FORMAT,
+    pub SampleDesc: Common::DXGI_SAMPLE_DESC,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl DXGI_SURFACE_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for DXGI_SURFACE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for DXGI_SURFACE_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_SURFACE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for DXGI_SURFACE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.SampleDesc == other.SampleDesc
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for DXGI_SURFACE_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for DXGI_SURFACE_DESC {
     type Abi = Self;
 }
@@ -2713,11 +2149,11 @@ unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_SWAP_CHAIN_DESC {
-    pub BufferDesc: DXGI_MODE_DESC,
-    pub SampleDesc: DXGI_SAMPLE_DESC,
+    pub BufferDesc: Common::DXGI_MODE_DESC,
+    pub SampleDesc: Common::DXGI_SAMPLE_DESC,
     pub BufferUsage: u32,
     pub BufferCount: u32,
     pub OutputWindow: super::super::Foundation::HWND,
@@ -2725,15 +2161,15 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl DXGI_SWAP_CHAIN_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for DXGI_SWAP_CHAIN_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_SWAP_CHAIN_DESC")
@@ -2748,44 +2184,44 @@ impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_SWAP_CHAIN_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.BufferDesc == other.BufferDesc && self.SampleDesc == other.SampleDesc && self.BufferUsage == other.BufferUsage && self.BufferCount == other.BufferCount && self.OutputWindow == other.OutputWindow && self.Windowed == other.Windowed && self.SwapEffect == other.SwapEffect && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for DXGI_SWAP_CHAIN_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_DESC {
     type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
-    pub Format: DXGI_FORMAT,
+    pub Format: Common::DXGI_FORMAT,
     pub Stereo: super::super::Foundation::BOOL,
-    pub SampleDesc: DXGI_SAMPLE_DESC,
+    pub SampleDesc: Common::DXGI_SAMPLE_DESC,
     pub BufferUsage: u32,
     pub BufferCount: u32,
     pub Scaling: DXGI_SCALING,
     pub SwapEffect: DXGI_SWAP_EFFECT,
-    pub AlphaMode: DXGI_ALPHA_MODE,
+    pub AlphaMode: Common::DXGI_ALPHA_MODE,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl DXGI_SWAP_CHAIN_DESC1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for DXGI_SWAP_CHAIN_DESC1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_SWAP_CHAIN_DESC1")
@@ -2803,15 +2239,15 @@ impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_SWAP_CHAIN_DESC1 {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.Stereo == other.Stereo && self.SampleDesc == other.SampleDesc && self.BufferUsage == other.BufferUsage && self.BufferCount == other.BufferCount && self.Scaling == other.Scaling && self.SwapEffect == other.SwapEffect && self.AlphaMode == other.AlphaMode && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for DXGI_SWAP_CHAIN_DESC1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_DESC1 {
     type Abi = Self;
 }
@@ -2842,37 +2278,37 @@ unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_FLAG {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
-    pub RefreshRate: DXGI_RATIONAL,
-    pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
-    pub Scaling: DXGI_MODE_SCALING,
+    pub RefreshRate: Common::DXGI_RATIONAL,
+    pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
+    pub Scaling: Common::DXGI_MODE_SCALING,
     pub Windowed: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DXGI_SWAP_CHAIN_FULLSCREEN_DESC").field("RefreshRate", &self.RefreshRate).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Windowed", &self.Windowed).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.RefreshRate == other.RefreshRate && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling && self.Windowed == other.Windowed
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::Eq for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     type Abi = Self;
 }
@@ -3974,8 +3410,8 @@ impl IDXGIDevice {
         let mut result__: <IDXGIAdapter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDXGIAdapter>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
     }
@@ -4048,8 +3484,8 @@ pub struct IDXGIDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, priority: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppriority: *mut i32) -> ::windows::runtime::HRESULT,
@@ -4081,8 +3517,8 @@ impl IDXGIDevice1 {
         let mut result__: <IDXGIAdapter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDXGIAdapter>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
     }
@@ -4184,8 +3620,8 @@ pub struct IDXGIDevice1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, priority: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppriority: *mut i32) -> ::windows::runtime::HRESULT,
@@ -4219,8 +3655,8 @@ impl IDXGIDevice2 {
         let mut result__: <IDXGIAdapter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDXGIAdapter>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
     }
@@ -4357,8 +3793,8 @@ pub struct IDXGIDevice2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, priority: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppriority: *mut i32) -> ::windows::runtime::HRESULT,
@@ -4397,8 +3833,8 @@ impl IDXGIDevice3 {
         let mut result__: <IDXGIAdapter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDXGIAdapter>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
     }
@@ -4559,8 +3995,8 @@ pub struct IDXGIDevice3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, priority: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppriority: *mut i32) -> ::windows::runtime::HRESULT,
@@ -4600,8 +4036,8 @@ impl IDXGIDevice4 {
         let mut result__: <IDXGIAdapter as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDXGIAdapter>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
     }
@@ -4791,8 +4227,8 @@ pub struct IDXGIDevice4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, padapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, priority: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppriority: *mut i32) -> ::windows::runtime::HRESULT,
@@ -4980,8 +4416,8 @@ impl IDXGIFactory {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -5052,8 +4488,8 @@ pub struct IDXGIFactory_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -5095,8 +4531,8 @@ impl IDXGIFactory1 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -5197,8 +4633,8 @@ pub struct IDXGIFactory1_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5243,8 +4679,8 @@ impl IDXGIFactory2 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -5270,14 +4706,14 @@ impl IDXGIFactory2 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -5320,8 +4756,8 @@ impl IDXGIFactory2 {
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -5426,8 +4862,8 @@ pub struct IDXGIFactory2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5435,10 +4871,10 @@ pub struct IDXGIFactory2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresource: super::super::Foundation::HANDLE, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
@@ -5451,8 +4887,8 @@ pub struct IDXGIFactory2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
@@ -5492,8 +4928,8 @@ impl IDXGIFactory3 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -5519,14 +4955,14 @@ impl IDXGIFactory3 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -5569,8 +5005,8 @@ impl IDXGIFactory3 {
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -5699,8 +5135,8 @@ pub struct IDXGIFactory3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5708,10 +5144,10 @@ pub struct IDXGIFactory3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresource: super::super::Foundation::HANDLE, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
@@ -5724,8 +5160,8 @@ pub struct IDXGIFactory3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -5766,8 +5202,8 @@ impl IDXGIFactory4 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -5793,14 +5229,14 @@ impl IDXGIFactory4 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -5843,8 +5279,8 @@ impl IDXGIFactory4 {
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -6004,8 +5440,8 @@ pub struct IDXGIFactory4_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -6013,10 +5449,10 @@ pub struct IDXGIFactory4_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresource: super::super::Foundation::HANDLE, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
@@ -6029,8 +5465,8 @@ pub struct IDXGIFactory4_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::runtime::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -6074,8 +5510,8 @@ impl IDXGIFactory5 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -6101,14 +5537,14 @@ impl IDXGIFactory5 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -6151,8 +5587,8 @@ impl IDXGIFactory5 {
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -6336,8 +5772,8 @@ pub struct IDXGIFactory5_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -6345,10 +5781,10 @@ pub struct IDXGIFactory5_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresource: super::super::Foundation::HANDLE, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
@@ -6361,8 +5797,8 @@ pub struct IDXGIFactory5_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::runtime::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -6407,8 +5843,8 @@ impl IDXGIFactory6 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -6434,14 +5870,14 @@ impl IDXGIFactory6 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -6484,8 +5920,8 @@ impl IDXGIFactory6 {
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -6694,8 +6130,8 @@ pub struct IDXGIFactory6_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -6703,10 +6139,10 @@ pub struct IDXGIFactory6_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresource: super::super::Foundation::HANDLE, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
@@ -6719,8 +6155,8 @@ pub struct IDXGIFactory6_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::runtime::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -6766,8 +6202,8 @@ impl IDXGIFactory7 {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::Result<IDXGISwapChain> {
         let mut result__: <IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), &mut result__).from_abi::<IDXGISwapChain>(result__)
@@ -6793,14 +6229,14 @@ impl IDXGIFactory7 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -6843,8 +6279,8 @@ impl IDXGIFactory7 {
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -7083,8 +6519,8 @@ pub struct IDXGIFactory7_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwindowhandle: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, module: super::super::Foundation::HINSTANCE, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, ppadapter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -7092,10 +6528,10 @@ pub struct IDXGIFactory7_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pwindow: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresource: super::super::Foundation::HANDLE, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
@@ -7108,8 +6544,8 @@ pub struct IDXGIFactory7_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::runtime::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7125,8 +6561,8 @@ pub struct IDXGIFactory7_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDXGIFactoryMedia(pub ::windows::runtime::IUnknown);
 impl IDXGIFactoryMedia {
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn CreateSwapChainForCompositionSurfaceHandle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hsurface: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::runtime::Result<IDXGISwapChain1> {
         let mut result__: <IDXGISwapChain1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hsurface.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
@@ -7175,8 +6611,8 @@ pub struct IDXGIFactoryMedia_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: ::windows::runtime::RawPtr, prestricttooutput: ::windows::runtime::RawPtr, ppswapchain: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -7616,18 +7052,20 @@ impl IDXGIOutput {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7643,20 +7081,22 @@ impl IDXGIOutput {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -7726,18 +7166,22 @@ pub struct IDXGIOutput_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
@@ -7764,18 +7208,20 @@ impl IDXGIOutput1 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7791,20 +7237,22 @@ impl IDXGIOutput1 {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -7819,13 +7267,13 @@ impl IDXGIOutput1 {
         let mut result__: <DXGI_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
@@ -7913,25 +7361,29 @@ pub struct IDXGIOutput1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -7957,18 +7409,20 @@ impl IDXGIOutput2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -7984,20 +7438,22 @@ impl IDXGIOutput2 {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -8012,13 +7468,13 @@ impl IDXGIOutput2 {
         let mut result__: <DXGI_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
@@ -8131,25 +7587,29 @@ pub struct IDXGIOutput2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
@@ -8177,18 +7637,20 @@ impl IDXGIOutput3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8204,20 +7666,22 @@ impl IDXGIOutput3 {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -8232,13 +7696,13 @@ impl IDXGIOutput3 {
         let mut result__: <DXGI_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
@@ -8256,8 +7720,9 @@ impl IDXGIOutput3 {
     pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
@@ -8376,30 +7841,35 @@ pub struct IDXGIOutput3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
@@ -8423,18 +7893,20 @@ impl IDXGIOutput4 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8450,20 +7922,22 @@ impl IDXGIOutput4 {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -8478,13 +7952,13 @@ impl IDXGIOutput4 {
         let mut result__: <DXGI_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
@@ -8502,13 +7976,15 @@ impl IDXGIOutput4 {
     pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
@@ -8647,31 +8123,37 @@ pub struct IDXGIOutput4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
@@ -8695,18 +8177,20 @@ impl IDXGIOutput5 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -8722,20 +8206,22 @@ impl IDXGIOutput5 {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -8750,13 +8236,13 @@ impl IDXGIOutput5 {
         let mut result__: <DXGI_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
@@ -8774,18 +8260,21 @@ impl IDXGIOutput5 {
     pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const DXGI_FORMAT) -> ::windows::runtime::Result<IDXGIOutputDuplication> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::runtime::Result<IDXGIOutputDuplication> {
         let mut result__: <IDXGIOutputDuplication as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(supportedformatscount), ::core::mem::transmute(psupportedformats), &mut result__).from_abi::<IDXGIOutputDuplication>(result__)
     }
@@ -8944,32 +8433,39 @@ pub struct IDXGIOutput5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, flags: u32, supportedformatscount: u32, psupportedformats: *const DXGI_FORMAT, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
@@ -8993,18 +8489,20 @@ impl IDXGIOutput6 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC> {
         let mut result__: <DXGI_OUTPUT_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9020,20 +8518,22 @@ impl IDXGIOutput6 {
     pub unsafe fn ReleaseOwnership(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: <DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL_CAPABILITIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetGammaControl(&self, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<DXGI_GAMMA_CONTROL> {
-        let mut result__: <DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_GAMMA_CONTROL>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::runtime::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: <Common::DXGI_GAMMA_CONTROL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::runtime::Result<()> {
@@ -9048,13 +8548,13 @@ impl IDXGIOutput6 {
         let mut result__: <DXGI_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
@@ -9072,23 +8572,26 @@ impl IDXGIOutput6 {
     pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const DXGI_FORMAT) -> ::windows::runtime::Result<IDXGIOutputDuplication> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::runtime::Result<IDXGIOutputDuplication> {
         let mut result__: <IDXGIOutputDuplication as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(supportedformatscount), ::core::mem::transmute(psupportedformats), &mut result__).from_abi::<IDXGIOutputDuplication>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_OUTPUT_DESC1> {
         let mut result__: <DXGI_OUTPUT_DESC1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_OUTPUT_DESC1>(result__)
@@ -9273,34 +8776,41 @@ pub struct IDXGIOutput6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, exclusive: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parray: *mut Common::DXGI_GAMMA_CONTROL) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pscanoutsurface: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, flags: u32, supportedformatscount: u32, psupportedformats: *const DXGI_FORMAT, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumformat: Common::DXGI_FORMAT, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT, ppoutputduplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTPUT_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -9325,8 +8835,8 @@ impl IDXGIOutputDuplication {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)))
     }
@@ -9418,8 +8928,8 @@ pub struct IDXGIOutputDuplication_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTDUPL_DESC),
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_OUTDUPL_DESC),
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dirtyrectsbuffersize: u32, pdirtyrectsbuffer: *mut super::super::Foundation::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> ::windows::runtime::HRESULT,
@@ -9751,7 +9261,8 @@ impl IDXGISurface {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SURFACE_DESC> {
         let mut result__: <DXGI_SURFACE_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SURFACE_DESC>(result__)
@@ -9840,7 +9351,8 @@ pub struct IDXGISurface_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -9871,7 +9383,8 @@ impl IDXGISurface1 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SURFACE_DESC> {
         let mut result__: <DXGI_SURFACE_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SURFACE_DESC>(result__)
@@ -9991,7 +9504,8 @@ pub struct IDXGISurface1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, discard: super::super::Foundation::BOOL, phdc: *mut super::Gdi::HDC) -> ::windows::runtime::HRESULT,
@@ -10026,7 +9540,8 @@ impl IDXGISurface2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SURFACE_DESC> {
         let mut result__: <DXGI_SURFACE_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SURFACE_DESC>(result__)
@@ -10170,7 +9685,8 @@ pub struct IDXGISurface2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, discard: super::super::Foundation::BOOL, phdc: *mut super::Gdi::HDC) -> ::windows::runtime::HRESULT,
@@ -10225,18 +9741,20 @@ impl IDXGISwapChain {
     pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10336,10 +9854,12 @@ pub struct IDXGISwapChain_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plastpresentcount: *mut u32) -> ::windows::runtime::HRESULT,
@@ -10390,18 +9910,20 @@ impl IDXGISwapChain1 {
     pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10419,14 +9941,14 @@ impl IDXGISwapChain1 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC1> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFullscreenDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_FULLSCREEN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
@@ -10466,14 +9988,16 @@ impl IDXGISwapChain1 {
         let mut result__: <DXGI_RGBA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_RGBA>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetRotation(&self, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<DXGI_MODE_ROTATION> {
-        let mut result__: <DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_MODE_ROTATION>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: <Common::DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDXGISwapChain1 {
@@ -10577,17 +10101,19 @@ pub struct IDXGISwapChain1_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plastpresentcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refiid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -10598,8 +10124,10 @@ pub struct IDXGISwapChain1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprestricttooutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *const DXGI_RGBA) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *mut DXGI_RGBA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
@@ -10647,18 +10175,20 @@ impl IDXGISwapChain2 {
     pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10676,14 +10206,14 @@ impl IDXGISwapChain2 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC1> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFullscreenDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_FULLSCREEN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
@@ -10723,14 +10253,16 @@ impl IDXGISwapChain2 {
         let mut result__: <DXGI_RGBA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_RGBA>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetRotation(&self, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<DXGI_MODE_ROTATION> {
-        let mut result__: <DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_MODE_ROTATION>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: <Common::DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::runtime::Result<()> {
@@ -10885,17 +10417,19 @@ pub struct IDXGISwapChain2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plastpresentcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refiid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -10906,8 +10440,10 @@ pub struct IDXGISwapChain2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprestricttooutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *const DXGI_RGBA) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *mut DXGI_RGBA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwidth: *mut u32, pheight: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxlatency: u32) -> ::windows::runtime::HRESULT,
@@ -10963,18 +10499,20 @@ impl IDXGISwapChain3 {
     pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -10992,14 +10530,14 @@ impl IDXGISwapChain3 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC1> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFullscreenDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_FULLSCREEN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
@@ -11039,14 +10577,16 @@ impl IDXGISwapChain3 {
         let mut result__: <DXGI_RGBA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_RGBA>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetRotation(&self, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<DXGI_MODE_ROTATION> {
-        let mut result__: <DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_MODE_ROTATION>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: <Common::DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::runtime::Result<()> {
@@ -11083,17 +10623,20 @@ impl IDXGISwapChain3 {
     pub unsafe fn GetCurrentBackBufferIndex(&self) -> u32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetColorSpace1(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
     }
 }
@@ -11238,17 +10781,19 @@ pub struct IDXGISwapChain3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plastpresentcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refiid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -11259,8 +10804,10 @@ pub struct IDXGISwapChain3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprestricttooutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *const DXGI_RGBA) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *mut DXGI_RGBA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwidth: *mut u32, pheight: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxlatency: u32) -> ::windows::runtime::HRESULT,
@@ -11270,9 +10817,12 @@ pub struct IDXGISwapChain3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmatrix: *mut DXGI_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[repr(transparent)]
@@ -11320,18 +10870,20 @@ impl IDXGISwapChain4 {
     pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -11349,14 +10901,14 @@ impl IDXGISwapChain4 {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_DESC1> {
         let mut result__: <DXGI_SWAP_CHAIN_DESC1 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFullscreenDesc(&self) -> ::windows::runtime::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
         let mut result__: <DXGI_SWAP_CHAIN_FULLSCREEN_DESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
@@ -11396,14 +10948,16 @@ impl IDXGISwapChain4 {
         let mut result__: <DXGI_RGBA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_RGBA>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetRotation(&self, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<DXGI_MODE_ROTATION> {
-        let mut result__: <DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DXGI_MODE_ROTATION>(result__)
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn GetRotation(&self) -> ::windows::runtime::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: <Common::DXGI_MODE_ROTATION as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::runtime::Result<()> {
@@ -11440,17 +10994,20 @@ impl IDXGISwapChain4 {
     pub unsafe fn GetCurrentBackBufferIndex(&self) -> u32 {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<u32> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn SetColorSpace1(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -11619,17 +11176,19 @@ pub struct IDXGISwapChain4_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DXGI_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plastpresentcount: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refiid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
@@ -11640,8 +11199,10 @@ pub struct IDXGISwapChain4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprestricttooutput: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *const DXGI_RGBA) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolor: *mut DXGI_RGBA) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protation: *mut Common::DXGI_MODE_ROTATION) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwidth: *mut u32, pheight: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxlatency: u32) -> ::windows::runtime::HRESULT,
@@ -11651,9 +11212,12 @@ pub struct IDXGISwapChain4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmatrix: *mut DXGI_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -11756,5 +11320,3 @@ pub struct IDXGraphicsAnalysis_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
 );
-#[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
-pub const _FACDXGI: u32 = 2170u32;

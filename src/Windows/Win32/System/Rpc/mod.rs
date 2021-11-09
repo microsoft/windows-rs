@@ -906,6 +906,20 @@ pub unsafe fn I_RpcNsBindingSetEntryNameW(binding: *const ::core::ffi::c_void, e
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
+pub unsafe fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        }
+        ::core::mem::transmute(I_RpcNsGetBuffer(::core::mem::transmute(message)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[inline]
 pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -928,6 +942,34 @@ pub unsafe fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u
             fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcNsInterfaceUnexported(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(rpcinterfaceinformation)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[inline]
+pub unsafe fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS) {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
+        }
+        ::core::mem::transmute(I_RpcNsRaiseException(::core::mem::transmute(message), ::core::mem::transmute(status)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[inline]
+pub unsafe fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+        }
+        ::core::mem::transmute(I_RpcNsSendReceive(::core::mem::transmute(message), ::core::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1026,6 +1068,20 @@ pub type I_RpcProxyIsValidMachineFn = unsafe extern "system" fn(machine: *const 
 pub type I_RpcProxyUpdatePerfCounterBackendServerFn = unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub type I_RpcProxyUpdatePerfCounterFn = unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[inline]
+pub unsafe fn I_RpcReBindBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn I_RpcReBindBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+        }
+        ::core::mem::transmute(I_RpcReBindBuffer(::core::mem::transmute(message)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
 pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS {
@@ -9412,6 +9468,34 @@ pub const RPC_IF_OLE: u32 = 2u32;
 pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub struct RPC_IMPORT_CONTEXT_P {
+    pub LookupContext: *mut ::core::ffi::c_void,
+    pub ProposedHandle: *mut ::core::ffi::c_void,
+    pub Bindings: *mut RPC_BINDING_VECTOR,
+}
+impl RPC_IMPORT_CONTEXT_P {}
+impl ::core::default::Default for RPC_IMPORT_CONTEXT_P {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for RPC_IMPORT_CONTEXT_P {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("RPC_IMPORT_CONTEXT_P").field("LookupContext", &self.LookupContext).field("ProposedHandle", &self.ProposedHandle).field("Bindings", &self.Bindings).finish()
+    }
+}
+impl ::core::cmp::PartialEq for RPC_IMPORT_CONTEXT_P {
+    fn eq(&self, other: &Self) -> bool {
+        self.LookupContext == other.LookupContext && self.ProposedHandle == other.ProposedHandle && self.Bindings == other.Bindings
+    }
+}
+impl ::core::cmp::Eq for RPC_IMPORT_CONTEXT_P {}
+unsafe impl ::windows::runtime::Abi for RPC_IMPORT_CONTEXT_P {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = unsafe extern "system" fn(ifgroup: *const ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, isgroupidle: u32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]

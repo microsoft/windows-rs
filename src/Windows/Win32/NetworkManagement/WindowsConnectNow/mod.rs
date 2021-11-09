@@ -156,6 +156,30 @@ pub struct IWCNDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342731, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 16u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_DeviceType_SubCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342731, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 18u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342731, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 17u32,
+};
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2283342731, 18052, 4570, [162, 106, 0, 2, 179, 152, 142, 129]),
+    pid: 32u32,
+};
 pub const SID_WcnProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238051530, 54074, 19019, [191, 35, 187, 239, 70, 99, 208, 23]);
 pub const WCNDeviceObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238051495, 54074, 19019, [191, 35, 187, 239, 70, 99, 208, 23]);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]

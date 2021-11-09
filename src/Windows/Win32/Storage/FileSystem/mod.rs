@@ -1419,6 +1419,56 @@ impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for COPYFILE2_EXTENDED_PARAMETERS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[derive(:: core :: clone :: Clone)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
+pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    pub dwSize: u32,
+    pub dwCopyFlags: u32,
+    pub pfCancel: *mut super::super::Foundation::BOOL,
+    pub pProgressRoutine: ::core::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
+    pub pvCallbackContext: *mut ::core::ffi::c_void,
+    pub dwCopyFlagsV2: u32,
+    pub ioDesiredSize: u32,
+    pub ioDesiredRate: u32,
+    pub reserved: [*mut ::core::ffi::c_void; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl COPYFILE2_EXTENDED_PARAMETERS_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("COPYFILE2_EXTENDED_PARAMETERS_V2")
+            .field("dwSize", &self.dwSize)
+            .field("dwCopyFlags", &self.dwCopyFlags)
+            .field("pfCancel", &self.pfCancel)
+            .field("pvCallbackContext", &self.pvCallbackContext)
+            .field("dwCopyFlagsV2", &self.dwCopyFlagsV2)
+            .field("ioDesiredSize", &self.ioDesiredSize)
+            .field("ioDesiredRate", &self.ioDesiredRate)
+            .field("reserved", &self.reserved)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.dwCopyFlags == other.dwCopyFlags && self.pfCancel == other.pfCancel && self.pProgressRoutine.map(|f| f as usize) == other.pProgressRoutine.map(|f| f as usize) && self.pvCallbackContext == other.pvCallbackContext && self.dwCopyFlagsV2 == other.dwCopyFlagsV2 && self.ioDesiredSize == other.ioDesiredSize && self.ioDesiredRate == other.ioDesiredRate && self.reserved == other.reserved
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11840,6 +11890,52 @@ unsafe impl ::windows::runtime::Abi for NTMS_STORAGESLOTINFORMATION {
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#[repr(transparent)]
+pub struct NT_CREATE_FILE_DISPOSITION(pub u32);
+pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(0u32);
+pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(2u32);
+pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(1u32);
+pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(3u32);
+pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(4u32);
+pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(5u32);
+impl ::core::convert::From<u32> for NT_CREATE_FILE_DISPOSITION {
+    fn from(value: u32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for NT_CREATE_FILE_DISPOSITION {
+    type Abi = Self;
+}
+impl ::core::ops::BitOr for NT_CREATE_FILE_DISPOSITION {
+    type Output = Self;
+    fn bitor(self, rhs: Self) -> Self {
+        Self(self.0 | rhs.0)
+    }
+}
+impl ::core::ops::BitAnd for NT_CREATE_FILE_DISPOSITION {
+    type Output = Self;
+    fn bitand(self, rhs: Self) -> Self {
+        Self(self.0 & rhs.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NT_CREATE_FILE_DISPOSITION {
+    fn bitor_assign(&mut self, rhs: Self) {
+        self.0.bitor_assign(rhs.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NT_CREATE_FILE_DISPOSITION {
+    fn bitand_assign(&mut self, rhs: Self) {
+        self.0.bitand_assign(rhs.0)
+    }
+}
+impl ::core::ops::Not for NT_CREATE_FILE_DISPOSITION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -12155,6 +12251,34 @@ pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level:
             fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32;
         }
         ::core::mem::transmute(NetStatisticsGet(::core::mem::transmute(servername), ::core::mem::transmute(service), ::core::mem::transmute(level), ::core::mem::transmute(options), ::core::mem::transmute(buffer)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[inline]
+pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::runtime::Result<()> {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> super::super::Foundation::NTSTATUS;
+        }
+        NtCreateFile(
+            ::core::mem::transmute(filehandle),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(objectattributes),
+            ::core::mem::transmute(iostatusblock),
+            ::core::mem::transmute(allocationsize),
+            ::core::mem::transmute(fileattributes),
+            ::core::mem::transmute(shareaccess),
+            ::core::mem::transmute(createdisposition),
+            ::core::mem::transmute(createoptions),
+            ::core::mem::transmute(eabuffer),
+            ::core::mem::transmute(ealength),
+        )
+        .ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16060,6 +16184,68 @@ impl ::core::convert::From<i32> for TAPEMARK_TYPE {
 unsafe impl ::windows::runtime::Abi for TAPEMARK_TYPE {
     type Abi = Self;
 }
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
+pub struct TAPE_ERASE {
+    pub Type: ERASE_TAPE_TYPE,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl TAPE_ERASE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TAPE_ERASE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TAPE_ERASE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("TAPE_ERASE").field("Type", &self.Type).field("Immediate", &self.Immediate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_ERASE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Type == other.Type && self.Immediate == other.Immediate
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_ERASE {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for TAPE_ERASE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub struct TAPE_GET_POSITION {
+    pub Type: TAPE_POSITION_TYPE,
+    pub Partition: u32,
+    pub Offset: i64,
+}
+impl TAPE_GET_POSITION {}
+impl ::core::default::Default for TAPE_GET_POSITION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for TAPE_GET_POSITION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("TAPE_GET_POSITION").field("Type", &self.Type).field("Partition", &self.Partition).field("Offset", &self.Offset).finish()
+    }
+}
+impl ::core::cmp::PartialEq for TAPE_GET_POSITION {
+    fn eq(&self, other: &Self) -> bool {
+        self.Type == other.Type && self.Partition == other.Partition && self.Offset == other.Offset
+    }
+}
+impl ::core::cmp::Eq for TAPE_GET_POSITION {}
+unsafe impl ::windows::runtime::Abi for TAPE_GET_POSITION {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -16135,6 +16321,111 @@ impl ::core::convert::From<i32> for TAPE_POSITION_TYPE {
     }
 }
 unsafe impl ::windows::runtime::Abi for TAPE_POSITION_TYPE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
+pub struct TAPE_PREPARE {
+    pub Operation: PREPARE_TAPE_OPERATION,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl TAPE_PREPARE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TAPE_PREPARE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TAPE_PREPARE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("TAPE_PREPARE").field("Operation", &self.Operation).field("Immediate", &self.Immediate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_PREPARE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Operation == other.Operation && self.Immediate == other.Immediate
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_PREPARE {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for TAPE_PREPARE {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
+pub struct TAPE_SET_POSITION {
+    pub Method: TAPE_POSITION_METHOD,
+    pub Partition: u32,
+    pub Offset: i64,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl TAPE_SET_POSITION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TAPE_SET_POSITION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TAPE_SET_POSITION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("TAPE_SET_POSITION").field("Method", &self.Method).field("Partition", &self.Partition).field("Offset", &self.Offset).field("Immediate", &self.Immediate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_SET_POSITION {
+    fn eq(&self, other: &Self) -> bool {
+        self.Method == other.Method && self.Partition == other.Partition && self.Offset == other.Offset && self.Immediate == other.Immediate
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_SET_POSITION {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for TAPE_SET_POSITION {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
+pub struct TAPE_WRITE_MARKS {
+    pub Type: TAPEMARK_TYPE,
+    pub Count: u32,
+    pub Immediate: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl TAPE_WRITE_MARKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TAPE_WRITE_MARKS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TAPE_WRITE_MARKS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("TAPE_WRITE_MARKS").field("Type", &self.Type).field("Count", &self.Count).field("Immediate", &self.Immediate).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_WRITE_MARKS {
+    fn eq(&self, other: &Self) -> bool {
+        self.Type == other.Type && self.Count == other.Count && self.Immediate == other.Immediate
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_WRITE_MARKS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for TAPE_WRITE_MARKS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]

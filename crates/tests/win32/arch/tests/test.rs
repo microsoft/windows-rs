@@ -1,4 +1,4 @@
-use test_win32_arch::Windows::Win32::System::SystemServices::KNONVOLATILE_CONTEXT_POINTERS;
+use test_win32_arch::Windows::Win32::System::Diagnostics::Debug::KNONVOLATILE_CONTEXT_POINTERS;
 
 #[test]
 #[cfg(target_arch = "x86_64")]

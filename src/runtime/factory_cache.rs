@@ -1,5 +1,5 @@
 use super::*;
-use bindings::{Windows::Win32::Foundation::CLASS_E_CLASSNOTAVAILABLE, Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED};
+use bindings::Windows::Win32::Foundation::{CLASS_E_CLASSNOTAVAILABLE, CO_E_NOTINITIALIZED};
 use core::marker::PhantomData;
 use core::sync::atomic::{AtomicPtr, Ordering};
 
@@ -61,7 +61,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
-        if code == HRESULT(CO_E_NOTINITIALIZED as _) {
+        if code == CO_E_NOTINITIALIZED {
             let mut _cookie = core::ptr::null_mut();
 
             // Won't get any delay-load errors here if we got CO_E_NOTINITIALIZED, so quiet the

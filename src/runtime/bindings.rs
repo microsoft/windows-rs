@@ -1455,6 +1455,7 @@ pub mod Windows {
                 }
             }
             pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221231i32 as _);
+            pub const CO_E_NOTINITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221008i32 as _);
             #[inline]
             pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
                 #[cfg(windows)]
@@ -1692,11 +1693,6 @@ pub mod Windows {
                 }
             }
         }
-        pub mod Graphics {
-            pub mod DirectDraw {
-                pub const CO_E_NOTINITIALIZED: i32 = -2147221008i32;
-            }
-        }
         pub mod Security {
             #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
             #[repr(C)]
@@ -1768,6 +1764,20 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
+                pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IErrorInfo> {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "windows")]
+                        extern "system" {
+                            fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+                        }
+                        let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        GetErrorInfo(::core::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
+                }
                 #[repr(transparent)]
                 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IAgileObject(pub ::windows::runtime::IUnknown);
@@ -1803,6 +1813,80 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                 );
+                #[repr(transparent)]
+                #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
+                pub struct IErrorInfo(pub ::windows::runtime::IUnknown);
+                impl IErrorInfo {
+                    pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+                        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+                    }
+                    pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+                    }
+                    pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+                    }
+                    pub unsafe fn GetHelpFile(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
+                    }
+                    pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
+                        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+                        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+                    }
+                }
+                unsafe impl ::windows::runtime::Interface for IErrorInfo {
+                    type Vtable = IErrorInfo_abi;
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
+                }
+                impl ::core::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
+                    fn from(value: IErrorInfo) -> Self {
+                        value.0
+                    }
+                }
+                impl ::core::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
+                    fn from(value: &IErrorInfo) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorInfo {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IErrorInfo {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
+                }
+                #[repr(C)]
+                #[doc(hidden)]
+                pub struct IErrorInfo_abi(
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwhelpcontext: *mut u32) -> ::windows::runtime::HRESULT,
+                );
+                #[inline]
+                pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>>(dwreserved: u32, perrinfo: Param1) -> ::windows::runtime::Result<()> {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "windows")]
+                        extern "system" {
+                            fn SetErrorInfo(dwreserved: u32, perrinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+                        }
+                        SetErrorInfo(::core::mem::transmute(dwreserved), perrinfo.into_param().abi()).ok()
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
+                }
             }
             pub mod Diagnostics {
                 pub mod Debug {
@@ -2014,98 +2098,6 @@ pub mod Windows {
                 unsafe impl ::windows::runtime::Handle for HeapHandle {}
                 unsafe impl ::windows::runtime::Abi for HeapHandle {
                     type Abi = Self;
-                }
-            }
-            pub mod Ole {
-                pub mod Automation {
-                    #[inline]
-                    pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IErrorInfo> {
-                        #[cfg(windows)]
-                        {
-                            #[link(name = "windows")]
-                            extern "system" {
-                                fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
-                            }
-                            let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                            GetErrorInfo(::core::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
-                    #[repr(transparent)]
-                    #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-                    pub struct IErrorInfo(pub ::windows::runtime::IUnknown);
-                    impl IErrorInfo {
-                        pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-                            let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
-                        }
-                        pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
-                        }
-                        pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
-                        }
-                        pub unsafe fn GetHelpFile(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-                            let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
-                        }
-                        pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
-                            let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-                            (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
-                        }
-                    }
-                    unsafe impl ::windows::runtime::Interface for IErrorInfo {
-                        type Vtable = IErrorInfo_abi;
-                        const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
-                    }
-                    impl ::core::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
-                        fn from(value: IErrorInfo) -> Self {
-                            value.0
-                        }
-                    }
-                    impl ::core::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
-                        fn from(value: &IErrorInfo) -> Self {
-                            value.0.clone()
-                        }
-                    }
-                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorInfo {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-                            ::windows::runtime::Param::Owned(self.0)
-                        }
-                    }
-                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IErrorInfo {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-                            ::windows::runtime::Param::Borrowed(&self.0)
-                        }
-                    }
-                    #[repr(C)]
-                    #[doc(hidden)]
-                    pub struct IErrorInfo_abi(
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
-                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwhelpcontext: *mut u32) -> ::windows::runtime::HRESULT,
-                    );
-                    #[inline]
-                    pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>>(dwreserved: u32, perrinfo: Param1) -> ::windows::runtime::Result<()> {
-                        #[cfg(windows)]
-                        {
-                            #[link(name = "windows")]
-                            extern "system" {
-                                fn SetErrorInfo(dwreserved: u32, perrinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
-                            }
-                            SetErrorInfo(::core::mem::transmute(dwreserved), perrinfo.into_param().abi()).ok()
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
                 }
             }
             pub mod Threading {

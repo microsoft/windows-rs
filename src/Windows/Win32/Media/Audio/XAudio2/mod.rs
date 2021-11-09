@@ -518,17 +518,15 @@ impl IXAPO {
         let mut result__: <*mut XAPO_REGISTRATION_PROPERTIES as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut XAPO_REGISTRATION_PROPERTIES>(result__)
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Media_Multimedia`*"]
-    pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::super::Multimedia::WAVEFORMATEX, prequestedinputformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<*mut super::super::Multimedia::WAVEFORMATEX> {
-        let mut result__: <*mut super::super::Multimedia::WAVEFORMATEX as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputformat), ::core::mem::transmute(prequestedinputformat), &mut result__).from_abi::<*mut super::super::Multimedia::WAVEFORMATEX>(result__)
+    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
+    pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> ::windows::runtime::Result<*mut super::WAVEFORMATEX> {
+        let mut result__: <*mut super::WAVEFORMATEX as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputformat), ::core::mem::transmute(prequestedinputformat), &mut result__).from_abi::<*mut super::WAVEFORMATEX>(result__)
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Media_Multimedia`*"]
-    pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::super::Multimedia::WAVEFORMATEX, prequestedoutputformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<*mut super::super::Multimedia::WAVEFORMATEX> {
-        let mut result__: <*mut super::super::Multimedia::WAVEFORMATEX as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputformat), ::core::mem::transmute(prequestedoutputformat), &mut result__).from_abi::<*mut super::super::Multimedia::WAVEFORMATEX>(result__)
+    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
+    pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> ::windows::runtime::Result<*mut super::WAVEFORMATEX> {
+        let mut result__: <*mut super::WAVEFORMATEX as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputformat), ::core::mem::transmute(prequestedoutputformat), &mut result__).from_abi::<*mut super::WAVEFORMATEX>(result__)
     }
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn Initialize(&self, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::runtime::Result<()> {
@@ -538,8 +536,7 @@ impl IXAPO {
     pub unsafe fn Reset(&self) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
     }
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Media_Multimedia`*"]
+    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
     pub unsafe fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputlockedparametercount), ::core::mem::transmute(pinputlockedparameters), ::core::mem::transmute(outputlockedparametercount), ::core::mem::transmute(poutputlockedparameters)).ok()
     }
@@ -599,14 +596,11 @@ pub struct IXAPO_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poutputformat: *const super::super::Multimedia::WAVEFORMATEX, prequestedinputformat: *const super::super::Multimedia::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinputformat: *const super::super::Multimedia::WAVEFORMATEX, prequestedoutputformat: *const super::super::Multimedia::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
-    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -730,9 +724,9 @@ impl IXAudio2 {
     pub unsafe fn UnregisterForCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, IXAudio2EngineCallback>>(&self, pcallback: Param0) {
         ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pcallback.into_param().abi()))
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
-    pub unsafe fn CreateSourceVoice<'a, Param4: ::windows::runtime::IntoParam<'a, IXAudio2VoiceCallback>>(&self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::super::Multimedia::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: Param4, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Foundation`*"]
+    pub unsafe fn CreateSourceVoice<'a, Param4: ::windows::runtime::IntoParam<'a, IXAudio2VoiceCallback>>(&self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: Param4, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppsourcevoice), ::core::mem::transmute(psourceformat), ::core::mem::transmute(flags), ::core::mem::transmute(maxfrequencyratio), pcallback.into_param().abi(), ::core::mem::transmute(psendlist), ::core::mem::transmute(peffectchain)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -740,9 +734,9 @@ impl IXAudio2 {
     pub unsafe fn CreateSubmixVoice(&self, ppsubmixvoice: *mut ::core::option::Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppsubmixvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), ::core::mem::transmute(processingstage), ::core::mem::transmute(psendlist), ::core::mem::transmute(peffectchain)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
-    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`*"]
-    pub unsafe fn CreateMasteringVoice<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: Param4, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::CoreAudio::AUDIO_STREAM_CATEGORY) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Foundation`*"]
+    pub unsafe fn CreateMasteringVoice<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: Param4, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppmasteringvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), szdeviceid.into_param().abi(), ::core::mem::transmute(peffectchain), ::core::mem::transmute(streamcategory)).ok()
     }
     #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -799,12 +793,12 @@ pub struct IXAudio2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsourcevoice: *mut ::windows::runtime::RawPtr, psourceformat: *const super::super::Multimedia::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: ::windows::runtime::RawPtr, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsourcevoice: *mut ::windows::runtime::RawPtr, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: ::windows::runtime::RawPtr, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsubmixvoice: *mut ::windows::runtime::RawPtr, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmasteringvoice: *mut ::windows::runtime::RawPtr, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: super::super::super::Foundation::PWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::CoreAudio::AUDIO_STREAM_CATEGORY) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmasteringvoice: *mut ::windows::runtime::RawPtr, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: super::super::super::Foundation::PWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operationset: u32) -> ::windows::runtime::HRESULT,
@@ -1765,29 +1759,23 @@ pub const XAPO_FLAG_INPLACE_REQUIRED: u32 = 32u32;
 pub const XAPO_FLAG_INPLACE_SUPPORTED: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "*Required features: `Win32_Media_Audio_XAudio2`, `Win32_Media_Multimedia`*"]
+#[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
-    pub pFormat: *mut super::super::Multimedia::WAVEFORMATEX,
+    pub pFormat: *mut super::WAVEFORMATEX,
     pub MaxFrameCount: u32,
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl XAPO_LOCKFORPROCESS_PARAMETERS {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for XAPO_LOCKFORPROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::cmp::PartialEq for XAPO_LOCKFORPROCESS_PARAMETERS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::cmp::Eq for XAPO_LOCKFORPROCESS_PARAMETERS {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for XAPO_LOCKFORPROCESS_PARAMETERS {
     type Abi = Self;
 }

@@ -28,37 +28,37 @@ unsafe impl ::windows::runtime::Abi for BaseValueSource {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct BitmapDescription {
     pub Width: u32,
     pub Height: u32,
-    pub Format: super::super::super::Graphics::Dxgi::DXGI_FORMAT,
-    pub AlphaMode: super::super::super::Graphics::Dxgi::DXGI_ALPHA_MODE,
+    pub Format: super::super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub AlphaMode: super::super::super::Graphics::Dxgi::Common::DXGI_ALPHA_MODE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl BitmapDescription {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for BitmapDescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for BitmapDescription {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BitmapDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("AlphaMode", &self.AlphaMode).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for BitmapDescription {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.AlphaMode == other.AlphaMode
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for BitmapDescription {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for BitmapDescription {
     type Abi = Self;
 }
@@ -149,14 +149,14 @@ impl IBitmapData {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetBitmapDescription(&self) -> ::windows::runtime::Result<BitmapDescription> {
         let mut result__: <BitmapDescription as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<BitmapDescription>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetSourceBitmapDescription(&self) -> ::windows::runtime::Result<BitmapDescription> {
         let mut result__: <BitmapDescription as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<BitmapDescription>(result__)
@@ -194,10 +194,10 @@ pub struct IBitmapData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstride: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbitmapdescription: *mut BitmapDescription) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbitmapdescription: *mut BitmapDescription) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbitmapdescription: *mut BitmapDescription) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbitmapdescription: *mut BitmapDescription) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]

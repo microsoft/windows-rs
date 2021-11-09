@@ -1,4 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[cfg(feature = "Win32_System_Memory_NonVolatile")]
+pub mod NonVolatile;
 #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -29,15 +31,15 @@ pub unsafe fn AllocateUserPhysicalPages<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllocateUserPhysicalPages2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn AllocateUserPhysicalPages2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: *mut MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AllocateUserPhysicalPages2(objecthandle: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::Foundation::BOOL;
+            fn AllocateUserPhysicalPages2(objecthandle: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: *mut MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(AllocateUserPhysicalPages2(objecthandle.into_param().abi(), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray), ::core::mem::transmute(extendedparameters), ::core::mem::transmute(extendedparametercount)))
     }
@@ -59,8 +61,35 @@ pub unsafe fn AllocateUserPhysicalPagesNuma<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_SystemServices"))]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
+pub struct CFG_CALL_TARGET_INFO {
+    pub Offset: usize,
+    pub Flags: usize,
+}
+impl CFG_CALL_TARGET_INFO {}
+impl ::core::default::Default for CFG_CALL_TARGET_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for CFG_CALL_TARGET_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("CFG_CALL_TARGET_INFO").field("Offset", &self.Offset).field("Flags", &self.Flags).finish()
+    }
+}
+impl ::core::cmp::PartialEq for CFG_CALL_TARGET_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.Offset == other.Offset && self.Flags == other.Flags
+    }
+}
+impl ::core::cmp::Eq for CFG_CALL_TARGET_INFO {}
+unsafe impl ::windows::runtime::Abi for CFG_CALL_TARGET_INFO {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileMapping2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     file: Param0,
@@ -70,14 +99,14 @@ pub unsafe fn CreateFileMapping2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     allocationattributes: u32,
     maximumsize: u64,
     name: Param6,
-    extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER,
+    extendedparameters: *mut MEM_EXTENDED_PARAMETER,
     parametercount: u32,
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateFileMapping2(file: super::super::Foundation::HANDLE, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: super::super::Foundation::PWSTR, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> super::super::Foundation::HANDLE;
+            fn CreateFileMapping2(file: super::super::Foundation::HANDLE, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: super::super::Foundation::PWSTR, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> super::super::Foundation::HANDLE;
         }
         ::core::mem::transmute(CreateFileMapping2(
             file.into_param().abi(),
@@ -600,6 +629,22 @@ impl ::core::ops::Not for HEAP_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#[repr(transparent)]
+pub struct HEAP_INFORMATION_CLASS(pub i32);
+pub const HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(0i32);
+pub const HeapEnableTerminationOnCorruption: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(1i32);
+pub const HeapOptimizeResources: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(3i32);
+pub const HeapTag: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(7i32);
+impl ::core::convert::From<i32> for HEAP_INFORMATION_CLASS {
+    fn from(value: i32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for HEAP_INFORMATION_CLASS {
+    type Abi = Self;
+}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Memory`*"]
@@ -729,15 +774,15 @@ pub unsafe fn HeapLock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HeapQueryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(heaphandle: Param0, heapinformationclass: super::SystemServices::HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL {
+pub unsafe fn HeapQueryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(heaphandle: Param0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HeapQueryInformation(heaphandle: HeapHandle, heapinformationclass: super::SystemServices::HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL;
+            fn HeapQueryInformation(heaphandle: HeapHandle, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(HeapQueryInformation(heaphandle.into_param().abi(), ::core::mem::transmute(heapinformationclass), ::core::mem::transmute(heapinformation), ::core::mem::transmute(heapinformationlength), ::core::mem::transmute(returnlength)))
     }
@@ -758,15 +803,15 @@ pub unsafe fn HeapReAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HeapSetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(heaphandle: Param0, heapinformationclass: super::SystemServices::HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn HeapSetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(heaphandle: Param0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HeapSetInformation(heaphandle: HeapHandle, heapinformationclass: super::SystemServices::HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL;
+            fn HeapSetInformation(heaphandle: HeapHandle, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(HeapSetInformation(heaphandle.into_param().abi(), ::core::mem::transmute(heapinformationclass), ::core::mem::transmute(heapinformation), ::core::mem::transmute(heapinformationlength)))
     }
@@ -832,15 +877,15 @@ pub unsafe fn HeapValidate<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HeapWalk<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, lpentry: *mut super::SystemServices::PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL {
+pub unsafe fn HeapWalk<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, lpentry: *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HeapWalk(hheap: HeapHandle, lpentry: *mut super::SystemServices::PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL;
+            fn HeapWalk(hheap: HeapHandle, lpentry: *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(HeapWalk(hheap.into_param().abi(), ::core::mem::transmute(lpentry)))
     }
@@ -1278,6 +1323,116 @@ impl ::core::convert::From<i32> for MEMORY_RESOURCE_NOTIFICATION_TYPE {
 unsafe impl ::windows::runtime::Abi for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     type Abi = Self;
 }
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+pub struct MEM_EXTENDED_PARAMETER {
+    pub Anonymous1: MEM_EXTENDED_PARAMETER_0,
+    pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MEM_EXTENDED_PARAMETER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MEM_EXTENDED_PARAMETER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MEM_EXTENDED_PARAMETER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MEM_EXTENDED_PARAMETER {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MEM_EXTENDED_PARAMETER_0 {
+    pub _bitfield: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MEM_EXTENDED_PARAMETER_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("_Anonymous1_e__Struct").field("_bitfield", &self._bitfield).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MEM_EXTENDED_PARAMETER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_0 {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MEM_EXTENDED_PARAMETER_1 {
+    pub ULong64: u64,
+    pub Pointer: *mut ::core::ffi::c_void,
+    pub Size: usize,
+    pub Handle: super::super::Foundation::HANDLE,
+    pub ULong: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MEM_EXTENDED_PARAMETER_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MEM_EXTENDED_PARAMETER_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MEM_EXTENDED_PARAMETER_1 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MEM_EXTENDED_PARAMETER_1 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_1 {
+    type Abi = Self;
+}
+#[doc = "*Required features: `Win32_System_Memory`*"]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#[repr(transparent)]
+pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
+pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(0i32);
+pub const MemExtendedParameterAddressRequirements: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(1i32);
+pub const MemExtendedParameterNumaNode: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(2i32);
+pub const MemExtendedParameterPartitionHandle: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(3i32);
+pub const MemExtendedParameterUserPhysicalHandle: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(4i32);
+pub const MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(5i32);
+pub const MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(6i32);
+pub const MemExtendedParameterMax: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(7i32);
+impl ::core::convert::From<i32> for MEM_EXTENDED_PARAMETER_TYPE {
+    fn from(value: i32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_TYPE {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1323,15 +1478,15 @@ pub unsafe fn MapViewOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFile3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemapping: Param0, process: Param1, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn MapViewOfFile3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemapping: Param0, process: Param1, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MapViewOfFile3(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
+            fn MapViewOfFile3(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(MapViewOfFile3(
             filemapping.into_param().abi(),
@@ -1348,15 +1503,15 @@ pub unsafe fn MapViewOfFile3<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapViewOfFile3FromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemapping: Param0, process: Param1, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn MapViewOfFile3FromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemapping: Param0, process: Param1, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MapViewOfFile3FromApp(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
+            fn MapViewOfFile3FromApp(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(MapViewOfFile3FromApp(
             filemapping.into_param().abi(),
@@ -1664,6 +1819,133 @@ impl ::core::ops::Not for PAGE_TYPE {
 }
 #[doc = "*Required features: `Win32_System_Memory`*"]
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+pub struct PROCESS_HEAP_ENTRY {
+    pub lpData: *mut ::core::ffi::c_void,
+    pub cbData: u32,
+    pub cbOverhead: u8,
+    pub iRegionIndex: u8,
+    pub wFlags: u16,
+    pub Anonymous: PROCESS_HEAP_ENTRY_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PROCESS_HEAP_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PROCESS_HEAP_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union PROCESS_HEAP_ENTRY_0 {
+    pub Block: PROCESS_HEAP_ENTRY_0_0,
+    pub Region: PROCESS_HEAP_ENTRY_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PROCESS_HEAP_ENTRY_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PROCESS_HEAP_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY_0 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0 {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROCESS_HEAP_ENTRY_0_0 {
+    pub hMem: super::super::Foundation::HANDLE,
+    pub dwReserved: [u32; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PROCESS_HEAP_ENTRY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("_Block_e__Struct").field("hMem", &self.hMem).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.hMem == other.hMem && self.dwReserved == other.dwReserved
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0_0 {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROCESS_HEAP_ENTRY_0_1 {
+    pub dwCommittedSize: u32,
+    pub dwUnCommittedSize: u32,
+    pub lpFirstBlock: *mut ::core::ffi::c_void,
+    pub lpLastBlock: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("_Region_e__Struct").field("dwCommittedSize", &self.dwCommittedSize).field("dwUnCommittedSize", &self.dwUnCommittedSize).field("lpFirstBlock", &self.lpFirstBlock).field("lpLastBlock", &self.lpLastBlock).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwCommittedSize == other.dwCommittedSize && self.dwUnCommittedSize == other.dwUnCommittedSize && self.lpFirstBlock == other.lpFirstBlock && self.lpLastBlock == other.lpLastBlock
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0_1 {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
@@ -1784,30 +2066,87 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const ::core::ffi::c_void, dwregio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
-pub unsafe fn SetProcessValidCallTargets<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut super::SystemServices::CFG_CALL_TARGET_INFO) -> super::super::Foundation::BOOL {
+pub unsafe fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *const ::core::ffi::c_void, length: usize) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetProcessValidCallTargets(hprocess: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut super::SystemServices::CFG_CALL_TARGET_INFO) -> super::super::Foundation::BOOL;
+            fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *const ::core::ffi::c_void, length: usize) -> usize;
+        }
+        ::core::mem::transmute(RtlCompareMemory(::core::mem::transmute(source1), ::core::mem::transmute(source2), ::core::mem::transmute(length)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Memory`*"]
+#[inline]
+pub unsafe fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32;
+        }
+        ::core::mem::transmute(RtlCrc32(::core::mem::transmute(buffer), ::core::mem::transmute(size), ::core::mem::transmute(initialcrc)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Memory`*"]
+#[inline]
+pub unsafe fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u64) -> u64;
+        }
+        ::core::mem::transmute(RtlCrc64(::core::mem::transmute(buffer), ::core::mem::transmute(size), ::core::mem::transmute(initialcrc)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn RtlIsZeroMemory(buffer: *const ::core::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN;
+        }
+        ::core::mem::transmute(RtlIsZeroMemory(::core::mem::transmute(buffer), ::core::mem::transmute(length)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetProcessValidCallTargets<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SetProcessValidCallTargets(hprocess: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetProcessValidCallTargets(hprocess.into_param().abi(), ::core::mem::transmute(virtualaddress), ::core::mem::transmute(regionsize), ::core::mem::transmute(numberofoffsets), ::core::mem::transmute(offsetinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetProcessValidCallTargetsForMappedView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut super::SystemServices::CFG_CALL_TARGET_INFO, section: Param5, expectedfileoffset: u64) -> super::super::Foundation::BOOL {
+pub unsafe fn SetProcessValidCallTargetsForMappedView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO, section: Param5, expectedfileoffset: u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetProcessValidCallTargetsForMappedView(process: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut super::SystemServices::CFG_CALL_TARGET_INFO, section: super::super::Foundation::HANDLE, expectedfileoffset: u64) -> super::super::Foundation::BOOL;
+            fn SetProcessValidCallTargetsForMappedView(process: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO, section: super::super::Foundation::HANDLE, expectedfileoffset: u64) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetProcessValidCallTargetsForMappedView(process.into_param().abi(), ::core::mem::transmute(virtualaddress), ::core::mem::transmute(regionsize), ::core::mem::transmute(numberofoffsets), ::core::mem::transmute(offsetinformation), section.into_param().abi(), ::core::mem::transmute(expectedfileoffset)))
     }
@@ -2051,30 +2390,30 @@ pub unsafe fn VirtualAlloc(lpaddress: *const ::core::ffi::c_void, dwsize: usize,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VirtualAlloc2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn VirtualAlloc2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VirtualAlloc2(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
+            fn VirtualAlloc2(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(VirtualAlloc2(process.into_param().abi(), ::core::mem::transmute(baseaddress), ::core::mem::transmute(size), ::core::mem::transmute(allocationtype), ::core::mem::transmute(pageprotection), ::core::mem::transmute(extendedparameters), ::core::mem::transmute(parametercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VirtualAlloc2FromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn VirtualAlloc2FromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VirtualAlloc2FromApp(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
+            fn VirtualAlloc2FromApp(process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(VirtualAlloc2FromApp(process.into_param().abi(), ::core::mem::transmute(baseaddress), ::core::mem::transmute(size), ::core::mem::transmute(allocationtype), ::core::mem::transmute(pageprotection), ::core::mem::transmute(extendedparameters), ::core::mem::transmute(parametercount)))
     }

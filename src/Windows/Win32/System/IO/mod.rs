@@ -2,6 +2,21 @@
 #[doc = "*Required features: `Win32_System_IO`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: ::core::option::Option<LPOVERLAPPED_COMPLETION_ROUTINE>, flags: u32) -> super::super::Foundation::BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn BindIoCompletionCallback(filehandle: super::super::Foundation::HANDLE, function: ::windows::runtime::RawPtr, flags: u32) -> super::super::Foundation::BOOL;
+        }
+        ::core::mem::transmute(BindIoCompletionCallback(filehandle.into_param().abi(), ::core::mem::transmute(function), ::core::mem::transmute(flags)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[doc = "*Required features: `Win32_System_IO`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CancelIo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
