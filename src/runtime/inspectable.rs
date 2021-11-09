@@ -93,6 +93,7 @@ primitive_boxed_type! {
 impl core::convert::TryFrom<&str> for IInspectable {
     type Error = Error;
     fn try_from(value: &str) -> Result<Self> {
+        let value: HSTRING = value.into();
         PropertyValue::CreateString(value)
     }
 }
