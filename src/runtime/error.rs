@@ -2,7 +2,7 @@ use super::*;
 
 use bindings::{
     Windows::Win32::Foundation::{GetLastError, BOOL, BSTR, S_OK},
-    Windows::Win32::System::Ole::Automation::{GetErrorInfo, SetErrorInfo},
+    Windows::Win32::System::Com::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
 
