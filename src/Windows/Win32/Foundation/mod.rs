@@ -1067,6 +1067,8 @@ pub const CO_E_NOSYNCHRONIZATION: ::windows::runtime::HRESULT = ::windows::runti
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const CO_E_NOTCONSTRUCTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147164115i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
+pub const CO_E_NOTINITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221008i32 as _);
+#[doc = "*Required features: `Win32_Foundation`*"]
 pub const CO_E_NOTPOOLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147164116i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const CO_E_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147467231i32 as _);
@@ -3990,6 +3992,70 @@ unsafe impl ::windows::runtime::Handle for HINSTANCE {}
 unsafe impl ::windows::runtime::Abi for HINSTANCE {
     type Abi = Self;
 }
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Foundation`*"]
+pub struct HLSURF__ {
+    pub unused: i32,
+}
+impl HLSURF__ {}
+impl ::core::default::Default for HLSURF__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for HLSURF__ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("HLSURF__").field("unused", &self.unused).finish()
+    }
+}
+impl ::core::cmp::PartialEq for HLSURF__ {
+    fn eq(&self, other: &Self) -> bool {
+        self.unused == other.unused
+    }
+}
+impl ::core::cmp::Eq for HLSURF__ {}
+unsafe impl ::windows::runtime::Abi for HLSURF__ {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[repr(transparent)]
+pub struct HRSRC(pub isize);
+impl ::core::default::Default for HRSRC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for HRSRC {}
+unsafe impl ::windows::runtime::Abi for HRSRC {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Foundation`*"]
+pub struct HSPRITE__ {
+    pub unused: i32,
+}
+impl HSPRITE__ {}
+impl ::core::default::Default for HSPRITE__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for HSPRITE__ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("HSPRITE__").field("unused", &self.unused).finish()
+    }
+}
+impl ::core::cmp::PartialEq for HSPRITE__ {
+    fn eq(&self, other: &Self) -> bool {
+        self.unused == other.unused
+    }
+}
+impl ::core::cmp::Eq for HSPRITE__ {}
+unsafe impl ::windows::runtime::Abi for HSPRITE__ {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HSP_BASE_ERROR_MASK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2128019200i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -4046,6 +4112,32 @@ pub const HSP_KSP_NO_MEMORY: ::windows::runtime::HRESULT = ::windows::runtime::H
 pub const HSP_KSP_NO_MORE_ITEMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2128018920i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HSP_KSP_PARAMETER_NOT_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2128018927i32 as _);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Foundation`*"]
+pub struct HSTR__ {
+    pub unused: i32,
+}
+impl HSTR__ {}
+impl ::core::default::Default for HSTR__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for HSTR__ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("HSTR__").field("unused", &self.unused).finish()
+    }
+}
+impl ::core::cmp::PartialEq for HSTR__ {
+    fn eq(&self, other: &Self) -> bool {
+        self.unused == other.unused
+    }
+}
+impl ::core::cmp::Eq for HSTR__ {}
+unsafe impl ::windows::runtime::Abi for HSTR__ {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HTTP_E_STATUS_AMBIGUOUS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145844948i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -4116,6 +4208,32 @@ pub const HTTP_E_STATUS_URI_TOO_LONG: ::windows::runtime::HRESULT = ::windows::r
 pub const HTTP_E_STATUS_USE_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145844943i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HTTP_E_STATUS_VERSION_NOT_SUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145844743i32 as _);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Foundation`*"]
+pub struct HUMPD__ {
+    pub unused: i32,
+}
+impl HUMPD__ {}
+impl ::core::default::Default for HUMPD__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::fmt::Debug for HUMPD__ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        fmt.debug_struct("HUMPD__").field("unused", &self.unused).finish()
+    }
+}
+impl ::core::cmp::PartialEq for HUMPD__ {
+    fn eq(&self, other: &Self) -> bool {
+        self.unused == other.unused
+    }
+}
+impl ::core::cmp::Eq for HUMPD__ {}
+unsafe impl ::windows::runtime::Abi for HUMPD__ {
+    type Abi = Self;
+}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWND(pub isize);
@@ -4982,6 +5100,8 @@ pub const OSS_TYPE_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runti
 pub const OSS_UNAVAIL_ENCRULES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146881513i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const OSS_UNIMPLEMENTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146881511i32 as _);
+#[doc = "*Required features: `Win32_Foundation`*"]
+pub type PAPCFUNC = unsafe extern "system" fn(parameter: usize);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 #[doc = "*Required features: `Win32_Foundation`*"]

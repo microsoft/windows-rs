@@ -29,6 +29,8 @@ pub mod HumanInterfaceDevice;
 pub mod ImageAcquisition;
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub mod PortableDevices;
+#[cfg(feature = "Win32_Devices_Properties")]
+pub mod Properties;
 #[cfg(feature = "Win32_Devices_Pwm")]
 pub mod Pwm;
 #[cfg(feature = "Win32_Devices_Sensors")]

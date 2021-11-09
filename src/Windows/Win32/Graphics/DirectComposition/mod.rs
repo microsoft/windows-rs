@@ -223,24 +223,24 @@ unsafe impl ::windows::runtime::Abi for DCOMPOSITION_DEPTH_MODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub lastFrameTime: i64,
-    pub currentCompositionRate: super::Dxgi::DXGI_RATIONAL,
+    pub currentCompositionRate: super::Dxgi::Common::DXGI_RATIONAL,
     pub currentTime: i64,
     pub timeFrequency: i64,
     pub nextEstimatedFrameTime: i64,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl DCOMPOSITION_FRAME_STATISTICS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for DCOMPOSITION_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for DCOMPOSITION_FRAME_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DCOMPOSITION_FRAME_STATISTICS")
@@ -252,15 +252,15 @@ impl ::core::fmt::Debug for DCOMPOSITION_FRAME_STATISTICS {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for DCOMPOSITION_FRAME_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
         self.lastFrameTime == other.lastFrameTime && self.currentCompositionRate == other.currentCompositionRate && self.currentTime == other.currentTime && self.timeFrequency == other.timeFrequency && self.nextEstimatedFrameTime == other.nextEstimatedFrameTime
     }
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::Eq for DCOMPOSITION_FRAME_STATISTICS {}
-#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_FRAME_STATISTICS {
     type Abi = Self;
 }
@@ -483,19 +483,18 @@ impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::Direct2D::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::runtime::Result<()> {
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
+    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(interpolationmode)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetBorderMode(&self, bordermode: super::Direct2D::D2D1_BORDER_MODE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetBorderMode(&self, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(bordermode)).ok()
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
-    pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(transformmatrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -586,12 +585,11 @@ pub struct IDCompositionAffineTransform2DEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: super::Direct2D::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: super::Direct2D::D2D1_BORDER_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
-    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transformmatrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, value: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -673,9 +671,9 @@ impl IDCompositionArithmeticCompositeEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::D2D_VECTOR_4F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(coefficients)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -787,8 +785,8 @@ pub struct IDCompositionArithmeticCompositeEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, coefficients: *const super::Direct2D::D2D_VECTOR_4F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clampoutput: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -809,9 +807,9 @@ impl IDCompositionBlendEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetMode(&self, mode: super::Direct2D::D2D1_BLEND_MODE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
 }
@@ -886,8 +884,8 @@ pub struct IDCompositionBlendEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::D2D1_BLEND_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
@@ -898,14 +896,14 @@ impl IDCompositionBrightnessEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(whitepoint)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(blackpoint)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -1012,10 +1010,10 @@ pub struct IDCompositionBrightnessEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, whitepoint: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blackpoint: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, whitepointx: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1070,9 +1068,9 @@ impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::D2D_MATRIX_5X4_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -1083,9 +1081,9 @@ impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(row), ::core::mem::transmute(column), ::core::mem::transmute(value)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetAlphaMode(&self, mode: super::Direct2D::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetAlphaMode(&self, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -1165,12 +1163,12 @@ pub struct IDCompositionColorMatrixEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::D2D_MATRIX_5X4_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, value: f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clamp: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -1183,9 +1181,9 @@ impl IDCompositionCompositeEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetMode(&self, mode: super::Direct2D::D2D1_COMPOSITE_MODE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
 }
@@ -1260,8 +1258,8 @@ pub struct IDCompositionCompositeEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::D2D1_COMPOSITE_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
@@ -1282,9 +1280,9 @@ impl IDCompositionDelegatedInkTrail {
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(generationid)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn StartNewTrail(&self, color: *const super::Direct2D::D2D1_COLOR_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn StartNewTrail(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
     }
 }
@@ -1321,8 +1319,8 @@ pub struct IDCompositionDelegatedInkTrail_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, generationid: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: u32, generationid: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, generationid: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
@@ -1337,8 +1335,8 @@ impl IDCompositionDesktopDevice {
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::runtime::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__: <DCOMPOSITION_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
@@ -1353,15 +1351,15 @@ impl IDCompositionDesktopDevice {
         let mut result__: <IDCompositionSurfaceFactory as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), renderingdevice.into_param().abi(), &mut result__).from_abi::<IDCompositionSurfaceFactory>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
         let mut result__: <IDCompositionSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionSurface>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
         let mut result__: <IDCompositionVirtualSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionVirtualSurface>(result__)
     }
@@ -1506,14 +1504,14 @@ pub struct IDCompositionDesktopDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, renderingdevice: ::windows::runtime::RawPtr, surfacefactory: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, translatetransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scaletransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotatetransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1548,8 +1546,8 @@ impl IDCompositionDevice {
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::runtime::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__: <DCOMPOSITION_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
@@ -1565,15 +1563,15 @@ impl IDCompositionDevice {
         let mut result__: <IDCompositionVisual as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDCompositionVisual>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
         let mut result__: <IDCompositionSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionSurface>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
         let mut result__: <IDCompositionVirtualSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionVirtualSurface>(result__)
     }
@@ -1698,15 +1696,15 @@ pub struct IDCompositionDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handle: super::super::Foundation::HANDLE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1741,8 +1739,8 @@ impl IDCompositionDevice2 {
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::runtime::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__: <DCOMPOSITION_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
@@ -1757,15 +1755,15 @@ impl IDCompositionDevice2 {
         let mut result__: <IDCompositionSurfaceFactory as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), renderingdevice.into_param().abi(), &mut result__).from_abi::<IDCompositionSurfaceFactory>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
         let mut result__: <IDCompositionSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionSurface>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
         let mut result__: <IDCompositionVirtualSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionVirtualSurface>(result__)
     }
@@ -1872,14 +1870,14 @@ pub struct IDCompositionDevice2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, renderingdevice: ::windows::runtime::RawPtr, surfacefactory: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, translatetransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scaletransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotatetransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1908,8 +1906,8 @@ impl IDCompositionDevice3 {
     pub unsafe fn WaitForCommitCompletion(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::runtime::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__: <DCOMPOSITION_FRAME_STATISTICS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
@@ -1924,15 +1922,15 @@ impl IDCompositionDevice3 {
         let mut result__: <IDCompositionSurfaceFactory as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), renderingdevice.into_param().abi(), &mut result__).from_abi::<IDCompositionSurfaceFactory>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
         let mut result__: <IDCompositionSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionSurface>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
         let mut result__: <IDCompositionVirtualSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionVirtualSurface>(result__)
     }
@@ -2124,14 +2122,14 @@ pub struct IDCompositionDevice3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, renderingdevice: ::windows::runtime::RawPtr, surfacefactory: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, translatetransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scaletransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rotatetransform: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -2394,9 +2392,9 @@ impl IDCompositionGaussianBlurEffect {
     pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(amount)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetBorderMode(&self, mode: super::Direct2D::D2D1_BORDER_MODE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetBorderMode(&self, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
 }
@@ -2473,8 +2471,8 @@ pub struct IDCompositionGaussianBlurEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, amount: f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::D2D1_BORDER_MODE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
@@ -2819,9 +2817,9 @@ pub struct IDCompositionLinearTransferEffect_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionMatrixTransform(pub ::windows::runtime::IUnknown);
 impl IDCompositionMatrixTransform {
-    #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
-    pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -2923,8 +2921,8 @@ pub struct IDCompositionMatrixTransform_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, value: f32) -> ::windows::runtime::HRESULT,
 );
@@ -2933,9 +2931,9 @@ pub struct IDCompositionMatrixTransform_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionMatrixTransform3D(pub ::windows::runtime::IUnknown);
 impl IDCompositionMatrixTransform3D {
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct3D9`*"]
-    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct3D9::D3DMATRIX) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct3D`*"]
+    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -3017,8 +3015,8 @@ pub struct IDCompositionMatrixTransform3D_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct3D9::D3DMATRIX) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct3D"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, value: f32) -> ::windows::runtime::HRESULT,
 );
@@ -3856,9 +3854,9 @@ impl IDCompositionShadowEffect {
     pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(amount)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetColor(&self, color: *const super::Direct2D::D2D_VECTOR_4F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetColor(&self, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -3967,8 +3965,8 @@ pub struct IDCompositionShadowEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, amount: f32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::D2D_VECTOR_4F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, amount: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4186,15 +4184,15 @@ pub struct IDCompositionSurface_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionSurfaceFactory(pub ::windows::runtime::IUnknown);
 impl IDCompositionSurfaceFactory {
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionSurface> {
         let mut result__: <IDCompositionSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionSurface>(result__)
     }
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi_Common`*"]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::runtime::Result<IDCompositionVirtualSurface> {
         let mut result__: <IDCompositionVirtualSurface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), &mut result__).from_abi::<IDCompositionVirtualSurface>(result__)
     }
@@ -4229,10 +4227,10 @@ pub struct IDCompositionSurfaceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
-    #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::DXGI_FORMAT, alphamode: super::Dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[repr(transparent)]
@@ -4818,19 +4816,19 @@ impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetInput<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetOffset(&self, offset: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(offset)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetBaseFrequency(&self, frequency: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetBaseFrequency(&self, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(frequency)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetSize(&self, size: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetSize(&self, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(size)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -4841,9 +4839,9 @@ impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetSeed(&self, seed: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(seed)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetNoise(&self, noise: super::Direct2D::D2D1_TURBULENCE_NOISE) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetNoise(&self, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(noise)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -4923,16 +4921,16 @@ pub struct IDCompositionTurbulenceEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, input: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, frequency: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const super::Direct2D::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numoctaves: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, seed: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, noise: super::Direct2D::D2D1_TURBULENCE_NOISE) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stitchable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -5059,9 +5057,9 @@ impl IDCompositionVisual {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5084,9 +5082,9 @@ impl IDCompositionVisual {
     pub unsafe fn SetClip<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionClip>>(&self, clip: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), clip.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(rect)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5146,15 +5144,15 @@ pub struct IDCompositionVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clip: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr, insertabove: super::super::Foundation::BOOL, referencevisual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -5187,9 +5185,9 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5212,9 +5210,9 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetClip<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionClip>>(&self, clip: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), clip.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(rect)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5302,15 +5300,15 @@ pub struct IDCompositionVisual2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clip: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr, insertabove: super::super::Foundation::BOOL, referencevisual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -5345,9 +5343,9 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5370,9 +5368,9 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetClip<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionClip>>(&self, clip: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), clip.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(rect)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5404,9 +5402,9 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::D2D1_COLOR_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5445,9 +5443,9 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetTransform3<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform3D>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetTransform4(&self, matrix: *const super::Direct2D::D2D_MATRIX_4X4_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetTransform4(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -5551,15 +5549,15 @@ pub struct IDCompositionVisual3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clip: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr, insertabove: super::super::Foundation::BOOL, referencevisual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -5568,8 +5566,8 @@ pub struct IDCompositionVisual3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5579,8 +5577,8 @@ pub struct IDCompositionVisual3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, opacity: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::D2D_MATRIX_4X4_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visible: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -5609,9 +5607,9 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetTransform<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
-    #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Foundation_Numerics`*"]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5634,9 +5632,9 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetClip<'a, Param0: ::windows::runtime::IntoParam<'a, IDCompositionClip>>(&self, clip: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), clip.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(rect)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5668,9 +5666,9 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D`*"]
-    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::D2D1_COLOR_F) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Direct2D_Common`*"]
+    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
@@ -5761,15 +5759,15 @@ pub struct IDCompositionVisualDebug_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offsety: f32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transform: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, matrix: *const super::Direct2D::Common::D2D_MATRIX_3X2_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clip: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::D2D_RECT_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visual: ::windows::runtime::RawPtr, insertabove: super::super::Foundation::BOOL, referencevisual: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -5778,8 +5776,8 @@ pub struct IDCompositionVisualDebug_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,

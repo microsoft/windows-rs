@@ -281,9 +281,9 @@ pub struct IAMWMBufferPass_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAMWMBufferPassCallback(pub ::windows::runtime::IUnknown);
 impl IAMWMBufferPassCallback {
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn Notify<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer3>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectShow::IPin>>(&self, pnssbuffer3: Param0, ppin: Param1, prtstart: *const i64, prtend: *const i64) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn Notify<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer3>, Param1: ::windows::runtime::IntoParam<'a, super::DirectShow::IPin>>(&self, pnssbuffer3: Param0, ppin: Param1, prtstart: *const i64, prtend: *const i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pnssbuffer3.into_param().abi(), ppin.into_param().abi(), ::core::mem::transmute(prtstart), ::core::mem::transmute(prtend)).ok()
     }
 }
@@ -317,8 +317,8 @@ pub struct IAMWMBufferPassCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnssbuffer3: ::windows::runtime::RawPtr, ppin: ::windows::runtime::RawPtr, prtstart: *const i64, prtend: *const i64) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
+    #[cfg(feature = "Win32_Media_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnssbuffer3: ::windows::runtime::RawPtr, ppin: ::windows::runtime::RawPtr, prtstart: *const i64, prtend: *const i64) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))] usize,
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
@@ -345,8 +345,8 @@ impl INSNetSourceCreator {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn GetNetSourceAdminInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstreamname: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pszstreamname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -402,8 +402,8 @@ pub struct INSNetSourceCreator_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstreamname: super::super::Foundation::PWSTR, pppropertiesnode: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsharednamespace: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstreamname: super::super::Foundation::PWSTR, pval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstreamname: super::super::Foundation::PWSTR, pval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcprotocols: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -1359,14 +1359,14 @@ pub struct IWMClientConnections2_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMCodecAMVideoAccelerator(pub ::windows::runtime::IUnknown);
 impl IWMCodecAMVideoAccelerator {
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn SetAcceleratorInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectShow::IAMVideoAccelerator>>(&self, piamva: Param0) -> ::windows::runtime::Result<()> {
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn SetAcceleratorInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectShow::IAMVideoAccelerator>>(&self, piamva: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), piamva.into_param().abi()).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn NegotiateConnection(&self, pmediatype: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn NegotiateConnection(&self, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmediatype)).ok()
     }
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -1404,10 +1404,10 @@ pub struct IWMCodecAMVideoAccelerator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piamva: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmediatype: *const ::core::mem::ManuallyDrop<super::super::Graphics::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
+    #[cfg(feature = "Win32_Media_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piamva: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmediatype: *const ::core::mem::ManuallyDrop<super::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phook: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -1696,9 +1696,9 @@ pub struct IWMCodecInfo3_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMCodecVideoAccelerator(pub ::windows::runtime::IUnknown);
 impl IWMCodecVideoAccelerator {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
-    pub unsafe fn NegotiateConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectShow::IAMVideoAccelerator>>(&self, piamva: Param0, pmediatype: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Media_DirectShow`*"]
+    pub unsafe fn NegotiateConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectShow::IAMVideoAccelerator>>(&self, piamva: Param0, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), piamva.into_param().abi(), ::core::mem::transmute(pmediatype)).ok()
     }
     #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -1736,8 +1736,8 @@ pub struct IWMCodecVideoAccelerator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piamva: ::windows::runtime::RawPtr, pmediatype: *const ::core::mem::ManuallyDrop<super::super::Graphics::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piamva: ::windows::runtime::RawPtr, pmediatype: *const ::core::mem::ManuallyDrop<super::DirectShow::AM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phook: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]

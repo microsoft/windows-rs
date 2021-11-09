@@ -7294,15 +7294,15 @@ pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_System_SystemServices`*"]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_System_Power`*"]
+#[cfg(feature = "Win32_System_Power")]
 #[inline]
-pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, powerstate: super::SystemServices::DEVICE_POWER_STATE) -> ::windows::runtime::Result<()> {
+pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WHvSetVpciDevicePowerState(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, powerstate: super::SystemServices::DEVICE_POWER_STATE) -> ::windows::runtime::HRESULT;
+            fn WHvSetVpciDevicePowerState(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::runtime::HRESULT;
         }
         WHvSetVpciDevicePowerState(partition.into_param().abi(), ::core::mem::transmute(logicaldeviceid), ::core::mem::transmute(powerstate)).ok()
     }

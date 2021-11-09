@@ -1844,26 +1844,26 @@ pub const DPAS_SORTED: u32 = 1u32;
 pub const DPA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA {
+pub unsafe fn DPA_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>, Param1: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, hdpanew: Param1) -> HDPA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA;
+            fn DPA_Clone(hdpa: HDPA, hdpanew: HDPA) -> HDPA;
         }
-        ::core::mem::transmute(DPA_Clone(::core::mem::transmute(hdpa), ::core::mem::transmute(hdpanew)))
+        ::core::mem::transmute(DPA_Clone(hdpa.into_param().abi(), hdpanew.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_Create(citemgrow: i32) -> *mut _DPA {
+pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Create(citemgrow: i32) -> *mut _DPA;
+            fn DPA_Create(citemgrow: i32) -> HDPA;
         }
         ::core::mem::transmute(DPA_Create(::core::mem::transmute(citemgrow)))
     }
@@ -1873,12 +1873,12 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> *mut _DPA {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_CreateEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(cpgrow: i32, hheap: Param1) -> *mut _DPA {
+pub unsafe fn DPA_CreateEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(cpgrow: i32, hheap: Param1) -> HDPA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_CreateEx(cpgrow: i32, hheap: super::super::Foundation::HANDLE) -> *mut _DPA;
+            fn DPA_CreateEx(cpgrow: i32, hheap: super::super::Foundation::HANDLE) -> HDPA;
         }
         ::core::mem::transmute(DPA_CreateEx(::core::mem::transmute(cpgrow), hheap.into_param().abi()))
     }
@@ -1888,28 +1888,28 @@ pub unsafe fn DPA_CreateEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
+pub unsafe fn DPA_DeleteAllPtrs<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BOOL;
+            fn DPA_DeleteAllPtrs(hdpa: HDPA) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPA_DeleteAllPtrs(::core::mem::transmute(hdpa)))
+        ::core::mem::transmute(DPA_DeleteAllPtrs(hdpa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::core::ffi::c_void {
+pub unsafe fn DPA_DeletePtr<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, i: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::core::ffi::c_void;
+            fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(DPA_DeletePtr(::core::mem::transmute(hdpa), ::core::mem::transmute(i)))
+        ::core::mem::transmute(DPA_DeletePtr(hdpa.into_param().abi(), ::core::mem::transmute(i)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1917,28 +1917,28 @@ pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::core::ffi::c_void
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_Destroy(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
+pub unsafe fn DPA_Destroy<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Destroy(hdpa: *mut _DPA) -> super::super::Foundation::BOOL;
+            fn DPA_Destroy(hdpa: HDPA) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPA_Destroy(::core::mem::transmute(hdpa)))
+        ::core::mem::transmute(DPA_Destroy(hdpa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_DestroyCallback(hdpa: *mut _DPA, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
+pub unsafe fn DPA_DestroyCallback<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_DestroyCallback(hdpa: *mut _DPA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DPA_DestroyCallback(hdpa: HDPA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DPA_DestroyCallback(::core::mem::transmute(hdpa), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        ::core::mem::transmute(DPA_DestroyCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1947,56 +1947,56 @@ pub unsafe fn DPA_DestroyCallback(hdpa: *mut _DPA, pfncb: ::core::option::Option
 pub const DPA_ERR: i32 = -1i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_EnumCallback(hdpa: *const _DPA, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
+pub unsafe fn DPA_EnumCallback<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_EnumCallback(hdpa: *const _DPA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DPA_EnumCallback(hdpa: HDPA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DPA_EnumCallback(::core::mem::transmute(hdpa), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        ::core::mem::transmute(DPA_EnumCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::core::ffi::c_void {
+pub unsafe fn DPA_GetPtr<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, i: isize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::core::ffi::c_void;
+            fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(DPA_GetPtr(::core::mem::transmute(hdpa), ::core::mem::transmute(i)))
+        ::core::mem::transmute(DPA_GetPtr(hdpa.into_param().abi(), ::core::mem::transmute(i)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::core::ffi::c_void) -> i32 {
+pub unsafe fn DPA_GetPtrIndex<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, p: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::core::ffi::c_void) -> i32;
+            fn DPA_GetPtrIndex(hdpa: HDPA, p: *const ::core::ffi::c_void) -> i32;
         }
-        ::core::mem::transmute(DPA_GetPtrIndex(::core::mem::transmute(hdpa), ::core::mem::transmute(p)))
+        ::core::mem::transmute(DPA_GetPtrIndex(hdpa.into_param().abi(), ::core::mem::transmute(p)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_GetSize(hdpa: *const _DPA) -> u64 {
+pub unsafe fn DPA_GetSize<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0) -> u64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_GetSize(hdpa: *const _DPA) -> u64;
+            fn DPA_GetSize(hdpa: HDPA) -> u64;
         }
-        ::core::mem::transmute(DPA_GetSize(::core::mem::transmute(hdpa)))
+        ::core::mem::transmute(DPA_GetSize(hdpa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2004,28 +2004,28 @@ pub unsafe fn DPA_GetSize(hdpa: *const _DPA) -> u64 {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BOOL {
+pub unsafe fn DPA_Grow<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(pdpa: Param0, cp: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BOOL;
+            fn DPA_Grow(pdpa: HDPA, cp: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPA_Grow(::core::mem::transmute(pdpa), ::core::mem::transmute(cp)))
+        ::core::mem::transmute(DPA_Grow(pdpa.into_param().abi(), ::core::mem::transmute(cp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::core::ffi::c_void) -> i32 {
+pub unsafe fn DPA_InsertPtr<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, i: i32, p: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::core::ffi::c_void) -> i32;
+            fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> i32;
         }
-        ::core::mem::transmute(DPA_InsertPtr(::core::mem::transmute(hdpa), ::core::mem::transmute(i), ::core::mem::transmute(p)))
+        ::core::mem::transmute(DPA_InsertPtr(hdpa.into_param().abi(), ::core::mem::transmute(i), ::core::mem::transmute(p)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2033,12 +2033,12 @@ pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::core::ffi::c_vo
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_LoadStream<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(phdpa: *mut *mut _DPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: Param2, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn DPA_LoadStream<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(phdpa: *mut HDPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: Param2, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_LoadStream(phdpa: *mut *mut _DPA, pfn: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn DPA_LoadStream(phdpa: *mut HDPA, pfn: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
         DPA_LoadStream(::core::mem::transmute(phdpa), ::core::mem::transmute(pfn), pstream.into_param().abi(), ::core::mem::transmute(pvinstdata)).ok()
     }
@@ -2048,14 +2048,14 @@ pub unsafe fn DPA_LoadStream<'a, Param2: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_Merge<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpadest: *mut _DPA, hdpasrc: *const _DPA, dwflags: u32, pfncompare: ::core::option::Option<PFNDACOMPARE>, pfnmerge: ::core::option::Option<PFNDPAMERGE>, lparam: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn DPA_Merge<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>, Param1: ::windows::runtime::IntoParam<'a, HDPA>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpadest: Param0, hdpasrc: Param1, dwflags: u32, pfncompare: ::core::option::Option<PFNDACOMPARE>, pfnmerge: ::core::option::Option<PFNDPAMERGE>, lparam: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Merge(hdpadest: *mut _DPA, hdpasrc: *const _DPA, dwflags: u32, pfncompare: ::windows::runtime::RawPtr, pfnmerge: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: ::windows::runtime::RawPtr, pfnmerge: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPA_Merge(::core::mem::transmute(hdpadest), ::core::mem::transmute(hdpasrc), ::core::mem::transmute(dwflags), ::core::mem::transmute(pfncompare), ::core::mem::transmute(pfnmerge), lparam.into_param().abi()))
+        ::core::mem::transmute(DPA_Merge(hdpadest.into_param().abi(), hdpasrc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pfncompare), ::core::mem::transmute(pfnmerge), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2063,14 +2063,14 @@ pub unsafe fn DPA_Merge<'a, Param5: ::windows::runtime::IntoParam<'a, super::sup
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_SaveStream<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(hdpa: *const _DPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: Param2, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn DPA_SaveStream<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(hdpa: Param0, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: Param2, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_SaveStream(hdpa: *const _DPA, pfn: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn DPA_SaveStream(hdpa: HDPA, pfn: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DPA_SaveStream(::core::mem::transmute(hdpa), ::core::mem::transmute(pfn), pstream.into_param().abi(), ::core::mem::transmute(pvinstdata)).ok()
+        DPA_SaveStream(hdpa.into_param().abi(), ::core::mem::transmute(pfn), pstream.into_param().abi(), ::core::mem::transmute(pvinstdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2078,14 +2078,14 @@ pub unsafe fn DPA_SaveStream<'a, Param2: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_Search<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpa: *const _DPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: Param4, options: u32) -> i32 {
+pub unsafe fn DPA_Search<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpa: Param0, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: Param4, options: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Search(hdpa: *const _DPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
+            fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
         }
-        ::core::mem::transmute(DPA_Search(::core::mem::transmute(hdpa), ::core::mem::transmute(pfind), ::core::mem::transmute(istart), ::core::mem::transmute(pfncompare), lparam.into_param().abi(), ::core::mem::transmute(options)))
+        ::core::mem::transmute(DPA_Search(hdpa.into_param().abi(), ::core::mem::transmute(pfind), ::core::mem::transmute(istart), ::core::mem::transmute(pfncompare), lparam.into_param().abi(), ::core::mem::transmute(options)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2093,14 +2093,14 @@ pub unsafe fn DPA_Search<'a, Param4: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_SetPtr(hdpa: *mut _DPA, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn DPA_SetPtr<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>>(hdpa: Param0, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_SetPtr(hdpa: *mut _DPA, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn DPA_SetPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPA_SetPtr(::core::mem::transmute(hdpa), ::core::mem::transmute(i), ::core::mem::transmute(p)))
+        ::core::mem::transmute(DPA_SetPtr(hdpa.into_param().abi(), ::core::mem::transmute(i), ::core::mem::transmute(p)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2108,14 +2108,14 @@ pub unsafe fn DPA_SetPtr(hdpa: *mut _DPA, i: i32, p: *const ::core::ffi::c_void)
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DPA_Sort<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpa: *mut _DPA, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn DPA_Sort<'a, Param0: ::windows::runtime::IntoParam<'a, HDPA>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpa: Param0, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Sort(hdpa: *mut _DPA, pfncompare: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn DPA_Sort(hdpa: HDPA, pfncompare: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPA_Sort(::core::mem::transmute(hdpa), ::core::mem::transmute(pfncompare), lparam.into_param().abi()))
+        ::core::mem::transmute(DPA_Sort(hdpa.into_param().abi(), ::core::mem::transmute(pfncompare), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2344,26 +2344,26 @@ impl ::core::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
 pub const DSA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA {
+pub unsafe fn DSA_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0) -> HDSA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA;
+            fn DSA_Clone(hdsa: HDSA) -> HDSA;
         }
-        ::core::mem::transmute(DSA_Clone(::core::mem::transmute(hdsa)))
+        ::core::mem::transmute(DSA_Clone(hdsa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA {
+pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA;
+            fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA;
         }
         ::core::mem::transmute(DSA_Create(::core::mem::transmute(cbitem), ::core::mem::transmute(citemgrow)))
     }
@@ -2373,14 +2373,14 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
+pub unsafe fn DSA_DeleteAllItems<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::BOOL;
+            fn DSA_DeleteAllItems(hdsa: HDSA) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DSA_DeleteAllItems(::core::mem::transmute(hdsa)))
+        ::core::mem::transmute(DSA_DeleteAllItems(hdsa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2388,14 +2388,14 @@ pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::B
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundation::BOOL {
+pub unsafe fn DSA_DeleteItem<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundation::BOOL;
+            fn DSA_DeleteItem(hdsa: HDSA, i: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DSA_DeleteItem(::core::mem::transmute(hdsa), ::core::mem::transmute(i)))
+        ::core::mem::transmute(DSA_DeleteItem(hdsa.into_param().abi(), ::core::mem::transmute(i)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2403,28 +2403,28 @@ pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundatio
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSA_Destroy(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
+pub unsafe fn DSA_Destroy<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_Destroy(hdsa: *mut _DSA) -> super::super::Foundation::BOOL;
+            fn DSA_Destroy(hdsa: HDSA) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DSA_Destroy(::core::mem::transmute(hdsa)))
+        ::core::mem::transmute(DSA_Destroy(hdsa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_DestroyCallback(hdsa: *mut _DSA, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
+pub unsafe fn DSA_DestroyCallback<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_DestroyCallback(hdsa: *mut _DSA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DSA_DestroyCallback(hdsa: HDSA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DSA_DestroyCallback(::core::mem::transmute(hdsa), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        ::core::mem::transmute(DSA_DestroyCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2433,14 +2433,14 @@ pub unsafe fn DSA_DestroyCallback(hdsa: *mut _DSA, pfncb: ::core::option::Option
 pub const DSA_ERR: i32 = -1i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_EnumCallback(hdsa: *const _DSA, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
+pub unsafe fn DSA_EnumCallback<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, pfncb: ::core::option::Option<PFNDAENUMCALLBACK>, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_EnumCallback(hdsa: *const _DSA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DSA_EnumCallback(hdsa: HDSA, pfncb: ::windows::runtime::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DSA_EnumCallback(::core::mem::transmute(hdsa), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        ::core::mem::transmute(DSA_EnumCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2448,56 +2448,56 @@ pub unsafe fn DSA_EnumCallback(hdsa: *const _DSA, pfncb: ::core::option::Option<
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSA_GetItem(hdsa: *const _DSA, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn DSA_GetItem<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_GetItem(hdsa: *const _DSA, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DSA_GetItem(::core::mem::transmute(hdsa), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
+        ::core::mem::transmute(DSA_GetItem(hdsa.into_param().abi(), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::core::ffi::c_void {
+pub unsafe fn DSA_GetItemPtr<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::core::ffi::c_void;
+            fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(DSA_GetItemPtr(::core::mem::transmute(hdsa), ::core::mem::transmute(i)))
+        ::core::mem::transmute(DSA_GetItemPtr(hdsa.into_param().abi(), ::core::mem::transmute(i)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_GetSize(hdsa: *const _DSA) -> u64 {
+pub unsafe fn DSA_GetSize<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0) -> u64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_GetSize(hdsa: *const _DSA) -> u64;
+            fn DSA_GetSize(hdsa: HDSA) -> u64;
         }
-        ::core::mem::transmute(DSA_GetSize(::core::mem::transmute(hdsa)))
+        ::core::mem::transmute(DSA_GetSize(hdsa.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[inline]
-pub unsafe fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::core::ffi::c_void) -> i32 {
+pub unsafe fn DSA_InsertItem<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32, pitem: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::core::ffi::c_void) -> i32;
+            fn DSA_InsertItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> i32;
         }
-        ::core::mem::transmute(DSA_InsertItem(::core::mem::transmute(hdsa), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
+        ::core::mem::transmute(DSA_InsertItem(hdsa.into_param().abi(), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2505,14 +2505,14 @@ pub unsafe fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::core::ffi:
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSA_SetItem(hdsa: *mut _DSA, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn DSA_SetItem<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_SetItem(hdsa: *mut _DSA, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn DSA_SetItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DSA_SetItem(::core::mem::transmute(hdsa), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
+        ::core::mem::transmute(DSA_SetItem(hdsa.into_param().abi(), ::core::mem::transmute(i), ::core::mem::transmute(pitem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2520,14 +2520,14 @@ pub unsafe fn DSA_SetItem(hdsa: *mut _DSA, i: i32, pitem: *const ::core::ffi::c_
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSA_Sort<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(pdsa: *mut _DSA, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn DSA_Sort<'a, Param0: ::windows::runtime::IntoParam<'a, HDSA>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(pdsa: Param0, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_Sort(pdsa: *mut _DSA, pfncompare: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn DSA_Sort(pdsa: HDSA, pfncompare: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DSA_Sort(::core::mem::transmute(pdsa), ::core::mem::transmute(pfncompare), lparam.into_param().abi()))
+        ::core::mem::transmute(DSA_Sort(pdsa.into_param().abi(), ::core::mem::transmute(pfncompare), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4874,6 +4874,30 @@ pub const HDM_SETITEMW: u32 = 4620u32;
 pub const HDM_SETORDERARRAY: u32 = 4626u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[repr(transparent)]
+pub struct HDPA(pub isize);
+impl ::core::default::Default for HDPA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for HDPA {}
+unsafe impl ::windows::runtime::Abi for HDPA {
+    type Abi = Self;
+}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[repr(transparent)]
+pub struct HDSA(pub isize);
+impl ::core::default::Default for HDSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for HDSA {}
+unsafe impl ::windows::runtime::Abi for HDSA {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const HDSIL_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -13014,7 +13038,7 @@ pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
     pub hr: ::windows::runtime::HRESULT,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwRetFlags: u32,
     pub iRetImageIndex: i32,
@@ -13225,7 +13249,7 @@ pub struct NMTVGETINFOTIPA {
     pub hdr: NMHDR,
     pub pszText: super::super::Foundation::PSTR,
     pub cchTextMax: i32,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13262,7 +13286,7 @@ pub struct NMTVGETINFOTIPW {
     pub hdr: NMHDR,
     pub pszText: super::super::Foundation::PWSTR,
     pub cchTextMax: i32,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13298,7 +13322,7 @@ unsafe impl ::windows::runtime::Abi for NMTVGETINFOTIPW {
 pub struct NMTVITEMCHANGE {
     pub hdr: NMHDR,
     pub uChanged: u32,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub uStateNew: u32,
     pub uStateOld: u32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -13364,7 +13388,7 @@ unsafe impl ::windows::runtime::Abi for NMTVKEYDOWN {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: NMHDR,
-    pub hti: *mut _TREEITEM,
+    pub hti: HTREEITEM,
     pub iOldStateImageIndex: i32,
     pub iNewStateImageIndex: i32,
 }
@@ -19398,7 +19422,7 @@ pub const TVE_TOGGLE: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVGETITEMPARTRECTINFO {
-    pub hti: *mut _TREEITEM,
+    pub hti: HTREEITEM,
     pub prc: *mut super::super::Foundation::RECT,
     pub partID: TVITEMPART,
 }
@@ -19459,7 +19483,7 @@ pub const TVGN_ROOT: u32 = 0u32;
 pub struct TVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TVHITTESTINFO_FLAGS,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl TVHITTESTINFO {}
@@ -19544,8 +19568,8 @@ impl ::core::ops::Not for TVHITTESTINFO_FLAGS {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVINSERTSTRUCTA {
-    pub hParent: *mut _TREEITEM,
-    pub hInsertAfter: *mut _TREEITEM,
+    pub hParent: HTREEITEM,
+    pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19600,8 +19624,8 @@ unsafe impl ::windows::runtime::Abi for TVINSERTSTRUCTA_0 {
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVINSERTSTRUCTW {
-    pub hParent: *mut _TREEITEM,
-    pub hInsertAfter: *mut _TREEITEM,
+    pub hParent: HTREEITEM,
+    pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19683,7 +19707,7 @@ pub const TVIS_USERMASK: u32 = 61440u32;
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVITEMA {
     pub mask: TVITEM_MASK,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
     pub pszText: super::super::Foundation::PSTR,
@@ -19736,7 +19760,7 @@ unsafe impl ::windows::runtime::Abi for TVITEMA {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVITEMEXA {
     pub mask: TVITEM_MASK,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
     pub pszText: super::super::Foundation::PSTR,
@@ -19813,7 +19837,7 @@ unsafe impl ::windows::runtime::Abi for TVITEMEXA {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVITEMEXW {
     pub mask: TVITEM_MASK,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
     pub pszText: super::super::Foundation::PWSTR,
@@ -19919,7 +19943,7 @@ unsafe impl ::windows::runtime::Abi for TVITEMPART {
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVITEMW {
     pub mask: TVITEM_MASK,
-    pub hItem: *mut _TREEITEM,
+    pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
     pub pszText: super::super::Foundation::PWSTR,
@@ -20168,7 +20192,7 @@ pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 pub struct TVSORTCB {
-    pub hParent: *mut _TREEITEM,
+    pub hParent: HTREEITEM,
     pub lpfnCompare: ::core::option::Option<PFNTVCOMPARE>,
     pub lParam: super::super::Foundation::LPARAM,
 }
@@ -20627,15 +20651,6 @@ pub const WTNCA_NODRAWICON: u32 = 2u32;
 pub const WTNCA_NOMIRRORHELP: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const WTNCA_NOSYSMENU: u32 = 4u32;
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct _DPA(pub u8);
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct _DSA(pub u8);
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct _IMAGELIST(pub u8);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -20650,6 +20665,3 @@ impl ::core::convert::From<i32> for _LI_METRIC {
 unsafe impl ::windows::runtime::Abi for _LI_METRIC {
     type Abi = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct _TREEITEM(pub u8);

@@ -7,8 +7,6 @@ pub mod Animation;
 pub mod ColorSystem;
 #[cfg(feature = "Win32_UI_Controls")]
 pub mod Controls;
-#[cfg(feature = "Win32_UI_DisplayDevices")]
-pub mod DisplayDevices;
 #[cfg(feature = "Win32_UI_HiDpi")]
 pub mod HiDpi;
 #[cfg(feature = "Win32_UI_Input")]
