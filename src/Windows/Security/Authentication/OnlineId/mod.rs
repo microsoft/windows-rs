@@ -899,6 +899,7 @@ impl ::windows::runtime::RuntimeName for SignOutUserOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.SignOutUserOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for SignOutUserOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1114,6 +1115,7 @@ impl ::windows::runtime::RuntimeName for UserAuthenticationOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserAuthenticationOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for UserAuthenticationOperation {
     type Output = ::windows::runtime::Result<UserIdentity>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

@@ -580,6 +580,7 @@ impl ::windows::runtime::RuntimeName for DataReaderLoadOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for DataReaderLoadOperation {
     type Output = ::windows::runtime::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1089,6 +1090,7 @@ impl ::windows::runtime::RuntimeName for DataWriterStoreOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
 }
 #[cfg(feature = "Foundation")]
+#[cfg(feature = "std")]
 impl ::std::future::Future for DataWriterStoreOperation {
     type Output = ::windows::runtime::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

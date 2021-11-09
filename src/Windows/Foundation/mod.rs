@@ -998,6 +998,7 @@ impl IAsyncAction {
 unsafe impl ::windows::runtime::RuntimeType for IAsyncAction {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5a648006-843a-4da9-865b-9d26e5dfad7b}");
 }
+#[cfg(feature = "std")]
 impl ::std::future::Future for IAsyncAction {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1182,6 +1183,7 @@ impl<TProgress: ::windows::runtime::RuntimeType + 'static> IAsyncActionWithProgr
 unsafe impl<TProgress: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IAsyncActionWithProgress<TProgress> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(<TProgress as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
+#[cfg(feature = "std")]
 impl<TProgress: ::windows::runtime::RuntimeType + 'static> ::std::future::Future for IAsyncActionWithProgress<TProgress> {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1463,6 +1465,7 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static> IAsyncOperation<TResult
 unsafe impl<TResult: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IAsyncOperation<TResult> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9fc2b0bb-e446-44e2-aa61-9cab8f636af2}").push_slice(b";").push_other(<TResult as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
+#[cfg(feature = "std")]
 impl<TResult: ::windows::runtime::RuntimeType + 'static> ::std::future::Future for IAsyncOperation<TResult> {
     type Output = ::windows::runtime::Result<TResult>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1663,6 +1666,7 @@ unsafe impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::win
             .push_slice(b")")
     };
 }
+#[cfg(feature = "std")]
 impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::runtime::RuntimeType + 'static> ::std::future::Future for IAsyncOperationWithProgress<TResult, TProgress> {
     type Output = ::windows::runtime::Result<TResult>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
