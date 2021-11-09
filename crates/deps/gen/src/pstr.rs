@@ -41,7 +41,7 @@ pub fn gen_pstr() -> TokenStream {
                 }
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                 ::windows::runtime::IntoParam::into_param(self.as_str())

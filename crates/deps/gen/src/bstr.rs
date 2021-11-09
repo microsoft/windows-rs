@@ -49,26 +49,26 @@ pub fn gen_bstr() -> TokenStream {
             }
         }
         // TODO: these str traits should work with no_std
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl ::core::convert::From<&str> for BSTR {
             fn from(value: &str) -> Self {
                 let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                 Self::from_wide(&value)
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl ::core::convert::From<::std::string::String> for BSTR {
             fn from(value: ::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl  ::core::convert::From<&::std::string::String> for BSTR {
             fn from(value: &::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
             type Error = ::std::string::FromUtf16Error;
 
@@ -76,7 +76,7 @@ pub fn gen_bstr() -> TokenStream {
                 ::std::string::String::from_utf16(value.as_wide())
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
             type Error = ::std::string::FromUtf16Error;
 
@@ -108,7 +108,7 @@ pub fn gen_bstr() -> TokenStream {
                 self.as_wide() == other.as_wide()
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
             fn eq(&self, other: &::std::string::String) -> bool {
                 self == other.as_str()
@@ -142,13 +142,13 @@ pub fn gen_bstr() -> TokenStream {
         }
         pub type BSTR_abi = *mut u16;
         // TODO: these str traits should work with no_std
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                 ::windows::runtime::Param::Owned(self.into())
             }
         }
-        #[cfg(not(feature = "no_std"))]
+        #[cfg(feature = "std")]
         impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for ::std::string::String {
             fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                 ::windows::runtime::Param::Owned(self.into())

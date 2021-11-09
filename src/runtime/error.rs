@@ -100,7 +100,7 @@ impl core::convert::From<Error> for HRESULT {
     }
 }
 
-#[cfg(not(feature = "no_std"))]
+#[cfg(feature = "std")]
 impl core::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error((from.code.0 & 0xFFFF) as _)
@@ -150,7 +150,7 @@ impl core::fmt::Display for Error {
     }
 }
 
-#[cfg(not(feature = "no_std"))]
+#[cfg(feature = "std")]
 impl std::error::Error for Error {}
 
 demand_load! {

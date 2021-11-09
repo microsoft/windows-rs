@@ -8,7 +8,7 @@ where you can call them as if they were just another Rust module.
 Learn more here: <https://github.com/microsoft/windows-rs>
 */
 
-#![cfg_attr(all(not(test), feature = "no_std"), no_std)]
+#![cfg_attr(all(not(test), not(feature = "std")), no_std)]
 #![doc(html_no_source)]
 
 extern crate self as windows;
