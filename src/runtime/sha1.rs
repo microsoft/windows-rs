@@ -331,27 +331,3 @@ impl core::fmt::Display for Digest {
         Ok(())
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn it_works() {
-        let tests = [
-            ("The quick brown fox jumps over the lazy dog", "2fd4e1c67a2d28fced849ee1bb76e7391b93eb12"),
-            ("The quick brown fox jumps over the lazy cog", "de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3"),
-            ("", "da39a3ee5e6b4b0d3255bfef95601890afd80709"),
-            ("testing\n", "9801739daae44ec5293d4e1f53d3f4d2d426d91c"),
-            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "025ecbd5d70f8fb3c5457cd96bab13fda305dc59"),
-            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "4300320394f7ee239bcdce7d3b8bcee173a0cd5c"),
-            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "cef734ba81a024479e09eb5a75b6ddae62e6abf1"),
-            ("pinterface({1f6db258-e803-48a1-9546-eb7353398884};pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{96369f54-8eb6-48f0-abce-c1b211e627c3}))", "b1b3deeb1552c97f3f36152f7baeec0f6ac159bc"),
-        ];
-
-        for &(s, expected) in tests.iter() {
-            let hash = sha1(&ConstBuffer::from_slice(s.as_bytes())).to_string();
-
-            assert_eq!(hash, expected);
-        }
-    }
-}
