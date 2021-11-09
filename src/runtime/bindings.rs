@@ -1530,10 +1530,13 @@ pub mod Windows {
             }
             unsafe impl ::windows::runtime::Abi for PSTR {
                 type Abi = Self;
+                #[cfg(feature = "std")]
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
-                            unsafe { ::windows::runtime::heap_free(value.0 as *mut _) }
+                            unsafe {
+                                ::std::boxed::Box::from_raw(value.0);
+                            }
                         }
                     }
                 }
