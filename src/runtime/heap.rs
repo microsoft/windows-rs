@@ -1,8 +1,5 @@
 use super::*;
-use bindings::{
-    Windows::Win32::Foundation::*,
-    Windows::Win32::System::Memory::*,
-};
+use bindings::{Windows::Win32::Foundation::*, Windows::Win32::System::Memory::*};
 
 // TODO: why not Option<RawPtr>
 pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {

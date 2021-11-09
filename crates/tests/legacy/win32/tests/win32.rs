@@ -15,8 +15,8 @@ use test_win32::Windows::Win32::{
     },
 };
 
-use windows::runtime::GUID;
 use std::convert::TryInto;
+use windows::runtime::GUID;
 
 #[test]
 fn signed_enum32() {

@@ -1,5 +1,5 @@
-use test_winrt::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 use std::convert::TryInto;
+use test_winrt::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {

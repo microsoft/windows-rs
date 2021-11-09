@@ -34,7 +34,7 @@ pub fn gen_pstr() -> TokenStream {
                     let value = unsafe { core::slice::from_raw_parts_mut(value as *mut u8, len + 1) };
                     value.copy_from_slice(self.as_bytes());
                     value[len] = 0;
-    
+
                     ::windows::runtime::Param::Boxed(PSTR(value.as_mut_ptr()))
                 } else {
                     ::windows::runtime::Param::None
