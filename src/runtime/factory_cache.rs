@@ -57,7 +57,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
-        let mut code = code.unwrap_or_else(|| CLASS_E_CLASSNOTAVAILABLE);
+        let mut code = code.unwrap_or(CLASS_E_CLASSNOTAVAILABLE);
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
