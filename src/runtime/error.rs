@@ -21,7 +21,7 @@ impl Error {
     /// point of failure.
     pub fn new(code: HRESULT, message: HSTRING) -> Self {
         unsafe {
-            let function = delay_load(b"combase.dll\0", b"DllGetActivationFactory\0");
+            let function = delay_load(b"combase.dll\0", b"RoOriginateError\0");
 
             if !function.is_null() {
                 let function: RoOriginateError = core::mem::transmute(function);
